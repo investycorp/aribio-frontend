@@ -57,6 +57,7 @@ const HeaderNavMenuWrap = styled.div`
   &:hover,
   &:active {
     border-bottom: 2px solid #ffffff;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
   }
 `;
 
@@ -73,6 +74,9 @@ const HeaderLangButton = styled.button`
   justify-content: space-evenly;
   width: fit-content;
   gap: 0.5rem;
+  &:hover {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
 `;
 
 const HeaderBottom = styled.div`
