@@ -5,9 +5,5 @@
       <path id="선_10" data-name="선 10" d="M0,13a1,1,0,0,1-1-1V0A1,1,0,0,1,0-1,1,1,0,0,1,1,0V12A1,1,0,0,1,0,13Z" transform="translate(12)" fill="#f8f8f8"/>
       <path id="선_11" data-name="선 11" d="M0,12.071a1,1,0,0,1-.707-.293,1,1,0,0,1,0-1.414L10.364-.707a1,1,0,0,1,1.414,0,1,1,0,0,1,0,1.414L.707,11.778A1,1,0,0,1,0,12.071Z" transform="translate(0.929 0)" fill="#f8f8f8"/>
     </g>
-    <g id="Ellipse_256" data-name="Ellipse 256" transform="translate(-22609 -21824)" fill="none" stroke="#f8f8f8" stroke-width="2">
-      <circle cx="22" cy="22" r="22" stroke="none"/>
-      <circle cx="22" cy="22" r="21" fill="none"/>
-    </g>
   </g>
 </svg>

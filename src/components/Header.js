@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import GlobalStyle from './GlobalStyle';
@@ -11,12 +11,16 @@ const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   width: 100vw;
-  background-color: rgba(26, 26, 26, 0.3);
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.5s ease-in-out;
+  font-weight: 300;
+  transition: all 0.2s ease-in-out;
   z-index: 100;
+  &:hover {
+    background-color: rgba(26, 26, 26, 0.3);
+  }
 `;
 
 const HeaderTop = styled.div`
@@ -43,9 +47,9 @@ const HeaderNavWrap = styled.div`
   gap: 2rem;
 `;
 
-const HeaderNavMenuWrap = styled.div`
+const HeaderNavMenuTextWrap = styled.div`
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 300;
   color: #ffffff;
   text-decoration: none;
   min-width: fit-content;
@@ -54,6 +58,7 @@ const HeaderNavMenuWrap = styled.div`
   justify-content: center;
   cursor: pointer;
   border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
+  transition: all 0.3s ease-in-out;
   &:hover,
   &:active {
     border-bottom: 2px solid #ffffff;
@@ -82,19 +87,28 @@ const HeaderLangButton = styled.button`
 const HeaderBottom = styled.div`
   width: 100%;
   height: 200px;
-  display: ${(props) => (props.$isActive ? 'flex' : 'none')};
+  position: fixed;
+  text-decoration: none;
+  top: 146px;
+  left: 0;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
+  background-color: rgba(26, 26, 26, 0.3);
   border-top: 1px solid #5d5d5d;
-  transition: all 0.5s ease-in-out;
+  cursor: default;
+  transition: opacity 0.5s ease-in-out;
 `;
 
 const HeaderBottomLeft = styled.div`
   width: 45%;
   height: 100%;
   display: flex;
+  opacity: 0;
+  visibility: hidden;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-evenly;
@@ -111,6 +125,31 @@ const HeaderBottomLeftTextWrap = styled.div`
   gap: 1rem;
 `;
 
+const HeaderBottomRight = styled.div`
+  width: 55%;
+  height: 100%;
+  display: grid;
+  opacity: 0;
+  visibility: hidden;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2rem;
+`;
+const HeaderBottomRightMenu = styled.div`
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  text-shadow: none;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Header = () => {
   const [menuList, setMenuList] = useState([
     'Company',
@@ -123,34 +162,42 @@ const Header = () => {
   ]);
   const [language, setLanguage] = useState('ENG');
   const location = useLocation();
-  const [currentMenu, setCurrentMenu] = useState('');
-  const [isMenuClicked, setIsMenuClicked] = useState(false);
+  const [currentMenu, setCurrentMenu] = useState(location?.pathname?.split('/')[1] || '');
+  // const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   return (
-    <HeaderContainer>
+    <HeaderContainer
+      onMouseLeave={() => {
+        // setIsMenuClicked(false);
+        setCurrentMenu('');
+      }}
+    >
       <HeaderTop>
         <HeaderLogoWrap>
           <img src={Logo} alt="logo" />
         </HeaderLogoWrap>
         <HeaderNavWrap>
           {menuList.map((menu) => (
-            <HeaderNavMenuWrap
+            <HeaderNavMenuTextWrap
               key={menu}
-              onClick={() => {
-                setCurrentMenu((prev) => {
-                  if (prev === menu) {
-                    setIsMenuClicked(false);
-                    return '';
-                  } else {
-                    setIsMenuClicked(true);
-                    return menu;
-                  }
-                });
+              onMouseOver={() => {
+                setCurrentMenu(menu);
               }}
-              $isActive={isMenuClicked && menu === currentMenu ? true : false}
+              onClick={() => {
+                // setCurrentMenu((prev) => {
+                //   if (prev === menu) {
+                //     setIsMenuClicked(false);
+                //     return '';
+                //   } else {
+                //     setIsMenuClicked(true);
+                //     return menu;
+                //   }
+                // });
+              }}
+              $isActive={menu === currentMenu ? true : false}
             >
               {menu.toUpperCase()}
-            </HeaderNavMenuWrap>
+            </HeaderNavMenuTextWrap>
           ))}
         </HeaderNavWrap>
         <HeaderLangButton>
@@ -158,16 +205,50 @@ const Header = () => {
           <div>{language.toUpperCase()}</div>
         </HeaderLangButton>
       </HeaderTop>
-      <HeaderBottom $isActive={isMenuClicked}>
-        <HeaderBottomLeft>
+      <HeaderBottom
+        className={`header-bottom ${currentMenu}`}
+        style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+      >
+        <HeaderBottomLeft
+          style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+        >
           <HeaderBottomLeftTextWrap>
-            <div style={{ fontSize: '26px' }}>{currentMenu.toUpperCase()}</div>
-            <div style={{ fontSize: '20px', fontWeight: '300', color: '#EDEDED' }}>
+            <div style={{ fontSize: '26px', textShadow: 'none' }}>{currentMenu.toUpperCase()}</div>
+            <div style={{ fontSize: '20px', fontWeight: '300', color: '#EDEDED', textShadow: 'none' }}>
               AriBio’s Technology is Love. <br /> We Are Creating a Happier World.
             </div>
           </HeaderBottomLeftTextWrap>
-          <img src={arrow} alt="arrow" />
+          <img
+            src={arrow}
+            alt="arrow"
+            style={{ width: '22px', height: '22px', border: '2px solid #ffffff', borderRadius: '50%' }}
+          />
         </HeaderBottomLeft>
+        <HeaderBottomRight
+          style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+        >
+          <HeaderBottomRightMenu>
+            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>
+              ABOUT US
+            </HeaderNavMenuTextWrap>
+          </HeaderBottomRightMenu>
+          <HeaderBottomRightMenu>
+            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>
+              CEO MESSAGE
+            </HeaderNavMenuTextWrap>
+          </HeaderBottomRightMenu>
+          <HeaderBottomRightMenu>
+            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>CI</HeaderNavMenuTextWrap>
+          </HeaderBottomRightMenu>
+          <HeaderBottomRightMenu>
+            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>
+              HISTORY
+            </HeaderNavMenuTextWrap>
+          </HeaderBottomRightMenu>
+          <HeaderBottomRightMenu>
+            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>TEAM</HeaderNavMenuTextWrap>
+          </HeaderBottomRightMenu>
+        </HeaderBottomRight>
       </HeaderBottom>
     </HeaderContainer>
   );
