@@ -10,7 +10,7 @@ import arrow from '../assets/images/arrow.svg';
 const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -23,15 +23,35 @@ const HeaderContainer = styled.div`
   }
 `;
 
+const BlurBoxTop = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 146px;
+  background-color: rgba(26, 26, 26, 0.3);
+  backdrop-filter: blur(15px);
+`;
+const BlurBoxBottom = styled.div`
+  position: absolute;
+  top: 146px;
+  width: 100%;
+  height: 105px;
+  opacity: 0;
+  background-color: rgba(26, 26, 26, 0.3);
+  backdrop-filter: blur(15px);
+  transition: opacity 0.3s ease-in-out;
+`;
+
 const HeaderTop = styled.div`
   margin: 0;
-  padding: 50px 7vw 50px 7vw;
+  padding: 0 7vw;
   width: 100%;
   height: 146px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  z-index: 100;
 `;
 
 const HeaderLogoWrap = styled.div`
@@ -43,14 +63,24 @@ const HeaderNavWrap = styled.div`
   width: fit-content;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  height: 100%;
+
+  @media screen and (max-width: 1460px) {
+    gap: 1rem;
+  }
 `;
 
 const HeaderNavMenuTextWrap = styled.div`
+  height: 100%;
   font-size: 20px;
   font-weight: 300;
-  color: #ffffff;
+  color: #ffffffcc;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   min-width: fit-content;
   padding-bottom: 5px;
@@ -61,8 +91,11 @@ const HeaderNavMenuTextWrap = styled.div`
   transition: all 0.3s ease-in-out;
   &:hover,
   &:active {
-    border-bottom: 2px solid #ffffff;
+    color: #ffffff;
     text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+  }
+  @media screen and (max-width: 1460px) {
+    font-size: 19px;
   }
 `;
 
@@ -86,7 +119,7 @@ const HeaderLangButton = styled.button`
 
 const HeaderBottom = styled.div`
   width: 100%;
-  height: 200px;
+  height: 105px;
   position: fixed;
   text-decoration: none;
   top: 146px;
@@ -96,9 +129,9 @@ const HeaderBottom = styled.div`
   visibility: hidden;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: rgba(26, 26, 26, 0.3);
-  border-top: 1px solid #5d5d5d;
+  border-top: 2px solid #5d5d5d;
   cursor: default;
   transition: opacity 0.5s ease-in-out;
 `;
@@ -112,7 +145,7 @@ const HeaderBottomLeft = styled.div`
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-evenly;
-  border-right: 1px solid #5d5d5d;
+  border-right: 2px solid #5d5d5d;
   padding: 50px 60px 50px 7vw;
 `;
 const HeaderBottomLeftTextWrap = styled.div`
@@ -160,10 +193,17 @@ const Header = () => {
     'Contact',
     'Open Innovation',
   ]);
+  const [subMenu, setSubMenu] = useState(['ABOUT US', 'HISTORY', 'CEO MESSAGE', 'CI']);
   const [language, setLanguage] = useState('ENG');
+  const [navBarwidth, setNavBarWidth] = useState(0);
   const location = useLocation();
   const [currentMenu, setCurrentMenu] = useState(location?.pathname?.split('/')[1] || '');
   // const [isMenuClicked, setIsMenuClicked] = useState(false);
+
+  useEffect(() => {
+    const getElement = document.getElementsByClassName('header-navwrap')[0];
+    setNavBarWidth(getElement?.clientWidth);
+  }, []);
 
   return (
     <HeaderContainer
@@ -172,11 +212,12 @@ const Header = () => {
         setCurrentMenu('');
       }}
     >
+      <BlurBoxTop />
       <HeaderTop>
         <HeaderLogoWrap>
           <img src={Logo} alt="logo" />
         </HeaderLogoWrap>
-        <HeaderNavWrap>
+        <HeaderNavWrap className="header-navwrap">
           {menuList.map((menu) => (
             <HeaderNavMenuTextWrap
               key={menu}
@@ -205,11 +246,19 @@ const Header = () => {
           <div>{language.toUpperCase()}</div>
         </HeaderLangButton>
       </HeaderTop>
+      <BlurBoxBottom
+        style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+      />
       <HeaderBottom
         className={`header-bottom ${currentMenu}`}
         style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
       >
-        <HeaderBottomLeft
+        <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
+          {subMenu.map((menu) => (
+            <HeaderNavMenuTextWrap>{menu.toUpperCase()}</HeaderNavMenuTextWrap>
+          ))}
+        </HeaderNavWrap>
+        {/* <HeaderBottomLeft
           style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
         >
           <HeaderBottomLeftTextWrap>
@@ -248,7 +297,7 @@ const Header = () => {
           <HeaderBottomRightMenu>
             <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>TEAM</HeaderNavMenuTextWrap>
           </HeaderBottomRightMenu>
-        </HeaderBottomRight>
+        </HeaderBottomRight> */}
       </HeaderBottom>
     </HeaderContainer>
   );

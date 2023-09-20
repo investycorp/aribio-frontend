@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 
 const SliderContainer = styled.div`
   position: fixed;
-  top: 410px;
-  left: 98px;
+  top: 40vh;
+  left: 4vw;
   width: fit-content;
   height: fit-content;
   padding: 0;
@@ -14,6 +14,7 @@ const SliderContainer = styled.div`
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s ease-in-out;
+  z-index: 100;
 `;
 
 const Circle = styled.div`

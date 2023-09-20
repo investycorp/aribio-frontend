@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { RecoilRoot, useRecoilValue } from 'recoil';
 import theme from './themes/theme';
@@ -9,6 +9,7 @@ import theme from './themes/theme';
 import Company from './screens/company/Company';
 import OurApproach from './screens/ourapproach/OurApproach';
 import GlobalStyle from './components/GlobalStyle';
+import Home from './screens/home/Home';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <GlobalStyle />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Company />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/company" element={<Company />} />
             <Route path="/ourapproach" element={<OurApproach />} />
           </Routes>
         </BrowserRouter>
