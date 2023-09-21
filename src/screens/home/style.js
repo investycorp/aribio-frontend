@@ -10,6 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  overflow-x: hidden;
   justify-content: space-between;
 `;
 
@@ -42,9 +43,10 @@ const MainImgWrap = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background-size: cover;
+  background-size: 80%;
   background-position: center;
-  background-color: transparent;
+  background-repeat: no-repeat;
+  background-color: #00010c;
   padding-bottom: 10vh;
   z-index: 99;
 `;
@@ -58,7 +60,7 @@ const HomeComponentWrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  padding: 0 7vw;
+  padding: 10vh 7vw;
   z-index: 99;
 `;
 
@@ -92,26 +94,29 @@ const HeadLineText = styled.div`
   z-index: 99;
 `;
 
-const OurApproachGridWrap = styled.div`
+const ComponentGridWrap = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   justify-content: center;
   padding: 3rem 0;
 `;
 
-const OurApproachImageWrap = styled.div`
-  background-size: 28.4vw 28.4vw;
+const HomeComponentImageWrap = styled.div`
+  background-size: 28.7vw 28.7vw;
   background-position: center;
-  width: 28.4vw;
-  height: 28.4vw;
+  width: 28.7vw;
+  height: 28.7vw;
   justify-self: flex-end;
-  margin: 0 3px;
+  border-radius: 20px;
 `;
 
-const OurApproachTextWrap = styled.div`
+const ComponentTextWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -122,7 +127,7 @@ const OurApproachTextWrap = styled.div`
   justify-self: center;
 `;
 
-const OurApproachText = styled.span`
+const ComponentText = styled.span`
   line-height: 1.3em;
 `;
 
@@ -144,9 +149,9 @@ export {
   HeadLineText,
   HomeComponentWrap,
   HomeAboutUsTextWrap,
-  OurApproachImageWrap,
-  OurApproachGridWrap,
-  OurApproachTextWrap,
-  OurApproachText,
+  HomeComponentImageWrap,
+  ComponentGridWrap,
+  ComponentTextWrap,
+  ComponentText,
   HomeVideoWrap,
 };

@@ -19,7 +19,7 @@ const SliderContainer = styled.div`
 
 const Circle = styled.div`
   position: absolute;
-  top: ${(props) => props.position}px;
+  top: ${(props) => props.$position}px;
   left: -15px;
   width: 40px;
   height: 40px;
@@ -51,10 +51,10 @@ const SideSlider = () => {
       case currentScrollY <= window.innerHeight * 1.5:
         setScrollNumber('63');
         break;
-      case currentScrollY <= window.innerHeight * 2.5:
+      case currentScrollY <= window.innerHeight * 3.5:
         setScrollNumber('141');
         break;
-      case currentScrollY <= window.innerHeight * 3.5:
+      case currentScrollY <= window.innerHeight * 4.5:
         setScrollNumber('219');
         break;
       default:
@@ -69,13 +69,9 @@ const SideSlider = () => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(scrollNumber);
-  }, [scrollNumber]);
-
   return (
-    <SliderContainer style={{ opacity: scrollY > window.innerHeight * 4.2 ? 0 : 1 }}>
-      <Circle position={scrollNumber} />
+    <SliderContainer style={{ opacity: scrollY > window.innerHeight * 5.4 ? 0 : 1 }}>
+      <Circle $position={scrollNumber} />
       <SliderImg src={scroll_bar} alt="scroll_bar" />
     </SliderContainer>
   );

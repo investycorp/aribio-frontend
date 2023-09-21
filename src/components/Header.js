@@ -193,11 +193,16 @@ const Header = () => {
     'Contact',
     'Open Innovation',
   ]);
-  const [subMenu, setSubMenu] = useState(['ABOUT US', 'HISTORY', 'CEO MESSAGE', 'CI']);
+  const [subMenu, setSubMenu] = useState([
+    { title: 'ABOUT US', linkTo: 'aboutus' },
+    { title: 'HISTORY', linkTo: 'history' },
+    { title: 'CEO MESSAGE', linkTo: 'ceomessage' },
+    { title: 'CI', linkTo: 'ci' },
+  ]);
   const [language, setLanguage] = useState('ENG');
   const [navBarwidth, setNavBarWidth] = useState(0);
   const location = useLocation();
-  const [currentMenu, setCurrentMenu] = useState(location?.pathname?.split('/')[1] || '');
+  const [currentMenu, setCurrentMenu] = useState('');
   // const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   useEffect(() => {
@@ -215,7 +220,9 @@ const Header = () => {
       <BlurBoxTop />
       <HeaderTop>
         <HeaderLogoWrap>
-          <img src={Logo} alt="logo" />
+          <Link to="/">
+            <img src={Logo} alt="logo" />
+          </Link>
         </HeaderLogoWrap>
         <HeaderNavWrap className="header-navwrap">
           {menuList.map((menu) => (
@@ -255,7 +262,9 @@ const Header = () => {
       >
         <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
           {subMenu.map((menu) => (
-            <HeaderNavMenuTextWrap>{menu.toUpperCase()}</HeaderNavMenuTextWrap>
+            <Link to={`/${menu.linkTo}`} style={{ textDecoration: 'none' }} key={menu.linkTo}>
+              <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
+            </Link>
           ))}
         </HeaderNavWrap>
         {/* <HeaderBottomLeft

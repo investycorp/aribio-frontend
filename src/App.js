@@ -6,7 +6,7 @@ import theme from './themes/theme';
 // import { usePageView } from './hooks/usePageView';
 // import { useScrollToTop } from './hooks/useScrollToTop';
 // import { useScrollToHash } from './hooks/useScrollToHash';
-import Company from './screens/company/Company';
+import AboutUs from './screens/company/aboutus/AboutUs';
 import OurApproach from './screens/ourapproach/OurApproach';
 import GlobalStyle from './components/GlobalStyle';
 import Home from './screens/home/Home';
@@ -19,8 +19,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/company" element={<Company />} />
+            <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/ourapproach" element={<OurApproach />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

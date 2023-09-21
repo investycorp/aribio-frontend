@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 
 const GoToTop = () => {
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState(false);
   window.addEventListener('scroll', () => {
     if (window.scrollY > window.innerHeight * 0.7) {
       setIsShow(true);

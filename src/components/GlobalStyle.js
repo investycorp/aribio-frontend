@@ -27,6 +27,9 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     font-family: 'pretendard';
+    line-height: 1.2;
+    overscroll-behavior: none;
+    background-color: '#121212';
   }
 `;
 
