@@ -14,7 +14,7 @@ const SliderContainer = styled.div`
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s ease-in-out;
-  z-index: 100;
+  z-index: 10;
 `;
 
 const Circle = styled.div`

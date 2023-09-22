@@ -19,7 +19,7 @@ const GoToTop = () => {
         position: 'fixed',
         bottom: '28vh',
         right: '4.5vw',
-        zIndex: '100',
+        zIndex: '10',
         width: '2vw',
         cursor: 'pointer',
       }}

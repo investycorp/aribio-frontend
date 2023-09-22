@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import ContainerHeight from '../atom/ContainerHeight';
 import GlobalStyle from './GlobalStyle';
 import Logo from '../assets/images/logo.svg';
 import lang_globe from '../assets/images/lang_globe.svg';
@@ -28,7 +29,7 @@ const BlurBoxTop = styled.div`
   top: 0;
   width: 100%;
   height: 146px;
-  background-color: rgba(26, 26, 26, 0.3);
+  background-color: transparent;
   backdrop-filter: blur(15px);
 `;
 const BlurBoxBottom = styled.div`
@@ -37,7 +38,7 @@ const BlurBoxBottom = styled.div`
   width: 100%;
   height: 105px;
   opacity: 0;
-  background-color: rgba(26, 26, 26, 0.3);
+  background-color: transparent;
   backdrop-filter: blur(15px);
   transition: opacity 0.3s ease-in-out;
 `;
@@ -148,6 +149,7 @@ const HeaderBottomLeft = styled.div`
   border-right: 2px solid #5d5d5d;
   padding: 50px 60px 50px 7vw;
 `;
+/*
 const HeaderBottomLeftTextWrap = styled.div`
   width: 100%;
   height: 100%;
@@ -182,6 +184,7 @@ const HeaderBottomRightMenu = styled.div`
   align-items: center;
   justify-content: center;
 `;
+*/
 
 const Header = () => {
   const [menuList, setMenuList] = useState([
@@ -203,17 +206,42 @@ const Header = () => {
   const [navBarwidth, setNavBarWidth] = useState(0);
   const location = useLocation();
   const [currentMenu, setCurrentMenu] = useState('');
-  // const [isMenuClicked, setIsMenuClicked] = useState(false);
+  const [currentTab, setCurrentTab] = useState('');
+  const containerHeight = useRecoilValue(ContainerHeight);
 
   useEffect(() => {
-    const getElement = document.getElementsByClassName('header-navwrap')[0];
-    setNavBarWidth(getElement?.clientWidth);
+    setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
+    setCurrentTab(location.pathname.split('/')[1]);
+    console.log('ContainerHeight', containerHeight);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
+    });
+    return () => {
+      window.removeEventListener('resize', () => {
+        setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
+      });
+    };
+  }, []);
+
+  useEffect(() => {
+    if (
+      location.pathname.split('/')[1] === 'aboutus' ||
+      location.pathname.split('/')[1] === 'history' ||
+      location.pathname.split('/')[1] === 'ceomessage' ||
+      location.pathname.split('/')[1] === 'ci'
+    ) {
+      setCurrentTab('Company');
+    } else {
+      setCurrentTab(location.pathname.split('/')[1]);
+    }
+  }, [location.pathname]);
 
   return (
     <HeaderContainer
       onMouseLeave={() => {
-        // setIsMenuClicked(false);
         setCurrentMenu('');
       }}
     >
@@ -244,7 +272,15 @@ const Header = () => {
               }}
               $isActive={menu === currentMenu ? true : false}
             >
-              {menu.toUpperCase()}
+              <div
+                style={{
+                  paddingBottom: '0.3rem',
+                  borderBottom:
+                    currentTab === menu && currentTab !== currentMenu ? '2px solid #ffffff' : '2px solid transparent',
+                }}
+              >
+                {menu.toUpperCase()}
+              </div>
             </HeaderNavMenuTextWrap>
           ))}
         </HeaderNavWrap>

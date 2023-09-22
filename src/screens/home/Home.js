@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import ContainerHeight from '../../atom/ContainerHeight';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import SideSlider from '../../components/SideSlider';
+import GoToTop from '../../components/buttons/GoToTop';
+import SubPageButton from '../../components/buttons/SubPageButton';
+import ourapproach1 from '../../assets/images/home/ourapproach1.png';
+import notice from '../../assets/images/home/notice.jpeg';
+import homemain from '../../assets/images/home/homemain.png';
 import {
   Container,
   MainImgWrap,
@@ -17,36 +25,33 @@ import {
   ComponentText,
   HomeVideoWrap,
 } from './style';
-import SideSlider from '../../components/SideSlider';
-import GoToTop from '../../components/buttons/GoToTop';
-import SubPageButton from '../../components/buttons/SubPageButton';
-import ourapproach1 from '../../assets/images/home/ourapproach1.png';
-import notice from '../../assets/images/home/notice.jpeg';
-import homemain from '../../assets/images/home/homemain.png';
+import GetContainerHeight from '../../utils/GetContainerHeight';
 
 const Home = () => {
-  const [containerHeight, setContainerHeight] = useState(0);
+  const [containerHeight, setContainerHeight] = useRecoilState(ContainerHeight);
   const [noticeList, setNoticeList] = useState([
     { date: '2023.07.26', title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion', imageUrl: notice },
     { date: '2023.07.26', title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion', imageUrl: notice },
     { date: '2023.07.26', title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion', imageUrl: notice },
   ]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  }, []);
+  GetContainerHeight();
 
-  useEffect(() => {
-    window.addEventListener('resize', () => {
-      setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-    });
-    return () => {
-      window.removeEventListener('resize', () => {
-        setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-      });
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
+  // }, []);
+
+  // useEffect(() => {
+  //   window.addEventListener('resize', () => {
+  //     setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
+  //   });
+  //   return () => {
+  //     window.removeEventListener('resize', () => {
+  //       setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
+  //     });
+  //   };
+  // }, []);
 
   return (
     <Container className="container">

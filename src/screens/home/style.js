@@ -48,7 +48,7 @@ const MainImgWrap = styled.div`
   background-repeat: no-repeat;
   background-color: #00010c;
   padding-bottom: 10vh;
-  z-index: 99;
+  z-index: 5;
 `;
 
 const HomeComponentWrap = styled.div`
@@ -61,7 +61,7 @@ const HomeComponentWrap = styled.div`
   align-items: center;
   background-color: transparent;
   padding: 10vh 7vw;
-  z-index: 99;
+  z-index: 10;
 `;
 
 const HomeAboutUsTextWrap = styled.div`
@@ -80,7 +80,7 @@ const HeadLineTitle = styled.div`
   font-weight: bold;
   margin-bottom: 1rem;
   color: #ffffff;
-  z-index: 99;
+  z-index: 10;
 `;
 
 const HeadLineText = styled.div`
@@ -91,7 +91,7 @@ const HeadLineText = styled.div`
   margin-bottom: 1rem;
   text-align: center;
   line-height: 1.3em;
-  z-index: 99;
+  z-index: 10;
 `;
 
 const ComponentGridWrap = styled.div`
