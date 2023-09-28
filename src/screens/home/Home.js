@@ -5,7 +5,6 @@ import ContainerHeight from '../../atom/ContainerHeight';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SideSlider from '../../components/SideSlider';
-import GoToTop from '../../components/buttons/GoToTop';
 import SubPageButton from '../../components/buttons/SubPageButton';
 import ourapproach1 from '../../assets/images/home/ourapproach1.png';
 import notice from '../../assets/images/home/notice.jpeg';
@@ -230,41 +229,8 @@ const Home = () => {
               </HomeComponentImageWrap>
             </ComponentGridWrap>
           ))}
-
-          {/* <ComponentGridWrap style={{ gridRow: '1/3', padding: '0' }}>
-            <HomeComponentImageWrap
-              style={{
-                backgroundImage: `url(${notice})`,
-              }}
-            >
-              1111
-            </HomeComponentImageWrap>
-          </ComponentGridWrap>
-          <ComponentGridWrap style={{ padding: '0' }}>
-            <HomeComponentImageWrap
-              style={{
-                backgroundImage: `url(${notice})`,
-                width: '100%',
-                height: '100%',
-              }}
-            >
-              2222
-            </HomeComponentImageWrap>
-          </ComponentGridWrap>
-          <ComponentGridWrap style={{ padding: '0' }}>
-            <HomeComponentImageWrap
-              style={{
-                backgroundImage: `url(${notice})`,
-                width: '100%',
-                height: '100%',
-              }}
-            >
-              3333
-            </HomeComponentImageWrap>
-          </ComponentGridWrap> */}
         </div>
       </HomeComponentWrap>
-      <GoToTop />
       <Footer />
     </Container>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/images/logo.svg';
 import arrow from '../assets/images/arrow.svg';
+import GoToTop from './buttons/GoToTop';
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -9,10 +10,12 @@ const FooterContainer = styled.div`
   background-color: #000000;
   color: #e5e5e5;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 3fr 4fr;
   align-items: center;
   justify-content: space-between;
   padding: 0 7vw;
+  border-top: 2px solid #5d5d5d;
+  z-index: 10;
 `;
 
 const FooterGridWrap = styled.div`
@@ -22,7 +25,6 @@ const FooterGridWrap = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
-  border-right: 2px solid #5d5d5d;
 `;
 
 const ContactBox = styled.div`
@@ -81,13 +83,13 @@ const AddressWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: flex-end;
+  justify-content: start;
 `;
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <FooterGridWrap style={{ padding: '5vh 0 10vh 0', borderLeft: '2px solid #5d5d5d' }}>
+      <FooterGridWrap style={{ padding: '7vh 6vw 10vh 0', borderRight: '2px solid #5d5d5d' }}>
         <img src={logo} alt="logo" />
         <ContactUsWrap>
           <ContactUsBox>
@@ -102,22 +104,28 @@ const Footer = () => {
           </ContactUsBox>
         </ContactUsWrap>
       </FooterGridWrap>
-      <FooterGridWrap style={{ padding: '5vh 3vw 10vh 0', alignItems: 'end' }}>
+      <FooterGridWrap
+        style={{
+          padding: '7vh 2vw 10vh 6vw',
+          alignItems: 'start',
+          flexDirection: 'row',
+          justifyContent: 'space-evenly',
+        }}
+      >
         <ContactBox>
           <ContactBoxTitle>TEL.</ContactBoxTitle>
           <ContactBoxText>02-0000-0000</ContactBoxText>
           <ContactBoxTitle>FAX.</ContactBoxTitle>
           <ContactBoxText>02-0000-0000</ContactBoxText>
         </ContactBox>
-      </FooterGridWrap>
-      <FooterGridWrap style={{ padding: '5vh 0 10vh 1vw', alignItems: 'end' }}>
         <ContactBox
           style={{
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'end',
-            justifyContent: 'space-between',
-            width: '100%',
+            justifyContent: 'space-evenly',
+            width: 'fit-content',
+            gap: '2vw',
           }}
         >
           <AddressWrap>
@@ -132,6 +140,7 @@ const Footer = () => {
             <ContactBoxText>3636 Nobel Drive,</ContactBoxText>
             <ContactBoxText>San Diego, CA 92112, USA</ContactBoxText>
           </AddressWrap>
+          <GoToTop />
         </ContactBox>
       </FooterGridWrap>
     </FooterContainer>

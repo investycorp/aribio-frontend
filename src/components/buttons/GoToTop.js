@@ -16,7 +16,7 @@ const GoToTop = () => {
       style={{
         display: 'flex',
         visibility: isShow ? 'visible' : 'hidden',
-        position: 'fixed',
+        position: 'absolute',
         bottom: '28vh',
         right: '4.5vw',
         zIndex: '10',

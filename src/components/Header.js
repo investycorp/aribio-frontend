@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import ContainerHeight from '../atom/ContainerHeight';
+import Language from '../atom/Language';
 import GlobalStyle from './GlobalStyle';
 import Logo from '../assets/images/logo.svg';
 import lang_globe from '../assets/images/lang_globe.svg';
@@ -111,7 +112,7 @@ const HeaderLangButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  width: fit-content;
+  width: 120px;
   gap: 0.5rem;
   &:hover {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
@@ -188,26 +189,51 @@ const HeaderBottomRightMenu = styled.div`
 
 const Header = () => {
   const [menuList, setMenuList] = useState([
-    'Company',
-    'Our Approach',
-    'Pipeline',
-    'IR & PR',
-    'Career',
-    'Contact',
-    'Open Innovation',
+    { title: 'Company', linkTo: 'company' },
+    { title: 'Our Approach', linkTo: 'ourapproach' },
+    { title: 'Pipeline', linkTo: 'pipeline' },
+    { title: 'IR & PR', linkTo: 'irpr' },
+    { title: 'Career', linkTo: 'career' },
+    { title: 'Contact', linkTo: 'contact' },
+    { title: 'Open Innovation', linkTo: 'openinnovation' },
   ]);
-  const [subMenu, setSubMenu] = useState([
-    { title: 'ABOUT US', linkTo: 'aboutus' },
-    { title: 'HISTORY', linkTo: 'history' },
-    { title: 'CEO MESSAGE', linkTo: 'ceomessage' },
-    { title: 'CI', linkTo: 'ci' },
-  ]);
-  const [language, setLanguage] = useState('ENG');
+  const [subMenu, setSubMenu] = useState({
+    company: [
+      { title: 'ABOUT US', linkTo: 'aboutus' },
+      { title: 'HISTORY', linkTo: 'history' },
+      { title: 'CEO MESSAGE', linkTo: 'ceomessage' },
+      { title: 'CI', linkTo: 'ci' },
+    ],
+    ourapproach: [
+      { title: 'POLY-PHARMACOLOGY', linkTo: 'poly-pharmacology' },
+      { title: 'AI Platform', linkTo: 'aiplatform' },
+      { title: 'Publications', linkTo: 'publications' },
+    ],
+  });
   const [navBarwidth, setNavBarWidth] = useState(0);
   const location = useLocation();
   const [currentMenu, setCurrentMenu] = useState('');
   const [currentTab, setCurrentTab] = useState('');
   const containerHeight = useRecoilValue(ContainerHeight);
+  const navigate = useNavigate();
+
+  /*
+  const [subMenu, setSubMenu] = useState(
+    {
+      company: [
+        { title: 'ABOUT US', linkTo: 'aboutus' },
+        { title: 'HISTORY', linkTo: 'history' },
+        { title: 'CEO MESSAGE', linkTo: 'ceomessage' },
+        { title: 'CI', linkTo: 'ci' },
+      ],
+    },
+    { ourapproach: [{ title: 'POLY-PHARMACOLOGY', linkTo: 'poly-pharmacology' }] },
+    { pipeline: [] },
+    { irpr: [] },
+    { contact: [] },
+    { openinnovation: [] },
+  );
+  */
 
   useEffect(() => {
     setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
@@ -233,7 +259,7 @@ const Header = () => {
       location.pathname.split('/')[1] === 'ceomessage' ||
       location.pathname.split('/')[1] === 'ci'
     ) {
-      setCurrentTab('Company');
+      setCurrentTab('company');
     } else {
       setCurrentTab(location.pathname.split('/')[1]);
     }
@@ -253,99 +279,73 @@ const Header = () => {
           </Link>
         </HeaderLogoWrap>
         <HeaderNavWrap className="header-navwrap">
-          {menuList.map((menu) => (
+          {menuList.map((menu, index) => (
             <HeaderNavMenuTextWrap
-              key={menu}
+              key={menu.linkTo + index}
               onMouseOver={() => {
-                setCurrentMenu(menu);
+                setCurrentMenu(menu.linkTo);
               }}
               onClick={() => {
-                // setCurrentMenu((prev) => {
-                //   if (prev === menu) {
-                //     setIsMenuClicked(false);
-                //     return '';
-                //   } else {
-                //     setIsMenuClicked(true);
-                //     return menu;
-                //   }
-                // });
+                if (menu.linkTo === 'career') {
+                  if (currentTab !== 'career') navigate('/career');
+                  else window.location.reload();
+                }
               }}
-              $isActive={menu === currentMenu ? true : false}
+              $isActive={menu.linkTo === currentMenu ? true : false}
             >
               <div
                 style={{
                   paddingBottom: '0.3rem',
                   borderBottom:
-                    currentTab === menu && currentTab !== currentMenu ? '2px solid #ffffff' : '2px solid transparent',
+                    currentTab === menu.linkTo && currentTab !== currentMenu
+                      ? '2px solid #ffffff'
+                      : '2px solid transparent',
                 }}
               >
-                {menu.toUpperCase()}
+                {menu.title.toUpperCase()}
               </div>
             </HeaderNavMenuTextWrap>
           ))}
         </HeaderNavWrap>
-        <HeaderLangButton>
-          <img src={lang_globe} alt="lang" />
-          <div>{language.toUpperCase()}</div>
-        </HeaderLangButton>
+        <LangButton />
       </HeaderTop>
-      <BlurBoxBottom
-        style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-      />
-      <HeaderBottom
-        className={`header-bottom ${currentMenu}`}
-        style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-      >
-        <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
-          {subMenu.map((menu) => (
-            <Link to={`/${menu.linkTo}`} style={{ textDecoration: 'none' }} key={menu.linkTo}>
-              <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
-            </Link>
-          ))}
-        </HeaderNavWrap>
-        {/* <HeaderBottomLeft
-          style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-        >
-          <HeaderBottomLeftTextWrap>
-            <div style={{ fontSize: '26px', textShadow: 'none' }}>{currentMenu.toUpperCase()}</div>
-            <div style={{ fontSize: '20px', fontWeight: '300', color: '#EDEDED', textShadow: 'none' }}>
-              AriBio’s Technology is Love. <br /> We Are Creating a Happier World.
-            </div>
-          </HeaderBottomLeftTextWrap>
-          <img
-            src={arrow}
-            alt="arrow"
-            style={{ width: '22px', height: '22px', border: '2px solid #ffffff', borderRadius: '50%' }}
+      {currentMenu !== 'career' && (
+        <>
+          <BlurBoxBottom
+            style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
           />
-        </HeaderBottomLeft>
-        <HeaderBottomRight
-          style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-        >
-          <HeaderBottomRightMenu>
-            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>
-              ABOUT US
-            </HeaderNavMenuTextWrap>
-          </HeaderBottomRightMenu>
-          <HeaderBottomRightMenu>
-            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>
-              CEO MESSAGE
-            </HeaderNavMenuTextWrap>
-          </HeaderBottomRightMenu>
-          <HeaderBottomRightMenu>
-            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>CI</HeaderNavMenuTextWrap>
-          </HeaderBottomRightMenu>
-          <HeaderBottomRightMenu>
-            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>
-              HISTORY
-            </HeaderNavMenuTextWrap>
-          </HeaderBottomRightMenu>
-          <HeaderBottomRightMenu>
-            <HeaderNavMenuTextWrap style={{ width: 'fit-content', paddingBottom: '2px' }}>TEAM</HeaderNavMenuTextWrap>
-          </HeaderBottomRightMenu>
-        </HeaderBottomRight> */}
-      </HeaderBottom>
+          <HeaderBottom
+            className={`header-bottom ${currentMenu}`}
+            style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+          >
+            <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
+              {subMenu[currentMenu]?.map((menu) => (
+                <Link to={`/${menu.linkTo}`} style={{ textDecoration: 'none' }} key={menu.linkTo}>
+                  <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
+                </Link>
+              ))}
+            </HeaderNavWrap>
+          </HeaderBottom>
+        </>
+      )}
     </HeaderContainer>
   );
 };
 
 export default Header;
+
+const LangButton = () => {
+  const [language, setLanguage] = useRecoilState(Language);
+
+  const handleClick = () => {
+    if (language === 'ENG') setLanguage('KOR');
+    else setLanguage('ENG');
+  };
+  return (
+    <HeaderLangButton onClick={handleClick}>
+      <img src={lang_globe} alt="lang" />
+      <div>{language}</div>
+    </HeaderLangButton>
+  );
+};
+export { LangButton };

@@ -5,8 +5,11 @@ import ContainerHeight from '../../../atom/ContainerHeight';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
-import SideSlider from '../../../components/SideSlider';
 import GetContainerHeight from '../../../utils/GetContainerHeight';
+import Tab1 from './components/Tab1.js';
+import Tab2 from './components/Tab2.js';
+import Tab3 from './components/Tab3.js';
+
 import {
   Container,
   MainImgWrap,
@@ -26,14 +29,10 @@ import {
   DescriptionWrap,
   DescriptionItem,
 } from './style';
-import Leadership from './components/Leadership';
-import Advisors from './components/Advisors';
 
-const AboutUs = () => {
-  const [containerHeight, setContainerHeight] = useRecoilState(ContainerHeight);
-  const totalHeight = useRecoilValue(ContainerHeight);
-  const [tabNames, settabNames] = useState(['Leadership', 'Advisors']);
-  const [currentTab, setCurrentTab] = useState('Leadership');
+const History = () => {
+  const [tabNames, setTabNames] = useState(['2019-2023', '2013-2018', '2010-2012']);
+  const [currentTab, setCurrentTab] = useState('2019-2023');
 
   GetContainerHeight();
   // useEffect(() => {
@@ -51,45 +50,35 @@ const AboutUs = () => {
   // }, []);
   return (
     <Container className="container">
-      <ContainerGridLineWrap $height={totalHeight}>
-        <GridLineBox style={{ borderLeft: '2px solid #5d5d5d' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
       <Header />
-      <SideSlider />
-      <Path>{`HOME > COMPANY > ABOUT US`}</Path>
+      <Path>{`HOME > COMPANY > HISTORY`}</Path>
       <MainImgWrap>
-        <HeadLine>
-          ABOUT <br /> US
-        </HeadLine>
+        <HeadLine>HISTORY</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
       </MainImgWrap>
-      <HomeComponentWrap>
+      <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
         <TextWrap>
-          <Text $color="#939598" $fontSize="26px" $fontWeight="300">
-            ABOUT US
+          <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+            HISTORY
           </Text>
-          <Text $fontSize="50px" $fontWeight="400">
-            Company Overview
+          <div
+            style={{
+              width: '50%',
+              alignSelf: 'flex-start',
+              height: '3em',
+              borderRight: '2px solid #ffffff',
+              margin: '2rem 0',
+            }}
+          ></div>
+          <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+            Expansion Phase{' '}
           </Text>
-          <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-          <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3">
-            AriBIo Co., Ltd. is a biotechnology company that aims to develop a meaningful therapies for
-            neurodegenerative diseases through its innovative platform ARIDD™
-            <br />
-            (AI-powered, Reverse engineered & Integrated Drug Development) and Open Innovation.
-            <br />
-            <br />
-            Our mission is to develop develop novel therapies for neurodegenerative diseases.
-            <br />
-            <br />
-            Meet our team of experts in science, technology, pharmaceuticals, and regulations joined together to lead
-            AriBio.
+          <Text $fontSize="30px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
+            Clinical development and Pipeline Extension
           </Text>
         </TextWrap>
       </HomeComponentWrap>
@@ -107,10 +96,10 @@ const AboutUs = () => {
           </TabItem>
         ))}
       </Tab>
-      {currentTab === 'Leadership' ? <Leadership /> : <Advisors />}
+      {tabNames.indexOf(currentTab) === 0 ? <Tab1 /> : tabNames.indexOf(currentTab) === 1 ? <Tab2 /> : <Tab3 />}
       <Footer />
     </Container>
   );
 };
 
-export default AboutUs;
+export default History;
