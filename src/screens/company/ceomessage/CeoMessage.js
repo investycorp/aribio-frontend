@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import ContainerHeight from '../../../atom/ContainerHeight';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
-import GetContainerHeight from '../../../utils/GetContainerHeight';
 import ceophoto from './assets/ceophoto.png';
 import ceomessage_cover from './assets/ceomessage_cover.png';
 
@@ -19,28 +15,25 @@ import {
   HomeComponentWrap,
   TextWrap,
   Text,
-  Tab,
-  TabItem,
-  TabContentWrap,
   ContentBox,
-  ContentBoxNameWrap,
   Image,
-  DescriptionWrap,
-  DescriptionItem,
 } from './style';
 
 const CeoMessage = () => {
-  const [containerHeight, setContainerHeight] = useRecoilState(ContainerHeight);
-  GetContainerHeight();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <Container>
-      <Header />
-      <Path>{`HOME > COMPANY > CEO MESSAGE`}</Path>
-      <ContainerGridLineWrap $height={containerHeight}>
-        <GridLineBox style={{ borderLeft: '2px solid #5d5d5d' }} />
+    <Container className="container">
+      <ContainerGridLineWrap>
+        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
         <GridLineBox />
         <GridLineBox />
       </ContainerGridLineWrap>
+      <Header />
+      <Path>{`HOME > COMPANY > CEO MESSAGE`}</Path>
+
       <MainImgWrap $src={ceomessage_cover}>
         <HeadLine>
           CEO <br /> MESSAGE

@@ -6,7 +6,7 @@ const Container = styled.div`
   height: fit-content;
   background-color: #121212;
   color: #ffffff;
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
@@ -15,43 +15,66 @@ const Container = styled.div`
 `;
 
 const ContainerGridLineWrap = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  height: ${(props) => props.$height}px;
+  width: 100vw;
+  height: 100vh;
   display: grid;
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 7vw;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 0;
 `;
 
 const GridLineBox = styled.div`
   width: 100%;
   height: inherit;
   display: flex;
-  border-right: 2px solid #5d5d5d;
+  border-right: 2px solid rgba(177, 177, 177, 0.3);
   z-index: 1;
 `;
 
 const MainImgWrap = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #00010c;
   padding-bottom: 10vh;
   z-index: 5;
+  background-image: url(${(props) => props.$src});
+`;
+
+const MainImgTextWrap = styled.div`
+  width: fit-contennt;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-bottom: 5vh;
+`;
+
+const FilterShadow = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  opacity: 0.3;
+  background-color: #000000;
 `;
 
 const HomeComponentWrap = styled.div`
+  position: relative;
   width: 100%;
   min-height: 100vh;
   height: fit-content;
@@ -110,6 +133,11 @@ const ComponentGridWrap = styled.div`
 const HomeComponentImageWrap = styled.div`
   background-size: 28.7vw 28.7vw;
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #121212;
+  background-image: url(${(props) => props.$src});
+  display: flex;
   width: 28.7vw;
   height: 28.7vw;
   justify-self: flex-end;
@@ -143,6 +171,7 @@ const HomeVideoWrap = styled.div`
 export {
   Container,
   MainImgWrap,
+  MainImgTextWrap,
   ContainerGridLineWrap,
   GridLineBox,
   HeadLineTitle,
@@ -154,4 +183,5 @@ export {
   ComponentTextWrap,
   ComponentText,
   HomeVideoWrap,
+  FilterShadow,
 };

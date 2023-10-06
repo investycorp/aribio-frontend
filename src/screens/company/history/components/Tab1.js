@@ -30,6 +30,11 @@ const Text = styled.div`
   text-align: ${(props) => (props.$align ? props.$align : 'start')};
   transition: all 0.2s linear;
   cursor: pointer;
+  &:hover {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 50px;
+  }
 `;
 
 const GridBox = styled.div`

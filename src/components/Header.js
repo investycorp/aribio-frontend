@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import ContainerHeight from '../atom/ContainerHeight';
+import { useRecoilState } from 'recoil';
+
 import Language from '../atom/Language';
-import GlobalStyle from './GlobalStyle';
+
 import Logo from '../assets/images/logo.svg';
 import lang_globe from '../assets/images/lang_globe.svg';
-import arrow from '../assets/images/arrow.svg';
 
 const HeaderContainer = styled.div`
   position: fixed;
@@ -32,6 +31,7 @@ const BlurBoxTop = styled.div`
   height: 146px;
   background-color: transparent;
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 `;
 const BlurBoxBottom = styled.div`
   position: absolute;
@@ -41,6 +41,7 @@ const BlurBoxBottom = styled.div`
   opacity: 0;
   background-color: transparent;
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   transition: opacity 0.3s ease-in-out;
 `;
 
@@ -95,6 +96,7 @@ const HeaderNavMenuTextWrap = styled.div`
   &:active {
     color: #ffffff;
     text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
   }
   @media screen and (max-width: 1460px) {
     font-size: 19px;
@@ -138,55 +140,6 @@ const HeaderBottom = styled.div`
   transition: opacity 0.5s ease-in-out;
 `;
 
-const HeaderBottomLeft = styled.div`
-  width: 45%;
-  height: 100%;
-  display: flex;
-  opacity: 0;
-  visibility: hidden;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-evenly;
-  border-right: 2px solid #5d5d5d;
-  padding: 50px 60px 50px 7vw;
-`;
-/*
-const HeaderBottomLeftTextWrap = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  gap: 1rem;
-`;
-
-const HeaderBottomRight = styled.div`
-  width: 55%;
-  height: 100%;
-  display: grid;
-  opacity: 0;
-  visibility: hidden;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 2rem;
-`;
-const HeaderBottomRightMenu = styled.div`
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  text-shadow: none;
-  font-size: 20px;
-  font-weight: 300;
-  color: #ffffff;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-*/
-
 const Header = () => {
   const [menuList, setMenuList] = useState([
     { title: 'Company', linkTo: 'company' },
@@ -214,32 +167,12 @@ const Header = () => {
   const location = useLocation();
   const [currentMenu, setCurrentMenu] = useState('');
   const [currentTab, setCurrentTab] = useState('');
-  const containerHeight = useRecoilValue(ContainerHeight);
   const navigate = useNavigate();
-
-  /*
-  const [subMenu, setSubMenu] = useState(
-    {
-      company: [
-        { title: 'ABOUT US', linkTo: 'aboutus' },
-        { title: 'HISTORY', linkTo: 'history' },
-        { title: 'CEO MESSAGE', linkTo: 'ceomessage' },
-        { title: 'CI', linkTo: 'ci' },
-      ],
-    },
-    { ourapproach: [{ title: 'POLY-PHARMACOLOGY', linkTo: 'poly-pharmacology' }] },
-    { pipeline: [] },
-    { irpr: [] },
-    { contact: [] },
-    { openinnovation: [] },
-  );
-  */
 
   useEffect(() => {
     setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
     setCurrentTab(location.pathname.split('/')[1]);
-    console.log('ContainerHeight', containerHeight);
-  }, []);
+  }, [document.getElementsByClassName('header-navwrap')[0]?.clientWidth]);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -274,7 +207,12 @@ const Header = () => {
       <BlurBoxTop />
       <HeaderTop>
         <HeaderLogoWrap>
-          <Link to="/">
+          <Link
+            to="/"
+            onClick={() => {
+              if (location.pathname === '/') window.location.reload();
+            }}
+          >
             <img src={Logo} alt="logo" />
           </Link>
         </HeaderLogoWrap>
@@ -300,6 +238,7 @@ const Header = () => {
                     currentTab === menu.linkTo && currentTab !== currentMenu
                       ? '2px solid #ffffff'
                       : '2px solid transparent',
+                  zIndex: '-1',
                 }}
               >
                 {menu.title.toUpperCase()}
@@ -320,7 +259,16 @@ const Header = () => {
           >
             <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
               {subMenu[currentMenu]?.map((menu) => (
-                <Link to={`/${menu.linkTo}`} style={{ textDecoration: 'none' }} key={menu.linkTo}>
+                <Link
+                  to={`/${menu.linkTo}`}
+                  style={{ textDecoration: 'none' }}
+                  key={menu.linkTo}
+                  onClick={() => {
+                    if (menu.linkTo === location.pathname.split('/')[1]) {
+                      window.location.reload();
+                    }
+                  }}
+                >
                   <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
                 </Link>
               ))}

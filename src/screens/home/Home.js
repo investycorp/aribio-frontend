@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import ContainerHeight from '../../atom/ContainerHeight';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SideSlider from '../../components/SideSlider';
 import SubPageButton from '../../components/buttons/SubPageButton';
-import ourapproach1 from '../../assets/images/home/ourapproach1.png';
-import notice from '../../assets/images/home/notice.jpeg';
-import homemain from '../../assets/images/home/homemain.png';
+import home_cover from './assets/home_cover.png';
+import home_ourapproach1 from './assets/home_ourapproach1.png';
+import home_ourapproach2 from './assets/home_ourapproach2.png';
+import home_ourapproach3 from './assets/home_ourapproach3.png';
+import home_notice1 from './assets/home_notice1.png';
+import home_notice2 from './assets/home_notice2.png';
+import home_notice3 from './assets/home_notice3.png';
 import {
   Container,
   MainImgWrap,
+  MainImgTextWrap,
   ContainerGridLineWrap,
   GridLineBox,
   HeadLineTitle,
@@ -23,55 +25,50 @@ import {
   ComponentTextWrap,
   ComponentText,
   HomeVideoWrap,
+  FilterShadow,
 } from './style';
-import GetContainerHeight from '../../utils/GetContainerHeight';
 
 const Home = () => {
-  const [containerHeight, setContainerHeight] = useRecoilState(ContainerHeight);
   const [noticeList, setNoticeList] = useState([
-    { date: '2023.07.26', title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion', imageUrl: notice },
-    { date: '2023.07.26', title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion', imageUrl: notice },
-    { date: '2023.07.26', title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion', imageUrl: notice },
+    {
+      date: '2023.07.26',
+      title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion',
+      imageUrl: home_notice1,
+    },
+    {
+      date: '2023.07.26',
+      title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion',
+      imageUrl: home_notice2,
+    },
+    {
+      date: '2023.07.26',
+      title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion',
+      imageUrl: home_notice3,
+    },
   ]);
 
-  GetContainerHeight();
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  // }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener('resize', () => {
-  //     setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  //   });
-  //   return () => {
-  //     window.removeEventListener('resize', () => {
-  //       setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  //     });
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Container className="container">
-      <ContainerGridLineWrap $height={containerHeight}>
-        <GridLineBox style={{ borderLeft: '2px solid #5d5d5d' }} />
+      <ContainerGridLineWrap>
+        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
         <GridLineBox />
         <GridLineBox />
       </ContainerGridLineWrap>
       <Header />
       <SideSlider />
-      <MainImgWrap
-        style={{
-          backgroundImage: `url(${homemain})`,
-        }}
-      >
-        <HeadLineTitle>OVERCOME</HeadLineTitle>
-        <HeadLineTitle style={{ marginBottom: '2rem' }}>NEURODEGENERATION</HeadLineTitle>
-        <HeadLineText>We keep striving to develop new therapeutic agents for</HeadLineText>
-        <HeadLineText>neurodegenerative diseases hitherto.</HeadLineText>
+      <MainImgWrap className="home home_1" $src={home_cover}>
+        <MainImgTextWrap>
+          <HeadLineTitle>OVERCOME</HeadLineTitle>
+          <HeadLineTitle style={{ marginBottom: '2rem' }}>NEURODEGENERATION</HeadLineTitle>
+          <HeadLineText>We keep striving to develop new therapeutic agents for</HeadLineText>
+          <HeadLineText>neurodegenerative diseases hitherto.</HeadLineText>
+        </MainImgTextWrap>
       </MainImgWrap>
-      <HomeComponentWrap>
+      <HomeComponentWrap className="home home_2">
         <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
           <HeadLineText $fontSize="60px">AriBio Co., Ltd. is a biotechnology company</HeadLineText>
           <HeadLineText $fontSize="60px">that aims to develop a meaningful therapies for </HeadLineText>
@@ -89,6 +86,7 @@ const Home = () => {
           gridTemplateRows: '1fr 1fr 1fr',
           marginBottom: '10vh',
         }}
+        className="home home_3"
       >
         <ComponentGridWrap
           style={{
@@ -110,18 +108,10 @@ const Home = () => {
           </ComponentTextWrap>
         </ComponentGridWrap>
         <ComponentGridWrap style={{ alignItems: 'flex-end' }}>
-          <HomeComponentImageWrap
-            style={{
-              backgroundImage: `url(${ourapproach1})`,
-            }}
-          ></HomeComponentImageWrap>
+          <HomeComponentImageWrap $src={home_ourapproach1}></HomeComponentImageWrap>
         </ComponentGridWrap>
         <ComponentGridWrap>
-          <HomeComponentImageWrap
-            style={{
-              backgroundImage: `url(${ourapproach1})`,
-            }}
-          ></HomeComponentImageWrap>
+          <HomeComponentImageWrap $src={home_ourapproach2}></HomeComponentImageWrap>
         </ComponentGridWrap>
         <ComponentGridWrap>
           <ComponentTextWrap
@@ -149,14 +139,10 @@ const Home = () => {
           </ComponentTextWrap>
         </ComponentGridWrap>
         <ComponentGridWrap style={{ alignItems: 'flex-end' }}>
-          <HomeComponentImageWrap
-            style={{
-              backgroundImage: `url(${ourapproach1})`,
-            }}
-          ></HomeComponentImageWrap>
+          <HomeComponentImageWrap $src={home_ourapproach3}></HomeComponentImageWrap>
         </ComponentGridWrap>
       </HomeComponentWrap>
-      <HomeComponentWrap style={{ minHeight: 'fit-content' }}>
+      <HomeComponentWrap className="home home_4" style={{ minHeight: 'fit-content' }}>
         <HomeVideoWrap />
       </HomeComponentWrap>
       <HomeComponentWrap style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '12vh 0' }}>
@@ -176,7 +162,10 @@ const Home = () => {
           <SubPageButton linkTo="irpr" title="IR & PR" />
         </div>
       </HomeComponentWrap>
-      <HomeComponentWrap style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '12vh 0' }}>
+      <HomeComponentWrap
+        className="home home_5"
+        style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '12vh 0' }}
+      >
         <ComponentText style={{ fontSize: '60px', fontWeight: '500', alignSelf: 'start' }}>Notice</ComponentText>
         <div
           style={{
@@ -212,8 +201,8 @@ const Home = () => {
               }}
             >
               <HomeComponentImageWrap
+                $src={item.imageUrl}
                 style={{
-                  backgroundImage: `url(${item.imageUrl})`,
                   width: '100%',
                   height: '100%',
                   display: 'flex',
@@ -222,10 +211,14 @@ const Home = () => {
                   gap: '2rem',
                   padding: '3em 3em',
                   fontWeight: '300',
+                  position: 'relative',
                 }}
               >
-                <p style={{ fontSize: '22px', color: '#D1D1D1' }}>{item.date}</p>
-                <p style={{ fontSize: '26px', color: '#E5E5E5', lineHeight: '1.3em' }}>{item.title}</p>
+                <FilterShadow />
+                <p style={{ position: 'relative', fontSize: '22px', color: '#D1D1D1' }}>{item.date}</p>
+                <p style={{ position: 'relative', fontSize: '26px', color: '#E5E5E5', lineHeight: '1.3em' }}>
+                  {item.title}
+                </p>
               </HomeComponentImageWrap>
             </ComponentGridWrap>
           ))}

@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'pretendard';
     background-color: '#121212';
+    height: 100%;
   }
   div {
     box-sizing: border-box;
@@ -30,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.2;
     overscroll-behavior: none;
     background-color: '#121212';
+    cursor: default;
   }
 `;
 

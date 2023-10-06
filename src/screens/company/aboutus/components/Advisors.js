@@ -12,6 +12,7 @@ const TabContentWrap = styled.div`
   justify-content: start;
   align-items: left;
   background-color: transparent;
+  row-gap: 5em;
 `;
 
 const ContentBox = styled.div`
@@ -26,7 +27,7 @@ const ContentBox = styled.div`
   border-left: 1px solid #ffffff;
   background-color: transparent;
   &:nth-child(3n + 2) {
-    margin-top: 10vh;
+    margin-top: 8vh;
   }
 `;
 
@@ -49,8 +50,62 @@ const SchoolText = styled.div`
 const Advisors = () => {
   const [tabContents, setTabContents] = useState([
     { name: 'Sharon Sha', position: 'MD', description: 'Neurology, Stanford University' },
-    { name: 'Sharon Sha', position: 'MD', description: 'Neurology, Stanford University' },
-    { name: 'Sharon Sha', position: 'MD', description: 'Neurology, Stanford University' },
+    { name: 'Sang-Yun Kim', position: 'MD, PhD', description: 'Neurology, Seoul National University Bundang Hospital' },
+    {
+      name: 'Jeffrey Cummings',
+      position: 'MD, ScD',
+      description: 'Neurology, UNLV school of integrated Health Sciences',
+    },
+    {
+      name: 'Douglas Galasko',
+      position: 'MD',
+      description: 'Neurology, UCSD',
+    },
+    {
+      name: 'Atticus Hainsworth',
+      position: 'PhD',
+      description: 'Neuroscience, St. George’s University of London',
+    },
+    {
+      name: 'David Knopman',
+      position: 'MD',
+      description: 'Neurology, Mayo Clinic',
+    },
+    {
+      name: 'Niels Prins',
+      position: 'MD, PhD',
+      description: 'CEO, Brain Research Center',
+    },
+    {
+      name: 'Marwan Sabbagh',
+      position: 'MD',
+      description: 'Neurology, Barrow Neurological Institute',
+    },
+    {
+      name: 'Charlotte Teunissen',
+      position: 'PhD',
+      description: 'Neurology, Barrow Neurological Institute',
+    },
+    {
+      name: 'Kaj Blennow',
+      position: 'MD, PhD',
+      description: 'Neurochemistry, University of Gothenburg ',
+    },
+    {
+      name: 'Yong-Keun Jung',
+      position: 'PhD',
+      description: 'Molecular Biology, College of Life Sciences, Seoul National University',
+    },
+    {
+      name: 'Se-Kwang Ku',
+      position: 'PhD',
+      description: 'Toxicology, Daegu Haany University, College of Oriental Medicine',
+    },
+    {
+      name: 'Byeongsuk Ye',
+      position: 'MD,PhD',
+      description: 'Neurology, Yonsei University Severance Hospital',
+    },
   ]);
   return (
     <HomeComponentWrap

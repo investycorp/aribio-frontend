@@ -6,7 +6,7 @@ const Container = styled.div`
   height: fit-content;
   background-color: #121212;
   color: #ffffff;
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
@@ -24,6 +24,7 @@ const ContainerGridLineWrap = styled.div`
   top: 0;
   left: 0;
   overflow: hidden;
+  z-index: 0;
 `;
 
 const GridLineBox = styled.div`
@@ -42,7 +43,8 @@ const MainImgWrap = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: green;
+  background-color: #121212;
+  background-image: url(${(props) => props.$src});
   z-index: 5;
 `;
 

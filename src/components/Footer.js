@@ -5,6 +5,7 @@ import arrow from '../assets/images/arrow.svg';
 import GoToTop from './buttons/GoToTop';
 
 const FooterContainer = styled.div`
+  position: relative;
   width: 100%;
   height: fit-content;
   background-color: #000000;

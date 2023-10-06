@@ -12,13 +12,23 @@ import {
   DescriptionWrap,
   DescriptionItem,
 } from '../style';
+import aboutus_ceo from '../assets/aboutus_ceo.png';
+import aboutus_coo from '../assets/aboutus_coo.png';
+import aboutus_cio from '../assets/aboutus_cio.png';
+import aboutus_cmo from '../assets/aboutus_cmo.png';
+import aboutus_cfo from '../assets/aboutus_cfo.png';
+import aboutus_clo from '../assets/aboutus_clo.png';
+import aboutus_cqo from '../assets/aboutus_cqo.png';
+import aboutus_brchead from '../assets/aboutus_brchead.png';
+import aboutus_rndhead from '../assets/aboutus_rndhead.png';
+import aboutus_cco from '../assets/aboutus_cco.png';
 
 const Leadership = () => {
   const [tabContents, setTabContents] = useState([
     {
       position: 'CEO & Chairman',
       name: 'Jai Jun Choung',
-      photo: leadershipphoto1,
+      photo: aboutus_ceo,
       isOpen: true,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',
@@ -33,7 +43,7 @@ const Leadership = () => {
     {
       position: 'Chief Operating Officer',
       name: 'Myung-Yoon, Chun',
-      photo: leadershipphoto1,
+      photo: aboutus_coo,
       isOpen: false,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',
@@ -44,7 +54,7 @@ const Leadership = () => {
     {
       position: 'Chief Information Officer',
       name: 'Jin-Woo, Kim',
-      photo: leadershipphoto1,
+      photo: aboutus_cio,
       isOpen: false,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',
@@ -53,9 +63,9 @@ const Leadership = () => {
       ],
     },
     {
-      position: 'Chief Information Officer',
-      name: 'Jin-Woo, Kim',
-      photo: leadershipphoto1,
+      position: 'Chief Medical Officer',
+      name: 'Dr. Greeley',
+      photo: aboutus_cmo,
       isOpen: false,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',
@@ -64,9 +74,9 @@ const Leadership = () => {
       ],
     },
     {
-      position: 'Chief Information Officer',
-      name: 'Jin-Woo, Kim',
-      photo: leadershipphoto1,
+      position: 'Chief Finance Officer',
+      name: 'Hyuk, Song',
+      photo: aboutus_cfo,
       isOpen: false,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',
@@ -75,9 +85,9 @@ const Leadership = () => {
       ],
     },
     {
-      position: 'Chief Information Officer',
-      name: 'Jin-Woo, Kim',
-      photo: leadershipphoto1,
+      position: 'Chief Legal Officer',
+      name: 'Ju-Hyung, Lee',
+      photo: aboutus_clo,
       isOpen: false,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',
@@ -86,9 +96,9 @@ const Leadership = () => {
       ],
     },
     {
-      position: 'Chief Information Officer',
-      name: 'Jin-Woo, Kim',
-      photo: leadershipphoto1,
+      position: 'Chief Quality Officer',
+      name: 'Na-Young, Kim',
+      photo: aboutus_cqo,
       isOpen: false,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',
@@ -97,9 +107,9 @@ const Leadership = () => {
       ],
     },
     {
-      position: 'Chief Information Officer',
-      name: 'Jin-Woo, Kim',
-      photo: leadershipphoto1,
+      position: 'BRC Head',
+      name: 'Dong-Keun, Song',
+      photo: aboutus_brchead,
       isOpen: false,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',
@@ -108,9 +118,9 @@ const Leadership = () => {
       ],
     },
     {
-      position: 'Chief Information Officer',
-      name: 'Jin-Woo, Kim',
-      photo: leadershipphoto1,
+      position: 'R&BD Head',
+      name: 'Jae-Young, Ha',
+      photo: aboutus_rndhead,
       isOpen: false,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',
@@ -119,9 +129,9 @@ const Leadership = () => {
       ],
     },
     {
-      position: 'Chief Information Officer',
-      name: 'Jin-Woo, Kim',
-      photo: leadershipphoto1,
+      position: 'Chief Clinical Officer',
+      name: 'James Rock',
+      photo: aboutus_cco,
       isOpen: false,
       description: [
         'University of Glasgow, Physiological Biochemistry, PhD',

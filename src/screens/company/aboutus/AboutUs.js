@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import ContainerHeight from '../../../atom/ContainerHeight';
+
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
-import SideSlider from '../../../components/SideSlider';
-import GetContainerHeight from '../../../utils/GetContainerHeight';
+
 import {
   Container,
   MainImgWrap,
@@ -19,47 +16,28 @@ import {
   Text,
   Tab,
   TabItem,
-  TabContentWrap,
-  ContentBox,
-  ContentBoxNameWrap,
-  Image,
-  DescriptionWrap,
-  DescriptionItem,
 } from './style';
 import Leadership from './components/Leadership';
 import Advisors from './components/Advisors';
+import aboutus_cover from './assets/aboutus_cover.png';
 
 const AboutUs = () => {
-  const [containerHeight, setContainerHeight] = useRecoilState(ContainerHeight);
-  const totalHeight = useRecoilValue(ContainerHeight);
-  const [tabNames, settabNames] = useState(['Leadership', 'Advisors']);
+  const [tabNames, setTabNames] = useState(['Leadership', 'Advisors']);
   const [currentTab, setCurrentTab] = useState('Leadership');
 
-  GetContainerHeight();
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  //   window.addEventListener('resize', () => {
-  //     setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  //     console.log('RESIZE');
-  //   });
-  //   return () => {
-  //     window.removeEventListener('resize', () => {
-  //       setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  //     });
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Container className="container">
-      <ContainerGridLineWrap $height={totalHeight}>
-        <GridLineBox style={{ borderLeft: '2px solid #5d5d5d' }} />
+      <ContainerGridLineWrap>
+        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
         <GridLineBox />
         <GridLineBox />
       </ContainerGridLineWrap>
       <Header />
-      <SideSlider />
       <Path>{`HOME > COMPANY > ABOUT US`}</Path>
-      <MainImgWrap>
+      <MainImgWrap $src={aboutus_cover}>
         <HeadLine>
           ABOUT <br /> US
         </HeadLine>

@@ -6,7 +6,7 @@ const Container = styled.div`
   height: fit-content;
   background-color: #121212;
   color: #ffffff;
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
@@ -14,26 +14,28 @@ const Container = styled.div`
 `;
 
 const ContainerGridLineWrap = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: grid;
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 7vw;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   overflow: hidden;
+  z-index: 0;
 `;
 
 const GridLineBox = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  border-right: 2px solid #5d5d5d;
+  border-right: 2px solid rgba(177, 177, 177, 0.3);
 `;
 
 const MainImgWrap = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -42,8 +44,9 @@ const MainImgWrap = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: green;
-  z-index: 5;
+  background-color: #121212;
+  background-image: url(${(props) => props.$src});
+  z-index: 10;
 `;
 
 const Path = styled.div`
@@ -66,6 +69,7 @@ const HeadLine = styled.div`
   font-weight: 500;
 `;
 const HomeComponentWrap = styled.div`
+  position: relative;
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
@@ -100,6 +104,7 @@ const Text = styled.div`
 `;
 
 const Tab = styled.div`
+  position: relative;
   width: 100%;
   height: fit-content;
   display: flex;

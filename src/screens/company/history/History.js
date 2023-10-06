@@ -1,58 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import ContainerHeight from '../../../atom/ContainerHeight';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
-import GetContainerHeight from '../../../utils/GetContainerHeight';
+import history_cover from './assets/history_cover.png';
 import Tab1 from './components/Tab1.js';
 import Tab2 from './components/Tab2.js';
 import Tab3 from './components/Tab3.js';
-
-import {
-  Container,
-  MainImgWrap,
-  ContainerGridLineWrap,
-  GridLineBox,
-  Path,
-  HeadLine,
-  HomeComponentWrap,
-  TextWrap,
-  Text,
-  Tab,
-  TabItem,
-  TabContentWrap,
-  ContentBox,
-  ContentBoxNameWrap,
-  Image,
-  DescriptionWrap,
-  DescriptionItem,
-} from './style';
+import { Container, MainImgWrap, Path, HeadLine, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './style';
 
 const History = () => {
   const [tabNames, setTabNames] = useState(['2019-2023', '2013-2018', '2010-2012']);
   const [currentTab, setCurrentTab] = useState('2019-2023');
 
-  GetContainerHeight();
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  //   window.addEventListener('resize', () => {
-  //     setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  //     console.log('RESIZE');
-  //   });
-  //   return () => {
-  //     window.removeEventListener('resize', () => {
-  //       setContainerHeight(document.getElementsByClassName('container')[0]?.clientHeight);
-  //     });
-  //   };
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Container className="container">
       <Header />
       <Path>{`HOME > COMPANY > HISTORY`}</Path>
-      <MainImgWrap>
+      <MainImgWrap $src={history_cover}>
         <HeadLine>HISTORY</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
@@ -69,7 +37,7 @@ const History = () => {
             style={{
               width: '50%',
               alignSelf: 'flex-start',
-              height: '3em',
+              height: '8em',
               borderRight: '2px solid #ffffff',
               margin: '2rem 0',
             }}

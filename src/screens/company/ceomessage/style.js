@@ -6,7 +6,7 @@ const Container = styled.div`
   height: fit-content;
   background-color: #121212;
   color: #ffffff;
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
@@ -14,26 +14,28 @@ const Container = styled.div`
 `;
 
 const ContainerGridLineWrap = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: grid;
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 7vw;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   overflow: hidden;
+  z-index: 0;
 `;
 
 const GridLineBox = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  border-right: 2px solid #5d5d5d;
+  border-right: 2px solid rgba(177, 177, 177, 0.2);
 `;
 
 const MainImgWrap = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -42,9 +44,9 @@ const MainImgWrap = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: transparent;
+  background-color: #121212;
   background-image: url(${(props) => props.$src});
-  z-index: 5;
+  z-index: 10;
 `;
 
 const Path = styled.div`
@@ -67,6 +69,7 @@ const HeadLine = styled.div`
   font-weight: 500;
 `;
 const HomeComponentWrap = styled.div`
+  position: relative;
   width: 100%;
   max-width: 100%;
   height: fit-content;
@@ -172,34 +175,6 @@ const Image = styled.img`
   z-index: 10;
 `;
 
-const DescriptionWrap = styled.ul`
-  position: absolute;
-  top: 4em;
-  left: 0;
-  height: fit-content;
-  display: flex;
-  visibility: ${(props) => (props.$isActive ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.$isActive ? '1' : '0')};
-  flex-direction: column;
-  justify-content: start;
-  align-items: left;
-  gap: 0.5rem;
-  background-color: transparent;
-  padding: 0 40px 0 3.1vw;
-  transition: all 0.2s ease-in-out;
-`;
-const DescriptionItem = styled.li`
-  width: 100%;
-  height: fit-content;
-  text-align: left;
-  font-size: 18px;
-  color: #f2f2f2;
-  font-weight: 100;
-  line-height: 1.5em;
-  list-style: disc;
-  list-style-position: outside;
-`;
-
 export {
   Container,
   MainImgWrap,
@@ -216,6 +191,4 @@ export {
   ContentBox,
   ContentBoxNameWrap,
   Image,
-  DescriptionWrap,
-  DescriptionItem,
 };
