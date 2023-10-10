@@ -147,7 +147,7 @@ const Header = () => {
     { title: 'Pipeline', linkTo: 'pipeline' },
     { title: 'IR & PR', linkTo: 'irpr' },
     { title: 'Career', linkTo: 'career' },
-    { title: 'Contact', linkTo: 'contact' },
+    { title: 'Contact', linkTo: 'contactus' },
     { title: 'Open Innovation', linkTo: 'openinnovation' },
   ]);
   const [subMenu, setSubMenu] = useState({
@@ -162,6 +162,9 @@ const Header = () => {
       { title: 'AI Platform', linkTo: 'aiplatform' },
       { title: 'Publications', linkTo: 'publications' },
     ],
+    career: [{ title: 'Career', linkTo: 'career' }],
+    contactus: [{ title: 'Contact Us', linkTo: 'contactus' }],
+    openinnovation: [{ title: 'Open Innovation', linkTo: 'openinnovation' }],
   });
   const [navBarwidth, setNavBarWidth] = useState(0);
   const location = useLocation();
@@ -224,8 +227,8 @@ const Header = () => {
                 setCurrentMenu(menu.linkTo);
               }}
               onClick={() => {
-                if (menu.linkTo === 'career') {
-                  if (currentTab !== 'career') navigate('/career');
+                if (menu.linkTo === 'career' || menu.linkTo === 'contactus' || menu.linkTo === 'openinnovation') {
+                  if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
                   else window.location.reload();
                 }
               }}
@@ -248,34 +251,30 @@ const Header = () => {
         </HeaderNavWrap>
         <LangButton />
       </HeaderTop>
-      {currentMenu !== 'career' && (
-        <>
-          <BlurBoxBottom
-            style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-          />
-          <HeaderBottom
-            className={`header-bottom ${currentMenu}`}
-            style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-          >
-            <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
-              {subMenu[currentMenu]?.map((menu) => (
-                <Link
-                  to={`/${menu.linkTo}`}
-                  style={{ textDecoration: 'none' }}
-                  key={menu.linkTo}
-                  onClick={() => {
-                    if (menu.linkTo === location.pathname.split('/')[1]) {
-                      window.location.reload();
-                    }
-                  }}
-                >
-                  <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
-                </Link>
-              ))}
-            </HeaderNavWrap>
-          </HeaderBottom>
-        </>
-      )}
+      <BlurBoxBottom
+        style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+      />
+      <HeaderBottom
+        className={`header-bottom ${currentMenu}`}
+        style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+      >
+        <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
+          {subMenu[currentMenu]?.map((menu) => (
+            <Link
+              to={`/${menu.linkTo}`}
+              style={{ textDecoration: 'none' }}
+              key={menu.linkTo}
+              onClick={() => {
+                if (menu.linkTo === location.pathname.split('/')[1]) {
+                  window.location.reload();
+                }
+              }}
+            >
+              <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
+            </Link>
+          ))}
+        </HeaderNavWrap>
+      </HeaderBottom>
     </HeaderContainer>
   );
 };

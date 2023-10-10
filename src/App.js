@@ -13,6 +13,11 @@ import Ci from './screens/company/ci/Ci';
 import PolyPharmacology from './screens/ourapproach/PolyPharmacology';
 import AiPlatform from './screens/ourapproach/AiPlatform';
 import Publications from './screens/ourapproach/Publications';
+import PipeLine from './screens/pipeline/PipeLine';
+import Notice from './screens/irpr/notice/Notice';
+import PressRelease from './screens/irpr/pressrelease/PressRelease';
+import Contact from './screens/contact/Contact';
+import OpenInnovation from './screens/openinnovation/OpenInnovation';
 
 function App() {
   document.addEventListener('contextmenu', (event) => {
@@ -30,9 +35,14 @@ function App() {
             <Route path="/ceomessage" element={<CeoMessage />} />
             <Route path="/ci" element={<Ci />} />
             <Route path="/career" element={<Career />} />
+            <Route path="/contactus" element={<Contact />} />
+            <Route path="/openinnovation" element={<OpenInnovation />} />
             <Route path="/poly-pharmacology" element={<PolyPharmacology />} />
             <Route path="/aiplatform" element={<AiPlatform />} />
             <Route path="/publications" element={<Publications />} />
+            <Route path="/pipeline" element={<PipeLine />} />
+            <Route path="/notice" element={<Notice />} />
+            <Route path="/pressrelease" element={<PressRelease />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </BrowserRouter>
