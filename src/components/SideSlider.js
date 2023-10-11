@@ -61,7 +61,7 @@ const SideSlider = () => {
     for (let i = 1; i < document.getElementsByClassName('home').length + 1; i++) {
       setOffsetHeights((prev) => [
         ...prev,
-        document.querySelector(`.home_${i}`).offsetTop + document.querySelector(`.home_${i}`).offsetHeight * 0.7,
+        document.querySelector(`.home_${i}`)?.offsetTop + document.querySelector(`.home_${i}`)?.offsetHeight * 0.7,
       ]);
     }
     window.addEventListener('scroll', handleScroll);
@@ -78,7 +78,7 @@ const SideSlider = () => {
     for (let i = 1; i < document.getElementsByClassName('home').length + 1; i++) {
       if (
         currentScrollY <
-        document.querySelector(`.home_${i}`).offsetTop + document.querySelector(`.home_${i}`).offsetHeight * 0.7
+        document.querySelector(`.home_${i}`)?.offsetTop + document.querySelector(`.home_${i}`)?.offsetHeight * 0.7
       ) {
         setScrollNumber(i - 1);
         break;

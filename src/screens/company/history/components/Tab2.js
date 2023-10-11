@@ -140,22 +140,22 @@ const Tab2 = () => {
     console.log(currentTab);
     switch (true) {
       case scrollY <=
-        document.getElementsByClassName('2018')[0].offsetTop +
-          document.getElementsByClassName('2018')[0].offsetHeight * 0.6:
+        document.getElementsByClassName('2018')[0]?.offsetTop +
+          document.getElementsByClassName('2018')[0]?.offsetHeight * 0.6:
         setScrollTab('2018');
         break;
       case scrollY <=
-        document.getElementsByClassName('2017')[0].offsetTop +
-          document.getElementsByClassName('2017')[0].offsetHeight * 0.6:
+        document.getElementsByClassName('2017')[0]?.offsetTop +
+          document.getElementsByClassName('2017')[0]?.offsetHeight * 0.6:
         setScrollTab('2017');
         break;
       case scrollY <=
-        document.getElementsByClassName('2016')[0].offsetTop +
+        document.getElementsByClassName('2016')[0]?.offsetTop +
           document.getElementsByClassName('2016')[0].offsetHeight * 0.6:
         setScrollTab('2016');
         break;
       case scrollY <=
-        document.getElementsByClassName('2014')[0].offsetTop +
+        document.getElementsByClassName('2014')[0]?.offsetTop +
           document.getElementsByClassName('2014')[0].offsetHeight * 0.6:
         setScrollTab('2014');
         break;
@@ -165,8 +165,8 @@ const Tab2 = () => {
   };
 
   useEffect(() => {
-    const scrollY = document.getElementsByClassName(currentTab)[0].offsetTop;
-    document.getElementsByClassName('description-grid')[0].scrollTo(0, scrollY, 'smooth');
+    const scrollY = document.getElementsByClassName(currentTab)[0]?.offsetTop;
+    document.getElementsByClassName('description-grid')[0]?.scrollTo(0, scrollY, 'smooth');
   }, [currentTab]);
 
   useEffect(() => {

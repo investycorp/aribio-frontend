@@ -7,6 +7,7 @@ import home_cover from './assets/home_cover.png';
 import home_ourapproach1 from './assets/home_ourapproach1.png';
 import home_ourapproach2 from './assets/home_ourapproach2.png';
 import home_ourapproach3 from './assets/home_ourapproach3.png';
+import home_mediakit_video from './assets/home_mediakit_video.png';
 import home_notice1 from './assets/home_notice1.png';
 import home_notice2 from './assets/home_notice2.png';
 import home_notice3 from './assets/home_notice3.png';
@@ -142,10 +143,11 @@ const Home = () => {
           <HomeComponentImageWrap $src={home_ourapproach3}></HomeComponentImageWrap>
         </ComponentGridWrap>
       </HomeComponentWrap>
-      <HomeComponentWrap className="home home_4" style={{ minHeight: 'fit-content' }}>
-        <HomeVideoWrap />
-      </HomeComponentWrap>
-      <HomeComponentWrap style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '12vh 0' }}>
+      <HomeComponentWrap
+        className="home home_4"
+        style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '12vh 0' }}
+      >
+        <img style={{ margin: '5em 0' }} src={home_mediakit_video} alt="home_mediakit_video" />
         <ComponentText style={{ fontSize: '60px', fontWeight: '500', alignSelf: 'start' }}>Media Kit</ComponentText>
         <div
           style={{

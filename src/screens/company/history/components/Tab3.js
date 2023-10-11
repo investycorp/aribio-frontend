@@ -116,8 +116,8 @@ const Tab3 = () => {
     console.log(currentTab);
     switch (true) {
       case scrollY <=
-        document.getElementsByClassName('2011')[0].offsetTop +
-          document.getElementsByClassName('2011')[0].offsetHeight * 0.5:
+        document.getElementsByClassName('2011')[0]?.offsetTop +
+          document.getElementsByClassName('2011')[0]?.offsetHeight * 0.5:
         setScrollTab('2011');
         break;
       default:
@@ -126,8 +126,8 @@ const Tab3 = () => {
   };
 
   useEffect(() => {
-    const scrollY = document.getElementsByClassName(currentTab)[0].offsetTop;
-    document.getElementsByClassName('description-grid')[0].scrollTo(0, scrollY, 'smooth');
+    const scrollY = document.getElementsByClassName(currentTab)[0]?.offsetTop;
+    document.getElementsByClassName('description-grid')[0]?.scrollTo(0, scrollY, 'smooth');
   }, [currentTab]);
 
   useEffect(() => {

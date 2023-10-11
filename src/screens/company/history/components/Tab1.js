@@ -166,23 +166,23 @@ const Tab1 = () => {
     console.log(currentTab);
     switch (true) {
       case scrollY <=
-        document.getElementsByClassName('2023')[0].offsetTop +
-          document.getElementsByClassName('2023')[0].offsetHeight * 0.7:
+        document.getElementsByClassName('2023')[0]?.offsetTop +
+          document.getElementsByClassName('2023')[0]?.offsetHeight * 0.7:
         setScrollTab('2023');
         break;
       case scrollY <=
-        document.getElementsByClassName('2022')[0].offsetTop +
-          document.getElementsByClassName('2022')[0].offsetHeight * 0.7:
+        document.getElementsByClassName('2022')[0]?.offsetTop +
+          document.getElementsByClassName('2022')[0]?.offsetHeight * 0.7:
         setScrollTab('2022');
         break;
       case scrollY <=
-        document.getElementsByClassName('2021')[0].offsetTop +
-          document.getElementsByClassName('2021')[0].offsetHeight * 0.7:
+        document.getElementsByClassName('2021')[0]?.offsetTop +
+          document.getElementsByClassName('2021')[0]?.offsetHeight * 0.7:
         setScrollTab('2021');
         break;
       case scrollY <=
-        document.getElementsByClassName('2020')[0].offsetTop +
-          document.getElementsByClassName('2020')[0].offsetHeight * 0.7:
+        document.getElementsByClassName('2020')[0]?.offsetTop +
+          document.getElementsByClassName('2020')[0]?.offsetHeight * 0.7:
         setScrollTab('2020');
         break;
       default:
@@ -191,8 +191,8 @@ const Tab1 = () => {
   };
 
   useEffect(() => {
-    const scrollY = document.getElementsByClassName(currentTab)[0].offsetTop;
-    document.getElementsByClassName('description-grid')[0].scrollTo(0, scrollY, 'smooth');
+    const scrollY = document.getElementsByClassName(currentTab)[0]?.offsetTop;
+    document.getElementsByClassName('description-grid')[0]?.scrollTo(0, scrollY, 'smooth');
   }, [currentTab]);
 
   useEffect(() => {

@@ -163,7 +163,10 @@ const HomeVideoWrap = styled.div`
   margin: 0;
   padding: 0;
   display: block;
-  background-color: aquamarine;
+  background-image: ${(props) => props.$src};
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100vw;
   height: 40vw;
 `;
