@@ -111,13 +111,14 @@ const Footer = () => {
           alignItems: 'start',
           flexDirection: 'row',
           justifyContent: 'space-evenly',
+          gap: '1em',
         }}
       >
         <ContactBox>
           <ContactBoxTitle>TEL.</ContactBoxTitle>
-          <ContactBoxText>02-0000-0000</ContactBoxText>
+          <ContactBoxText>02-2637-0009</ContactBoxText>
           <ContactBoxTitle>FAX.</ContactBoxTitle>
-          <ContactBoxText>02-0000-0000</ContactBoxText>
+          <ContactBoxText>02-2633-9911</ContactBoxText>
         </ContactBox>
         <ContactBox
           style={{
@@ -137,10 +138,11 @@ const Footer = () => {
           </AddressWrap>
           <AddressWrap>
             <ContactBoxTitle>US Office.</ContactBoxTitle>
-            <ContactBoxText>Suite 210,</ContactBoxText>
-            <ContactBoxText>3636 Nobel Drive,</ContactBoxText>
-            <ContactBoxText>San Diego, CA 92112, USA</ContactBoxText>
+            <ContactBoxText>4660 La Jolla Village Dr.</ContactBoxText>
+            <ContactBoxText>Suite 1070,</ContactBoxText>
+            <ContactBoxText>San Diego, CA 92112</ContactBoxText>
           </AddressWrap>
+
           <GoToTop />
         </ContactBox>
       </FooterGridWrap>

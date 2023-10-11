@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
@@ -201,7 +201,7 @@ const DescriptionItem = styled.li`
   color: #f2f2f2;
   font-weight: 100;
   line-height: 1.5em;
-  list-style: disc outside;
+  list-style: none outside;
 `;
 
 const FilterShadow = styled.div`
@@ -252,7 +252,7 @@ const ShootingStar = styled.span`
     position: absolute;
     top: 25%;
     right: 0;
-    width: ${(props) => (props.$width ? `calc(${props.$width}*0.8)` : '300px')};
+    width: calc(10vw);
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
   }
@@ -266,7 +266,7 @@ const ShootingStar = styled.span`
       opacity: 1;
     }
     100% {
-      transform: translateX(${(props) => (props.$width ? `calc(${props.$width})` : '300px')});
+      transform: translateX(calc(10vw));
       opacity: 0;
     }
   }

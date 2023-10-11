@@ -315,7 +315,7 @@ const Career = () => {
               </ContentBox>
               <ContentBox style={{ paddingRight: '8vw', justifyContent: 'space-between' }}>
                 <ShootingStarWrap className="shootingstar_wrap">
-                  <ShootingStar $width={`${document.querySelector('.shootingstar_wrap')?.offsetWidth}px`} />
+                  <ShootingStar $width={document.querySelector('.shootingstar_wrap')?.offsetWidth} />
                 </ShootingStarWrap>
                 <Text $fontSize="20px" $fontWeight="300" $color="#C9C9C9" $align="start" style={{ width: '70%' }}>
                   {item.desc}
