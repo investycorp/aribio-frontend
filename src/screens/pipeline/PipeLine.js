@@ -13,7 +13,7 @@ const PipeLine = () => {
   return (
     <Container className="container">
       <Header />
-      <Path>{`HOME > COMPANY > PIPELINE`}</Path>
+      <Path>{`HOME > PIPELINE`}</Path>
       <MainImgWrap $src={pipeline_cover}>
         <HeadLine>PIPELINE</HeadLine>
         <img

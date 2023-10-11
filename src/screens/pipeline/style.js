@@ -55,7 +55,7 @@ const Path = styled.div`
   color: #ffffff;
   font-size: 20px;
   font-weight: 300;
-  align: left;
+  text-align: left;
   z-index: 20;
 `;
 

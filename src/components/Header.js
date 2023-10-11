@@ -162,6 +162,7 @@ const Header = () => {
       { title: 'AI Platform', linkTo: 'aiplatform' },
       { title: 'Publications', linkTo: 'publications' },
     ],
+    pipeline: [{ title: 'PIPELINE', linkTo: 'pipeline' }],
     career: [{ title: 'Career', linkTo: 'career' }],
     contactus: [{ title: 'Contact Us', linkTo: 'contactus' }],
     openinnovation: [{ title: 'Open Innovation', linkTo: 'openinnovation' }],
@@ -227,7 +228,12 @@ const Header = () => {
                 setCurrentMenu(menu.linkTo);
               }}
               onClick={() => {
-                if (menu.linkTo === 'career' || menu.linkTo === 'contactus' || menu.linkTo === 'openinnovation') {
+                if (
+                  menu.linkTo === 'career' ||
+                  menu.linkTo === 'contactus' ||
+                  menu.linkTo === 'openinnovation' ||
+                  menu.linkTo === 'pipeline'
+                ) {
                   if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
                   else window.location.reload();
                 }
