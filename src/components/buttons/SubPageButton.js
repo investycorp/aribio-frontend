@@ -28,10 +28,15 @@ const SubPageButton = ({ title, linkTo, align }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          cursor: 'pointer',
         }}
       >
-        <span style={{ fontSize: '26px', fontWeight: '300', marginRight: '1rem' }}>{title}</span>
-        <img src={arrow} alt="arrow" style={{ border: '2px solid #ffffff', borderRadius: '50%', height: '40px' }} />
+        <span style={{ fontSize: '26px', fontWeight: '300', marginRight: '1rem', zIndex: '-1' }}>{title}</span>
+        <img
+          src={arrow}
+          alt="arrow"
+          style={{ zIndex: '-1', border: '2px solid #ffffff', borderRadius: '50%', height: '40px' }}
+        />
       </Link>
     </Container>
   );

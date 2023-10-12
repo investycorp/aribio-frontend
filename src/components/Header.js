@@ -221,7 +221,7 @@ const Header = () => {
               if (location.pathname === '/') window.location.reload();
             }}
           >
-            <img src={Logo} alt="logo" />
+            <img style={{ cursor: 'pointer' }} src={Logo} alt="logo" />
           </Link>
         </HeaderLogoWrap>
         <HeaderNavWrap className="header-navwrap">
@@ -299,9 +299,9 @@ const LangButton = () => {
     else setLanguage('ENG');
   };
   return (
-    <HeaderLangButton onClick={handleClick}>
-      <img src={lang_globe} alt="lang" />
-      <div>{language}</div>
+    <HeaderLangButton style={{ cursor: 'pointer' }} onClick={handleClick}>
+      <img style={{ zIndex: '-1', cursor: 'pointer' }} src={lang_globe} alt="lang" />
+      <div style={{ zIndex: '-1', cursor: 'pointer' }}>{language}</div>
     </HeaderLangButton>
   );
 };

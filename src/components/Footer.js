@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import logo from '../assets/images/logo.svg';
 import arrow from '../assets/images/arrow.svg';
 import GoToTop from './buttons/GoToTop';
+import { Link } from 'react-router-dom';
 
 const FooterContainer = styled.div`
   position: relative;
@@ -91,12 +92,16 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterGridWrap style={{ padding: '7vh 6vw 10vh 0', borderRight: '2px solid #5d5d5d' }}>
-        <img src={logo} alt="logo" />
+        <Link style={{ textDecoration: 'none' }} to="/">
+          <img src={logo} alt="logo" style={{ cursor: 'pointer', zIndex: '-1' }} />
+        </Link>
         <ContactUsWrap>
-          <ContactUsBox>
-            <div>CONTACT US</div>
-            <img src={arrow} alt="arrow" style={{ width: '40px', height: '40px' }} />
-          </ContactUsBox>
+          <Link style={{ textDecoration: 'none' }} to="/contactus">
+            <ContactUsBox style={{ cursor: 'pointer' }}>
+              <div style={{ cursor: 'pointer', zIndex: '-1' }}>CONTACT US</div>
+              <img src={arrow} alt="arrow" style={{ width: '40px', height: '40px', cursor: 'pointer', zIndex: '-1' }} />
+            </ContactUsBox>
+          </Link>
           <ContactUsBox
             style={{ border: 'none', width: '100%', padding: '0 1rem 0 0', margin: '0 0 20px 0', color: '#B1B1B1' }}
           >

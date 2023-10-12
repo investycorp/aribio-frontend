@@ -78,7 +78,7 @@ const Home = () => {
             Integrated Drug Development) and Open Innovation.
           </HeadLineText>
         </HomeAboutUsTextWrap>
-        <SubPageButton title="About Us" linkTo="aboutus" />
+        <SubPageButton title="About Us" linkTo="/aboutus" />
       </HomeComponentWrap>
       <HomeComponentWrap
         style={{
@@ -95,7 +95,7 @@ const Home = () => {
           }}
         >
           <div style={{ position: 'absolute', top: '0', left: '0' }}>
-            <SubPageButton title="Our Approach" linkTo="ourapproach" align="flex-start" />
+            <SubPageButton title="Our Approach" linkTo="poly-pharmacology" align="flex-start" />
           </div>
           <ComponentTextWrap
             style={{
@@ -161,7 +161,7 @@ const Home = () => {
           <ComponentText style={{ fontSize: '28px', fontWeight: '300', color: '#AFAFAF' }}>
             Clinical development and Pipeline Extension
           </ComponentText>
-          <SubPageButton linkTo="irpr" title="IR & PR" />
+          <SubPageButton linkTo="notice" title="IR & PR" />
         </div>
       </HomeComponentWrap>
       <HomeComponentWrap

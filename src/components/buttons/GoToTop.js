@@ -27,7 +27,7 @@ const GoToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }}
     >
-      <img src={vertical_arrow} alt="vertical_arrow" />
+      <img style={{ cursor: 'pointer' }} src={vertical_arrow} alt="vertical_arrow" />
     </div>
   );
 };
