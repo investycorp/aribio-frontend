@@ -24,8 +24,9 @@ const ModalContentWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(222, 222, 222, 0.2);
+  background-color: rgba(122, 122, 122, 0.5);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
   border: 2px solid #707070;
   padding: 2rem;
@@ -51,13 +52,15 @@ const ModalDescriotionWrap = styled.div`
   opacity: 1;
   width: 100%;
   height: fit-content;
-  padding: 1em 2em;
+  padding: 1em 1.2em;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   background-color: transparent;
   line-height: 1.5em;
+  font-size: 20px;
+  font-weight: 100;
 `;
 
 const Modal = ({ setIsModalOpen, item, title, content }) => {
@@ -69,8 +72,8 @@ const Modal = ({ setIsModalOpen, item, title, content }) => {
   const handleBlur = (e) => {
     console.log('blur');
     if (!e.currentTarget.contains(e.relatedTarget)) {
-      setIsModalOpen(false);
-      setShow(false);
+      // setIsModalOpen(false);
+      // setShow(false);
     }
   };
   return (
@@ -81,7 +84,7 @@ const Modal = ({ setIsModalOpen, item, title, content }) => {
           console.log('blur');
           handleBlur(e);
         }}
-        tabIndex="0"
+        // tabIndex="1"
       >
         <ModalTitleWrap>
           <span style={{ margin: '1.5em 0' }}>•</span>

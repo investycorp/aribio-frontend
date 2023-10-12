@@ -14,10 +14,12 @@ import PolyPharmacology from './screens/ourapproach/PolyPharmacology';
 import AiPlatform from './screens/ourapproach/AiPlatform';
 import Publications from './screens/ourapproach/Publications';
 import PipeLine from './screens/pipeline/PipeLine';
-import Notice from './screens/irpr/notice/Notice';
-import PressRelease from './screens/irpr/pressrelease/PressRelease';
+import Notice from './screens/irpr/Notice';
+import PressRelease from './screens/irpr/PressRelease';
 import Contact from './screens/contact/Contact';
 import OpenInnovation from './screens/openinnovation/OpenInnovation';
+import NoticeDetailPage from './screens/irpr/detailpage/NoticeDetailPage';
+import DetailPage from './screens/irpr/components/DetailPage';
 
 function App() {
   document.addEventListener('contextmenu', (event) => {
@@ -29,7 +31,7 @@ function App() {
         <GlobalStyle />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/history" element={<History />} />
             <Route path="/ceomessage" element={<CeoMessage />} />
@@ -41,8 +43,12 @@ function App() {
             <Route path="/aiplatform" element={<AiPlatform />} />
             <Route path="/publications" element={<Publications />} />
             <Route path="/pipeline" element={<PipeLine />} />
-            <Route path="/notice" element={<Notice />} />
-            <Route path="/pressrelease" element={<PressRelease />} />
+            <Route path="/notice" element={<Notice />}>
+              <Route path=":id" element={<DetailPage />} />
+            </Route>
+            <Route path="/pressrelease" element={<PressRelease />}>
+              <Route path=":id" element={<DetailPage />} />
+            </Route>
             <Route path="*" element={<Home />} />
           </Routes>
         </BrowserRouter>

@@ -148,6 +148,7 @@ const TableWrap = styled.div`
 const TableRowWrap = styled.div.attrs((props) => ({
   className: props.className,
 }))`
+  position: relative;
   width: 100%;
   height: fit-content;
   display: grid;
@@ -172,6 +173,7 @@ const TableRowWrap = styled.div.attrs((props) => ({
 const TableContentBox = styled.div.attrs((props) => ({
   className: props.className,
 }))`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -183,7 +185,7 @@ const TableContentBox = styled.div.attrs((props) => ({
   text-align: center;
   font-size: 20px;
   font-weight: 100;
-  height: 100%;
+  height: fit-content;
   width: 100%;
 
   &.indication {

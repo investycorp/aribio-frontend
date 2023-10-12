@@ -166,6 +166,10 @@ const Header = () => {
     career: [{ title: 'Career', linkTo: 'career' }],
     contactus: [{ title: 'Contact Us', linkTo: 'contactus' }],
     openinnovation: [{ title: 'Open Innovation', linkTo: 'openinnovation' }],
+    irpr: [
+      { title: 'NOTICE', linkTo: 'notice' },
+      { title: 'PRESS RELEASE', linkTo: 'pressrelease' },
+    ],
   });
   const [navBarwidth, setNavBarWidth] = useState(0);
   const location = useLocation();
