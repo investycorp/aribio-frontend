@@ -14,9 +14,12 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const ContainerGridLineWrap = styled.div`
+const ContainerGridLineWrap = styled.div.attrs((props) => ({
+  className: props.$className,
+}))`
   width: 100vw;
   height: 100vh;
+  visibility: hidden;
   display: grid;
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;
@@ -24,7 +27,12 @@ const ContainerGridLineWrap = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 1;
+  overflow: hidden;
+  transition: visibility 0.1s ease-in-out;
+  &.visible {
+    visibility: visible;
+  }
 `;
 
 const GridLineBox = styled.div`
@@ -36,7 +44,9 @@ const GridLineBox = styled.div`
 `;
 
 const MainImgWrap = styled.div`
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -47,7 +57,7 @@ const MainImgWrap = styled.div`
   background-repeat: no-repeat;
   background-color: #00010c;
   padding-bottom: 10vh;
-  z-index: 5;
+  z-index: 0;
   background-image: url(${(props) => props.$src});
 `;
 

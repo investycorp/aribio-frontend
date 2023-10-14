@@ -159,13 +159,20 @@ const Header = () => {
     ],
     ourapproach: [
       { title: 'POLY-PHARMACOLOGY', linkTo: 'poly-pharmacology' },
-      { title: 'AI Platform', linkTo: 'aiplatform' },
-      { title: 'Publications', linkTo: 'publications' },
+      { title: 'AI PLATFORM', linkTo: 'aiplatform' },
+      { title: 'PUBLICATION', linkTo: 'publications' },
     ],
     pipeline: [{ title: 'PIPELINE', linkTo: 'pipeline' }],
-    career: [{ title: 'Career', linkTo: 'career' }],
-    contactus: [{ title: 'Contact Us', linkTo: 'contactus' }],
-    openinnovation: [{ title: 'Open Innovation', linkTo: 'openinnovation' }],
+    career: [{ title: 'CAREER', linkTo: 'career' }],
+    contactus: [
+      { title: 'PARTNER', linkTo: 'partner' },
+      { title: 'CONTACT US', linkTo: 'contactus' },
+    ],
+    openinnovation: [
+      { title: 'Open Innovation', linkTo: 'openinnovation' },
+      { title: 'Digital Health', linkTo: 'digitalhealth' },
+      { title: 'MEMO:RE PROJECT', linkTo: 'memoreproject' },
+    ],
     irpr: [
       { title: 'NOTICE', linkTo: 'notice' },
       { title: 'PRESS RELEASE', linkTo: 'pressrelease' },
@@ -232,12 +239,7 @@ const Header = () => {
                 setCurrentMenu(menu.linkTo);
               }}
               onClick={() => {
-                if (
-                  menu.linkTo === 'career' ||
-                  menu.linkTo === 'contactus' ||
-                  menu.linkTo === 'openinnovation' ||
-                  menu.linkTo === 'pipeline'
-                ) {
+                if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
                   if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
                   else window.location.reload();
                 }

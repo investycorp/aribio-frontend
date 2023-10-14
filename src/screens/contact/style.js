@@ -84,13 +84,16 @@ const HomeComponentWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
-  width: 50vw;
+  width: 60vw;
   height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  @media screen and (max-width: 1500px) {
+    width: 70vw;
+  }
 `;
 
 const Text = styled.div`
@@ -159,16 +162,6 @@ const ContentBox = styled.div`
   gap: 2rem;
   background-color: transparent;
   // border: 1px solid #ffffff;
-  &:nth-child(3n + 1) {
-    margin-bottom: 20vh;
-  }
-  &:nth-child(3n + 2) {
-    margin-top: 90vh;
-    margin-bottom: 7vh;
-  }
-  &:nth-child(3n) {
-    margin-top: 20vh;
-  }
 `;
 const ContentBoxNameWrap = styled.div`
   position: relative;

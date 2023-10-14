@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
@@ -74,7 +74,6 @@ const HomeComponentWrap = styled.div`
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 100vh;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -86,13 +85,16 @@ const HomeComponentWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
-  width: 50vw;
+  width: 60vw;
   height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  @media (max-width: 1500px) {
+    width: 70vw;
+  }
 `;
 
 const Text = styled.div`
@@ -173,6 +175,115 @@ const ContentBox = styled.div`
     margin-top: 20vh;
   }
 `;
+
+const TableWrap = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin: 10em 0 0 0;
+  padding: 0;
+  background-color: transparent;
+  border: 1px solid #efefef;
+`;
+
+const TableRowWrap = styled.div.attrs((props) => ({
+  className: props.className,
+}))`
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 4fr 3fr 3fr 3fr 3fr 3fr 3fr 3fr;
+  justify-content: center;
+  align-items: stretch;
+  background-color: transparent;
+  border-bottom: 2px solid #efefef;
+  color: #ffffff;
+  &.th {
+    font-size: 20px;
+    font-weight: 300;
+  }
+  &.tr {
+    grid-template-columns: 4fr 3fr 3fr 15fr;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
+const TableContentBox = styled.div.attrs((props) => ({
+  className: props.className,
+}))`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-right: 2px solid rgba(177, 177, 177, 0.3);
+  padding: 1em 0.5em;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 100;
+  height: auto;
+  width: 100%;
+  &.phase {
+    padding: 0;
+    width: fit-parent;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    border-bottom: 2px solid rgba(177, 177, 177, 0.3);
+    span {
+      border-right: 2px solid rgba(177, 177, 177, 0.3);
+      height: 100%;
+
+      &:last-child {
+        border-right: 2px solid transparent;
+      }
+    }
+  }
+
+  &.indication {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: transparent;
+    padding: 0;
+    div {
+      display: grid;
+      grid-template-columns: 17vw 40vw;
+      width: 100%;
+      height: 100%;
+      div.section {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 2px solid rgba(177, 177, 177, 0.3);
+        border-bottom: 2px solid rgba(177, 177, 177, 0.3);
+        padding: 1em 1em;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+
+  .font_xl {
+    font-weight: 500;
+    font-size: 26px;
+  }
+
+  .font_lg {
+    font-size: 24px;
+  }
+`;
 const ContentBoxNameWrap = styled.div`
   position: relative;
   width: 100%;
@@ -233,6 +344,69 @@ const HR = styled.div`
   background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
 `;
 
+const ShootingStarWrap = styled.section`
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ShootingStar = styled.span.attrs((props) => ({
+  className: props.className,
+}))`
+  opacity: 0;
+  position: absolute;
+  top: calc(50%-4px);
+  left: 0%;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 0 10px rgba(255, 255, 255, 0.1),
+    0 0 15px rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transform: rotate(180deg);
+
+  &.animate {
+    opacity: 1;
+    animation-name: ${(props) => move(props.$phase)};
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: ${(props) => (props.$phase ? `calc(${props.$phase}*8vw)` : `calc(10vw)`)};
+    height: 2px;
+    background: linear-gradient(270deg, #ffffff, transparent);
+    transform: translate(0, -50%);
+  }
+`;
+
+const move = (phase) => keyframes`
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(${phase * 100}px);
+    opacity: 1;
+  }
+`;
+
 export {
   Container,
   MainImgWrap,
@@ -253,4 +427,9 @@ export {
   DescriptionItem,
   HR,
   ContentWrap,
+  TableWrap,
+  TableRowWrap,
+  TableContentBox,
+  ShootingStarWrap,
+  ShootingStar,
 };

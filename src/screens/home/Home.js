@@ -50,25 +50,39 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > window.innerHeight * 0.7) {
+        document.querySelector('.grid_bg')?.classList.add('visible');
+      } else {
+        document.querySelector('.grid_bg')?.classList.remove('visible');
+      }
+    });
+    return () => {
+      window.removeEventListener('scroll', () => {
+        console.log('done');
+      });
+    };
   }, []);
 
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
       <Header />
       <SideSlider />
-      <MainImgWrap className="home home_1" $src={home_cover}>
-        <MainImgTextWrap>
+      <MainImgWrap $src={home_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
+      <HomeComponentWrap className="home home_1">
+        <MainImgTextWrap style={{ marginTop: '40vh' }}>
           <HeadLineTitle>OVERCOME</HeadLineTitle>
           <HeadLineTitle style={{ marginBottom: '2rem' }}>NEURODEGENERATION</HeadLineTitle>
           <HeadLineText>We keep striving to develop new therapeutic agents for</HeadLineText>
           <HeadLineText>neurodegenerative diseases hitherto.</HeadLineText>
         </MainImgTextWrap>
-      </MainImgWrap>
+      </HomeComponentWrap>
       <HomeComponentWrap className="home home_2">
         <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
           <HeadLineText $fontSize="60px">AriBio Co., Ltd. is a biotechnology company</HeadLineText>

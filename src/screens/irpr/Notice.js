@@ -41,7 +41,7 @@ const Notice = () => {
   const [searchValue, setSearchValue] = useState('');
   const [detailPage, setDetailPage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [noticeList, setnoticeList] = useState([
+  const [itemList, setItemList] = useState([
     {
       date: '26 JUL 2023',
       title:
@@ -241,12 +241,12 @@ const Notice = () => {
       content: '',
     },
   ]);
-  const [filteredList, setFilteredList] = useState(noticeList);
+  const [filteredList, setFilteredList] = useState(itemList);
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     // if (id) {
     //   setDetailPage(true);
-    //   setCurrentItem(noticeList[id]);
+    //   setCurrentItem(itemList[id]);
     // } else if (!id) {
     //   console.log('!!!!!');
     //   setDetailPage(false);
@@ -267,8 +267,8 @@ const Notice = () => {
       //when page has refreshed from detail page
       console.log('page ID', id);
       setDetailPage(true);
-      setCurrentItem(noticeList[id]);
-      console.log(noticeList[id]);
+      setCurrentItem(itemList[id]);
+      console.log(itemList[id]);
     } else if (!id) {
       //when page came back from detail page by clicking view list button
       //or loaded for the first time
@@ -276,6 +276,7 @@ const Notice = () => {
       setCurrentItem({});
       setSearchValue('');
       setIsLoading(false);
+      setFilteredList(itemList);
     }
   }, [id]);
 
@@ -283,7 +284,7 @@ const Notice = () => {
     setPageNumber(1);
     const value = val.toString().toLowerCase();
     setFilteredList(
-      noticeList.filter((doc) => {
+      itemList.filter((doc) => {
         if (doc.title?.toLowerCase().includes(value) || doc.date?.toLowerCase().includes(value)) {
           return doc;
         }
@@ -323,7 +324,7 @@ const Notice = () => {
                 borderTop: '2px solid #ffffff',
               }}
             >
-              {noticeList.indexOf(currentItem) === 0 ? (
+              {itemList.indexOf(currentItem) === 0 ? (
                 <div></div>
               ) : (
                 <div>
@@ -351,12 +352,12 @@ const Notice = () => {
                         fontWeight: '200',
                       }}
                     >
-                      {noticeList[noticeList.indexOf(currentItem) - 1]?.title.slice(0, 60)}...
+                      {itemList[itemList.indexOf(currentItem) - 1]?.title.slice(0, 60)}...
                     </Text>
                   </Link>
                 </div>
               )}
-              {noticeList[noticeList.indexOf(currentItem) + 1] ? (
+              {itemList[itemList.indexOf(currentItem) + 1] ? (
                 <div>
                   <Text
                     style={{
@@ -382,7 +383,7 @@ const Notice = () => {
                         fontWeight: '200',
                       }}
                     >
-                      {noticeList[noticeList.indexOf(currentItem) + 1]?.title.slice(0, 60)}...
+                      {itemList[itemList.indexOf(currentItem) + 1]?.title.slice(0, 60)}...
                     </Text>
                   </Link>
                 </div>
@@ -476,73 +477,82 @@ const Notice = () => {
               </ComponentWrap>
             </ComponentWrap>
             <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '5em 0' }}>
-              {filteredList.map((item, index) => {
-                if (index < pageNumber * itemPerPage) {
-                  return (
-                    <RowWrap
-                      onMouseOver={() => {
-                        setHoverItem(index);
-                      }}
-                      onMouseLeave={() => {
-                        setHoverItem();
-                      }}
-                      key={'noticeItem' + index}
-                    >
-                      <DateWrap>
-                        <Text className="date">{item.date.split(' ')[0]}</Text>
-                        <Text className="month">
-                          {item.date.split(' ')[1]}
-                          {`\t`}
-                          {item.date.split(' ')[2]}
-                        </Text>
-                      </DateWrap>
-                      <TitleWrap style={{ overflow: 'hidden' }}>
-                        <div
-                          className="ticker_item"
-                          style={{
-                            display: 'inline-block',
-                            width: '100%',
-                            height: '100%',
-                            overflow: 'hidden',
-                            whiteSpace: 'nowrap',
-                          }}
-                        >
-                          {item.title.slice(0, 60)}...
-                        </div>
-                      </TitleWrap>
-                      <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
-                        <Link style={{ textDecoration: 'none' }} to={`/notice/${index}`}>
-                          <Image
-                            style={{ padding: '1em', cursor: 'pointer' }}
-                            src={hoverItem === index ? icon_circlearrow_white : icon_circlearrow_dark}
-                            alt="icon_circlearrow_dark"
-                            onClick={() => {
-                              setDetailPage(true);
-                              setCurrentItem(item);
+              {filteredList.length > 0 ? (
+                filteredList.map((item, index) => {
+                  if (index < pageNumber * itemPerPage) {
+                    return (
+                      <RowWrap
+                        onMouseOver={() => {
+                          setHoverItem(index);
+                        }}
+                        onMouseLeave={() => {
+                          setHoverItem();
+                        }}
+                        key={'noticeItem' + index}
+                      >
+                        <DateWrap>
+                          <Text className="date">{item.date.split(' ')[0]}</Text>
+                          <Text className="month">
+                            {item.date.split(' ')[1]}
+                            {`\t`}
+                            {item.date.split(' ')[2]}
+                          </Text>
+                        </DateWrap>
+                        <TitleWrap style={{ overflow: 'hidden' }}>
+                          <div
+                            className="ticker_item"
+                            style={{
+                              display: 'inline-block',
+                              width: '100%',
+                              height: '100%',
+                              overflow: 'hidden',
+                              whiteSpace: 'nowrap',
                             }}
-                          />
-                        </Link>
-                      </div>
-                    </RowWrap>
-                  );
-                }
-              })}
+                          >
+                            {item.title.slice(0, 60)}...
+                          </div>
+                        </TitleWrap>
+                        <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
+                          <Link style={{ textDecoration: 'none' }} to={`/notice/${index}`}>
+                            <Image
+                              style={{ padding: '1em', cursor: 'pointer' }}
+                              src={hoverItem === index ? icon_circlearrow_white : icon_circlearrow_dark}
+                              alt="icon_circlearrow_dark"
+                              onClick={() => {
+                                setDetailPage(true);
+                                setCurrentItem(item);
+                              }}
+                            />
+                          </Link>
+                        </div>
+                      </RowWrap>
+                    );
+                  }
+                })
+              ) : (
+                <ComponentWrap style={{ gap: '2em', height: '50vh', justifyContent: 'center' }}>
+                  <HR />
+                  <Text>There are no published posts registered.</Text>
+                </ComponentWrap>
+              )}
             </ComponentWrap>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                cursor: 'pointer',
-              }}
-              onClick={() => {
-                pageNumber * itemPerPage < filteredList.length && setPageNumber(pageNumber + 1);
-              }}
-            >
-              <Image style={{ zIndex: '-1' }} src={icon_more} alt="more" />
-              <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em' }}>View more</Text>
-            </div>
+            {pageNumber * itemPerPage < filteredList.length && (
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                }}
+                onClick={() => {
+                  pageNumber * itemPerPage < filteredList.length && setPageNumber(pageNumber + 1);
+                }}
+              >
+                <Image style={{ zIndex: '-1' }} src={icon_more} alt="more" />
+                <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em' }}>View more</Text>
+              </div>
+            )}
           </HomeComponentWrap>
         </>
       )}

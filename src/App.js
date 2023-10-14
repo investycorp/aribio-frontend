@@ -20,6 +20,9 @@ import Contact from './screens/contact/Contact';
 import OpenInnovation from './screens/openinnovation/OpenInnovation';
 import NoticeDetailPage from './screens/irpr/detailpage/NoticeDetailPage';
 import DetailPage from './screens/irpr/components/DetailPage';
+import DigitalHealth from './screens/openinnovation/DigitalHealth';
+import MemoRe from './screens/openinnovation/MemoRe';
+import Partner from './screens/contact/Partner';
 
 function App() {
   document.addEventListener('contextmenu', (event) => {
@@ -36,9 +39,6 @@ function App() {
             <Route path="/history" element={<History />} />
             <Route path="/ceomessage" element={<CeoMessage />} />
             <Route path="/ci" element={<Ci />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/contactus" element={<Contact />} />
-            <Route path="/openinnovation" element={<OpenInnovation />} />
             <Route path="/poly-pharmacology" element={<PolyPharmacology />} />
             <Route path="/aiplatform" element={<AiPlatform />} />
             <Route path="/publications" element={<Publications />} />
@@ -49,6 +49,12 @@ function App() {
             <Route path="/pressrelease" element={<PressRelease />}>
               <Route path=":id" element={<DetailPage />} />
             </Route>
+            <Route path="/career" element={<Career />} />
+            <Route path="/partner" element={<Partner />} />
+            <Route path="/contactus" element={<Contact />} />
+            <Route path="/openinnovation" element={<OpenInnovation />} />
+            <Route path="/digitalhealth" element={<DigitalHealth />} />
+            <Route path="/memoreproject" element={<MemoRe />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </BrowserRouter>

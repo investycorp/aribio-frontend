@@ -41,7 +41,7 @@ const PressRelease = () => {
   const [searchValue, setSearchValue] = useState('');
   const [detailPage, setDetailPage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [itemList, setitemList] = useState([
+  const [itemList, setItemList] = useState([
     {
       date: '26 JUL 2023',
       title:
@@ -276,6 +276,7 @@ const PressRelease = () => {
       setCurrentItem({});
       setSearchValue('');
       setIsLoading(false);
+      setFilteredList(itemList);
     }
   }, [id]);
 
