@@ -81,12 +81,15 @@ const FilterShadow = styled.div`
   border-radius: 20px;
   opacity: 0.3;
   background-color: #000000;
+  @media screen and (max-width: 900px) {
+    opacity: 0.5;
+    border-radius: 10px;
+  }
 `;
 
 const HomeComponentWrap = styled.div`
   position: relative;
   width: 100%;
-  min-height: 100vh;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -114,6 +117,14 @@ const HeadLineTitle = styled.div`
   margin-bottom: 1rem;
   color: #ffffff;
   z-index: 10;
+
+  @media screen and (max-width: 1280px) {
+    font-size: 70px;
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 30px;
+  }
 `;
 
 const HeadLineText = styled.div`
@@ -125,6 +136,13 @@ const HeadLineText = styled.div`
   text-align: center;
   line-height: 1.3em;
   z-index: 10;
+  @media screen and (max-width: 1280px) {
+    font-size: 26px;
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 20px;
+  }
 `;
 
 const ComponentGridWrap = styled.div`
@@ -138,6 +156,12 @@ const ComponentGridWrap = styled.div`
   background-repeat: no-repeat;
   justify-content: center;
   padding: 3rem 0;
+  @media screen and (max-width: 900px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: start;
+    align-items: center;
+  }
 `;
 
 const HomeComponentImageWrap = styled.div`
@@ -163,10 +187,19 @@ const ComponentTextWrap = styled.div`
   padding: 2rem 5rem;
   gap: 2rem;
   justify-self: center;
+  @media screen and (max-width: 900px) {
+    font-size: 20px;
+    padding: 0;
+    gap: 1rem;
+  }
 `;
 
 const ComponentText = styled.span`
   line-height: 1.3em;
+  @media screen and (max-width: 900px) {
+    gap: 1rem;
+    padding: 0 0.5rem 0 1rem;
+  }
 `;
 
 const HomeVideoWrap = styled.div`

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Desktop, Mobile } from '../utils/MediaQuery';
 
 import styled from 'styled-components';
 import scroll_bar from '../assets/images/scroll_bar.svg';
+import scroll_bar_x from '../assets/images/scroll_bar_x.svg';
 
 import whitedot from '../assets/images/whitedot.svg';
 
@@ -14,13 +16,19 @@ const SliderContainer = styled.div`
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s ease-in-out;
   z-index: 10;
   gap: 60px;
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(5, 1fr);
+    top: 90vh;
+    left: 50%;
+    transform: translateX(-50%);
+    height: fit-content;
+  }
 `;
 
 const Circle = styled.div`
@@ -40,9 +48,12 @@ const Circle = styled.div`
 
 const SliderImg = styled.img`
   position: absolute;
-  top: 0px;
-  left: 0px;
   z-index: -1;
+  @media screen and (max-width: 900px) {
+    transform: rotate(90deg);
+    left: calc(50%);
+    height: 290px;
+  }
 `;
 
 const Image = styled.img`
@@ -53,6 +64,7 @@ const SideSlider = () => {
   const [offsetHeights, setOffsetHeights] = useState([]);
   const [scrollY, setScrollY] = useState(0);
   const [scrollNumber, setScrollNumber] = useState(0);
+  const [scrollXNumber, setScrollXNumber] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -87,23 +99,47 @@ const SideSlider = () => {
   };
 
   return (
-    <SliderContainer
-      style={{
-        opacity:
-          document.querySelector(`.container`) &&
-          scrollY > document.querySelector(`.container`)?.offsetHeight - window.innerHeight * 1.3
-            ? 0
-            : 1,
-      }}
-    >
-      {offsetHeights?.map((location, index) => (
-        <div key={`sideSlider${index}`} style={{ position: 'relative' }}>
-          <Circle $position={scrollNumber} $isActive={scrollNumber === index ? true : false} />
-          {index === 0 && <SliderImg src={scroll_bar} alt="scroll_bar" />}
-          <Image src={whitedot} alt="whitedot" />
-        </div>
-      ))}
-    </SliderContainer>
+    <>
+      <Desktop>
+        <SliderContainer
+          style={{
+            opacity:
+              document.querySelector(`.container`) &&
+              scrollY > document.querySelector(`.container`)?.offsetHeight - window.innerHeight * 1.3
+                ? 0
+                : 1,
+          }}
+        >
+          {offsetHeights?.map((location, index) => (
+            <div key={`sideSlider${index}`} style={{ position: 'relative' }}>
+              <Circle $position={scrollNumber} $isActive={scrollNumber === index ? true : false} />
+              {index === 0 && <SliderImg src={scroll_bar} alt="scroll_bar" />}
+              <Image src={whitedot} alt="whitedot" />
+            </div>
+          ))}
+        </SliderContainer>
+      </Desktop>
+      <Mobile>
+        <SliderContainer
+          style={{
+            opacity:
+              document.querySelector(`.container`) &&
+              scrollY > document.querySelector(`.container`)?.offsetHeight - window.innerHeight * 1.3
+                ? 0
+                : 1,
+          }}
+        >
+          <SliderImg src={scroll_bar} alt="scroll_bar" />
+          {offsetHeights?.map((location, index) => (
+            <div key={`sideSlider${index}`} style={{ position: 'relative' }}>
+              <Circle $position={scrollNumber} $isActive={scrollNumber === index ? true : false} />
+              {/* {index === 0 && } */}
+              <Image src={whitedot} alt="whitedot" />
+            </div>
+          ))}
+        </SliderContainer>
+      </Mobile>
+    </>
   );
 };
 

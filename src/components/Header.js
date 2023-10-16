@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-
 import Language from '../atom/Language';
+import WindowSize from '../atom/MediaQuery';
+import { Desktop, Mobile } from '../utils/MediaQuery';
 
 import Logo from '../assets/images/logo.svg';
 import lang_globe from '../assets/images/lang_globe.svg';
+import plus from '../assets/images/plus.svg';
+import toggle from '../assets/images/toggle.svg';
 
 const HeaderContainer = styled.div`
   position: fixed;
@@ -46,6 +49,7 @@ const BlurBoxBottom = styled.div`
 `;
 
 const HeaderTop = styled.div`
+  position: relative;
   margin: 0;
   padding: 0 7vw;
   width: 100%;
@@ -55,6 +59,8 @@ const HeaderTop = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: 100;
+  @media screen and (max-width: 1024px) {
+  }
 `;
 
 const HeaderLogoWrap = styled.div`
@@ -74,6 +80,18 @@ const HeaderNavWrap = styled.div`
 
   @media screen and (max-width: 1460px) {
     gap: 1rem;
+  }
+
+  @media screen and (max-width: 1280px) {
+  }
+
+  @media screen and (max-width: 900px) {
+    display: grid;
+    width: -webkit-fill-available;
+    align-items: start;
+    justify-content: start;
+    height: fit-content;
+    padding: 1em 7vw;
   }
 `;
 
@@ -98,8 +116,27 @@ const HeaderNavMenuTextWrap = styled.div`
     text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
     cursor: pointer;
   }
+  div {
+    padding-top: 0.3em;
+    @media screen and (max-width: 900px) {
+      display: flex;
+      font-size: 20px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
   @media screen and (max-width: 1460px) {
     font-size: 19px;
+  }
+  @media screen and (max-width: 1280px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 900px) {
+    border-bottom: 1px solid #464646;
+    width: 84vw;
+    align-items: start;
   }
 `;
 
@@ -118,6 +155,10 @@ const HeaderLangButton = styled.button`
   gap: 0.5rem;
   &:hover {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
+
+  @media screen and (max-width: 1460px) {
+    padding: 0.6em 1em;
   }
 `;
 
@@ -138,6 +179,17 @@ const HeaderBottom = styled.div`
   border-top: 2px solid #5d5d5d;
   cursor: default;
   transition: opacity 0.5s ease-in-out;
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
+`;
+
+const Image = styled.img`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  padding: 0.5em;
 `;
 
 const Header = () => {
@@ -182,6 +234,9 @@ const Header = () => {
   const location = useLocation();
   const [currentMenu, setCurrentMenu] = useState('');
   const [currentTab, setCurrentTab] = useState('');
+  const [windowSize, setWindowSize] = useRecoilState(WindowSize);
+  const [isToggleOpen, setIsToggleOpen] = useState(false);
+  const [subMenuOpen, setSubMenuOpen] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -192,10 +247,12 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener('resize', () => {
       setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
+      setWindowSize(window.innerWidth);
     });
     return () => {
       window.removeEventListener('resize', () => {
         setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
+        setWindowSize(window.innerWidth);
       });
     };
   }, []);
@@ -214,80 +271,195 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <HeaderContainer
-      onMouseLeave={() => {
-        setCurrentMenu('');
-      }}
-    >
-      <BlurBoxTop />
-      <HeaderTop>
-        <HeaderLogoWrap>
-          <Link
-            to="/"
-            onClick={() => {
-              if (location.pathname === '/') window.location.reload();
-            }}
-          >
-            <img style={{ cursor: 'pointer' }} src={Logo} alt="logo" />
-          </Link>
-        </HeaderLogoWrap>
-        <HeaderNavWrap className="header-navwrap">
-          {menuList.map((menu, index) => (
-            <HeaderNavMenuTextWrap
-              key={menu.linkTo + index}
-              onMouseOver={() => {
-                setCurrentMenu(menu.linkTo);
-              }}
-              onClick={() => {
-                if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
-                  if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
-                  else window.location.reload();
-                }
-              }}
-              $isActive={menu.linkTo === currentMenu ? true : false}
-            >
-              <div
-                style={{
-                  paddingBottom: '0.3rem',
-                  borderBottom:
-                    currentTab === menu.linkTo && currentTab !== currentMenu
-                      ? '2px solid #ffffff'
-                      : '2px solid transparent',
-                  zIndex: '-1',
+    <>
+      <Mobile>
+        <HeaderContainer style={{ display: 'grid', backgroundColor: '#121212' }}>
+          <HeaderTop>
+            <HeaderLogoWrap>
+              <Link
+                to="/"
+                onClick={() => {
+                  if (location.pathname === '/') window.location.reload();
                 }}
               >
-                {menu.title.toUpperCase()}
-              </div>
-            </HeaderNavMenuTextWrap>
-          ))}
-        </HeaderNavWrap>
-        <LangButton />
-      </HeaderTop>
-      <BlurBoxBottom
-        style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-      />
-      <HeaderBottom
-        className={`header-bottom ${currentMenu}`}
-        style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-      >
-        <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
-          {subMenu[currentMenu]?.map((menu) => (
-            <Link
-              to={`/${menu.linkTo}`}
-              style={{ textDecoration: 'none' }}
-              key={menu.linkTo}
-              onClick={() => {
-                if (menu.linkTo === location.pathname.split('/')[1]) {
-                  window.location.reload();
-                }
+                <img style={{ cursor: 'pointer', width: '74px', paddingTop: '0.5em' }} src={Logo} alt="logo" />
+              </Link>
+            </HeaderLogoWrap>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '1em',
               }}
             >
-              <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
-            </Link>
-          ))}
-        </HeaderNavWrap>
-      </HeaderBottom>
-    </HeaderContainer>
+              {isToggleOpen && <LangButton />}
+              <Image
+                src={toggle}
+                alt="toggle_menu"
+                style={{ padding: '1.5em' }}
+                onClick={() => setIsToggleOpen(!isToggleOpen)}
+              />
+            </div>
+          </HeaderTop>
+          {isToggleOpen && (
+            <HeaderNavWrap className="header-navwrap">
+              {menuList.map((menu, index) => (
+                <HeaderNavMenuTextWrap
+                  key={menu.linkTo + index}
+                  onClick={() => {
+                    if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
+                      if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
+                      else window.location.reload();
+                    }
+                  }}
+                  $isActive={menu.linkTo === currentMenu ? true : false}
+                >
+                  <div
+                    style={{
+                      paddingBottom: '0.3rem',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => {
+                      subMenuOpen === menu.linkTo ? setSubMenuOpen('') : setSubMenuOpen(menu.linkTo);
+                      console.log(menu.linkTo);
+                    }}
+                  >
+                    <span style={{ zIndex: '-1' }}>{menu.title.toUpperCase()}</span>
+                    <Image style={{ zIndex: '-1' }} src={plus} alt="open" />
+                  </div>
+                  <div
+                    style={{ display: 'grid', width: '100%', alignItems: 'stretch', gap: '1em', marginBottom: '1em' }}
+                  >
+                    {subMenuOpen === menu.linkTo &&
+                      subMenu[menu.linkTo]?.map((subMenu) => (
+                        <div
+                          style={{
+                            textDecoration: 'none',
+                            color: '#EFEFEF',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            width: '84vw',
+                          }}
+                        >
+                          <Link
+                            to={`/${subMenu.linkTo}`}
+                            style={{
+                              textDecoration: 'none',
+                              color: '#EFEFEF',
+                              display: 'flex',
+                              flexDirection: 'row',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              padding: '0.2em',
+                              borderBottom:
+                                currentTab === menu.linkTo && currentTab !== currentMenu
+                                  ? '2px solid #ffffff'
+                                  : '2px solid transparent',
+                            }}
+                            key={subMenu.linkTo}
+                            onClick={() => {
+                              if (subMenu.linkTo === location.pathname.split('/')[1]) {
+                                window.location.reload();
+                              }
+                              setIsToggleOpen(false);
+                              setSubMenuOpen('');
+                            }}
+                          >
+                            <span style={{ fontSize: '18px', color: '#EFEFEF' }}>{subMenu.title.toUpperCase()}</span>
+                          </Link>
+                        </div>
+                      ))}
+                  </div>
+                </HeaderNavMenuTextWrap>
+              ))}
+            </HeaderNavWrap>
+          )}
+        </HeaderContainer>
+      </Mobile>
+      <Desktop>
+        <>
+          <HeaderContainer
+            onMouseLeave={() => {
+              setCurrentMenu('');
+            }}
+          >
+            <BlurBoxTop />
+            <HeaderTop>
+              <HeaderLogoWrap>
+                <Link
+                  to="/"
+                  onClick={() => {
+                    if (location.pathname === '/') window.location.reload();
+                  }}
+                >
+                  <img style={{ cursor: 'pointer' }} src={Logo} alt="logo" />
+                </Link>
+              </HeaderLogoWrap>
+              <HeaderNavWrap className="header-navwrap">
+                {menuList.map((menu, index) => (
+                  <HeaderNavMenuTextWrap
+                    key={menu.linkTo + index}
+                    onMouseOver={() => {
+                      setCurrentMenu(menu.linkTo);
+                    }}
+                    onClick={() => {
+                      if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
+                        if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
+                        else window.location.reload();
+                      }
+                    }}
+                    $isActive={menu.linkTo === currentMenu ? true : false}
+                  >
+                    <div
+                      style={{
+                        paddingBottom: '0.3rem',
+                        borderBottom:
+                          currentTab === menu.linkTo && currentTab !== currentMenu
+                            ? '2px solid #ffffff'
+                            : '2px solid transparent',
+                        zIndex: '-1',
+                      }}
+                    >
+                      <span>{menu.title.toUpperCase()}</span>
+                    </div>
+                  </HeaderNavMenuTextWrap>
+                ))}
+              </HeaderNavWrap>
+              <LangButton />
+            </HeaderTop>
+            <BlurBoxBottom
+              style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+            />
+            <HeaderBottom
+              className={`header-bottom ${currentMenu}`}
+              style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+            >
+              <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
+                {subMenu[currentMenu]?.map((menu) => (
+                  <Link
+                    to={`/${menu.linkTo}`}
+                    style={{ textDecoration: 'none' }}
+                    key={menu.linkTo}
+                    onClick={() => {
+                      if (menu.linkTo === location.pathname.split('/')[1]) {
+                        window.location.reload();
+                      }
+                    }}
+                  >
+                    <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
+                  </Link>
+                ))}
+              </HeaderNavWrap>
+            </HeaderBottom>
+          </HeaderContainer>
+        </>
+      </Desktop>
+    </>
   );
 };
 
@@ -301,10 +473,31 @@ const LangButton = () => {
     else setLanguage('ENG');
   };
   return (
-    <HeaderLangButton style={{ cursor: 'pointer' }} onClick={handleClick}>
-      <img style={{ zIndex: '-1', cursor: 'pointer' }} src={lang_globe} alt="lang" />
-      <div style={{ zIndex: '-1', cursor: 'pointer' }}>{language}</div>
-    </HeaderLangButton>
+    <>
+      <Desktop>
+        <HeaderLangButton style={{ cursor: 'pointer' }} onClick={handleClick}>
+          <img style={{ zIndex: '-1', cursor: 'pointer' }} src={lang_globe} alt="lang" />
+          <div style={{ zIndex: '-1', cursor: 'pointer' }}>{language}</div>
+        </HeaderLangButton>
+      </Desktop>
+      <Mobile>
+        <div
+          onClick={handleClick}
+          style={{
+            cursor: 'pointer',
+            fontSize: '14px',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '0.5rem',
+          }}
+        >
+          <img style={{ zIndex: '-1', cursor: 'pointer', height: '14px' }} src={lang_globe} alt="lang" />
+          <span style={{ paddingTop: '0.1em', zIndex: '-1' }}>{language}</span>
+        </div>
+      </Mobile>
+    </>
   );
 };
 export { LangButton };

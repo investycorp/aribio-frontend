@@ -1,10 +1,10 @@
 import { useMediaQuery } from 'react-responsive';
 
 const Desktop = ({ children }) => {
-  const isDestop = useMediaQuery({ minWidth: '1281px' }, undefined, () => {
+  const isDesktop = useMediaQuery({ minWidth: '901px' }, undefined, () => {
     window.location.reload();
   });
-  return isDestop ? children : null;
+  return isDesktop ? children : null;
 };
 
 const Tablet = ({ children }) => {
@@ -15,7 +15,7 @@ const Tablet = ({ children }) => {
 };
 
 const Mobile = ({ children }) => {
-  const isMobile = useMediaQuery({ maxWidth: '360px' }, undefined, () => {
+  const isMobile = useMediaQuery({ maxWidth: '900px' }, undefined, () => {
     window.location.reload();
   });
   return isMobile ? children : null;
