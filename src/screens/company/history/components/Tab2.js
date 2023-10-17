@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import sidebar from '../assets/sidebar.svg';
 import whitedot from '../assets/whitedot.svg';
 import graydot from '../assets/graydot.svg';
+import { Desktop, Mobile } from '../../../../utils/MediaQuery';
 
 const HomeComponentWrap = styled.div`
   width: 100%;
@@ -177,57 +178,62 @@ const Tab2 = () => {
   }, []);
 
   return (
-    <HomeComponentWrap>
-      <GridBox>
-        <img
-          src={sidebar}
-          alt="sidebar"
-          style={{
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            zIndex: '10',
-            margin: '0 32px',
-            height: '92.5%',
-            transition: 'all 0.2s ease-in-out',
-          }}
-        />
-        <GridBoxContentWrap></GridBoxContentWrap>
-        {tabNames.map((tabName) => (
-          <GridBoxContentWrap key={tabName}>
-            {
-              <Image
-                src={tabName === scrollTab ? whitedot : graydot}
-                $isActive={tabName === scrollTab ? true : false}
-                style={{ padding: '1em', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-              />
-            }
-            <Text
-              $isActive={tabName === scrollTab ? true : false}
-              onClick={() => {
-                setCurrentTab(tabName);
+    <>
+      <Desktop>
+        <HomeComponentWrap>
+          <GridBox>
+            <img
+              src={sidebar}
+              alt="sidebar"
+              style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                zIndex: '10',
+                margin: '0 32px',
+                height: '92.5%',
+                transition: 'all 0.2s ease-in-out',
               }}
-            >
-              {tabName}
-            </Text>
-          </GridBoxContentWrap>
-        ))}
-      </GridBox>
-      <GridBox className="description-grid" style={{ height: '70vh', overflowY: 'scroll', marginTop: '3em' }}>
-        {historyContents.map((item, index) => (
-          <DescriptionWrap
-            ref={refs[index]}
-            className={tabNames[index]}
-            key={index}
-            $isActive={tabNames.indexOf(scrollTab) === index ? true : false}
-          >
-            {item.content.map((content, index) => (
-              <DescriptionItem key={index + content}>{content}</DescriptionItem>
+            />
+            <GridBoxContentWrap></GridBoxContentWrap>
+            {tabNames.map((tabName) => (
+              <GridBoxContentWrap key={tabName}>
+                {
+                  <Image
+                    src={tabName === scrollTab ? whitedot : graydot}
+                    $isActive={tabName === scrollTab ? true : false}
+                    style={{ padding: '1em', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                  />
+                }
+                <Text
+                  $isActive={tabName === scrollTab ? true : false}
+                  onClick={() => {
+                    setCurrentTab(tabName);
+                  }}
+                >
+                  {tabName}
+                </Text>
+              </GridBoxContentWrap>
             ))}
-          </DescriptionWrap>
-        ))}
-      </GridBox>
-    </HomeComponentWrap>
+          </GridBox>
+          <GridBox className="description-grid" style={{ height: '70vh', overflowY: 'scroll', marginTop: '3em' }}>
+            {historyContents.map((item, index) => (
+              <DescriptionWrap
+                ref={refs[index]}
+                className={tabNames[index]}
+                key={index}
+                $isActive={tabNames.indexOf(scrollTab) === index ? true : false}
+              >
+                {item.content.map((content, index) => (
+                  <DescriptionItem key={index + content}>{content}</DescriptionItem>
+                ))}
+              </DescriptionWrap>
+            ))}
+          </GridBox>
+        </HomeComponentWrap>
+      </Desktop>
+      <Mobile></Mobile>
+    </>
   );
 };
 

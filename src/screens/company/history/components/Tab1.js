@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import sidebar from '../assets/sidebar.svg';
 import whitedot from '../assets/whitedot.svg';
 import graydot from '../assets/graydot.svg';
+import { Desktop, Mobile } from '../../../../utils/MediaQuery';
 
 const HomeComponentWrap = styled.div`
   width: 100%;
@@ -16,6 +17,10 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 0 20vw 10vh 7vw;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+    padding: 0 7vw 10vh 7vw;
+  }
 `;
 
 const Text = styled.div`
@@ -30,10 +35,20 @@ const Text = styled.div`
   text-align: ${(props) => (props.$align ? props.$align : 'start')};
   transition: all 0.2s linear;
   cursor: pointer;
-  &:hover {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 50px;
+  @media screen and (min-width: 901px) {
+    &:hover {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 50px;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    font-size: 20px;
+    &:hover {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 20px;
+    }
   }
 `;
 
@@ -47,6 +62,13 @@ const GridBox = styled.div`
   position: relative;
   width: 100%;
   height: fit-content;
+  @media screen and (max-width: 900px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    gap: 0;
+  }
 `;
 const GridBoxContentWrap = styled.div`
   width: 100%;
@@ -57,6 +79,15 @@ const GridBoxContentWrap = styled.div`
   align-items: center;
   padding: 1rem;
   gap: 6.5em;
+  @media screen and (max-width: 900px) {
+    gap: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+    padding: 0;
+  }
 `;
 
 const Image = styled.img`
@@ -81,9 +112,13 @@ const DescriptionWrap = styled.ul`
   transition: all 0.2s ease-in-out;
   margin-bottom: 1em;
   color: ${(props) => (props.$isActive ? '#ffffff' : '#707070')};
-
-  &:last-child {
-    margin-bottom: 55vh;
+  @media screen and (min-width: 901px) {
+    &:last-child {
+      margin-bottom: 55vh;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    gap: 1rem;
   }
 `;
 const DescriptionItem = styled.li`
@@ -95,13 +130,19 @@ const DescriptionItem = styled.li`
   line-height: 1.5em;
   list-style: disc;
   list-style-position: outside;
+  @media screen and (max-width: 900px) {
+    font-size: 16px;
+  }
 `;
 
-const Tab1 = () => {
-  const [tabNames, setTabNames] = useState(['2023', '2022', '2021', '2020', '2019']);
+const Tab1 = ({ listItems }) => {
+  // const [tabNames, setTabNames] = useState(['2023', '2022', '2021', '2020', '2019']);
+  const [tabNames, setTabNames] = useState(listItems ? listItems.map((item) => item.title) : []);
   const refs = useRef(Array(tabNames.length).fill(React.createRef()));
   const [currentTab, setCurrentTab] = useState('2023');
   const [scrollTab, setScrollTab] = useState('2023');
+  const [listContents, setListContents] = useState(listItems ? listItems.map((item) => item.content) : []);
+
   const [historyContents, setHistoryContents] = useState([
     {
       content: [
@@ -162,31 +203,46 @@ const Tab1 = () => {
   ]);
 
   const handleScroll = () => {
-    const scrollY = document.getElementsByClassName('description-grid')[0].scrollTop;
-    console.log(currentTab);
-    switch (true) {
-      case scrollY <=
-        document.getElementsByClassName('2023')[0]?.offsetTop +
-          document.getElementsByClassName('2023')[0]?.offsetHeight * 0.7:
-        setScrollTab('2023');
-        break;
-      case scrollY <=
-        document.getElementsByClassName('2022')[0]?.offsetTop +
-          document.getElementsByClassName('2022')[0]?.offsetHeight * 0.7:
-        setScrollTab('2022');
-        break;
-      case scrollY <=
-        document.getElementsByClassName('2021')[0]?.offsetTop +
-          document.getElementsByClassName('2021')[0]?.offsetHeight * 0.7:
-        setScrollTab('2021');
-        break;
-      case scrollY <=
-        document.getElementsByClassName('2020')[0]?.offsetTop +
-          document.getElementsByClassName('2020')[0]?.offsetHeight * 0.7:
-        setScrollTab('2020');
-        break;
-      default:
-        setScrollTab('2019');
+    const scrollY = document.getElementsByClassName('description-grid')[0]?.scrollTop;
+
+    //Desktop
+    if (window.innerWidth > 900) {
+      switch (true) {
+        case scrollY <=
+          document.getElementsByClassName('2023')[0]?.offsetTop +
+            document.getElementsByClassName('2023')[0]?.offsetHeight * 0.7:
+          setScrollTab('2023');
+
+          break;
+        case scrollY <=
+          document.getElementsByClassName('2022')[0]?.offsetTop +
+            document.getElementsByClassName('2022')[0]?.offsetHeight * 0.7:
+          setScrollTab('2022');
+
+          break;
+        case scrollY <=
+          document.getElementsByClassName('2021')[0]?.offsetTop +
+            document.getElementsByClassName('2021')[0]?.offsetHeight * 0.7:
+          setScrollTab('2021');
+
+          break;
+        case scrollY <=
+          document.getElementsByClassName('2020')[0]?.offsetTop +
+            document.getElementsByClassName('2020')[0]?.offsetHeight * 0.7:
+          setScrollTab('2020');
+
+          break;
+        default:
+          setScrollTab('2019');
+      }
+    } else {
+      //Mobile
+
+      for (let i = 0; i < tabNames.length; i++) {
+        if (document.getElementsByClassName(listItems[i].title)[0]?.offsetTop - window.innerHeight < window.scrollY) {
+          setScrollTab(listItems[i].title);
+        }
+      }
     }
   };
 
@@ -202,57 +258,116 @@ const Tab1 = () => {
     };
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      handleScroll();
+    });
+    return () => {
+      window.removeEventListener('scroll', () => {
+        handleScroll();
+      });
+    };
+  }, []);
+
+  useEffect(() => {
+    let tabs = [];
+    let contents = [];
+    listItems.map((item, index) => {
+      tabs.push(item.title);
+      contents.push(item.content);
+    });
+    console.log(tabs);
+    console.log(contents);
+  }, []);
+
   return (
-    <HomeComponentWrap>
-      <GridBox>
-        <img
-          src={sidebar}
-          alt="sidebar"
-          style={{
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            zIndex: '10',
-            margin: scrollTab === '2019' ? '35px 34px' : scrollTab === '2023' ? '50px 34px' : '35px 34px',
-            height: '84%',
-            transition: 'all 0.2s ease-in-out',
-          }}
-        />
-        {tabNames.map((tabName) => (
-          <GridBoxContentWrap key={tabName}>
-            {
+    <>
+      <Desktop>
+        <HomeComponentWrap>
+          <GridBox>
+            <img
+              src={sidebar}
+              alt="sidebar"
+              style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                zIndex: '10',
+                margin: scrollTab === '2019' ? '35px 34px' : scrollTab === '2023' ? '50px 34px' : '35px 34px',
+                height: '84%',
+                transition: 'all 0.2s ease-in-out',
+              }}
+            />
+            {tabNames?.map((tabName) => (
+              <GridBoxContentWrap key={tabName}>
+                {
+                  <Image
+                    src={tabName === scrollTab ? whitedot : graydot}
+                    $isActive={tabName === scrollTab ? true : false}
+                    style={{ padding: '1em', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                  />
+                }
+                <Text
+                  $isActive={tabName === scrollTab ? true : false}
+                  onClick={() => {
+                    setCurrentTab(tabName);
+                  }}
+                >
+                  {tabName}
+                </Text>
+              </GridBoxContentWrap>
+            ))}
+          </GridBox>
+          <GridBox className="description-grid" style={{ height: '70vh', overflowY: 'scroll' }}>
+            {historyContents?.map((item, index) => (
+              <DescriptionWrap
+                ref={refs[index]}
+                className={tabNames[index]}
+                key={'desc' + index}
+                $isActive={tabNames.indexOf(scrollTab) === index ? true : false}
+              >
+                {item.content.map((content, index) => (
+                  <DescriptionItem key={index + content}>{content}</DescriptionItem>
+                ))}
+              </DescriptionWrap>
+            ))}
+          </GridBox>
+        </HomeComponentWrap>
+      </Desktop>
+      <Mobile>
+        <HomeComponentWrap className="description-grid">
+          {tabNames?.map((tabName, index) => (
+            <GridBox key={'tabnames' + index} className={`${tabNames[index]} mobile_gridbox`}>
               <Image
                 src={tabName === scrollTab ? whitedot : graydot}
                 $isActive={tabName === scrollTab ? true : false}
-                style={{ padding: '1em', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                style={{
+                  margin: '2px 1rem 0 0',
+                  padding: '0.5em',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  width: '6px',
+                }}
               />
-            }
-            <Text
-              $isActive={tabName === scrollTab ? true : false}
-              onClick={() => {
-                setCurrentTab(tabName);
-              }}
-            >
-              {tabName}
-            </Text>
-          </GridBoxContentWrap>
-        ))}
-      </GridBox>
-      <GridBox className="description-grid" style={{ height: '70vh', overflowY: 'scroll' }}>
-        {historyContents.map((item, index) => (
-          <DescriptionWrap
-            ref={refs[index]}
-            className={tabNames[index]}
-            key={index}
-            $isActive={tabNames.indexOf(scrollTab) === index ? true : false}
-          >
-            {item.content.map((content, index) => (
-              <DescriptionItem key={index + content}>{content}</DescriptionItem>
-            ))}
-          </DescriptionWrap>
-        ))}
-      </GridBox>
-    </HomeComponentWrap>
+              <GridBoxContentWrap key={tabName} style={{ alignItems: 'start' }}>
+                <Text $isActive={tabName === scrollTab ? true : false}>{tabName}</Text>
+
+                <DescriptionWrap
+                  ref={refs[index]}
+                  key={index}
+                  $isActive={tabNames.indexOf(scrollTab) === index ? true : false}
+                >
+                  {listContents[index]?.map((content, index) => (
+                    <DescriptionItem key={index + content}>{content}</DescriptionItem>
+                  ))}
+                </DescriptionWrap>
+              </GridBoxContentWrap>
+            </GridBox>
+          ))}
+        </HomeComponentWrap>
+      </Mobile>
+    </>
   );
 };
 

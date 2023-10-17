@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { HomeComponentWrap, Text } from '../style';
+import { Desktop, Mobile } from '../../../../utils/MediaQuery';
 
 const TabContentWrap = styled.div`
   width: 100%;
@@ -13,6 +14,12 @@ const TabContentWrap = styled.div`
   align-items: left;
   background-color: transparent;
   row-gap: 5em;
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+    padding-bottom: 3rem;
+    margin-top: 2rem;
+    row-gap: 5rem;
+  }
 `;
 
 const ContentBox = styled.div`
@@ -23,11 +30,18 @@ const ContentBox = styled.div`
   justify-content: start;
   align-items: left;
   gap: 0.5em;
-  padding: 3em 3em;
+  padding: 0 0 0 3em;
+  margin: 3em 0;
   border-left: 1px solid #ffffff;
   background-color: transparent;
-  &:nth-child(3n + 2) {
-    margin-top: 8vh;
+  @media screen and (min-width: 901px) {
+    &:nth-child(3n + 2) {
+      margin-top: 8vh;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    width: 66.7%;
+    padding: 0 0 0 1.5rem;
   }
 `;
 
@@ -111,20 +125,48 @@ const Advisors = () => {
     <HomeComponentWrap
       style={{ minHeight: 'fit-content', justifyContent: 'start', overflow: 'hidden', paddingTop: '0' }}
     >
-      <TabContentWrap>
-        {tabContents?.map((item, index) => (
-          <ContentBox key={index}>
-            <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
-              <Text $fontSize="34px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
-                {item.name}
-                <span style={{ fontSize: '20px', marginLeft: '2rem' }}>{item.position}</span>
-              </Text>
-            </ContentBoxNameWrap>
-            <hr style={{ width: '2em', border: '1px solid #ffffff', margin: '1rem 0 0 0' }} />
-            <SchoolText>{item.description}</SchoolText>
-          </ContentBox>
-        ))}
-      </TabContentWrap>
+      <Desktop>
+        <TabContentWrap>
+          {tabContents?.map((item, index) => (
+            <ContentBox key={index}>
+              <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
+                <Text $fontSize="34px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
+                  {item.name}
+                  <span style={{ fontSize: '20px', marginLeft: '2rem' }}>{item.position}</span>
+                </Text>
+              </ContentBoxNameWrap>
+              <hr style={{ width: '2em', border: '1px solid #ffffff', margin: '1rem 0 0 0' }} />
+              <SchoolText>{item.description}</SchoolText>
+            </ContentBox>
+          ))}
+        </TabContentWrap>
+      </Desktop>
+      <Mobile>
+        <TabContentWrap>
+          {tabContents?.map((item, index) => (
+            <div
+              style={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: `${index % 2 === 0 ? 'flex-start' : 'flex-end'}`,
+              }}
+            >
+              <ContentBox key={index}>
+                <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
+                  <Text $fontSize="18px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
+                    {item.name}
+                    <span style={{ fontSize: '15px', marginLeft: '1rem' }}>{item.position}</span>
+                  </Text>
+                </ContentBoxNameWrap>
+
+                <SchoolText style={{ fontSize: '16px' }}>{item.description}</SchoolText>
+              </ContentBox>
+            </div>
+          ))}
+        </TabContentWrap>
+      </Mobile>
     </HomeComponentWrap>
   );
 };

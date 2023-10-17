@@ -79,8 +79,7 @@ const HeadLine = styled.div`
 `;
 const HomeComponentWrap = styled.div`
   position: relative;
-  width: 100%;
-  max-width: 100%;
+  width: 100vw;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -91,7 +90,7 @@ const HomeComponentWrap = styled.div`
   z-index: 10;
 `;
 
-const TextWrap = styled.div`
+const TextWrap = styled.div.attrs((props) => ({ className: props.className }))`
   position: relative;
   width: 50vw;
   height: fit-content;
@@ -104,6 +103,12 @@ const TextWrap = styled.div`
 
   @media (max-width: 1500px) {
     width: 70vw;
+  }
+  @media (max-width: 900px) {
+    width: 80vw;
+  }
+  @media (max-width: 500px) {
+    width: 80vw;
   }
 `;
 
@@ -119,11 +124,22 @@ const Text = styled.div.attrs((props) => ({ className: props.className }))`
   }
 
   &.pathwaydata_text {
-    @media (max-width: 1550px) {
+    img {
+      width: 0.7rem;
+      padding: 0.35rem 0;
+    }
+
+    @media screen and (max-width: 1550px) {
       font-size: 20px;
     }
-    @media (max-width: 1350px and min-width: 1280px) {
+    @media screen and (max-width: 1350px) and (min-width: 901px) {
       font-size: 18px;
+    }
+    @media screen and (max-width: 900px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 500px) {
+      font-size: 13px;
     }
   }
 `;
@@ -236,9 +252,13 @@ const ButtonWrap = styled.div`
   justify-content: start;
   align-items: center;
   background-color: transparent;
-
-  margin: 4em 0;
-  gap: 2em;
+  margin: 4rem 0;
+  gap: 2rem;
+  @media screen and (max-width: 900px) {
+    padding-right: 0;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
 `;
 
 const RoundButton = styled.button`
@@ -260,6 +280,13 @@ const RoundButton = styled.button`
     cursor: pointer;
     background-color: 9d9d9d;
     border: 2px solid #9d9d9d;
+  }
+
+  @media screen and (max-width: 900px) {
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-size: 14px;
+    height: 40px;
   }
 `;
 
@@ -349,22 +376,32 @@ const DescriptionWrap = styled.ul`
   padding: 0;
   transition: all 0.2s ease-in-out;
   list-style: disc outside;
+  @media screen and (max-width: 900px) {
+    list-style: none;
+    margin-top: 1rem;
+  }
 `;
 
 const DescriptionItem = styled.li`
   margin-left: 1em;
-  width: 100%;
+  width: 80%;
   height: fit-content;
   text-align: left;
   font-size: 20px;
   color: #f2f2f2;
   font-weight: 100;
   line-height: 1.5em;
+  @media screen and (max-width: 900px) {
+    font-size: 16px;
+    margin-left: 0;
+    width: 100%;
+  }
 `;
 
 const UnderLineWrap = styled.span`
   position: relative;
   min-width: fit-content;
+  text-align: left;
 `;
 
 const Underline = styled.span`

@@ -72,8 +72,7 @@ const HeadLine = styled.div`
 `;
 const HomeComponentWrap = styled.div`
   position: relative;
-  width: 100%;
-  max-width: 100%;
+  width: 100vw;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -92,6 +91,10 @@ const TextWrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
+
+  @media screen and (max-width: 1500px) {
+    width: 80vw;
+  }
 `;
 
 const Text = styled.div`
@@ -151,6 +154,9 @@ const ContentWrap = styled.div`
   margin-bottom: 4em;
   padding: 0 3em 0 0;
   gap: 1.5em;
+  @media screen and (max-width: 900px) {
+    padding: 0;
+  }
 `;
 
 const ContentBox = styled.div`
@@ -160,7 +166,10 @@ const ContentBox = styled.div`
   align-items: left;
   gap: 4rem;
   background-color: transparent;
-  height: 100%;
+  height: -webkit-fill-available;
+  @media screen and (max-width: 900px) {
+    gap: 1rem;
+  }
 `;
 const ColorBarTextWrap = styled.div`
   width: 10%;
@@ -173,6 +182,12 @@ const ColorBarTextWrap = styled.div`
   gap: 0.5em;
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  @media screen and (max-width: 900px) {
+    opacity: 1;
+    width: fit-content;
+    padding: 0;
+    gap: 0;
+  }
 `;
 
 const ColorBar = styled.div`
@@ -181,17 +196,33 @@ const ColorBar = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin: 0;
-  opacity: 0.3;
   padding: 2em;
-  height: 140px;
   width: 80%;
   background: ${(props) => `linear-gradient(to right, ${props.$color1}, ${props.$color2})`};
   transition: all 0.2s ease-in-out;
-  &:hover {
-    margin-left: 7vw;
-    opacity: 1;
-    ${ColorBarTextWrap} {
+  @media screen and (min-width: 901px) {
+    height: 140px;
+    opacity: 0.3;
+    &:hover {
+      margin-left: 7vw;
       opacity: 1;
+      ${ColorBarTextWrap} {
+        opacity: 1;
+      }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    height: 60px;
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    &:nth-child(1) {
+      width: 93%;
+    }
+    &:nth-child(2) {
+      width: 83%;
+    }
+    &:nth-child(3) {
+      width: 73%;
     }
   }
 `;

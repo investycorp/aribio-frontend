@@ -6,11 +6,78 @@ import history_cover from './assets/history_cover.png';
 import Tab1 from './components/Tab1.js';
 import Tab2 from './components/Tab2.js';
 import Tab3 from './components/Tab3.js';
-import { Container, MainImgWrap, Path, HeadLine, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './style';
+import { Container, MainImgWrap, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './style';
+
+import { HeadLine, Path } from '../../../components/style';
+import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 const History = () => {
   const [tabNames, setTabNames] = useState(['2019-2023', '2013-2018', '2010-2012']);
   const [currentTab, setCurrentTab] = useState('2019-2023');
+  const [currentScrollY, setCurrentScrollY] = useState(0);
+  const [listItems, setListItems] = useState([
+    {
+      title: '2023',
+      content: [
+        'Ministry of Health and Welfare ‘2023 Electronic Medicine Technology Development Project’ Selected as a Gamma Frequency Rhythmic Vibroacoustic Device in the field of dementia',
+        'Joint development and partnership agreement with Vietnam OPC Pharmaceuticals',
+        'AD/PD 2023 Conference to be announced “AR1001 Plasma Biomarker Analysis from Phase 2 Trial of AR1001 in Mild to Moderate Alzheimer’s Disease Patients”',
+        'Fujirebio Diagnostics, Inc. Announce Strategic Partnership to Advance Biomarker Development for Alzheimer’s Disease and Neurodegeneration',
+        '6th NFAD, Neuroscience Forum on Alzheimer’s Disease, “AR1001 Phase 3 Trial Information & Plasma Biomarker Analysis from Phase 2 Trial of AR1001 in Mild to Moderate Alzheimer’s Disease Patients”',
+        'Samjin Pharmaceuticals to domestic phase 3 clinical trial joint progress agreement ceremony. (AR1001)',
+        'Selected as KoNECT (Korea National Enterprise for Clinical Trials) ‘Public Interest Clinical Trial Support Project’',
+        '41th JP Morgan Healthcare Conference Invitation Participation (AR1001)',
+      ],
+    },
+    {
+      title: '2022',
+      content: [
+        'AR1001 (AD DMT) First patients phase 3 clinical trial, first medication started',
+        'Awarded for Venture company Pharma/Biotech Sector Minister of SMEs and Start-ups',
+        'AR1001 (AD DMT) Phase 3 IND Approval (US FDA)',
+        'Selected as ‘Development and commercialization of wearable-based acoustic vibration devices to improve cognitive impairment in old age in new product development projects with purchase conditions` by Ministry of Science and ICT',
+        'Published a research article on mechanisms of action of AR001 in the journal ’Alzheimer’s Research & Therapy’',
+        'Selected as ‘Dementia Unit’ at Research driven Hospital Project by Ministry of Health and Welfare',
+        'Selected as ‘Preliminary Unicorn’ at K- Unicorn Project by Ministry of Science and ICT',
+        'Selected as ‘Bio-medical Al data Collection Leader’ by National Information Society Agency',
+        'MOU with Samjin Pharmaceuticals to collaborate for the development of neurodegenerative disease and therapies',
+        'AR1001 US FDA EOP2 meeting and Phase 3 Kick-off',
+        'Secured workspace at CIC (Cambridge Innovation Center) in Boston, USA',
+        'Selected as an awardee of ’K-Blockbuster project to support entering the US market’ by Korea Health Industry Development Institute',
+        'AR1004 L/I from KOREA INSTITUTE OF ORIENTAL MEDICINE',
+      ],
+    },
+    {
+      title: '2021',
+      content: [
+        'MOH Minister Award on Health Industry Contribution',
+        'Novel Device Designation of a Vibroacoustics for Dementia treatment by MFDS',
+        'AR1001 Phase 2 Result Presentation at 14th Clinical Trials on Alzheimer’s Disease (CTAD)',
+        'AR1001 Phase 2, 12month treatment complete',
+        'Partnership Agreement on the development of new drugs for neurodegenerativedisease with Daegu-Gyeongbuk Medical Innovation Foundation',
+      ],
+    },
+    {
+      title: '2020',
+      content: [
+        'AR1001 Phase 2, 6month treatment complete',
+        'MOU with Yonsei Univ Hospital to establish a Research Institute on Dementia',
+        'AR1001 Polipharmacological MOA presentation (AAIC)',
+        'AR1001 Phase 2 Patient recruitment Completed',
+        'AR1002 License In (Columbia University)',
+        'MOU of AR1003 (AD treatment) with BioTox Tech and kick-off its development',
+        'Established Joint Research Agreement with Korea Institute of Science and Technology (KIST) for Development of Dementia Therapy',
+      ],
+    },
+    {
+      title: '2019',
+      content: [
+        'AR1002 L/I from Columbia University',
+        'AR1001 (Alzheimer’s Disease) Therapeutic Agent) Approval for Phase 2Extension Study (USFDA)',
+        'AR1001 (VD DMT) Phase 2 IND Approval (US FDA)',
+      ],
+    },
+  ]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,43 +95,90 @@ const History = () => {
           alt="vertical_arrow"
         />
       </MainImgWrap>
-      <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-        <TextWrap>
-          <Text $fontSize="26px" $fontWeight="300" $color="#939598">
-            HISTORY
-          </Text>
-          <div
-            style={{
-              width: '50%',
-              alignSelf: 'flex-start',
-              height: '8em',
-              borderRight: '2px solid #ffffff',
-              margin: '2rem 0',
-            }}
-          ></div>
-          <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-            Expansion Phase{' '}
-          </Text>
-          <Text $fontSize="30px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
-            Clinical development and Pipeline Extension
-          </Text>
-        </TextWrap>
-      </HomeComponentWrap>
-      <Tab style={{ padding: '0 7vw' }}>
-        {tabNames.map((item, index) => (
-          <TabItem
-            key={index}
-            $isActive={currentTab === item ? true : false}
-            onClick={() => {
-              setCurrentTab(item);
-              console.log(item);
-            }}
-          >
-            {item}
-          </TabItem>
-        ))}
-      </Tab>
-      {tabNames.indexOf(currentTab) === 0 ? <Tab1 /> : tabNames.indexOf(currentTab) === 1 ? <Tab2 /> : <Tab3 />}
+      <Desktop>
+        <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+          <TextWrap>
+            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+              HISTORY
+            </Text>
+            <div
+              style={{
+                width: '50%',
+                alignSelf: 'flex-start',
+                height: '8em',
+                borderRight: '2px solid #ffffff',
+                margin: '2rem 0',
+              }}
+            ></div>
+            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+              Expansion Phase{' '}
+            </Text>
+            <Text $fontSize="30px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
+              Clinical development and Pipeline Extension
+            </Text>
+          </TextWrap>
+        </HomeComponentWrap>
+        <Tab style={{ padding: '0 7vw' }}>
+          {tabNames.map((item, index) => (
+            <TabItem
+              key={index}
+              $isActive={currentTab === item ? true : false}
+              onClick={() => {
+                setCurrentTab(item);
+                console.log(item);
+              }}
+            >
+              {item}
+            </TabItem>
+          ))}
+        </Tab>
+        {tabNames.indexOf(currentTab) === 0 ? <Tab1 /> : tabNames.indexOf(currentTab) === 1 ? <Tab2 /> : <Tab3 />}
+      </Desktop>
+      <Mobile>
+        <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+          <TextWrap>
+            <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              HISTORY
+            </Text>
+            <div
+              style={{
+                width: '50%',
+                alignSelf: 'flex-start',
+                height: '8em',
+                borderRight: '2px solid #ffffff',
+                margin: '2rem 0',
+              }}
+            ></div>
+            <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+              Expansion Phase{' '}
+            </Text>
+            <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
+              Clinical development and Pipeline Extension
+            </Text>
+          </TextWrap>
+        </HomeComponentWrap>
+        <Tab style={{ padding: '0 7vw' }}>
+          {tabNames.map((item, index) => (
+            <TabItem
+              key={index}
+              $isActive={currentTab === item ? true : false}
+              onClick={() => {
+                setCurrentTab(item);
+                console.log(item);
+              }}
+            >
+              {item}
+            </TabItem>
+          ))}
+        </Tab>
+        {tabNames.indexOf(currentTab) === 0 ? (
+          <Tab1 listItems={listItems} />
+        ) : tabNames.indexOf(currentTab) === 1 ? (
+          <Tab2 />
+        ) : (
+          <Tab3 />
+        )}
+      </Mobile>
       <Footer />
     </Container>
   );

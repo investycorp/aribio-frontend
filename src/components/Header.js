@@ -46,6 +46,9 @@ const BlurBoxBottom = styled.div`
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   transition: opacity 0.3s ease-in-out;
+  @media screen and (max-width: 900px) {
+    height: 100px;
+  }
 `;
 
 const HeaderTop = styled.div`
@@ -59,7 +62,8 @@ const HeaderTop = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: 100;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 900px) {
+    height: 100px;
   }
 `;
 
@@ -305,7 +309,16 @@ const Header = () => {
             </div>
           </HeaderTop>
           {isToggleOpen && (
-            <HeaderNavWrap className="header-navwrap">
+            <HeaderNavWrap
+              className="header-navwrap"
+              // tabIndex={`1`}
+              onBlur={() => {
+                setCurrentMenu('');
+                setCurrentTab('');
+                setIsToggleOpen(false);
+                setSubMenuOpen('');
+              }}
+            >
               {menuList.map((menu, index) => (
                 <HeaderNavMenuTextWrap
                   key={menu.linkTo + index}
@@ -345,6 +358,7 @@ const Header = () => {
                             alignItems: 'center',
                             width: '84vw',
                           }}
+                          key={'submenu' + subMenu.linkTo}
                         >
                           <Link
                             to={`/${subMenu.linkTo}`}

@@ -57,8 +57,47 @@ const Path = styled.div`
   color: #ffffff;
   font-size: 20px;
   font-weight: 300;
-  align: left;
+  text-align: left;
   z-index: 20;
+
+  @media screen and (max-width: 900px) {
+    font-size: 15px;
+    top: 120px;
+  }
+`;
+const HeadLineTitle = styled.div`
+  width: fit-content;
+  font-size: 90px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  z-index: 10;
+
+  @media screen and (max-width: 1280px) {
+    font-size: 70px;
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 30px;
+  }
+`;
+
+const HeadLineText = styled.div`
+  width: fit-content;
+  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
+  font-weight: medium;
+  color: ${(props) => (props.$textColor ? props.$textColor : '#ffffff')};
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.3em;
+  z-index: 10;
+  @media screen and (max-width: 1280px) {
+    font-size: 26px;
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 20px;
+  }
 `;
 
 const HeadLine = styled.div`
@@ -68,6 +107,11 @@ const HeadLine = styled.div`
   text-align: center;
   font-size: 200px;
   font-weight: 500;
+  @media screen and (max-width: 1280px) {
+  }
+  @media screen and (max-width: 900px) {
+    font-size: 62px;
+  }
 `;
 const HomeComponentWrap = styled.div`
   position: relative;
@@ -91,6 +135,9 @@ const TextWrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  @media screen and (max-width: 1500px) {
+    width: 70vw;
+  }
 `;
 
 const Text = styled.div`
@@ -210,6 +257,8 @@ export {
   GridLineBox,
   Path,
   HeadLine,
+  HeadLineTitle,
+  HeadLineText,
   HomeComponentWrap,
   TextWrap,
   Text,

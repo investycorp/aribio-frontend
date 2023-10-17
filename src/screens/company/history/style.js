@@ -69,7 +69,6 @@ const HeadLine = styled.div`
 `;
 const HomeComponentWrap = styled.div`
   width: 100%;
-  max-width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -88,6 +87,9 @@ const TextWrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  @media screen and (max-width: 1500px) {
+    width: 70vw;
+  }
 `;
 
 const Text = styled.div`
@@ -112,6 +114,10 @@ const Tab = styled.div`
   padding-bottom: 1rem;
   margin-bottom: 7em;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const TabItem = styled.div`
@@ -132,6 +138,9 @@ const TabItem = styled.div`
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
   cursor: pointer;
+  @media screen and (max-width: 900px) {
+    font-size: 18px;
+  }
 `;
 
 const TabContentWrap = styled.div`

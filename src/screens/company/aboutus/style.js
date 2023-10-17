@@ -14,15 +14,16 @@ const Container = styled.div`
 `;
 
 const ContainerGridLineWrap = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: grid;
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 7vw;
-  position: fixed;
-  top: 0;
-  left: 0;
+
   overflow: hidden;
   z-index: 0;
 `;
@@ -72,7 +73,6 @@ const HomeComponentWrap = styled.div`
   position: relative;
   width: 100%;
   max-width: 100%;
-  min-height: 100vh;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -80,7 +80,7 @@ const HomeComponentWrap = styled.div`
   align-items: center;
   background-color: transparent;
   padding: 10vh 7vw;
-  z-index: 10;
+  z-index: 20;
 `;
 
 const TextWrap = styled.div`
@@ -116,6 +116,9 @@ const Tab = styled.div`
   padding-bottom: 1rem;
   margin-bottom: 7em;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    gap: 2rem;
+  }
 `;
 
 const TabItem = styled.div`
@@ -136,6 +139,9 @@ const TabItem = styled.div`
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
   cursor: pointer;
+  @media screen and (max-width: 900px) {
+    font-size: 20px;
+  }
 `;
 
 const TabContentWrap = styled.div`
@@ -150,6 +156,12 @@ const TabContentWrap = styled.div`
   background-color: transparent;
   margin-top: 3rem;
   padding-bottom: 10rem;
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+    padding-bottom: 3rem;
+    margin-top: 2rem;
+    row-gap: 10rem;
+  }
 `;
 
 const ContentBox = styled.div`
@@ -160,15 +172,24 @@ const ContentBox = styled.div`
   gap: 2rem;
   background-color: transparent;
   // border: 1px solid #ffffff;
-  &:nth-child(3n + 1) {
-    margin-bottom: 20vh;
+  @media screen and (min-width: 901px) {
+    &:nth-child(3n + 1) {
+      margin-bottom: 20vh;
+    }
+    &:nth-child(3n + 2) {
+      margin-top: 90vh;
+      margin-bottom: 7vh;
+    }
+    &:nth-child(3n) {
+      margin-top: 20vh;
+    }
   }
-  &:nth-child(3n + 2) {
-    margin-top: 90vh;
-    margin-bottom: 7vh;
-  }
-  &:nth-child(3n) {
-    margin-top: 20vh;
+  @media screen and (max-width: 900px) {
+    width: 64.26vw;
+    &:nth-child(odd) {
+      justify-content: center;
+      align-items: end;
+    }
   }
 `;
 const ContentBoxNameWrap = styled.div`
@@ -201,6 +222,13 @@ const DescriptionWrap = styled.ul`
   background-color: transparent;
   padding: 0 40px 0 3.1vw;
   transition: all 0.2s ease-in-out;
+  @media screen and (max-width: 900px) {
+    display: ${(props) => (props.$isActive ? 'flex' : 'none')};
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
 `;
 const DescriptionItem = styled.li`
   width: 100%;
@@ -212,6 +240,9 @@ const DescriptionItem = styled.li`
   line-height: 1.5em;
   list-style: disc;
   list-style-position: outside;
+  @media screen and (max-width: 900px) {
+    font-size: 16px;
+  }
 `;
 
 export {

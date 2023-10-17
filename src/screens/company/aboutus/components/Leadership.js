@@ -22,6 +22,7 @@ import aboutus_cqo from '../assets/aboutus_cqo.png';
 import aboutus_brchead from '../assets/aboutus_brchead.png';
 import aboutus_rndhead from '../assets/aboutus_rndhead.png';
 import aboutus_cco from '../assets/aboutus_cco.png';
+import { Desktop, Mobile } from '../../../../utils/MediaQuery';
 
 const Leadership = () => {
   const [tabContents, setTabContents] = useState([
@@ -142,67 +143,143 @@ const Leadership = () => {
   ]);
   return (
     <HomeComponentWrap style={{ width: '100vw', padding: '0', justifyContent: 'start', overflow: 'hidden' }}>
-      <TabContentWrap>
-        {tabContents.map((item, index) => (
-          <ContentBox key={index}>
-            <Text
-              $align="start"
-              $color="#F2F2F2"
-              $fontSize="20px"
-              style={{ paddingLeft: index % 3 === 0 ? '7vw' : '0', margin: '0' }}
-            >
-              {item.position}
-            </Text>
-            <Image src={item.photo} alt="leadershipphoto1" />
-            <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
-              <Text $fontSize="34px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
-                {item.name}
-              </Text>
-              {item.isOpen ? (
-                <Image
-                  onClick={() => {
-                    const newTabContents = tabContents.map((item, idx) => {
-                      if (idx === index) {
-                        return { ...item, isOpen: !item.isOpen };
-                      }
-                      return item;
-                    });
-                    setTabContents(newTabContents);
-                  }}
-                  src={minus}
-                  alt="minus"
-                  style={{ paddingRight: index % 3 === 2 && '7vw' }}
-                />
-              ) : (
-                <Image
-                  onClick={() => {
-                    const newTabContents = tabContents.map((item, idx) => {
-                      if (idx === index) {
-                        return { ...item, isOpen: !item.isOpen };
-                      }
-                      return item;
-                    });
-                    setTabContents(newTabContents);
-                  }}
-                  src={plus}
-                  alt="plus"
-                  style={{ paddingRight: index % 3 === 2 && '7vw' }}
-                />
-              )}
-              <DescriptionWrap
-                style={{
-                  padding: index % 3 === 0 ? ' 0 40px 0 10vw' : index % 3 === 1 ? '0 40px 0 3vw' : '0 10vw 0 3vw',
-                }}
-                $isActive={item.isOpen}
+      <Desktop>
+        <TabContentWrap>
+          {tabContents.map((item, index) => (
+            <ContentBox key={index}>
+              <Text
+                $align="start"
+                $color="#F2F2F2"
+                $fontSize="20px"
+                style={{ paddingLeft: index % 3 === 0 ? '7vw' : '0', margin: '0' }}
               >
-                {item.description.map((item, index) => (
-                  <DescriptionItem key={index}>{item}</DescriptionItem>
-                ))}
-              </DescriptionWrap>
-            </ContentBoxNameWrap>
-          </ContentBox>
-        ))}
-      </TabContentWrap>
+                {item.position}
+              </Text>
+              <Image src={item.photo} alt="leadershipphoto1" />
+              <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
+                <Text $fontSize="34px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
+                  {item.name}
+                </Text>
+                {item.isOpen ? (
+                  <Image
+                    onClick={() => {
+                      const newTabContents = tabContents.map((item, idx) => {
+                        if (idx === index) {
+                          return { ...item, isOpen: !item.isOpen };
+                        }
+                        return item;
+                      });
+                      setTabContents(newTabContents);
+                    }}
+                    src={minus}
+                    alt="minus"
+                    style={{ paddingRight: index % 3 === 2 && '7vw' }}
+                  />
+                ) : (
+                  <Image
+                    onClick={() => {
+                      const newTabContents = tabContents.map((item, idx) => {
+                        if (idx === index) {
+                          return { ...item, isOpen: !item.isOpen };
+                        }
+                        return item;
+                      });
+                      setTabContents(newTabContents);
+                    }}
+                    src={plus}
+                    alt="plus"
+                    style={{ paddingRight: index % 3 === 2 && '7vw' }}
+                  />
+                )}
+                <DescriptionWrap
+                  style={{
+                    padding: index % 3 === 0 ? ' 0 40px 0 10vw' : index % 3 === 1 ? '0 40px 0 3vw' : '0 10vw 0 3vw',
+                  }}
+                  $isActive={item.isOpen}
+                >
+                  {item.description.map((item, index) => (
+                    <DescriptionItem key={index}>{item}</DescriptionItem>
+                  ))}
+                </DescriptionWrap>
+              </ContentBoxNameWrap>
+            </ContentBox>
+          ))}
+        </TabContentWrap>
+      </Desktop>
+
+      <Mobile>
+        <TabContentWrap>
+          {tabContents.map((item, index) => (
+            <div
+              style={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: `${index % 2 === 0 ? 'flex-start' : 'flex-end'}`,
+              }}
+            >
+              <ContentBox key={index}>
+                <Text
+                  $align="start"
+                  $color="#F2F2F2"
+                  $fontSize="20px"
+                  style={{ paddingLeft: `${index % 2 === 0 ? '7vw' : '0'}`, margin: '0' }}
+                >
+                  {item.position}
+                </Text>
+                <Image src={item.photo} alt="leadershipphoto" style={{ width: '100%' }} />
+                <ContentBoxNameWrap style={{ paddingLeft: `${index % 2 === 0 ? '7vw' : '0'}` }}>
+                  <Text $fontSize="18px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
+                    {item.name}
+                  </Text>
+                  {item.isOpen ? (
+                    <Image
+                      onClick={() => {
+                        const newTabContents = tabContents.map((item, idx) => {
+                          if (idx === index) {
+                            return { ...item, isOpen: !item.isOpen };
+                          }
+                          return item;
+                        });
+                        setTabContents(newTabContents);
+                      }}
+                      src={minus}
+                      alt="minus"
+                      style={{ height: '1.5rem' }}
+                    />
+                  ) : (
+                    <Image
+                      onClick={() => {
+                        const newTabContents = tabContents.map((item, idx) => {
+                          if (idx === index) {
+                            return { ...item, isOpen: !item.isOpen };
+                          }
+                          return item;
+                        });
+                        setTabContents(newTabContents);
+                      }}
+                      src={plus}
+                      alt="plus"
+                      style={{ height: '1.5rem' }}
+                    />
+                  )}
+                </ContentBoxNameWrap>
+                <DescriptionWrap
+                  style={{
+                    padding: index % 3 === 0 ? ' 0 40px 0 10vw' : index % 3 === 1 ? '0 40px 0 3vw' : '0 10vw 0 3vw',
+                  }}
+                  $isActive={item.isOpen}
+                >
+                  {item.description.map((item, index) => (
+                    <DescriptionItem key={index}>{item}</DescriptionItem>
+                  ))}
+                </DescriptionWrap>
+              </ContentBox>
+            </div>
+          ))}
+        </TabContentWrap>
+      </Mobile>
     </HomeComponentWrap>
   );
 };
