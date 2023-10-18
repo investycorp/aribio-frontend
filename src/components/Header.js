@@ -96,7 +96,8 @@ const HeaderNavWrap = styled.div`
     justify-content: start;
     padding: 1em 7vw;
     gap: 0.5rem;
-    height: 70vh;
+    height: 85vh;
+
     overflow-y: scroll;
   }
 `;

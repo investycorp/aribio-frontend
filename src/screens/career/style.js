@@ -25,6 +25,7 @@ const ContainerGridLineWrap = styled.div`
   left: 0;
   overflow: hidden;
   z-index: 0;
+  opacity: 0.3;
 `;
 
 const GridLineBox = styled.div`
@@ -127,32 +128,35 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
   align-items: center;
   gap: 2rem;
   background-color: transparent;
-  &.benefits {
-    &:nth-child(odd) {
-      img {
-        position: absolute;
-        top: 0;
-        left: calc(-5vw - 64px);
+  @media (min-width: 901px) {
+    &.benefits {
+      &:nth-child(odd) {
+        img {
+          position: absolute;
+          top: 0;
+          left: calc(-5vw - 64px);
+        }
+      }
+      &:nth-child(even) {
+        gap: 5vw;
       }
     }
-    &:nth-child(even) {
-      gap: 5vw;
-    }
-  }
-  &.joinus {
-    border-radius: 20px;
-    background-color: #121212;
-    background-image: url(${(props) => props.$src});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    justify-content: space-between;
 
-    &:nth-child(odd) {
-      margin-bottom: 2em;
-    }
-    &:nth-child(even) {
-      margin-top: 2em;
+    &.joinus {
+      border-radius: 20px;
+      background-color: #121212;
+      background-image: url(${(props) => props.$src});
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      justify-content: space-between;
+
+      &:nth-child(odd) {
+        margin-bottom: 2em;
+      }
+      &:nth-child(even) {
+        margin-top: 2em;
+      }
     }
   }
 `;
@@ -194,7 +198,7 @@ const DescriptionWrap = styled.ul`
 `;
 
 const DescriptionItem = styled.li`
-  width: 100%;
+  width: auto;
   height: fit-content;
   text-align: left;
   font-size: 10px;

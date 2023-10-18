@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import icon_close from '../assets/icon_close.svg';
+import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 const ModalWrap = styled.div`
   position: fixed;
@@ -32,6 +33,9 @@ const ModalContentWrap = styled.div`
   padding: 2rem;
   z-index: 10;
   overflow: hidden;
+  @media (max-width: 900px) {
+    width: 84vw;
+  }
 `;
 
 const ModalTitleWrap = styled.div`
@@ -61,6 +65,9 @@ const ModalDescriotionWrap = styled.div`
   line-height: 1.5em;
   font-size: 20px;
   font-weight: 100;
+  @media (max-width: 900px) {
+    font-size: 14px;
+  }
 `;
 
 const Modal = ({ setIsModalOpen, item, title, content }) => {
@@ -69,46 +76,76 @@ const Modal = ({ setIsModalOpen, item, title, content }) => {
   useEffect(() => {
     document.getElementById('Modal')?.focus();
   }, [show]);
+
   const handleBlur = (e) => {
-    console.log('blur');
     if (!e.currentTarget.contains(e.relatedTarget)) {
-      // setIsModalOpen(false);
-      // setShow(false);
+      setIsModalOpen(false);
+      setShow(false);
     }
   };
+
   return (
     <ModalWrap>
-      <ModalContentWrap
-        id="Modal"
-        onBlur={(e) => {
-          console.log('blur');
-          handleBlur(e);
-        }}
-        // tabIndex="1"
-      >
-        <ModalTitleWrap>
-          <span style={{ margin: '1.5em 0' }}>•</span>
-          <div style={{ width: '100%', fontSize: '24px', fontWeight: '300' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'start' }}>
-              <span style={{ margin: '1em 0' }}>
-                {item}
-                {':'}
-              </span>
-              <span>{title}</span>
+      <Desktop>
+        <ModalContentWrap
+          id="Modal"
+          onBlur={(e) => {
+            handleBlur(e);
+          }}
+          tabIndex={1}
+        >
+          <ModalTitleWrap>
+            <span style={{ margin: '1.5em 0' }}>•</span>
+            <div style={{ width: '100%', fontSize: '24px', fontWeight: '300' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'start' }}>
+                <span style={{ margin: '1em 0' }}>
+                  {item}
+                  {':'}
+                </span>
+                <span>{title}</span>
+              </div>
             </div>
-          </div>
-          <img
-            style={{ padding: '0 0 0.5em 0', height: '2em', cursor: 'pointer' }}
-            src={icon_close}
-            onClick={() => {
-              setIsModalOpen(false);
-            }}
-            alt="close"
-          />
-        </ModalTitleWrap>
+            <img
+              style={{ padding: '0 0 0.5em 0', height: '2em', cursor: 'pointer' }}
+              src={icon_close}
+              onClick={() => {
+                setIsModalOpen(false);
+              }}
+              alt="close"
+            />
+          </ModalTitleWrap>
 
-        <ModalDescriotionWrap>{content}</ModalDescriotionWrap>
-      </ModalContentWrap>
+          <ModalDescriotionWrap>{content}</ModalDescriotionWrap>
+        </ModalContentWrap>
+      </Desktop>
+      <Mobile>
+        <ModalContentWrap
+          id="Modal"
+          onBlur={(e) => {
+            handleBlur(e);
+          }}
+          tabIndex={1}
+        >
+          <ModalTitleWrap>
+            <span style={{ margin: '1.5em 0' }}>•</span>
+            <div style={{ width: '100%', fontSize: '16px', fontWeight: '300' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'start' }}>
+                <span style={{ margin: '1em 0' }}>{item}</span>
+                <span>{title}</span>
+              </div>
+            </div>
+            <img
+              style={{ padding: '0 0 0.5em 0', height: '2em', cursor: 'pointer' }}
+              src={icon_close}
+              onClick={() => {
+                setIsModalOpen(false);
+              }}
+              alt="close"
+            />
+          </ModalTitleWrap>
+          <ModalDescriotionWrap>{content}</ModalDescriotionWrap>
+        </ModalContentWrap>
+      </Mobile>
     </ModalWrap>
   );
 };

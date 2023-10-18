@@ -14,16 +14,17 @@ const Container = styled.div`
 `;
 
 const ContainerGridLineWrap = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: grid;
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 7vw;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   overflow: hidden;
+  opacity: 0.3;
   z-index: 0;
 `;
 
@@ -35,6 +36,7 @@ const GridLineBox = styled.div`
 `;
 
 const MainImgWrap = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -45,7 +47,7 @@ const MainImgWrap = styled.div`
   background-repeat: no-repeat;
   background-color: #121212;
   background-image: url(${(props) => props.$src});
-  z-index: 5;
+  z-index: 10;
 `;
 
 const Path = styled.div`
@@ -68,6 +70,7 @@ const HeadLine = styled.div`
   font-weight: 500;
 `;
 const HomeComponentWrap = styled.div`
+  position: relative;
   width: 100%;
   max-width: 100%;
   height: fit-content;
@@ -241,6 +244,72 @@ const TableContentBox = styled.div.attrs((props) => ({
     font-size: 24px;
   }
 `;
+
+const ContentBoxWrap = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  height: fit-content;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+`;
+
+const RowWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding: 0 1rem;
+  text-align: left;
+  color: #e8e8e8;
+  gap: 0.5rem;
+  width: 100%;
+`;
+
+const ContentBox = styled.div.attrs((props) => ({
+  className: props.className,
+}))`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  background-color: transparent;
+  padding: 1rem;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 300;
+  height: fit-content;
+  width: 100%;
+  gap: 0.5rem;
+  &.gridline {
+    gap: 0;
+    ${RowWrap} {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      border-right: 1px solid #fff;
+      &:last-child {
+        border-right: none;
+      }
+      hr {
+        width: 100%;
+      }
+      span {
+        text-align: right;
+        position: absolute;
+        top: calc(100% + 1rem);
+        right: 0;
+        max-width: 16vw;
+      }
+    }
+  }
+`;
+
 const ContentBoxNameWrap = styled.div`
   position: relative;
   width: 100%;
@@ -292,6 +361,9 @@ const ShootingStarWrap = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 const ShootingStar = styled.span.attrs((props) => ({
@@ -326,7 +398,7 @@ const ShootingStar = styled.span.attrs((props) => ({
     position: absolute;
     top: 50%;
     right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props.$phase}*8vw)` : `calc(10vw)`)};
+    width: ${(props) => (props.$phase ? `calc(${props.$phase}*17.5vw)` : `calc(10vw)`)};
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
     transform: translate(0, -50%);
@@ -342,7 +414,7 @@ const move = (phase) => keyframes`
     opacity: 1;
   }
   100% {
-    transform: ${`translateX(calc(8vw * ${phase} - 10px))`};
+    transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
     opacity: 1;
   }
 `;
@@ -367,15 +439,18 @@ const ToggleButton = styled.div`
 `;
 const ToggleListWrap = styled.div`
   position: absolute;
-  top: 8em;
+  opacity: ${(props) => (props.$toggleOn ? 1 : 0)};
+  display: ${(props) => (props.$toggleOn ? 'grid' : 'none')};
+  top: 8rem;
   left: 50%;
   transform: translateX(-50%);
-  display: grid;
   grid-template-columns: 1fr;
   width: 84vw;
   height: fit-content;
+  max-height: 50vw;
+  overflow-y: scroll;
   background-color: transparent;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   margin: 0;
   border: 1px solid #fff;
   border-radius: 0.5rem;
@@ -385,6 +460,7 @@ const ToggleListWrap = styled.div`
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   gap: 0.5rem;
+  transition: all 0.3s ease-in-out;
 `;
 
 const ToggleList = styled.div`
@@ -395,10 +471,13 @@ const ToggleList = styled.div`
   font-size: 18px;
   color: #f2f2f2;
   font-weight: 300;
-  padding: 0.5rem 0.5rem;
-  &:hover {
+  padding: 0.5rem 1.5rem;
+  &:hover,
+  &:active,
+  &:focus {
     background-color: rgba(255, 255, 255, 0.2);
   }
+  transition: all 0.3s ease-in-out;
 `;
 
 export {
@@ -425,4 +504,7 @@ export {
   ToggleButton,
   ToggleListWrap,
   ToggleList,
+  ContentBoxWrap,
+  ContentBox,
+  RowWrap,
 };
