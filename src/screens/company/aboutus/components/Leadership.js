@@ -198,7 +198,7 @@ const Leadership = () => {
                   $isActive={item.isOpen}
                 >
                   {item.description.map((item, index) => (
-                    <DescriptionItem key={index}>{item}</DescriptionItem>
+                    <DescriptionItem key={'description' + index}>{item}</DescriptionItem>
                   ))}
                 </DescriptionWrap>
               </ContentBoxNameWrap>
@@ -218,6 +218,7 @@ const Leadership = () => {
                 justifyContent: 'center',
                 alignItems: `${index % 2 === 0 ? 'flex-start' : 'flex-end'}`,
               }}
+              key={'tabcontent' + index}
             >
               <ContentBox key={index}>
                 <Text
@@ -272,7 +273,7 @@ const Leadership = () => {
                   $isActive={item.isOpen}
                 >
                   {item.description.map((item, index) => (
-                    <DescriptionItem key={index}>{item}</DescriptionItem>
+                    <DescriptionItem key={item + index}>{item}</DescriptionItem>
                   ))}
                 </DescriptionWrap>
               </ContentBox>

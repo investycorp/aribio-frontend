@@ -11,8 +11,6 @@ import {
   ContainerGridLineWrap,
   GridLineBox,
   MainImgWrap,
-  Path,
-  HeadLine,
   HomeComponentWrap,
   TextWrap,
   Text,
@@ -24,6 +22,9 @@ import openinnovation_cover from './assets/openinnovation_cover.png';
 import openinnovation_middle1 from './assets/openinnovation_middle1.png';
 import openinnovation_middle2 from './assets/openinnovation_middle2.png';
 import arrow from '../../assets/images/arrow.svg';
+
+import { HeadLine, Path } from '../../components/style';
+import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const OpenInnovation = () => {
   const navigate = useNavigate();
@@ -49,119 +50,122 @@ const OpenInnovation = () => {
           alt="vertical_arrow"
         />
       </MainImgWrap>
-      <HomeComponentWrap
-        style={{
-          backgroundColor: 'transparent',
-          height: '120vh',
-          overflow: 'hidden',
-        }}
-      >
-        <Image
+      <Desktop>
+        <HomeComponentWrap
           style={{
-            position: 'absolute',
-            top: '50vh',
-            left: '0',
-            width: '100%',
-            height: 'auto',
-            opacity: '0.3',
-            zIndex: '10',
-          }}
-          src={openinnovation_middle1}
-          alt="intro_bg"
-        />
-        <TextWrap style={{ width: '70vw', position: 'relative', backgroundColor: 'transparent' }}>
-          <Text $color="#939598" $fontSize="26px" $fontWeight="300">
-            INTRODUCTION
-          </Text>
-          <Text $fontSize="50px" $fontWeight="400">
-            AriBio is dedicated to driving advancements in neurodegenerative diseases.
-          </Text>
-          <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-          <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3" style={{ width: '50vw' }}>
-            Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and we’re strengthened by our
-            commitment to open innovation. We actively collaborate with innovative companies around the world, aiming to
-            create impactful solutions for these challenging diseases.
-          </Text>
-        </TextWrap>
-      </HomeComponentWrap>
-      <HomeComponentWrap
-        style={{
-          minHeight: 'fit-content',
-          padding: '0 0 20em 0',
-          margin: '0',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-        }}
-      >
-        <Image src={openinnovation_middle2} alt="openinnovation_middle2" style={{ width: '80%', marginTop: '5em' }} />
-        <TextWrap
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'start',
-            width: '100%',
-            height: '100%',
             backgroundColor: 'transparent',
-            padding: '1em 10em 1em 0',
+            height: '120vh',
+            overflow: 'hidden',
           }}
         >
-          <Text $color="#939598" $fontSize="23px" $fontWeight="300" $align="start">
-            <HR style={{ marginBottom: '2em' }} />
-            Our approach blends polypharmacological strategies with a belief in multi-modal management for these
-            conditions.
-            <br />
-            <br />
-            While pioneering work in this area has its challenges and risks, the urgent need for solutions in
-            neurodegenerative diseases propels us forward. Alongside our partners, we utilize AI and digital tools to
-            support patients and deepen our understanding of these disorders.
-          </Text>
-          <ContentWrap style={{ justifySelf: 'end', flexDirection: 'row', padding: '0' }}>
-            <Text
-              $fontSize="20px"
-              $fontWeight="300"
-              $color="#ffffff"
-              $align="start"
-              $clickable={true}
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                width: 'fit-content',
-                paddingBottom: '0.7em',
-                borderBottom: '2px solid #ffffff',
-                gap: '3em',
-              }}
-              onClick={() => navigate('/')}
-            >
-              <span style={{ zIndex: '-1' }}>Digital Health</span>
-              <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+          <Image
+            style={{
+              position: 'absolute',
+              top: '50vh',
+              left: '0',
+              width: '100%',
+              height: 'auto',
+              opacity: '0.3',
+              zIndex: '10',
+            }}
+            src={openinnovation_middle1}
+            alt="intro_bg"
+          />
+          <TextWrap style={{ width: '70vw', position: 'relative', backgroundColor: 'transparent' }}>
+            <Text $color="#939598" $fontSize="26px" $fontWeight="300">
+              INTRODUCTION
             </Text>
-            <Text
-              $fontSize="20px"
-              $fontWeight="300"
-              $color="#ffffff"
-              $align="start"
-              $clickable={true}
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                width: 'fit-content',
-                paddingBottom: '0.7em',
-                borderBottom: '2px solid #ffffff',
-                gap: '3em',
-              }}
-              onClick={() => navigate('/')}
-            >
-              <span style={{ zIndex: '-1' }}>Memo:Re Project</span>
-              <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+            <Text $fontSize="50px" $fontWeight="400">
+              AriBio is dedicated to driving advancements in neurodegenerative diseases.
             </Text>
-          </ContentWrap>
-        </TextWrap>
-      </HomeComponentWrap>
+            <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
+            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3" style={{ width: '50vw' }}>
+              Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and we’re strengthened by our
+              commitment to open innovation. We actively collaborate with innovative companies around the world, aiming
+              to create impactful solutions for these challenging diseases.
+            </Text>
+          </TextWrap>
+        </HomeComponentWrap>
+        <HomeComponentWrap
+          style={{
+            minHeight: 'fit-content',
+            padding: '0 0 20em 0',
+            margin: '0',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+          }}
+        >
+          <Image src={openinnovation_middle2} alt="openinnovation_middle2" style={{ width: '80%', marginTop: '5em' }} />
+          <TextWrap
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              alignItems: 'start',
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'transparent',
+              padding: '1em 10em 1em 0',
+            }}
+          >
+            <Text $color="#939598" $fontSize="23px" $fontWeight="300" $align="start">
+              <HR style={{ marginBottom: '2em' }} />
+              Our approach blends polypharmacological strategies with a belief in multi-modal management for these
+              conditions.
+              <br />
+              <br />
+              While pioneering work in this area has its challenges and risks, the urgent need for solutions in
+              neurodegenerative diseases propels us forward. Alongside our partners, we utilize AI and digital tools to
+              support patients and deepen our understanding of these disorders.
+            </Text>
+            <ContentWrap style={{ justifySelf: 'end', flexDirection: 'row', padding: '0' }}>
+              <Text
+                $fontSize="20px"
+                $fontWeight="300"
+                $color="#ffffff"
+                $align="start"
+                $clickable={true}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  width: 'fit-content',
+                  paddingBottom: '0.7em',
+                  borderBottom: '2px solid #ffffff',
+                  gap: '3em',
+                }}
+                onClick={() => navigate('/')}
+              >
+                <span style={{ zIndex: '-1' }}>Digital Health</span>
+                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+              </Text>
+              <Text
+                $fontSize="20px"
+                $fontWeight="300"
+                $color="#ffffff"
+                $align="start"
+                $clickable={true}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  width: 'fit-content',
+                  paddingBottom: '0.7em',
+                  borderBottom: '2px solid #ffffff',
+                  gap: '3em',
+                }}
+                onClick={() => navigate('/')}
+              >
+                <span style={{ zIndex: '-1' }}>Memo:Re Project</span>
+                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+              </Text>
+            </ContentWrap>
+          </TextWrap>
+        </HomeComponentWrap>
+      </Desktop>
+      <Mobile></Mobile>
       <Footer />
     </Container>
   );

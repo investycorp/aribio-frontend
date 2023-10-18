@@ -346,14 +346,30 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
     margin-top: 3em;
     padding: 0;
 
-    &:nth-child(3n + 1) {
-      padding: 0 2em 0 0;
+    @media (min-width: 901px) {
+      &:nth-child(3n + 1) {
+        padding: 0 2em 0 0;
+      }
+      &:nth-child(3n + 2) {
+        padding: 4em 2em 0 6em;
+      }
+      &:nth-child(3n) {
+        padding: 0 1em 0 8em;
+      }
     }
-    &:nth-child(3n + 2) {
-      padding: 4em 2em 0 6em;
-    }
-    &:nth-child(3n) {
-      padding: 0 1em 0 8em;
+    @media (max-width: 900px) {
+      &:nth-child(odd) {
+        align-items: end;
+        ${Text} {
+          text-align: right;
+        }
+      }
+      &:nth-child(even) {
+        align-items: start;
+        ${Text} {
+          text-align: left;
+        }
+      }
     }
 
     @media (max-width: 1450px) {

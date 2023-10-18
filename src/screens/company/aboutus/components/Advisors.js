@@ -152,6 +152,7 @@ const Advisors = () => {
                 justifyContent: 'center',
                 alignItems: `${index % 2 === 0 ? 'flex-start' : 'flex-end'}`,
               }}
+              key={'tabContent' + index}
             >
               <ContentBox key={index}>
                 <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>

@@ -4,12 +4,11 @@ import Footer from '../../components/Footer';
 import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 import pipeline_cover from './assets/pipeline_cover.png';
 import icon_open from './assets/icon_open.svg';
+import icon_opentoggle from './assets/icon_opentoggle.svg';
 import Modal from './components/Modal';
 import {
   Container,
   MainImgWrap,
-  Path,
-  HeadLine,
   HomeComponentWrap,
   TextWrap,
   Text,
@@ -20,7 +19,13 @@ import {
   TableContentBox,
   ShootingStarWrap,
   ShootingStar,
+  ToggleButton,
+  ToggleListWrap,
+  ToggleList,
 } from './style';
+
+import { HeadLine, Path } from '../../components/style';
+import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const PipeLine = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -119,86 +124,122 @@ const PipeLine = () => {
           alt="vertical_arrow"
         />
       </MainImgWrap>
-      <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-        <TextWrap>
-          <Text $fontSize="26px" $fontWeight="300" $color="#939598">
-            PIPELINE
-          </Text>
-          <div
-            style={{
-              width: '50%',
-              alignSelf: 'flex-start',
-              height: '8em',
-              borderRight: '2px solid #ffffff',
-              margin: '2rem 0',
-            }}
-          ></div>
-          <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-            Pipeline List
-          </Text>
-        </TextWrap>
-        <TableWrap className="table">
-          <TableRowWrap className="th">
-            {tableHeader.map((item, index) => (
-              <TableContentBox key={index}>{item}</TableContentBox>
-            ))}
-          </TableRowWrap>
-          {data.map((item, index) => (
-            <TableRowWrap className="tr" key={index}>
-              <TableContentBox>
-                {item.drugCandidate}
-                <img
-                  style={{ padding: '1em' }}
-                  src={icon_open}
-                  alt="modal_open"
-                  onClick={() => {
-                    setIsModalOpen(true);
-                    setModalItem({ ...item.modal, item: item.drugCandidate });
-                  }}
-                />
-              </TableContentBox>
-              <TableContentBox>{item.target}</TableContentBox>
-              <TableContentBox>{item.modality}</TableContentBox>
-              <TableContentBox className="indication" style={{ padding: '0' }}>
-                {item.indication.map((indication, index) => (
-                  <div key={'indication' + index}>
-                    <div className="section" key={indication.section + index}>
-                      {indication.section}
-                    </div>
-                    <div className="phase" key={'phase' + index}>
-                      <span>
-                        <ShootingStarWrap className="shooting_star_wrap">
-                          <hr style={{ width: '100%', opacity: '0.4' }} />
-                          <ShootingStar
-                            className="shooting_star"
-                            style={{
-                              height: '8px',
-                              width: '2px',
-                            }}
-                            $phase={indication.phase}
-                          />
-                        </ShootingStarWrap>
-                      </span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
-                ))}
-              </TableContentBox>
+      <Desktop>
+        <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+          <TextWrap>
+            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+              PIPELINE
+            </Text>
+            <div
+              style={{
+                width: '50%',
+                alignSelf: 'flex-start',
+                height: '8em',
+                borderRight: '2px solid #ffffff',
+                margin: '2rem 0',
+              }}
+            ></div>
+            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+              Pipeline List
+            </Text>
+          </TextWrap>
+          <TableWrap className="table">
+            <TableRowWrap className="th">
+              {tableHeader.map((item, index) => (
+                <TableContentBox key={index}>{item}</TableContentBox>
+              ))}
             </TableRowWrap>
-          ))}
-        </TableWrap>
-      </HomeComponentWrap>
-      {isModalOpen && (
-        <Modal
-          setIsModalOpen={setIsModalOpen}
-          item={modalItem.item}
-          title={modalItem.title}
-          content={modalItem.desciption}
-        />
-      )}
+            {data.map((item, index) => (
+              <TableRowWrap className="tr" key={index}>
+                <TableContentBox>
+                  {item.drugCandidate}
+                  <img
+                    style={{ padding: '1em' }}
+                    src={icon_open}
+                    alt="modal_open"
+                    onClick={() => {
+                      setIsModalOpen(true);
+                      setModalItem({ ...item.modal, item: item.drugCandidate });
+                    }}
+                  />
+                </TableContentBox>
+                <TableContentBox>{item.target}</TableContentBox>
+                <TableContentBox>{item.modality}</TableContentBox>
+                <TableContentBox className="indication" style={{ padding: '0' }}>
+                  {item.indication.map((indication, index) => (
+                    <div key={'indication' + index}>
+                      <div className="section" key={indication.section + index}>
+                        {indication.section}
+                      </div>
+                      <div className="phase" key={'phase' + index}>
+                        <span>
+                          <ShootingStarWrap className="shooting_star_wrap">
+                            <hr style={{ width: '100%', opacity: '0.4' }} />
+                            <ShootingStar
+                              className="shooting_star"
+                              style={{
+                                height: '8px',
+                                width: '2px',
+                              }}
+                              $phase={indication.phase}
+                            />
+                          </ShootingStarWrap>
+                        </span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+                  ))}
+                </TableContentBox>
+              </TableRowWrap>
+            ))}
+          </TableWrap>
+        </HomeComponentWrap>
+        {isModalOpen && (
+          <Modal
+            setIsModalOpen={setIsModalOpen}
+            item={modalItem.item}
+            title={modalItem.title}
+            content={modalItem.desciption}
+          />
+        )}
+      </Desktop>
+      <Mobile>
+        <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+          <TextWrap>
+            <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              PIPELINE
+            </Text>
+            <div
+              style={{
+                width: '50%',
+                alignSelf: 'flex-start',
+                height: '8em',
+                borderRight: '1px solid #ffffff',
+                margin: '2rem 0',
+              }}
+            ></div>
+            <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+              Pipeline List
+            </Text>
+          </TextWrap>
+          <div style={{ width: '84vw', position: 'relative' }}>
+            <ToggleButton>
+              <span>Drug Candidate</span>
+              <img src={icon_opentoggle} alt="open_toggle" />
+            </ToggleButton>
+            <ToggleListWrap>
+              {data.map((item, index) => (
+                <ToggleList key={'toggle' + item.drugCandidate + index}>{item.drugCandidate}</ToggleList>
+              ))}
+            </ToggleListWrap>
+          </div>
+
+          <TableWrap className="table"></TableWrap>
+        </HomeComponentWrap>
+      </Mobile>
       <Footer />
     </Container>
   );

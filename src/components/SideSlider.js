@@ -67,8 +67,6 @@ const SideSlider = () => {
   const [scrollXNumber, setScrollXNumber] = useState(0);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    console.log(document.querySelector(`.container`).offsetHeight - window.innerHeight);
     setOffsetHeights([]);
     for (let i = 1; i < document.getElementsByClassName('home').length + 1; i++) {
       setOffsetHeights((prev) => [
@@ -76,9 +74,19 @@ const SideSlider = () => {
         document.querySelector(`.home_${i}`)?.offsetTop + document.querySelector(`.home_${i}`)?.offsetHeight * 0.7,
       ]);
     }
-    window.addEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener(
+      'scroll',
+      () => {
+        handleScroll();
+      },
+      false,
+    );
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', () => handleScroll());
     };
   }, []);
 

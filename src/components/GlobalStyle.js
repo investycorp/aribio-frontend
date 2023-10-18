@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'pretendard';
     background-color: '#121212';
-    height: 100%;
+    height: fit-content;
     overflow-x: hidden;
   }
   div {

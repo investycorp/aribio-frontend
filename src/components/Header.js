@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
@@ -94,8 +94,10 @@ const HeaderNavWrap = styled.div`
     width: -webkit-fill-available;
     align-items: start;
     justify-content: start;
-    height: fit-content;
     padding: 1em 7vw;
+    gap: 0.5rem;
+    height: 70vh;
+    overflow-y: scroll;
   }
 `;
 
@@ -235,12 +237,12 @@ const Header = () => {
     ],
   });
   const [navBarwidth, setNavBarWidth] = useState(0);
-  const location = useLocation();
   const [currentMenu, setCurrentMenu] = useState('');
   const [currentTab, setCurrentTab] = useState('');
-  const [windowSize, setWindowSize] = useRecoilState(WindowSize);
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState('');
+  const [windowSize, setWindowSize] = useRecoilState(WindowSize);
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -274,10 +276,29 @@ const Header = () => {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    //Mobile body Scroll Lock on Toggle
+    if (isToggleOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100vh';
+    } else {
+      document.body.style.overflow = 'unset';
+      document.body.style.height = 'unset';
+    }
+  }, [isToggleOpen]);
+
   return (
     <>
       <Mobile>
-        <HeaderContainer style={{ display: 'grid', backgroundColor: '#121212' }}>
+        <HeaderContainer
+          style={{ display: 'grid', backgroundColor: '#121212' }}
+          tabIndex={1}
+          onBlur={async () => {
+            await new Promise((resolve) => setTimeout(resolve, 100));
+            setIsToggleOpen(false);
+            setSubMenuOpen('');
+          }}
+        >
           <HeaderTop>
             <HeaderLogoWrap>
               <Link
@@ -309,24 +330,15 @@ const Header = () => {
             </div>
           </HeaderTop>
           {isToggleOpen && (
-            <HeaderNavWrap
-              className="header-navwrap"
-              // tabIndex={`1`}
-              onBlur={() => {
-                setCurrentMenu('');
-                setCurrentTab('');
-                setIsToggleOpen(false);
-                setSubMenuOpen('');
-              }}
-            >
+            <HeaderNavWrap className="header-navwrap">
               {menuList.map((menu, index) => (
                 <HeaderNavMenuTextWrap
                   key={menu.linkTo + index}
                   onClick={() => {
-                    if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
-                      if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
-                      else window.location.reload();
-                    }
+                    // if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
+                    //   if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
+                    //   else window.location.reload();
+                    // }
                   }}
                   $isActive={menu.linkTo === currentMenu ? true : false}
                 >
@@ -344,7 +356,7 @@ const Header = () => {
                     <Image style={{ zIndex: '-1' }} src={plus} alt="open" />
                   </div>
                   <div
-                    style={{ display: 'grid', width: '100%', alignItems: 'stretch', gap: '1em', marginBottom: '1em' }}
+                    style={{ display: 'grid', width: '100%', alignItems: 'stretch', gap: '0.5rem', marginBottom: '0' }}
                   >
                     {subMenuOpen === menu.linkTo &&
                       subMenu[menu.linkTo]?.map((subMenu) => (
@@ -370,10 +382,7 @@ const Header = () => {
                               justifyContent: 'center',
                               alignItems: 'center',
                               padding: '0.2em',
-                              borderBottom:
-                                currentTab === menu.linkTo && currentTab !== currentMenu
-                                  ? '2px solid #ffffff'
-                                  : '2px solid transparent',
+                              borderBottom: '2px solid transparent',
                             }}
                             key={subMenu.linkTo}
                             onClick={() => {

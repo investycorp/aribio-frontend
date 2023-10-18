@@ -13,25 +13,16 @@ import {
   ContainerGridLineWrap,
   GridLineBox,
   MainImgWrap,
-  Path,
-  HeadLine,
   HomeComponentWrap,
   TextWrap,
   Text,
-  ButtonWrap,
-  RoundButton,
   ComponentWrap,
   GridComponentWrap,
-  DescriptionWrap,
-  DescriptionItem,
-  ContentBox,
-  ColorBarTextWrap,
   Image,
-  HR,
-  ContentWrap,
-  UnderLineWrap,
-  Underline,
 } from './style';
+
+import { HeadLine, Path } from '../../components/style';
+import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const SearchInput = styled.input`
   width: 100%;
@@ -123,104 +114,194 @@ const Publications = () => {
       <Header />
       <Path>{`HOME > OUR APPROACH > PUBLICATIONS`}</Path>
       <MainImgWrap $src={ourapproach_publications_cover}>
-        <HeadLine>PUBLICATIONS</HeadLine>
+        <HeadLine style={{ fontSize: '44px' }}>PUBLICATIONS</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
       </MainImgWrap>
-      <HomeComponentWrap>
-        <TextWrap style={{ margin: '0' }}>
-          <Text $fontSize="26px" $fontWeight="300" $color="#939598">
-            PUBLICATION
-          </Text>
-          <div
-            style={{
-              width: '50%',
-              alignSelf: 'flex-start',
-              height: '4em',
-              borderRight: '2px solid #ffffff',
-              margin: '2rem 0',
-            }}
-          ></div>
-          <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
-            IR Documents
-          </Text>
-        </TextWrap>
-        <GridComponentWrap
-          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', rowGap: '3em', minHeight: '50vh' }}
-        >
-          <ComponentWrap></ComponentWrap>
-          <ComponentWrap></ComponentWrap>
-          <ComponentWrap
-            style={{
-              flexDirection: 'row',
-              color: '#ffffff',
-              marginTop: '4em',
-              borderBottom: '2px solid #ffffff',
-              padding: '0',
-            }}
-          >
-            <SearchInput
-              placeholder="Please enter a search term."
-              type="text"
-              value={searchValue}
-              onChange={(e) => {
-                handleChange(e);
+      <Desktop>
+        <HomeComponentWrap>
+          <TextWrap style={{ margin: '0' }}>
+            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+              PUBLICATION
+            </Text>
+            <div
+              style={{
+                width: '50%',
+                alignSelf: 'flex-start',
+                height: '4em',
+                borderRight: '2px solid #ffffff',
+                margin: '2rem 0',
               }}
-              autoFocus={true}
-            />
-            <Image src={search} alt="search" />
-          </ComponentWrap>
-          {filteredList.length > 0 ? (
-            filteredList.map((doc, index) => (
-              <ComponentWrap
-                key={doc.title + index}
-                className="irdoc"
-                style={{ justifyContent: 'center', alignItems: 'start' }}
-              >
-                <Image src={doc.image} alt="doc" style={{ width: '14vw' }} />
-                <Text
-                  className="text"
-                  $fontSize="26px"
-                  $fontWeight="300"
-                  $color="#ffffff"
-                  $align="start"
-                  style={{ margin: '1em 0' }}
+            ></div>
+            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
+              IR Documents
+            </Text>
+          </TextWrap>
+          <GridComponentWrap
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', rowGap: '3em', minHeight: '50vh' }}
+          >
+            <ComponentWrap></ComponentWrap>
+            <ComponentWrap></ComponentWrap>
+            <ComponentWrap
+              style={{
+                flexDirection: 'row',
+                color: '#ffffff',
+                marginTop: '4em',
+                borderBottom: '2px solid #ffffff',
+                padding: '0',
+              }}
+            >
+              <SearchInput
+                placeholder="Please enter a search term."
+                type="text"
+                value={searchValue}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
+                autoFocus={true}
+              />
+              <Image src={search} alt="search" />
+            </ComponentWrap>
+            {filteredList.length > 0 ? (
+              filteredList.map((doc, index) => (
+                <ComponentWrap
+                  key={doc.title + index}
+                  className="irdoc"
+                  style={{ justifyContent: 'center', alignItems: 'start' }}
                 >
-                  {doc.title}
-                </Text>
-                <Text
-                  $fontSize="20px"
-                  $fontWeight="300"
-                  $color="#ffffff"
-                  $align="start"
-                  $clickable={true}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    width: '45%',
-                    padding: '0.7em 0',
-                    borderBottom: '2px solid #ffffff',
-                  }}
-                  onClick={() => {
-                    console.log(doc.title, doc.downloadUrl);
-                    // downloadDoc(doc.title, doc.downloadUrl);
-                  }}
+                  <Image src={doc.image} alt="doc" style={{ width: '14vw' }} />
+                  <Text
+                    className="text"
+                    $fontSize="26px"
+                    $fontWeight="300"
+                    $color="#ffffff"
+                    $align="start"
+                    style={{ margin: '1em 0' }}
+                  >
+                    {doc.title}
+                  </Text>
+                  <Text
+                    $fontSize="20px"
+                    $fontWeight="300"
+                    $color="#ffffff"
+                    $align="start"
+                    $clickable={true}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      width: '45%',
+                      padding: '0.7em 0',
+                      borderBottom: '2px solid #ffffff',
+                    }}
+                    onClick={() => {
+                      console.log(doc.title, doc.downloadUrl);
+                      // downloadDoc(doc.title, doc.downloadUrl);
+                    }}
+                  >
+                    <span style={{ zIndex: '-1' }}>Download</span>
+                    <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  </Text>
+                </ComponentWrap>
+              ))
+            ) : (
+              <NoResult>No Result</NoResult>
+            )}
+          </GridComponentWrap>
+        </HomeComponentWrap>
+      </Desktop>
+      <Mobile>
+        <HomeComponentWrap>
+          <TextWrap style={{ margin: '0' }}>
+            <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              PUBLICATION
+            </Text>
+            <div
+              style={{
+                width: '50%',
+                alignSelf: 'flex-start',
+                height: '4em',
+                borderRight: '2px solid #ffffff',
+                margin: '2rem 0',
+              }}
+            ></div>
+            <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
+              IR Documents
+            </Text>
+          </TextWrap>
+          <GridComponentWrap style={{ display: 'grid', gridTemplateColumns: '1fr', rowGap: '3em', minHeight: '50vh' }}>
+            <ComponentWrap
+              style={{
+                flexDirection: 'row',
+                color: '#ffffff',
+                marginTop: '4em',
+                borderBottom: '2px solid #ffffff',
+                padding: '0',
+              }}
+            >
+              <SearchInput
+                placeholder="Please enter a search term."
+                type="text"
+                value={searchValue}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
+                autoFocus={true}
+              />
+              <Image src={search} alt="search" />
+            </ComponentWrap>
+            {filteredList.length > 0 ? (
+              filteredList.map((doc, index) => (
+                <ComponentWrap
+                  key={doc.title + index}
+                  className="irdoc"
+                  style={{ justifyContent: 'center', padding: '0' }}
                 >
-                  <span style={{ zIndex: '-1' }}>Download</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
-                </Text>
-              </ComponentWrap>
-            ))
-          ) : (
-            <NoResult>No Result</NoResult>
-          )}
-        </GridComponentWrap>
-      </HomeComponentWrap>
+                  <Image src={doc.image} alt="doc" style={{ width: '56.67vw' }} />
+                  <Text
+                    className="text"
+                    $fontSize="26px"
+                    $fontWeight="300"
+                    $color="#ffffff"
+                    style={{ margin: '1em 0' }}
+                  >
+                    {doc.title}
+                  </Text>
+                  <Text
+                    $fontSize="20px"
+                    $fontWeight="300"
+                    $color="#ffffff"
+                    $align="start"
+                    $clickable={true}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      width: '45%',
+                      padding: '0.7em 0',
+                      borderBottom: '2px solid #ffffff',
+                    }}
+                    onClick={() => {
+                      console.log(doc.title, doc.downloadUrl);
+                      // downloadDoc(doc.title, doc.downloadUrl);
+                    }}
+                  >
+                    <span style={{ zIndex: '-1' }}>Download</span>
+                    <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  </Text>
+                </ComponentWrap>
+              ))
+            ) : (
+              <NoResult>No Result</NoResult>
+            )}
+          </GridComponentWrap>
+        </HomeComponentWrap>
+      </Mobile>
       <Footer />
     </Container>
   );

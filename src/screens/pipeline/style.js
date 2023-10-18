@@ -347,6 +347,60 @@ const move = (phase) => keyframes`
   }
 `;
 
+const ToggleButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  background-color: transparent;
+  padding: 0.5rem 1.5rem;
+  margin: 0;
+  border: 1px solid #707070;
+  border-radius: 10rem;
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffffff;
+  position: relative;
+  margin-top: 5rem;
+`;
+const ToggleListWrap = styled.div`
+  position: absolute;
+  top: 8em;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 84vw;
+  height: fit-content;
+  background-color: transparent;
+  padding: 0.5rem;
+  margin: 0;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  font-size: 18px;
+  font-weight: 300;
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  gap: 0.5rem;
+`;
+
+const ToggleList = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  text-align: left;
+  font-size: 18px;
+  color: #f2f2f2;
+  font-weight: 300;
+  padding: 0.5rem 0.5rem;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+`;
+
 export {
   Container,
   MainImgWrap,
@@ -368,4 +422,7 @@ export {
   DescriptionItem,
   ShootingStarWrap,
   ShootingStar,
+  ToggleButton,
+  ToggleListWrap,
+  ToggleList,
 };

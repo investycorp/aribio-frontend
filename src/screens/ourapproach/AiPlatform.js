@@ -86,7 +86,7 @@ const AiPlatform = () => {
   ]);
 
   useEffect(() => {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -99,7 +99,7 @@ const AiPlatform = () => {
       <Header />
       <Path>{`HOME > OUR APPROACH > AI PLATFORM`}</Path>
       <MainImgWrap $src={ourapproach_ai_cover}>
-        <HeadLine>AI PLATFORM</HeadLine>
+        <HeadLine>AI {window.innerWidth <= 900 && <br />}PLATFORM</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}

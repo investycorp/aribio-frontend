@@ -11,25 +11,15 @@ import {
   ContainerGridLineWrap,
   GridLineBox,
   MainImgWrap,
-  Path,
-  HeadLine,
   HomeComponentWrap,
   TextWrap,
   Text,
-  HR,
-  FormWrap,
-  Form,
-  FormInputRowWrap,
-  Input,
-  Label,
-  Button,
   Image,
-  RowWrap,
-  ErrorBox,
-  SuccessBox,
-  RequiredField,
   ContentBox,
 } from './style';
+
+import { HeadLine, Path } from '../../components/style';
+import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const Partner = () => {
   const navigate = useNavigate();
@@ -65,76 +55,79 @@ const Partner = () => {
           alt="vertical_arrow"
         />
       </MainImgWrap>
-      <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-        <TextWrap>
-          <Text $color="#939598" $fontSize="26px" $fontWeight="300">
-            PARTNER
-          </Text>
-          <Text $fontSize="50px" $fontWeight="400">
-            Current Partnerships
-          </Text>
-          <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-          <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3">
-            Aligned in our mission, we focus on addressing the challenges of neurodegeneration with our collaborative
-            network spanning academia, industry, and patient advocacy groups worldwide. Our goal is to be a trusted
-            partner in this field.
-          </Text>
-        </TextWrap>
-      </HomeComponentWrap>
-      <HomeComponentWrap style={{ paddingTop: '0', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1em' }}>
-        {itemList.map((item, index) => (
+      <Desktop>
+        <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+          <TextWrap>
+            <Text $color="#939598" $fontSize="26px" $fontWeight="300">
+              PARTNER
+            </Text>
+            <Text $fontSize="50px" $fontWeight="400">
+              Current Partnerships
+            </Text>
+            <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
+            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3">
+              Aligned in our mission, we focus on addressing the challenges of neurodegeneration with our collaborative
+              network spanning academia, industry, and patient advocacy groups worldwide. Our goal is to be a trusted
+              partner in this field.
+            </Text>
+          </TextWrap>
+        </HomeComponentWrap>
+        <HomeComponentWrap style={{ paddingTop: '0', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1em' }}>
+          {itemList.map((item, index) => (
+            <ContentBox
+              key={item.name + index}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: '1em',
+                height: '30vh',
+              }}
+            >
+              <Image style={{ width: '--webkit-fill-available' }} src={item.imgUrl} alt="logo" />
+            </ContentBox>
+          ))}
+        </HomeComponentWrap>
+        <HomeComponentWrap style={{ padding: '0 7vw 20vh 7vw' }}>
           <ContentBox
-            key={item.name + index}
             style={{
               display: 'flex',
-              flexDirection: 'column',
+              width: '100%',
               justifyContent: 'center',
-              alignItems: 'center',
-              padding: '1em',
-              height: '30vh',
+              alignItems: 'end',
+              padding: '0',
+              columnGap: '2em',
+              rowGap: '4em',
             }}
           >
-            <Image style={{ width: '--webkit-fill-available' }} src={item.imgUrl} alt="logo" />
+            <Text
+              $fontSize="20px"
+              $fontWeight="300"
+              $color="#ffffff"
+              $align="start"
+              $clickable={true}
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                width: 'auto',
+                paddingBottom: '0.7em',
+                borderBottom: '2px solid #ffffff',
+                gap: '1em',
+                margin: '0',
+                cursor: 'pointer',
+              }}
+              onClick={() => navigate('/contactus')}
+            >
+              <span style={{ zIndex: '-1' }}>CONTACT US</span>
+              <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+            </Text>
           </ContentBox>
-        ))}
-      </HomeComponentWrap>
-      <HomeComponentWrap style={{ padding: '0 7vw 20vh 7vw' }}>
-        <ContentBox
-          style={{
-            display: 'flex',
-            width: '100%',
-            justifyContent: 'center',
-            alignItems: 'end',
-            padding: '0',
-            columnGap: '2em',
-            rowGap: '4em',
-          }}
-        >
-          <Text
-            $fontSize="20px"
-            $fontWeight="300"
-            $color="#ffffff"
-            $align="start"
-            $clickable={true}
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: 'auto',
-              paddingBottom: '0.7em',
-              borderBottom: '2px solid #ffffff',
-              gap: '1em',
-              margin: '0',
-              cursor: 'pointer',
-            }}
-            onClick={() => navigate('/contactus')}
-          >
-            <span style={{ zIndex: '-1' }}>CONTACT US</span>
-            <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
-          </Text>
-        </ContentBox>
-      </HomeComponentWrap>
+        </HomeComponentWrap>
+      </Desktop>
+      <Mobile></Mobile>
       <Footer />
     </Container>
   );
