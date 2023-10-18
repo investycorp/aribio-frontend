@@ -165,7 +165,131 @@ const OpenInnovation = () => {
           </TextWrap>
         </HomeComponentWrap>
       </Desktop>
-      <Mobile></Mobile>
+      <Mobile>
+        <HomeComponentWrap
+          style={{
+            backgroundColor: 'transparent',
+            height: '120vh',
+            overflow: 'hidden',
+          }}
+        >
+          <Image
+            style={{
+              position: 'absolute',
+              top: '50vh',
+              left: '0',
+              width: '100%',
+              height: 'auto',
+              opacity: '0.3',
+              zIndex: '10',
+            }}
+            src={openinnovation_middle1}
+            alt="intro_bg"
+          />
+          <TextWrap style={{ width: '100%', position: 'relative', backgroundColor: 'transparent' }}>
+            <Text $color="#939598" $fontSize="26px" $fontWeight="300">
+              INTRODUCTION
+            </Text>
+            <Text $fontSize="50px" $fontWeight="400">
+              AriBio is dedicated to driving advancements in neurodegenerative diseases.
+            </Text>
+            <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
+            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%' }}>
+              Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and we’re strengthened by our
+              commitment to open innovation. We actively collaborate with innovative companies around the world, aiming
+              to create impactful solutions for these challenging diseases.
+            </Text>
+          </TextWrap>
+        </HomeComponentWrap>
+        <HomeComponentWrap
+          style={{
+            minHeight: 'fit-content',
+            padding: '0 0',
+            margin: '0',
+            marginTop: '10em',
+            display: 'flex',
+          }}
+        >
+          <Image
+            src={openinnovation_middle2}
+            alt="openinnovation_middle2"
+            style={{ width: '66%', marginTop: '5em', alignSelf: 'start' }}
+          />
+          <TextWrap
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'end',
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'transparent',
+              padding: '1em 7vw 1em 7vw',
+              marginTop: '3em',
+            }}
+          >
+            <Text
+              $color="#939598"
+              $fontSize="23px"
+              $fontWeight="300"
+              $align="start"
+              style={{ paddingLeft: '15vw', marginBottom: '10em' }}
+            >
+              <HR style={{ marginBottom: '2em' }} />
+              Our approach blends polypharmacological strategies with a belief in multi-modal management for these
+              conditions.
+              <br />
+              <br />
+              While pioneering work in this area has its challenges and risks, the urgent need for solutions in
+              neurodegenerative diseases propels us forward. Alongside our partners, we utilize AI and digital tools to
+              support patients and deepen our understanding of these disorders.
+            </Text>
+            <ContentWrap style={{ justifySelf: 'end', flexDirection: 'column', padding: '0 0 0 33%' }}>
+              <Text
+                $fontSize="20px"
+                $fontWeight="300"
+                $color="#ffffff"
+                $align="start"
+                $clickable={true}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  paddingBottom: '0.7em',
+                  borderBottom: '2px solid #ffffff',
+                  // gap: '3em',
+                }}
+                onClick={() => navigate('/')}
+              >
+                <span style={{ zIndex: '-1' }}>Digital Health</span>
+                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+              </Text>
+              <Text
+                $fontSize="20px"
+                $fontWeight="300"
+                $color="#ffffff"
+                $align="start"
+                $clickable={true}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  paddingBottom: '0.7em',
+                  borderBottom: '2px solid #ffffff',
+                  // gap: '3em',
+                }}
+                onClick={() => navigate('/')}
+              >
+                <span style={{ zIndex: '-1' }}>Memo:Re Project</span>
+                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+              </Text>
+            </ContentWrap>
+          </TextWrap>
+        </HomeComponentWrap>
+      </Mobile>
       <Footer />
     </Container>
   );
