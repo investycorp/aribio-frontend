@@ -41,7 +41,7 @@ const OpenInnovation = () => {
       <Header />
       <Path>{`HOME > OPEN INNOVATION`}</Path>
       <MainImgWrap $src={openinnovation_cover}>
-        <HeadLine>
+        <HeadLine style={{ fontSize: '55px' }}>
           OPEN <br /> INNOVATION
         </HeadLine>
         <img
@@ -194,7 +194,7 @@ const OpenInnovation = () => {
               AriBio is dedicated to driving advancements in neurodegenerative diseases.
             </Text>
             <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '0 0 2em 0' }} />
-            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%' }}>
+            <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%' }}>
               Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and we’re strengthened by our
               commitment to open innovation. We actively collaborate with innovative companies around the world, aiming
               to create impactful solutions for these challenging diseases.

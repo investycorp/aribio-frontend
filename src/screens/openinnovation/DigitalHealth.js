@@ -327,14 +327,14 @@ const DigitalHealth = () => {
                 width: '50%',
                 alignSelf: 'flex-start',
                 height: '6em',
-                borderRight: '2px solid #ffffff',
-                margin: '0 0 4rem 0',
+                borderRight: '1px solid #ffffff',
+                marginBottom: '3rem',
               }}
             ></div>
-            <Text $fontSize="23px" $fontWeight="400">
+            <Text $fontSize="23px" $fontWeight="400" style={{ margin: '0' }}>
               Leveraging Digital Health Technologies for Early Dementia Detection and Intervention
             </Text>
-            <hr style={{ width: '4em', border: '2px solid #C9C9C9', margin: '3.5rem 0 5rem 0' }} />
+            <hr style={{ width: '2rem', border: '1px solid #C9C9C9', margin: '3rem 0' }} />
             <Text $fontSize="18px" $fontWeight="100" $color="#C9C9C9">
               In today’s rapidly evolving world, where technology continues to reshape our lives, it’s only fitting that
               we turn to innovative digital health technologies to address one of the most pressing healthcare
@@ -343,7 +343,7 @@ const DigitalHealth = () => {
               the lives of those affected by this devastating condition.
             </Text>
           </TextWrap>
-          <TextWrap style={{ margin: '5em', gap: '2em', width: '100%' }}>
+          <TextWrap style={{ margin: '3rem', gap: '2em', width: '100%' }}>
             <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0' }}>
               Understanding the Challenge
             </Text>
@@ -354,7 +354,7 @@ const DigitalHealth = () => {
               progression of the disease and enhancing the quality of life for those affected.
             </Text>
           </TextWrap>
-          <TextWrap style={{ margin: '5em', gap: '2em', width: '100%' }}>
+          <TextWrap style={{ margin: '3rem', gap: '2em', width: '100%' }}>
             <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0' }}>
               The Power of Digital Health
             </Text>
@@ -447,13 +447,13 @@ const DigitalHealth = () => {
           </ContentWrap>
         </HomeComponentWrap>
         <HomeComponentWrap style={{ justifyContent: 'start' }}>
-          <ContentWrap style={{ padding: '0', marginBottom: '14em' }}>
-            <TextWrap style={{ alignItems: 'start', margin: '0', gap: '2em' }}>
+          <ContentWrap style={{ padding: '0', marginBottom: '6rem' }}>
+            <TextWrap style={{ alignItems: 'start', margin: '0', gap: '2em', width: '100%' }}>
               <HR $color="#F8F8F8" />
               <Text $fontSize="20px" $fontWeight="300" $color="#F4F4F4" $align="start" style={{ margin: '0' }}>
                 Electroceutical - I
               </Text>
-              <Text $fontSize="18px" $fontWeight="100" $color="#C9C9C9" $align="start" style={{ margin: '0' }}>
+              <Text $fontSize="16px" $fontWeight="100" $color="#C9C9C9" $align="start" style={{ margin: '0' }}>
                 Our product, MDAR3001, harnesses a proprietary sound source, designed to induce neuronal differentiation
                 through tactile vibrations and auditory stimulation via bone conduction. Additionally, targeted
                 vibrations may enhance cerebral blood flow. Paired with familiar music, this approach aims to boost
@@ -465,7 +465,7 @@ const DigitalHealth = () => {
               alt="openinnovation_mobile_middle2"
               style={{ width: '-webkit-fill-available', marginTop: '0', padding: '2em 0' }}
             />
-            <Text $align="start" $color="#C9C9C9" $fontSize="18px" $fontWeight="100" style={{ width: '75vw' }}>
+            <Text $align="start" $color="#C9C9C9" $fontSize="16px" $fontWeight="100" style={{ width: '75vw' }}>
               In a world where technology continually evolves, our commitment remains steadfast – to leverage digital
               health technologies for the early detection and intervention of dementia. Our mission is to improve the
               quality of life for individuals affected by dementia, and we believe that by working together, we can make

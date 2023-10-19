@@ -226,14 +226,14 @@ const MemoRe = () => {
                 width: '50%',
                 alignSelf: 'flex-start',
                 height: '6em',
-                borderRight: '2px solid #ffffff',
+                borderRight: '1px solid #ffffff',
                 margin: '0 0 4rem 0',
               }}
             ></div>
-            <Text $fontSize="23px" $fontWeight="400" style={{ width: '55%' }}>
+            <Text $fontSize="23px" $fontWeight="400" style={{ width: '70%', margin: '0' }}>
               Our Mission with Memo:Re Project
             </Text>
-            <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '3.5rem 0 0rem 0' }} />
+            <hr style={{ width: '2rem', border: '1px solid #ffffff', margin: '3rem 0 1rem 0' }} />
             <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3">
               We believe memories are the essence of life’s most treasured moments, and they deserve preservation,
               especially for our aging family members who cherish them the most. Memo:Re is more than just a social
