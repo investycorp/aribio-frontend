@@ -220,14 +220,7 @@ const PipeLine = () => {
                         <span>
                           <ShootingStarWrap className="shooting_star_wrap">
                             <hr style={{ width: '100%', opacity: '0.4' }} />
-                            <ShootingStar
-                              className="shooting_star"
-                              style={{
-                                height: '8px',
-                                width: '2px',
-                              }}
-                              $phase={indication.phase}
-                            />
+                            <ShootingStar className="shooting_star" $phase={indication.phase} />
                           </ShootingStarWrap>
                         </span>
                         <span></span>

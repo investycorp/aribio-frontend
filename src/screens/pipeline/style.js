@@ -188,8 +188,14 @@ const TableContentBox = styled.div.attrs((props) => ({
   text-align: center;
   font-size: 20px;
   font-weight: 100;
-  height: fit-content;
+  height: -webkit-fill-available;
   width: 100%;
+  @media screen and (max-width: 1400px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 1200px) {
+    font-size: 13px;
+  }
 
   &.indication {
     display: grid;
@@ -200,10 +206,11 @@ const TableContentBox = styled.div.attrs((props) => ({
       display: grid;
       grid-template-columns: 17vw 40vw;
       width: 100%;
-      height: 100%;
+      height: -webkit-fill-available;
+
       div.section {
         width: 100%;
-        height: 100%;
+        height: -webkit-fill-available;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -221,7 +228,6 @@ const TableContentBox = styled.div.attrs((props) => ({
         border-bottom: 2px solid rgba(177, 177, 177, 0.3);
         span {
           border-right: 2px solid rgba(177, 177, 177, 0.3);
-          height: 100%;
 
           &:last-child {
             border-right: 2px solid transparent;
@@ -398,14 +404,38 @@ const ShootingStar = styled.span.attrs((props) => ({
     position: absolute;
     top: 50%;
     right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props.$phase}*17.5vw)` : `calc(10vw)`)};
+    width: ${(props) => (props.$phase ? `calc(${props.$phase}*8vw)` : `calc(10vw)`)};
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
     transform: translate(0, -50%);
   }
+  @media screen and (max-width: 900px) {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: ${(props) => (props.$phase ? `calc(${props.$phase}*17.5vw)` : `calc(10vw)`)};
+      height: 2px;
+      background: linear-gradient(270deg, #ffffff, transparent);
+      transform: translate(0, -50%);
+    }
+  }
 `;
 
 const move = (phase) => keyframes`
+0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: ${`translateX(calc(8vw * ${phase} - 10px))`};
+    opacity: 1;
+  }
+  @media screen and (max-width: 900px) {
   0% {
     transform: translateX(0);
     opacity: 1;
@@ -417,6 +447,7 @@ const move = (phase) => keyframes`
     transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
     opacity: 1;
   }
+}
 `;
 
 const ToggleButton = styled.div`

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
@@ -69,6 +69,12 @@ const HeaderTop = styled.div`
 
 const HeaderLogoWrap = styled.div`
   width: 122px;
+  @media screen and (max-width: 1280px) {
+    width: 100px;
+    img {
+      width: 100px;
+    }
+  }
 `;
 
 const HeaderNavWrap = styled.div`
@@ -159,13 +165,26 @@ const HeaderLangButton = styled.button`
   align-items: center;
   justify-content: space-evenly;
   width: 120px;
+  margin-bottom: 1em;
   gap: 0.5rem;
   &:hover {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
 
   @media screen and (max-width: 1460px) {
+    margin-bottom: 1em;
+    width: 80px;
     padding: 0.6em 1em;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 1280px) {
+    width: 80px;
+    padding: 0.5em 0.3em;
+    margin-bottom: 1em;
+    font-size: 10px;
+    img {
+      height: 10px;
+    }
   }
 `;
 
@@ -238,6 +257,7 @@ const Header = () => {
       { title: 'MEDIA KIT', linkTo: 'mediakit' },
     ],
   });
+  const [fixedMenu, setFixedMenu] = useState('');
   const [navBarwidth, setNavBarWidth] = useState(0);
   const [currentMenu, setCurrentMenu] = useState('');
   const [currentTab, setCurrentTab] = useState('');
@@ -247,10 +267,14 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
-    setCurrentTab(location.pathname.split('/')[1]);
-  }, [document.getElementsByClassName('header-navwrap')[0]?.clientWidth]);
+  useEffect(
+    () => {
+      setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
+      setCurrentTab(location.pathname.split('/')[1]);
+    },
+    [document.getElementsByClassName('header-navwrap')[0]?.clientWidth],
+    location.pathname,
+  );
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -288,6 +312,10 @@ const Header = () => {
       document.body.style.height = 'unset';
     }
   }, [isToggleOpen]);
+
+  useEffect(() => {
+    fixedMenu !== '' && document.getElementById('header').focus();
+  }, [fixedMenu]);
 
   return (
     <>
@@ -375,7 +403,7 @@ const Header = () => {
                           key={'submenu' + subMenu.linkTo}
                         >
                           <Link
-                            to={`/${subMenu.linkTo}`}
+                            to={`/${currentMenu}/${subMenu.linkTo}`}
                             style={{
                               textDecoration: 'none',
                               color: '#EFEFEF',
@@ -388,7 +416,7 @@ const Header = () => {
                             }}
                             key={subMenu.linkTo}
                             onClick={() => {
-                              if (subMenu.linkTo === location.pathname.split('/')[1]) {
+                              if (subMenu.linkTo === location.pathname.split('/')[2]) {
                                 window.location.reload();
                               }
                               setIsToggleOpen(false);
@@ -409,9 +437,18 @@ const Header = () => {
       <Desktop>
         <>
           <HeaderContainer
+            id="header"
             onMouseLeave={() => {
-              setCurrentMenu('');
+              (fixedMenu === '' || !fixedMenu) && setCurrentMenu('');
             }}
+            onBlur={() => {
+              console.log('blur');
+              setTimeout(() => {
+                setCurrentMenu('');
+                setFixedMenu('');
+              }, 200);
+            }}
+            tabIndex={1}
           >
             <BlurBoxTop />
             <HeaderTop>
@@ -430,12 +467,21 @@ const Header = () => {
                   <HeaderNavMenuTextWrap
                     key={menu.linkTo + index}
                     onMouseOver={() => {
-                      setCurrentMenu(menu.linkTo);
+                      (fixedMenu === '' || !fixedMenu) && setCurrentMenu(menu.linkTo);
                     }}
                     onClick={() => {
-                      if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
+                      //menu.linkTo === 'career' || menu.linkTo === 'openinnovation'
+                      if (menu.linkTo === 'pipeline') {
                         if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
                         else window.location.reload();
+                      } else {
+                        if (fixedMenu === menu.linkTo) {
+                          setFixedMenu('');
+                          setCurrentMenu('');
+                        } else {
+                          setFixedMenu(menu.linkTo);
+                          setCurrentMenu(menu.linkTo);
+                        }
                       }
                     }}
                     $isActive={menu.linkTo === currentMenu ? true : false}
@@ -457,30 +503,37 @@ const Header = () => {
               </HeaderNavWrap>
               <LangButton />
             </HeaderTop>
-            <BlurBoxBottom
-              style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-            />
-            <HeaderBottom
-              className={`header-bottom ${currentMenu}`}
-              style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-            >
-              <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
-                {subMenu[currentMenu]?.map((menu) => (
-                  <Link
-                    to={`/${menu.linkTo}`}
-                    style={{ textDecoration: 'none' }}
-                    key={menu.linkTo}
-                    onClick={() => {
-                      if (menu.linkTo === location.pathname.split('/')[1]) {
-                        window.location.reload();
-                      }
-                    }}
-                  >
-                    <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
-                  </Link>
-                ))}
-              </HeaderNavWrap>
-            </HeaderBottom>
+            {currentMenu !== 'pipeline' && currentMenu !== '' && (
+              <>
+                <BlurBoxBottom
+                  style={{
+                    visibility: currentMenu !== '' ? 'visible' : 'hidden',
+                    opacity: currentMenu !== '' ? 1 : 0,
+                  }}
+                />
+                <HeaderBottom
+                  className={`header-bottom ${currentMenu}`}
+                  style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+                >
+                  <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
+                    {subMenu[currentMenu]?.map((menu) => (
+                      <Link
+                        to={`/${currentMenu}/${menu.linkTo}`}
+                        style={{ textDecoration: 'none' }}
+                        key={menu.linkTo}
+                        onClick={() => {
+                          if (menu.linkTo === location.pathname.split('/')[2]) {
+                            window.location.reload();
+                          }
+                        }}
+                      >
+                        <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
+                      </Link>
+                    ))}
+                  </HeaderNavWrap>
+                </HeaderBottom>
+              </>
+            )}
           </HeaderContainer>
         </>
       </Desktop>

@@ -60,7 +60,7 @@ const Ci = () => {
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
-            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               CI
             </Text>
             <div
@@ -72,10 +72,20 @@ const Ci = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '0' }}
+            >
               AriBio CI
             </Text>
-            <Text $fontSize="23px" $fontWeight="200" $color="#D3D3D3" style={{ marginTop: '2em' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+              $fontWeight="200"
+              $color="#D3D3D3"
+              style={{ marginTop: '2em' }}
+            >
               Developing new drugs is the main motivation for growth at AriBio. R&D is our core competency. It is the
               source of all our products and our pride as a company with unrivaled technological achievements on the
               global stage. Our new mission and brand identity is based on the foundation to contribute towards a
@@ -84,14 +94,21 @@ const Ci = () => {
           </TextWrap>
         </HomeComponentWrap>
         <HomeComponentWrap style={{ padding: '8vh 7vw', backgroundColor: '#ffffff' }}>
-          <Image src={ci_logo_png} alt="ci_logo" />
+          <Image src={ci_logo_png} alt="ci_logo" style={{ width: '30vw' }} />
         </HomeComponentWrap>
         <HomeComponentWrap style={{ padding: '25vh 0', display: 'grid', gridTemplateColumns: '64.33vw 35.67vw' }}>
           <ContentBox style={{ position: 'relative', paddingTop: '1em' }}>
             <ColorBar $color1="#04324B" $color2="#076496">
               <ColorBarTextWrap>
-                <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
-                <Text $fontSize="18px" $fontWeight="300" $color="#F2F2F2" $align="start">
+                {window.innerWidth > 1280 && (
+                  <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
+                )}
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
+                  $fontWeight="300"
+                  $color="#F2F2F2"
+                  $align="start"
+                >
                   AriBio Blue
                 </Text>
                 <Text $fontSize="14px" $fontWeight="100" $color="#D3D3D3" $align="start">
@@ -99,10 +116,17 @@ const Ci = () => {
                 </Text>
               </ColorBarTextWrap>
             </ColorBar>
-            <ColorBar $color1="#CB3063" $color2="#661832">
+            <ColorBar $color1="#661832" $color2="#CB3063">
               <ColorBarTextWrap>
-                <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
-                <Text $fontSize="18px" $fontWeight="300" $color="#F2F2F2" $align="start">
+                {window.innerWidth > 1280 && (
+                  <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
+                )}
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
+                  $fontWeight="300"
+                  $color="#F2F2F2"
+                  $align="start"
+                >
                   AriBio Red
                 </Text>
                 <Text $fontSize="14px" $fontWeight="100" $color="#D3D3D3" $align="start">
@@ -110,14 +134,21 @@ const Ci = () => {
                 </Text>
               </ColorBarTextWrap>
             </ColorBar>
-            <ColorBar $color1="#939598" $color2="#4A4B4C">
+            <ColorBar $color1="#4A4B4C" $color2="#939598">
               <ColorBarTextWrap>
-                <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
-                <Text $fontSize="18px" $fontWeight="300" $color="#F2F2F2" $align="start">
+                {window.innerWidth > 1280 && (
+                  <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
+                )}
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
+                  $fontWeight="300"
+                  $color="#F2F2F2"
+                  $align="start"
+                >
                   AriBio Gray
                 </Text>
                 <Text
-                  $fontSize="14px"
+                  $fontSize={window.innerWidth > 1280 ? '14px' : '12px'}
                   $fontWeight="100"
                   $color="#D3D3D3"
                   $align="start"
@@ -130,21 +161,36 @@ const Ci = () => {
           </ContentBox>
           <ContentBox style={{ padding: '0 7vw 0 0' }}>
             <ContentWrap>
-              <Text $fontSize="26px" $fontWeight="100" $color="#797979" $align="start">
+              <Text
+                $fontSize={window.innerWidth > 1280 ? '26px' : '17px'}
+                $fontWeight="100"
+                $color="#797979"
+                $align="start"
+              >
                 01
               </Text>
-              <Text $fontSize="20px" $fontWeight="300" $color="#D5D5D5" $align="start">
+              <Text
+                $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
+                $fontWeight="300"
+                $color="#D5D5D5"
+                $align="start"
+              >
                 ‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable
                 diseases and become a biopharmaceutical leader of South Korea.
               </Text>
             </ContentWrap>
             <ContentWrap>
-              <Text $fontSize="26px" $fontWeight="100" $color="#797979" $align="start">
+              <Text
+                $fontSize={window.innerWidth > 1280 ? '26px' : '17px'}
+                $fontWeight="100"
+                $color="#797979"
+                $align="start"
+              >
                 02
               </Text>
               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'start', gap: '0.5em' }}>
                 <Text
-                  $fontSize="20px"
+                  $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
                   $fontWeight="300"
                   $color="#D5D5D5"
                   $align="start"
@@ -152,13 +198,18 @@ const Ci = () => {
                 >
                   Ari:
                 </Text>
-                <Text $fontSize="20px" $fontWeight="300" $color="#D5D5D5" $align="start">
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
+                  $fontWeight="300"
+                  $color="#D5D5D5"
+                  $align="start"
+                >
                   Traditional Korean term for ‘Wide and Deep, Beauty, A Person with Wisdom’
                 </Text>
               </div>
               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'start', gap: '0.5em' }}>
                 <Text
-                  $fontSize="20px"
+                  $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
                   $fontWeight="300"
                   $color="#D5D5D5"
                   $align="start"
@@ -166,14 +217,19 @@ const Ci = () => {
                 >
                   Bio:
                 </Text>
-                <Text $fontSize="20px" $fontWeight="300" $color="#D5D5D5" $align="start">
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
+                  $fontWeight="300"
+                  $color="#D5D5D5"
+                  $align="start"
+                >
                   Derived from the Greek word ‘bios’ meaning ‘life’
                 </Text>
               </div>
             </ContentWrap>
             <ContentWrap style={{ flexDirection: 'row', padding: '0', justifyContent: 'space-between' }}>
               <Text
-                $fontSize="20px"
+                $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
                 $fontWeight="300"
                 $color="#ffffff"
                 $align="start"
@@ -193,7 +249,7 @@ const Ci = () => {
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
               </Text>
               <Text
-                $fontSize="20px"
+                $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
                 $fontWeight="300"
                 $color="#ffffff"
                 $align="start"

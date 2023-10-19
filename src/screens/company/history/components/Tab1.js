@@ -12,6 +12,7 @@ const HomeComponentWrap = styled.div`
   height: fit-content;
   display: grid;
   grid-template-columns: 2fr 3fr;
+  column-gap: 2em;
   justify-content: center;
   align-items: start;
   background-color: transparent;
@@ -35,11 +36,17 @@ const Text = styled.div`
   text-align: ${(props) => (props.$align ? props.$align : 'start')};
   transition: all 0.2s linear;
   cursor: pointer;
-  @media screen and (min-width: 901px) {
+  &:hover {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 50px;
+  }
+  @media screen and (max-width: 1280px) {
+    font-size: ${(props) => (props.$isActive ? '30px' : '14px')};
     &:hover {
       color: #ffffff;
       font-weight: 500;
-      font-size: 50px;
+      font-size: 30px;
     }
   }
   @media screen and (max-width: 900px) {
@@ -78,7 +85,10 @@ const GridBoxContentWrap = styled.div`
   justify-content: start;
   align-items: center;
   padding: 1rem;
-  gap: 6.5em;
+  gap: 5em;
+  @media screen and (max-width: 1280px) {
+    gap: 2em;
+  }
   @media screen and (max-width: 900px) {
     gap: 0;
     margin: 0;
@@ -130,6 +140,9 @@ const DescriptionItem = styled.li`
   line-height: 1.5em;
   list-style: disc;
   list-style-position: outside;
+  @media screen and (max-width: 1280px) {
+    font-size: 12px;
+  }
   @media screen and (max-width: 900px) {
     font-size: 16px;
   }
@@ -272,7 +285,7 @@ const Tab1 = ({ listItems }) => {
   useEffect(() => {
     let tabs = [];
     let contents = [];
-    listItems.map((item, index) => {
+    listItems?.map((item, index) => {
       tabs.push(item.title);
       contents.push(item.content);
     });
@@ -293,7 +306,12 @@ const Tab1 = ({ listItems }) => {
                 top: '0',
                 left: '0',
                 zIndex: '10',
-                margin: scrollTab === '2019' ? '35px 34px' : scrollTab === '2023' ? '50px 34px' : '35px 34px',
+                margin:
+                  tabNames.indexOf(scrollTab) === tabNames.length - 1
+                    ? '35px 34px'
+                    : tabNames.indexOf(scrollTab) === '0'
+                    ? '50px 34px'
+                    : '35px 34px',
                 height: '84%',
                 transition: 'all 0.2s ease-in-out',
               }}

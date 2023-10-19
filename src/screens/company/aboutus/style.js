@@ -139,7 +139,7 @@ const TabItem = styled.div`
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
   cursor: pointer;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1280px) {
     font-size: 20px;
   }
 `;
@@ -203,8 +203,15 @@ const ContentBoxNameWrap = styled.div`
   padding: 0 0 0 7vw;
 `;
 
-const Image = styled.img`
+const Image = styled.img.attrs((props) => ({
+  className: props.$className,
+}))`
   z-index: 10;
+  &.toggle {
+    @media screen and (max-width: 1280px) {
+      height: 1.5rem;
+    }
+  }
 `;
 
 const DescriptionWrap = styled.ul`
@@ -240,6 +247,11 @@ const DescriptionItem = styled.li`
   line-height: 1.5em;
   list-style: disc;
   list-style-position: outside;
+
+  @media screen and (max-width: 1280px) {
+    font-size: 12px;
+  }
+
   @media screen and (max-width: 900px) {
     font-size: 16px;
   }

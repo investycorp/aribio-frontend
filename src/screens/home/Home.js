@@ -95,7 +95,7 @@ const Home = () => {
                 Integrated Drug Development) and Open Innovation.
               </HeadLineText>
             </HomeAboutUsTextWrap>
-            <SubPageButton title="About Us" linkTo="/aboutus" />
+            <SubPageButton title="About Us" linkTo="/company/aboutus" />
           </HomeComponentWrap>
           <HomeComponentWrap
             style={{
@@ -112,7 +112,7 @@ const Home = () => {
               }}
             >
               <div style={{ position: 'absolute', top: '0', left: '0' }}>
-                <SubPageButton title="Our Approach" linkTo="poly-pharmacology" align="flex-start" />
+                <SubPageButton title="Our Approach" linkTo="/ourapproach/poly-pharmacology" align="flex-start" />
               </div>
               <ComponentTextWrap
                 style={{
@@ -179,7 +179,7 @@ const Home = () => {
               <ComponentText style={{ fontSize: '28px', fontWeight: '300', color: '#AFAFAF' }}>
                 Clinical development and Pipeline Extension
               </ComponentText>
-              <SubPageButton linkTo="notice" title="IR & PR" />
+              <SubPageButton linkTo="/irpr/mediakit" title="IR & PR" />
             </div>
           </HomeComponentWrap>
           <HomeComponentWrap
@@ -199,7 +199,7 @@ const Home = () => {
               <ComponentText style={{ fontSize: '28px', fontWeight: '300', color: '#AFAFAF' }}>
                 Clinical development and Pipeline Extension
               </ComponentText>
-              <SubPageButton linkTo="notice" title="View all Notice" />
+              <SubPageButton linkTo="/irpr/notice" title="View all Notice" />
             </div>
             <div
               style={{
@@ -272,7 +272,7 @@ const Home = () => {
                 Integrated Drug Development) and Open Innovation.
               </HeadLineText>
             </HomeAboutUsTextWrap>
-            <SubPageButton title="About Us" linkTo="/aboutus" />
+            <SubPageButton title="About Us" linkTo="/company/aboutus" />
           </HomeComponentWrap>
           <HomeComponentWrap
             style={{
@@ -281,7 +281,7 @@ const Home = () => {
             }}
             className="home home_3"
           >
-            <SubPageButton title="Our Approach" linkTo="/poly-pharmacology" />
+            <SubPageButton title="Our Approach" linkTo="/ourapproach/poly-pharmacology" />
             <ComponentGridWrap>
               <ComponentTextWrap
                 style={{
@@ -347,7 +347,7 @@ const Home = () => {
             <div
               style={{ width: '100%', marginTop: '4rem', display: 'flex', alignItems: 'end', justifyContent: 'end' }}
             >
-              <SubPageButton linkTo="notice" title="IR & PR" />
+              <SubPageButton linkTo="/irpr/mediakit" title="IR & PR" />
             </div>
           </HomeComponentWrap>
 
@@ -410,7 +410,7 @@ const Home = () => {
               </ComponentGridWrap>
             ))}
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'end', marginTop: '5rem' }}>
-              <SubPageButton linkTo="notice" title="View all Notice" />
+              <SubPageButton linkTo="/irpr/notice" title="View all Notice" />
             </div>
           </HomeComponentWrap>
         </Mobile>

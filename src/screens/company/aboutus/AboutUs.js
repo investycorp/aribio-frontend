@@ -50,14 +50,14 @@ const AboutUs = () => {
         </MainImgWrap>
         <HomeComponentWrap>
           <TextWrap>
-            <Text $color="#939598" $fontSize="26px" $fontWeight="300">
+            <Text $color="#939598" $fontSize="18px" $fontWeight="300">
               ABOUT US
             </Text>
-            <Text $fontSize="50px" $fontWeight="400">
+            <Text $fontSize="34px" $fontWeight="400">
               Company Overview
             </Text>
             <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3">
+            <Text $fontSize="14px" $fontWeight="300" $color="#D3D3D3">
               AriBIo Co., Ltd. is a biotechnology company that aims to develop a meaningful therapies for
               neurodegenerative diseases through its innovative platform ARIDD™
               <br />
