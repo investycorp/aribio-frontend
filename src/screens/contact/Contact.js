@@ -339,7 +339,7 @@ const Contact = () => {
                   onChange={(e) => handleChange(e)}
                 />
                 {isError && !contactInfo.firstName && (
-                  <RequiredField>
+                  <RequiredField style={{ fontSize: '14px' }}>
                     <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
                     field is required.
                   </RequiredField>
@@ -357,7 +357,7 @@ const Contact = () => {
                   onChange={(e) => handleChange(e)}
                 />
                 {isError && !contactInfo.lastName && (
-                  <RequiredField>
+                  <RequiredField style={{ fontSize: '14px' }}>
                     <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
                     field is required.
                   </RequiredField>
@@ -375,7 +375,7 @@ const Contact = () => {
                   onChange={(e) => handleChange(e)}
                 />
                 {isError && (!contactInfo.email || !contactInfo.email.includes('@')) && (
-                  <RequiredField>
+                  <RequiredField style={{ fontSize: '14px' }}>
                     <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span>
                     {emailError}
                   </RequiredField>
@@ -413,7 +413,7 @@ const Contact = () => {
                   onChange={(e) => handleChange(e)}
                 />
                 {isError && !contactInfo.message && (
-                  <RequiredField>
+                  <RequiredField style={{ fontSize: '14px' }}>
                     <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
                     field is required.
                   </RequiredField>
@@ -463,12 +463,12 @@ const Contact = () => {
         </HomeComponentWrap>
         <HomeComponentWrap style={{ borderTop: '2px solid #B1B1B1' }}>
           <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
-          <Text $fontSize="32px" $fontWeight="300" $color="#E5E5E5" $align="start">
+          <Text $fontSize="23px" $fontWeight="300" $color="#E5E5E5" $align="start">
             Locations
           </Text>
-          <FormWrap style={{ gap: '1em', paddingLeft: '0' }}>
+          <FormWrap style={{ gap: '1em', paddingLeft: '0', marginTop: '2em', marginBottom: '10em' }}>
             <RowWrap
-              tyle={{ borderBottom: '1px solid #707070', padding: '0.5em' }}
+              style={{ borderBottom: '1px solid #707070', padding: '0.5em' }}
               onClick={() => {
                 window.open(
                   'https://www.google.com/maps/place/La+Jolla+Centre+I,+4660+La+Jolla+Village+Dr+%231070,+San+Diego,+CA+92121,+USA/@32.8746797,-117.2089889,17z/data=!3m1!4b1!4m5!3m4!1s0x80dc073244120117:0xad78fb4d9afd9f57!8m2!3d32.8746797!4d-117.206414?entry=ttu',
@@ -476,7 +476,7 @@ const Contact = () => {
                 );
               }}
             >
-              <span style={{ fontSize: '20px', zIndex: '-1' }}>San Diego, 92112, USA</span>
+              <span style={{ fontSize: '16px', zIndex: '-1' }}>San Diego, 92112, USA</span>
               <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1' }} />
             </RowWrap>
             <RowWrap
@@ -488,7 +488,7 @@ const Contact = () => {
                 );
               }}
             >
-              <span style={{ fontSize: '20px', zIndex: '-1' }}> Gyeonggi-do, Republic of Korea</span>
+              <span style={{ fontSize: '16px', zIndex: '-1' }}>Gyeonggi-do, Republic of Korea</span>
               <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1' }} />
             </RowWrap>
           </FormWrap>
