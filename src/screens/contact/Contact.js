@@ -296,7 +296,7 @@ const Contact = () => {
       <Mobile>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap style={{ width: '70vw' }}>
-            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+            <Text $fontSize="16px" $fontWeight="300" $color="#939598">
               CONTACT US
             </Text>
             <div
@@ -305,17 +305,17 @@ const Contact = () => {
                 alignSelf: 'flex-start',
                 height: '8em',
                 borderRight: '2px solid #ffffff',
-                margin: '2rem 0',
+                margin: '0 0',
               }}
             ></div>
-            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+            <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
               We appreciate your interest in AriBio.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
         <HomeComponentWrap>
           <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
-          <Text $fontSize="32px" $fontWeight="300" $color="#E5E5E5" $align="start">
+          <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start">
             We look forward <br />
             to hearing from you.
           </Text>
@@ -434,13 +434,26 @@ const Contact = () => {
                   <span style={{ color: '#E5E5E5' }}>is a required field. </span>
                 </span>
                 <Button
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1em' }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '1em',
+                    fontSize: '14px',
+                    width: '45%',
+                  }}
                   onClick={(e) => handleSubmit(e)}
                 >
                   <Image
                     src={arrow}
                     alt="arrow"
-                    style={{ border: '2px solid #ffffff', borderRadius: '50%', padding: '0.5em', zIndex: '-1' }}
+                    style={{
+                      border: '2px solid #ffffff',
+                      borderRadius: '50%',
+                      padding: '0.5em',
+                      zIndex: '-1',
+                      width: '25%',
+                    }}
                   />
                   SUBMIT
                 </Button>
@@ -455,7 +468,7 @@ const Contact = () => {
           </Text>
           <FormWrap style={{ gap: '1em', paddingLeft: '0' }}>
             <RowWrap
-              style={{ borderBottom: '1px solid #707070', padding: '0.5em' }}
+              tyle={{ borderBottom: '1px solid #707070', padding: '0.5em' }}
               onClick={() => {
                 window.open(
                   'https://www.google.com/maps/place/La+Jolla+Centre+I,+4660+La+Jolla+Village+Dr+%231070,+San+Diego,+CA+92121,+USA/@32.8746797,-117.2089889,17z/data=!3m1!4b1!4m5!3m4!1s0x80dc073244120117:0xad78fb4d9afd9f57!8m2!3d32.8746797!4d-117.206414?entry=ttu',

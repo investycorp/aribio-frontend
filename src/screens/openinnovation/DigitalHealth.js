@@ -319,7 +319,7 @@ const DigitalHealth = () => {
           }}
         >
           <TextWrap style={{ position: 'relative', backgroundColor: 'transparent', width: '100%' }}>
-            <Text $color="#939598" $fontSize="26px" $fontWeight="300">
+            <Text $color="#939598" $fontSize="16px" $fontWeight="300">
               DIGITAL HEALTH
             </Text>
             <div
@@ -328,14 +328,14 @@ const DigitalHealth = () => {
                 alignSelf: 'flex-start',
                 height: '6em',
                 borderRight: '2px solid #ffffff',
-                margin: '2rem 0',
+                margin: '0 0 4rem 0',
               }}
             ></div>
-            <Text $fontSize="50px" $fontWeight="400">
+            <Text $fontSize="23px" $fontWeight="400">
               Leveraging Digital Health Technologies for Early Dementia Detection and Intervention
             </Text>
             <hr style={{ width: '4em', border: '2px solid #C9C9C9', margin: '3.5rem 0 5rem 0' }} />
-            <Text $fontSize="23px" $fontWeight="100" $color="#C9C9C9">
+            <Text $fontSize="18px" $fontWeight="100" $color="#C9C9C9">
               In today’s rapidly evolving world, where technology continues to reshape our lives, it’s only fitting that
               we turn to innovative digital health technologies to address one of the most pressing healthcare
               challenges of our time – dementia. Our dedicated digital health team is on a mission to leverage the power
@@ -344,10 +344,10 @@ const DigitalHealth = () => {
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '5em', gap: '2em', width: '100%' }}>
-            <Text $fontSize="23px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0' }}>
+            <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0' }}>
               Understanding the Challenge
             </Text>
-            <Text $fontSize="23px" $fontWeight="100" $color="#C9C9C9" style={{ margin: '0' }}>
+            <Text $fontSize="18px" $fontWeight="100" $color="#C9C9C9" style={{ margin: '0' }}>
               Dementia is a complex and progressive neurological disorder that affects millions of individuals
               worldwide. It not only robs people of their memories and cognitive abilities but also places a significant
               burden on their families and caregivers. Early detection and intervention are crucial to slowing down the
@@ -355,10 +355,10 @@ const DigitalHealth = () => {
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '5em', gap: '2em', width: '100%' }}>
-            <Text $fontSize="23px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0' }}>
+            <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0' }}>
               The Power of Digital Health
             </Text>
-            <Text $fontSize="23px" $fontWeight="100" $color="#C9C9C9" style={{ margin: '0' }}>
+            <Text $fontSize="18px" $fontWeight="100" $color="#C9C9C9" style={{ margin: '0' }}>
               In an age where smartphones, wearables, and smart home devices have become integral parts of our daily
               lives, we have an incredible opportunity to harness the potential of these technologies for healthcare
               purposes. By doing so, we can revolutionize the way we approach dementia care.
@@ -369,7 +369,7 @@ const DigitalHealth = () => {
           <ContentWrap style={{ padding: '0' }}>
             <TextWrap style={{ width: 'fit-content', alignItems: 'start', margin: '0', gap: '2em' }}>
               <HR $color="#F8F8F8" />
-              <Text $fontSize="34px" $fontWeight="300" $color="#F4F4F4" style={{ margin: '0' }}>
+              <Text $fontSize="20px" $fontWeight="300" $color="#F4F4F4" style={{ margin: '0' }}>
                 Our Approach
               </Text>
             </TextWrap>
@@ -384,7 +384,7 @@ const DigitalHealth = () => {
           <ContentWrap style={{ padding: '0' }}>
             <TextWrap style={{ width: 'max-content', alignItems: 'start', margin: '0', gap: '2em' }}>
               <HR $color="#F8F8F8" />
-              <Text $fontSize="34px" $fontWeight="300" $color="#F4F4F4" style={{ margin: '0' }}>
+              <Text $fontSize="20px" $fontWeight="300" $color="#F4F4F4" style={{ margin: '0' }}>
                 Pipeline
               </Text>
             </TextWrap>
@@ -427,7 +427,7 @@ const DigitalHealth = () => {
             }}
           >
             <Text
-              $fontSize="23px"
+              $fontSize="18px"
               $fontWeight="100"
               $color="#C9C9C9"
               $align="start"
@@ -450,10 +450,10 @@ const DigitalHealth = () => {
           <ContentWrap style={{ padding: '0', marginBottom: '14em' }}>
             <TextWrap style={{ alignItems: 'start', margin: '0', gap: '2em' }}>
               <HR $color="#F8F8F8" />
-              <Text $fontSize="34px" $fontWeight="300" $color="#F4F4F4" $align="start" style={{ margin: '0' }}>
+              <Text $fontSize="20px" $fontWeight="300" $color="#F4F4F4" $align="start" style={{ margin: '0' }}>
                 Electroceutical - I
               </Text>
-              <Text $fontSize="23px" $fontWeight="100" $color="#C9C9C9" $align="start" style={{ margin: '0' }}>
+              <Text $fontSize="18px" $fontWeight="100" $color="#C9C9C9" $align="start" style={{ margin: '0' }}>
                 Our product, MDAR3001, harnesses a proprietary sound source, designed to induce neuronal differentiation
                 through tactile vibrations and auditory stimulation via bone conduction. Additionally, targeted
                 vibrations may enhance cerebral blood flow. Paired with familiar music, this approach aims to boost
@@ -465,7 +465,7 @@ const DigitalHealth = () => {
               alt="openinnovation_mobile_middle2"
               style={{ width: '-webkit-fill-available', marginTop: '0', padding: '2em 0' }}
             />
-            <Text $align="start" $color="#C9C9C9" $fontSize="23px" $fontWeight="100" style={{ width: '75vw' }}>
+            <Text $align="start" $color="#C9C9C9" $fontSize="18px" $fontWeight="100" style={{ width: '75vw' }}>
               In a world where technology continually evolves, our commitment remains steadfast – to leverage digital
               health technologies for the early detection and intervention of dementia. Our mission is to improve the
               quality of life for individuals affected by dementia, and we believe that by working together, we can make
@@ -479,7 +479,7 @@ const DigitalHealth = () => {
               width: '100%',
               justifyContent: 'center',
               alignItems: 'end',
-              padding: '0 0 0 33%',
+              padding: '0 0 10em 33%',
               columnGap: '2em',
               rowGap: '4em',
             }}
@@ -503,7 +503,7 @@ const DigitalHealth = () => {
               }}
               onClick={() => navigate('/')}
             >
-              <span style={{ zIndex: '-1' }}>Go to HERIZON</span>
+              <span style={{ zIndex: '-1', fontSize: '16px' }}>Go to HERIZON</span>
               <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
             </Text>
           </ContentWrap>

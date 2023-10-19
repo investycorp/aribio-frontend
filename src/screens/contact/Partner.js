@@ -129,15 +129,15 @@ const Partner = () => {
       </Desktop>
       <Mobile>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-          <TextWrap>
-            <Text $color="#939598" $fontSize="26px" $fontWeight="300">
+          <TextWrap style={{ width: '100%' }}>
+            <Text $color="#939598" $fontSize="16px" $fontWeight="300">
               PARTNER
             </Text>
-            <Text $fontSize="50px" $fontWeight="400">
+            <Text $fontSize="23px" $fontWeight="400">
               Current Partnerships
             </Text>
-            <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3">
+            <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '0 0 2em 0' }} />
+            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3">
               Aligned in our mission, we focus on addressing the challenges of neurodegeneration with our collaborative
               network spanning academia, industry, and patient advocacy groups worldwide. Our goal is to be a trusted
               partner in this field.
@@ -161,7 +161,6 @@ const Partner = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: '1em',
-                height: '30vh',
               }}
             >
               <Image style={{ width: '100%' }} src={item.imgUrl} alt="logo" />
@@ -200,7 +199,7 @@ const Partner = () => {
               }}
               onClick={() => navigate('/contactus')}
             >
-              <span style={{ zIndex: '-1' }}>CONTACT US</span>
+              <span style={{ zIndex: '-1', fontSize: '16px' }}>CONTACT US</span>
               <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
             </Text>
           </ContentBox>

@@ -169,7 +169,7 @@ const OpenInnovation = () => {
         <HomeComponentWrap
           style={{
             backgroundColor: 'transparent',
-            height: '120vh',
+            // height: '120vh',
             overflow: 'hidden',
           }}
         >
@@ -187,14 +187,14 @@ const OpenInnovation = () => {
             alt="intro_bg"
           />
           <TextWrap style={{ width: '100%', position: 'relative', backgroundColor: 'transparent' }}>
-            <Text $color="#939598" $fontSize="26px" $fontWeight="300">
+            <Text $color="#939598" $fontSize="16px" $fontWeight="300">
               INTRODUCTION
             </Text>
-            <Text $fontSize="50px" $fontWeight="400">
+            <Text $fontSize="23px" $fontWeight="400">
               AriBio is dedicated to driving advancements in neurodegenerative diseases.
             </Text>
-            <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%' }}>
+            <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '0 0 2em 0' }} />
+            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%' }}>
               Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and we’re strengthened by our
               commitment to open innovation. We actively collaborate with innovative companies around the world, aiming
               to create impactful solutions for these challenging diseases.
@@ -229,7 +229,7 @@ const OpenInnovation = () => {
           >
             <Text
               $color="#939598"
-              $fontSize="23px"
+              $fontSize="18px"
               $fontWeight="300"
               $align="start"
               style={{ paddingLeft: '15vw', marginBottom: '10em' }}
@@ -243,7 +243,7 @@ const OpenInnovation = () => {
               neurodegenerative diseases propels us forward. Alongside our partners, we utilize AI and digital tools to
               support patients and deepen our understanding of these disorders.
             </Text>
-            <ContentWrap style={{ justifySelf: 'end', flexDirection: 'column', padding: '0 0 0 33%' }}>
+            <ContentWrap style={{ justifySelf: 'end', flexDirection: 'column', padding: '0 0 10em 33%' }}>
               <Text
                 $fontSize="20px"
                 $fontWeight="300"
@@ -262,7 +262,7 @@ const OpenInnovation = () => {
                 }}
                 onClick={() => navigate('/')}
               >
-                <span style={{ zIndex: '-1' }}>Digital Health</span>
+                <span style={{ zIndex: '-1', fontSize: '16px' }}>Digital Health</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
               </Text>
               <Text
@@ -283,7 +283,7 @@ const OpenInnovation = () => {
                 }}
                 onClick={() => navigate('/')}
               >
-                <span style={{ zIndex: '-1' }}>Memo:Re Project</span>
+                <span style={{ zIndex: '-1', fontSize: '16px' }}>Memo:Re Project</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
               </Text>
             </ContentWrap>
