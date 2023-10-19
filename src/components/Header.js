@@ -235,6 +235,7 @@ const Header = () => {
     irpr: [
       { title: 'NOTICE', linkTo: 'notice' },
       { title: 'PRESS RELEASE', linkTo: 'pressrelease' },
+      { title: 'MEDIA KIT', linkTo: 'mediakit' },
     ],
   });
   const [navBarwidth, setNavBarWidth] = useState(0);

@@ -237,6 +237,9 @@ const SearchInput = styled.input`
     font-weight: 200;
     opacity: 1;
   }
+  @media screen and (max-width: 900px) {
+    font-size: 16px;
+  }
 `;
 const ComponentWrap = styled.div.attrs((props) => ({ className: props.className }))`
   width: 100%;
@@ -274,6 +277,12 @@ const RowWrap = styled.div`
     background-color: rgba(203, 203, 203, 0.2);
     border: 1px solid #c4c4c4;
   }
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    border: 1px solid #c4c4c4;
+  }
 `;
 
 const DateWrap = styled.div`
@@ -285,6 +294,10 @@ const DateWrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  @media screen and (max-width: 900px) {
+    padding: 0;
+  }
+
   ${Text}.date {
     font-size: 26px;
     font-weight: 400;
@@ -292,6 +305,10 @@ const DateWrap = styled.div`
     margin-bottom: 0.5em;
     padding: 0;
     text-align: center;
+    @media screen and (max-width: 900px) {
+      font-size: 14px;
+      color: #bababa;
+    }
   }
   ${Text}.month {
     font-size: 22px;
@@ -313,6 +330,14 @@ const TitleWrap = styled.div`
   padding: 0;
   text-align: left;
   overflow: hidden;
+  @media screen and (max-width: 900px) {
+    font-size: 18px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const HR = styled.div`
@@ -344,6 +369,13 @@ const Button = styled.button`
     span {
       text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
     }
+  }
+
+  @media screen and (max-width: 900px) {
+    border: 1px solid #ffffff;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 0.3rem 0.5rem;
   }
 `;
 

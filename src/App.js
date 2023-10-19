@@ -18,11 +18,12 @@ import Notice from './screens/irpr/Notice';
 import PressRelease from './screens/irpr/PressRelease';
 import Contact from './screens/contact/Contact';
 import OpenInnovation from './screens/openinnovation/OpenInnovation';
-import NoticeDetailPage from './screens/irpr/detailpage/NoticeDetailPage';
+
 import DetailPage from './screens/irpr/components/DetailPage';
 import DigitalHealth from './screens/openinnovation/DigitalHealth';
 import MemoRe from './screens/openinnovation/MemoRe';
 import Partner from './screens/contact/Partner';
+import MediaKit from './screens/irpr/MediaKit';
 
 function App() {
   document.addEventListener('contextmenu', (event) => {
@@ -49,6 +50,7 @@ function App() {
             <Route path="/pressrelease" element={<PressRelease />}>
               <Route path=":id" element={<DetailPage />} />
             </Route>
+            <Route path="/mediakit" element={<MediaKit />} />
             <Route path="/career" element={<Career />} />
             <Route path="/partner" element={<Partner />} />
             <Route path="/contactus" element={<Contact />} />

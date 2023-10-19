@@ -15,8 +15,6 @@ import {
   ContainerGridLineWrap,
   GridLineBox,
   MainImgWrap,
-  Path,
-  HeadLine,
   HomeComponentWrap,
   TextWrap,
   Text,
@@ -30,7 +28,9 @@ import {
   TitleWrap,
   HR,
 } from './style';
+import { HeadLine, Path } from '../../components/style';
 import { Link, Outlet, useParams } from 'react-router-dom';
+import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const PressRelease = () => {
   const { id } = useParams();
@@ -277,6 +277,8 @@ const PressRelease = () => {
       setSearchValue('');
       setIsLoading(false);
       setFilteredList(itemList);
+      setHoverItem();
+      setPageNumber(1);
     }
   }, [id]);
 
@@ -302,7 +304,7 @@ const PressRelease = () => {
       <Header />
       <Path>{`HOME > IR & PR > PRESS RELEASE`}</Path>
       <MainImgWrap $src={irpr_pressrelease_cover}>
-        <HeadLine>PRESS RELEASE</HeadLine>
+        <HeadLine>PRESS{window.innerWidth <= 900 && <br />} RELEASE</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
@@ -312,239 +314,498 @@ const PressRelease = () => {
       {detailPage ? (
         <>
           <Outlet context={['Press Release', currentItem]} />
-          <HomeComponentWrap style={{ height: 'fit-content', paddingTop: '3em' }}>
-            <ComponentWrap
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr 1fr',
-                gap: '0',
-                justifyContent: 'center',
-                alignItems: 'stretch',
-                borderTop: '2px solid #ffffff',
-                height: 'fit-content',
-              }}
-            >
-              {itemList.indexOf(currentItem) === 0 ? (
-                <div></div>
-              ) : (
-                <div style={{ height: 'fit-content' }}>
-                  <Text
-                    style={{
-                      margin: '3em 0 2em 0',
-                      padding: '0',
-                      textAlign: 'start',
-                      fontSize: '18px',
-                      fontWeight: '200',
-                    }}
-                  >
-                    PREV
-                  </Text>
-                  <HR $width="3em" />
-                  <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) - 1}`}>
-                    <Text
-                      className="prev"
-                      style={{
-                        width: '80%',
-                        margin: '1em 0',
-                        padding: '0',
-                        textAlign: 'start',
-                        fontSize: '18px',
-                        fontWeight: '200',
-                      }}
-                    >
-                      {itemList[itemList.indexOf(currentItem) - 1]?.title.slice(0, 60)}...
-                    </Text>
-                  </Link>
-                </div>
-              )}
-              {itemList[itemList.indexOf(currentItem) + 1] ? (
-                <div style={{ height: 'fit-content' }}>
-                  <Text
-                    style={{
-                      margin: '3em 0 2em 0',
-                      padding: '0',
-                      textAlign: 'start',
-                      fontSize: '18px',
-                      fontWeight: '200',
-                    }}
-                  >
-                    NEXT
-                  </Text>
-                  <HR $width="3em" />
-                  <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) + 1}`}>
-                    <Text
-                      className="next"
-                      style={{
-                        width: '80%',
-                        margin: '1em 0',
-                        padding: '0',
-                        textAlign: 'start',
-                        fontSize: '18px',
-                        fontWeight: '200',
-                      }}
-                    >
-                      {itemList[itemList.indexOf(currentItem) + 1]?.title.slice(0, 60)}...
-                    </Text>
-                  </Link>
-                </div>
-              ) : (
-                <div></div>
-              )}
-              <div
+          <Desktop>
+            <HomeComponentWrap style={{ paddingTop: '3em' }}>
+              <ComponentWrap
                 style={{
-                  height: 'full',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'end',
-                  alignItems: 'end',
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr 1fr',
+                  gap: '0',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderTop: '2px solid #ffffff',
                 }}
               >
-                <Link style={{ textDecoration: 'none' }} to="/pressrelease">
-                  <Text
-                    $fontSize="20px"
-                    $fontWeight="300"
-                    $color="#ffffff"
-                    $align="start"
-                    $clickable={true}
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      minWidth: 'fit-content',
-                      paddingBottom: '0.7em',
-                      margin: '1em 0',
-                      borderBottom: '2px solid #ffffff',
-                      gap: '3em',
-                    }}
-                  >
-                    <span style={{ zIndex: '-1' }}>View List</span>
-                    <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
-                  </Text>
-                </Link>
-              </div>
-            </ComponentWrap>
-          </HomeComponentWrap>
+                {itemList.indexOf(currentItem) === 0 ? (
+                  <div></div>
+                ) : (
+                  <div>
+                    <Text
+                      style={{
+                        margin: '3em 0 2em 0',
+                        padding: '0',
+                        textAlign: 'start',
+                        fontSize: '18px',
+                        fontWeight: '200',
+                      }}
+                    >
+                      PREV
+                    </Text>
+                    <HR $width="3em" />
+                    <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) - 1}`}>
+                      <Text
+                        className="prev"
+                        style={{
+                          width: '80%',
+                          margin: '1em 0',
+                          padding: '0',
+                          textAlign: 'start',
+                          fontSize: '18px',
+                          fontWeight: '200',
+                        }}
+                      >
+                        {itemList[itemList.indexOf(currentItem) - 1]?.title.slice(0, 60)}...
+                      </Text>
+                    </Link>
+                  </div>
+                )}
+                {itemList[itemList.indexOf(currentItem) + 1] ? (
+                  <div>
+                    <Text
+                      style={{
+                        margin: '3em 0 2em 0',
+                        padding: '0',
+                        textAlign: 'start',
+                        fontSize: '18px',
+                        fontWeight: '200',
+                      }}
+                    >
+                      NEXT
+                    </Text>
+                    <HR $width="3em" />
+                    <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) + 1}`}>
+                      <Text
+                        className="next"
+                        style={{
+                          width: '80%',
+                          margin: '1em 0',
+                          padding: '0',
+                          textAlign: 'start',
+                          fontSize: '18px',
+                          fontWeight: '200',
+                        }}
+                      >
+                        {itemList[itemList.indexOf(currentItem) + 1]?.title.slice(0, 60)}...
+                      </Text>
+                    </Link>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+                {/* pressrelease List */}
+
+                <div
+                  style={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'end',
+                    alignItems: 'end',
+                  }}
+                >
+                  <Link style={{ textDecoration: 'none' }} to="/pressrelease">
+                    <Text
+                      $fontSize="20px"
+                      $fontWeight="300"
+                      $color="#ffffff"
+                      $align="start"
+                      $clickable={true}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        minWidth: 'fit-content',
+                        paddingBottom: '0.7em',
+                        margin: '1em 0',
+                        borderBottom: '2px solid #ffffff',
+                        gap: '3em',
+                        zIndex: '-1',
+                      }}
+                    >
+                      <span style={{ zIndex: '-1' }}>View List</span>
+                      <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                    </Text>
+                  </Link>
+                </div>
+              </ComponentWrap>
+            </HomeComponentWrap>
+          </Desktop>
+          <Mobile>
+            <HomeComponentWrap style={{ paddingTop: '2rem' }}>
+              <ComponentWrap
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr',
+                  gap: '0',
+                  justifyContent: 'center',
+                  alignItems: 'start',
+                  borderTop: '1px solid #FDFDFD',
+                }}
+              >
+                {itemList.indexOf(currentItem) === 0 ? (
+                  <div></div>
+                ) : (
+                  <div style={{ width: '66.6%' }}>
+                    <Text
+                      style={{
+                        margin: '3rem 0 1rem 0',
+                        padding: '0',
+                        textAlign: 'start',
+                        fontSize: '14px',
+                        fontWeight: '300',
+                      }}
+                    >
+                      PREV
+                    </Text>
+                    <HR $width="2em" $height="1px" />
+                    <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) - 1}`}>
+                      <Text
+                        className="prev"
+                        style={{
+                          width: '80%',
+                          margin: '1rem 0',
+                          padding: '0',
+                          textAlign: 'start',
+                          fontSize: '16px',
+                          fontWeight: '300',
+                        }}
+                      >
+                        {itemList[itemList.indexOf(currentItem) - 1]?.title.slice(0, 60)}...
+                      </Text>
+                    </Link>
+                  </div>
+                )}
+                {itemList[itemList.indexOf(currentItem) + 1] ? (
+                  <div style={{ width: '66.6%' }}>
+                    <Text
+                      style={{
+                        margin: '3rem 0 1rem 0',
+                        padding: '0',
+                        textAlign: 'start',
+                        fontSize: '14px',
+                        fontWeight: '300',
+                      }}
+                    >
+                      NEXT
+                    </Text>
+                    <HR $width="2em" $height="1px" />
+                    <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) + 1}`}>
+                      <Text
+                        className="next"
+                        style={{
+                          width: '80%',
+                          margin: '1rem 0',
+                          padding: '0',
+                          textAlign: 'start',
+                          fontSize: '16px',
+                          fontWeight: '300',
+                        }}
+                      >
+                        {itemList[itemList.indexOf(currentItem) + 1]?.title.slice(0, 60)}...
+                      </Text>
+                    </Link>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+
+                <div
+                  style={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'end',
+                    alignItems: 'end',
+                    width: '100%',
+                  }}
+                >
+                  <Link style={{ textDecoration: 'none', width: '66.6%' }} to="/pressrelease">
+                    <Text
+                      $fontSize="16px"
+                      $fontWeight="300"
+                      $color="#ffffff"
+                      $align="start"
+                      $clickable={true}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        width: '100%',
+                        paddingBottom: '0.7em',
+                        margin: '1em 0',
+                        borderBottom: '1px solid #ffffff',
+                        gap: '3em',
+                      }}
+                    >
+                      <span style={{ zIndex: '-1' }}>View List</span>
+                      <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                    </Text>
+                  </Link>
+                </div>
+              </ComponentWrap>
+            </HomeComponentWrap>
+          </Mobile>
         </>
       ) : (
         <>
-          <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-            <TextWrap style={{ width: '70vw' }}>
-              <Text $fontSize="26px" $fontWeight="300" $color="#939598">
-                PRESS RELEASE
-              </Text>
+          <Desktop>
+            <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+              <TextWrap style={{ width: '70vw' }}>
+                <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+                  PRESS RELEASE
+                </Text>
+                <div
+                  style={{
+                    width: '50%',
+                    alignSelf: 'flex-start',
+                    height: '8em',
+                    borderRight: '2px solid #ffffff',
+                    margin: '2rem 0',
+                  }}
+                ></div>
+                <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+                  We Deliver the Latest AriBio News.
+                </Text>
+              </TextWrap>
+            </HomeComponentWrap>
+            <HomeComponentWrap>
+              <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
+                <ComponentWrap
+                  style={{
+                    width: '33.3%',
+                    flexDirection: 'row',
+                    color: '#ffffff',
+                    borderBottom: '2px solid #ffffff',
+                    padding: '0',
+                  }}
+                >
+                  <SearchInput
+                    placeholder="Please enter a search term."
+                    type="text"
+                    value={searchValue}
+                    onChange={(e) => {
+                      setSearchValue(e.target.value);
+                    }}
+                    autoFocus={true}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        handleSearchClick(e.target.value);
+                      }
+                    }}
+                  />
+
+                  <Image src={search} alt="search" onClick={(e) => handleSearchClick(e.target.previousSibling.value)} />
+                </ComponentWrap>
+              </ComponentWrap>
+              <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '5em 0' }}>
+                {filteredList?.map((item, index) => {
+                  if (index < pageNumber * itemPerPage) {
+                    return (
+                      <RowWrap
+                        onMouseOver={() => {
+                          setHoverItem(index);
+                        }}
+                        onMouseLeave={() => {
+                          setHoverItem();
+                        }}
+                        key={'pressreleaseItem' + index}
+                      >
+                        <DateWrap>
+                          <Text className="date">{item.date.split(' ')[0]}</Text>
+                          <Text className="month">
+                            {item.date.split(' ')[1]}
+                            {`\t`}
+                            {item.date.split(' ')[2]}
+                          </Text>
+                        </DateWrap>
+                        <TitleWrap style={{ overflow: 'hidden' }}>
+                          <div
+                            className="ticker_item"
+                            style={{
+                              display: 'inline-block',
+                              width: '100%',
+                              height: '100%',
+                              overflow: 'hidden',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {item.title.slice(0, 60)}...
+                          </div>
+                        </TitleWrap>
+                        <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
+                          <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${index}`}>
+                            <Image
+                              style={{ padding: '1em', cursor: 'pointer' }}
+                              src={hoverItem === index ? icon_circlearrow_white : icon_circlearrow_dark}
+                              alt="icon_circlearrow_dark"
+                              onClick={() => {
+                                setDetailPage(true);
+                                setCurrentItem(item);
+                              }}
+                            />
+                          </Link>
+                        </div>
+                      </RowWrap>
+                    );
+                  }
+                })}
+              </ComponentWrap>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '8em',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  cursor: 'pointer',
                 }}
-              ></div>
-              <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                We Deliver the Latest AriBio News.
-              </Text>
-            </TextWrap>
-          </HomeComponentWrap>
-          <HomeComponentWrap>
-            <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
-              <ComponentWrap
-                style={{
-                  width: '33.3%',
-                  flexDirection: 'row',
-                  color: '#ffffff',
-                  borderBottom: '2px solid #ffffff',
-                  padding: '0',
+                onClick={() => {
+                  pageNumber * itemPerPage < filteredList.length && setPageNumber(pageNumber + 1);
                 }}
               >
-                <SearchInput
-                  placeholder="Please enter a search term."
-                  type="text"
-                  value={searchValue}
-                  onChange={(e) => {
-                    setSearchValue(e.target.value);
+                <Image style={{ zIndex: '-1' }} src={icon_more} alt="more" />
+                <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em' }}>View more</Text>
+              </div>
+            </HomeComponentWrap>
+          </Desktop>
+          <Mobile>
+            <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+              <TextWrap style={{ width: '70vw' }}>
+                <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+                  PRESS RELEASE
+                </Text>
+                <div
+                  style={{
+                    width: '50%',
+                    alignSelf: 'flex-start',
+                    height: '8em',
+                    borderRight: '2px solid #ffffff',
+                    margin: '2rem 0',
                   }}
-                  autoFocus={true}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      handleSearchClick(e.target.value);
-                    }
+                ></div>
+                <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+                  We Deliver the Latest AriBio News.
+                </Text>
+              </TextWrap>
+            </HomeComponentWrap>
+            <HomeComponentWrap>
+              <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
+                <ComponentWrap
+                  style={{
+                    width: '100%',
+                    flexDirection: 'row',
+                    color: '#ffffff',
+                    borderBottom: '2px solid #ffffff',
+                    padding: '0',
                   }}
-                />
+                >
+                  <SearchInput
+                    placeholder="Please enter a search term."
+                    type="text"
+                    value={searchValue}
+                    onChange={(e) => {
+                      setSearchValue(e.target.value);
+                    }}
+                    autoFocus={true}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        handleSearchClick(e.target.value);
+                      }
+                    }}
+                  />
 
-                <Image src={search} alt="search" onClick={(e) => handleSearchClick(e.target.previousSibling.value)} />
+                  <Image
+                    src={search}
+                    alt="search"
+                    onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
+                    style={{ height: '1rem' }}
+                  />
+                </ComponentWrap>
               </ComponentWrap>
-            </ComponentWrap>
-            <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '5em 0' }}>
-              {filteredList?.map((item, index) => {
-                if (index < pageNumber * itemPerPage) {
-                  return (
-                    <RowWrap
-                      onMouseOver={() => {
-                        setHoverItem(index);
-                      }}
-                      onMouseLeave={() => {
-                        setHoverItem();
-                      }}
-                      key={'pressreleaseItem' + index}
-                    >
-                      <DateWrap>
-                        <Text className="date">{item.date.split(' ')[0]}</Text>
-                        <Text className="month">
-                          {item.date.split(' ')[1]}
-                          {`\t`}
-                          {item.date.split(' ')[2]}
-                        </Text>
-                      </DateWrap>
-                      <TitleWrap style={{ overflow: 'hidden' }}>
-                        <div
-                          className="ticker_item"
-                          style={{
-                            display: 'inline-block',
-                            width: '100%',
-                            height: '100%',
-                            overflow: 'hidden',
-                            whiteSpace: 'nowrap',
-                          }}
+              <ComponentWrap
+                style={{ justifyContent: 'center', alignItems: 'center', padding: '8rem 0 4rem 0', gap: '0.5rem' }}
+              >
+                {filteredList.length > 0 ? (
+                  filteredList.map((item, index) => {
+                    if (index < pageNumber * itemPerPage) {
+                      return (
+                        <Link
+                          style={{ textDecoration: 'none', width: '100%' }}
+                          key={'pressreleaseItem' + index}
+                          to={`/pressrelease/${index}`}
                         >
-                          {item.title.slice(0, 60)}...
-                        </div>
-                      </TitleWrap>
-                      <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
-                        <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${index}`}>
-                          <Image
-                            style={{ padding: '1em', cursor: 'pointer' }}
-                            src={hoverItem === index ? icon_circlearrow_white : icon_circlearrow_dark}
-                            alt="icon_circlearrow_dark"
+                          <RowWrap
+                            onMouseOver={() => {
+                              setHoverItem(index);
+                            }}
+                            onMouseLeave={() => {
+                              setHoverItem();
+                            }}
+                            onFocus={() => {
+                              setHoverItem(index);
+                            }}
                             onClick={() => {
                               setDetailPage(true);
                               setCurrentItem(item);
                             }}
-                          />
+                          >
+                            <DateWrap>
+                              <Text className="date">{item.date}</Text>
+                            </DateWrap>
+                            <TitleWrap style={{ overflow: 'hidden' }}>
+                              <div
+                                className="ticker_item"
+                                style={{
+                                  display: 'inline-block',
+                                  width: '100%',
+                                  height: '100%',
+                                  overflow: 'hidden',
+                                  whiteSpace: 'nowrap',
+                                }}
+                              >
+                                {item.title.slice(0, 30)}...
+                              </div>
+
+                              <Image
+                                style={{ padding: '0', cursor: 'pointer', height: '1.3rem' }}
+                                src={hoverItem === index ? icon_circlearrow_white : icon_circlearrow_dark}
+                                alt="icon_circlearrow_dark"
+                              />
+                            </TitleWrap>
+                          </RowWrap>
                         </Link>
-                      </div>
-                    </RowWrap>
-                  );
-                }
-              })}
-            </ComponentWrap>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                cursor: 'pointer',
-              }}
-              onClick={() => {
-                pageNumber * itemPerPage < filteredList.length && setPageNumber(pageNumber + 1);
-              }}
-            >
-              <Image style={{ zIndex: '-1' }} src={icon_more} alt="more" />
-              <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em' }}>View more</Text>
-            </div>
-          </HomeComponentWrap>
+                      );
+                    }
+                  })
+                ) : (
+                  <ComponentWrap style={{ gap: '2em', height: '30vh', justifyContent: 'center' }}>
+                    <HR style={{ width: '24px', height: '1px' }} />
+                    <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                  </ComponentWrap>
+                )}
+              </ComponentWrap>
+              {pageNumber * itemPerPage < filteredList.length && (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => {
+                    pageNumber * itemPerPage < filteredList.length && setPageNumber(pageNumber + 1);
+                  }}
+                >
+                  <Image style={{ zIndex: '-1', height: '2rem' }} src={icon_more} alt="more" />
+                  <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
+                    View more
+                  </Text>
+                </div>
+              )}
+            </HomeComponentWrap>
+          </Mobile>
         </>
       )}
 
