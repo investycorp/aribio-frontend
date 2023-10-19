@@ -23,7 +23,7 @@ const SubPageButton = ({ title, linkTo, align }) => {
     <Container $align={align}>
       <Desktop>
         <Link
-          to={`/${linkTo}`}
+          to={linkTo}
           style={{
             textDecoration: 'none',
             color: '#ffffff',
@@ -43,7 +43,7 @@ const SubPageButton = ({ title, linkTo, align }) => {
       </Desktop>
       <Mobile>
         <Link
-          to={`/${linkTo}`}
+          to={linkTo}
           style={{
             textDecoration: 'none',
             color: '#ffffff',

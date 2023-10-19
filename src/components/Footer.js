@@ -55,6 +55,9 @@ const ContactBoxTitle = styled.div`
   font-size: 20px;
   font-weight: semi-bold;
   margin-bottom: 20px;
+  @media screen and (max-width: 1280px) {
+    font-size: 14px;
+  }
 `;
 
 const ContactBoxText = styled.div`
@@ -63,6 +66,9 @@ const ContactBoxText = styled.div`
   font-weight: medium;
   color: #b1b1b1;
   margin-bottom: 20px;
+  @media screen and (max-width: 1280px) {
+    font-size: 12px;
+  }
   @media screen and (max-width: 900px) {
     font-size: 16px;
     margin-bottom: 10px;
@@ -92,6 +98,9 @@ const ContactUsBox = styled.div`
   justify-content: space-between;
   margin-bottom: 3vh;
   flex-wrap: wrap;
+  @media screen and (max-width: 1280px) {
+    font-size: 13px;
+  }
   @media screen and (max-width: 900px) {
     width: fit-content;
     font-size: 18px;
@@ -229,6 +238,11 @@ const Footer = () => {
                 <span>Head Office.</span>
                 <img src={dropdown} alt="dropdown" style={{ padding: '1rem' }} />
               </ContactBoxTitle>
+              <AddressWrap>
+                <ContactBoxText>56, Dongpangyo-ro,</ContactBoxText>
+                <ContactBoxText>Bundang-gu, Seongnam-si,</ContactBoxText>
+                <ContactBoxText>Gyeonggi-do, Republic of Korea</ContactBoxText>
+              </AddressWrap>
             </AddressWrap>
             <AddressWrap
               style={{
@@ -248,6 +262,11 @@ const Footer = () => {
                 <span>US Office.</span>
                 <img src={dropdown} alt="dropdown" style={{ padding: '1rem' }} />
               </ContactBoxTitle>
+              <AddressWrap>
+                <ContactBoxText>4660 La Jolla Village Dr.</ContactBoxText>
+                <ContactBoxText>Suite 1070,</ContactBoxText>
+                <ContactBoxText>San Diego, CA 92112</ContactBoxText>
+              </AddressWrap>
             </AddressWrap>
           </div>
 

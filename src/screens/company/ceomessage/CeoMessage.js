@@ -48,15 +48,25 @@ const CeoMessage = () => {
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
-            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               CEO MESSAGE
             </Text>
-            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '2rem 0 0 0' }}
+            >
               A biotech company brought together <br />
               by those who dream of a brighter, healthier future.
             </Text>
             <hr style={{ width: '60px', margin: '5em 0', border: '2px solid #ffffff' }} />
-            <Text $fontSize="23px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+              $fontWeight="200"
+              $color="#E5E5E5"
+              style={{ margin: '0' }}
+            >
               AriBio’s mission is to improve the quality of human life by developing innovative drugs <br />
               that can give hope to patients who suffer from incurable diseases across the globe.
             </Text>
@@ -76,7 +86,7 @@ const CeoMessage = () => {
               “
             </Text>
             <Text
-              $fontSize="30px"
+              $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
               $fontWeight="300"
               $color="#ffffff"
               style={{ padding: '0 20px', width: '50%', textAlign: 'center', margin: '0' }}
@@ -88,7 +98,12 @@ const CeoMessage = () => {
             <Text $fontSize="40px" $fontWeight="200" $color="#ffffff" style={{ width: '50%', textAlign: 'end' }}>
               ”
             </Text>
-            <Text $fontSize="20px" $fontWeight="200" $color="#D6D6D6" style={{ width: '55%', textAlign: 'end' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
+              $fontWeight="200"
+              $color="#D6D6D6"
+              style={{ width: '55%', textAlign: 'end' }}
+            >
               AriBio Co., Ltd. CEO Jai Jun Choung
             </Text>
           </TextWrap>
@@ -101,7 +116,7 @@ const CeoMessage = () => {
           <ContentBox style={{ padding: '0 0 0 6.5rem', gap: '5em' }}>
             <div style={{ width: '60px', height: '2px', backgroundColor: '#939598' }} />
             <Text
-              $fontSize="32px"
+              $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
               $fontWeight="300"
               $color="#EAEAEA"
               style={{ textAlign: 'start', margin: '0', padding: '0 20% 0 0' }}
@@ -109,7 +124,7 @@ const CeoMessage = () => {
               AriBio is at the forefront of innovative drug development for neurodegenerative diseases.
             </Text>
             <Text
-              $fontSize="20px"
+              $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
               $fontWeight="200"
               $color="#909090"
               style={{ textAlign: 'start', margin: '0', padding: '0 10% 0 0', lineHeight: '1.7' }}

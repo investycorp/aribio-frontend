@@ -182,6 +182,9 @@ const ColorBarTextWrap = styled.div`
   gap: 0.5em;
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  @media screen and (max-width: 1280px) {
+    width: fit-content;
+  }
   @media screen and (max-width: 900px) {
     opacity: 1;
     width: fit-content;
@@ -200,17 +203,21 @@ const ColorBar = styled.div`
   width: 80%;
   background: ${(props) => `linear-gradient(to right, ${props.$color1}, ${props.$color2})`};
   transition: all 0.2s ease-in-out;
-  @media screen and (min-width: 901px) {
-    height: 140px;
-    opacity: 0.3;
-    &:hover {
-      margin-left: 7vw;
+  height: 100px;
+  opacity: 0.3;
+  &:hover {
+    margin-left: 7vw;
+    opacity: 1;
+    ${ColorBarTextWrap} {
       opacity: 1;
-      ${ColorBarTextWrap} {
-        opacity: 1;
-      }
     }
   }
+
+  @media screen and (max-width: 1280px) {
+    height: 120px;
+    padding: 1em;
+  ]
+
   @media screen and (max-width: 900px) {
     height: 60px;
     width: 100%;

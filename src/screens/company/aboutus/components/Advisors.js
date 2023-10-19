@@ -34,9 +34,14 @@ const ContentBox = styled.div`
   margin: 3em 0;
   border-left: 1px solid #ffffff;
   background-color: transparent;
-  @media screen and (min-width: 901px) {
+  &:nth-child(3n + 2) {
+    margin-top: 10vh;
+  }
+
+  @media screen and (min-width: 901px) and (max-width: 1280px) {
+    padding: 0 0 0 1.5rem;
     &:nth-child(3n + 2) {
-      margin-top: 8vh;
+      margin-top: 15vh;
     }
   }
   @media screen and (max-width: 900px) {
@@ -59,6 +64,9 @@ const SchoolText = styled.div`
   color: #e3e3e3;
   font-weight: 100;
   line-height: 1.5em;
+  @media screen and (max-width: 1280px) {
+    font-size: 10px;
+  }
 `;
 
 const Advisors = () => {
@@ -129,13 +137,33 @@ const Advisors = () => {
         <TabContentWrap>
           {tabContents?.map((item, index) => (
             <ContentBox key={index}>
-              <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
-                <Text $fontSize="34px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
+              <ContentBoxNameWrap
+                style={{ paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end' }}
+              >
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '34px' : '18px'}
+                  $fontWeight="400"
+                  $align="start"
+                  style={{ margin: '0' }}
+                >
                   {item.name}
-                  <span style={{ fontSize: '20px', marginLeft: '2rem' }}>{item.position}</span>
+                  <span
+                    style={{
+                      fontSize: window.innerWidth > 1280 ? '20px' : '12px',
+                      marginLeft: window.innerWidth > 1280 ? '2rem' : '1rem',
+                    }}
+                  >
+                    {item.position}
+                  </span>
                 </Text>
               </ContentBoxNameWrap>
-              <hr style={{ width: '2em', border: '1px solid #ffffff', margin: '1rem 0 0 0' }} />
+              <hr
+                style={{
+                  width: '2em',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '1rem 0 0 0' : '0.5rem 0 0 0',
+                }}
+              />
               <SchoolText>{item.description}</SchoolText>
             </ContentBox>
           ))}

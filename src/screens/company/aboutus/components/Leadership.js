@@ -157,11 +157,17 @@ const Leadership = () => {
               </Text>
               <Image src={item.photo} alt="leadershipphoto1" />
               <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
-                <Text $fontSize="34px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '34px' : '20'}
+                  $fontWeight="400"
+                  $align="start"
+                  style={{ margin: '0' }}
+                >
                   {item.name}
                 </Text>
                 {item.isOpen ? (
                   <Image
+                    className="toggle"
                     onClick={() => {
                       const newTabContents = tabContents.map((item, idx) => {
                         if (idx === index) {
@@ -177,6 +183,7 @@ const Leadership = () => {
                   />
                 ) : (
                   <Image
+                    className="toggle"
                     onClick={() => {
                       const newTabContents = tabContents.map((item, idx) => {
                         if (idx === index) {

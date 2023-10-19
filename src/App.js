@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Children, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { RecoilRoot, useRecoilState } from 'recoil';
@@ -36,27 +36,27 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/aboutus" element={<AboutUs />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/ceomessage" element={<CeoMessage />} />
-            <Route path="/ci" element={<Ci />} />
-            <Route path="/poly-pharmacology" element={<PolyPharmacology />} />
-            <Route path="/aiplatform" element={<AiPlatform />} />
-            <Route path="/publications" element={<Publications />} />
+            <Route path="/company/aboutus" element={<AboutUs />} />
+            <Route path="/company/history" element={<History />} />
+            <Route path="/company/ceomessage" element={<CeoMessage />} />
+            <Route path="/company/ci" element={<Ci />} />
+            <Route path="/ourapproach/poly-pharmacology" element={<PolyPharmacology />} />
+            <Route path="/ourapproach/aiplatform" element={<AiPlatform />} />
+            <Route path="/ourapproach/publications" element={<Publications />} />
             <Route path="/pipeline" element={<PipeLine />} />
-            <Route path="/notice" element={<Notice />}>
+            <Route path="/irpr/notice" element={<Notice />}>
               <Route path=":id" element={<DetailPage />} />
             </Route>
-            <Route path="/pressrelease" element={<PressRelease />}>
+            <Route path="/irpr/pressrelease" element={<PressRelease />}>
               <Route path=":id" element={<DetailPage />} />
             </Route>
-            <Route path="/mediakit" element={<MediaKit />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/partner" element={<Partner />} />
-            <Route path="/contactus" element={<Contact />} />
-            <Route path="/openinnovation" element={<OpenInnovation />} />
-            <Route path="/digitalhealth" element={<DigitalHealth />} />
-            <Route path="/memoreproject" element={<MemoRe />} />
+            <Route path="/irpr/mediakit" element={<MediaKit />} />
+            <Route path="/career/career" element={<Career />} />
+            <Route path="/contact/partner" element={<Partner />} />
+            <Route path="/contact/contactus" element={<Contact />} />
+            <Route path="/openinnovation/openinnovation" element={<OpenInnovation />} />
+            <Route path="/openinnovation/digitalhealth" element={<DigitalHealth />} />
+            <Route path="/openinnovation/memoreproject" element={<MemoRe />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </BrowserRouter>

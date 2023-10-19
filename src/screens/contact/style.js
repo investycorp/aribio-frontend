@@ -297,7 +297,9 @@ const Label = styled.label`
   color: #ffffff;
 `;
 
-const Button = styled.button`
+const Button = styled.button.attrs((props) => ({
+  className: props.$className,
+}))`
   padding: 0 1.5em 0 0;
   margin-top: 5em;
   width: fit-content;
@@ -313,13 +315,18 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     img {
       transform: translateX(5px);
       transition: all 0.2s ease-in-out;
     }
+  }
+  &.submit {
+    background-color: #ffffff;
+    color: #121212;
   }
 `;
 
@@ -346,13 +353,18 @@ const ErrorBox = styled.div`
   background-color: rgba(203, 48, 90, 0.6);
   border: 1px solid #cb305a;
   border-radius: 0.5rem;
-  display: flex;
+  display: ${(props) => (props.$isActive ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   font-size: 20px;
   font-weight: 100;
+
   opacity: ${(props) => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
+
+  @media screen and (max-width: 900px) {
+    font-weight: 300;
+  }
 `;
 
 const SuccessBox = styled.div`
@@ -365,24 +377,31 @@ const SuccessBox = styled.div`
   background-color: rgba(0, 166, 255, 0.6);
   border: 1px solid #00a6ff;
   border-radius: 0.5rem;
-  display: flex;
+  display: ${(props) => (props.$isActive ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   font-size: 20px;
   font-weight: 100;
   opacity: ${(props) => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
+  @media screen and (max-width: 900px) {
+    font-weight: 300;
+  }
 `;
 
 const RequiredField = styled.span`
   position: absolute;
-  bottom: -1.8em;
+  bottom: -2em;
   left: 0;
   color: #cb305a;
   font-size: 20px;
   font-weight: 100;
   display: inline-block;
   gap: 0.3em;
+  transition: all 0.2s ease-in-out;
+  @media screen and (max-width: 900px) {
+    font-weight: 300;
+  }
 `;
 
 export {

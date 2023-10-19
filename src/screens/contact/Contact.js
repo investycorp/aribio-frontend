@@ -47,10 +47,29 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (isError || isSuccess) {
+      setTimeout(() => {
+        document.getElementById('warning').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 50);
+    }
+  }, [isError, isSuccess]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setContactInfo({ ...contactInfo, [name]: value });
     console.log(contactInfo);
+  };
+
+  const handleEnter = (e) => {
+    const next = e.target.parentElement.nextElementSibling.firstElementChild.nextElementSibling;
+    if (e.key === 'Enter') {
+      if (next.nodeName === 'INPUT') {
+        next.focus();
+      } else {
+        handleSubmit(e);
+      }
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -136,8 +155,12 @@ const Contact = () => {
             to hearing from you.
           </Text>
           <FormWrap>
-            <ErrorBox $isActive={isError}>Sorry, there was an error submitting the form. Please try again.</ErrorBox>
-            <SuccessBox $isActive={isSuccess}>Form has been submitted successfully!</SuccessBox>
+            <ErrorBox id={isError ? 'warning' : ''} $isActive={isError}>
+              Sorry, there was an error submitting the form. Please try again.
+            </ErrorBox>
+            <SuccessBox id={isSuccess ? 'warning' : ''} $isActive={isSuccess}>
+              Form has been submitted successfully!
+            </SuccessBox>
             <Form>
               <FormInputRowWrap $isFilled={contactInfo.firstName !== ''}>
                 <Label htmlFor="firstName">
@@ -149,6 +172,7 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.firstName}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.firstName && (
                   <RequiredField>
@@ -167,6 +191,7 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.lastName}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.lastName && (
                   <RequiredField>
@@ -185,6 +210,7 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.email}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && (!contactInfo.email || !contactInfo.email.includes('@')) && (
                   <RequiredField>
@@ -201,6 +227,7 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.phone}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
               </FormInputRowWrap>
               <FormInputRowWrap style={{ marginLeft: '2rem' }} $isFilled={contactInfo.affiliation !== ''}>
@@ -211,6 +238,7 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.affiliation}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
               </FormInputRowWrap>
               <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.message !== ''}>
@@ -223,6 +251,7 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.message}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.message && (
                   <RequiredField>
@@ -295,7 +324,7 @@ const Contact = () => {
       </Desktop>
       <Mobile>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-          <TextWrap style={{ width: '70vw' }}>
+          <TextWrap style={{ width: '80vw' }}>
             <Text $fontSize="16px" $fontWeight="300" $color="#939598">
               CONTACT US
             </Text>
@@ -319,11 +348,19 @@ const Contact = () => {
             We look forward <br />
             to hearing from you.
           </Text>
-          <FormWrap style={{ paddingLeft: '0', paddingTop: '12em' }}>
-            <ErrorBox style={{ left: '0', top: '0', width: '100%' }} $isActive={isError}>
+          <FormWrap style={{ paddingLeft: '0', paddingTop: '1rem', marginTop: '0' }}>
+            <ErrorBox
+              id={isError ? 'warning' : ''}
+              style={{ position: 'relative', fontSize: '16px', left: '0', top: '0', width: '100%', margin: '1rem 0' }}
+              $isActive={isError}
+            >
               Sorry, there was an error submitting the form. Please try again.
             </ErrorBox>
-            <SuccessBox style={{ left: '0', top: '0', width: '100%' }} $isActive={isSuccess}>
+            <SuccessBox
+              id={isSuccess ? 'warning' : ''}
+              style={{ position: 'relative', fontSize: '16px', left: '0', top: '0', width: '100%', margin: '1rem 0' }}
+              $isActive={isSuccess}
+            >
               Form has been submitted successfully!
             </SuccessBox>
             <Form>
@@ -337,9 +374,10 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.firstName}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.firstName && (
-                  <RequiredField style={{ fontSize: '14px' }}>
+                  <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
                     <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
                     field is required.
                   </RequiredField>
@@ -355,9 +393,10 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.lastName}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.lastName && (
-                  <RequiredField style={{ fontSize: '14px' }}>
+                  <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
                     <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
                     field is required.
                   </RequiredField>
@@ -373,10 +412,20 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.email}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && (!contactInfo.email || !contactInfo.email.includes('@')) && (
-                  <RequiredField style={{ fontSize: '14px' }}>
-                    <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span>
+                  <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
+                    <span
+                      style={{
+                        marginRight: '0.5rem',
+                        padding: '0 0.5em',
+                        border: '1px solid #CB305A',
+                        borderRadius: '50%',
+                      }}
+                    >
+                      !
+                    </span>
                     {emailError}
                   </RequiredField>
                 )}
@@ -389,6 +438,7 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.phone}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
               </FormInputRowWrap>
               <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.affiliation !== ''}>
@@ -399,6 +449,7 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.affiliation}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
               </FormInputRowWrap>
               <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.message !== ''}>
@@ -411,9 +462,10 @@ const Contact = () => {
                   autoComplete="off"
                   value={contactInfo.message}
                   onChange={(e) => handleChange(e)}
+                  onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.message && (
-                  <RequiredField style={{ fontSize: '14px' }}>
+                  <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
                     <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
                     field is required.
                   </RequiredField>
@@ -434,6 +486,7 @@ const Contact = () => {
                   <span style={{ color: '#E5E5E5' }}>is a required field. </span>
                 </span>
                 <Button
+                  className={isSuccess ? 'submit' : ''}
                   style={{
                     display: 'flex',
                     justifyContent: 'space-between',

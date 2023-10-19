@@ -98,7 +98,7 @@ const History = () => {
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
-            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               HISTORY
             </Text>
             <div
@@ -110,16 +110,26 @@ const History = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '2rem 0 0 0' }}
+            >
               Expansion Phase{' '}
             </Text>
-            <Text $fontSize="30px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '30px' : '14px'}
+              $fontWeight="200"
+              $color="#E5E5E5"
+              style={{ margin: '0' }}
+            >
               Clinical development and Pipeline Extension
             </Text>
           </TextWrap>
         </HomeComponentWrap>
         <Tab style={{ padding: '0 7vw' }}>
-          {tabNames.map((item, index) => (
+          {tabNames?.map((item, index) => (
             <TabItem
               key={index}
               $isActive={currentTab === item ? true : false}
@@ -132,7 +142,14 @@ const History = () => {
             </TabItem>
           ))}
         </Tab>
-        {tabNames.indexOf(currentTab) === 0 ? <Tab1 /> : tabNames.indexOf(currentTab) === 1 ? <Tab2 /> : <Tab3 />}
+
+        {tabNames.indexOf(currentTab) === 0 ? (
+          <Tab1 listItems={listItems} />
+        ) : tabNames.indexOf(currentTab) === 1 ? (
+          <Tab2 />
+        ) : (
+          <Tab3 />
+        )}
       </Desktop>
       <Mobile>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
@@ -158,7 +175,7 @@ const History = () => {
           </TextWrap>
         </HomeComponentWrap>
         <Tab style={{ padding: '0 7vw' }}>
-          {tabNames.map((item, index) => (
+          {tabNames?.map((item, index) => (
             <TabItem
               key={index}
               $isActive={currentTab === item ? true : false}

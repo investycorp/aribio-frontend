@@ -108,6 +108,7 @@ const HeadLine = styled.div`
   font-size: 200px;
   font-weight: 500;
   @media screen and (max-width: 1280px) {
+    font-size: 140px;
   }
   @media screen and (max-width: 900px) {
     font-size: 62px;
