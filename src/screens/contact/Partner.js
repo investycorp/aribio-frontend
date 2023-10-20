@@ -67,6 +67,7 @@ const Partner = () => {
         <HomeComponentWrap style={{ paddingTop: '0', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1em' }}>
           {itemList.map((item, index) => (
             <ContentBox
+              className="partner"
               key={item.name + index}
               style={{
                 display: 'flex',

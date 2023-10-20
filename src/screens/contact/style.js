@@ -154,14 +154,25 @@ const TabContentWrap = styled.div`
   padding-bottom: 10rem;
 `;
 
-const ContentBox = styled.div`
+const ContentBox = styled.div.attrs((props) => ({
+  className: props.$className,
+}))`
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: left;
   gap: 2rem;
   background-color: transparent;
-  // border: 1px solid #ffffff;
+  &.partner {
+    img {
+      filter: grayscale(100%);
+    }
+    &:hover {
+      img {
+        filter: grayscale(0%);
+      }
+    }
+  }
 `;
 const ContentBoxNameWrap = styled.div`
   position: relative;
