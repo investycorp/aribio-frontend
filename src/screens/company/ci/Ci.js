@@ -9,11 +9,6 @@ import arrow from '../../../assets/images/arrow.svg';
 
 import {
   Container,
-  MainImgWrap,
-  ContainerGridLineWrap,
-  GridLineBox,
-  // Path,
-  // HeadLine,
   HomeComponentWrap,
   TextWrap,
   Text,
@@ -24,7 +19,7 @@ import {
   HR,
   ContentWrap,
 } from './style';
-import { HeadLine, Path } from '../../../components/style';
+import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 const Ci = () => {
@@ -43,20 +38,23 @@ const Ci = () => {
   return (
     <Container className="container">
       <Header />
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
       <Path>{`HOME > COMPANY > CI`}</Path>
       <MainImgWrap $src={ci_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>CI</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>

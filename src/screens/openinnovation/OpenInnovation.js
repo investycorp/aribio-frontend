@@ -6,24 +6,13 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 
-import {
-  Container,
-  ContainerGridLineWrap,
-  GridLineBox,
-  MainImgWrap,
-  HomeComponentWrap,
-  TextWrap,
-  Text,
-  Image,
-  HR,
-  ContentWrap,
-} from './style';
+import { Container, HomeComponentWrap, TextWrap, Text, Image, HR, ContentWrap } from './style';
 import openinnovation_cover from './assets/openinnovation_cover.png';
 import openinnovation_middle1 from './assets/openinnovation_middle1.png';
 import openinnovation_middle2 from './assets/openinnovation_middle2.png';
 import arrow from '../../assets/images/arrow.svg';
 
-import { HeadLine, Path } from '../../components/style';
+import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const OpenInnovation = () => {
@@ -33,15 +22,17 @@ const OpenInnovation = () => {
   }, []);
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
+      <MainImgWrap $src={openinnovation_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
       <Header />
       <Path>{`HOME > OPEN INNOVATION`}</Path>
-      <MainImgWrap $src={openinnovation_cover}>
-        <HeadLine style={{ fontSize: '55px' }}>
+      <HomeComponentWrap style={{ height: '100vh' }}>
+        <HeadLine>
           OPEN <br /> INNOVATION
         </HeadLine>
         <img
@@ -49,7 +40,8 @@ const OpenInnovation = () => {
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <HomeComponentWrap
           style={{
@@ -72,14 +64,19 @@ const OpenInnovation = () => {
             alt="intro_bg"
           />
           <TextWrap style={{ width: '70vw', position: 'relative', backgroundColor: 'transparent' }}>
-            <Text $color="#939598" $fontSize="26px" $fontWeight="300">
+            <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
               INTRODUCTION
             </Text>
-            <Text $fontSize="50px" $fontWeight="400">
+            <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="400">
               AriBio is dedicated to driving advancements in neurodegenerative diseases.
             </Text>
             <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3" style={{ width: '50vw' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+              $fontWeight="300"
+              $color="#D3D3D3"
+              style={{ width: '50vw' }}
+            >
               Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and we’re strengthened by our
               commitment to open innovation. We actively collaborate with innovative companies around the world, aiming
               to create impactful solutions for these challenging diseases.
@@ -95,7 +92,11 @@ const OpenInnovation = () => {
             gridTemplateColumns: '1fr 1fr',
           }}
         >
-          <Image src={openinnovation_middle2} alt="openinnovation_middle2" style={{ width: '80%', marginTop: '5em' }} />
+          <Image
+            src={openinnovation_middle2}
+            alt="openinnovation_middle2"
+            style={{ alignSelf: 'end', width: '80%', marginTop: '0' }}
+          />
           <TextWrap
             style={{
               display: 'flex',
@@ -105,10 +106,16 @@ const OpenInnovation = () => {
               width: '100%',
               height: '100%',
               backgroundColor: 'transparent',
-              padding: '1em 10em 1em 0',
+              padding: '0 7vw 0 0',
             }}
           >
-            <Text $color="#939598" $fontSize="23px" $fontWeight="300" $align="start">
+            <Text
+              $color="#D3D3D3"
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+              $fontWeight="300"
+              $align="start"
+              style={{ marginBottom: '5rem' }}
+            >
               <HR style={{ marginBottom: '2em' }} />
               Our approach blends polypharmacological strategies with a belief in multi-modal management for these
               conditions.
@@ -120,7 +127,7 @@ const OpenInnovation = () => {
             </Text>
             <ContentWrap style={{ justifySelf: 'end', flexDirection: 'row', padding: '0' }}>
               <Text
-                $fontSize="20px"
+                $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
                 $fontWeight="300"
                 $color="#ffffff"
                 $align="start"
@@ -131,17 +138,19 @@ const OpenInnovation = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   width: 'fit-content',
-                  paddingBottom: '0.7em',
+                  padding: '0.7em 0',
+                  marginBottom: '0',
                   borderBottom: '2px solid #ffffff',
-                  gap: '3em',
+                  gap: '1em',
+                  cursor: 'pointer',
                 }}
-                onClick={() => navigate('/')}
+                onClick={() => navigate('/openinnovation/digitalhealth')}
               >
                 <span style={{ zIndex: '-1' }}>Digital Health</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
               </Text>
               <Text
-                $fontSize="20px"
+                $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
                 $fontWeight="300"
                 $color="#ffffff"
                 $align="start"
@@ -152,11 +161,13 @@ const OpenInnovation = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   width: 'fit-content',
-                  paddingBottom: '0.7em',
+                  padding: '0.7em 0',
+                  marginBottom: '0',
                   borderBottom: '2px solid #ffffff',
-                  gap: '3em',
+                  gap: '1em',
+                  cursor: 'pointer',
                 }}
-                onClick={() => navigate('/')}
+                onClick={() => navigate('/openinnovation/memoreproject')}
               >
                 <span style={{ zIndex: '-1' }}>Memo:Re Project</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
@@ -258,7 +269,6 @@ const OpenInnovation = () => {
                   width: '100%',
                   paddingBottom: '0.7em',
                   borderBottom: '2px solid #ffffff',
-                  // gap: '3em',
                 }}
                 onClick={() => navigate('/')}
               >
@@ -279,7 +289,6 @@ const OpenInnovation = () => {
                   width: '100%',
                   paddingBottom: '0.7em',
                   borderBottom: '2px solid #ffffff',
-                  // gap: '3em',
                 }}
                 onClick={() => navigate('/')}
               >

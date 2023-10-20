@@ -4,8 +4,8 @@ import Footer from '../../components/Footer';
 import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 import ourapproach_polypharma_cover from './assets/ourapproach_polypharma_cover.png';
 import ourapproach_polypharm_middle from './assets/ourapproach_polypharm_middle.png';
-import { Container, MainImgWrap, HomeComponentWrap, TextWrap, Text, Image, HR } from './style';
-import { HeadLine, Path } from '../../components/style';
+import { Container, HomeComponentWrap, TextWrap, Text, Image, HR } from './style';
+import { HeadLine, Path, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const PolyPharmacology = () => {
@@ -17,11 +17,12 @@ const PolyPharmacology = () => {
     <Container className="container">
       <Header />
 
-      <MainImgWrap $src={ourapproach_polypharma_cover}>
-        <HeadLine>
+      <MainImgWrap $src={ourapproach_polypharma_cover}></MainImgWrap>
+      <HomeComponentWrap style={{ height: '100vh' }}>
+        <HeadLine className="midsize">
           POLY- <br />
           PHARMA
-          {window.innerWidth < 600 && <br />}
+          {window.innerWidth < 900 && <br />}
           COLOGY
         </HeadLine>
         <img
@@ -29,12 +30,13 @@ const PolyPharmacology = () => {
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <Path>{`HOME > OUR APPROACH > POLY-PHARMACOLOGY`}</Path>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
-            <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               Polypharmacology
             </Text>
             <div
@@ -46,10 +48,20 @@ const PolyPharmacology = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '0' }}
+            >
               Merging Multi-Target and <br /> Multi-Mechanism Drug Discovery with AI
             </Text>
-            <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ marginTop: '2em' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '16px'}
+              $fontWeight="200"
+              $color="#E5E5E5"
+              style={{ marginTop: '2em' }}
+            >
               Neurodegenerative diseases, such as Alzheimer’s, manifest from a confluence of genetic, environmental, and
               physiological factors. The limitations of traditional single-target drugs become evident in their struggle
               to achieve clinically meaningful clinical outcomes against these multifactorial diseases.
@@ -63,7 +75,12 @@ const PolyPharmacology = () => {
 
           <Image src={ourapproach_polypharm_middle} alt="polypharm_middle" style={{ margin: '15vh 0', width: '90%' }} />
           <HR $height="2px" $color="#9A9A9A" />
-          <Text $fontSize="20px" $fontWeight="200" $color="#ffffff" style={{ marginTop: '2em', width: '80vw' }}>
+          <Text
+            $fontSize={window.innerWidth > 1280 ? '20px' : '16px'}
+            $fontWeight="200"
+            $color="#ffffff"
+            style={{ marginTop: '2em', width: '80vw' }}
+          >
             At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies. With
             the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span multiple
             targets and mechanisms. By leveraging AI, we aim to achieve heightened drug efficacy and expand potential

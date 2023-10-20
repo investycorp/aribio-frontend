@@ -8,20 +8,9 @@ import docthumbnail from './assets/ourapproach_docthumbnail.png';
 import arrow from '../../assets/images/arrow.svg';
 import search from './assets/icon_search.svg';
 
-import {
-  Container,
-  ContainerGridLineWrap,
-  GridLineBox,
-  MainImgWrap,
-  HomeComponentWrap,
-  TextWrap,
-  Text,
-  ComponentWrap,
-  GridComponentWrap,
-  Image,
-} from './style';
+import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, GridComponentWrap, Image } from './style';
 
-import { HeadLine, Path } from '../../components/style';
+import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const SearchInput = styled.input`
@@ -106,25 +95,28 @@ const Publications = () => {
 
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
+      <MainImgWrap $src={ourapproach_publications_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
       <Header />
       <Path>{`HOME > OUR APPROACH > PUBLICATIONS`}</Path>
-      <MainImgWrap $src={ourapproach_publications_cover}>
-        <HeadLine style={{ fontSize: '44px' }}>PUBLICATIONS</HeadLine>
+      <HomeComponentWrap style={{ height: '100vh' }}>
+        <HeadLine>PUBLICATIONS</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <HomeComponentWrap>
           <TextWrap style={{ margin: '0' }}>
-            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               PUBLICATION
             </Text>
             <div
@@ -136,7 +128,12 @@ const Publications = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '0' }}
+            >
               IR Documents
             </Text>
           </TextWrap>
@@ -172,40 +169,43 @@ const Publications = () => {
                   className="irdoc"
                   style={{ justifyContent: 'center', alignItems: 'start' }}
                 >
-                  <Image src={doc.image} alt="doc" style={{ width: '14vw' }} />
-                  <Text
-                    className="text"
-                    $fontSize="26px"
-                    $fontWeight="300"
-                    $color="#ffffff"
-                    $align="start"
-                    style={{ margin: '1em 0' }}
-                  >
-                    {doc.title}
-                  </Text>
-                  <Text
-                    $fontSize="20px"
-                    $fontWeight="300"
-                    $color="#ffffff"
-                    $align="start"
-                    $clickable={true}
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      width: '45%',
-                      padding: '0.7em 0',
-                      borderBottom: '2px solid #ffffff',
-                    }}
-                    onClick={() => {
-                      console.log(doc.title, doc.downloadUrl);
-                      // downloadDoc(doc.title, doc.downloadUrl);
-                    }}
-                  >
-                    <span style={{ zIndex: '-1' }}>Download</span>
-                    <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
-                  </Text>
+                  <div className="wrap">
+                    <Image src={doc.image} alt="doc" style={{ width: '14vw' }} />
+                    <Text
+                      className="text"
+                      $fontSize="26px"
+                      $fontWeight="300"
+                      $color="#ffffff"
+                      $align="start"
+                      style={{ margin: '1em 0' }}
+                    >
+                      {doc.title}
+                    </Text>
+                    <Text
+                      $fontSize="20px"
+                      $fontWeight="300"
+                      $color="#ffffff"
+                      $align="start"
+                      $clickable={true}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        width: 'fit-content',
+                        padding: '0.7em 0',
+                        borderBottom: '2px solid #ffffff',
+                        zIndex: '1',
+                      }}
+                      onClick={() => {
+                        console.log(doc.title, doc.downloadUrl);
+                        // downloadDoc(doc.title, doc.downloadUrl);
+                      }}
+                    >
+                      <span style={{ zIndex: '-1' }}>Download</span>
+                      <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                    </Text>
+                  </div>
                 </ComponentWrap>
               ))
             ) : (

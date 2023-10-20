@@ -12,14 +12,9 @@ import icon_circlearrow_white from './assets/icon_circlearrow_white.svg';
 
 import {
   Container,
-  ContainerGridLineWrap,
-  GridLineBox,
-  MainImgWrap,
   HomeComponentWrap,
   TextWrap,
   Text,
-  Tab,
-  TabItem,
   SearchInput,
   Image,
   ComponentWrap,
@@ -28,7 +23,7 @@ import {
   TitleWrap,
   HR,
 } from './style';
-import { HeadLine, Path } from '../../components/style';
+import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
@@ -242,17 +237,6 @@ const PressRelease = () => {
     },
   ]);
   const [filteredList, setFilteredList] = useState(itemList);
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    // if (id) {
-    //   setDetailPage(true);
-    //   setCurrentItem(itemList[id]);
-    // } else if (!id) {
-    //   console.log('!!!!!');
-    //   setDetailPage(false);
-    //   setCurrentItem({});
-    // }
-  }, []);
 
   useEffect(() => {
     if (detailPage) {
@@ -296,21 +280,24 @@ const PressRelease = () => {
 
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
+      <MainImgWrap $src={irpr_pressrelease_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
       <Header />
       <Path>{`HOME > IR & PR > PRESS RELEASE`}</Path>
-      <MainImgWrap $src={irpr_pressrelease_cover}>
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>PRESS{window.innerWidth <= 900 && <br />} RELEASE</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       {detailPage ? (
         <>
           <Outlet context={['Press Release', currentItem]} />
@@ -342,7 +329,7 @@ const PressRelease = () => {
                       PREV
                     </Text>
                     <HR $width="3em" />
-                    <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) - 1}`}>
+                    <Link style={{ textDecoration: 'none' }} to={`/irpr/pressrelease/${parseInt(id) - 1}`}>
                       <Text
                         className="prev"
                         style={{
@@ -373,7 +360,7 @@ const PressRelease = () => {
                       NEXT
                     </Text>
                     <HR $width="3em" />
-                    <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) + 1}`}>
+                    <Link style={{ textDecoration: 'none' }} to={`/irpr/pressrelease/${parseInt(id) + 1}`}>
                       <Text
                         className="next"
                         style={{
@@ -403,7 +390,7 @@ const PressRelease = () => {
                     alignItems: 'end',
                   }}
                 >
-                  <Link style={{ textDecoration: 'none' }} to="/pressrelease">
+                  <Link style={{ textDecoration: 'none' }} to="/irpr/pressrelease">
                     <Text
                       $fontSize="20px"
                       $fontWeight="300"
@@ -459,7 +446,7 @@ const PressRelease = () => {
                       PREV
                     </Text>
                     <HR $width="2em" $height="1px" />
-                    <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) - 1}`}>
+                    <Link style={{ textDecoration: 'none' }} to={`/irpr/pressrelease/${parseInt(id) - 1}`}>
                       <Text
                         className="prev"
                         style={{
@@ -490,7 +477,7 @@ const PressRelease = () => {
                       NEXT
                     </Text>
                     <HR $width="2em" $height="1px" />
-                    <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${parseInt(id) + 1}`}>
+                    <Link style={{ textDecoration: 'none' }} to={`/irpr/pressrelease/${parseInt(id) + 1}`}>
                       <Text
                         className="next"
                         style={{
@@ -520,7 +507,7 @@ const PressRelease = () => {
                     width: '100%',
                   }}
                 >
-                  <Link style={{ textDecoration: 'none', width: '66.6%' }} to="/pressrelease">
+                  <Link style={{ textDecoration: 'none', width: '66.6%' }} to="/irpr/pressrelease">
                     <Text
                       $fontSize="16px"
                       $fontWeight="300"
@@ -553,7 +540,7 @@ const PressRelease = () => {
           <Desktop>
             <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
               <TextWrap style={{ width: '70vw' }}>
-                <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+                <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
                   PRESS RELEASE
                 </Text>
                 <div
@@ -565,7 +552,12 @@ const PressRelease = () => {
                     margin: '2rem 0',
                   }}
                 ></div>
-                <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+                  $fontWeight="400"
+                  $color="#ffffff"
+                  style={{ margin: '2rem 0 0 0' }}
+                >
                   We Deliver the Latest AriBio News.
                 </Text>
               </TextWrap>
@@ -631,11 +623,11 @@ const PressRelease = () => {
                               whiteSpace: 'nowrap',
                             }}
                           >
-                            {item.title.slice(0, 60)}...
+                            {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 30)}...
                           </div>
                         </TitleWrap>
                         <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
-                          <Link style={{ textDecoration: 'none' }} to={`/pressrelease/${index}`}>
+                          <Link style={{ textDecoration: 'none' }} to={`/irpr/pressrelease/${index}`}>
                             <Image
                               style={{ padding: '1em', cursor: 'pointer' }}
                               src={hoverItem === index ? icon_circlearrow_white : icon_circlearrow_dark}
@@ -733,7 +725,7 @@ const PressRelease = () => {
                         <Link
                           style={{ textDecoration: 'none', width: '100%' }}
                           key={'pressreleaseItem' + index}
-                          to={`/pressrelease/${index}`}
+                          to={`/irpr/pressrelease/${index}`}
                         >
                           <RowWrap
                             onMouseOver={() => {

@@ -225,7 +225,7 @@ const Header = () => {
     { title: 'Pipeline', linkTo: 'pipeline' },
     { title: 'IR & PR', linkTo: 'irpr' },
     { title: 'Career', linkTo: 'career' },
-    { title: 'Contact', linkTo: 'contactus' },
+    { title: 'Contact', linkTo: 'contact' },
     { title: 'Open Innovation', linkTo: 'openinnovation' },
   ]);
   const [subMenu, setSubMenu] = useState({
@@ -242,7 +242,7 @@ const Header = () => {
     ],
     pipeline: [{ title: 'PIPELINE', linkTo: 'pipeline' }],
     career: [{ title: 'CAREER', linkTo: 'career' }],
-    contactus: [
+    contact: [
       { title: 'PARTNER', linkTo: 'partner' },
       { title: 'CONTACT US', linkTo: 'contactus' },
     ],

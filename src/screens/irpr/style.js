@@ -110,6 +110,9 @@ const Text = styled.div.attrs((props) => ({ className: props.className }))`
   @media print {
     color: #000000;
   }
+  @media screen and (max-width: 1280px) {
+    font-size: 21px;
+  }
 `;
 
 const Tab = styled.div`
@@ -258,6 +261,14 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
   @media print {
     color: #000000;
   }
+  &.mediakit_item {
+    div {
+      cursor: pointer;
+      &:active {
+        background-color: rgba(203, 203, 203, 0.2);
+      }
+    }
+  }
 `;
 
 const RowWrap = styled.div`
@@ -305,6 +316,10 @@ const DateWrap = styled.div`
     margin-bottom: 0.5em;
     padding: 0;
     text-align: center;
+    @media screen and (max-width: 1280px) {
+      font-size: 24px;
+      color: #bababa;
+    }
     @media screen and (max-width: 900px) {
       font-size: 14px;
       color: #bababa;
@@ -317,6 +332,10 @@ const DateWrap = styled.div`
     margin-bottom: 0;
     padding: 0;
     text-align: center;
+    @media screen and (max-width: 1280px) {
+      font-size: 18px;
+      color: #bababa;
+    }
   }
 `;
 
@@ -330,6 +349,9 @@ const TitleWrap = styled.div`
   padding: 0;
   text-align: left;
   overflow: hidden;
+  @media screen and (max-width: 1280px) {
+    font-size: 21px;
+  }
   @media screen and (max-width: 900px) {
     font-size: 18px;
     width: 100%;

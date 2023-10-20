@@ -4,18 +4,8 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
 
-import {
-  Container,
-  MainImgWrap,
-  ContainerGridLineWrap,
-  GridLineBox,
-  HomeComponentWrap,
-  TextWrap,
-  Text,
-  Tab,
-  TabItem,
-} from './style';
-import { HeadLine, Path } from '../../../components/style';
+import { Container, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './style';
+import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import Leadership from './components/Leadership';
 import Advisors from './components/Advisors';
 import aboutus_cover from './assets/aboutus_cover.png';
@@ -30,15 +20,17 @@ const AboutUs = () => {
   }, []);
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
       <Header />
       <Path>{`HOME > COMPANY > ABOUT US`}</Path>
       <Desktop>
         <MainImgWrap $src={aboutus_cover}>
+          <ContainerGridLineWrap className="grid_bg">
+            <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+            <GridLineBox />
+            <GridLineBox />
+          </ContainerGridLineWrap>
+        </MainImgWrap>
+        <HomeComponentWrap style={{ height: '100vh' }}>
           <HeadLine>
             ABOUT <br /> US
           </HeadLine>
@@ -47,7 +39,7 @@ const AboutUs = () => {
             src={vertical_arrow}
             alt="vertical_arrow"
           />
-        </MainImgWrap>
+        </HomeComponentWrap>
         <HomeComponentWrap>
           <TextWrap>
             <Text $color="#939598" $fontSize="18px" $fontWeight="300">
