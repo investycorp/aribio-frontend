@@ -194,7 +194,7 @@ const TableContentBox = styled.div.attrs((props) => ({
     font-size: 16px;
   }
   @media screen and (max-width: 1200px) {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   &.indication {

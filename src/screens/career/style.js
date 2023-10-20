@@ -94,13 +94,19 @@ const TextWrap = styled.div`
   z-index: 10;
 `;
 
-const Text = styled.div`
+const Text = styled.div.attrs((props) => ({ className: props.className }))`
   width: ${(props) => (props.$width ? props.$width : '100%')};
   font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
   font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
   color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
   line-height: 1.5em;
   text-align: ${(props) => (props.$align ? props.$align : 'center')};
+  &.clickable {
+    cursor: pointer;
+    &:active {
+      background-color: rgba(203, 203, 203, 0.2);
+    }
+  }
 `;
 
 const GridContentWrap = styled.div`
@@ -119,6 +125,18 @@ const Image = styled.img`
   z-index: 10;
 `;
 
+const FilterShadow = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  opacity: 0.5;
+  background-color: #1f1f1f;
+  z-index: 1;
+`;
+
 const ContentBox = styled.div.attrs((props) => ({ className: props.className }))`
   position: relative;
   width: 100%;
@@ -128,35 +146,54 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
   align-items: center;
   gap: 2rem;
   background-color: transparent;
-  @media (min-width: 901px) {
-    &.benefits {
-      &:nth-child(odd) {
-        img {
-          position: absolute;
-          top: 0;
-          left: calc(-5vw - 64px);
-        }
+
+  &.benefits {
+    &:nth-child(odd) {
+      img {
+        position: absolute;
+        top: 0;
+        left: calc(-5vw - 64px);
       }
-      &:nth-child(even) {
-        gap: 5vw;
+    }
+    &:nth-child(even) {
+      gap: 5vw;
+    }
+  }
+
+  &.recruitmentProcess_rowscroll {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  &.joinus {
+    border-radius: 20px;
+    background-color: #121212;
+    background-image: url(${(props) => props.$src});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: space-between;
+    &:active {
+      ${FilterShadow} {
+        background-color: #fff;
+        opacity: 0.3;
+      }
+      ${Text} {
+        color: #1f1f1f;
+        font-weight: 500;
       }
     }
 
-    &.joinus {
-      border-radius: 20px;
-      background-color: #121212;
-      background-image: url(${(props) => props.$src});
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      justify-content: space-between;
-
-      &:nth-child(odd) {
-        margin-bottom: 2em;
-      }
-      &:nth-child(even) {
-        margin-top: 2em;
-      }
+    &:nth-child(odd) {
+      margin-bottom: 2em;
+    }
+    &:nth-child(even) {
+      margin-top: 2em;
     }
   }
 `;
@@ -206,18 +243,6 @@ const DescriptionItem = styled.li`
   font-weight: 100;
   line-height: 1.5em;
   list-style: none outside;
-`;
-
-const FilterShadow = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  opacity: 0.5;
-  background-color: #1f1f1f;
-  z-index: 1;
 `;
 
 const HR = styled.div`

@@ -281,6 +281,10 @@ const RoundButton = styled.button`
     background-color: 9d9d9d;
     border: 2px solid #9d9d9d;
   }
+  @media screen and (max-width: 1280px) {
+    font-size: 18px;
+    height: 50px;
+  }
 
   @media screen and (max-width: 900px) {
     padding: 0.5rem 1rem;
@@ -346,17 +350,24 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
     margin-top: 3em;
     padding: 0;
 
-    @media (min-width: 901px) {
-      &:nth-child(3n + 1) {
-        padding: 0 2em 0 0;
-      }
-      &:nth-child(3n + 2) {
-        padding: 4em 2em 0 6em;
-      }
-      &:nth-child(3n) {
-        padding: 0 1em 0 8em;
+    &:nth-child(3n + 1) {
+      div.wrap {
+        margin: 0 2rem 0 0;
       }
     }
+    &:nth-child(3n + 2) {
+      align-items: center;
+      div {
+        margin: 0 2rem;
+      }
+    }
+    &:nth-child(3n) {
+      align-items: right;
+      div {
+        margin: 0 0 0 2rem;
+      }
+    }
+
     @media (max-width: 900px) {
       &:nth-child(odd) {
         align-items: end;
@@ -369,6 +380,11 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
         ${Text} {
           text-align: left;
         }
+      }
+    }
+    ${Text} {
+      &:active {
+        background-color: rgba(203, 203, 203, 0.2);
       }
     }
 
@@ -392,6 +408,7 @@ const DescriptionWrap = styled.ul`
   padding: 0;
   transition: all 0.2s ease-in-out;
   list-style: disc outside;
+
   @media screen and (max-width: 900px) {
     list-style: none;
     margin-top: 1rem;
@@ -407,6 +424,9 @@ const DescriptionItem = styled.li`
   color: #f2f2f2;
   font-weight: 100;
   line-height: 1.5em;
+  @media screen and (max-width: 1280px) {
+    font-size: 18px;
+  }
   @media screen and (max-width: 900px) {
     font-size: 16px;
     margin-left: 0;

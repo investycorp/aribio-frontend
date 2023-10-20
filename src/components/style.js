@@ -14,9 +14,13 @@ const Container = styled.div`
   position: relative;
 `;
 
-const ContainerGridLineWrap = styled.div`
+const ContainerGridLineWrap = styled.div.attrs((props) => ({
+  className: props.$className,
+}))`
   width: 100vw;
   height: 100vh;
+  visibility: hidden;
+  opacity: 0;
   display: grid;
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;
@@ -24,32 +28,41 @@ const ContainerGridLineWrap = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   overflow: hidden;
-  z-index: 0;
+  transition: all 0.2s ease-in-out;
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
 `;
 
 const GridLineBox = styled.div`
   width: 100%;
-  height: 100%;
+  height: inherit;
   display: flex;
-  border-right: 2px solid #5d5d5d;
+  border-right: 2px solid rgba(177, 177, 177, 0.3);
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
 `;
 
 const MainImgWrap = styled.div`
-  position: relative;
-  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #121212;
+  background-color: #00010c;
+  padding-bottom: 10vh;
+  z-index: 0;
   background-image: url(${(props) => props.$src});
-  z-index: 10;
 `;
-
 const Path = styled.div`
   position: absolute;
   top: 160px;
@@ -59,6 +72,9 @@ const Path = styled.div`
   font-weight: 300;
   text-align: left;
   z-index: 20;
+  @media screen and (max-width: 1280px) {
+    font-size: 18px;
+  }
 
   @media screen and (max-width: 900px) {
     font-size: 15px;
@@ -100,24 +116,47 @@ const HeadLineText = styled.div`
   }
 `;
 
-const HeadLine = styled.div`
+const HeadLine = styled.div.attrs((props) => ({
+  className: props.$className,
+}))`
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 200px;
   font-weight: 500;
+
   @media screen and (max-width: 1280px) {
     font-size: 140px;
+  }
+  @media screen and (max-width: 1100px) {
+    font-size: 110px;
   }
   @media screen and (max-width: 900px) {
     font-size: 62px;
   }
+  &.midsize {
+    @media screen and (max-width: 1700px) {
+      font-size: 180px;
+    }
+    @media screen and (max-width: 1500px) {
+      font-size: 150px;
+    }
+    @media screen and (max-width: 1280px) {
+      font-size: 120px;
+    }
+    @media screen and (max-width: 1100px) {
+      font-size: 100px;
+    }
+    @media screen and (max-width: 900px) {
+      font-size: 62px;
+    }
+  }
 `;
+
 const HomeComponentWrap = styled.div`
   position: relative;
-  width: 100%;
-  max-width: 100%;
+  width: 100vw;
   height: fit-content;
   display: flex;
   flex-direction: column;

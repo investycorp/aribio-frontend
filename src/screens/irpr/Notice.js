@@ -12,9 +12,6 @@ import icon_circlearrow_white from './assets/icon_circlearrow_white.svg';
 
 import {
   Container,
-  ContainerGridLineWrap,
-  GridLineBox,
-  MainImgWrap,
   HomeComponentWrap,
   TextWrap,
   Text,
@@ -27,7 +24,7 @@ import {
   HR,
 } from './style';
 
-import { HeadLine, Path } from '../../components/style';
+import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import { Link, Outlet, useParams } from 'react-router-dom';
@@ -243,15 +240,7 @@ const Notice = () => {
   ]);
   const [filteredList, setFilteredList] = useState(itemList);
   useEffect(() => {
-    // window.scrollTo(0, 0);
-    // if (id) {
-    //   setDetailPage(true);
-    //   setCurrentItem(itemList[id]);
-    // } else if (!id) {
-    //   console.log('!!!!!');
-    //   setDetailPage(false);
-    //   setCurrentItem({});
-    // }
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
@@ -296,22 +285,23 @@ const Notice = () => {
 
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
+      <MainImgWrap $src={irpr_notice_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
       <Header />
       <Path>{`HOME > IR & PR > NOTICE`}</Path>
-      <MainImgWrap $src={irpr_notice_cover}>
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>NOTICE</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
-
+      </HomeComponentWrap>
       {detailPage ? (
         // rendering detail page and detail page footer navigation
         <>
@@ -344,7 +334,7 @@ const Notice = () => {
                       PREV
                     </Text>
                     <HR $width="3em" />
-                    <Link style={{ textDecoration: 'none' }} to={`/notice/${parseInt(id) - 1}`}>
+                    <Link style={{ textDecoration: 'none' }} to={`/irpr/notice/${parseInt(id) - 1}`}>
                       <Text
                         className="prev"
                         style={{
@@ -375,7 +365,7 @@ const Notice = () => {
                       NEXT
                     </Text>
                     <HR $width="3em" />
-                    <Link style={{ textDecoration: 'none' }} to={`/notice/${parseInt(id) + 1}`}>
+                    <Link style={{ textDecoration: 'none' }} to={`/irpr/notice/${parseInt(id) + 1}`}>
                       <Text
                         className="next"
                         style={{
@@ -405,7 +395,7 @@ const Notice = () => {
                     alignItems: 'end',
                   }}
                 >
-                  <Link style={{ textDecoration: 'none' }} to="/notice">
+                  <Link style={{ textDecoration: 'none' }} to="/irpr/notice">
                     <Text
                       $fontSize="20px"
                       $fontWeight="300"
@@ -461,7 +451,7 @@ const Notice = () => {
                       PREV
                     </Text>
                     <HR $width="2em" $height="1px" />
-                    <Link style={{ textDecoration: 'none' }} to={`/notice/${parseInt(id) - 1}`}>
+                    <Link style={{ textDecoration: 'none' }} to={`/irpr/notice/${parseInt(id) - 1}`}>
                       <Text
                         className="prev"
                         style={{
@@ -492,7 +482,7 @@ const Notice = () => {
                       NEXT
                     </Text>
                     <HR $width="2em" $height="1px" />
-                    <Link style={{ textDecoration: 'none' }} to={`/notice/${parseInt(id) + 1}`}>
+                    <Link style={{ textDecoration: 'none' }} to={`/irpr/notice/${parseInt(id) + 1}`}>
                       <Text
                         className="next"
                         style={{
@@ -522,7 +512,7 @@ const Notice = () => {
                     width: '100%',
                   }}
                 >
-                  <Link style={{ textDecoration: 'none', width: '66.6%' }} to="/notice">
+                  <Link style={{ textDecoration: 'none', width: '66.6%' }} to="/irpr/notice">
                     <Text
                       $fontSize="16px"
                       $fontWeight="300"
@@ -555,7 +545,7 @@ const Notice = () => {
           <Desktop>
             <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
               <TextWrap style={{ width: '70vw' }}>
-                <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+                <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
                   NOTICE
                 </Text>
                 <div
@@ -567,7 +557,12 @@ const Notice = () => {
                     margin: '2rem 0',
                   }}
                 ></div>
-                <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+                  $fontWeight="400"
+                  $color="#ffffff"
+                  style={{ margin: '2rem 0 0 0' }}
+                >
                   We Share Our Transparent Management Information.
                 </Text>
               </TextWrap>
@@ -609,7 +604,7 @@ const Notice = () => {
                         <Link
                           style={{ textDecoration: 'none', width: '100%' }}
                           key={'noticeItem' + index}
-                          to={`/notice/${index}`}
+                          to={`/irpr/notice/${index}`}
                         >
                           <RowWrap
                             onMouseOver={() => {
@@ -645,7 +640,7 @@ const Notice = () => {
                                   whiteSpace: 'nowrap',
                                 }}
                               >
-                                {item.title.slice(0, 60)}...
+                                {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 30)}...
                               </div>
                             </TitleWrap>
                             <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
@@ -750,7 +745,7 @@ const Notice = () => {
                         <Link
                           style={{ textDecoration: 'none', width: '100%' }}
                           key={'noticeItem' + index}
-                          to={`/notice/${index}`}
+                          to={`/irpr/notice/${index}`}
                         >
                           <RowWrap
                             onMouseOver={() => {

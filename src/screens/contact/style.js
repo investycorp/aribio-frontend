@@ -315,13 +315,24 @@ const Button = styled.button.attrs((props) => ({
   outline: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  &:hover,
-  &:focus {
+
+  &:hover {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     img {
-      transform: translateX(5px);
+      transform: translateX(8px);
       transition: all 0.2s ease-in-out;
+    }
+    &:focus {
+      &:active {
+        background-color: #f1f1f1;
+        color: #121212;
+        font-weight: 500;
+      }
+      img {
+        background-color: rgba(15, 22, 31, 0.8);
+        z-index: 10;
+      }
     }
   }
   &.submit {
@@ -357,7 +368,7 @@ const ErrorBox = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 200;
 
   opacity: ${(props) => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
@@ -381,7 +392,7 @@ const SuccessBox = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 200;
   opacity: ${(props) => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
   @media screen and (max-width: 900px) {

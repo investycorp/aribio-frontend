@@ -6,19 +6,9 @@ import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 import arrow from '../../assets/images/arrow.svg';
 import contact_partner_cover from './assets/contact_partner_cover.png';
 import partnerlogo1 from './assets/partnerlogo1.png';
-import {
-  Container,
-  ContainerGridLineWrap,
-  GridLineBox,
-  MainImgWrap,
-  HomeComponentWrap,
-  TextWrap,
-  Text,
-  Image,
-  ContentBox,
-} from './style';
+import { Container, HomeComponentWrap, TextWrap, Text, Image, ContentBox } from './style';
 
-import { HeadLine, Path } from '../../components/style';
+import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const Partner = () => {
@@ -41,20 +31,22 @@ const Partner = () => {
   return (
     <Container className="container">
       <Header />
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
-      <Path>{`HOME > CONTACT > PARTNER`}</Path>
       <MainImgWrap $src={contact_partner_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
+      <Path>{`HOME > CONTACT > PARTNER`}</Path>
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>PARTNER</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
@@ -119,7 +111,7 @@ const Partner = () => {
                 margin: '0',
                 cursor: 'pointer',
               }}
-              onClick={() => navigate('/contactus')}
+              onClick={() => navigate('/contact/contactus')}
             >
               <span style={{ zIndex: '-1' }}>CONTACT US</span>
               <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
@@ -197,7 +189,7 @@ const Partner = () => {
                 margin: '0',
                 cursor: 'pointer',
               }}
-              onClick={() => navigate('/contactus')}
+              onClick={() => navigate('/contact/contactus')}
             >
               <span style={{ zIndex: '-1', fontSize: '16px' }}>CONTACT US</span>
               <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />

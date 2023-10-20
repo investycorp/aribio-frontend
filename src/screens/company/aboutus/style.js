@@ -36,8 +36,8 @@ const GridLineBox = styled.div`
 `;
 
 const MainImgWrap = styled.div`
-  position: relative;
-  width: 100%;
+  position: fixed;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;

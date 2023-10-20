@@ -68,7 +68,8 @@ const HeadLine = styled.div`
   font-weight: 500;
 `;
 const HomeComponentWrap = styled.div`
-  width: 100%;
+  position: relative;
+  width: 100vw;
   height: fit-content;
   display: flex;
   flex-direction: column;

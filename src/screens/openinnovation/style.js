@@ -105,6 +105,10 @@ const Text = styled.div`
   line-height: 1.5em;
   text-align: ${(props) => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 `;
 
 const Tab = styled.div`
@@ -402,7 +406,7 @@ const move = (phase) => keyframes`
     opacity: 1;
   }
   100% {
-    transform: translateX(${phase * 100}px);
+    transform: translateX(${phase ? `calc(${phase}*8vw)` : `calc(10vw)`});
     opacity: 1;
   }
 `;

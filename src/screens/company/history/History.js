@@ -6,9 +6,9 @@ import history_cover from './assets/history_cover.png';
 import Tab1 from './components/Tab1.js';
 import Tab2 from './components/Tab2.js';
 import Tab3 from './components/Tab3.js';
-import { Container, MainImgWrap, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './style';
+import { Container, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './style';
 
-import { HeadLine, Path } from '../../../components/style';
+import { HeadLine, Path, MainImgWrap } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 const History = () => {
@@ -87,14 +87,16 @@ const History = () => {
     <Container className="container">
       <Header />
       <Path>{`HOME > COMPANY > HISTORY`}</Path>
-      <MainImgWrap $src={history_cover}>
+      <MainImgWrap $src={history_cover}></MainImgWrap>
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>HISTORY</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>

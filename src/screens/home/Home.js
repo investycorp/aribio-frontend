@@ -51,18 +51,6 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > window.innerHeight * 0.7) {
-        document.querySelector('.grid_bg')?.classList.add('visible');
-      } else {
-        document.querySelector('.grid_bg')?.classList.remove('visible');
-      }
-    });
-    return () => {
-      window.removeEventListener('scroll', () => {
-        console.log('done');
-      });
-    };
   }, []);
 
   return (

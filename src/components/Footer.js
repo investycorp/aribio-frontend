@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import logo from '../assets/images/logo.svg';
 import arrow from '../assets/images/arrow.svg';
@@ -117,6 +117,8 @@ const AddressWrap = styled.div`
 `;
 
 const Footer = () => {
+  const [footerToggle, setFooterToggle] = useState('');
+
   return (
     <>
       <Desktop>
@@ -234,15 +236,22 @@ const Footer = () => {
                   alignItems: 'center',
                   margin: '0',
                 }}
+                onClick={() => {
+                  if (footerToggle === 'Head Office') {
+                    setFooterToggle('');
+                  } else setFooterToggle('Head Office');
+                }}
               >
                 <span>Head Office.</span>
                 <img src={dropdown} alt="dropdown" style={{ padding: '1rem' }} />
               </ContactBoxTitle>
-              <AddressWrap>
-                <ContactBoxText>56, Dongpangyo-ro,</ContactBoxText>
-                <ContactBoxText>Bundang-gu, Seongnam-si,</ContactBoxText>
-                <ContactBoxText>Gyeonggi-do, Republic of Korea</ContactBoxText>
-              </AddressWrap>
+              {footerToggle === 'Head Office' && (
+                <AddressWrap>
+                  <ContactBoxText>56, Dongpangyo-ro,</ContactBoxText>
+                  <ContactBoxText>Bundang-gu, Seongnam-si,</ContactBoxText>
+                  <ContactBoxText>Gyeonggi-do, Republic of Korea</ContactBoxText>
+                </AddressWrap>
+              )}
             </AddressWrap>
             <AddressWrap
               style={{
@@ -258,15 +267,22 @@ const Footer = () => {
                   alignItems: 'center',
                   margin: '0',
                 }}
+                onClick={() => {
+                  if (footerToggle === 'US Office') {
+                    setFooterToggle('');
+                  } else setFooterToggle('US Office');
+                }}
               >
                 <span>US Office.</span>
                 <img src={dropdown} alt="dropdown" style={{ padding: '1rem' }} />
               </ContactBoxTitle>
-              <AddressWrap>
-                <ContactBoxText>4660 La Jolla Village Dr.</ContactBoxText>
-                <ContactBoxText>Suite 1070,</ContactBoxText>
-                <ContactBoxText>San Diego, CA 92112</ContactBoxText>
-              </AddressWrap>
+              {footerToggle === 'US Office' && (
+                <AddressWrap>
+                  <ContactBoxText>4660 La Jolla Village Dr.</ContactBoxText>
+                  <ContactBoxText>Suite 1070,</ContactBoxText>
+                  <ContactBoxText>San Diego, CA 92112</ContactBoxText>
+                </AddressWrap>
+              )}
             </AddressWrap>
           </div>
 

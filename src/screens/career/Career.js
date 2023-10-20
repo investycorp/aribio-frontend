@@ -19,9 +19,6 @@ import arrow from '../../assets/images/arrow.svg';
 
 import {
   Container,
-  MainImgWrap,
-  ContainerGridLineWrap,
-  GridLineBox,
   HomeComponentWrap,
   TextWrap,
   Text,
@@ -39,7 +36,7 @@ import {
   Button,
 } from './style';
 
-import { HeadLine, Path } from '../../components/style';
+import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const Career = () => {
@@ -211,27 +208,46 @@ const Career = () => {
     },
   ]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > window.innerHeight * 0.7) {
+        document.querySelector('.grid_bg')?.classList.add('visible');
+      } else {
+        document.querySelector('.grid_bg')?.classList.remove('visible');
+      }
+    });
+    return () => {
+      window.removeEventListener('scroll', () => {
+        console.log('done');
+      });
+    };
+  }, []);
+
   return (
     <Container>
       <Header />
       <Path>{`HOME > CAREER`}</Path>
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid #5d5d5d' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
       <MainImgWrap $src={career_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid #5d5d5d' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>CAREER</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
-            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               CAREER
             </Text>
             <div
@@ -243,7 +259,12 @@ const Career = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '2rem 0 0 0' }}
+            >
               Pioneering Solutions for Neurodegeneration
             </Text>
           </TextWrap>
@@ -261,7 +282,7 @@ const Career = () => {
         >
           <TextWrap>
             <Text
-              $fontSize="40px"
+              $fontSize={window.innerWidth > 1280 ? '40px' : '30px'}
               $fontWeight="200"
               $color="#ffffff"
               style={{ width: '50%', textAlign: 'start', margin: '0', height: 'fit-content', lineHeight: '1' }}
@@ -269,7 +290,7 @@ const Career = () => {
               “
             </Text>
             <Text
-              $fontSize="20px"
+              $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
               $fontWeight="300"
               $color="#ffffff"
               style={{ padding: '0 20px', width: '50%', textAlign: 'center', margin: '0' }}
@@ -280,7 +301,7 @@ const Career = () => {
               Together, let’s usher in a new era of therapeutic breakthroughs for those in need.
             </Text>
             <Text
-              $fontSize="40px"
+              $fontSize={window.innerWidth > 1280 ? '40px' : '30px'}
               $fontWeight="200"
               $color="#ffffff"
               style={{ width: '50%', textAlign: 'end', margin: '0', lineHeight: '1' }}
@@ -291,7 +312,12 @@ const Career = () => {
         </HomeComponentWrap>
         <HomeComponentWrap>
           <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
-          <Text $fontSize="32px" $fontWeight="300" $color="#E5E5E5" $align="start">
+          <Text
+            $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
+            $fontWeight="300"
+            $color="#E5E5E5"
+            $align="start"
+          >
             Core Values
           </Text>
           <div>
@@ -300,7 +326,7 @@ const Career = () => {
                 <ContentBox style={{ paddingLeft: '8vw' }}>
                   <ContentBoxNameWrap>
                     <Text
-                      $fontSize="20px"
+                      $fontSize={window.innerWidth > 1280 ? '20px' : '16px'}
                       $fontWeight="100"
                       $color="#A8A8A8"
                       $align="start"
@@ -309,7 +335,7 @@ const Career = () => {
                       0{index + 1}
                     </Text>
                     <Text
-                      $fontSize="25px"
+                      $fontSize={window.innerWidth > 1280 ? '25px' : '18px'}
                       $fontWeight="300"
                       $color="#DDDDDD"
                       $align="start"
@@ -323,7 +349,13 @@ const Career = () => {
                   <ShootingStarWrap className="shootingstar_wrap">
                     <ShootingStar $width={document.querySelector('.shootingstar_wrap')?.offsetWidth} />
                   </ShootingStarWrap>
-                  <Text $fontSize="20px" $fontWeight="300" $color="#C9C9C9" $align="start" style={{ width: '70%' }}>
+                  <Text
+                    $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
+                    $fontWeight="300"
+                    $color="#C9C9C9"
+                    $align="start"
+                    style={{ width: '70%' }}
+                  >
                     {item.desc}
                   </Text>
                 </ContentBox>
@@ -333,7 +365,7 @@ const Career = () => {
         </HomeComponentWrap>
         <HomeComponentWrap>
           <Text
-            $fontSize="32px"
+            $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
             $fontWeight="300"
             $color="#E5E5E5"
             $align="start"
@@ -350,6 +382,7 @@ const Career = () => {
             <HR />
           </Text>
           <ContentBox
+            className="recruitmentProcess_rowscroll"
             style={{
               justifyContent: 'start',
               alignItems: 'start',
@@ -357,7 +390,7 @@ const Career = () => {
               width: '100%',
               gap: '0',
               flexwrap: 'nowrap',
-              paddingBottom: '5em',
+              marginBottom: '5em',
             }}
           >
             {recruitmentProcess.map((item, index) => (
@@ -373,17 +406,17 @@ const Career = () => {
                 key={`recruitmentProcess${index}`}
               >
                 <Text
-                  $fontSize="32px"
+                  $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
                   $fontWeight="400"
                   $color="#00A6FF"
                   $align="start"
-                  style={{ width: 'fit-content', overflow: 'hidden' }}
+                  style={{ width: 'fit-content', overflow: 'unset' }}
                 >
                   {`0${index + 1}`}
                 </Text>
                 <TextWrap style={{ alignItems: 'start', gap: '2em', width: '85%' }}>
                   <Text
-                    $fontSize="24px"
+                    $fontSize={window.innerWidth > 1280 ? '24px' : '18px'}
                     $fontWeight="300"
                     $color="#ffffff"
                     $align="start"
@@ -392,7 +425,7 @@ const Career = () => {
                     {item.title}
                   </Text>
                   <Text
-                    $fontSize="20px"
+                    $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
                     $fontWeight="300"
                     $color="#C9C9C9"
                     $align="start"
@@ -407,7 +440,12 @@ const Career = () => {
         </HomeComponentWrap>
         <HomeComponentWrap style={{ flexDirection: 'row', alignItems: 'start' }}>
           <TextWrap style={{ flex: '0 0 28.7vw', width: '28.7vw' }}>
-            <Text $fontSize="32px" $fontWeight="300" $color="#E5E5E5" $align="start">
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
+              $fontWeight="300"
+              $color="#E5E5E5"
+              $align="start"
+            >
               Benefits
             </Text>
             <HR style={{ alignSelf: 'start', margin: '1.5em 0' }} />
@@ -422,7 +460,7 @@ const Career = () => {
                 <Image src={item.img} alt="icon_work" />
                 <TextWrap style={{ position: 'relative', width: 'fit-content' }}>
                   <Text
-                    $fontSize="24px"
+                    $fontSize={window.innerWidth > 1280 ? '24px' : '18px'}
                     $fontWeight="300"
                     $color="#ffffff"
                     $align="start"
@@ -447,7 +485,8 @@ const Career = () => {
             <ContentBox style={{ marginTop: '8em' }}>
               <ContentWrap style={{ flexDirection: 'row', padding: '0', justifyContent: 'space-between' }}>
                 <Text
-                  $fontSize="20px"
+                  className="clickable"
+                  $fontSize={window.innerWidth > 1400 ? '20px' : '14px'}
                   $fontWeight="300"
                   $color="#ffffff"
                   $align="start"
@@ -460,16 +499,18 @@ const Career = () => {
                     width: '45%',
                     paddingBottom: '0.7em',
                     borderBottom: '2px solid #ffffff',
+                    cursor: 'pointer',
                   }}
                   onClick={() => {
-                    navigate('/aboutus');
+                    navigate('/company/aboutus');
                   }}
                 >
                   <span style={{ zIndex: '-1' }}>Meet Our Team</span>
                   <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
                 </Text>
                 <Text
-                  $fontSize="20px"
+                  className="clickable"
+                  $fontSize={window.innerWidth > 1400 ? '20px' : '14px'}
                   $fontWeight="300"
                   $color="#ffffff"
                   $align="start"
@@ -482,6 +523,7 @@ const Career = () => {
                     width: '45%',
                     paddingBottom: '0.7em',
                     borderBottom: '2px solid #ffffff',
+                    cursor: 'pointer',
                   }}
                   // onClick={() => downloadCi('png')}
                 >
@@ -495,7 +537,12 @@ const Career = () => {
         <HomeComponentWrap>
           <TextWrap style={{ marginBottom: '5em', zIndex: '10' }}>
             <HR style={{ alignSelf: 'start', margin: '1.5em 0' }} />
-            <Text $fontSize="32px" $fontWeight="300" $color="#E5E5E5" $align="start">
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
+              $fontWeight="300"
+              $color="#E5E5E5"
+              $align="start"
+            >
               Join Us!
             </Text>
           </TextWrap>
@@ -512,7 +559,7 @@ const Career = () => {
                 >
                   <TextWrap style={{ cursor: 'pointer', zIndex: '-1' }}>
                     <Text
-                      $fontSize="18px"
+                      $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
                       $fontWeight="300"
                       $color="#DDDDDD"
                       $align="start"
@@ -521,7 +568,7 @@ const Career = () => {
                       <span style={{ margin: '0 1em 0 0' }}>·</span> {item.type}
                     </Text>
                     <Text
-                      $fontSize="18px"
+                      $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
                       $fontWeight="100"
                       $color="#ffffff"
                       $align="start"
@@ -531,7 +578,7 @@ const Career = () => {
                     </Text>
                     <Text
                       style={{ zIndex: '-1', cursor: 'pointer' }}
-                      $fontSize="24px"
+                      $fontSize={window.innerWidth > 1280 ? '24px' : '18px'}
                       $fontWeight="400"
                       $color="#E3E3E3"
                       $align="start"
@@ -674,6 +721,7 @@ const Career = () => {
             <HR $width="40px" />
           </Text>
           <ContentBox
+            className="recruitment_process"
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr',

@@ -70,8 +70,7 @@ const HeadLine = styled.div`
 `;
 const HomeComponentWrap = styled.div`
   position: relative;
-  width: 100%;
-  max-width: 100%;
+  width: 100vw;
   height: fit-content;
   display: flex;
   flex-direction: column;

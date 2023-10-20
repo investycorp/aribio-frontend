@@ -6,9 +6,6 @@ import arrow from '../../assets/images/arrow.svg';
 import contact_cover from './assets/contact_cover.png';
 import {
   Container,
-  ContainerGridLineWrap,
-  GridLineBox,
-  MainImgWrap,
   HomeComponentWrap,
   TextWrap,
   Text,
@@ -26,7 +23,7 @@ import {
   RequiredField,
 } from './style';
 
-import { HeadLine, Path } from '../../components/style';
+import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const Contact = () => {
@@ -114,24 +111,27 @@ const Contact = () => {
   return (
     <Container className="container">
       <Header />
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
-      <Path>{`HOME > CONTACT > CONTACT US`}</Path>
       <MainImgWrap $src={contact_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
+      <Path>{`HOME > CONTACT > CONTACT US`}</Path>
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>CONTACT {window.innerWidth <= 900 && <br />}US</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap style={{ width: '70vw' }}>
-            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               CONTACT US
             </Text>
             <div
@@ -143,14 +143,24 @@ const Contact = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '2rem 0 0 0' }}
+            >
               We appreciate your interest in AriBio.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
         <HomeComponentWrap>
           <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
-          <Text $fontSize="32px" $fontWeight="300" $color="#E5E5E5" $align="start">
+          <Text
+            $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
+            $fontWeight="300"
+            $color="#E5E5E5"
+            $align="start"
+          >
             We look forward <br />
             to hearing from you.
           </Text>
@@ -175,9 +185,19 @@ const Contact = () => {
                   onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.firstName && (
-                  <RequiredField>
-                    <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
-                    field is required.
+                  <RequiredField style={{ fontWeight: '200' }}>
+                    <span
+                      style={{
+                        margin: '0 0.5rem 0 0',
+                        padding: '0 0.5em',
+                        border: '1px solid #CB305A',
+                        borderRadius: '50%',
+                        fontWeight: '200',
+                      }}
+                    >
+                      !
+                    </span>{' '}
+                    This field is required.
                   </RequiredField>
                 )}
               </FormInputRowWrap>
@@ -194,9 +214,19 @@ const Contact = () => {
                   onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.lastName && (
-                  <RequiredField>
-                    <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
-                    field is required.
+                  <RequiredField style={{ fontWeight: '200' }}>
+                    <span
+                      style={{
+                        margin: '0 0.5rem 0 0',
+                        padding: '0 0.5em',
+                        border: '1px solid #CB305A',
+                        borderRadius: '50%',
+                        fontWeight: '200',
+                      }}
+                    >
+                      !
+                    </span>{' '}
+                    This field is required.
                   </RequiredField>
                 )}
               </FormInputRowWrap>
@@ -213,8 +243,18 @@ const Contact = () => {
                   onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && (!contactInfo.email || !contactInfo.email.includes('@')) && (
-                  <RequiredField>
-                    <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span>
+                  <RequiredField style={{ fontWeight: '200' }}>
+                    <span
+                      style={{
+                        margin: '0 0.5rem 0 0',
+                        padding: '0 0.5em',
+                        border: '1px solid #CB305A',
+                        borderRadius: '50%',
+                        fontWeight: '200',
+                      }}
+                    >
+                      !
+                    </span>
                     {emailError}
                   </RequiredField>
                 )}
@@ -254,9 +294,19 @@ const Contact = () => {
                   onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.message && (
-                  <RequiredField>
-                    <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
-                    field is required.
+                  <RequiredField style={{ fontWeight: '200' }}>
+                    <span
+                      style={{
+                        margin: '0 0.5rem 0 0',
+                        padding: '0 0.5em',
+                        border: '1px solid #CB305A',
+                        borderRadius: '50%',
+                        fontWeight: '200',
+                      }}
+                    >
+                      !
+                    </span>{' '}
+                    This field is required.
                   </RequiredField>
                 )}
               </FormInputRowWrap>
@@ -281,7 +331,7 @@ const Contact = () => {
                   <Image
                     src={arrow}
                     alt="arrow"
-                    style={{ border: '2px solid #ffffff', borderRadius: '50%', padding: '0.5em', zIndex: '-1' }}
+                    style={{ border: '2px solid #ffffff', borderRadius: '50%', padding: '0.5em', cursor: 'pointer' }}
                   />
                   SUBMIT
                 </Button>
@@ -291,7 +341,12 @@ const Contact = () => {
         </HomeComponentWrap>
         <HomeComponentWrap style={{ borderTop: '2px solid #B1B1B1' }}>
           <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
-          <Text $fontSize="32px" $fontWeight="300" $color="#E5E5E5" $align="start">
+          <Text
+            $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
+            $fontWeight="300"
+            $color="#E5E5E5"
+            $align="start"
+          >
             Locations
           </Text>
           <FormWrap style={{ gap: '1em' }}>
@@ -378,8 +433,17 @@ const Contact = () => {
                 />
                 {isError && !contactInfo.firstName && (
                   <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
-                    <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
-                    field is required.
+                    <span
+                      style={{
+                        margin: '0 0.5rem 0 0',
+                        padding: '0 0.5em',
+                        border: '1px solid #CB305A',
+                        borderRadius: '50%',
+                      }}
+                    >
+                      !
+                    </span>{' '}
+                    This field is required.
                   </RequiredField>
                 )}
               </FormInputRowWrap>
@@ -397,8 +461,17 @@ const Contact = () => {
                 />
                 {isError && !contactInfo.lastName && (
                   <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
-                    <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
-                    field is required.
+                    <span
+                      style={{
+                        margin: '0 0.5rem 0 0',
+                        padding: '0 0.5em',
+                        border: '1px solid #CB305A',
+                        borderRadius: '50%',
+                      }}
+                    >
+                      !
+                    </span>{' '}
+                    This field is required.
                   </RequiredField>
                 )}
               </FormInputRowWrap>
@@ -418,7 +491,7 @@ const Contact = () => {
                   <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
                     <span
                       style={{
-                        marginRight: '0.5rem',
+                        margin: '0 0.5rem 0 0',
                         padding: '0 0.5em',
                         border: '1px solid #CB305A',
                         borderRadius: '50%',
@@ -466,8 +539,17 @@ const Contact = () => {
                 />
                 {isError && !contactInfo.message && (
                   <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
-                    <span style={{ padding: '0 0.5em', border: '1px solid #CB305A', borderRadius: '50%' }}>!</span> This
-                    field is required.
+                    <span
+                      style={{
+                        margin: '0 0.5rem 0 0',
+                        padding: '0 0.5em',
+                        border: '1px solid #CB305A',
+                        borderRadius: '50%',
+                      }}
+                    >
+                      !
+                    </span>{' '}
+                    This field is required.
                   </RequiredField>
                 )}
               </FormInputRowWrap>

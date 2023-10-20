@@ -12,15 +12,8 @@ import ourapproach_ai_pathwaydata3 from './assets/ourapproach_ai_pathwaydata3.pn
 import arrow_thin from './assets/arrow_thin.svg';
 import ner from './assets/ner.svg';
 import re from './assets/re.svg';
-
-import { HeadLine, Path } from '../../components/style';
-import { Desktop, Mobile } from '../../utils/MediaQuery';
-
 import {
   Container,
-  ContainerGridLineWrap,
-  GridLineBox,
-  MainImgWrap,
   HomeComponentWrap,
   TextWrap,
   Text,
@@ -29,14 +22,14 @@ import {
   ComponentWrap,
   DescriptionWrap,
   DescriptionItem,
-  ContentBox,
-  ColorBarTextWrap,
   Image,
   HR,
-  ContentWrap,
   UnderLineWrap,
   Underline,
 } from './style';
+
+import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
+import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const AiPlatform = () => {
   const [activeButton, setActiveButton] = useState(0);
@@ -91,21 +84,24 @@ const AiPlatform = () => {
 
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
+      <MainImgWrap $src={ourapproach_ai_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
       <Header />
       <Path>{`HOME > OUR APPROACH > AI PLATFORM`}</Path>
-      <MainImgWrap $src={ourapproach_ai_cover}>
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>AI {window.innerWidth <= 900 && <br />}PLATFORM</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <HomeComponentWrap>
           <TextWrap style={{ margin: '0' }}>
@@ -121,10 +117,20 @@ const AiPlatform = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize="50px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '0' }}
+            >
               ARIDD™
             </Text>
-            <Text $fontSize="23px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '2em 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontWeight="200"
+              $color="#E5E5E5"
+              style={{ margin: '2em 0' }}
+            >
               ARIDDTM is a drug development platform that augments the discovery and development of polypharmacological
               drugs. To accelerate the development of drugs with multiple mechanisms of action, we’ve unveiled ARIS –
               our cutting-edge AI platform designed for dependable in-silico predictions and analyses.
@@ -134,10 +140,20 @@ const AiPlatform = () => {
         <HomeComponentWrap>
           <TextWrap style={{ width: 'fit-content' }}>
             <HR $height="2px" $color="#ffffff" />
-            <Text $fontSize="34px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '2em 0 0 0' }}
+            >
               ARIS Structure
             </Text>
-            <Text $fontSize="23px" $fontWeight="200" $color="#ffffff" style={{ marginTop: '2em', width: '70vw' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontWeight="200"
+              $color="#ffffff"
+              style={{ marginTop: '2em', width: '70vw' }}
+            >
               Existing AI drug discovery tools often prioritize drug synthesis, intermolecular binding prediction, and
               ADMET processes. While crucial for single-mechanism drug exploration, polypharmacological discovery
               demands a nuanced approach. Polypharmacology requires a deep understanding of interactions among drugs,
@@ -150,20 +166,40 @@ const AiPlatform = () => {
           <Image src={ourapproach_ai_middle1} alt="ai_middle1" style={{ width: '90%', marginLeft: '17.5%' }} />
           <TextWrap style={{ width: 'fit-content', marginTop: '10em' }}>
             <HR $height="2px" $color="#ffffff" />
-            <Text $fontSize="34px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '2em 0 0 0' }}
+            >
               ARIS (AI-based Reliable In-Silico)
             </Text>
-            <Text $fontSize="23px" $fontWeight="100" $color="#C9C9C9" style={{ marginTop: '2em', width: '70vw' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontWeight="100"
+              $color="#C9C9C9"
+              style={{ marginTop: '2em', width: '70vw' }}
+            >
               ARIS is fundamentally structured around two concepts, “BRAIN” and its “Prediction Algorithms”.
             </Text>
           </TextWrap>
           <Image src={ourapproach_ai_middle2} alt="ai_middle2" style={{ width: '90%' }} />
           <TextWrap style={{ width: 'fit-content', marginTop: '10em' }}>
             <HR $height="2px" $color="#ffffff" />
-            <Text $fontSize="34px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '2em 0 0 0' }}
+            >
               BRAIN
             </Text>
-            <Text $fontSize="23px" $fontWeight="100" $color="#C9C9C9" style={{ marginTop: '2em', width: '70vw' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontWeight="100"
+              $color="#C9C9C9"
+              style={{ marginTop: '2em', width: '70vw' }}
+            >
               BRAIN, short for {`\t`}
               <span style={{ color: '#ffffff', fontWeight: '300' }}>
                 “The Bridge between AI and In Silico, In Vitro, and In Vivo”,
@@ -182,11 +218,17 @@ const AiPlatform = () => {
         <HomeComponentWrap>
           <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
             <HR $height="2px" $color="#ffffff" />
-            <Text $fontSize="34px" $fontWeight="400" $align="start" $color="#ffffff" style={{ margin: '1.5em 0 0 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
+              $fontWeight="400"
+              $align="start"
+              $color="#ffffff"
+              style={{ margin: '1.5em 0 0 0' }}
+            >
               Prediction Algorithms
             </Text>
             <Text
-              $fontSize="23px"
+              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
               $fontWeight="100"
               $color="#C9C9C9"
               $align="start"
@@ -223,9 +265,9 @@ const AiPlatform = () => {
                 alignItems: 'start',
               }}
             >
-              <TextWrap style={{ margin: '0', padding: '0 0 0 10em', width: '100%', alignItems: 'start' }}>
+              <TextWrap style={{ margin: '0', padding: '0 0 0 10vw', width: '100%', alignItems: 'start' }}>
                 <Text
-                  $fontSize="28px"
+                  $fontSize={window.innerWidth > 1280 ? '28px' : '23px'}
                   $fontWeight="400"
                   $color="#ffffff"
                   style={{ width: 'fit-content', height: '-webkit-fill-available' }}
@@ -234,7 +276,7 @@ const AiPlatform = () => {
                   {predictions[activeButton].title}
                 </Text>
               </TextWrap>
-              <DescriptionWrap style={{ padding: '0 10em 0 0' }}>
+              <DescriptionWrap style={{ padding: '0 10vw 0 0' }}>
                 {predictions[activeButton].content.map((item, index) => (
                   <DescriptionItem key={item + index}>{item}</DescriptionItem>
                 ))}
@@ -245,10 +287,20 @@ const AiPlatform = () => {
         <HomeComponentWrap>
           <TextWrap style={{ marginBottom: '10em' }}>
             <HR $height="2px" $color="#ffffff" />
-            <Text $fontSize="34px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
+              $fontWeight="400"
+              $color="#ffffff"
+              style={{ margin: '2em 0 0 0' }}
+            >
               Pathway Data
             </Text>
-            <Text $fontSize="23px" $fontWeight="100" $color="#C9C9C9" style={{ marginTop: '2em' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontWeight="100"
+              $color="#C9C9C9"
+              style={{ marginTop: '2em' }}
+            >
               Since its origin, the development and objectives of ARIS have always been closely aligned with AriBio’s
               polypharmacological approach. Hence, we emphasize harnessing contextual information when discovering novel
               polypharmacological drug candidates. When considering contextual information for polypharmacological drug
@@ -280,7 +332,7 @@ const AiPlatform = () => {
                 >
                   <Text
                     className="pathwaydata_text"
-                    $fontSize="23px"
+                    $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
                     $fontWeight="100"
                     $color="#C9C9C9"
                     $align="start"
@@ -292,7 +344,7 @@ const AiPlatform = () => {
                   </Text>
                   <Text
                     className="pathwaydata_text"
-                    $fontSize="23px"
+                    $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
                     $fontWeight="100"
                     $color="#C9C9C9"
                     $align="start"
@@ -351,7 +403,7 @@ const AiPlatform = () => {
                     style={{ height: 'auto', padding: '3em 0' }}
                   />
                   <Text
-                    $fontSize="23px"
+                    $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
                     $fontWeight="300"
                     $color="#C9C9C9"
                     $align="start"
@@ -394,7 +446,7 @@ const AiPlatform = () => {
                   style={{ position: 'absolute', bottom: '50%', left: '-100px', height: 'auto', padding: '0' }}
                 />
                 <Text
-                  $fontSize="23px"
+                  $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
                   $fontWeight="300"
                   $color="#C9C9C9"
                   $align="start"
@@ -402,7 +454,7 @@ const AiPlatform = () => {
                     margin: '0',
                     position: 'absolute',
                     top: '20%',
-                    left: '-150px',
+                    left: '-10vw',
                     width: 'fit-content',
                   }}
                 >
@@ -410,7 +462,7 @@ const AiPlatform = () => {
                 </Text>
                 <Text
                   className="pathwaydata_text"
-                  $fontSize="23px"
+                  $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
                   $color="#C9C9C9"
                   $fontWeight="100"
                   style={{
@@ -438,7 +490,7 @@ const AiPlatform = () => {
                 </Text>
                 <Text
                   className="pathwaydata_text"
-                  $fontSize="23px"
+                  $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
                   $color="#C9C9C9"
                   $fontWeight="100"
                   style={{
@@ -466,7 +518,7 @@ const AiPlatform = () => {
                 </Text>
                 <Text
                   className="pathwaydata_text"
-                  $fontSize="23px"
+                  $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
                   $color="#C9C9C9"
                   $fontWeight="100"
                   style={{
@@ -494,7 +546,7 @@ const AiPlatform = () => {
                 </Text>
                 <Text
                   className="pathwaydata_text"
-                  $fontSize="23px"
+                  $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
                   $color="#C9C9C9"
                   $fontWeight="100"
                   style={{
@@ -522,7 +574,7 @@ const AiPlatform = () => {
                 </Text>
                 <Text
                   className="pathwaydata_text"
-                  $fontSize="23px"
+                  $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
                   $color="#C9C9C9"
                   $fontWeight="100"
                   style={{

@@ -25,7 +25,16 @@ const GlobalStyle = createGlobalStyle`
   div {
     box-sizing: border-box;
     background-color: '#121212';
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+   
   }
+    
 
   * {
     font-family: 'pretendard';

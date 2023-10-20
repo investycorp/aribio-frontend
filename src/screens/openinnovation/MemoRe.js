@@ -1,28 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router';
+import detectOS from '../../utils/detectOS';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 
-import {
-  Container,
-  ContainerGridLineWrap,
-  GridLineBox,
-  MainImgWrap,
-  HomeComponentWrap,
-  TextWrap,
-  Text,
-  Image,
-  HR,
-  ContentWrap,
-} from './style';
+import { Container, HomeComponentWrap, TextWrap, Text, Image, HR, ContentWrap } from './style';
 import openinnovation_memore_cover from './assets/openinnovation_memore_cover.png';
 import openinnovation_memore_middle1 from './assets/openinnovation_memore_middle1.png';
 import openinnovation_memore_mobile_middle1 from './assets/openinnovation_memore_mobile_middle1.png';
 
-import { HeadLine, Path } from '../../components/style';
+import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import arrow from '../../assets/images/arrow.svg';
@@ -34,14 +24,18 @@ const MemoRe = () => {
   }, []);
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
+      <MainImgWrap $src={openinnovation_memore_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
+
       <Header />
       <Path>{`HOME > OPEN INNOVATION > MEMO:RE PROJECT`}</Path>
-      <MainImgWrap $src={openinnovation_memore_cover}>
+
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>
           MEMO:RE
           <br /> PROJECT
@@ -51,7 +45,8 @@ const MemoRe = () => {
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <HomeComponentWrap
           style={{
@@ -61,7 +56,7 @@ const MemoRe = () => {
           }}
         >
           <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
-            <Text $color="#C9C9C9" $fontSize="26px" $fontWeight="300">
+            <Text $color="#C9C9C9" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
               MEMO:RE PROJECT
             </Text>
             <div
@@ -73,11 +68,11 @@ const MemoRe = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize="50px" $fontWeight="400">
+            <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="400">
               Our Mission with Memo:Re Project
             </Text>
             <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3">
+            <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#D3D3D3">
               We believe memories are the essence of life’s most treasured moments, and they deserve preservation,
               especially for our aging family members who cherish them the most. Memo:Re is more than just a social
               media platform; it’s a digital sanctuary crafted specifically to safeguard these precious memories.
@@ -106,7 +101,12 @@ const MemoRe = () => {
             style={{ width: '80%', marginTop: '5em' }}
           />
           <TextWrap style={{ margin: '10em 0' }}>
-            <Text $color="#C9C9C9" $fontSize="23px" $fontWeight="300" $align="center">
+            <Text
+              $color="#C9C9C9"
+              $fontSize={window.innerWidth > 1280 ? '26px' : '18px'}
+              $fontWeight="300"
+              $align="center"
+            >
               Research on age-related memory decline underscores the value of consistent engagement with cherished
               memories, particularly when shared with family. Regularly revisiting these memories has been linked to not
               only a slower progression of memory loss but also enhanced mood and overall well-being.
@@ -141,7 +141,7 @@ const MemoRe = () => {
               }}
             >
               <Text
-                $fontSize="20px"
+                $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                 $fontWeight="300"
                 $color="#ffffff"
                 $align="start"
@@ -156,14 +156,15 @@ const MemoRe = () => {
                   borderBottom: '2px solid #ffffff',
                   gap: '1em',
                   margin: '0',
+                  cursor: 'pointer',
                 }}
-                onClick={() => navigate('/')}
+                onClick={() => window.open('http://www.memoreapp.com/', '_blank')}
               >
                 <span style={{ zIndex: '-1' }}>Go to Memo:Re (ENG)</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
               </Text>
               <Text
-                $fontSize="20px"
+                $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                 $fontWeight="300"
                 $color="#ffffff"
                 $align="start"
@@ -178,14 +179,15 @@ const MemoRe = () => {
                   borderBottom: '2px solid #ffffff',
                   gap: '1em',
                   margin: '0',
+                  cursor: 'pointer',
                 }}
-                onClick={() => navigate('/')}
+                onClick={() => window.open('http://www.memore.co.kr/', '_blank')}
               >
                 <span style={{ zIndex: '-1' }}>Go to Memo:Re (KOR)</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
               </Text>
               <Text
-                $fontSize="20px"
+                $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                 $fontWeight="300"
                 $color="#ffffff"
                 $align="start"
@@ -200,8 +202,18 @@ const MemoRe = () => {
                   borderBottom: '2px solid #ffffff',
                   gap: '1em',
                   margin: '0',
+                  cursor: 'pointer',
                 }}
-                onClick={() => navigate('/')}
+                onClick={() => {
+                  let userOs = detectOS();
+                  if (userOs === 'iOS') {
+                    window.open('https://apps.apple.com/kr/app/%EB%A9%94%EB%AA%A8-%EB%A6%AC/id6448716248 ', '_blank');
+                  } else if (userOs === 'Android') {
+                    window.open('https://play.google.com/store/apps/details?id=com.aribio.app.memore ', '_blank');
+                  } else {
+                    alert('Only Android and iOS are available.');
+                  }
+                }}
               >
                 <span style={{ zIndex: '-1' }}>APP Download</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
@@ -218,7 +230,7 @@ const MemoRe = () => {
           }}
         >
           <TextWrap style={{ position: 'relative', backgroundColor: 'transparent', width: '100%' }}>
-            <Text $color="#C9C9C9" $fontSize="16px" $fontWeight="300">
+            <Text $color="#C9C9C9" $fontSize="26px" $fontWeight="300">
               MEMO:RE PROJECT
             </Text>
             <div

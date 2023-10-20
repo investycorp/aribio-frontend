@@ -5,19 +5,9 @@ import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
 import ceophoto from './assets/ceophoto.png';
 import ceomessage_cover from './assets/ceomessage_cover.png';
 
-import {
-  Container,
-  MainImgWrap,
-  ContainerGridLineWrap,
-  GridLineBox,
-  HomeComponentWrap,
-  TextWrap,
-  Text,
-  ContentBox,
-  Image,
-} from './style';
+import { Container, HomeComponentWrap, TextWrap, Text, ContentBox, Image } from './style';
 
-import { HeadLine, Path } from '../../../components/style';
+import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 const CeoMessage = () => {
@@ -27,15 +17,16 @@ const CeoMessage = () => {
 
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
+      <MainImgWrap $src={ceomessage_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
       <Header />
       <Path>{`HOME > COMPANY > CEO MESSAGE`}</Path>
-
-      <MainImgWrap $src={ceomessage_cover}>
+      <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>
           CEO <br /> MESSAGE
         </HeadLine>
@@ -44,7 +35,8 @@ const CeoMessage = () => {
           src={vertical_arrow}
           alt="vertical_arrow"
         />
-      </MainImgWrap>
+      </HomeComponentWrap>
+
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
