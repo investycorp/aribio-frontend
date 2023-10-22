@@ -144,7 +144,7 @@ const TableWrap = styled.div`
   flex-direction: column;
   margin: 10em 0 0 0;
   padding: 0;
-  background-color: transparent;
+  background-color: #121212;
   border: 1px solid #efefef;
 `;
 
@@ -156,8 +156,9 @@ const TableRowWrap = styled.div.attrs((props) => ({
   height: fit-content;
   display: grid;
   grid-template-columns: 8vw 12vw 8vw 17vw 8vw 8vw 8vw 8vw 8vw;
+  column-gap: 1px;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   background-color: transparent;
   border-bottom: 2px solid #efefef;
   color: #ffffff;
@@ -184,11 +185,12 @@ const TableContentBox = styled.div.attrs((props) => ({
   background-color: transparent;
 
   border-right: 2px solid rgba(177, 177, 177, 0.3);
+
   padding: 1em 0.5em;
   text-align: center;
   font-size: 20px;
   font-weight: 100;
-  height: -webkit-fill-available;
+  height: auto;
   width: 100%;
   @media screen and (max-width: 1400px) {
     font-size: 16px;
@@ -202,22 +204,26 @@ const TableContentBox = styled.div.attrs((props) => ({
     grid-template-columns: 1fr;
     background-color: transparent;
     padding: 0;
+    justify-content: center;
+    align-items: stretch;
     div {
       display: grid;
       grid-template-columns: 17vw 40vw;
       width: 100%;
-      height: -webkit-fill-available;
+      height: auto;
+      justify-content: center;
+      align-items: stretch;
 
       div.section {
         width: 100%;
-        height: -webkit-fill-available;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
         border-right: 2px solid rgba(177, 177, 177, 0.3);
-        border-bottom: 2px solid rgba(177, 177, 177, 0.3);
-        padding: 1em 1em;
 
+        padding: 1em 1em;
+        border-bottom: 2px solid rgba(177, 177, 177, 0.3);
         &:last-child {
           border-bottom: none;
         }
@@ -225,10 +231,11 @@ const TableContentBox = styled.div.attrs((props) => ({
       div.phase {
         display: grid;
         grid-template-columns: 8vw 8vw 8vw 8vw 8vw;
+        height: auto;
+        max-height: 10vh;
         border-bottom: 2px solid rgba(177, 177, 177, 0.3);
         span {
-          border-right: 2px solid rgba(177, 177, 177, 0.3);
-
+          border-right: 1px solid rgba(177, 177, 177, 0.3);
           &:last-child {
             border-right: 2px solid transparent;
           }
@@ -367,6 +374,7 @@ const ShootingStarWrap = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+
   @media screen and (max-width: 900px) {
     width: 100%;
   }
@@ -397,6 +405,11 @@ const ShootingStar = styled.span.attrs((props) => ({
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
+    -webkit-animation-name: ${(props) => move(props.$phase)};
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
   }
 
   &:before {
@@ -426,6 +439,7 @@ const ShootingStar = styled.span.attrs((props) => ({
 const move = (phase) => keyframes`
 0% {
     transform: translateX(0);
+    -webkit-transform: translateX(0);
     opacity: 1;
   }
   70% {
@@ -433,11 +447,13 @@ const move = (phase) => keyframes`
   }
   100% {
     transform: ${`translateX(calc(8vw * ${phase} - 10px))`};
+    -webkit-transform: ${`translateX(calc(8vw * ${phase} - 10px))`};
     opacity: 1;
   }
   @media screen and (max-width: 900px) {
   0% {
     transform: translateX(0);
+    -webkit-transform: translateX(0);
     opacity: 1;
   }
   70% {
@@ -445,6 +461,7 @@ const move = (phase) => keyframes`
   }
   100% {
     transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
+    -webkit-transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
     opacity: 1;
   }
 }

@@ -42,6 +42,7 @@ const Contact = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {

@@ -17,29 +17,30 @@ const AboutUs = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
   return (
     <Container className="container">
       <Header />
       <Path>{`HOME > COMPANY > ABOUT US`}</Path>
+      <MainImgWrap $src={aboutus_cover}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
+      <HomeComponentWrap style={{ height: '100vh' }}>
+        <HeadLine>
+          ABOUT <br /> US
+        </HeadLine>
+        <img
+          style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
+          src={vertical_arrow}
+          alt="vertical_arrow"
+        />
+      </HomeComponentWrap>
       <Desktop>
-        <MainImgWrap $src={aboutus_cover}>
-          <ContainerGridLineWrap className="grid_bg">
-            <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-            <GridLineBox />
-            <GridLineBox />
-          </ContainerGridLineWrap>
-        </MainImgWrap>
-        <HomeComponentWrap style={{ height: '100vh' }}>
-          <HeadLine>
-            ABOUT <br /> US
-          </HeadLine>
-          <img
-            style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
-            src={vertical_arrow}
-            alt="vertical_arrow"
-          />
-        </HomeComponentWrap>
         <HomeComponentWrap>
           <TextWrap>
             <Text $color="#939598" $fontSize="18px" $fontWeight="300">
@@ -81,7 +82,7 @@ const AboutUs = () => {
         {currentTab === 'Leadership' ? <Leadership /> : <Advisors />}
       </Desktop>
       <Mobile>
-        <MainImgWrap $src={aboutus_cover}>
+        {/* <MainImgWrap $src={aboutus_cover}>
           <HeadLine>
             ABOUT <br /> US
           </HeadLine>
@@ -90,7 +91,7 @@ const AboutUs = () => {
             src={vertical_arrow}
             alt="vertical_arrow"
           />
-        </MainImgWrap>
+        </MainImgWrap> */}
         <HomeComponentWrap>
           <TextWrap>
             <Text $color="#939598" $fontSize="16px" $fontWeight="300">

@@ -51,6 +51,7 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
 
   return (
@@ -372,6 +373,7 @@ const Home = () => {
                 style={{
                   padding: '0',
                   gridTemplateColumns: '1fr',
+                  width: '86vw',
                 }}
               >
                 <HomeComponentImageWrap
@@ -383,7 +385,7 @@ const Home = () => {
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
                     gap: '1rem',
-                    padding: '1em 1em',
+                    padding: '2rem',
                     fontWeight: '300',
                     position: 'relative',
                     borderRadius: '10px',

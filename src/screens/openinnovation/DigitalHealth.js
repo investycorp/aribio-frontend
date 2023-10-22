@@ -67,6 +67,7 @@ const DigitalHealth = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.querySelector('.container')?.scrollTo(0, 0);
     document.addEventListener('scroll', () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {

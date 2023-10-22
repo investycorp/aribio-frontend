@@ -210,6 +210,7 @@ const Career = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.querySelector('.container')?.scrollTo(0, 0);
     window.addEventListener('scroll', () => {
       if (window.scrollY > window.innerHeight * 0.7) {
         document.querySelector('.grid_bg')?.classList.add('visible');
@@ -792,8 +793,8 @@ const Career = () => {
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '1fr 2fr',
-                  justifyContent: 'start',
-                  alignItems: 'start',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                   columnGap: '0',
                   rowGap: '2rem',
                 }}
@@ -805,9 +806,11 @@ const Career = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     gap: '1rem',
+                    height: 'fit-content',
+                    width: '100%',
                   }}
                 >
-                  <Image src={item.img} alt="icon_work" />
+                  <Image src={item.img} alt="icon_work" style={{ height: '3rem' }} />
                   <Text $fontSize="18px" $fontWeight="300" $color="#ffffff" $align="center" style={{ maxWidth: '80%' }}>
                     {item.title}
                   </Text>
@@ -831,7 +834,9 @@ const Career = () => {
             ))}
             <ContentBox></ContentBox>
             <ContentBox style={{ marginTop: '8em' }}>
-              <ContentWrap style={{ flexDirection: 'row', padding: '0', justifyContent: 'space-between' }}>
+              <ContentWrap
+                style={{ flexDirection: 'column', padding: '0', justifyContent: 'space-between', alignItems: 'end' }}
+              >
                 <Text
                   $fontSize="20px"
                   $fontWeight="300"

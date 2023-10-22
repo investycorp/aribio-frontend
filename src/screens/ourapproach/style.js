@@ -335,7 +335,17 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
   row-gap: 4em;
   animation: fadeInAnimation 3s;
   animation-fill-mode: forwards;
+  -webkit-animation: fadeInAnimation 3s;
+  -webkit-animation-fill-mode: forwards;
   @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadeInAnimation {
     0% {
       opacity: 0;
     }
