@@ -379,7 +379,6 @@ const Header = () => {
                     }}
                     onClick={() => {
                       subMenuOpen === menu.linkTo ? setSubMenuOpen('') : setSubMenuOpen(menu.linkTo);
-                      console.log(menu.linkTo);
                     }}
                   >
                     <span style={{ zIndex: '-1' }}>{menu.title.toUpperCase()}</span>
@@ -403,7 +402,7 @@ const Header = () => {
                           key={'submenu' + subMenu.linkTo}
                         >
                           <Link
-                            to={`/${currentMenu}/${subMenu.linkTo}`}
+                            to={menu.linkTo === 'pipeline' ? `/${menu.linkTo}` : `/${menu.linkTo}/${subMenu.linkTo}`}
                             style={{
                               textDecoration: 'none',
                               color: '#EFEFEF',
@@ -416,8 +415,10 @@ const Header = () => {
                             }}
                             key={subMenu.linkTo}
                             onClick={() => {
-                              if (subMenu.linkTo === location.pathname.split('/')[2]) {
-                                window.location.reload();
+                              if (subMenu.linkTo !== 'pipeline') {
+                                if (subMenu.linkTo === location.pathname.split('/')[2]) {
+                                  window.location.reload();
+                                }
                               }
                               setIsToggleOpen(false);
                               setSubMenuOpen('');

@@ -110,6 +110,7 @@ const Text = styled.div.attrs((props) => ({ className: props.className }))`
 `;
 
 const GridContentWrap = styled.div`
+  position: relative;
   width: 100%;
   height: fit-content;
   display: grid;
@@ -148,15 +149,17 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
   background-color: transparent;
 
   &.benefits {
-    &:nth-child(odd) {
-      img {
-        position: absolute;
-        top: 0;
-        left: calc(-5vw - 64px);
+    @media screen and (min-width: 901px) {
+      &:nth-child(odd) {
+        img {
+          position: absolute;
+          top: 0;
+          left: calc(-5vw - 64px);
+        }
       }
-    }
-    &:nth-child(even) {
-      gap: 5vw;
+      &:nth-child(even) {
+        gap: 5vw;
+      }
     }
   }
 
@@ -275,6 +278,7 @@ const ShootingStar = styled.span`
     0 0 15px rgba(255, 255, 255, 0.1);
   transform: rotate(180deg);
   animation: animate 2s linear infinite;
+  -webkit-animation: animate 2s linear infinite;
 
   &:before {
     content: '';
@@ -284,6 +288,19 @@ const ShootingStar = styled.span`
     width: calc(10vw);
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
+  }
+  @-webkit-keyframes animate {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(calc(10vw));
+      opacity: 0;
+    }
   }
 
   @keyframes animate {

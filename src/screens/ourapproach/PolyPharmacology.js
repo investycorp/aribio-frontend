@@ -11,6 +11,7 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 const PolyPharmacology = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.querySelector('.container').scrollTo(0, 0);
   }, []);
 
   return (

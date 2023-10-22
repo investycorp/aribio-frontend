@@ -246,6 +246,7 @@ const PressRelease = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.querySelector('.container')?.scrollTo(0, 0);
     console.log(window.scrollY);
     if (id) {
       //when page has refreshed from detail page

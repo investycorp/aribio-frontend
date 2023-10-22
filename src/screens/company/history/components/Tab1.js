@@ -252,7 +252,10 @@ const Tab1 = ({ listItems }) => {
       //Mobile
 
       for (let i = 0; i < tabNames.length; i++) {
-        if (document.getElementsByClassName(listItems[i].title)[0]?.offsetTop - window.innerHeight < window.scrollY) {
+        if (
+          document.getElementsByClassName(listItems[i].title)[0]?.offsetTop - window.innerHeight * 0.5 <
+          window.scrollY
+        ) {
           setScrollTab(listItems[i].title);
         }
       }

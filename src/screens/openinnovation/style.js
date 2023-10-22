@@ -383,6 +383,11 @@ const ShootingStar = styled.span.attrs((props) => ({
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
+    -webkit-animation-name: ${(props) => move(props.$phase)};
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: forwards;
   }
 
   &:before {
