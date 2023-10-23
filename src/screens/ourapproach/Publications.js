@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -12,6 +12,7 @@ import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, GridCompon
 
 import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
+import usePublicationList from '../../hooks/ourapproach/usePublication';
 
 const SearchInput = styled.input`
   width: 100%;
@@ -51,30 +52,49 @@ const NoResult = styled.div`
 `;
 
 const Publications = () => {
+  const { data, isLoading } = usePublicationList();
   const [searchValue, setSearchValue] = useState('');
-  const [irDocs, setIrDocs] = useState([
-    {
-      title: 'K-OTC Technical Analysis Report for Corporate Investment',
-      image: docthumbnail,
-      downloadUrl: 'Download',
-    },
-    {
-      title: 'K-OTC Technical Analysis Report for Corporate Investment',
-      image: docthumbnail,
-      downloadUrl: 'Download',
-    },
-    {
-      title: 'K-OTC Technical Analysis Report for Corporate Investment',
-      image: docthumbnail,
-      downloadUrl: 'Download',
-    },
-    {
-      title: 'K-OTC Technical Analysis Report for Corporate Investment',
-      image: docthumbnail,
-      downloadUrl: 'Download',
-    },
-  ]);
+  const [irDocs, setIrDocs] = useState([]);
+  // const [irDocs, setIrDocs] = useState([
+  //   {
+  //     title: 'K-OTC Technical Analysis Report for Corporate Investment',
+  //     image: docthumbnail,
+  //     downloadUrl: 'Download',
+  //   },
+  //   {
+  //     title: 'K-OTC Technical Analysis Report for Corporate Investment',
+  //     image: docthumbnail,
+  //     downloadUrl: 'Download',
+  //   },
+  //   {
+  //     title: 'K-OTC Technical Analysis Report for Corporate Investment',
+  //     image: docthumbnail,
+  //     downloadUrl: 'Download',
+  //   },
+  //   {
+  //     title: 'K-OTC Technical Analysis Report for Corporate Investment',
+  //     image: docthumbnail,
+  //     downloadUrl: 'Download',
+  //   },
+  // ]);
   const [filteredList, setFilteredList] = useState(irDocs);
+
+  useEffect(() => {
+    let itemList = [];
+    if (data?.data?.success) {
+      console.log(data.data.dataList);
+      data.data.dataList.map((item) => {
+        itemList.push({
+          id: item.id,
+          title: item.title,
+          image: item.fileDto?.fileUrl,
+          url: item.url,
+          type: item.type,
+        });
+      });
+    }
+    setFilteredList(itemList);
+  }, [data]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -139,9 +159,8 @@ const Publications = () => {
             </Text>
           </TextWrap>
           <GridComponentWrap
-            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', rowGap: '3em', minHeight: '50vh' }}
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: '3rem', minHeight: '50vh' }}
           >
-            <ComponentWrap></ComponentWrap>
             <ComponentWrap></ComponentWrap>
             <ComponentWrap
               style={{

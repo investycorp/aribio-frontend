@@ -20,7 +20,7 @@ const SliderContainer = styled.div`
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s ease-in-out;
-  z-index: 10;
+  z-index: 20;
   gap: 60px;
   @media screen and (max-width: 900px) {
     grid-template-columns: repeat(5, 1fr);
@@ -44,6 +44,7 @@ const Circle = styled.div`
   cursor: pointer;
   opacity: ${(props) => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
+  z-index: 20;
 `;
 
 const SliderImg = styled.img`
@@ -119,7 +120,7 @@ const SideSlider = () => {
           }}
         >
           {offsetHeights?.map((location, index) => (
-            <div key={`sideSlider${index}`} style={{ position: 'relative' }}>
+            <div key={`sideSlider${index}`} style={{ position: 'relative', overflowX: 'unset' }}>
               <Circle $position={scrollNumber} $isActive={scrollNumber === index ? true : false} />
               {index === 0 && <SliderImg src={scroll_bar} alt="scroll_bar" />}
               <Image src={whitedot} alt="whitedot" />

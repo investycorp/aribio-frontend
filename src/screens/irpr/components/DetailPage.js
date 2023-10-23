@@ -27,7 +27,7 @@ const DetailPage = () => {
   };
 
   return (
-    <HomeComponentWrap id="irpr_detailpage">
+    <HomeComponentWrap id="irpr_detailpage" style={{ backgroundColor: '#fff' }}>
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
@@ -37,7 +37,9 @@ const DetailPage = () => {
             }}
           >
             <Image style={{ transform: 'rotate(180deg)', zIndex: '-1' }} src={icon_circlearrow_dark} alt="go back" />
-            <Text style={{ width: 'fit-content', margin: '1em 0', padding: '0', zIndex: '-1' }}>Back</Text>
+            <Text style={{ width: 'fit-content', margin: '1em 0', padding: '0', zIndex: '-1', color: '#000' }}>
+              Back
+            </Text>
           </span>
         </ComponentWrap>
         <ComponentWrap id="printableid" style={{ justifyContent: 'center', alignItems: 'start' }}>
@@ -107,6 +109,116 @@ const DetailPage = () => {
             <Image style={{ zIndex: '-1' }} src={arrow} alt="print" />
           </Button>
         </div>
+        <HomeComponentWrap style={{ paddingTop: '3em' }}>
+          <ComponentWrap
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr 1fr',
+              gap: '0',
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderTop: '2px solid #ffffff',
+            }}
+          >
+            <div>
+              <Text
+                style={{
+                  margin: '3em 0 2em 0',
+                  padding: '0',
+                  textAlign: 'start',
+                  fontSize: '18px',
+                  fontWeight: '200',
+                  color: '#000',
+                }}
+              >
+                PREV
+              </Text>
+              <HR $color="#000" $width="3em" />
+              <Link style={{ textDecoration: 'none' }} to={`/irpr/notice/`}>
+                <Text
+                  className="prev"
+                  style={{
+                    width: '80%',
+                    margin: '1em 0',
+                    padding: '0',
+                    textAlign: 'start',
+                    fontSize: '18px',
+                    fontWeight: '300',
+                    color: '#000',
+                  }}
+                >
+                  {'Prev Item'}...
+                </Text>
+              </Link>
+            </div>
+
+            <div>
+              <Text
+                style={{
+                  margin: '3em 0 2em 0',
+                  padding: '0',
+                  textAlign: 'start',
+                  fontSize: '18px',
+                  fontWeight: '200',
+                  color: '#000',
+                }}
+              >
+                NEXT
+              </Text>
+              <HR $color="#000" $width="3em" />
+              <Link style={{ textDecoration: 'none' }} to={`/irpr/notice/`}>
+                <Text
+                  className="next"
+                  style={{
+                    width: '80%',
+                    margin: '1em 0',
+                    padding: '0',
+                    textAlign: 'start',
+                    fontSize: '18px',
+                    fontWeight: '300',
+                    color: '#000',
+                  }}
+                >
+                  {'Next title'}...
+                </Text>
+              </Link>
+            </div>
+            <div
+              style={{
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'end',
+                alignItems: 'end',
+              }}
+            >
+              <Link style={{ textDecoration: 'none' }} to="/irpr/notice">
+                <Text
+                  $fontSize="20px"
+                  $fontWeight="300"
+                  $color="#ffffff"
+                  $align="start"
+                  $clickable={true}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    minWidth: 'fit-content',
+                    paddingBottom: '0.7em',
+                    margin: '1em 0',
+                    borderBottom: '2px solid #ffffff',
+                    gap: '3em',
+                    zIndex: '-1',
+                  }}
+                >
+                  <span style={{ zIndex: '-1' }}>View List</span>
+                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                </Text>
+              </Link>
+            </div>
+          </ComponentWrap>
+        </HomeComponentWrap>
       </Desktop>
       <Mobile>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>

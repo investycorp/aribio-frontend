@@ -22,17 +22,34 @@ import {
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
+import useCi from '../../../hooks/company/useCi';
+
 const Ci = () => {
+  const { data, isLoading } = useCi();
+  const [pngImg, setPngImg] = useState();
+  const [aiImg, setAiImg] = useState();
+
+  useEffect(() => {
+    if (!isLoading && data?.data?.data?.fileDtoList) {
+      console.log(data.data?.data.fileDtoList);
+      const itemList = data.data?.data.fileDtoList;
+      itemList?.map((item) => {
+        item.fileType.includes('PNG') && setPngImg(item.fileUrl);
+        item.fileType.includes('AI') && setAiImg(item.fileUrl);
+      });
+    }
+  }, [data, isLoading]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
 
   const downloadCi = (type) => {
-    saveAs(type === 'png' ? ci_logo_png : ci_logo_png, `AriBio_CI.${type}`);
+    saveAs(type === 'png' ? `${pngImg}` : `${aiImg}`, `AriBio_CI.${type}`);
     // const link = document.createElement('a');
-    // link.download = 'AriBio_CI.png';
-    // link.href = type === 'png' ? `${ci_logo_png}` : `${ci_logo_png}`;
+    // link.download = `AriBio_CI.${type}`;
+    // link.href = type === 'png' ? `${pngImg}` : `${aiImg}`;
     // link.click();
   };
 
@@ -93,7 +110,7 @@ const Ci = () => {
           </TextWrap>
         </HomeComponentWrap>
         <HomeComponentWrap style={{ padding: '8vh 7vw', backgroundColor: '#ffffff' }}>
-          <Image src={ci_logo_png} alt="ci_logo" style={{ width: '30vw' }} />
+          <Image src={pngImg} alt="ci_logo" style={{ width: '30vw' }} />
         </HomeComponentWrap>
         <HomeComponentWrap style={{ padding: '25vh 0', display: 'grid', gridTemplateColumns: '64.33vw 35.67vw' }}>
           <ContentBox style={{ position: 'relative', paddingTop: '1em' }}>

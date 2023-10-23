@@ -30,9 +30,6 @@ const GlobalStyle = createGlobalStyle`
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-   
   }
     
 
@@ -42,6 +39,11 @@ const GlobalStyle = createGlobalStyle`
     overscroll-behavior: none;
     background-color: '#121212';
     cursor: default;
+      &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   }
 `;
 

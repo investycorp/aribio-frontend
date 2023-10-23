@@ -19,6 +19,7 @@ const AboutUs = () => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
+
   return (
     <Container className="container">
       <Header />
@@ -82,16 +83,6 @@ const AboutUs = () => {
         {currentTab === 'Leadership' ? <Leadership /> : <Advisors />}
       </Desktop>
       <Mobile>
-        {/* <MainImgWrap $src={aboutus_cover}>
-          <HeadLine>
-            ABOUT <br /> US
-          </HeadLine>
-          <img
-            style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
-            src={vertical_arrow}
-            alt="vertical_arrow"
-          />
-        </MainImgWrap> */}
         <HomeComponentWrap>
           <TextWrap>
             <Text $color="#939598" $fontSize="16px" $fontWeight="300">
@@ -132,6 +123,7 @@ const AboutUs = () => {
         </Tab>
         {currentTab === 'Leadership' ? <Leadership /> : <Advisors />}
       </Mobile>
+
       <Footer />
     </Container>
   );

@@ -332,17 +332,20 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
   justify-content: start;
   align-items: start;
   background-color: transparent;
-  row-gap: 4em;
-  animation: fadeInAnimation 3s;
+  animation: fadeInAnimation 2s;
   animation-fill-mode: forwards;
-  -webkit-animation: fadeInAnimation 3s;
+  -webkit-animation: fadeInAnimation 2s;
   -webkit-animation-fill-mode: forwards;
   @keyframes fadeInAnimation {
     0% {
-      opacity: 0;
+      opacity: 0.5;
+      transform: translateY(5%);
+      -webkit-transform: translateY(5%);
     }
     100% {
       opacity: 1;
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
     }
   }
   @-webkit-keyframes fadeInAnimation {
@@ -354,27 +357,29 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
     }
   }
   opacity: 0;
-  transition: opacity 3s;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
 
   ${ComponentWrap}.irdoc {
-    margin-top: 3em;
     padding: 0;
+    border: 2px solid #b9b9b9;
+    border-radius: 10px;
+    padding: 2rem 2rem;
+    cursor: pointer;
 
-    &:nth-child(3n + 1) {
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    &:nth-child(even) {
+      margin-top: 3rem;
       div.wrap {
-        margin: 0 2rem 0 0;
       }
     }
-    &:nth-child(3n + 2) {
-      align-items: center;
+    &:nth-child(odd) {
       div {
-        margin: 0 2rem;
-      }
-    }
-    &:nth-child(3n) {
-      align-items: right;
-      div {
-        margin: 0 0 0 2rem;
       }
     }
 

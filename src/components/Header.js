@@ -22,6 +22,7 @@ const HeaderContainer = styled.div`
   font-weight: 300;
   transition: all 0.2s ease-in-out;
   z-index: 100;
+  overflow: hidden;
   &:hover {
     background-color: rgba(26, 26, 26, 0.3);
   }
@@ -208,6 +209,8 @@ const HeaderBottom = styled.div`
   @media screen and (max-width: 900px) {
     flex-direction: column;
   }
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 `;
 
 const Image = styled.img`
