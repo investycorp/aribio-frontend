@@ -18,7 +18,6 @@ import {
   MainImgTextWrap,
   ContainerGridLineWrap,
   GridLineBox,
-  HeadLineTitle,
   HeadLineText,
   HomeComponentWrap,
   HomeAboutUsTextWrap,
@@ -26,7 +25,6 @@ import {
   ComponentGridWrap,
   ComponentTextWrap,
   ComponentText,
-  HomeVideoWrap,
   FilterShadow,
 } from './style';
 
@@ -38,23 +36,7 @@ import Video from '../../components/Video';
 const Home = () => {
   const language = useRecoilValue(Language);
   const { data, isLoading, refetch } = useNoticeList('', language, 1);
-  const [noticeList, setNoticeList] = useState([
-    {
-      date: '2023.07.26',
-      title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion',
-      imageUrl: home_notice1,
-    },
-    {
-      date: '2023.07.26',
-      title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion',
-      imageUrl: home_notice2,
-    },
-    {
-      date: '2023.07.26',
-      title: '[AP News]AriBio Co., Ltd. Announces the Successful Completion',
-      imageUrl: home_notice3,
-    },
-  ]);
+  const [noticeList, setNoticeList] = useState([]);
 
   useEffect(() => {
     if (data?.data?.success) {
@@ -84,14 +66,14 @@ const Home = () => {
         <Header />
         <SideSlider />
         <Video page="home" />
+        <MainImgWrap>
+          <ContainerGridLineWrap className="grid_bg">
+            <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+            <GridLineBox />
+            <GridLineBox />
+          </ContainerGridLineWrap>
+        </MainImgWrap>
         <Desktop>
-          <MainImgWrap>
-            <ContainerGridLineWrap className="grid_bg">
-              <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-              <GridLineBox />
-              <GridLineBox />
-            </ContainerGridLineWrap>
-          </MainImgWrap>
           <HomeComponentWrap className="home home_1">
             <MainImgTextWrap style={{ height: '100vh' }}>
               {/* <HeadLineTitle>OVERCOME</HeadLineTitle>
@@ -260,21 +242,14 @@ const Home = () => {
           </HomeComponentWrap>
         </Desktop>
         <Mobile>
-          <MainImgWrap $src={home_cover}>
-            <ContainerGridLineWrap className="grid_bg">
-              <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-              <GridLineBox />
-              <GridLineBox />
-            </ContainerGridLineWrap>
-          </MainImgWrap>
           <HomeComponentWrap className="home home_1">
-            <MainImgTextWrap style={{ marginTop: '40vh' }}>
-              <HeadLineTitle>OVERCOME</HeadLineTitle>
+            <MainImgTextWrap style={{ height: '100vh' }}>
+              {/* <HeadLineTitle>OVERCOME</HeadLineTitle>
               <HeadLineTitle style={{ marginBottom: '2rem' }}>NEURODEGENERATION</HeadLineTitle>
               <HeadLineText>
                 We keep striving to develop new therapeutic agents for <br />
                 neurodegenerative diseases hitherto.
-              </HeadLineText>
+              </HeadLineText> */}
             </MainImgTextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap className="home home_2">
