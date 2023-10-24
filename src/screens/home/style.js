@@ -112,11 +112,13 @@ const HomeAboutUsTextWrap = styled.div`
 
 const HeadLineTitle = styled.div`
   width: fit-content;
+  height: fit-content;
   font-size: 90px;
   font-weight: bold;
   margin-bottom: 1rem;
   color: #ffffff;
   z-index: 10;
+  overflow: hidden;
 
   @media screen and (max-width: 1280px) {
     font-size: 70px;

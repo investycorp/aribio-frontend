@@ -11,18 +11,30 @@ import { Container, HomeComponentWrap, TextWrap, Text, Image, ContentBox } from 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
+import useParnerList from '../../hooks/contact/usePartnerList';
+import Language from '../../atom/Language';
+import { useRecoilValue } from 'recoil';
+
 const Partner = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
-  const [itemList, setItemList] = useState([
-    { id: 1, name: 'skchemicals', imgUrl: partnerlogo1 },
-    { id: 2, name: 'skchemicals', imgUrl: partnerlogo1 },
-    { id: 3, name: 'skchemicals', imgUrl: partnerlogo1 },
-    { id: 4, name: 'skchemicals', imgUrl: partnerlogo1 },
-    { id: 5, name: 'skchemicals', imgUrl: partnerlogo1 },
-    { id: 6, name: 'skchemicals', imgUrl: partnerlogo1 },
-    { id: 7, name: 'skchemicals', imgUrl: partnerlogo1 },
-  ]);
+  const [language] = useRecoilValue(Language);
+  const { data, isLoading, refetch } = useParnerList(language);
+
+  const [itemList, setItemList] = useState([]);
+
+  useEffect(() => {
+    if (data?.data?.success) {
+      console.log(data?.data);
+      const list = data?.data?.dataList;
+      setItemList(
+        list.map((item) => ({
+          id: item.id,
+          name: item.fileDto.fileName,
+          imgUrl: item.fileDto?.fileUrl,
+        })),
+      );
+    }
+  }, [data]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,22 +78,23 @@ const Partner = () => {
           </TextWrap>
         </HomeComponentWrap>
         <HomeComponentWrap style={{ paddingTop: '0', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1em' }}>
-          {itemList.map((item, index) => (
-            <ContentBox
-              className="partner"
-              key={item.name + index}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '1em',
-                height: '30vh',
-              }}
-            >
-              <Image style={{ width: '--webkit-fill-available' }} src={item.imgUrl} alt="logo" />
-            </ContentBox>
-          ))}
+          {itemList.length > 0 &&
+            itemList?.map((item, index) => (
+              <ContentBox
+                className="partner"
+                key={item.name + index}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  padding: '1em',
+                  height: '30vh',
+                }}
+              >
+                <Image style={{ width: '--webkit-fill-available' }} src={item.imgUrl} alt="logo" />
+              </ContentBox>
+            ))}
         </HomeComponentWrap>
         <HomeComponentWrap style={{ padding: '0 7vw 20vh 7vw' }}>
           <ContentBox

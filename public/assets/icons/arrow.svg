@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.486" height="19.799" viewBox="0 0 18.486 19.799">
+  <g id="Group_92" data-name="Group 92" transform="translate(8.586) rotate(45)">
+    <path id="선_9" data-name="선 9" d="M13,2H1A1,1,0,1,1,1,0H13a1,1,0,0,1,0,2Z" transform="translate(0 0)" fill="#414141"/>
+    <path id="선_10" data-name="선 10" d="M1,14a1,1,0,0,1-1-1V1A1,1,0,1,1,2,1V13A1,1,0,0,1,1,14Z" transform="translate(12 0)" fill="#414141"/>
+    <path id="선_11" data-name="선 11" d="M1,13.071a1,1,0,0,1-.707-1.707L11.364.293a1,1,0,1,1,1.414,1.414L1.707,12.778A1,1,0,0,1,1,13.071Z" transform="translate(0.929 0)" fill="#414141"/>
+  </g>
+</svg>

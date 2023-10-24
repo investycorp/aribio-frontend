@@ -22,6 +22,7 @@ const HeaderContainer = styled.div`
   font-weight: 300;
   transition: all 0.2s ease-in-out;
   z-index: 100;
+  overflow: hidden;
   &:hover {
     background-color: rgba(26, 26, 26, 0.3);
   }
@@ -79,7 +80,7 @@ const HeaderLogoWrap = styled.div`
 
 const HeaderNavWrap = styled.div`
   padding: 0 2rem;
-  width: fit-content;
+  width: 65vw;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -208,6 +209,8 @@ const HeaderBottom = styled.div`
   @media screen and (max-width: 900px) {
     flex-direction: column;
   }
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 `;
 
 const Image = styled.img`
@@ -233,7 +236,7 @@ const Header = () => {
       { title: 'ABOUT US', linkTo: 'aboutus' },
       { title: 'HISTORY', linkTo: 'history' },
       { title: 'CEO MESSAGE', linkTo: 'ceomessage' },
-      { title: 'CI', linkTo: 'ci' },
+      { title: 'CORPORATE IDENTITY', linkTo: 'ci' },
     ],
     ourapproach: [
       { title: 'POLY-PHARMACOLOGY', linkTo: 'poly-pharmacology' },
@@ -252,8 +255,8 @@ const Header = () => {
       { title: 'MEMO:RE PROJECT', linkTo: 'memoreproject' },
     ],
     irpr: [
-      { title: 'NOTICE', linkTo: 'notice' },
-      { title: 'PRESS RELEASE', linkTo: 'pressrelease' },
+      { title: 'NOTICE', linkTo: 'notice/' },
+      { title: 'PRESS RELEASE', linkTo: 'pressrelease/' },
       { title: 'MEDIA KIT', linkTo: 'mediakit' },
     ],
   });

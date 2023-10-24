@@ -10,6 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   position: relative;
 `;
@@ -62,6 +63,7 @@ const MainImgWrap = styled.div`
   padding-bottom: 10vh;
   z-index: 0;
   background-image: url(${(props) => props.$src});
+  overflow: hidden;
 `;
 const Path = styled.div`
   position: absolute;
@@ -83,11 +85,13 @@ const Path = styled.div`
 `;
 const HeadLineTitle = styled.div`
   width: fit-content;
+  height: fit-content;
   font-size: 90px;
   font-weight: bold;
   margin-bottom: 1rem;
   color: #ffffff;
   z-index: 10;
+  overflow: hidden;
 
   @media screen and (max-width: 1280px) {
     font-size: 70px;
@@ -100,6 +104,7 @@ const HeadLineTitle = styled.div`
 
 const HeadLineText = styled.div`
   width: fit-content;
+  height: fit-content;
   font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
   font-weight: medium;
   color: ${(props) => (props.$textColor ? props.$textColor : '#ffffff')};
@@ -114,6 +119,7 @@ const HeadLineText = styled.div`
   @media screen and (max-width: 900px) {
     font-size: 20px;
   }
+  overflow: hidden;
 `;
 
 const HeadLine = styled.div.attrs((props) => ({
@@ -125,6 +131,8 @@ const HeadLine = styled.div.attrs((props) => ({
   text-align: center;
   font-size: 200px;
   font-weight: 500;
+  overflow: hidden;
+  height: fit-content;
 
   @media screen and (max-width: 1280px) {
     font-size: 140px;
@@ -150,6 +158,9 @@ const HeadLine = styled.div.attrs((props) => ({
     }
     @media screen and (max-width: 900px) {
       font-size: 62px;
+    }
+    @media screen and (max-width: 600px) {
+      font-size: 46px;
     }
   }
 `;

@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
   position: relative;
 `;
 
@@ -216,7 +216,7 @@ const ColorBar = styled.div`
   @media screen and (max-width: 1280px) {
     height: 120px;
     padding: 1em;
-  ]
+  }
 
   @media screen and (max-width: 900px) {
     height: 60px;

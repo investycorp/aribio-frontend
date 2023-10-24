@@ -269,6 +269,11 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
       }
     }
   }
+  .button {
+    &:hover {
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
 `;
 
 const RowWrap = styled.div`
@@ -283,6 +288,7 @@ const RowWrap = styled.div`
   border-radius: 10px;
   margin-bottom: 1em;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(203, 203, 203, 0.2);
@@ -304,6 +310,7 @@ const DateWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   background-color: transparent;
   @media screen and (max-width: 900px) {
     padding: 0;
@@ -349,6 +356,7 @@ const TitleWrap = styled.div`
   padding: 0;
   text-align: left;
   overflow: hidden;
+  cursor: pointer;
   @media screen and (max-width: 1280px) {
     font-size: 21px;
   }
@@ -377,24 +385,23 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  border: 2px solid #ffffff;
+  border: 2px solid #414141;
   border-radius: 100em;
   padding: 0.5em 1em;
   margin: 0;
   font-size: 20px;
   font-weight: 400;
-  color: #ffffff;
+  color: ##414141;
   cursor: pointer;
   &:hover {
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     span {
-      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     }
   }
 
   @media screen and (max-width: 900px) {
-    border: 1px solid #ffffff;
+    border: 1px solid #414141;
     font-size: 15px;
     font-weight: 300;
     padding: 0.3rem 0.5rem;

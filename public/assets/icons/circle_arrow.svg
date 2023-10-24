@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_265" data-name="Rectangle 265" width="20" height="20" transform="translate(547 3142)" fill="#414141"/>
+    </clipPath>
+  </defs>
+  <g id="Component_5_115" data-name="Component 5 – 115" transform="translate(44 44) rotate(180)">
+    <g id="Ellipse_90" data-name="Ellipse 90" fill="none" stroke="#414141" stroke-width="1">
+      <circle cx="22" cy="22" r="22" stroke="none"/>
+      <circle cx="22" cy="22" r="21.5" fill="none"/>
+    </g>
+    <g id="Component_4_1" data-name="Component 4 – 1" transform="translate(12 12)">
+      <g id="Group_92" data-name="Group 92" transform="translate(9.899 1.414) rotate(45)">
+        <path id="선_9" data-name="선 9" d="M12,1H0A1,1,0,0,1-1,0,1,1,0,0,1,0-1H12a1,1,0,0,1,1,1A1,1,0,0,1,12,1Z" fill="#414141"/>
+        <path id="선_10" data-name="선 10" d="M0,13a1,1,0,0,1-1-1V0A1,1,0,0,1,0-1,1,1,0,0,1,1,0V12A1,1,0,0,1,0,13Z" transform="translate(12)" fill="#414141"/>
+        <path id="선_11" data-name="선 11" d="M0,12.071a1,1,0,0,1-.707-.293,1,1,0,0,1,0-1.414L10.364-.707a1,1,0,0,1,1.414,0,1,1,0,0,1,0,1.414L.707,11.778A1,1,0,0,1,0,12.071Z" transform="translate(0.929 0)" fill="#414141"/>
+      </g>
+    </g>
+  </g>
+</svg>

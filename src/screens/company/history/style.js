@@ -10,6 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
 `;
 
@@ -104,6 +105,7 @@ const Text = styled.div`
 `;
 
 const Tab = styled.div`
+  position: relative;
   width: 100%;
   height: fit-content;
   display: flex;

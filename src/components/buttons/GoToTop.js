@@ -25,6 +25,7 @@ const GoToTop = () => {
       }}
       onClick={() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.querySelector('.container')?.scrollIntoView({ behavior: 'smooth' });
       }}
     >
       <img style={{ cursor: 'pointer' }} src={vertical_arrow} alt="vertical_arrow" />
