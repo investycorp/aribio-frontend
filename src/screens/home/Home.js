@@ -56,8 +56,8 @@ const Home = () => {
   ]);
 
   useEffect(() => {
-    if (data.data.success) {
-      console.log(data.data.data.noticeDtoList);
+    if (data?.data?.success) {
+      console.log(data?.data?.data.noticeDtoList);
       const list = data.data.data.noticeDtoList.map((item, index) => {
         if (index < 3) {
           return {
