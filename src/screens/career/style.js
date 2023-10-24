@@ -334,6 +334,38 @@ const Button = styled.button`
   z-index: 10;
 `;
 
+const ComponentWrap = styled.div.attrs((props) => ({ className: props.className }))`
+  width: 100%;
+  height: 'fit-content';
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: transparent;
+  &.pathwaydata_wrap_top {
+    padding: 0 12em 0 12em;
+    @media (max-width: 1500px) {
+      padding: 0 5em;
+    }
+  }
+  @media print {
+    color: #000000;
+  }
+  &.mediakit_item {
+    div {
+      cursor: pointer;
+      &:active {
+        background-color: rgba(203, 203, 203, 0.2);
+      }
+    }
+  }
+  .button {
+    &:hover {
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+`;
+
 export {
   Container,
   MainImgWrap,
@@ -342,6 +374,7 @@ export {
   Path,
   HeadLine,
   HomeComponentWrap,
+  ComponentWrap,
   TextWrap,
   Text,
   GridContentWrap,

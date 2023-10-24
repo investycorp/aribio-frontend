@@ -159,6 +159,9 @@ const HeadLine = styled.div.attrs((props) => ({
     @media screen and (max-width: 900px) {
       font-size: 62px;
     }
+    @media screen and (max-width: 600px) {
+      font-size: 46px;
+    }
   }
 `;
 

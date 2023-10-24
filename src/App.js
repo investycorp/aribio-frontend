@@ -26,6 +26,7 @@ import DigitalHealth from './screens/openinnovation/DigitalHealth';
 import MemoRe from './screens/openinnovation/MemoRe';
 import Partner from './screens/contact/Partner';
 import MediaKit from './screens/irpr/MediaKit';
+import CareerDetail from './screens/career/components/CareerDetail';
 
 const queryClient = new QueryClient();
 
@@ -64,14 +65,16 @@ function App() {
               <Route path="/ourapproach/aiplatform" element={<AiPlatform />} />
               <Route path="/ourapproach/publications" element={<Publications />} />
               <Route path="/pipeline" element={<PipeLine />} />
-              <Route path="/irpr/notice" element={<Notice />}>
-                <Route path=":id" element={<DetailPage />} />
+              <Route exact path="/irpr/notice" element={<Notice />}>
+                <Route exact path=":id" element={<DetailPage />} />
               </Route>
-              <Route path="/irpr/pressrelease" element={<PressRelease />}>
-                <Route path=":id" element={<DetailPage />} />
+              <Route exact path="/irpr/pressrelease" element={<PressRelease />}>
+                <Route exact path=":id" element={<DetailPage />} />
               </Route>
               <Route path="/irpr/mediakit" element={<MediaKit />} />
-              <Route path="/career/career" element={<Career />} />
+              <Route exact path="/career/career" element={<Career />}>
+                <Route exact path=":id" element={<CareerDetail />} />
+              </Route>
               <Route path="/contact/partner" element={<Partner />} />
               <Route path="/contact/contactus" element={<Contact />} />
               <Route path="/openinnovation/openinnovation" element={<OpenInnovation />} />

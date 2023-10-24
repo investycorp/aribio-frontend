@@ -13,6 +13,7 @@ import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, GridCompon
 import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 import usePublicationList from '../../hooks/ourapproach/usePublication';
+import { useNavigate } from 'react-router-dom';
 
 const SearchInput = styled.input`
   width: 100%;
@@ -32,12 +33,9 @@ const SearchInput = styled.input`
 `;
 
 const NoResult = styled.div`
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30%;
-  height: 10vh;
+  grid-column: span 2;
+  width: 100%;
+  height: 20vh;
   background-color: transparent;
   border: none;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
@@ -51,7 +49,27 @@ const NoResult = styled.div`
   align-items: center;
 `;
 
+const Dot = styled.div`
+  width: 1rem;
+  height: 1rem;
+  background-color: ${(props) => props.$color};
+  border-radius: 50%;
+`;
+
+const DocType = styled.span`
+  width: 'fit-content';
+  height: 'fit-content';
+  background-color: ${(props) => props.$color};
+  border: 1px solid #646464;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #ffffff;
+`;
+
 const Publications = () => {
+  const navigate = useNavigate();
   const { data, isLoading } = usePublicationList();
   const [searchValue, setSearchValue] = useState('');
   const [irDocs, setIrDocs] = useState([]);
@@ -90,6 +108,8 @@ const Publications = () => {
           image: item.fileDto?.fileUrl,
           url: item.url,
           type: item.type,
+          journal: item.journal,
+          date: `${item.month}, ${item.year}`,
         });
       });
     }
@@ -100,13 +120,6 @@ const Publications = () => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
-
-  const downloadDoc = (title, downloadUrl) => {
-    const link = document.createElement('a');
-    link.download = `${title}.pdf`;
-    link.href = `${downloadUrl}`;
-    link.click();
-  };
 
   const handleChange = async (e) => {
     setSearchValue(e.target.value);
@@ -126,7 +139,7 @@ const Publications = () => {
       <Header />
       <Path>{`HOME > OUR APPROACH > PUBLICATIONS`}</Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>PUBLICATIONS</HeadLine>
+        <HeadLine className="midsize">PUBLICATIONS</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
@@ -155,7 +168,7 @@ const Publications = () => {
               $color="#ffffff"
               style={{ margin: '0' }}
             >
-              IR Documents
+              Explore Our Research
             </Text>
           </TextWrap>
           <GridComponentWrap
@@ -182,6 +195,21 @@ const Publications = () => {
               />
               <Image src={search} alt="search" />
             </ComponentWrap>
+            <ComponentWrap
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                margin: '2rem',
+                width: '100%',
+                gap: '1rem',
+                margin: '1rem',
+              }}
+            >
+              <Dot $color="#004D76" />
+              <span style={{ marginRight: '1rem' }}>Publication</span>
+              <Dot $color="#760027" /> <span>Conference</span>
+            </ComponentWrap>
+            <ComponentWrap></ComponentWrap>
             {filteredList.length > 0 ? (
               filteredList.map((doc, index) => (
                 <ComponentWrap
@@ -189,42 +217,69 @@ const Publications = () => {
                   className="irdoc"
                   style={{ justifyContent: 'center', alignItems: 'start' }}
                 >
-                  <div className="wrap">
-                    <Image src={doc.image} alt="doc" style={{ width: '14vw' }} />
-                    <Text
-                      className="text"
-                      $fontSize="26px"
-                      $fontWeight="300"
-                      $color="#ffffff"
-                      $align="start"
-                      style={{ margin: '1em 0' }}
-                    >
-                      {doc.title}
-                    </Text>
-                    <Text
-                      $fontSize="20px"
-                      $fontWeight="300"
-                      $color="#ffffff"
-                      $align="start"
-                      $clickable={true}
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        width: 'fit-content',
-                        padding: '0.7em 0',
-                        borderBottom: '2px solid #ffffff',
-                        zIndex: '1',
-                      }}
-                      onClick={() => {
-                        console.log(doc.title, doc.downloadUrl);
-                        // downloadDoc(doc.title, doc.downloadUrl);
-                      }}
-                    >
-                      <span style={{ zIndex: '-1' }}>Download</span>
-                      <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
-                    </Text>
+                  <div
+                    className="readmore"
+                    onClick={() => {
+                      document.location.href = `//${doc.url}`;
+                    }}
+                  >
+                    <img
+                      src={process.env.PUBLIC_URL + '/assets/icons/plus.svg'}
+                      alt="read more"
+                      style={{ cursor: 'pointer', zIndex: '-1' }}
+                    />
+                    <span style={{ cursor: 'pointer', zIndex: '-1' }}>Read More</span>
+                  </div>
+                  <div className="wrap" style={{ alignItems: 'stretch' }}>
+                    <div style={{ padding: '1rem' }}>
+                      <Image src={docthumbnail} alt="doc" style={{ width: '10vw', height: '10vw' }} />
+                    </div>
+                    <div>
+                      <Text
+                        className="text"
+                        $fontWeight="300"
+                        $color="##CECECE"
+                        $align="start"
+                        style={{
+                          margin: '0.5rem 0',
+                          fontSize: window.innerWidth > 1280 ? '18px' : '12px',
+                          alignItems: 'start',
+                        }}
+                      >
+                        {doc.journal}
+                      </Text>
+                      <Text
+                        className="text"
+                        $fontSize="26px"
+                        $fontWeight="300"
+                        $color="#ffffff"
+                        $align="start"
+                        style={{ margin: '0.5rem 0' }}
+                      >
+                        {doc.title}
+                      </Text>
+                      <Text
+                        className="text"
+                        $fontWeight="200"
+                        $color="##CECECE"
+                        $align="start"
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          margin: '0.5rem 0',
+                          fontSize: window.innerWidth > 1280 ? '18px' : '12px',
+                        }}
+                      >
+                        <span>{doc.date}</span>
+                        {doc.type === 'CONFERENCE' ? (
+                          <DocType $color={'#430016'}>Conference</DocType>
+                        ) : (
+                          <DocType $color={'#012438'}>Publications</DocType>
+                        )}
+                      </Text>
+                    </div>
                   </div>
                 </ComponentWrap>
               ))
@@ -250,23 +305,27 @@ const Publications = () => {
               }}
             ></div>
             <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
-              IR Documents
+              Explore Our Research
             </Text>
           </TextWrap>
-          <GridComponentWrap style={{ display: 'grid', gridTemplateColumns: '1fr', rowGap: '3em', minHeight: '50vh' }}>
+          <GridComponentWrap
+            style={{ display: 'grid', gridTemplateColumns: '1fr', rowGap: '0', minHeight: '50vh', width: '86vw' }}
+          >
             <ComponentWrap
               style={{
                 flexDirection: 'row',
                 color: '#ffffff',
-                marginTop: '4em',
+                marginTop: '4rem',
                 borderBottom: '2px solid #ffffff',
                 padding: '0',
+                width: '80vw',
               }}
             >
               <SearchInput
                 placeholder="Please enter a search term."
                 type="text"
                 value={searchValue}
+                style={{ fontSize: '18px' }}
                 onChange={(e) => {
                   handleChange(e);
                 }}
@@ -274,46 +333,91 @@ const Publications = () => {
               />
               <Image src={search} alt="search" />
             </ComponentWrap>
+            <ComponentWrap
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                margin: '6rem 0 2rem 0',
+                width: '100%',
+                gap: '1rem',
+              }}
+            >
+              <Dot $color="#004D76" />
+              <span style={{ marginRight: '1rem' }}>Publication</span>
+              <Dot $color="#760027" /> <span>Conference</span>
+            </ComponentWrap>
             {filteredList.length > 0 ? (
               filteredList.map((doc, index) => (
                 <ComponentWrap
                   key={doc.title + index}
                   className="irdoc"
-                  style={{ justifyContent: 'center', padding: '0' }}
+                  style={{ justifyContent: 'center', alignItems: 'start', padding: '1rem' }}
                 >
-                  <Image src={doc.image} alt="doc" style={{ width: '56.67vw' }} />
-                  <Text
-                    className="text"
-                    $fontSize="26px"
-                    $fontWeight="300"
-                    $color="#ffffff"
-                    style={{ margin: '1em 0' }}
-                  >
-                    {doc.title}
-                  </Text>
-                  <Text
-                    $fontSize="20px"
-                    $fontWeight="300"
-                    $color="#ffffff"
-                    $align="start"
-                    $clickable={true}
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      width: '45%',
-                      padding: '0.7em 0',
-                      borderBottom: '2px solid #ffffff',
-                    }}
+                  <div
+                    className="readmore"
                     onClick={() => {
-                      console.log(doc.title, doc.downloadUrl);
-                      // downloadDoc(doc.title, doc.downloadUrl);
+                      document.location.href = `//${doc.url}`;
                     }}
                   >
-                    <span style={{ zIndex: '-1' }}>Download</span>
-                    <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
-                  </Text>
+                    <img
+                      src={process.env.PUBLIC_URL + '/assets/icons/plus.svg'}
+                      alt="read more"
+                      style={{ cursor: 'pointer', zIndex: '-1' }}
+                    />
+                    <span style={{ cursor: 'pointer', zIndex: '-1' }}>Read More</span>
+                  </div>
+                  <div className="wrap" style={{ alignItems: 'stretch', gridTemplateColumns: '1fr 2fr' }}>
+                    <div style={{ padding: '0' }}>
+                      {doc.type === 'CONFERENCE' ? (
+                        <DocType $color={'#430016'}>Conf</DocType>
+                      ) : (
+                        <DocType $color={'#012438'}>Pub</DocType>
+                      )}
+                      <Image src={docthumbnail} alt="doc" style={{ width: '6rem', height: '6rem' }} />
+                    </div>
+                    <div style={{ alignItems: 'start' }}>
+                      <Text
+                        className="text"
+                        $fontWeight="300"
+                        $color="##CECECE"
+                        $align="start"
+                        style={{
+                          margin: '0.5rem 0',
+                          fontSize: '12px',
+                          alignItems: 'start',
+                          textAlign: 'start',
+                        }}
+                      >
+                        {doc.journal.slice(0, 25)}...
+                      </Text>
+                      <Text
+                        className="text"
+                        $fontSize="18px"
+                        $fontWeight="300"
+                        $color="#ffffff"
+                        style={{ alignItems: 'start', margin: '0.5rem 0', textAlign: 'start', flexWrap: 'wrap' }}
+                      >
+                        {doc.title.slice(0, 50)}...
+                      </Text>
+                      <Text
+                        className="text"
+                        $fontWeight="200"
+                        $color="##CECECE"
+                        $align="start"
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          margin: '0.5rem 0',
+                          fontSize: '12px',
+                          width: 'fit-content',
+                        }}
+                      >
+                        <span>{doc.date}</span>
+                      </Text>
+                    </div>
+                  </div>
                 </ComponentWrap>
               ))
             ) : (

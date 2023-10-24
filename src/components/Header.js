@@ -80,7 +80,7 @@ const HeaderLogoWrap = styled.div`
 
 const HeaderNavWrap = styled.div`
   padding: 0 2rem;
-  width: fit-content;
+  width: 65vw;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -236,7 +236,7 @@ const Header = () => {
       { title: 'ABOUT US', linkTo: 'aboutus' },
       { title: 'HISTORY', linkTo: 'history' },
       { title: 'CEO MESSAGE', linkTo: 'ceomessage' },
-      { title: 'CI', linkTo: 'ci' },
+      { title: 'CORPORATE IDENTITY', linkTo: 'ci' },
     ],
     ourapproach: [
       { title: 'POLY-PHARMACOLOGY', linkTo: 'poly-pharmacology' },
@@ -255,8 +255,8 @@ const Header = () => {
       { title: 'MEMO:RE PROJECT', linkTo: 'memoreproject' },
     ],
     irpr: [
-      { title: 'NOTICE', linkTo: 'notice' },
-      { title: 'PRESS RELEASE', linkTo: 'pressrelease' },
+      { title: 'NOTICE', linkTo: 'notice/' },
+      { title: 'PRESS RELEASE', linkTo: 'pressrelease/' },
       { title: 'MEDIA KIT', linkTo: 'mediakit' },
     ],
   });

@@ -56,7 +56,7 @@ const Ci = () => {
   return (
     <Container className="container">
       <Header />
-      <Path>{`HOME > COMPANY > CI`}</Path>
+      <Path>{`HOME > COMPANY > CORPORATE IDENTITY`}</Path>
       <MainImgWrap $src={ci_cover}>
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
@@ -65,7 +65,10 @@ const Ci = () => {
         </ContainerGridLineWrap>
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>CI</HeadLine>
+        <HeadLine className="midsize">
+          CORPORATE
+          <br /> IDENTITY
+        </HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}

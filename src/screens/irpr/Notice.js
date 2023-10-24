@@ -6,7 +6,6 @@ import irpr_notice_cover from './assets/irpr_notice_cover.png';
 import search from './assets/icon_search.svg';
 import icon_circlearrow_dark from './assets/icon_circlearrow_dark.svg';
 import icon_more from './assets/icon_more.svg';
-import arrow from '../../assets/images/arrow.svg';
 
 import icon_circlearrow_white from './assets/icon_circlearrow_white.svg';
 
@@ -248,7 +247,7 @@ const Notice = () => {
   const [filteredList, setFilteredList] = useState([]);
   const { data, isLoading: loading, refetch } = useNoticeList(searchValue, language, pageNumber);
   const [isLoading, setIsLoading] = useState(loading);
-  const [viewMoreOn, setViewMoreOn] = useState(false);
+  const [viewMoreOn, setViewMoreOn] = useState(true);
 
   useEffect(() => {
     if (pageNumber === 1) {
@@ -271,8 +270,9 @@ const Notice = () => {
     }
     if (pageNumber > 1) {
       if (data?.data?.success) {
+        console.log('data');
         data?.data.data.noticeDtoList.map((item) => {
-          setItemList((prev) => [
+          setFilteredList((prev) => [
             ...prev,
             {
               id: item.id,
@@ -288,7 +288,12 @@ const Notice = () => {
     }
   }, [data]);
 
-  useEffect(() => {}, [pageNumber]);
+  useEffect(() => {
+    if (pageNumber > 1) {
+      refetch(pageNumber, language, searchValue);
+      console.log('refetch', pageNumber);
+    }
+  }, [pageNumber]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -358,123 +363,6 @@ const Notice = () => {
         // rendering detail page and detail page footer navigation
         <>
           <Outlet context={['Notice', currentItem]} />
-          <Desktop></Desktop>
-          <Mobile>
-            <HomeComponentWrap style={{ paddingTop: '2rem' }}>
-              <ComponentWrap
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr',
-                  gap: '0',
-                  justifyContent: 'center',
-                  alignItems: 'start',
-                  borderTop: '1px solid #FDFDFD',
-                }}
-              >
-                {itemList.indexOf(currentItem) === 0 ? (
-                  <div></div>
-                ) : (
-                  <div style={{ width: '66.6%' }}>
-                    <Text
-                      style={{
-                        margin: '3rem 0 1rem 0',
-                        padding: '0',
-                        textAlign: 'start',
-                        fontSize: '14px',
-                        fontWeight: '300',
-                      }}
-                    >
-                      PREV
-                    </Text>
-                    <HR $width="2em" $height="1px" />
-                    <Link style={{ textDecoration: 'none' }} to={`/irpr/notice/${parseInt(id) - 1}`}>
-                      <Text
-                        className="prev"
-                        style={{
-                          width: '80%',
-                          margin: '1rem 0',
-                          padding: '0',
-                          textAlign: 'start',
-                          fontSize: '16px',
-                          fontWeight: '300',
-                        }}
-                      >
-                        {itemList[itemList.indexOf(currentItem) - 1]?.title.slice(0, 60)}...
-                      </Text>
-                    </Link>
-                  </div>
-                )}
-                {itemList[itemList.indexOf(currentItem) + 1] ? (
-                  <div style={{ width: '66.6%' }}>
-                    <Text
-                      style={{
-                        margin: '3rem 0 1rem 0',
-                        padding: '0',
-                        textAlign: 'start',
-                        fontSize: '14px',
-                        fontWeight: '300',
-                      }}
-                    >
-                      NEXT
-                    </Text>
-                    <HR $width="2em" $height="1px" />
-                    <Link style={{ textDecoration: 'none' }} to={`/irpr/notice/${parseInt(id) + 1}`}>
-                      <Text
-                        className="next"
-                        style={{
-                          width: '80%',
-                          margin: '1rem 0',
-                          padding: '0',
-                          textAlign: 'start',
-                          fontSize: '16px',
-                          fontWeight: '300',
-                        }}
-                      >
-                        {itemList[itemList.indexOf(currentItem) + 1]?.title.slice(0, 60)}...
-                      </Text>
-                    </Link>
-                  </div>
-                ) : (
-                  <div></div>
-                )}
-
-                <div
-                  style={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'end',
-                    alignItems: 'end',
-                    width: '100%',
-                  }}
-                >
-                  <Link style={{ textDecoration: 'none', width: '66.6%' }} to="/irpr/notice">
-                    <Text
-                      $fontSize="16px"
-                      $fontWeight="300"
-                      $color="#ffffff"
-                      $align="start"
-                      $clickable={true}
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        width: '100%',
-                        paddingBottom: '0.7em',
-                        margin: '1em 0',
-                        borderBottom: '1px solid #ffffff',
-                        gap: '3em',
-                      }}
-                    >
-                      <span style={{ zIndex: '-1' }}>View List</span>
-                      <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
-                    </Text>
-                  </Link>
-                </div>
-              </ComponentWrap>
-            </HomeComponentWrap>
-          </Mobile>
         </>
       ) : (
         <>
@@ -540,7 +428,7 @@ const Notice = () => {
                         <Link
                           style={{ textDecoration: 'none', width: '100%' }}
                           key={'noticeItem' + index}
-                          to={`/irpr/notice/${index}`}
+                          to={`/irpr/notice/${item.id}`}
                         >
                           <RowWrap
                             onMouseOver={() => {
@@ -598,7 +486,7 @@ const Notice = () => {
                   </ComponentWrap>
                 )}
               </ComponentWrap>
-              {(viewMoreOn || pageNumber * itemPerPage < filteredList.length) && (
+              {(viewMoreOn || pageNumber * itemPerPage <= filteredList.length) && (
                 <div
                   style={{
                     display: 'flex',
@@ -608,7 +496,7 @@ const Notice = () => {
                     cursor: 'pointer',
                   }}
                   onClick={() => {
-                    if (pageNumber * itemPerPage < filteredList.length) {
+                    if (pageNumber * itemPerPage <= filteredList.length) {
                       setPageNumber(pageNumber + 1);
                     }
                   }}
@@ -701,7 +589,7 @@ const Notice = () => {
                             }}
                           >
                             <DateWrap>
-                              <Text className="date">{item.date}</Text>
+                              <Text className="date">{`${item.month} ${item.date}, ${item.year}`}</Text>
                             </DateWrap>
                             <TitleWrap style={{ overflow: 'hidden' }}>
                               <div
@@ -712,9 +600,10 @@ const Notice = () => {
                                   height: '100%',
                                   overflow: 'hidden',
                                   whiteSpace: 'nowrap',
+                                  marginRight: '1rem',
                                 }}
                               >
-                                {item.title.slice(0, 30)}...
+                                {item.title.slice(0, 25)}...
                               </div>
 
                               <Image
@@ -735,7 +624,7 @@ const Notice = () => {
                   </ComponentWrap>
                 )}
               </ComponentWrap>
-              {pageNumber * itemPerPage < filteredList.length && (
+              {pageNumber * itemPerPage <= filteredList.length && (
                 <div
                   style={{
                     display: 'flex',
@@ -745,7 +634,7 @@ const Notice = () => {
                     cursor: 'pointer',
                   }}
                   onClick={async () => {
-                    if (pageNumber * itemPerPage < filteredList.length) {
+                    if (pageNumber * itemPerPage <= filteredList.length) {
                       setPageNumber(pageNumber + 1);
                     }
                   }}

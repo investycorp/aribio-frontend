@@ -88,6 +88,7 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+  overflow-x: hidden;
 `;
 
 const TextWrap = styled.div.attrs((props) => ({ className: props.className }))`
@@ -332,58 +333,108 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
   justify-content: start;
   align-items: start;
   background-color: transparent;
-  animation: fadeInAnimation 2s;
-  animation-fill-mode: forwards;
-  -webkit-animation: fadeInAnimation 2s;
-  -webkit-animation-fill-mode: forwards;
-  @keyframes fadeInAnimation {
-    0% {
-      opacity: 0.5;
-      transform: translateY(5%);
-      -webkit-transform: translateY(5%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-      -webkit-transform: translateY(0);
-    }
-  }
-  @-webkit-keyframes fadeInAnimation {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  opacity: 0;
-  transition: opacity 1s;
-  -webkit-transition: opacity 1s;
+  // animation: fadeInAnimation 2s;
+  // animation-fill-mode: forwards;
+  // -webkit-animation: fadeInAnimation 2s;
+  // -webkit-animation-fill-mode: forwards;
+  // @keyframes fadeInAnimation {
+  //   0% {
+  //     opacity: 0.5;
+  //     transform: translateY(5%);
+  //     -webkit-transform: translateY(5%);
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //     transform: translateY(0);
+  //     -webkit-transform: translateY(0);
+  //   }
+  // }
+  // @-webkit-keyframes fadeInAnimation {
+  //   0% {
+  //     opacity: 0;
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //   }
+  // }
+  // opacity: 0;
+  // transition: opacity 1s;
+  // -webkit-transition: opacity 1s;
 
   ${ComponentWrap}.irdoc {
+    position: relative;
+    align-items: center;
     padding: 0;
-    border: 2px solid #b9b9b9;
-    border-radius: 10px;
-    padding: 2rem 2rem;
+    border: 1px solid #707070;
+    border-radius: 20px;
+    padding: 2rem 1rem;
     cursor: pointer;
+    .readmore {
+      position: absolute;
+      border-radius: 20px;
+      top: 0;
+      left: 0;
+      height: -webkit-fill-available;
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background-color: rgba(13, 32, 40, 0.9);
+      color: #e5e5e5;
+      font-size: 26px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      z-index: 20;
+      @media (max-width: 1280px) {
+        font-size: 21px;
+      }
+      @media (max-width: 900px) {
+      }
+    }
 
     &:hover,
     &:active,
     &:focus {
-      background-color: rgba(255, 255, 255, 0.3);
+      .readmore {
+        display: flex;
+
+        opacity: 1;
+      }
+    }
+    div.wrap {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      column-gap: 1rem;
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
     }
 
     &:nth-child(even) {
+      @media (max-width: 900px) {
+        margin-top: 1rem;
+      }
       margin-top: 3rem;
       div.wrap {
       }
     }
     &:nth-child(odd) {
+      @media (max-width: 900px) {
+        margin-top: 1rem;
+      }
       div {
       }
     }
 
     @media (max-width: 900px) {
+      max-width: 86vw;
       &:nth-child(odd) {
         align-items: end;
         ${Text} {
