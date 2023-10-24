@@ -10,6 +10,7 @@ import { Container, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './st
 
 import { HeadLine, Path, MainImgWrap } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
+import Video from '../../../components/Video';
 
 const History = () => {
   const [tabNames, setTabNames] = useState(['2019-2023', '2013-2018', '2010-2012']);
@@ -88,7 +89,8 @@ const History = () => {
     <Container className="container">
       <Header />
       <Path>{`HOME > COMPANY > HISTORY`}</Path>
-      <MainImgWrap $src={history_cover}></MainImgWrap>
+      {/* <MainImgWrap $src={history_cover}></MainImgWrap> */}
+      <Video page="history" />
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>HISTORY</HeadLine>
         <img

@@ -55,10 +55,10 @@ const MainImgWrap = styled.div`
   align-items: center;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #00010c;
+  background-color: transparent;
   padding-bottom: 10vh;
   z-index: 0;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${(props) => (props.$src ? props.$src : '')});
 `;
 
 const MainImgTextWrap = styled.div`

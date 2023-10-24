@@ -4,7 +4,7 @@ const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   height: fit-content;
-  background-color: #121212;
+  background-color: transparent;
   color: #ffffff;
   display: block;
   flex-direction: column;
@@ -59,7 +59,7 @@ const MainImgWrap = styled.div`
   align-items: center;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #00010c;
+  background-color: transparent;
   padding-bottom: 10vh;
   z-index: 0;
   background-image: url(${(props) => props.$src});

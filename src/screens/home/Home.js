@@ -33,6 +33,7 @@ import {
 import useNoticeList from '../../hooks/irpr/useNoticeList';
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
+import Video from '../../components/Video';
 
 const Home = () => {
   const language = useRecoilValue(Language);
@@ -82,8 +83,9 @@ const Home = () => {
       <Container className="container">
         <Header />
         <SideSlider />
+        <Video page="home" />
         <Desktop>
-          <MainImgWrap $src={home_cover}>
+          <MainImgWrap>
             <ContainerGridLineWrap className="grid_bg">
               <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
               <GridLineBox />
@@ -91,11 +93,11 @@ const Home = () => {
             </ContainerGridLineWrap>
           </MainImgWrap>
           <HomeComponentWrap className="home home_1">
-            <MainImgTextWrap style={{ marginTop: '40vh' }}>
-              <HeadLineTitle>OVERCOME</HeadLineTitle>
+            <MainImgTextWrap style={{ height: '100vh' }}>
+              {/* <HeadLineTitle>OVERCOME</HeadLineTitle>
               <HeadLineTitle style={{ marginBottom: '2rem' }}>NEURODEGENERATION</HeadLineTitle>
               <HeadLineText>We keep striving to develop new therapeutic agents for</HeadLineText>
-              <HeadLineText>neurodegenerative diseases hitherto.</HeadLineText>
+              <HeadLineText>neurodegenerative diseases hitherto.</HeadLineText> */}
             </MainImgTextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap className="home home_2">

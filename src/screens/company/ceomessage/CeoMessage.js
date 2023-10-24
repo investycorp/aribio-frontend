@@ -3,12 +3,12 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
 import ceophoto from './assets/ceophoto.png';
-import ceomessage_cover from './assets/ceomessage_cover.png';
 
 import { Container, HomeComponentWrap, TextWrap, Text, ContentBox, Image } from './style';
 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
+import Video from '../../../components/Video';
 
 const CeoMessage = () => {
   useEffect(() => {
@@ -18,7 +18,8 @@ const CeoMessage = () => {
 
   return (
     <Container className="container">
-      <MainImgWrap $src={ceomessage_cover}>
+      <MainImgWrap>
+        <Video page="ceomessage" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
           <GridLineBox />

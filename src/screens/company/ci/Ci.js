@@ -23,6 +23,7 @@ import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from 
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 import useCi from '../../../hooks/company/useCi';
+import Video from '../../../components/Video';
 
 const Ci = () => {
   const { data, isLoading } = useCi();
@@ -57,7 +58,8 @@ const Ci = () => {
     <Container className="container">
       <Header />
       <Path>{`HOME > COMPANY > CORPORATE IDENTITY`}</Path>
-      <MainImgWrap $src={ci_cover}>
+      <MainImgWrap>
+        <Video page="ceomessage" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
           <GridLineBox />

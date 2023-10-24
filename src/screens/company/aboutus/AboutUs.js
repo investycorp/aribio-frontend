@@ -11,6 +11,8 @@ import Advisors from './components/Advisors';
 import aboutus_cover from './assets/aboutus_cover.png';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
+import Video from '../../../components/Video';
+
 const AboutUs = () => {
   const [tabNames, setTabNames] = useState(['Leadership', 'Advisors']);
   const [currentTab, setCurrentTab] = useState('Leadership');
@@ -24,7 +26,8 @@ const AboutUs = () => {
     <Container className="container">
       <Header />
       <Path>{`HOME > COMPANY > ABOUT US`}</Path>
-      <MainImgWrap $src={aboutus_cover}>
+      <MainImgWrap>
+        <Video page="aboutus" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
           <GridLineBox />
