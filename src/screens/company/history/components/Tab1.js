@@ -29,7 +29,7 @@ const Text = styled.div`
   font-size: ${(props) => (props.$isActive ? '50px' : '24px')};
   font-weight: ${(props) => (props.$isActive ? '500' : '300')};
   color: ${(props) => (props.$isActive ? '#ffffff' : '#868686')};
-  line-height: 1.5em;
+  line-height: ${(props) => (props.$isActive ? '3rem' : '2rem')};
   display: flex;
   justify-content: center;
   align-items: start;
@@ -333,6 +333,7 @@ const Tab1 = ({ listItems }) => {
                   onClick={() => {
                     setCurrentTab(tabName);
                   }}
+                  style={{ height: '3rem' }}
                 >
                   {tabName}
                 </Text>
