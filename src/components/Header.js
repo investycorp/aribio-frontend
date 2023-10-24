@@ -340,7 +340,11 @@ const Header = () => {
                   if (location.pathname === '/') window.location.reload();
                 }}
               >
-                <img style={{ cursor: 'pointer', width: '74px', paddingTop: '0.5em' }} src={Logo} alt="logo" />
+                <img
+                  style={{ cursor: 'pointer', width: '74px', paddingTop: '0.5em' }}
+                  src={process.env.PUBLIC_URL + '/assets/images/header_logo.png'}
+                  alt="logo"
+                />
               </Link>
             </HeaderLogoWrap>
 
@@ -463,7 +467,11 @@ const Header = () => {
                     if (location.pathname === '/') window.location.reload();
                   }}
                 >
-                  <img style={{ cursor: 'pointer' }} src={Logo} alt="logo" />
+                  <img
+                    style={{ cursor: 'pointer' }}
+                    src={process.env.PUBLIC_URL + '/assets/images/header_logo.png'}
+                    alt="logo"
+                  />
                 </Link>
               </HeaderLogoWrap>
               <HeaderNavWrap className="header-navwrap">

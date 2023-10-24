@@ -30,7 +30,13 @@ import {
   FilterShadow,
 } from './style';
 
+import useNoticeList from '../../hooks/irpr/useNoticeList';
+import Language from '../../atom/Language';
+import { useRecoilValue } from 'recoil';
+
 const Home = () => {
+  const language = useRecoilValue(Language);
+  const { data, isLoading, refetch } = useNoticeList('', language, 1);
   const [noticeList, setNoticeList] = useState([
     {
       date: '2023.07.26',
@@ -48,6 +54,23 @@ const Home = () => {
       imageUrl: home_notice3,
     },
   ]);
+
+  useEffect(() => {
+    if (data.data.success) {
+      console.log(data.data.data.noticeDtoList);
+      const list = data.data.data.noticeDtoList.map((item, index) => {
+        if (index < 3) {
+          return {
+            id: item.id,
+            date: `${item.year}.${item.month}.${item.day}`,
+            title: item.title,
+            imageUrl: item.fileDto?.fileUrl ? item.fileDto?.fileUrl : home_notice1,
+          };
+        }
+      });
+      setNoticeList(list.slice(0, 3));
+    }
+  }, [data]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -201,7 +224,7 @@ const Home = () => {
                 gap: '1rem',
               }}
             >
-              {noticeList.map((item, index) => (
+              {noticeList?.map((item, index) => (
                 <ComponentGridWrap
                   key={index}
                   style={{
@@ -367,7 +390,7 @@ const Home = () => {
               </ComponentText>
             </div>
 
-            {noticeList.map((item, index) => (
+            {noticeList?.map((item, index) => (
               <ComponentGridWrap
                 key={index}
                 style={{
