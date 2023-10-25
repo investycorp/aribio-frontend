@@ -217,7 +217,7 @@ const DetailPage = () => {
                       margin: '1em 0',
                       padding: '0',
                       textAlign: 'start',
-                      fontSize: '18px',
+                      fontSize: window.innerWidth > 1280 ? '24px' : '13px',
                       fontWeight: '400',
                       color: '#141414',
                       cursor: 'pointer',
@@ -259,7 +259,7 @@ const DetailPage = () => {
                       margin: '1em 0',
                       padding: '0',
                       textAlign: 'start',
-                      fontSize: '18px',
+                      fontSize: window.innerWidth > 1280 ? '24px' : '13px',
                       fontWeight: '400',
                       color: '#141414',
                     }}
@@ -292,7 +292,7 @@ const DetailPage = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    minWidth: 'fit-content',
+                    width: '260px',
                     paddingBottom: '0.7em',
                     margin: '1em 0',
                     borderBottom: '1px solid #212121',
@@ -300,6 +300,7 @@ const DetailPage = () => {
                     zIndex: '-1',
                     color: '#212121',
                     cursor: 'pointer',
+                    fontSize: window.innerWidth > 1280 ? '18px' : '13px',
                   }}
                 >
                   <span style={{ color: '#212121', zIndex: '-1' }}>View List</span>
@@ -333,7 +334,7 @@ const DetailPage = () => {
                 margin: '1em 0',
                 padding: '0',
                 zIndex: '-1',
-                fontSize: '18px',
+                fontSize: window.innerWidth > 1280 ? '18px' : '13px',
                 color: '#414141',
               }}
             >

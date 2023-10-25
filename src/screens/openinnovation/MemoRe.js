@@ -17,12 +17,29 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import arrow from '../../assets/images/arrow.svg';
 
+import Language from '../../atom/Language';
+import useLinkList from '../../hooks/useLink';
+
 const MemoRe = () => {
+  const [language, setLanguage] = useRecoilState(Language);
+  const { data, isLoading, refetch } = useLinkList(language);
+  const [links, setLinks] = useState({});
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
+  useEffect(() => {
+    if (data?.data?.success) {
+      const item = data.data.data;
+      setLinks({
+        memoReEngLink: item.memoReEngLink,
+        memoReKorLink: item.memoReKorLink,
+        memoReAppAndroid: item.appLinkDto.memoReAndroidAppLink,
+        memoReAppIos: item.appLinkDto.memoReIosAppLink,
+      });
+    }
+  }, [data]);
   return (
     <Container className="container">
       <MainImgWrap $src={openinnovation_memore_cover}>
@@ -159,7 +176,7 @@ const MemoRe = () => {
                   margin: '0',
                   cursor: 'pointer',
                 }}
-                onClick={() => window.open('http://www.memoreapp.com/', '_blank')}
+                onClick={() => window.open(links.memoReEngLink, '_blank')}
               >
                 <span style={{ zIndex: '-1' }}>Go to Memo:Re (ENG)</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
@@ -182,7 +199,7 @@ const MemoRe = () => {
                   margin: '0',
                   cursor: 'pointer',
                 }}
-                onClick={() => window.open('http://www.memore.co.kr/', '_blank')}
+                onClick={() => window.open(links.memoReKorLink, '_blank')}
               >
                 <span style={{ zIndex: '-1' }}>Go to Memo:Re (KOR)</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
@@ -208,9 +225,9 @@ const MemoRe = () => {
                 onClick={() => {
                   let userOs = detectOS();
                   if (userOs === 'iOS') {
-                    window.open('https://apps.apple.com/kr/app/%EB%A9%94%EB%AA%A8-%EB%A6%AC/id6448716248 ', '_blank');
+                    window.open(links.memoReAppIos, '_blank');
                   } else if (userOs === 'Android') {
-                    window.open('https://play.google.com/store/apps/details?id=com.aribio.app.memore ', '_blank');
+                    window.open(links.memoReAppAndroid, '_blank');
                   } else {
                     alert('Only Android and iOS are available.');
                   }
@@ -327,7 +344,7 @@ const MemoRe = () => {
                   gap: '1em',
                   margin: '0',
                 }}
-                onClick={() => navigate('/')}
+                onClick={() => window.open(links.memoReEngLink, '_blank')}
               >
                 <span style={{ zIndex: '-1' }}>Go to Memo:Re (ENG)</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
@@ -349,7 +366,7 @@ const MemoRe = () => {
                   gap: '1em',
                   margin: '0',
                 }}
-                onClick={() => navigate('/')}
+                onClick={() => window.open(links.memoReKorLink, '_blank')}
               >
                 <span style={{ zIndex: '-1' }}>Go to Memo:Re (KOR)</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
@@ -371,7 +388,16 @@ const MemoRe = () => {
                   gap: '1em',
                   margin: '0',
                 }}
-                onClick={() => navigate('/')}
+                onClick={() => {
+                  let userOs = detectOS();
+                  if (userOs === 'iOS') {
+                    window.open(links.memoReAppIos, '_blank');
+                  } else if (userOs === 'Android') {
+                    window.open(links.memoReAppAndroid, '_blank');
+                  } else {
+                    alert('Only Android and iOS are available.');
+                  }
+                }}
               >
                 <span style={{ zIndex: '-1' }}>APP Download</span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />

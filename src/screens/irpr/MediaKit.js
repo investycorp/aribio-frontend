@@ -33,9 +33,9 @@ const MediaKit = () => {
         </ContainerGridLineWrap>
       </MainImgWrap>
       <Header />
-      <Path>{`HOME > IR & PR > MEDIA KIT`}</Path>
+      <Path>{`HOME > IR & PR > MEDIA`}</Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>MEDIA KIT</HeadLine>
+        <HeadLine>MEDIA</HeadLine>
         <img
           style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
           src={vertical_arrow}
@@ -47,7 +47,7 @@ const MediaKit = () => {
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap style={{ width: '70vw' }}>
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-                MEDIA KIT
+                MEDIA
               </Text>
               <div
                 style={{
@@ -64,7 +64,7 @@ const MediaKit = () => {
                 $color="#ffffff"
                 style={{ margin: '2rem 0 0 0' }}
               >
-                We Deliver the Latest AriBio News.
+                Explore Our Content
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -99,7 +99,7 @@ const MediaKit = () => {
                     $align="start"
                     $fontWeight="300"
                     $color="#ffffff"
-                    style={{ margin: '0 0 1rem 0', fontSize: window.innerWidth > 1280 ? '24px' : '18px', zIndex: '-1' }}
+                    style={{ margin: '0 0 1rem 0', fontSize: window.innerWidth > 1280 ? '24px' : '14px', zIndex: '-1' }}
                   >
                     {item.title}
                   </Text>
@@ -121,7 +121,7 @@ const MediaKit = () => {
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap style={{ width: '70vw' }}>
               <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                MEDIA KIT
+                MEDIA
               </Text>
               <div
                 style={{
@@ -133,7 +133,7 @@ const MediaKit = () => {
                 }}
               ></div>
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                We Deliver the Latest AriBio News.
+                Explore Our Content
               </Text>
             </TextWrap>
           </HomeComponentWrap>

@@ -192,28 +192,6 @@ const Career = () => {
   //     img: career_joinus1,
   //     url: '',
   //   },
-  //   {
-  //     type: 'Job Openings',
-  //     location: 'Seoul',
-  //     title: 'Senior Data Engineer',
-  //     img: career_joinus2,
-  //     url: '',
-  //   },
-  //   {
-  //     type: 'Job Openings',
-  //     location: 'Seoul',
-  //     title: 'Senior Data Engineer',
-  //     img: career_joinus1,
-  //     url: '',
-  //   },
-  //   {
-  //     type: 'Job Openings',
-  //     location: 'Global',
-  //     title: 'Director / Sr. Director of Business Development',
-  //     img: career_joinus2,
-  //     url: '',
-  //   },
-  // ]);
 
   useEffect(() => {
     if (id) {
@@ -247,7 +225,7 @@ const Career = () => {
           id: item.id,
           type: item.type ? item.type : 'Job Openings',
           location: item.location,
-          title: item.jobGroupList[0],
+          title: item.jobGroup,
           img: item.fileDtoList.map((item) => {
             if (item.fileType === 'JOIN_US') {
               return item.fileUrl;

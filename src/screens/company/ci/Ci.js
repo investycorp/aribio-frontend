@@ -107,14 +107,18 @@ const Ci = () => {
               $color="#D3D3D3"
               style={{ marginTop: '2em' }}
             >
-              Developing new drugs is the main motivation for growth at AriBio. R&D is our core competency. It is the
-              source of all our products and our pride as a company with unrivaled technological achievements on the
-              global stage. Our new mission and brand identity is based on the foundation to contribute towards a
-              happier and healthier humanity.
+              We are dedicated to pioneering treatments for neurodegenerative diseases, offering innovative therapies
+              for a brighter future.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
-        <HomeComponentWrap style={{ padding: '8vh 7vw', backgroundColor: '#ffffff' }}>
+        <HomeComponentWrap
+          style={{
+            height: window.innerWidth > 1280 ? '409px' : '275px',
+            padding: '8vh 7vw',
+            backgroundColor: 'rgba(255,255,255,0.7)',
+          }}
+        >
           <Image src={pngImg} alt="ci_logo" style={{ width: '30vw' }} />
         </HomeComponentWrap>
         <HomeComponentWrap style={{ padding: '25vh 0', display: 'grid', gridTemplateColumns: '64.33vw 35.67vw' }}>
@@ -148,7 +152,7 @@ const Ci = () => {
                   $color="#F2F2F2"
                   $align="start"
                 >
-                  AriBio Red
+                  AriBio Pink
                 </Text>
                 <Text $fontSize="14px" $fontWeight="100" $color="#D3D3D3" $align="start">
                   #CB3063
@@ -191,7 +195,7 @@ const Ci = () => {
                 01
               </Text>
               <Text
-                $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
+                $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                 $fontWeight="300"
                 $color="#D5D5D5"
                 $align="start"
@@ -211,7 +215,7 @@ const Ci = () => {
               </Text>
               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'start', gap: '0.5em' }}>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
+                  $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                   $fontWeight="300"
                   $color="#D5D5D5"
                   $align="start"
@@ -220,7 +224,7 @@ const Ci = () => {
                   Ari:
                 </Text>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
+                  $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                   $fontWeight="300"
                   $color="#D5D5D5"
                   $align="start"

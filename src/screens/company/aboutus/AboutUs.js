@@ -47,25 +47,34 @@ const AboutUs = () => {
       <Desktop>
         <HomeComponentWrap>
           <TextWrap>
-            <Text $color="#939598" $fontSize="18px" $fontWeight="300">
+            <Text $color="#939598" $fontSize="18px" $fontWeight="600">
               ABOUT US
             </Text>
-            <Text $fontSize="34px" $fontWeight="400">
+            <Text $fontSize="34px" $fontWeight="600">
               Company Overview
             </Text>
-            <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-            <Text $fontSize="14px" $fontWeight="300" $color="#D3D3D3">
-              AriBIo Co., Ltd. is a biotechnology company that aims to develop a meaningful therapies for
-              neurodegenerative diseases through its innovative platform ARIDD™
+            <hr
+              style={{
+                width: window.innerWidth > 1280 ? '60px' : '40px',
+                border: '1px solid #ffffff',
+                margin: '3.5rem 0 5rem 0',
+              }}
+            />
+            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3">
+              AriBio Co., Ltd. is a biotechnology leader focused on creating impactful therapies for neurodegenerative
+              diseases. Through our groundbreaking ARIDD™ platform
               <br />
-              (AI-powered, Reverse engineered & Integrated Drug Development) and Open Innovation.
+              (AI-powered, Reverse engineered & Integrated Drug Development)
+              <br />
+              and a commitment to Open Innovation, we are poised to make significant strides in the field.
               <br />
               <br />
-              Our mission is to develop develop novel therapies for neurodegenerative diseases.
+              We are dedicated to pioneering treatments for neurodegenerative diseases, offering innovative therapies
+              for a brighter future
               <br />
               <br />
-              Meet our team of experts in science, technology, pharmaceuticals, and regulations joined together to lead
-              AriBio.
+              Meet our dedicated leadership team of experts in science, technology, pharmaceuticals, and regulatory
+              fields.
             </Text>
           </TextWrap>
         </HomeComponentWrap>

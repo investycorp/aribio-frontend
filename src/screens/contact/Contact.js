@@ -25,8 +25,12 @@ import {
 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
+import useContact from '../../hooks/contact/useContact';
+import Language from '../../atom/Language';
+import { useRecoilValue } from 'recoil';
 
 const Contact = () => {
+  const [language] = useRecoilValue(Language);
   const [contactInfo, setContactInfo] = useState({
     firstName: '',
     lastName: '',
@@ -36,9 +40,15 @@ const Contact = () => {
     message: '',
   });
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [emailError, setEmailError] = useState('This field is required.');
+  const {
+    mutate,
+    isLoading,
+    data: addData,
+    isError: mutationError,
+    isSuccess: mutationSuccess,
+  } = useContact(contactInfo);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -75,22 +85,28 @@ const Contact = () => {
 
     let isValid = await checkValidation();
     if (isValid === true) {
-      await setTimeout(() => {
-        setIsSuccess(true);
-      }, 500);
-      console.log('submitted');
-      setIsError(false);
-      setContactInfo({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        affiliation: '',
-        message: '',
-      });
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 3000);
+      console.log('ContactInfo', contactInfo);
+      const response = await mutate();
+      if (mutationSuccess) {
+        await setIsSuccess(true);
+        console.log('submitted');
+        await setIsError(false);
+        setContactInfo({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          affiliation: '',
+          message: '',
+        });
+        setTimeout(() => {
+          //to turn off success message
+          setIsSuccess(false);
+        }, 2000);
+      } else if (mutationError) {
+        setIsError(true);
+        console.log('error');
+      }
     } else {
       setIsError(true);
     }

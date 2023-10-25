@@ -214,7 +214,7 @@ const ColorBar = styled.div`
   }
 
   @media screen and (max-width: 1280px) {
-    height: 120px;
+    height: 92px;
     padding: 1em;
   }
 

@@ -72,7 +72,7 @@ function App() {
                 <Route exact path=":id" element={<DetailPage />} />
               </Route>
               <Route path="/irpr/mediakit" element={<MediaKit />} />
-              <Route exact path="/career/career" element={<Career />}>
+              <Route exact path="/career" element={<Career />}>
                 <Route exact path=":id" element={<CareerDetail />} />
               </Route>
               <Route path="/contact/partner" element={<Partner />} />

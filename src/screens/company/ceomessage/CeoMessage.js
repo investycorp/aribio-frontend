@@ -51,8 +51,7 @@ const CeoMessage = () => {
               $color="#ffffff"
               style={{ margin: '2rem 0 0 0' }}
             >
-              A biotech company brought together <br />
-              by those who dream of a brighter, healthier future.
+              Meet Our CEO
             </Text>
             <hr style={{ width: '60px', margin: '5em 0', border: '2px solid #ffffff' }} />
             <Text
@@ -75,28 +74,34 @@ const CeoMessage = () => {
               $fontSize="40px"
               $fontWeight="200"
               $color="#ffffff"
-              style={{ width: '50%', textAlign: 'start', margin: '0', height: 'fit-content', lineHeight: '1' }}
+              style={{ width: '70%', textAlign: 'start', margin: '0', height: 'fit-content', lineHeight: '1' }}
             >
               “
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
-              $fontWeight="300"
+              $fontWeight="400"
               $color="#ffffff"
-              style={{ padding: '0 20px', width: '50%', textAlign: 'center', margin: '0' }}
+              style={{ padding: '0 20px', width: '60%', textAlign: 'center', margin: '0' }}
             >
-              Regaining a healthy life and a bright smile may seem like a dream for patients and families with dementia.{' '}
+              At AriBio,
               <br />
-              However, AriBio is making this dream a reality with our innovative drug development.
+              developing new treatments is like stargazing across the night sky,
+              <br />
+              plotting our course through the vast unknown.
+              <br />
+              Our team shares a common mission , steadily working towards our goal
+              <br />
+              despite the cosmic uncertainties and challenges that may arise.
             </Text>
-            <Text $fontSize="40px" $fontWeight="200" $color="#ffffff" style={{ width: '50%', textAlign: 'end' }}>
+            <Text $fontSize="40px" $fontWeight="200" $color="#ffffff" style={{ width: '70%', textAlign: 'end' }}>
               ”
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
               $fontWeight="200"
               $color="#D6D6D6"
-              style={{ width: '55%', textAlign: 'end' }}
+              style={{ width: '55%', textAlign: 'center' }}
             >
               AriBio Co., Ltd. CEO Jai Jun Choung
             </Text>

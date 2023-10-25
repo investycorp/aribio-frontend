@@ -420,7 +420,9 @@ const Notice = () => {
                   <Image src={search} alt="search" onClick={(e) => handleSearchClick(e.target.previousSibling.value)} />
                 </ComponentWrap>
               </ComponentWrap>
-              <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '5em 0' }}>
+              <ComponentWrap
+                style={{ justifyContent: 'center', alignItems: 'center', padding: '5em 0', rowGap: '1em' }}
+              >
                 {filteredList.length > 0 ? (
                   filteredList.map((item, index) => {
                     if (index < pageNumber * itemPerPage) {

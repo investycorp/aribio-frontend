@@ -12,10 +12,16 @@ import { HeadLine, Path, MainImgWrap } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 import Video from '../../../components/Video';
 
+import Language from '../../../atom/Language';
+import { useRecoilState } from 'recoil';
+import useHistoryList from '../../../hooks/company/useHistoryList';
+
 const History = () => {
-  const [tabNames, setTabNames] = useState(['2019-2023', '2013-2018', '2010-2012']);
-  const [currentTab, setCurrentTab] = useState('2019-2023');
+  const [language, setLanguage] = useRecoilState(Language);
+  const [tabNames, setTabNames] = useState([]);
+  const [currentTab, setCurrentTab] = useState(0);
   const [currentScrollY, setCurrentScrollY] = useState(0);
+  const { data, isLoading } = useHistoryList(language);
   const [listItems, setListItems] = useState([
     {
       title: '2023',
@@ -85,11 +91,26 @@ const History = () => {
     document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    console.log(currentTab);
+    if (data?.data?.success) {
+      const items = data.data.dataList;
+      setTabNames([]);
+      items.map((item) => {
+        setTabNames((prev) => [...prev, `${item.startYear}-${item.endYear}`]);
+      });
+
+      setCurrentTab(0);
+      console.log('currentTab: ', currentTab);
+
+      console.log('data List: ', data.data.dataList);
+    }
+  }, [data]);
+
   return (
     <Container className="container">
       <Header />
       <Path>{`HOME > COMPANY > HISTORY`}</Path>
-      {/* <MainImgWrap $src={history_cover}></MainImgWrap> */}
       <Video page="history" />
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>HISTORY</HeadLine>
@@ -137,10 +158,10 @@ const History = () => {
           {tabNames?.map((item, index) => (
             <TabItem
               key={index}
-              $isActive={currentTab === item ? true : false}
+              $isActive={currentTab === index ? true : false}
               onClick={() => {
                 setCurrentTab(item);
-                console.log(item);
+                console.log(index);
               }}
             >
               {item}
@@ -148,13 +169,7 @@ const History = () => {
           ))}
         </Tab>
 
-        {tabNames.indexOf(currentTab) === 0 ? (
-          <Tab1 listItems={listItems} />
-        ) : tabNames.indexOf(currentTab) === 1 ? (
-          <Tab2 />
-        ) : (
-          <Tab3 />
-        )}
+        <Tab1 listItems={listItems} />
       </Desktop>
       <Mobile>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
@@ -183,23 +198,17 @@ const History = () => {
           {tabNames?.map((item, index) => (
             <TabItem
               key={index}
-              $isActive={currentTab === item ? true : false}
+              $isActive={currentTab === index ? true : false}
               onClick={() => {
                 setCurrentTab(item);
-                console.log(item);
+                console.log(index);
               }}
             >
               {item}
             </TabItem>
           ))}
         </Tab>
-        {tabNames.indexOf(currentTab) === 0 ? (
-          <Tab1 listItems={listItems} />
-        ) : tabNames.indexOf(currentTab) === 1 ? (
-          <Tab2 />
-        ) : (
-          <Tab3 />
-        )}
+        <Tab1 listItems={listItems} />
       </Mobile>
       <Footer />
     </Container>

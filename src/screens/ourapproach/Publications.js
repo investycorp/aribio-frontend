@@ -25,10 +25,15 @@ const SearchInput = styled.input`
   font-size: 20px;
   font-weight: 300;
   margin: 0.3em 0;
+  opacity: 0.5;
+  &:focus,
+  &:active,
+  &:hover {
+    opacity: 1;
+  }
   &::placeholder {
     color: #ffffff;
     font-weight: 200;
-    opacity: 1;
   }
 `;
 

@@ -91,6 +91,9 @@ const TextWrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  @media screen and (max-width: 1280px) {
+    width: 60vw;
+  }
 `;
 
 const Text = styled.div`
@@ -98,9 +101,14 @@ const Text = styled.div`
   font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
   font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
   color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
-  line-height: 1.5em;
+  line-height: 1.65em;
   text-align: ${(props) => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
+  @media screen and (max-width: 1280px) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: 900px) {
+  }
 `;
 
 const Tab = styled.div`
@@ -140,7 +148,7 @@ const TabItem = styled.div`
   }
   cursor: pointer;
   @media screen and (max-width: 1280px) {
-    font-size: 20px;
+    font-size: 22px;
   }
 `;
 
@@ -245,11 +253,17 @@ const DescriptionItem = styled.li`
   color: #f2f2f2;
   font-weight: 100;
   line-height: 1.5em;
-  list-style: disc;
+  list-style: none;
   list-style-position: outside;
 
+  &::marker {
+    content: '  •  ';
+    font-size: 1em;
+    text-align: left;
+  }
+
   @media screen and (max-width: 1280px) {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   @media screen and (max-width: 900px) {

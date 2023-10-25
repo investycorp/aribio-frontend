@@ -138,8 +138,13 @@ const DescriptionItem = styled.li`
   font-size: 20px;
   font-weight: 200;
   line-height: 1.5em;
-  list-style: disc;
+  list-style: none;
   list-style-position: outside;
+  &::marker {
+    content: '  •  ';
+    font-size: 1em;
+    text-align: left;
+  }
   @media screen and (max-width: 1280px) {
     font-size: 12px;
   }

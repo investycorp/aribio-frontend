@@ -113,8 +113,8 @@ const Advisors = () => {
                 style={{ paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end' }}
               >
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '34px' : '18px'}
-                  $fontWeight="400"
+                  $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
+                  $fontWeight="700"
                   $align="start"
                   style={{ margin: '0' }}
                 >

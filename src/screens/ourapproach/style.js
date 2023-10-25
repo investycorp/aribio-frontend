@@ -254,7 +254,7 @@ const ButtonWrap = styled.div`
   align-items: center;
   background-color: transparent;
   margin: 4rem 0;
-  gap: 2rem;
+  gap: 1.5rem;
   @media screen and (max-width: 900px) {
     padding-right: 0;
     gap: 1rem;
@@ -473,7 +473,7 @@ const DescriptionWrap = styled.ul`
   background-color: transparent;
   padding: 0;
   transition: all 0.2s ease-in-out;
-  list-style: disc outside;
+  list-style: none outside;
 
   @media screen and (max-width: 900px) {
     list-style: none;
@@ -482,7 +482,7 @@ const DescriptionWrap = styled.ul`
 `;
 
 const DescriptionItem = styled.li`
-  margin-left: 1em;
+  margin-left: 0.5em;
   width: 80%;
   height: fit-content;
   text-align: left;
@@ -490,6 +490,12 @@ const DescriptionItem = styled.li`
   color: #f2f2f2;
   font-weight: 100;
   line-height: 1.5em;
+
+  &::marker {
+    content: ' • ';
+    font-size: 1em;
+    text-align: left;
+  }
   @media screen and (max-width: 1280px) {
     font-size: 18px;
   }

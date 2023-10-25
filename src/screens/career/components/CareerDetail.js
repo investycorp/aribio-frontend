@@ -33,18 +33,18 @@ const CareerDetail = () => {
 
   useEffect(() => {
     setCurrentItem({});
-    // if (data?.data?.success) {
-    //   const item = data?.data.data;
-    //   setCurrentItem({
-    //     id: item.id,
-    //     date: `${item.month} ${item.day}, ${item.year}`,
-    //     title: item.title,
-    //     image: item.image,
-    //     content: <div>{item.contents?.replace('\n', '<br/>')}</div>,
-    //     url: item.url,
-    //   });
-    // }
-    // console.log(data?.data?.data?.id);
+    if (data?.data?.success) {
+      const item = data?.data?.data;
+      setCurrentItem({
+        id: item.id,
+        date: `${item.month} ${item.day}, ${item.year}`,
+        title: item.jobGroup,
+        image: item.popupFileDto?.fileUrl,
+        content: item.popupContents,
+        url: item.url,
+      });
+    }
+    console.log(data?.data);
   }, [data]);
 
   useEffect(() => {
@@ -109,7 +109,6 @@ const CareerDetail = () => {
               fontWeight: '400',
             }}
           >
-            !! Content Here
             {currentItem?.title}
           </Text>
           <HR style={{ margin: '3em 0' }} $color="#B5B5B5" />
@@ -127,7 +126,6 @@ const CareerDetail = () => {
               color: '#272727',
             }}
           >
-            !! Content Here
             {currentItem?.content}
           </Text>
         </ComponentWrap>
@@ -143,7 +141,7 @@ const CareerDetail = () => {
           }}
         >
           <Button
-            onClick={() => currentItem?.url && window.location.href(`//${currentItem.url}`)}
+            onClick={() => currentItem?.url && (window.location.href = `//${currentItem.url}`)}
             style={{ width: 'fit-content', borderBottom: '1px solid #707070' }}
           >
             <span style={{ padding: '0.5rem', zIndex: '-1' }}>Apply for this job</span>{' '}
@@ -220,7 +218,6 @@ const CareerDetail = () => {
               color: '#141414',
             }}
           >
-            !!!title here
             {currentItem?.title}
           </Text>
           <HR style={{ margin: '1rem 0', width: '40px', height: '1px' }} $color="#B5B5B5" />
@@ -238,7 +235,6 @@ const CareerDetail = () => {
               color: '#272727',
             }}
           >
-            !!! content here
             {currentItem?.content}
           </Text>
         </ComponentWrap>
@@ -254,7 +250,7 @@ const CareerDetail = () => {
           }}
         >
           <Button
-            onClick={() => currentItem?.url && window.location.href(`//${currentItem.url}`)}
+            onClick={() => currentItem?.url && (window.location.href = `//${currentItem.url}`)}
             style={{ width: 'fit-content', borderBottom: '1px solid #707070' }}
           >
             <span style={{ padding: '0.5rem', zIndex: '-1' }}>Apply for this job</span>

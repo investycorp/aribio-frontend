@@ -129,7 +129,9 @@ const HeadLineTitle = styled.div`
   }
 `;
 
-const HeadLineText = styled.div`
+const HeadLineText = styled.div.attrs((props) => ({
+  className: props.$className,
+}))`
   width: fit-content;
   font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
   font-weight: medium;
@@ -137,7 +139,15 @@ const HeadLineText = styled.div`
   margin-bottom: 1rem;
   text-align: center;
   line-height: 1.3em;
+  color: rgba(255, 255, 255, 1);
   z-index: 10;
+  &.highlight {
+    span {
+      font-size: 60px;
+      //add text color changing animation here
+    }
+  }
+
   @media screen and (max-width: 1280px) {
     font-size: 26px;
   }

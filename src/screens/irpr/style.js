@@ -235,10 +235,15 @@ const SearchInput = styled.input`
   font-size: 20px;
   font-weight: 300;
   margin: 0.3em 0;
+  opacity: 0.5;
+  &:focus,
+  &:active,
+  &:hover {
+    opacity: 1;
+  }
   &::placeholder {
     color: #ffffff;
     font-weight: 200;
-    opacity: 1;
   }
   @media screen and (max-width: 900px) {
     font-size: 16px;
@@ -284,8 +289,8 @@ const RowWrap = styled.div`
   align-items: center;
   background-color: ${(props) => (props.$isActive ? 'rgba(203,203,203,0.2)' : 'transparent')};
   padding: 0;
-  border: ${(props) => (props.$isActive ? '1px solid #C4C4C4' : '1px solid transparent')};
-  border-radius: 10px;
+  border: ${(props) => (props.$isActive ? '1px solid #C4C4C4' : '1px solid rgba(196, 196, 196, 0.5)')};
+  border-radius: 20px;
   margin-bottom: 1em;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -377,8 +382,8 @@ const HR = styled.div`
 `;
 
 const Button = styled.button`
-  width: fit-content;
-  height: fit-content;
+  width: 130px;
+  height: 62px;
   display: flex;
   flex-direction: row;
   gap: 0.5em;
@@ -401,6 +406,8 @@ const Button = styled.button`
   }
 
   @media screen and (max-width: 900px) {
+    width: 79px;
+    height: 39px;
     border: 1px solid #414141;
     font-size: 15px;
     font-weight: 300;

@@ -4,14 +4,12 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SideSlider from '../../components/SideSlider';
 import SubPageButton from '../../components/buttons/SubPageButton';
-import home_cover from './assets/home_cover.png';
 import home_ourapproach1 from './assets/home_ourapproach1.png';
 import home_ourapproach2 from './assets/home_ourapproach2.png';
 import home_ourapproach3 from './assets/home_ourapproach3.png';
 import home_mediakit_video from './assets/home_mediakit_video.png';
 import home_notice1 from './assets/home_notice1.png';
-import home_notice2 from './assets/home_notice2.png';
-import home_notice3 from './assets/home_notice3.png';
+
 import {
   Container,
   MainImgWrap,
@@ -58,6 +56,18 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
+    window.addEventListener('scroll', () => {
+      const target = document.querySelector('#target');
+      const targetPosition = target?.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.5;
+      if (targetPosition < screenPosition) {
+        target?.classList.add('highlight');
+      } else target?.classList.remove('highlight');
+    });
+
+    return () => {
+      window.removeEventListener('scroll', () => {});
+    };
   }, []);
 
   return (
@@ -84,11 +94,16 @@ const Home = () => {
           </HomeComponentWrap>
           <HomeComponentWrap className="home home_2">
             <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
-              <HeadLineText $fontSize="60px">AriBio Co., Ltd. is a biotechnology company</HeadLineText>
-              <HeadLineText $fontSize="60px">that aims to develop a meaningful therapies for </HeadLineText>
-              <HeadLineText $fontSize="60px" $textColor="#B1B1B1">
-                neurodegenerative diseases through its innovative platform ARIDD™ (AI-powered, Reverse engineered &
-                Integrated Drug Development) and Open Innovation.
+              <HeadLineText id="target" $fontSize="60px">
+                <span className="highlight">AriBio Co., Ltd. is a biotechnology company</span>
+                <br />
+                <span className="highlight">that aims to develop a meaningful therapies for</span>
+                <br />
+                <span className="highlight">
+                  neurodegenerative diseases through its innovative platform ARIDD™ (AI-powered, Reverse engineered &
+                  Integrated Drug Development) and Open Innovation.
+                </span>
+                <br />
               </HeadLineText>
             </HomeAboutUsTextWrap>
             <SubPageButton title="About Us" linkTo="/company/aboutus" />

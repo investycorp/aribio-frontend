@@ -20,26 +20,8 @@ const Leadership = () => {
   const [language] = useRecoilValue(Language);
   const { data, isLoading } = useLeadershipList('leadership', language);
   const [tabContents, setTabContents] = useState([]);
-  // const [tabContents, setTabContents] = useState([
-  //   {
-  //     position: 'CEO & Chairman',
-  //     name: 'Jai Jun Choung',
-  //     photo: aboutus_ceo,
-  //     isOpen: true,
-  //     description: [
-  //       'University of Glasgow, Physiological Biochemistry, PhD',
-  //       'EU Biotech Development Ltd. CEO',
-  //       'AriBio Co.,Ltd. Central Research Institute CTO',
-  //       'Yonsei University College of Medicine, Department of Internal Medicine, Adjunct Professor',
-  //       'New drug development and license consulting, including Pacific, SK Holdings, and Anguk Pharm.',
-  //       'Leading the development of more than 40 non-clinical, clinical phase 1, 2, and 3 new drug development projects',
-  //       'Technology transfer to Schwarz Pharma, Pfizer, P&G, etc.',
-  //     ],
-  //   },
-  // ]);
 
   useEffect(() => {
-    console.log(data);
     let itemList = [];
     data?.data?.dataList?.map((item, index) => {
       itemList.push({
@@ -90,9 +72,13 @@ const Leadership = () => {
                       });
                       setTabContents(newTabContents);
                     }}
-                    src={minus}
+                    src={process.env.PUBLIC_URL + '/assets/icons/circle_minus_white.svg'}
                     alt="minus"
-                    style={{ paddingRight: index % 3 === 2 && '7vw', cursor: 'pointer' }}
+                    style={{
+                      paddingRight: index % 3 === 2 && '7vw',
+                      cursor: 'pointer',
+                      height: window.innerWidth > 1280 ? '34px' : '28px',
+                    }}
                   />
                 ) : (
                   <Image
@@ -108,7 +94,11 @@ const Leadership = () => {
                     }}
                     src={plus}
                     alt="plus"
-                    style={{ paddingRight: index % 3 === 2 && '7vw', cursor: 'pointer' }}
+                    style={{
+                      paddingRight: index % 3 === 2 && '7vw',
+                      cursor: 'pointer',
+                      height: window.innerWidth > 1280 ? '34px' : '28px',
+                    }}
                   />
                 )}
                 <DescriptionWrap

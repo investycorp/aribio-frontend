@@ -107,7 +107,7 @@ const AiPlatform = () => {
         <HomeComponentWrap>
           <TextWrap style={{ margin: '0' }}>
             <Text $fontSize="26px" $fontWeight="300" $color="#939598">
-              AI Platform
+              AI PLATFORM
             </Text>
             <div
               style={{
@@ -124,10 +124,10 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ margin: '0' }}
             >
-              ARIDD™
+              AI-powered, Reverse engineered &<br /> Integrated Drug Development
             </Text>
             <Text
-              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="200"
               $color="#E5E5E5"
               style={{ margin: '2em 0' }}
@@ -142,7 +142,7 @@ const AiPlatform = () => {
           <TextWrap style={{ width: 'fit-content' }}>
             <HR $height="2px" $color="#ffffff" />
             <Text
-              $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
+              $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
               $fontWeight="400"
               $color="#ffffff"
               style={{ margin: '2em 0 0 0' }}
@@ -150,25 +150,35 @@ const AiPlatform = () => {
               ARIS Structure
             </Text>
             <Text
-              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="200"
               $color="#ffffff"
               style={{ marginTop: '2em', width: '70vw' }}
             >
               Existing AI drug discovery tools often prioritize drug synthesis, intermolecular binding prediction, and
               ADMET processes. While crucial for single-mechanism drug exploration, polypharmacological discovery
-              demands a nuanced approach. Polypharmacology requires a deep understanding of interactions among drugs,
-              proteins, cells, and diseases, alongside the ability to predict and identify novel biological
-              relationships. To address this complexity, ARIBIO’s Platform Research Center has developed ARIS: a
-              proprietary AI platform optimized for predicting these multifaceted biological interrelationships, thus
-              advancing our drug discovery initiatives.
+              demands a nuanced approach.
             </Text>
           </TextWrap>
           <Image src={ourapproach_ai_middle1} alt="ai_middle1" style={{ width: '90%', marginLeft: '17.5%' }} />
+          <TextWrap style={{ width: 'fit-content', marginTop: '10rem' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+              $fontWeight="200"
+              $color="#ffffff"
+              style={{ marginTop: '2em', width: '70vw' }}
+            >
+              Polypharmacology requires a deep understanding of interactions among drugs, proteins, cells, and diseases,
+              alongside the ability to predict and identify novel biological relationships.
+              <br /> To address this complexity, ARIBIO’s Platform Research Center has developed ARIS:
+              <br /> a proprietary AI platform optimized for predicting these multifaceted biological
+              interrelationships, thus advancing our drug discovery initiatives.
+            </Text>
+          </TextWrap>
           <TextWrap style={{ width: 'fit-content', marginTop: '10em' }}>
             <HR $height="2px" $color="#ffffff" />
             <Text
-              $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
+              $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
               $fontWeight="400"
               $color="#ffffff"
               style={{ margin: '2em 0 0 0' }}
@@ -176,12 +186,13 @@ const AiPlatform = () => {
               ARIS (AI-based Reliable In-Silico)
             </Text>
             <Text
-              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="100"
               $color="#C9C9C9"
               style={{ marginTop: '2em', width: '70vw' }}
             >
-              ARIS is fundamentally structured around two concepts, “BRAIN” and its “Prediction Algorithms”.
+              ARIS is fundamentally structured around two concepts,
+              <br /> “BRAIN” and its “Prediction Algorithms”.
             </Text>
           </TextWrap>
           <Image src={ourapproach_ai_middle2} alt="ai_middle2" style={{ width: '90%' }} />
@@ -196,7 +207,7 @@ const AiPlatform = () => {
               BRAIN
             </Text>
             <Text
-              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="100"
               $color="#C9C9C9"
               style={{ marginTop: '2em', width: '70vw' }}
@@ -205,13 +216,14 @@ const AiPlatform = () => {
               <span style={{ color: '#ffffff', fontWeight: '300' }}>
                 “The Bridge between AI and In Silico, In Vitro, and In Vivo”,
               </span>{' '}
-              has two primary components: a Knowledge Graph (KG) and a Large Language Model (LLM). Together, they form a
-              cohesive <span style={{ color: '#ffffff', fontWeight: '300' }}>Bridge</span>, seamlessly linking the KG
-              and ARIS{' '}
-              <span style={{ color: '#ffffff', fontWeight: '300' }}>
-                Prediction Algorithms to real-world applications across In Silico, In Vitro, and In Vivo{' '}
-              </span>{' '}
-              domains.
+              <br />
+              has two primary components: a Knowledge Graph (KG) and a Large Language Model (LLM).
+              <br />
+              Together, they form a cohesive <span style={{ color: '#ffffff', fontWeight: '300' }}>Bridge</span>,
+              seamlessly linking the KG and ARIS{' '}
+              <span style={{ color: '#ffffff', fontWeight: '300' }}>Prediction Algorithms</span> to real-world
+              applications across{' '}
+              <span style={{ color: '#ffffff', fontWeight: '300' }}>In Silico, In Vitro, and In Vivo</span> domains.
             </Text>
           </TextWrap>
           <Image src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '90%' }} />
@@ -220,7 +232,7 @@ const AiPlatform = () => {
           <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
             <HR $height="2px" $color="#ffffff" />
             <Text
-              $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
+              $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
               $fontWeight="400"
               $align="start"
               $color="#ffffff"
@@ -229,15 +241,16 @@ const AiPlatform = () => {
               Prediction Algorithms
             </Text>
             <Text
-              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="100"
               $color="#C9C9C9"
               $align="start"
-              style={{ marginTop: '1.5em', width: '60%' }}
+              style={{ marginTop: '1.5em', width: '75%' }}
             >
-              The “Prediction Algorithms” encompass a suite of AI prediction models and simulation tools, each with a
-              function in either the chemical or biological domain. These tools are given to BRAIN, which appropriately
-              selects and executes the tools necessary to accomplish a given task.
+              The “Prediction Algorithms” consist of a range of advanced AI prediction models and simulation tools
+              designed specifically for the fields of chemistry and biology. Each model and solution is carefully
+              crafted to provide researchers with practical and direct applications, both on its own and in
+              collaboration with the BRAIN platform.
             </Text>
           </TextWrap>
           <ButtonWrap>
@@ -268,7 +281,7 @@ const AiPlatform = () => {
             >
               <TextWrap style={{ margin: '0', padding: '0 0 0 10vw', width: '100%', alignItems: 'start' }}>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '28px' : '23px'}
+                  $fontSize={window.innerWidth > 1280 ? '1em' : '1em'}
                   $fontWeight="400"
                   $color="#ffffff"
                   style={{ width: 'fit-content', height: '-webkit-fill-available' }}
@@ -289,7 +302,7 @@ const AiPlatform = () => {
           <TextWrap style={{ marginBottom: '10em' }}>
             <HR $height="2px" $color="#ffffff" />
             <Text
-              $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
+              $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
               $fontWeight="400"
               $color="#ffffff"
               style={{ margin: '2em 0 0 0' }}
@@ -297,7 +310,7 @@ const AiPlatform = () => {
               Pathway Data
             </Text>
             <Text
-              $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="100"
               $color="#C9C9C9"
               style={{ marginTop: '2em' }}
@@ -307,8 +320,8 @@ const AiPlatform = () => {
               polypharmacological drug candidates. When considering contextual information for polypharmacological drug
               discovery, pathway data is most critical. <br /> <br />
               We extract this pathway data from various sources, leveraging two advanced Deep Learning techniques: Named
-              Entity Recognition (NER) and Relation Extraction (RE). The execution flow and interplay of these methods
-              are illustrated below:
+              Entity Recognition (NER) and Relation Extraction (RE).
+              <br /> The execution flow and interplay of these methods are illustrated below:
             </Text>
           </TextWrap>
           <ComponentWrap style={{ padding: '0' }}>
@@ -604,6 +617,26 @@ const AiPlatform = () => {
               </TextWrap>
             </ComponentWrap>
           </ComponentWrap>
+          <TextWrap style={{ width: '80vw', marginTop: '10em' }}>
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+              $fontWeight="100"
+              $color="#C9C9C9"
+              style={{ marginTop: '2em' }}
+            >
+              At the heart of polypharmacological drug discovery lies the pivotal step of target identification.
+              <br />
+              This involves discerning which biological targets a drug should engage with, to address a specific
+              disease.
+              <br />
+              The inherent challenge stems from the intricate interdependencies within our body; no single component
+              operates in isolation.
+              <br />A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of
+              subsequent interactions that collectively contribute to disease treatment. Hence, pinpointing a viable
+              drug target necessitates a profound comprehension of these protein interplays within the body —a knowledge
+              rooted in pathway data.
+            </Text>
+          </TextWrap>
         </HomeComponentWrap>
       </Desktop>
       <Mobile>
@@ -670,13 +703,14 @@ const AiPlatform = () => {
                 <span style={{ color: '#ffffff', fontWeight: '300' }}>
                   “The Bridge between AI and In Silico, In Vitro, and In Vivo”,
                 </span>{' '}
-                has two primary components: a Knowledge Graph (KG) and a Large Language Model (LLM). Together, they form
-                a cohesive <span style={{ color: '#ffffff', fontWeight: '300' }}>Bridge</span>, seamlessly linking the
-                KG and ARIS{' '}
-                <span style={{ color: '#ffffff', fontWeight: '300' }}>
-                  Prediction Algorithms to real-world applications across In Silico, In Vitro, and In Vivo{' '}
-                </span>{' '}
-                domains.
+                <br />
+                has two primary components: a Knowledge Graph (KG) and a Large Language Model (LLM).
+                <br />
+                Together, they form a cohesive <span style={{ color: '#ffffff', fontWeight: '300' }}>Bridge</span>,
+                seamlessly linking the KG and ARIS{' '}
+                <span style={{ color: '#ffffff', fontWeight: '300' }}>Prediction Algorithms</span> to real-world
+                applications across{' '}
+                <span style={{ color: '#ffffff', fontWeight: '300' }}>In Silico, In Vitro, and In Vivo</span> domains.
               </Text>
             </TextWrap>
             <Image src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '90%' }} />
@@ -1107,6 +1141,21 @@ const AiPlatform = () => {
                 </TextWrap>
               </ComponentWrap>
             </ComponentWrap>
+            <TextWrap style={{ width: '86vw', marginTop: '10em' }}>
+              <Text $fontSize="16px" $fontWeight="100" $color="#C9C9C9" style={{ marginTop: '2em' }}>
+                At the heart of polypharmacological drug discovery lies the pivotal step of target identification.
+                <br />
+                This involves discerning which biological targets a drug should engage with, to address a specific
+                disease.
+                <br />
+                The inherent challenge stems from the intricate interdependencies within our body; no single component
+                operates in isolation.
+                <br />A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of
+                subsequent interactions that collectively contribute to disease treatment. Hence, pinpointing a viable
+                drug target necessitates a profound comprehension of these protein interplays within the body —a
+                knowledge rooted in pathway data.
+              </Text>
+            </TextWrap>
           </HomeComponentWrap>
         </div>
       </Mobile>

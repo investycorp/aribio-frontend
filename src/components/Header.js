@@ -257,7 +257,7 @@ const Header = () => {
     irpr: [
       { title: 'NOTICE', linkTo: 'notice/' },
       { title: 'PRESS RELEASE', linkTo: 'pressrelease/' },
-      { title: 'MEDIA KIT', linkTo: 'mediakit' },
+      { title: 'MEDIA', linkTo: 'mediakit' },
     ],
   });
   const [fixedMenu, setFixedMenu] = useState('');
@@ -483,7 +483,7 @@ const Header = () => {
                     }}
                     onClick={() => {
                       //menu.linkTo === 'career' || menu.linkTo === 'openinnovation'
-                      if (menu.linkTo === 'pipeline') {
+                      if (menu.linkTo === 'pipeline' || menu.linkTo === 'career') {
                         if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
                         else window.location.reload();
                       } else {
@@ -515,7 +515,7 @@ const Header = () => {
               </HeaderNavWrap>
               <LangButton />
             </HeaderTop>
-            {currentMenu !== 'pipeline' && currentMenu !== '' && (
+            {currentMenu !== 'pipeline' && currentMenu !== 'career' && currentMenu !== '' && (
               <>
                 <BlurBoxBottom
                   style={{

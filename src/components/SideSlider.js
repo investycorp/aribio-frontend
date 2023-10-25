@@ -113,8 +113,8 @@ const SideSlider = () => {
         <SliderContainer
           style={{
             opacity:
-              document.querySelector(`.container`) &&
-              scrollY > document.querySelector(`.container`)?.offsetHeight - window.innerHeight * 1.3
+              document.querySelector(`.home_3`) &&
+              scrollY > document.querySelector(`.home_3`)?.offsetTop - window.innerHeight / 2
                 ? 0
                 : 1,
           }}
@@ -132,8 +132,8 @@ const SideSlider = () => {
         <SliderContainer
           style={{
             opacity:
-              document.querySelector(`.container`) &&
-              scrollY > document.querySelector(`.container`)?.offsetHeight - window.innerHeight * 1.3
+              document.querySelector(`.home_3`) &&
+              scrollY > document.querySelector(`.home_3`)?.offsetTop - window.innerHeight / 2
                 ? 0
                 : 1,
           }}

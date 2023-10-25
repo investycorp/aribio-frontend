@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import logo from '../assets/images/logo.svg';
 import arrow from '../assets/images/arrow.svg';
@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 import { Desktop, Mobile } from '../utils/MediaQuery';
 
 import dropdown from '../assets/images/dropdown_sm.svg';
+import { useRecoilState } from 'recoil';
+import Language from '../atom/Language';
+import useFooter from '../hooks/footer/useFooter';
 
 const FooterContainer = styled.div`
   position: relative;
@@ -117,7 +120,31 @@ const AddressWrap = styled.div`
 `;
 
 const Footer = () => {
+  const [language, setLanguage] = useRecoilState(Language);
+  const { data, isLoading } = useFooter(language);
+  const [companyInfo, setCompanyInfo] = useState({});
   const [footerToggle, setFooterToggle] = useState('');
+
+  useEffect(() => {
+    if (data?.data?.success) {
+      const item = data.data.data;
+      setCompanyInfo({
+        logo: item.fileDto.fileUrl,
+        tel: item.tel,
+        fax: item.fax,
+        head: {
+          address1: item.headAddress1,
+          address2: item.headAddress2,
+          address3: item.headAddress3,
+        },
+        us: {
+          address1: item.usAddress1,
+          address2: item.usAddress2,
+          address3: item.usAddress3,
+        },
+      });
+    }
+  }, [data]);
 
   return (
     <>
@@ -125,7 +152,7 @@ const Footer = () => {
         <FooterContainer>
           <FooterGridWrap style={{ padding: '7vh 6vw 10vh 0', borderRight: '2px solid #5d5d5d' }}>
             <Link style={{ textDecoration: 'none' }} to="/">
-              <img src={logo} alt="logo" style={{ cursor: 'pointer', zIndex: '-1' }} />
+              <img src={companyInfo.logo} alt="logo" style={{ cursor: 'pointer', zIndex: '-1' }} />
             </Link>
             <ContactUsWrap>
               <Link style={{ textDecoration: 'none' }} to="/contactus">
@@ -141,8 +168,13 @@ const Footer = () => {
               <ContactUsBox
                 style={{ border: 'none', width: '100%', padding: '0 1rem 0 0', margin: '0 0 20px 0', color: '#B1B1B1' }}
               >
-                <div style={{ minWidth: 'fit-content' }}>Privacy Policy</div> <div>|</div>{' '}
-                <div style={{ minWidth: 'fit-content' }}>© 2020 by ARIBIO. All Rights Reserved.</div>
+                <Link
+                  to="/"
+                  style={{ cursor: 'pointer', color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content' }}
+                >
+                  Privacy Policy
+                </Link>{' '}
+                <div>|</div> <div style={{ minWidth: 'fit-content' }}>© 2020 by ARIBIO. All Rights Reserved.</div>
               </ContactUsBox>
             </ContactUsWrap>
           </FooterGridWrap>
@@ -157,9 +189,9 @@ const Footer = () => {
           >
             <ContactBox>
               <ContactBoxTitle>TEL.</ContactBoxTitle>
-              <ContactBoxText>02-2637-0009</ContactBoxText>
+              <ContactBoxText>{companyInfo?.tel}</ContactBoxText>
               <ContactBoxTitle>FAX.</ContactBoxTitle>
-              <ContactBoxText>02-2633-9911</ContactBoxText>
+              <ContactBoxText>{companyInfo?.fax}</ContactBoxText>
             </ContactBox>
             <ContactBox
               style={{
@@ -173,15 +205,15 @@ const Footer = () => {
             >
               <AddressWrap>
                 <ContactBoxTitle>Head Office.</ContactBoxTitle>
-                <ContactBoxText>56, Dongpangyo-ro,</ContactBoxText>
-                <ContactBoxText>Bundang-gu, Seongnam-si,</ContactBoxText>
-                <ContactBoxText>Gyeonggi-do, Republic of Korea</ContactBoxText>
+                <ContactBoxText>{companyInfo?.head?.address1}</ContactBoxText>
+                <ContactBoxText>{companyInfo?.head?.address2}</ContactBoxText>
+                <ContactBoxText>{companyInfo?.head?.address3}</ContactBoxText>
               </AddressWrap>
               <AddressWrap>
                 <ContactBoxTitle>US Office.</ContactBoxTitle>
-                <ContactBoxText>4660 La Jolla Village Dr.</ContactBoxText>
-                <ContactBoxText>Suite 1070,</ContactBoxText>
-                <ContactBoxText>San Diego, CA 92112</ContactBoxText>
+                <ContactBoxText>{companyInfo?.us?.address1}</ContactBoxText>
+                <ContactBoxText>{companyInfo?.us?.address2}</ContactBoxText>
+                <ContactBoxText>{companyInfo?.us?.address3}</ContactBoxText>
               </AddressWrap>
 
               <GoToTop />
@@ -247,9 +279,9 @@ const Footer = () => {
               </ContactBoxTitle>
               {footerToggle === 'Head Office' && (
                 <AddressWrap>
-                  <ContactBoxText>56, Dongpangyo-ro,</ContactBoxText>
-                  <ContactBoxText>Bundang-gu, Seongnam-si,</ContactBoxText>
-                  <ContactBoxText>Gyeonggi-do, Republic of Korea</ContactBoxText>
+                  <ContactBoxText>{companyInfo?.head?.address1}</ContactBoxText>
+                  <ContactBoxText>{companyInfo?.head?.address2}</ContactBoxText>
+                  <ContactBoxText>{companyInfo?.head?.address3}</ContactBoxText>
                 </AddressWrap>
               )}
             </AddressWrap>
@@ -278,9 +310,9 @@ const Footer = () => {
               </ContactBoxTitle>
               {footerToggle === 'US Office' && (
                 <AddressWrap>
-                  <ContactBoxText>4660 La Jolla Village Dr.</ContactBoxText>
-                  <ContactBoxText>Suite 1070,</ContactBoxText>
-                  <ContactBoxText>San Diego, CA 92112</ContactBoxText>
+                  <ContactBoxText>{companyInfo?.us?.address1}</ContactBoxText>
+                  <ContactBoxText>{companyInfo?.us?.address2}</ContactBoxText>
+                  <ContactBoxText>{companyInfo?.us?.address3}</ContactBoxText>
                 </AddressWrap>
               )}
             </AddressWrap>
@@ -297,7 +329,9 @@ const Footer = () => {
               gap: '1rem',
             }}
           >
-            <div style={{ minWidth: 'fit-content' }}>Privacy Policy |</div>
+            <Link to="/" style={{ color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content' }}>
+              Privacy Policy |
+            </Link>
             <div style={{ minWidth: 'fit-content' }}>© 2020 by ARIBIO. All Rights Reserved.</div>
           </ContactUsBox>
         </FooterContainer>
