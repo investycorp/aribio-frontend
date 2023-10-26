@@ -206,9 +206,35 @@ const Career = () => {
     document.querySelector('.container')?.scrollTo(0, 0);
     window.addEventListener('scroll', () => {
       if (window.scrollY > window.innerHeight * 0.7) {
+        //show grid when scroll down
         document.querySelector('.grid_bg')?.classList.add('visible');
       } else {
         document.querySelector('.grid_bg')?.classList.remove('visible');
+      }
+
+      //fade in interaction on scroll
+
+      const coreVal = document.querySelectorAll('#core_value');
+      const benef = document.querySelectorAll('#benefits');
+
+      if (coreVal[0]?.getBoundingClientRect().y < window.innerHeight * 0.7) {
+        coreVal?.forEach((item) => {
+          item?.classList.add('fadein');
+        });
+      } else {
+        coreVal?.forEach((item) => {
+          item?.classList.remove('fadein');
+        });
+      }
+
+      if (benef[0]?.getBoundingClientRect().y < window.innerHeight * 0.7) {
+        benef.forEach((item) => {
+          item?.classList.add('fadein');
+        });
+      } else {
+        benef.forEach((item) => {
+          item?.classList.remove('fadein');
+        });
       }
     });
     return () => {
@@ -286,7 +312,7 @@ const Career = () => {
                   $color="#ffffff"
                   style={{ margin: '2rem 0 0 0' }}
                 >
-                  Pioneering Solutions for Neurodegeneration
+                  Join Us at the Forefront of Neurodegenerative Solutions
                 </Text>
               </TextWrap>
             </HomeComponentWrap>
@@ -316,10 +342,12 @@ const Career = () => {
                   $color="#ffffff"
                   style={{ padding: '0 20px', width: '50%', textAlign: 'center', margin: '0' }}
                 >
-                  At Aribio, we’re at the cutting edge of tackling neurodegenerative disorders. <br />
-                  Our dedicated team is set on discovering transformative treatments. <br />
-                  We invite innovative minds to join our mission. <br />
+                  Our dedicated team is set on discovering transformative treatments.
+                  <br />
+                  We invite innovative minds to join our mission.
+                  <br />
                   Together, let’s usher in a new era of therapeutic breakthroughs for those in need.
+                  <br />
                 </Text>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '40px' : '30px'}
@@ -334,19 +362,20 @@ const Career = () => {
             <HomeComponentWrap>
               <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
               <Text
-                $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
+                $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                 $fontWeight="300"
                 $color="#E5E5E5"
                 $align="start"
               >
                 Core Values
               </Text>
-              <div>
+              <div id="core_value">
                 {coreValues.map((item, index) => (
                   <GridContentWrap style={{ width: '100' }} key={index + 'box1'}>
                     <ContentBox style={{ paddingLeft: '8vw' }}>
                       <ContentBoxNameWrap>
                         <Text
+                          id="core_value"
                           $fontSize={window.innerWidth > 1280 ? '20px' : '16px'}
                           $fontWeight="100"
                           $color="#A8A8A8"
@@ -356,6 +385,7 @@ const Career = () => {
                           0{index + 1}
                         </Text>
                         <Text
+                          id="core_value"
                           $fontSize={window.innerWidth > 1280 ? '25px' : '18px'}
                           $fontWeight="300"
                           $color="#DDDDDD"
@@ -367,10 +397,11 @@ const Career = () => {
                       </ContentBoxNameWrap>
                     </ContentBox>
                     <ContentBox style={{ paddingRight: '8vw', justifyContent: 'space-between' }}>
-                      <ShootingStarWrap className="shootingstar_wrap">
+                      <ShootingStarWrap id="core_value" className="shootingstar_wrap">
                         <ShootingStar $width={document.querySelector('.shootingstar_wrap')?.offsetWidth} />
                       </ShootingStarWrap>
                       <Text
+                        id="core_value"
                         $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
                         $fontWeight="300"
                         $color="#C9C9C9"
@@ -386,7 +417,7 @@ const Career = () => {
             </HomeComponentWrap>
             <HomeComponentWrap>
               <Text
-                $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
+                $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                 $fontWeight="300"
                 $color="#E5E5E5"
                 $align="start"
@@ -396,7 +427,7 @@ const Career = () => {
                   justifyContent: 'start',
                   alignItems: 'center',
                   gap: '2em',
-                  marginBottom: '5em',
+                  marginBottom: '1em',
                 }}
               >
                 Recruitment Process
@@ -404,6 +435,12 @@ const Career = () => {
               </Text>
               <ContentBox
                 className="recruitmentProcess_rowscroll"
+                onWheel={(e) => {
+                  e.preventDefault();
+                  const container = document.querySelector('.recruitmentProcess_rowscroll');
+                  const scrollAmount = e.deltaY;
+                  container.scrollLeft += scrollAmount;
+                }}
                 style={{
                   justifyContent: 'start',
                   alignItems: 'start',
@@ -412,6 +449,7 @@ const Career = () => {
                   gap: '0',
                   flexwrap: 'nowrap',
                   marginBottom: '5em',
+                  padding: '5rem',
                 }}
               >
                 {recruitmentProcess.map((item, index) => (
@@ -427,7 +465,7 @@ const Career = () => {
                     key={`recruitmentProcess${index}`}
                   >
                     <Text
-                      $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
+                      $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                       $fontWeight="400"
                       $color="#00A6FF"
                       $align="start"
@@ -437,7 +475,7 @@ const Career = () => {
                     </Text>
                     <TextWrap style={{ alignItems: 'start', gap: '2em', width: '85%' }}>
                       <Text
-                        $fontSize={window.innerWidth > 1280 ? '24px' : '18px'}
+                        $fontSize={window.innerWidth > 1280 ? '24px' : '15px'}
                         $fontWeight="300"
                         $color="#ffffff"
                         $align="start"
@@ -446,7 +484,7 @@ const Career = () => {
                         {item.title}
                       </Text>
                       <Text
-                        $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
+                        $fontSize={window.innerWidth > 1280 ? '20px' : '11px'}
                         $fontWeight="300"
                         $color="#C9C9C9"
                         $align="start"
@@ -459,10 +497,10 @@ const Career = () => {
                 ))}
               </ContentBox>
             </HomeComponentWrap>
-            <HomeComponentWrap style={{ flexDirection: 'row', alignItems: 'start' }}>
+            <HomeComponentWrap id="benefits" style={{ flexDirection: 'row', alignItems: 'start' }}>
               <TextWrap style={{ flex: '0 0 28.7vw', width: '28.7vw' }}>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
+                  $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                   $fontWeight="300"
                   $color="#E5E5E5"
                   $align="start"
@@ -474,14 +512,22 @@ const Career = () => {
               <GridContentWrap style={{ gridTemplateColumns: '1fr 1fr', margin: '0', rowGap: '5vh' }}>
                 {benefits.map((item, index) => (
                   <ContentBox
+                    id="benefits"
                     className="benefits"
                     key={`benefits${index}`}
                     style={{ flexDirection: 'row', justifyContent: 'start', alignItems: 'start' }}
                   >
-                    <Image src={item.img} alt="icon_work" />
+                    <Image
+                      src={item.img}
+                      alt="icon_work"
+                      style={{
+                        width: window.innerWidth > 1280 ? '64px' : '44px',
+                        height: window.innerWidth > 1280 ? '60px' : '40px',
+                      }}
+                    />
                     <TextWrap style={{ position: 'relative', width: 'fit-content' }}>
                       <Text
-                        $fontSize={window.innerWidth > 1280 ? '24px' : '18px'}
+                        $fontSize={window.innerWidth > 1280 ? '24px' : '15px'}
                         $fontWeight="300"
                         $color="#ffffff"
                         $align="start"
@@ -493,7 +539,11 @@ const Career = () => {
                         {item.desc.map((descItem, descIndex) => (
                           <DescriptionItem
                             key={descItem + descIndex}
-                            style={{ listStyle: 'disc outside', marginLeft: '1rem' }}
+                            style={{
+                              listStyle: 'disc outside',
+                              marginLeft: '1rem',
+                              fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                            }}
                           >
                             {descItem}
                           </DescriptionItem>
@@ -526,7 +576,7 @@ const Career = () => {
                         navigate('/company/aboutus');
                       }}
                     >
-                      <span style={{ zIndex: '-1' }}>Meet Our Team</span>
+                      <span style={{ zIndex: '-1' }}>Meet Our Leadership</span>
                       <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
                     </Text>
                     <Text
@@ -559,7 +609,7 @@ const Career = () => {
               <TextWrap style={{ marginBottom: '5em', zIndex: '10' }}>
                 <HR style={{ alignSelf: 'start', margin: '1.5em 0' }} />
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '32px' : '23px'}
+                  $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                   $fontWeight="300"
                   $color="#E5E5E5"
                   $align="start"
@@ -580,7 +630,7 @@ const Career = () => {
                     >
                       <TextWrap style={{ cursor: 'pointer', zIndex: '-1' }}>
                         <Text
-                          $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
+                          $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
                           $fontWeight="300"
                           $color="#DDDDDD"
                           $align="start"
@@ -589,7 +639,7 @@ const Career = () => {
                           <span style={{ margin: '0 1em 0 0' }}>·</span> {item.type}
                         </Text>
                         <Text
-                          $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
+                          $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
                           $fontWeight="100"
                           $color="#ffffff"
                           $align="start"
@@ -599,7 +649,7 @@ const Career = () => {
                         </Text>
                         <Text
                           style={{ zIndex: '-1', cursor: 'pointer' }}
-                          $fontSize={window.innerWidth > 1280 ? '24px' : '18px'}
+                          $fontSize={window.innerWidth > 1280 ? '24px' : '13px'}
                           $fontWeight="400"
                           $color="#E3E3E3"
                           $align="start"
@@ -610,7 +660,13 @@ const Career = () => {
                       <Image
                         src={arrow}
                         alt="arrow"
-                        style={{ border: '1px solid #ffffff', borderRadius: '50%', zIndex: '-1', cursor: 'pointer' }}
+                        style={{
+                          border: '1px solid #ffffff',
+                          borderRadius: '50%',
+                          zIndex: '-1',
+                          cursor: 'pointer',
+                          width: window.innerWidth > 1280 ? '44px' : '26px',
+                        }}
                       />
                     </Button>
                   </ContentBox>
@@ -893,7 +949,7 @@ const Career = () => {
                         navigate('/aboutus');
                       }}
                     >
-                      <span style={{ zIndex: '-1' }}>Meet Our Team</span>
+                      <span style={{ zIndex: '-1' }}>Meet Our Leadership</span>
                       <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
                     </Text>
                     <Text

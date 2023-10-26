@@ -59,7 +59,7 @@ const ContactBoxTitle = styled.div`
   font-weight: semi-bold;
   margin-bottom: 20px;
   @media screen and (max-width: 1280px) {
-    font-size: 14px;
+    font-size: 13px;
   }
 `;
 
@@ -70,7 +70,7 @@ const ContactBoxText = styled.div`
   color: #b1b1b1;
   margin-bottom: 20px;
   @media screen and (max-width: 1280px) {
-    font-size: 12px;
+    font-size: 11px;
   }
   @media screen and (max-width: 900px) {
     font-size: 16px;
@@ -90,7 +90,7 @@ const ContactUsWrap = styled.div`
 const ContactUsBox = styled.div`
   font-size: 20px;
   font-weight: medium;
-  width: 20vw;
+  width: 396px;
   color: #e5e5e5;
   cursor: pointer;
   padding-bottom: 1vh;
@@ -103,6 +103,7 @@ const ContactUsBox = styled.div`
   flex-wrap: wrap;
   @media screen and (max-width: 1280px) {
     font-size: 13px;
+    width: 264px;
   }
   @media screen and (max-width: 900px) {
     width: fit-content;
@@ -152,7 +153,11 @@ const Footer = () => {
         <FooterContainer>
           <FooterGridWrap style={{ padding: '7vh 6vw 10vh 0', borderRight: '2px solid #5d5d5d' }}>
             <Link style={{ textDecoration: 'none' }} to="/">
-              <img src={companyInfo.logo} alt="logo" style={{ cursor: 'pointer', zIndex: '-1' }} />
+              <img
+                src={companyInfo.logo}
+                alt="logo"
+                style={{ cursor: 'pointer', zIndex: '-1', width: window.innerWidth > 1280 ? '122px' : '82px' }}
+              />
             </Link>
             <ContactUsWrap>
               <Link style={{ textDecoration: 'none' }} to="/contactus">
@@ -170,11 +175,20 @@ const Footer = () => {
               >
                 <Link
                   to="/"
-                  style={{ cursor: 'pointer', color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content' }}
+                  style={{
+                    cursor: 'pointer',
+                    color: '#B1B1B1',
+                    textDecoration: 'none',
+                    minWidth: 'fit-content',
+                    fontSize: window.innerWidth > 1280 ? '20px' : '13px',
+                  }}
                 >
                   Privacy Policy
                 </Link>{' '}
-                <div>|</div> <div style={{ minWidth: 'fit-content' }}>© 2020 by ARIBIO. All Rights Reserved.</div>
+                <div>|</div>{' '}
+                <div style={{ fontSize: window.innerWidth > 1280 ? '20px' : '13px', minWidth: 'fit-content' }}>
+                  © 2023 by ARIBIO. All Rights Reserved.
+                </div>
               </ContactUsBox>
             </ContactUsWrap>
           </FooterGridWrap>
@@ -332,7 +346,7 @@ const Footer = () => {
             <Link to="/" style={{ color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content' }}>
               Privacy Policy |
             </Link>
-            <div style={{ minWidth: 'fit-content' }}>© 2020 by ARIBIO. All Rights Reserved.</div>
+            <div style={{ minWidth: 'fit-content' }}>© 2023 by ARIBIO. All Rights Reserved.</div>
           </ContactUsBox>
         </FooterContainer>
       </Mobile>

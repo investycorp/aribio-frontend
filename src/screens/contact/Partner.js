@@ -63,17 +63,33 @@ const Partner = () => {
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
-            <Text $color="#939598" $fontSize="26px" $fontWeight="300">
+            <Text
+              $color="#939598"
+              $fontSize="26px"
+              $fontWeight="300"
+              style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}
+            >
               PARTNER
             </Text>
-            <Text $fontSize="50px" $fontWeight="400">
+            <Text $fontSize="50px" $fontWeight="400" style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}>
               Current Partnerships
             </Text>
-            <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-            <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3">
+            <hr
+              style={{
+                width: window.innerWidth > 1280 ? '60px' : '36px',
+                border: '2px solid #ffffff',
+                margin: '3.5rem 0 5rem 0',
+              }}
+            />
+            <Text
+              $fontSize="23px"
+              $fontWeight="300"
+              $color="#D3D3D3"
+              style={{ fontSize: window.innerWidth > 1280 ? '23px' : '13px' }}
+            >
               Aligned in our mission, we focus on addressing the challenges of neurodegeneration with our collaborative
               network spanning academia, industry, and patient advocacy groups worldwide. Our goal is to be a trusted
-              partner in this field.
+              partner to all.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -119,12 +135,13 @@ const Partner = () => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                width: 'auto',
+                width: window.innerWidth > 1280 ? '260px' : '158px',
                 paddingBottom: '0.7em',
                 borderBottom: '2px solid #ffffff',
                 gap: '1em',
                 margin: '0',
                 cursor: 'pointer',
+                fontSize: window.innerWidth > 1280 ? '20px' : '12px',
               }}
               onClick={() => navigate('/contact/contactus')}
             >

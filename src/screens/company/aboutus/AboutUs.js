@@ -20,6 +20,19 @@ const AboutUs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
+    window.addEventListener('scroll', () => {
+      const leader = document.querySelectorAll('#leadership');
+      const advisor = document.querySelector('#advisor');
+
+      if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.7) {
+        leader[1]?.classList.add('moveup');
+      } else {
+        leader[1]?.classList.remove('moveup');
+      }
+    });
+    return () => {
+      window.removeEventListener('scroll', () => {});
+    };
   }, []);
 
   return (

@@ -94,7 +94,7 @@ const TextWrap = styled.div`
   z-index: 10;
 `;
 
-const Text = styled.div.attrs((props) => ({ className: props.className }))`
+const Text = styled.div.attrs((props) => ({ className: props.className, id: props.id }))`
   width: ${(props) => (props.$width ? props.$width : '100%')};
   font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
   font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
@@ -106,6 +106,13 @@ const Text = styled.div.attrs((props) => ({ className: props.className }))`
     &:active {
       background-color: rgba(203, 203, 203, 0.2);
     }
+  }
+  &#core_value {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  &#core_value.fadein {
+    opacity: 1;
   }
 `;
 
@@ -147,6 +154,14 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
   align-items: center;
   gap: 2rem;
   background-color: transparent;
+
+  &#benefits {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  &#benefits.fadein {
+    opacity: 1;
+  }
 
   &.benefits {
     @media screen and (min-width: 901px) {
@@ -262,6 +277,13 @@ const ShootingStarWrap = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  &#core_value {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  &#core_value.fadein {
+    opacity: 1;
+  }
 `;
 
 const ShootingStar = styled.span`

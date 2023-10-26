@@ -75,6 +75,7 @@ const Path = styled.div`
   text-align: left;
   z-index: 20;
   @media screen and (max-width: 1280px) {
+    top: 140px;
     font-size: 14px;
   }
 

@@ -65,22 +65,27 @@ const OpenInnovation = () => {
             alt="intro_bg"
           />
           <TextWrap style={{ width: '70vw', position: 'relative', backgroundColor: 'transparent' }}>
-            <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
-              INTRODUCTION
+            <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="600">
+              OPEN INNOVATION
             </Text>
             <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="400">
-              AriBio is dedicated to driving advancements in neurodegenerative diseases.
+              AriBio is dedicated to driving advancements
+              <br />
+              in neurodegenerative diseases.
             </Text>
-            <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
+            <hr style={{ width: '60px', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="300"
               $color="#D3D3D3"
               style={{ width: '50vw' }}
             >
-              Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and we’re strengthened by our
-              commitment to open innovation. We actively collaborate with innovative companies around the world, aiming
-              to create impactful solutions for these challenging diseases.
+              Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and
+              <br />
+              we’re strengthened by our commitment to open innovation.
+              <br />
+              We actively collaborate with innovative companies around the world, <br />
+              aiming to create impactful solutions for these challenging diseases.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -112,14 +117,13 @@ const OpenInnovation = () => {
           >
             <Text
               $color="#D3D3D3"
-              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="300"
               $align="start"
-              style={{ marginBottom: '5rem' }}
+              style={{ marginBottom: '5rem', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
             >
               <HR style={{ marginBottom: '2em' }} />
-              Our approach blends polypharmacological strategies with a belief in multi-modal management for these
-              conditions.
+              Our approach blends polypharmacological strategies
+              <br /> with a belief in multi-modal management for these conditions.
               <br />
               <br />
               While pioneering work in this area has its challenges and risks, the urgent need for solutions in
@@ -128,7 +132,6 @@ const OpenInnovation = () => {
             </Text>
             <ContentWrap style={{ justifySelf: 'end', flexDirection: 'row', padding: '0' }}>
               <Text
-                $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
                 $fontWeight="300"
                 $color="#ffffff"
                 $align="start"
@@ -138,7 +141,7 @@ const OpenInnovation = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  width: 'fit-content',
+                  width: window.innerWidth > 1280 ? '260px' : '158px',
                   padding: '0.7em 0',
                   marginBottom: '0',
                   borderBottom: '2px solid #ffffff',
@@ -147,11 +150,12 @@ const OpenInnovation = () => {
                 }}
                 onClick={() => navigate('/openinnovation/digitalhealth')}
               >
-                <span style={{ zIndex: '-1' }}>Digital Health</span>
+                <span style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px' }}>
+                  Digital Health
+                </span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
               </Text>
               <Text
-                $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
                 $fontWeight="300"
                 $color="#ffffff"
                 $align="start"
@@ -161,7 +165,7 @@ const OpenInnovation = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  width: 'fit-content',
+                  width: window.innerWidth > 1280 ? '260px' : '158px',
                   padding: '0.7em 0',
                   marginBottom: '0',
                   borderBottom: '2px solid #ffffff',
@@ -170,7 +174,9 @@ const OpenInnovation = () => {
                 }}
                 onClick={() => navigate('/openinnovation/memoreproject')}
               >
-                <span style={{ zIndex: '-1' }}>Memo:Re Project</span>
+                <span style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px' }}>
+                  Memo:Re Project
+                </span>
                 <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
               </Text>
             </ContentWrap>
@@ -199,8 +205,8 @@ const OpenInnovation = () => {
             alt="intro_bg"
           />
           <TextWrap style={{ width: '100%', position: 'relative', backgroundColor: 'transparent' }}>
-            <Text $color="#939598" $fontSize="16px" $fontWeight="300">
-              INTRODUCTION
+            <Text $color="#939598" $fontSize="16px" $fontWeight="600">
+              OPEN INNOVATION
             </Text>
             <Text $fontSize="23px" $fontWeight="400">
               AriBio is dedicated to driving advancements in neurodegenerative diseases.

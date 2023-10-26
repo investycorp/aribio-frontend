@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import sidebar from '../assets/sidebar.svg';
+import sidebar_short from '../assets/sidebar_short.svg';
 import whitedot from '../assets/whitedot.svg';
 import graydot from '../assets/graydot.svg';
 import { Desktop, Mobile } from '../../../../utils/MediaQuery';
@@ -122,6 +123,9 @@ const DescriptionWrap = styled.ul`
   transition: all 0.2s ease-in-out;
   margin-bottom: 1em;
   color: ${(props) => (props.$isActive ? '#ffffff' : '#707070')};
+  &:nth-child(1) {
+    margin-top: 3em;
+  }
   @media screen and (min-width: 901px) {
     &:last-child {
       margin-bottom: 55vh;
@@ -153,13 +157,13 @@ const DescriptionItem = styled.li`
   }
 `;
 
-const Tab1 = ({ listItems }) => {
-  // const [tabNames, setTabNames] = useState(['2023', '2022', '2021', '2020', '2019']);
-  const [tabNames, setTabNames] = useState(listItems ? listItems.map((item) => item.title) : []);
+const Tab1 = ({ listItems, index }) => {
+  const [tabNames, setTabNames] = useState([]);
+
   const refs = useRef(Array(tabNames.length).fill(React.createRef()));
-  const [currentTab, setCurrentTab] = useState('2023');
-  const [scrollTab, setScrollTab] = useState('2023');
-  const [listContents, setListContents] = useState(listItems ? listItems.map((item) => item.content) : []);
+  const [currentTab, setCurrentTab] = useState('');
+  const [scrollTab, setScrollTab] = useState('');
+  const [listContents, setListContents] = useState([]);
 
   const [historyContents, setHistoryContents] = useState([
     {
@@ -221,47 +225,28 @@ const Tab1 = ({ listItems }) => {
   ]);
 
   const handleScroll = () => {
-    const scrollY = document.getElementsByClassName('description-grid')[0]?.scrollTop;
+    if (listItems?.length > 0) {
+      //Desktop
+      if (window.innerWidth > 900) {
+        const scrollY = document.getElementsByClassName('description-grid')[0];
+        listItems.forEach((element) => {
+          if (
+            document.getElementsByClassName(element.title)[0]?.offsetTop - scrollY.offsetHeight * 0.2 <
+            scrollY.scrollTop
+          ) {
+            setScrollTab(element.title);
+          }
+        });
+      } else {
+        //Mobile
 
-    //Desktop
-    if (window.innerWidth > 900) {
-      switch (true) {
-        case scrollY <=
-          document.getElementsByClassName('2023')[0]?.offsetTop +
-            document.getElementsByClassName('2023')[0]?.offsetHeight * 0.7:
-          setScrollTab('2023');
-
-          break;
-        case scrollY <=
-          document.getElementsByClassName('2022')[0]?.offsetTop +
-            document.getElementsByClassName('2022')[0]?.offsetHeight * 0.7:
-          setScrollTab('2022');
-
-          break;
-        case scrollY <=
-          document.getElementsByClassName('2021')[0]?.offsetTop +
-            document.getElementsByClassName('2021')[0]?.offsetHeight * 0.7:
-          setScrollTab('2021');
-
-          break;
-        case scrollY <=
-          document.getElementsByClassName('2020')[0]?.offsetTop +
-            document.getElementsByClassName('2020')[0]?.offsetHeight * 0.7:
-          setScrollTab('2020');
-
-          break;
-        default:
-          setScrollTab('2019');
-      }
-    } else {
-      //Mobile
-
-      for (let i = 0; i < tabNames.length; i++) {
-        if (
-          document.getElementsByClassName(listItems[i].title)[0]?.offsetTop - window.innerHeight * 0.5 <
-          window.scrollY
-        ) {
-          setScrollTab(listItems[i].title);
+        for (let i = 0; i < listItems?.length; i++) {
+          if (
+            document.getElementsByClassName(listItems[i]?.title)[0]?.offsetTop - window.innerHeight * 0.4 <
+            window.scrollY
+          ) {
+            setScrollTab(listItems[i].title);
+          }
         }
       }
     }
@@ -280,52 +265,81 @@ const Tab1 = ({ listItems }) => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      handleScroll();
-    });
+    if (listItems?.length > 0) {
+      let tabNames = [];
+      let listContents = [];
+      listItems?.map((item) => {
+        tabNames.push(item.title);
+        listContents.push(item.content);
+      });
+
+      setTabNames(tabNames);
+      setListContents(listContents);
+      setScrollTab(tabNames[0]);
+      setCurrentTab(tabNames[0]);
+    }
+
+    if (window.innerWidth > 900) {
+      document.querySelector('.description-grid')?.addEventListener('scroll', () => {
+        handleScroll();
+      });
+    } else {
+      window.addEventListener('scroll', () => {
+        handleScroll();
+      });
+    }
+
     return () => {
+      document.querySelector('.description-grid')?.removeEventListener('scroll', () => {
+        handleScroll();
+      });
       window.removeEventListener('scroll', () => {
         handleScroll();
       });
     };
-  }, []);
+  }, [listItems]);
 
   useEffect(() => {
-    let tabs = [];
-    let contents = [];
-    listItems?.map((item, index) => {
-      tabs.push(item.title);
-      contents.push(item.content);
-    });
-    console.log(tabs);
-    console.log(contents);
-  }, []);
+    console.log('listContents', listContents);
+  }, [listContents]);
 
   return (
     <>
       <Desktop>
         <HomeComponentWrap>
-          <GridBox>
-            <img
-              src={sidebar}
-              alt="sidebar"
-              style={{
-                position: 'absolute',
-                top: '0',
-                left: '0',
-                zIndex: '10',
-                margin:
-                  tabNames.indexOf(scrollTab) === tabNames.length - 1
-                    ? '35px 34px'
-                    : tabNames.indexOf(scrollTab) === '0'
-                    ? '50px 34px'
-                    : '35px 34px',
-                height: '84%',
-                transition: 'all 0.2s ease-in-out',
-              }}
-            />
+          <GridBox className="scrollbox">
+            {tabNames?.length > 3 ? (
+              <img
+                src={sidebar}
+                alt="sidebar"
+                style={{
+                  position: 'absolute',
+                  top: index === 0 ? '0' : '-6rem',
+                  left: window.innerWidth > 1280 ? '-1px' : '0',
+                  zIndex: '10',
+                  margin: index === 0 ? '0.18em 0.15em' : '0.10em',
+                  padding: '2rem',
+                  height: '-webkit-fill-available',
+                }}
+              />
+            ) : (
+              <img
+                src={sidebar_short}
+                alt="sidebar_short"
+                style={{
+                  position: 'absolute',
+                  top: index === 0 ? '0' : '-3.9rem',
+                  left: '2.06em',
+                  zIndex: '10',
+                  margin: '0',
+                  padding: '0 0 2em 0',
+                  height: '-webkit-fill-available',
+                }}
+              />
+            )}
+
             {tabNames?.map((tabName) => (
-              <GridBoxContentWrap key={tabName}>
+              <GridBoxContentWrap id="description" key={tabName}>
                 {
                   <Image
                     src={tabName === scrollTab ? whitedot : graydot}
@@ -346,14 +360,14 @@ const Tab1 = ({ listItems }) => {
             ))}
           </GridBox>
           <GridBox className="description-grid" style={{ height: '70vh', overflowY: 'scroll' }}>
-            {historyContents?.map((item, index) => (
+            {listContents?.map((item, index) => (
               <DescriptionWrap
                 ref={refs[index]}
                 className={tabNames[index]}
                 key={'desc' + index}
                 $isActive={tabNames.indexOf(scrollTab) === index ? true : false}
               >
-                {item.content.map((content, index) => (
+                {item?.map((content, index) => (
                   <DescriptionItem key={index + content}>{content}</DescriptionItem>
                 ))}
               </DescriptionWrap>

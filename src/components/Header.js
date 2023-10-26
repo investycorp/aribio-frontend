@@ -28,30 +28,6 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const BlurBoxTop = styled.div`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 146px;
-  background-color: transparent;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-`;
-const BlurBoxBottom = styled.div`
-  position: absolute;
-  top: 146px;
-  width: 100%;
-  height: 105px;
-  opacity: 0;
-  background-color: transparent;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  transition: opacity 0.3s ease-in-out;
-  @media screen and (max-width: 900px) {
-    height: 100px;
-  }
-`;
-
 const HeaderTop = styled.div`
   position: relative;
   margin: 0;
@@ -61,26 +37,31 @@ const HeaderTop = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   z-index: 100;
-  @media screen and (max-width: 900px) {
-    height: 100px;
+  @media screen and (max-width: 1280px) {
+    height: 97px;
   }
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 `;
 
 const HeaderLogoWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
   width: 122px;
   @media screen and (max-width: 1280px) {
-    width: 100px;
     img {
-      width: 100px;
     }
   }
 `;
 
 const HeaderNavWrap = styled.div`
-  padding: 0 2rem;
-  width: 65vw;
+  padding: 0;
+  width: -webkit-fill-available;
+  padding: 0 5em;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -164,9 +145,10 @@ const HeaderLangButton = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  width: 120px;
-  margin-bottom: 1em;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 122px;
+  height: 52px;
   gap: 0.5rem;
   &:hover {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
@@ -174,9 +156,11 @@ const HeaderLangButton = styled.button`
 
   @media screen and (max-width: 1460px) {
     margin-bottom: 1em;
-    width: 80px;
+
     padding: 0.6em 1em;
     font-size: 14px;
+    width: 82px;
+    height: 34px;
   }
   @media screen and (max-width: 1280px) {
     width: 80px;
@@ -194,6 +178,7 @@ const HeaderBottom = styled.div`
   height: 105px;
   position: fixed;
   text-decoration: none;
+  padding: 0 7vw;
   top: 146px;
   left: 0;
   display: flex;
@@ -201,11 +186,15 @@ const HeaderBottom = styled.div`
   visibility: hidden;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: stretch;
   background-color: rgba(26, 26, 26, 0.3);
   border-top: 2px solid #5d5d5d;
   cursor: default;
   transition: opacity 0.5s ease-in-out;
+  @media screen and (max-width: 1280px) {
+    top: 97px;
+    height: 72px;
+  }
   @media screen and (max-width: 900px) {
     flex-direction: column;
   }
@@ -458,7 +447,6 @@ const Header = () => {
             }}
             tabIndex={1}
           >
-            <BlurBoxTop />
             <HeaderTop>
               <HeaderLogoWrap>
                 <Link
@@ -466,9 +454,10 @@ const Header = () => {
                   onClick={() => {
                     if (location.pathname === '/') window.location.reload();
                   }}
+                  style={{ width: '122px' }}
                 >
                   <img
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '122px' : '82px' }}
                     src={process.env.PUBLIC_URL + '/assets/images/header_logo.png'}
                     alt="logo"
                   />
@@ -500,7 +489,7 @@ const Header = () => {
                   >
                     <div
                       style={{
-                        paddingBottom: '0.3rem',
+                        paddingBottom: '0.6em',
                         borderBottom:
                           currentTab === menu.linkTo && currentTab !== currentMenu
                             ? '2px solid #ffffff'
@@ -517,17 +506,20 @@ const Header = () => {
             </HeaderTop>
             {currentMenu !== 'pipeline' && currentMenu !== 'career' && currentMenu !== '' && (
               <>
-                <BlurBoxBottom
-                  style={{
-                    visibility: currentMenu !== '' ? 'visible' : 'hidden',
-                    opacity: currentMenu !== '' ? 1 : 0,
-                  }}
-                />
                 <HeaderBottom
                   className={`header-bottom ${currentMenu}`}
-                  style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+                  // style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
+                  style={{ visibility: 'visible', opacity: 1 }}
                 >
-                  <HeaderNavWrap style={{ width: navBarwidth, gap: '5em', justifyContent: 'start' }}>
+                  <HeaderNavWrap
+                    style={{
+                      width: 'webkit-fill-available',
+                      margin: '0 122px',
+                      padding: '0 5em',
+                      gap: '5em',
+                      justifyContent: 'start',
+                    }}
+                  >
                     {subMenu[currentMenu]?.map((menu) => (
                       <Link
                         to={`/${currentMenu}/${menu.linkTo}`}
@@ -565,10 +557,26 @@ const LangButton = () => {
   return (
     <>
       <Desktop>
-        <HeaderLangButton style={{ cursor: 'pointer' }} onClick={handleClick}>
-          <img style={{ zIndex: '-1', cursor: 'pointer' }} src={lang_globe} alt="lang" />
-          <div style={{ zIndex: '-1', cursor: 'pointer' }}>{language}</div>
-        </HeaderLangButton>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '122px',
+            justifyContent: 'center',
+            alignItems: 'end',
+          }}
+        >
+          <HeaderLangButton style={{ cursor: 'pointer' }} onClick={handleClick}>
+            <img
+              style={{ height: window.innerWidth > 1280 ? '20px' : '13px', zIndex: '-1', cursor: 'pointer' }}
+              src={lang_globe}
+              alt="lang"
+            />
+            <div style={{ fontSize: window.innerWidth > 1280 ? '18px' : '11px', zIndex: '-1', cursor: 'pointer' }}>
+              {language}
+            </div>
+          </HeaderLangButton>
+        </div>
       </Desktop>
       <Mobile>
         <div

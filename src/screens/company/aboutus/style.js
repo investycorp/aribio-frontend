@@ -152,7 +152,10 @@ const TabItem = styled.div`
   }
 `;
 
-const TabContentWrap = styled.div`
+const TabContentWrap = styled.div.attrs((props) => ({
+  className: props.className,
+  id: props.id,
+}))`
   width: 100%;
   height: fit-content;
   display: grid;
@@ -164,6 +167,19 @@ const TabContentWrap = styled.div`
   background-color: transparent;
   margin-top: 3rem;
   padding-bottom: 10rem;
+
+  &#leadership {
+    transform: translateY(20vh);
+    -webkit-transform: translateY(20vh);
+    opacity: 0;
+  }
+  &#leadership.moveup {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transition: all 0.5s ease-in-out;
+    opacity: 1;
+  }
+
   @media screen and (max-width: 900px) {
     grid-template-columns: 1fr;
     padding-bottom: 3rem;

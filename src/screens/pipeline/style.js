@@ -189,7 +189,7 @@ const TableContentBox = styled.div.attrs((props) => ({
   padding: 1em 0.5em;
   text-align: center;
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 200;
   height: auto;
   width: 100%;
   @media screen and (max-width: 1400px) {
@@ -387,7 +387,7 @@ const ShootingStar = styled.span.attrs((props) => ({
   position: absolute;
   top: calc(50%-4px);
   left: 0%;
-  width: 8px;
+  width: 4px;
   height: 8px;
   background: #fff;
   border-radius: 50%;

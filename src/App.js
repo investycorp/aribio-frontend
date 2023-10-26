@@ -71,7 +71,9 @@ function App() {
               <Route exact path="/irpr/pressrelease" element={<PressRelease />}>
                 <Route exact path=":id" element={<DetailPage />} />
               </Route>
-              <Route path="/irpr/mediakit" element={<MediaKit />} />
+              <Route path="irpr/mediakit">
+                <Route path=":id?" element={<MediaKit />} />
+              </Route>
               <Route exact path="/career" element={<Career />}>
                 <Route exact path=":id" element={<CareerDetail />} />
               </Route>

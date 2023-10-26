@@ -19,7 +19,7 @@ const ModalWrap = styled.div`
 
 const ModalContentWrap = styled.div`
   opacity: 1;
-  width: 40%;
+  width: 818px;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,9 @@ const ModalContentWrap = styled.div`
   padding: 2rem;
   z-index: 10;
   overflow: hidden;
+  @media (max-width: 1280px) {
+    width: 656px;
+  }
   @media (max-width: 900px) {
     width: 84vw;
   }

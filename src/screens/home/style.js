@@ -139,13 +139,12 @@ const HeadLineText = styled.div.attrs((props) => ({
   margin-bottom: 1rem;
   text-align: center;
   line-height: 1.3em;
-  color: rgba(255, 255, 255, 1);
+  color: #ffffff;
   z-index: 10;
-  &.highlight {
-    span {
-      font-size: 60px;
-      //add text color changing animation here
-    }
+  span.highlight {
+    font-size: 60px;
+    //add text color changing animation here
+    color: rgba(255, 255, 255, 0.5);
   }
 
   @media screen and (max-width: 1280px) {

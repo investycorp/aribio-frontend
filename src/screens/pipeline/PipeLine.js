@@ -217,7 +217,7 @@ const PipeLine = () => {
                 </TableRowWrap>
                 {data?.map((item, index) => (
                   <TableRowWrap className="tr" key={'tableRow' + index}>
-                    <TableContentBox>
+                    <TableContentBox style={{ fontWeight: '600' }}>
                       {item?.drugCandidate}
                       <img
                         style={{ padding: '1em', cursor: 'pointer' }}

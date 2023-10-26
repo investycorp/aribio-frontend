@@ -501,8 +501,21 @@ const PressRelease = () => {
                     }
                   }}
                 >
-                  <Image style={{ zIndex: '-1' }} src={icon_more} alt="more" />
-                  <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em' }}>View more</Text>
+                  <Image
+                    style={{ zIndex: '-1', height: window.innerWidth > 1280 ? '40px' : '24px' }}
+                    src={icon_more}
+                    alt="more"
+                  />
+                  <Text
+                    style={{
+                      zIndex: '-1',
+                      width: 'fit-content',
+                      margin: '0.5em',
+                      fontSize: window.innerWidth > 1280 ? '26px' : '15px',
+                    }}
+                  >
+                    View more
+                  </Text>
                 </div>
               )}
             </HomeComponentWrap>

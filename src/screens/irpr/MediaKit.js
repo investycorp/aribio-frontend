@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import ReactPlayer from 'react-player/youtube';
 import vertical_arrow from './../../assets/images/vertical_arrow.svg';
 import irpr_mediakit_cover from './assets/irpr_mediakit_cover.png';
 import irpr_mediakit_videopreviewimg from './assets/irpr_mediakit_videopreviewimg.png';
@@ -10,18 +11,54 @@ import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, HR } from 
 import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import Language from '../../atom/Language';
+import { useRecoilState } from 'recoil';
+import useMediaList from '../../hooks/irpr/useMediaList';
 
 const MediaKit = () => {
-  const [itemsList, setItemsList] = useState([
-    { title: 'AR1001 Polypharmacological Approach', date: '2023-08-12', link: '' },
-    { title: 'AriBio Co.,LTD. Corporate promotional video 2020', date: '2023-07-06', link: '' },
-  ]);
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [language, setLanguage] = useRecoilState(Language);
+  const { data, isLoading, refetch } = useMediaList(language);
+  const [currentVideo, setCurrentVideo] = useState({ title: '', url: '' });
+  const [itemsList, setItemsList] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (data?.data.success) {
+      setItemsList([]);
+      const item = data.data.data.mediaKitDtoList;
+      item.map((comtent) => {
+        setItemsList((prev) => [
+          ...prev,
+          {
+            id: comtent.id,
+            title: comtent.title,
+            date: `${comtent.year}-${comtent.month}-${comtent.day}}`,
+            link: comtent.url,
+          },
+        ]);
+
+        if (!id) setCurrentVideo({ title: item[0]?.title, url: item[0]?.url });
+      });
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (id) {
+      const video = itemsList?.find((item) => item.id === parseInt(id));
+      setCurrentVideo({ title: video?.title, url: video?.link });
+    }
+  }, [id]);
+
+  useEffect(() => {
+    console.log(currentVideo?.title);
+  }, [currentVideo]);
 
   return (
     <Container className="container">
@@ -70,7 +107,7 @@ const MediaKit = () => {
           </HomeComponentWrap>
           <HomeComponentWrap>
             <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '0' }}>
-              <img src={irpr_mediakit_videopreviewimg} alt="video preview" style={{ width: '100%' }} />
+              <ReactPlayer url={currentVideo.url} width="100%" height="50vh" />
             </ComponentWrap>
             <ComponentWrap
               className="mediakit_item"
@@ -93,6 +130,9 @@ const MediaKit = () => {
                     alignItems: 'start',
                     padding: '2rem',
                     borderLeft: '2px solid #B1B1B1',
+                  }}
+                  onClick={() => {
+                    navigate(`/irpr/mediakit/${item.id}`);
                   }}
                 >
                   <Text

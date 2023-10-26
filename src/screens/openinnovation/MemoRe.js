@@ -28,6 +28,16 @@ const MemoRe = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
+
+    window.addEventListener('scroll', () => {
+      const image = document.getElementById('image');
+      if (image) {
+        const imageTop = image.getBoundingClientRect().top;
+        if (imageTop < window.scrollY - window.innerHeight * 0.5) {
+          image.classList.add('fadein');
+        } else image.classList.remove('fadein');
+      }
+    });
   }, []);
   useEffect(() => {
     if (data?.data?.success) {
@@ -69,13 +79,12 @@ const MemoRe = () => {
         <HomeComponentWrap
           style={{
             backgroundColor: 'transparent',
-            height: '120vh',
             overflow: 'hidden',
           }}
         >
           <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
             <Text $color="#C9C9C9" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
-              MEMO:RE PROJECT
+              DIGITAL HEALTH
             </Text>
             <div
               style={{
@@ -87,36 +96,27 @@ const MemoRe = () => {
               }}
             ></div>
             <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="400">
-              Our Mission with Memo:Re Project
+              Help Preserve Your Loved One’s Memories
             </Text>
             <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
             <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#D3D3D3">
-              We believe memories are the essence of life’s most treasured moments, and they deserve preservation,
-              especially for our aging family members who cherish them the most. Memo:Re is more than just a social
-              media platform; it’s a digital sanctuary crafted specifically to safeguard these precious memories.
-              <br />
-              <br />
-              Through Memo:Re, you can breathe life into your cherished moments, sharing photos and videos from bygone
-              times with your elderly loved ones. Add a personal touch by overlaying these visuals with voice notes,
-              sharing reflections, or posing questions to stimulate recollection and conversation.
-              <br />
-              <br />
-              But we don’t stop there. Grounded in the principles of Reminiscence Therapy, Memo:Re is engineered to
-              evoke and reinforce forgotten memories through the sharing of photos, videos, and heartfelt messages. Our
-              unique Memo:Re scheduler ensures these memories resurface regularly, offering comfort and a sense of
-              belonging.
-              <br />
-              <br />
-              In a world where isolation is an all-too-common challenge for the elderly, Memo:Re stands as a beacon,
-              ensuring that our loved ones are always surrounded by the warmth of their cherished past.
+              We believe that life’s most precious gift is the memories we create, and it is essential to preserve these
+              memories,
+              <br /> especially for our aging family members who hold them dear. Memo:Re is more than just a social
+              media platform;
+              <br /> it’s a digital sanctuary crafted specifically to safeguard these precious memories.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
         <HomeComponentWrap style={{}}>
           <Image
+            id="image"
             src={openinnovation_memore_middle1}
             alt="openinnovation_middle2"
-            style={{ width: '80%', marginTop: '5em' }}
+            style={{
+              width: '80%',
+              transition: 'opacity 0.5s ease-in-out',
+            }}
           />
           <TextWrap style={{ margin: '10em 0' }}>
             <Text
@@ -125,16 +125,24 @@ const MemoRe = () => {
               $fontWeight="300"
               $align="center"
             >
-              Research on age-related memory decline underscores the value of consistent engagement with cherished
-              memories, particularly when shared with family. Regularly revisiting these memories has been linked to not
-              only a slower progression of memory loss but also enhanced mood and overall well-being.
+              Memo:Re isn’t just a digital tool; it’s a bridge. With its user-friendly design,
+              <br /> both parents and senior family members can effortlessly journey through their life stories,
+              <br /> cherishing each moment all over again. By facilitating these shared reminiscences, <br />
+              we reinforce familial bonds and provide an emotional safety net.
+              <br /> Most importantly, through Memo:Re,we send a profound message to our elderly loved ones:
+              <br /> they are not journeying through memory alone.
+              <br />
+              We are right beside them, every step of the way.
               <br />
               <br />
-              Memo:Re isn’t just a digital tool; it’s a bridge. With its user-friendly design, both parents and senior
-              family members can effortlessly journey through their life stories, cherishing each moment all over again.
-              By facilitating these shared reminiscences, we reinforce familial bonds and provide an emotional safety
-              net. Most importantly, through Memo:Re,we send a profound message to our elderly loved ones: they are not
-              journeying through memory alone. We are right beside them, every step of the way.
+              <br />
+              <br />
+              But we don’t stop there. Grounded in the principles of Reminiscence Therapy, <br />
+              Memo:Re is engineered to evoke and reinforce forgotten memories
+              <br /> through the sharing of photos, videos, and heartfelt messages.
+              <br /> Our unique Memo:Re scheduler ensures these memories resurface regularly,
+              <br /> offering comfort and a sense of belonging, and has been linked to a slower progression of memory
+              loss.
             </Text>
           </TextWrap>
           <ContentWrap
@@ -171,7 +179,7 @@ const MemoRe = () => {
                   justifyContent: 'space-between',
                   width: 'auto',
                   paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                   gap: '1em',
                   margin: '0',
                   cursor: 'pointer',
@@ -194,7 +202,7 @@ const MemoRe = () => {
                   justifyContent: 'space-between',
                   width: 'auto',
                   paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                   gap: '1em',
                   margin: '0',
                   cursor: 'pointer',
@@ -217,7 +225,7 @@ const MemoRe = () => {
                   justifyContent: 'space-between',
                   width: 'auto',
                   paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                   gap: '1em',
                   margin: '0',
                   cursor: 'pointer',
@@ -249,7 +257,7 @@ const MemoRe = () => {
         >
           <TextWrap style={{ position: 'relative', backgroundColor: 'transparent', width: '100%' }}>
             <Text $color="#C9C9C9" $fontSize="26px" $fontWeight="300">
-              MEMO:RE PROJECT
+              DIGITAL HEALTH
             </Text>
             <div
               style={{
@@ -261,28 +269,15 @@ const MemoRe = () => {
               }}
             ></div>
             <Text $fontSize="23px" $fontWeight="400" style={{ width: '70%', margin: '0' }}>
-              Our Mission with Memo:Re Project
+              Help Preserve Your Loved One’s Memories
             </Text>
             <hr style={{ width: '2rem', border: '1px solid #ffffff', margin: '3rem 0 1rem 0' }} />
             <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3">
-              We believe memories are the essence of life’s most treasured moments, and they deserve preservation,
-              especially for our aging family members who cherish them the most. Memo:Re is more than just a social
-              media platform; it’s a digital sanctuary crafted specifically to safeguard these precious memories.
-              <br />
-              <br />
-              Through Memo:Re, you can breathe life into your cherished moments, sharing photos and videos from bygone
-              times with your elderly loved ones. Add a personal touch by overlaying these visuals with voice notes,
-              sharing reflections, or posing questions to stimulate recollection and conversation.
-              <br />
-              <br />
-              But we don’t stop there. Grounded in the principles of Reminiscence Therapy, Memo:Re is engineered to
-              evoke and reinforce forgotten memories through the sharing of photos, videos, and heartfelt messages. Our
-              unique Memo:Re scheduler ensures these memories resurface regularly, offering comfort and a sense of
-              belonging.
-              <br />
-              <br />
-              In a world where isolation is an all-too-common challenge for the elderly, Memo:Re stands as a beacon,
-              ensuring that our loved ones are always surrounded by the warmth of their cherished past.
+              We believe that life’s most precious gift is the memories we create, and it is essential to preserve these
+              memories,
+              <br /> especially for our aging family members who hold them dear. Memo:Re is more than just a social
+              media platform;
+              <br /> it’s a digital sanctuary crafted specifically to safeguard these precious memories.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -294,16 +289,24 @@ const MemoRe = () => {
           />
           <TextWrap style={{ margin: '5em 0', width: '100%' }}>
             <Text $color="#C9C9C9" $fontSize="18px" $fontWeight="300" $align="center">
-              Research on age-related memory decline underscores the value of consistent engagement with cherished
-              memories, particularly when shared with family. Regularly revisiting these memories has been linked to not
-              only a slower progression of memory loss but also enhanced mood and overall well-being.
+              Memo:Re isn’t just a digital tool; it’s a bridge. With its user-friendly design,
+              <br /> both parents and senior family members can effortlessly journey through their life stories,
+              <br /> cherishing each moment all over again. By facilitating these shared reminiscences, <br />
+              we reinforce familial bonds and provide an emotional safety net.
+              <br /> Most importantly, through Memo:Re,we send a profound message to our elderly loved ones:
+              <br /> they are not journeying through memory alone.
+              <br />
+              We are right beside them, every step of the way.
               <br />
               <br />
-              Memo:Re isn’t just a digital tool; it’s a bridge. With its user-friendly design, both parents and senior
-              family members can effortlessly journey through their life stories, cherishing each moment all over again.
-              By facilitating these shared reminiscences, we reinforce familial bonds and provide an emotional safety
-              net. Most importantly, through Memo:Re,we send a profound message to our elderly loved ones: they are not
-              journeying through memory alone. We are right beside them, every step of the way.
+              <br />
+              <br />
+              But we don’t stop there. Grounded in the principles of Reminiscence Therapy, <br />
+              Memo:Re is engineered to evoke and reinforce forgotten memories
+              <br /> through the sharing of photos, videos, and heartfelt messages.
+              <br /> Our unique Memo:Re scheduler ensures these memories resurface regularly,
+              <br /> offering comfort and a sense of belonging, and has been linked to a slower progression of memory
+              loss.
             </Text>
           </TextWrap>
           <ContentWrap

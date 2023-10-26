@@ -174,7 +174,7 @@ const DetailPage = () => {
           }}
         >
           <Button onClick={() => clickPrint()}>
-            <span style={{ padding: '0 0.5em', zIndex: '-1' }}>Print</span>{' '}
+            <span style={{ padding: '0.1em 0.5em 0 0', zIndex: '-1' }}>Print</span>{' '}
             <Image style={{ zIndex: '-1' }} src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'} alt="print" />
           </Button>
         </div>
@@ -292,7 +292,7 @@ const DetailPage = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    width: '260px',
+                    width: window.innerWidth > 1280 ? '260px' : '158px',
                     paddingBottom: '0.7em',
                     margin: '1em 0',
                     borderBottom: '1px solid #212121',

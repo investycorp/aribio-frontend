@@ -155,7 +155,7 @@ const Contact = () => {
               style={{
                 width: '50%',
                 alignSelf: 'flex-start',
-                height: '8em',
+                height: '60px',
                 borderRight: '2px solid #ffffff',
                 margin: '2rem 0',
               }}
@@ -166,14 +166,14 @@ const Contact = () => {
               $color="#ffffff"
               style={{ margin: '2rem 0 0 0' }}
             >
-              We appreciate your interest in AriBio.
+              We Look Forward To Hearing From You
             </Text>
           </TextWrap>
         </HomeComponentWrap>
         <HomeComponentWrap>
           <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
           <Text
-            $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
+            $fontSize={window.innerWidth > 1280 ? '32px' : '20px'}
             $fontWeight="300"
             $color="#E5E5E5"
             $align="start"
@@ -368,7 +368,7 @@ const Contact = () => {
           </Text>
           <FormWrap style={{ gap: '1em' }}>
             <RowWrap
-              style={{ borderBottom: '1px solid #707070', padding: '0.5em' }}
+              style={{ borderBottom: '1px solid #707070', padding: '0.5em 0' }}
               onClick={() => {
                 window.open(
                   'https://www.google.com/maps/place/La+Jolla+Centre+I,+4660+La+Jolla+Village+Dr+%231070,+San+Diego,+CA+92121,+USA/@32.8746797,-117.2089889,17z/data=!3m1!4b1!4m5!3m4!1s0x80dc073244120117:0xad78fb4d9afd9f57!8m2!3d32.8746797!4d-117.206414?entry=ttu',
@@ -376,11 +376,13 @@ const Contact = () => {
                 );
               }}
             >
-              <span style={{ fontSize: '20px', zIndex: '-1' }}>San Diego, 92112, USA</span>
+              <span style={{ fontSize: window.innerWidth > 1280 ? '34px' : '20px', fontWeight: '600', zIndex: '-1' }}>
+                San Diego, 92112, USA
+              </span>
               <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1' }} />
             </RowWrap>
             <RowWrap
-              style={{ borderBottom: '1px solid #707070', padding: '0.5em' }}
+              style={{ borderBottom: '1px solid #707070', padding: '0.5em 0' }}
               onClick={() => {
                 window.open(
                   'https://www.google.com/maps/place/(%EC%A3%BC)%EC%95%84%EB%A6%AC%EB%B0%94%EC%9D%B4%EC%98%A4/data=!3m1!4b1!4m6!3m5!1s0x357b58759f3e1a6f:0xba7138c19b018cf2!8m2!3d37.3878714!4d127.1149864!16s%2Fg%2F11bytsn4nc?entry=ttu',
@@ -388,7 +390,10 @@ const Contact = () => {
                 );
               }}
             >
-              <span style={{ fontSize: '20px', zIndex: '-1' }}> Gyeonggi-do, Republic of Korea</span>
+              <span style={{ fontSize: window.innerWidth > 1280 ? '34px' : '20px', fontWeight: '600', zIndex: '-1' }}>
+                {' '}
+                Gyeonggi-do, Republic of Korea
+              </span>
               <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1' }} />
             </RowWrap>
           </FormWrap>

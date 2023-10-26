@@ -20,7 +20,7 @@ const GoToTop = () => {
         bottom: '28vh',
         right: '4.5vw',
         zIndex: '10',
-        width: '2vw',
+        width: 'fit-content',
         cursor: 'pointer',
       }}
       onClick={() => {
@@ -28,7 +28,11 @@ const GoToTop = () => {
         document.querySelector('.container')?.scrollIntoView({ behavior: 'smooth' });
       }}
     >
-      <img style={{ cursor: 'pointer' }} src={vertical_arrow} alt="vertical_arrow" />
+      <img
+        style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '40px' : '25px' }}
+        src={vertical_arrow}
+        alt="vertical_arrow"
+      />
     </div>
   );
 };

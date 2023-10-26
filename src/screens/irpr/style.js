@@ -386,7 +386,7 @@ const Button = styled.button`
   height: 62px;
   display: flex;
   flex-direction: row;
-  gap: 0.5em;
+  gap: 0.3em;
   justify-content: center;
   align-items: center;
   background-color: transparent;
@@ -398,16 +398,28 @@ const Button = styled.button`
   font-weight: 400;
   color: ##414141;
   cursor: pointer;
+  img {
+    height: 20px;
+  }
+
   &:hover {
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     span {
       text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     }
   }
-
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1280px) {
     width: 79px;
     height: 39px;
+    span {
+      font-size: 12px;
+    }
+    img {
+      height: 12px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
     border: 1px solid #414141;
     font-size: 15px;
     font-weight: 300;

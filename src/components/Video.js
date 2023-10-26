@@ -13,7 +13,7 @@ const Video = ({ page }) => {
   const [hasVideoEnded, setHasVideoEnded] = useState(false);
 
   useEffect(() => {
-    if (page !== 'home') setIsVideo(true);
+    // if (page !== 'home') setIsVideo(true);
     const video = videoRef?.current;
     setLoading(true);
 
@@ -22,7 +22,7 @@ const Video = ({ page }) => {
       if (video) {
         video.currentTime = 15; // Set the start time of the loop (in seconds)
         video.play();
-        !isVideo && document.querySelector('.container').scrollTo(0, 0);
+        // !isVideo && document.querySelector('.container').scrollTo(0, 0);
         setIsVideo(true);
       }
     };
@@ -41,15 +41,14 @@ const Video = ({ page }) => {
 
     if (video) {
       // else
-      if (isVideo) {
+      if (page !== 'home') {
         video.currentTime = 15;
-        video.play();
+        video?.play();
       }
 
       video.addEventListener('ended', handleVideoEnd);
       video.addEventListener('loadeddata', () => {
         setLoading(false);
-        console.log('loaded');
       });
     }
 
@@ -83,7 +82,7 @@ const Video = ({ page }) => {
         autoPlay
         muted
         preload="metadata"
-        style={{ width: '100%', height: '100%', opacity: page === 'home' ? '1' : '0.3' }}
+        style={{ width: '100vw', height: 'fit-content', opacity: page === 'home' ? '1' : '0.3' }}
       >
         <Desktop>
           {window.innerWidth > 1280 ? (

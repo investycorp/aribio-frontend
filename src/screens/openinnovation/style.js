@@ -85,7 +85,7 @@ const HomeComponentWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
-  width: 60vw;
+  width: 70vw;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -93,7 +93,7 @@ const TextWrap = styled.div`
   align-items: center;
   background-color: transparent;
   @media (max-width: 1500px) {
-    width: 70vw;
+    width: 80vw;
   }
 `;
 
@@ -299,8 +299,17 @@ const ContentBoxNameWrap = styled.div`
   padding: 0 0 0 7vw;
 `;
 
-const Image = styled.img`
+const Image = styled.img.attrs((props) => ({
+  className: props.className,
+  id: props.id,
+}))`
   z-index: 10;
+  &#image {
+    opacity: 0;
+    &.fadein {
+      opacity: 1;
+    }
+  }
 `;
 
 const ContentWrap = styled.div`

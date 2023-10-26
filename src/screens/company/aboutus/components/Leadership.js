@@ -37,9 +37,12 @@ const Leadership = () => {
   }, [data]);
 
   return (
-    <HomeComponentWrap style={{ width: '100vw', padding: '0', justifyContent: 'start', overflow: 'hidden' }}>
+    <HomeComponentWrap
+      id="leadership"
+      style={{ width: '100vw', padding: '0', justifyContent: 'start', overflow: 'hidden' }}
+    >
       <Desktop>
-        <TabContentWrap>
+        <TabContentWrap id="leadership">
           {tabContents.map((item, index) => (
             <ContentBox key={index}>
               <Text

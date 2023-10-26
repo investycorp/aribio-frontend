@@ -18,73 +18,12 @@ import useHistoryList from '../../../hooks/company/useHistoryList';
 
 const History = () => {
   const [language, setLanguage] = useRecoilState(Language);
+  const [textItems, setTextItems] = useState([]);
   const [tabNames, setTabNames] = useState([]);
+  const [listItems, setListItems] = useState([]);
   const [currentTab, setCurrentTab] = useState(0);
   const [currentScrollY, setCurrentScrollY] = useState(0);
   const { data, isLoading } = useHistoryList(language);
-  const [listItems, setListItems] = useState([
-    {
-      title: '2023',
-      content: [
-        'Ministry of Health and Welfare ‘2023 Electronic Medicine Technology Development Project’ Selected as a Gamma Frequency Rhythmic Vibroacoustic Device in the field of dementia',
-        'Joint development and partnership agreement with Vietnam OPC Pharmaceuticals',
-        'AD/PD 2023 Conference to be announced “AR1001 Plasma Biomarker Analysis from Phase 2 Trial of AR1001 in Mild to Moderate Alzheimer’s Disease Patients”',
-        'Fujirebio Diagnostics, Inc. Announce Strategic Partnership to Advance Biomarker Development for Alzheimer’s Disease and Neurodegeneration',
-        '6th NFAD, Neuroscience Forum on Alzheimer’s Disease, “AR1001 Phase 3 Trial Information & Plasma Biomarker Analysis from Phase 2 Trial of AR1001 in Mild to Moderate Alzheimer’s Disease Patients”',
-        'Samjin Pharmaceuticals to domestic phase 3 clinical trial joint progress agreement ceremony. (AR1001)',
-        'Selected as KoNECT (Korea National Enterprise for Clinical Trials) ‘Public Interest Clinical Trial Support Project’',
-        '41th JP Morgan Healthcare Conference Invitation Participation (AR1001)',
-      ],
-    },
-    {
-      title: '2022',
-      content: [
-        'AR1001 (AD DMT) First patients phase 3 clinical trial, first medication started',
-        'Awarded for Venture company Pharma/Biotech Sector Minister of SMEs and Start-ups',
-        'AR1001 (AD DMT) Phase 3 IND Approval (US FDA)',
-        'Selected as ‘Development and commercialization of wearable-based acoustic vibration devices to improve cognitive impairment in old age in new product development projects with purchase conditions` by Ministry of Science and ICT',
-        'Published a research article on mechanisms of action of AR001 in the journal ’Alzheimer’s Research & Therapy’',
-        'Selected as ‘Dementia Unit’ at Research driven Hospital Project by Ministry of Health and Welfare',
-        'Selected as ‘Preliminary Unicorn’ at K- Unicorn Project by Ministry of Science and ICT',
-        'Selected as ‘Bio-medical Al data Collection Leader’ by National Information Society Agency',
-        'MOU with Samjin Pharmaceuticals to collaborate for the development of neurodegenerative disease and therapies',
-        'AR1001 US FDA EOP2 meeting and Phase 3 Kick-off',
-        'Secured workspace at CIC (Cambridge Innovation Center) in Boston, USA',
-        'Selected as an awardee of ’K-Blockbuster project to support entering the US market’ by Korea Health Industry Development Institute',
-        'AR1004 L/I from KOREA INSTITUTE OF ORIENTAL MEDICINE',
-      ],
-    },
-    {
-      title: '2021',
-      content: [
-        'MOH Minister Award on Health Industry Contribution',
-        'Novel Device Designation of a Vibroacoustics for Dementia treatment by MFDS',
-        'AR1001 Phase 2 Result Presentation at 14th Clinical Trials on Alzheimer’s Disease (CTAD)',
-        'AR1001 Phase 2, 12month treatment complete',
-        'Partnership Agreement on the development of new drugs for neurodegenerativedisease with Daegu-Gyeongbuk Medical Innovation Foundation',
-      ],
-    },
-    {
-      title: '2020',
-      content: [
-        'AR1001 Phase 2, 6month treatment complete',
-        'MOU with Yonsei Univ Hospital to establish a Research Institute on Dementia',
-        'AR1001 Polipharmacological MOA presentation (AAIC)',
-        'AR1001 Phase 2 Patient recruitment Completed',
-        'AR1002 License In (Columbia University)',
-        'MOU of AR1003 (AD treatment) with BioTox Tech and kick-off its development',
-        'Established Joint Research Agreement with Korea Institute of Science and Technology (KIST) for Development of Dementia Therapy',
-      ],
-    },
-    {
-      title: '2019',
-      content: [
-        'AR1002 L/I from Columbia University',
-        'AR1001 (Alzheimer’s Disease) Therapeutic Agent) Approval for Phase 2Extension Study (USFDA)',
-        'AR1001 (VD DMT) Phase 2 IND Approval (US FDA)',
-      ],
-    },
-  ]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -95,15 +34,23 @@ const History = () => {
     console.log(currentTab);
     if (data?.data?.success) {
       const items = data.data.dataList;
+      console.log(items);
+
       setTabNames([]);
+      setListItems([]);
+      setTextItems([]);
       items.map((item) => {
         setTabNames((prev) => [...prev, `${item.startYear}-${item.endYear}`]);
+        setTextItems((prev) => [...prev, { title: item.title, subtitle: item.subtitle }]);
+        const contentList = [];
+        item.userHistoryDtoList?.map((content) => {
+          contentList.push({ title: content.year.toString(), content: content.contents });
+        });
+
+        setListItems((prev) => [...prev, contentList]);
       });
 
       setCurrentTab(0);
-      console.log('currentTab: ', currentTab);
-
-      console.log('data List: ', data.data.dataList);
     }
   }, [data]);
 
@@ -142,15 +89,15 @@ const History = () => {
               $color="#ffffff"
               style={{ margin: '2rem 0 0 0' }}
             >
-              Expansion Phase{' '}
+              {textItems[currentTab]?.title}
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '30px' : '14px'}
               $fontWeight="200"
               $color="#E5E5E5"
-              style={{ margin: '0' }}
+              style={{ margin: '2em 0 0 0' }}
             >
-              Clinical development and Pipeline Extension
+              {textItems[currentTab]?.subtitle}
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -160,8 +107,7 @@ const History = () => {
               key={index}
               $isActive={currentTab === index ? true : false}
               onClick={() => {
-                setCurrentTab(item);
-                console.log(index);
+                setCurrentTab(index);
               }}
             >
               {item}
@@ -169,7 +115,7 @@ const History = () => {
           ))}
         </Tab>
 
-        <Tab1 listItems={listItems} />
+        <Tab1 listItems={listItems[currentTab]} index={currentTab} />
       </Desktop>
       <Mobile>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
@@ -208,7 +154,7 @@ const History = () => {
             </TabItem>
           ))}
         </Tab>
-        <Tab1 listItems={listItems} />
+        <Tab1 listItems={listItems[currentTab]} index={currentTab} />
       </Mobile>
       <Footer />
     </Container>

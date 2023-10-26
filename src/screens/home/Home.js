@@ -33,12 +33,12 @@ import Video from '../../components/Video';
 
 const Home = () => {
   const language = useRecoilValue(Language);
+  const [scrollY, setScrollY] = useState(0);
   const { data, isLoading, refetch } = useNoticeList('', language, 1);
   const [noticeList, setNoticeList] = useState([]);
 
   useEffect(() => {
     if (data?.data?.success) {
-      console.log(data?.data?.data.noticeDtoList);
       const list = data.data.data.noticeDtoList.map((item, index) => {
         if (index < 3) {
           return {
@@ -57,12 +57,7 @@ const Home = () => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
     window.addEventListener('scroll', () => {
-      const target = document.querySelector('#target');
-      const targetPosition = target?.getBoundingClientRect().top;
-      const screenPosition = window.innerHeight / 1.5;
-      if (targetPosition < screenPosition) {
-        target?.classList.add('highlight');
-      } else target?.classList.remove('highlight');
+      setScrollY(window.scrollY);
     });
 
     return () => {
@@ -95,13 +90,51 @@ const Home = () => {
           <HomeComponentWrap className="home home_2">
             <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
               <HeadLineText id="target" $fontSize="60px">
-                <span className="highlight">AriBio Co., Ltd. is a biotechnology company</span>
+                <span
+                  className="highlight1"
+                  style={{
+                    color:
+                      document.querySelector('.highlight1')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                        ? '#ffffff'
+                        : 'rgba(255, 255, 255, 0.5)',
+                  }}
+                >
+                  AriBio Co., Ltd. is a biotechnology company
+                </span>
                 <br />
-                <span className="highlight">that aims to develop a meaningful therapies for</span>
+                <span
+                  className="highlight2"
+                  style={{
+                    color:
+                      document.querySelector('.highlight2')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                        ? '#ffffff'
+                        : 'rgba(255, 255, 255, 0.5)',
+                  }}
+                >
+                  that aims to develop a meaningful therapies for
+                </span>
                 <br />
-                <span className="highlight">
-                  neurodegenerative diseases through its innovative platform ARIDD™ (AI-powered, Reverse engineered &
-                  Integrated Drug Development) and Open Innovation.
+                <span
+                  className="highlight3"
+                  style={{
+                    color:
+                      document.querySelector('.highlight3')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                        ? '#ffffff'
+                        : 'rgba(255, 255, 255, 0.5)',
+                  }}
+                >
+                  neurodegenerative diseases through its innovative platform ARIDD™{' '}
+                </span>
+                <span
+                  className="highlight4"
+                  style={{
+                    color:
+                      document.querySelector('.highlight4')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                        ? '#ffffff'
+                        : 'rgba(255, 255, 255, 0.5)',
+                  }}
+                >
+                  (AI-powered, Reverse engineered & Integrated Drug Development) and Open Innovation.
                 </span>
                 <br />
               </HeadLineText>

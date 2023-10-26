@@ -165,11 +165,12 @@ const ContentBox = styled.div.attrs((props) => ({
   background-color: transparent;
   &.partner {
     img {
-      filter: grayscale(100%);
+      // filter: grayscale(100%);
     }
     &:hover {
+      // background-image: radial-gradient(rgba (255, 255, 255, 0.3), rgba(255, 255, 255, 0.1), transparent);
       img {
-        filter: grayscale(0%);
+        // filter: grayscale(0%);
       }
     }
   }
@@ -282,6 +283,9 @@ const FormInputRowWrap = styled.div`
       font-size: 14px;
       color: #707070;
       transition: font-size 0.2s ease-in-out;
+      @media screen and (max-width: 1280px) {
+        font-size: 8px;
+      }
     }
   }
 `;
@@ -300,12 +304,18 @@ const Input = styled.input`
     border: none;
     outline: none;
   }
+  @media screen and (max-width: 1280px) {
+    font-size: 12px;
+  }
 `;
 
 const Label = styled.label`
   min-width: fit-content;
   font-size: 20px;
   color: #ffffff;
+  @media screen and (max-width: 1280px) {
+    font-size: 12px;
+  }
 `;
 
 const Button = styled.button.attrs((props) => ({
@@ -328,8 +338,6 @@ const Button = styled.button.attrs((props) => ({
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     img {
       transform: translateX(8px);
       transition: all 0.2s ease-in-out;
@@ -368,10 +376,10 @@ const RowWrap = styled.div`
 const ErrorBox = styled.div`
   position: absolute;
   top: -8em;
-  left: 33%;
-  width: fit-content;
+  left: 33.3%;
+  width: 627px;
   height: fit-content;
-  padding: 1em 2em;
+  padding: 1em 1em;
   background-color: rgba(203, 48, 90, 0.6);
   border: 1px solid #cb305a;
   border-radius: 0.5rem;
@@ -384,6 +392,11 @@ const ErrorBox = styled.div`
   opacity: ${(props) => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
 
+  @media screen and (max-width: 1280px) {
+    width: 395px;
+    font-size: 13px;
+  }
+
   @media screen and (max-width: 900px) {
     font-weight: 300;
   }
@@ -392,10 +405,10 @@ const ErrorBox = styled.div`
 const SuccessBox = styled.div`
   position: absolute;
   top: -8em;
-  left: 33%;
-  width: fit-content;
+  left: 33.3%;
+  width: 627px;
   height: fit-content;
-  padding: 1em 2em;
+  padding: 1em 1em;
   background-color: rgba(0, 166, 255, 0.6);
   border: 1px solid #00a6ff;
   border-radius: 0.5rem;
@@ -406,6 +419,10 @@ const SuccessBox = styled.div`
   font-weight: 200;
   opacity: ${(props) => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
+  @media screen and (max-width: 1280px) {
+    width: 395px;
+    font-size: 13px;
+  }
   @media screen and (max-width: 900px) {
     font-weight: 300;
   }
@@ -416,11 +433,14 @@ const RequiredField = styled.span`
   bottom: -2em;
   left: 0;
   color: #cb305a;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 100;
   display: inline-block;
   gap: 0.3em;
   transition: all 0.2s ease-in-out;
+  @media screen and (max-width: 1280px) {
+    font-size: 13px;
+  }
   @media screen and (max-width: 900px) {
     font-weight: 300;
   }
