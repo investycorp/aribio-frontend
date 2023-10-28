@@ -25,7 +25,7 @@ const ModalContentWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(122, 122, 122, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 10px;
@@ -50,7 +50,7 @@ const ModalTitleWrap = styled.div`
   align-items: start;
   background-color: transparent;
   margin: 0 1em;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   border-bottom: 2px solid rgba(112, 112, 112, 1);
   gap: 1em;
 `;
@@ -59,7 +59,7 @@ const ModalDescriotionWrap = styled.div`
   opacity: 1;
   width: 100%;
   height: fit-content;
-  padding: 1em 1.2em;
+  padding: 1em 0;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -130,21 +130,31 @@ const Modal = ({ setIsModalOpen, item, title, content }) => {
           tabIndex={1}
         >
           <ModalTitleWrap>
-            <span style={{ margin: '1.5em 0' }}>•</span>
+            <span style={{ margin: '1em 0' }}>•</span>
             <div style={{ width: '100%', fontSize: '16px', fontWeight: '300' }}>
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'start', alignItems: 'start' }}>
-                <span style={{ margin: '1em 0' }}>{item}</span>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    alignItems: 'center',
+                  }}
+                >
+                  <span style={{ margin: '1em 0' }}>{item}</span>
+                  <img
+                    style={{ padding: '0', height: '24px', cursor: 'pointer' }}
+                    src={icon_close}
+                    onClick={() => {
+                      setIsModalOpen(false);
+                    }}
+                    alt="close"
+                  />
+                </div>
                 <span>{title}</span>
               </div>
             </div>
-            <img
-              style={{ padding: '0 0 0.5em 0', height: '2em', cursor: 'pointer' }}
-              src={icon_close}
-              onClick={() => {
-                setIsModalOpen(false);
-              }}
-              alt="close"
-            />
           </ModalTitleWrap>
           <ModalDescriotionWrap>{content}</ModalDescriotionWrap>
         </ModalContentWrap>

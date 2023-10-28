@@ -127,16 +127,16 @@ const History = () => {
               style={{
                 width: '50%',
                 alignSelf: 'flex-start',
-                height: '8em',
-                borderRight: '2px solid #ffffff',
+                height: '60px',
+                borderRight: '1px solid #ffffff',
                 margin: '2rem 0',
               }}
             ></div>
             <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-              Expansion Phase{' '}
+              {textItems[currentTab]?.title}
             </Text>
             <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
-              Clinical development and Pipeline Extension
+              {textItems[currentTab]?.subtitle}
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -146,8 +146,7 @@ const History = () => {
               key={index}
               $isActive={currentTab === index ? true : false}
               onClick={() => {
-                setCurrentTab(item);
-                console.log(index);
+                setCurrentTab(index);
               }}
             >
               {item}

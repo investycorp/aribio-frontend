@@ -57,7 +57,7 @@ const SubPageButton = ({ title, linkTo, align }) => {
           <img
             src={arrow}
             alt="arrow"
-            style={{ zIndex: '-1', border: '2px solid #ffffff', borderRadius: '50%', height: '15px' }}
+            style={{ zIndex: '-1', border: '1px solid #ffffff', borderRadius: '50%', height: '20px' }}
           />
         </Link>
       </Mobile>

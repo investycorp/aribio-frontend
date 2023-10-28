@@ -4,9 +4,18 @@ import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
 import ceophoto from './assets/ceophoto.png';
 
-import { Container, HomeComponentWrap, TextWrap, Text, ContentBox, Image } from './style';
+import {
+  Container,
+  HomeComponentWrap,
+  ContainerGridLineWrap,
+  GridLineBox,
+  TextWrap,
+  Text,
+  ContentBox,
+  Image,
+} from './style';
 
-import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
+import { HeadLine, Path, MainImgWrap } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 import Video from '../../../components/Video';
 
@@ -21,7 +30,7 @@ const CeoMessage = () => {
       <MainImgWrap>
         <Video page="ceomessage" />
         <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
+          <GridLineBox />
           <GridLineBox />
           <GridLineBox />
         </ContainerGridLineWrap>
@@ -149,7 +158,7 @@ const CeoMessage = () => {
         </HomeComponentWrap>
       </Desktop>
       <Mobile>
-        <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+        <HomeComponentWrap>
           <TextWrap>
             <Text $fontSize="16px" $fontWeight="300" $color="#939598">
               CEO MESSAGE
@@ -167,7 +176,6 @@ const CeoMessage = () => {
         <HomeComponentWrap
           style={{
             background: 'linear-gradient(to bottom, rgba(0,111,170,0.5), rgba(0, 56, 85, 0.5))',
-            padding: '5vh 7vw',
           }}
         >
           <TextWrap>
@@ -208,10 +216,14 @@ const CeoMessage = () => {
             </Text>
           </TextWrap>
         </HomeComponentWrap>
-        <HomeComponentWrap style={{ padding: '15vh 7vw', display: 'grid' }}>
-          <Image src={ceophoto} alt="ceophoto" style={{ width: '100%' }} />
+        <HomeComponentWrap style={{ display: 'grid', padding: '0' }}>
+          <Image
+            src={process.env.PUBLIC_URL + '/assets/images/ceomessage_ceophoto_mobile.png'}
+            alt="ceophoto"
+            style={{ width: '95vw', maxWidth: '400px' }}
+          />
 
-          <ContentBox style={{ paddingTop: '4rem', gap: '1rem' }}>
+          <ContentBox style={{ padding: '4rem 5vw 0 5vw', gap: '1rem' }}>
             <div style={{ width: '20px', height: '1px', backgroundColor: '#939598' }} />
             <Text
               $fontSize="18px"

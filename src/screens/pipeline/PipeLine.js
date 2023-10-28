@@ -21,23 +21,23 @@ import {
   ToggleButton,
   ToggleListWrap,
   ToggleList,
-  ContainerGridLineWrap,
-  GridLineBox,
   ContentBoxWrap,
   ContentBox,
   RowWrap,
 } from './style';
 
-import { HeadLine, Path, MainImgWrap } from '../../components/style';
+import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 import usePipelineList from '../../hooks/pipeline/usePipelineList';
 import Language from '../../atom/Language';
 import { useRecoilState } from 'recoil';
 
+import Video from '../../components/Video';
+
 const PipeLine = () => {
   const [lan] = useRecoilState(Language);
   const { data: list, isLoading } = usePipelineList(lan);
-  const [selectedItem, setSelectedItem] = useState('AR1001');
+  const [selectedItem, setSelectedItem] = useState(); //mobile
   const [toggleOn, setToggleOn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalItem, setModalItem] = useState({});
@@ -95,6 +95,8 @@ const PipeLine = () => {
       });
     }
     setData(itemList);
+    console.log(itemList);
+    setSelectedItem(itemList?.[0]);
   }, [list]);
 
   useEffect(() => {
@@ -111,19 +113,28 @@ const PipeLine = () => {
   useEffect(() => {
     //animation starts on scroll event
     window.addEventListener('scroll', () => {
+      let fadeIn = document.querySelector('#fadeIn');
+      let getY = fadeIn?.getBoundingClientRect().top;
+      if (getY && getY < window.innerHeight * 0.5) {
+        fadeIn?.classList.add('fadeIn');
+      } else {
+        fadeIn?.classList.remove('fadeIn');
+      }
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
+          //add animation class if intersecting
           const squares = entry.target.querySelectorAll('.shooting_star');
           if (entry.isIntersecting) {
             for (const square of squares) {
-              square.classList.add('animate');
+              square?.classList.add('animate');
             }
             return; // if we added the class, exit the function
           }
 
           // We're not intersecting, so remove the class!
           for (const square of squares) {
-            square.classList.remove('animate');
+            square?.classList.remove('animate');
           }
         });
       });
@@ -145,7 +156,12 @@ const PipeLine = () => {
   useEffect(() => {
     if (isModalOpen) {
       document.querySelector('body').style.overflow = 'hidden';
-    } else document.querySelector('body').style.overflow = 'unset';
+      document.querySelector('body').style.height = '100vh';
+    } else {
+      document.querySelector('#modalOff')?.scrollIntoView({});
+      document.querySelector('body').style.overflow = 'unset';
+      document.querySelector('body').style.height = 'unset';
+    }
     return () => {
       document.querySelector('body').style.overflow = 'unset';
     };
@@ -165,14 +181,16 @@ const PipeLine = () => {
 
   return (
     <Container className="container">
-      <ContainerGridLineWrap>
-        <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
-        <GridLineBox />
-        <GridLineBox />
-      </ContainerGridLineWrap>
+      <MainImgWrap>
+        <Video page="pipeline" />
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
+      </MainImgWrap>
       <Header />
       <Path>{`HOME > PIPELINE`}</Path>
-      <MainImgWrap $src={pipeline_cover}></MainImgWrap>
 
       {!isLoading && (
         <>
@@ -266,16 +284,17 @@ const PipeLine = () => {
             )}
           </Desktop>
           <Mobile>
-            <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+            <HomeComponentWrap style={{ padding: '5vh 5vw', marginBottom: '10em' }}>
               <TextWrap>
                 <Text $fontSize="16px" $fontWeight="300" $color="#939598">
                   PIPELINE
                 </Text>
                 <div
+                  id="modalOff"
                   style={{
                     width: '50%',
                     alignSelf: 'flex-start',
-                    height: '8em',
+                    height: '60px',
                     borderRight: '1px solid #ffffff',
                     margin: '2rem 0',
                   }}
@@ -284,139 +303,148 @@ const PipeLine = () => {
                   Pipeline List
                 </Text>
               </TextWrap>
-              <div
-                id="toggleWrap"
-                onBlur={(e) => {
-                  console.log('blur');
-                  handleBlur(e);
-                }}
-                tabIndex={1}
-                style={{ width: '84vw', position: 'relative' }}
-              >
-                <ToggleButton
-                  onClick={() => {
-                    console.log(toggleOn);
-                    setToggleOn(!toggleOn);
+              <div style={{ width: '100%' }} id="fadeIn">
+                <div
+                  onBlur={(e) => {
+                    console.log('blur');
+                    handleBlur(e);
                   }}
+                  tabIndex={1}
+                  style={{ width: '100%', position: 'relative' }}
                 >
-                  <span>Drug Candidate</span>
-                  <img
-                    src={icon_opentoggle}
-                    alt="open_toggle"
-                    style={{ transform: toggleOn ? 'rotate(180deg)' : '' }}
-                  />
-                </ToggleButton>
-
-                <ToggleListWrap $toggleOn={toggleOn}>
-                  {data?.map((item, index) => (
-                    <ToggleList
-                      key={'toggle' + item?.drugCandidate + index}
-                      onClick={async () => {
-                        await setSelectedItem(item);
-                        setToggleOn(false);
-                        window.scrollTo(0, document.querySelector('#toggleWrap')?.offsetTop + window.innerHeight * 0.3);
-                      }}
-                    >
-                      {item?.drugCandidate}
-                    </ToggleList>
-                  ))}
-                </ToggleListWrap>
-              </div>
-
-              <ContentBoxWrap>
-                <ContentBox style={{ paddingBottom: '3rem', borderBottom: '1px solid #fff' }}>
-                  <RowWrap>
-                    <span>
-                      <span style={{ marginRight: '1rem' }}>•</span>
-                      <span>{selectedItem?.drugCandidate}</span>
-                    </span>
-
+                  <ToggleButton
+                    onClick={() => {
+                      setToggleOn(!toggleOn);
+                    }}
+                    style={{}}
+                  >
+                    <span style={{ fontSize: '20px', fontWeight: '600', color: '#E8E8E8' }}>Drug Candidate</span>
                     <img
-                      style={{ padding: '1em', cursor: 'pointer' }}
-                      src={icon_open}
-                      alt="modal_open"
-                      onClick={() => {
-                        setIsModalOpen(true);
-                        setModalItem({ ...selectedItem?.modal, item: selectedItem?.drugCandidate });
-                        setToggleOn(false);
-                      }}
+                      src={icon_opentoggle}
+                      alt="open_toggle"
+                      style={{ transform: toggleOn ? 'rotate(180deg)' : '' }}
                     />
-                  </RowWrap>
-                  <RowWrap>
-                    <span style={{ padding: '0 0.5rem', fontWeight: '200' }}>
-                      <span style={{ marginRight: '1rem' }}>•</span>
-                      <span>Taget - {selectedItem?.target}</span>
-                    </span>
-                  </RowWrap>
-                  <RowWrap>
-                    <span style={{ padding: '0 0.5rem', fontWeight: '200' }}>
-                      <span style={{ marginRight: '1rem' }}>•</span>
-                      <span>Mordality - {selectedItem?.modality}</span>
-                    </span>
-                  </RowWrap>
-                </ContentBox>
-                <ContentBox className="table" style={{ padding: '1rem 0', gap: '1.5rem' }}>
-                  <RowWrap style={{ backgroundColor: 'rgba(177,177,177,0.2)', padding: '0.5rem 1rem' }}>
-                    Indication
-                  </RowWrap>
-                  {selectedItem?.indication?.map((indication, index) => (
-                    <ContentBox
-                      key={'mobile_indication' + index}
-                      style={{ padding: '0', fontWeight: '100', gap: '0.5rem', alignItems: 'stretch' }}
-                    >
-                      <span>{indication?.section}</span>
-                      <span style={{ width: '100%' }}>
-                        <ShootingStarWrap className="shooting_star_wrap">
-                          <hr style={{ width: '100%', opacity: '0.4', borderTop: '1px dotted' }} />
-                          <ShootingStar
-                            className="shooting_star"
-                            style={{
-                              height: '6px',
-                              width: '6px',
-                            }}
-                            $phase={indication?.phase}
-                          />
-                        </ShootingStarWrap>
+                  </ToggleButton>
+
+                  <ToggleListWrap $toggleOn={toggleOn}>
+                    {data?.map((item, index) => (
+                      <ToggleList
+                        key={'toggle' + item?.drugCandidate + index}
+                        style={{ fontSize: '18px', fontWeight: '300' }}
+                        onClick={async () => {
+                          await setSelectedItem(item);
+                          setToggleOn(false);
+                          window.scrollTo(
+                            0,
+                            document.querySelector('#toggleWrap')?.offsetTop + window.innerHeight * 0.3,
+                          );
+                        }}
+                      >
+                        {item?.drugCandidate}
+                      </ToggleList>
+                    ))}
+                  </ToggleListWrap>
+                </div>
+
+                <ContentBoxWrap>
+                  <ContentBox style={{ paddingBottom: '3rem', borderBottom: '1px solid #fff' }}>
+                    <RowWrap style={{ padding: '0 0 0 1em' }}>
+                      <span>
+                        <span style={{ marginRight: '1em' }}>•</span>
+                        <span style={{ fontSize: '16px', fontWeight: '300' }}>{selectedItem?.drugCandidate}</span>
                       </span>
-                    </ContentBox>
-                  ))}
-                </ContentBox>
-                <ContentBox
-                  className="gridline"
-                  style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', padding: '1rem 0' }}
-                >
-                  <RowWrap>
-                    <hr />
-                    <span>
-                      IND- <br />
-                      Enabling
-                    </span>
-                  </RowWrap>
-                  <RowWrap>
-                    <hr />
-                    <span>
-                      Phase <br />1
-                    </span>
-                  </RowWrap>
-                  <RowWrap>
-                    <hr />
-                    <span>
-                      Phase
-                      <br />2
-                    </span>
-                  </RowWrap>
-                  <RowWrap>
-                    <hr />
-                    <span>
-                      Phase <br />3
-                    </span>
-                  </RowWrap>
-                  <RowWrap>
-                    <hr />
-                    <span>Approval</span>
-                  </RowWrap>
-                </ContentBox>
-              </ContentBoxWrap>
+
+                      <img
+                        style={{ padding: '0', cursor: 'pointer', height: '24px' }}
+                        src={icon_open}
+                        alt="modal_open"
+                        onClick={() => {
+                          setIsModalOpen(true);
+                          setModalItem({ ...selectedItem?.modal, item: selectedItem?.drugCandidate });
+                          setToggleOn(false);
+                        }}
+                      />
+                    </RowWrap>
+                    <RowWrap style={{ padding: '0' }}>
+                      <span style={{ width: '100%', padding: '0 0 0 2em', fontWeight: '200' }}>
+                        <span style={{ marginRight: '1em', fontSize: '10px' }}>•</span>
+                        <span style={{ fontSize: '16px', fontWeight: '300', padding: '0' }}>
+                          Taget - {selectedItem?.target}
+                        </span>
+                      </span>
+                    </RowWrap>
+                    <RowWrap style={{ padding: '0' }}>
+                      <span style={{ width: '100%', padding: '0 0 0 2em', fontWeight: '200' }}>
+                        <span style={{ marginRight: '1em', fontSize: '10px' }}>•</span>
+                        <span style={{ fontSize: '16px', fontWeight: '300', width: '100%', padding: '0' }}>
+                          Mordality - {selectedItem?.modality}
+                        </span>
+                      </span>
+                    </RowWrap>
+                  </ContentBox>
+                  <ContentBox className="table" style={{ padding: '1rem 0', gap: '1.5rem' }}>
+                    <RowWrap style={{ backgroundColor: 'rgba(177,177,177,0.2)', padding: '0.5rem 1rem' }}>
+                      Indication
+                    </RowWrap>
+                    {selectedItem?.indication?.map((indication, index) => (
+                      <ContentBox
+                        key={'mobile_indication' + index}
+                        style={{ padding: '0', fontWeight: '100', gap: '0.5rem', alignItems: 'stretch' }}
+                      >
+                        <span>{indication?.section}</span>
+                        <span style={{ width: '100%' }}>
+                          <ShootingStarWrap className="shooting_star_wrap">
+                            <hr style={{ width: '100%', opacity: '0.4', borderTop: '1px dotted' }} />
+                            <ShootingStar
+                              className="shooting_star"
+                              style={{
+                                height: '6px',
+                                width: '6px',
+                              }}
+                              $phase={indication?.phase}
+                            />
+                          </ShootingStarWrap>
+                        </span>
+                      </ContentBox>
+                    ))}
+                  </ContentBox>
+                  <ContentBox
+                    className="gridline"
+                    style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', padding: '1rem 0' }}
+                  >
+                    <RowWrap>
+                      <hr />
+                      <span>
+                        IND- <br />
+                        Enabling
+                      </span>
+                    </RowWrap>
+                    <RowWrap>
+                      <hr />
+                      <span>
+                        Phase <br />1
+                      </span>
+                    </RowWrap>
+                    <RowWrap>
+                      <hr />
+                      <span>
+                        Phase
+                        <br />2
+                      </span>
+                    </RowWrap>
+                    <RowWrap>
+                      <hr />
+                      <span>
+                        Phase <br />3
+                      </span>
+                    </RowWrap>
+                    <RowWrap>
+                      <hr />
+                      <span>Approval</span>
+                    </RowWrap>
+                  </ContentBox>
+                </ContentBoxWrap>
+              </div>
             </HomeComponentWrap>
             {isModalOpen && (
               <Modal

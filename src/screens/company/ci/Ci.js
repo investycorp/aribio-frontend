@@ -13,13 +13,15 @@ import {
   TextWrap,
   Text,
   ContentBox,
+  ContainerGridLineWrap,
+  GridLineBox,
   ColorBarTextWrap,
   Image,
   ColorBar,
   HR,
   ContentWrap,
 } from './style';
-import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
+import { HeadLine, Path, MainImgWrap } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 import useCi from '../../../hooks/company/useCi';
@@ -298,7 +300,7 @@ const Ci = () => {
         </HomeComponentWrap>
       </Desktop>
       <Mobile>
-        <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+        <HomeComponentWrap>
           <TextWrap>
             <Text $fontSize="16px" $fontWeight="300" $color="#939598">
               CI
@@ -316,20 +318,15 @@ const Ci = () => {
               AriBio CI
             </Text>
             <Text $fontSize="18px" $fontWeight="200" $color="#D3D3D3" style={{ marginTop: '2em' }}>
-              Developing new drugs is the main motivation for growth at AriBio. R&D is our core competency.
-              <br />
-              <br />
-              It is the source of all our products and our pride as a company with unrivaled technological achievements
-              on the global stage.
-              <br />
-              <br />
-              Our new mission and brand identity is based on the foundation to contribute towards a happier and
-              healthier humanity.
+              We are dedicated to pioneering
+              <br /> treatments for neurodegenerative
+              <br /> diseases, offering innovative
+              <br /> therapies for a brighter future.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
-        <HomeComponentWrap style={{ padding: '8vh 7vw', backgroundColor: '#ffffff' }}>
-          <Image src={ci_logo_png} alt="ci_logo" style={{ width: '100%' }} />
+        <HomeComponentWrap style={{ backgroundColor: '#ffffff', height: '160px' }}>
+          <Image src={ci_logo_png} alt="ci_logo" style={{ width: '108px' }} />
         </HomeComponentWrap>
         <HomeComponentWrap style={{ padding: '10vh 0', display: 'grid' }}>
           <ContentBox style={{ position: 'relative', paddingTop: '1em' }}>
@@ -370,14 +367,15 @@ const Ci = () => {
               </ColorBarTextWrap>
             </ColorBar>
           </ContentBox>
-          <ContentBox style={{ padding: '5rem 7vw ' }}>
+          <ContentBox style={{ padding: '5rem 5vw ' }}>
             <ContentWrap>
               <Text $fontSize="16px" $fontWeight="100" $color="#797979" $align="start">
                 01
               </Text>
               <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                ‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable
-                diseases and become a biopharmaceutical leader of South Korea.
+                ‘AriBio’ embodies our ambition to contribute
+                <br /> to the world by developing therapeutics
+                <br /> for incurable diseases and become a<br /> biopharmaceutical leader of South Korea.
               </Text>
             </ContentWrap>
             <ContentWrap style={{ width: '80%' }}>
@@ -403,7 +401,8 @@ const Ci = () => {
                 </Text>
 
                 <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                  Traditional Korean term for ‘Wide and Deep, Beauty, A Person with Wisdom’
+                  Traditional Korean term for
+                  <br /> ‘Wide and Deep, Beauty, A Person with Wisdom’
                 </Text>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'start', gap: '0.5em' }}>
@@ -418,7 +417,8 @@ const Ci = () => {
                 </Text>
 
                 <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                  Derived from the Greek word ‘bios’ meaning ‘life’
+                  Derived from the Greek word ‘bios’
+                  <br /> meaning ‘life’
                 </Text>
               </div>
             </ContentWrap>

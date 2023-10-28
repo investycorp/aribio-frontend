@@ -81,6 +81,9 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 20;
+  @media screen and (max-width: 900px) {
+    padding: 10vh 5vw;
+  }
 `;
 
 const TextWrap = styled.div`
@@ -125,7 +128,7 @@ const Tab = styled.div`
   margin-bottom: 7em;
   z-index: 10;
   @media screen and (max-width: 900px) {
-    gap: 2rem;
+    gap: 1rem;
   }
 `;
 

@@ -136,6 +136,7 @@ const SideSlider = () => {
               scrollY > document.querySelector(`.home_3`)?.offsetTop - window.innerHeight / 2
                 ? 0
                 : 1,
+            zIndex: '40',
           }}
         >
           <SliderImg src={scroll_bar} alt="scroll_bar" />

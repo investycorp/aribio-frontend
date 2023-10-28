@@ -15,6 +15,8 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 import usePublicationList from '../../hooks/ourapproach/usePublication';
 import { useNavigate } from 'react-router-dom';
 
+import Video from '../../components/Video';
+
 const SearchInput = styled.input`
   width: 100%;
   height: fit-content;
@@ -78,28 +80,6 @@ const Publications = () => {
   const { data, isLoading } = usePublicationList();
   const [searchValue, setSearchValue] = useState('');
   const [irDocs, setIrDocs] = useState([]);
-  // const [irDocs, setIrDocs] = useState([
-  //   {
-  //     title: 'K-OTC Technical Analysis Report for Corporate Investment',
-  //     image: docthumbnail,
-  //     downloadUrl: 'Download',
-  //   },
-  //   {
-  //     title: 'K-OTC Technical Analysis Report for Corporate Investment',
-  //     image: docthumbnail,
-  //     downloadUrl: 'Download',
-  //   },
-  //   {
-  //     title: 'K-OTC Technical Analysis Report for Corporate Investment',
-  //     image: docthumbnail,
-  //     downloadUrl: 'Download',
-  //   },
-  //   {
-  //     title: 'K-OTC Technical Analysis Report for Corporate Investment',
-  //     image: docthumbnail,
-  //     downloadUrl: 'Download',
-  //   },
-  // ]);
   const [filteredList, setFilteredList] = useState(irDocs);
 
   useEffect(() => {
@@ -134,7 +114,8 @@ const Publications = () => {
 
   return (
     <Container className="container">
-      <MainImgWrap $src={ourapproach_publications_cover}>
+      <MainImgWrap>
+        <Video page="publications" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
           <GridLineBox />
@@ -321,7 +302,7 @@ const Publications = () => {
                 flexDirection: 'row',
                 color: '#ffffff',
                 marginTop: '4rem',
-                borderBottom: '2px solid #ffffff',
+                borderBottom: '1px solid #ffffff',
                 padding: '0',
                 width: '80vw',
               }}
@@ -330,7 +311,7 @@ const Publications = () => {
                 placeholder="Please enter a search term."
                 type="text"
                 value={searchValue}
-                style={{ fontSize: '18px' }}
+                style={{ fontSize: '18px', width: '322px' }}
                 onChange={(e) => {
                   handleChange(e);
                 }}
@@ -369,7 +350,7 @@ const Publications = () => {
                       alt="read more"
                       style={{ cursor: 'pointer', zIndex: '-1' }}
                     />
-                    <span style={{ cursor: 'pointer', zIndex: '-1' }}>Read More</span>
+                    <span style={{ fontSize: '16px', cursor: 'pointer', zIndex: '-1' }}>Read More</span>
                   </div>
                   <div className="wrap" style={{ alignItems: 'stretch', gridTemplateColumns: '1fr 2fr' }}>
                     <div style={{ padding: '0' }}>
@@ -378,7 +359,7 @@ const Publications = () => {
                       ) : (
                         <DocType $color={'#012438'}>Pub</DocType>
                       )}
-                      <Image src={docthumbnail} alt="doc" style={{ width: '6rem', height: '6rem' }} />
+                      <Image src={docthumbnail} alt="doc" style={{ width: '60px', height: '60px' }} />
                     </div>
                     <div style={{ alignItems: 'start' }}>
                       <Text
@@ -388,7 +369,8 @@ const Publications = () => {
                         $align="start"
                         style={{
                           margin: '0.5rem 0',
-                          fontSize: '12px',
+                          fontSize: '14px',
+                          fontWeight: '300',
                           alignItems: 'start',
                           textAlign: 'start',
                         }}

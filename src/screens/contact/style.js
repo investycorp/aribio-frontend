@@ -81,6 +81,9 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    padding: 5vh 5vw;
+  }
 `;
 
 const TextWrap = styled.div`
@@ -286,6 +289,9 @@ const FormInputRowWrap = styled.div`
       @media screen and (max-width: 1280px) {
         font-size: 8px;
       }
+      @media screen and (max-width: 900px) {
+        font-size: 14px;
+      }
     }
   }
 `;
@@ -307,6 +313,9 @@ const Input = styled.input`
   @media screen and (max-width: 1280px) {
     font-size: 12px;
   }
+  @media screen and (max-width: 900px) {
+    font-size: 18px;
+  }
 `;
 
 const Label = styled.label`
@@ -315,6 +324,9 @@ const Label = styled.label`
   color: #ffffff;
   @media screen and (max-width: 1280px) {
     font-size: 12px;
+  }
+  @media screen and (max-width: 900px) {
+    font-size: 18px;
   }
 `;
 

@@ -81,6 +81,9 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    padding: 10vh 5vw;
+  }
 `;
 
 const TextWrap = styled.div`
@@ -205,11 +208,15 @@ const ColorBar = styled.div`
   transition: all 0.2s ease-in-out;
   height: 100px;
   opacity: 0.3;
-  &:hover {
-    margin-left: 7vw;
-    opacity: 1;
-    ${ColorBarTextWrap} {
+  @media screen and (min-width: 901px) {
+    &:hover,
+    &:focus,
+    &:active {
+      margin-left: 7vw;
       opacity: 1;
+      ${ColorBarTextWrap} {
+        opacity: 1;
+      }
     }
   }
 
@@ -222,6 +229,10 @@ const ColorBar = styled.div`
     height: 60px;
     width: 100%;
     padding: 0.5rem 1rem 0.5rem 0.5rem;
+    opacity: 1;
+    ${ColorBarTextWrap} {
+      opacity: 1;
+    }
     &:nth-child(1) {
       width: 93%;
     }

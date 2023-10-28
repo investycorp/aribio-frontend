@@ -135,10 +135,15 @@ const TabItem = styled.div`
   border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
   line-height: 1.8em;
   transition: all 0.2s ease-in-out;
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus {
     color: #ffffff;
     border-bottom: 2px solid #ffffff;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    @media screen and (max-width: 900px) {
+      border-bottom: 1px solid #ffffff;
+    }
   }
   cursor: pointer;
   @media screen and (max-width: 1280px) {
@@ -146,6 +151,7 @@ const TabItem = styled.div`
   }
   @media screen and (max-width: 900px) {
     font-size: 18px;
+    border-bottom: ${(props) => (props.$isActive ? '1px solid #ffffff' : '1px solid transparent')};
   }
 `;
 

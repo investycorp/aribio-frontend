@@ -82,6 +82,9 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    padding: 5vh 5vw;
+  }
 `;
 
 const TextWrap = styled.div`
@@ -180,7 +183,9 @@ const ContentBox = styled.div`
   }
 `;
 
-const TableWrap = styled.div`
+const TableWrap = styled.div.attrs((props) => ({
+  className: props.className,
+}))`
   width: 100%;
   height: fit-content;
   display: flex;
@@ -189,6 +194,13 @@ const TableWrap = styled.div`
   padding: 0;
   background-color: transparent;
   border: 1px solid #efefef;
+  &.table {
+    &:focus,
+    &:active {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
 `;
 
 const TableRowWrap = styled.div.attrs((props) => ({
@@ -213,6 +225,14 @@ const TableRowWrap = styled.div.attrs((props) => ({
   }
   &:last-child {
     border-bottom: none;
+  }
+  @media screen and (max-width: 900px) {
+    &.th {
+      grid-template-columns: 171px 151px 78px repeat(5, 135px);
+    }
+    &.tr {
+      grid-template-columns: 171px 151px 78px 675px;
+    }
   }
 `;
 

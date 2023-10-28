@@ -89,6 +89,9 @@ const HomeComponentWrap = styled.div`
   padding: 10vh 7vw;
   z-index: 10;
   overflow-x: hidden;
+  @media and screen (max-width: 900px) {
+    padding: 5vh 5vw;
+  }
 `;
 
 const TextWrap = styled.div.attrs((props) => ({ className: props.className }))`
@@ -106,10 +109,10 @@ const TextWrap = styled.div.attrs((props) => ({ className: props.className }))`
     width: 70vw;
   }
   @media (max-width: 900px) {
-    width: 80vw;
+    width: 90vw;
   }
   @media (max-width: 500px) {
-    width: 80vw;
+    width: 90vw;
   }
 `;
 
@@ -292,6 +295,7 @@ const RoundButton = styled.button`
     margin: 0;
     font-size: 14px;
     height: 40px;
+    border-width: 1px;
   }
 `;
 
@@ -491,11 +495,14 @@ const DescriptionItem = styled.li`
   font-weight: 100;
   line-height: 1.5em;
 
-  &::marker {
-    content: ' • ';
-    font-size: 1em;
-    text-align: left;
+  @media screen and (min-width: 901px) {
+    &::marker {
+      content: ' • ';
+      font-size: 1em;
+      text-align: left;
+    }
   }
+
   @media screen and (max-width: 1280px) {
     font-size: 18px;
   }

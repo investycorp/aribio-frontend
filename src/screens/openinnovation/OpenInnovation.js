@@ -15,6 +15,8 @@ import arrow from '../../assets/images/arrow.svg';
 import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
+import Video from '../../components/Video';
+
 const OpenInnovation = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -23,7 +25,8 @@ const OpenInnovation = () => {
   }, []);
   return (
     <Container className="container">
-      <MainImgWrap $src={openinnovation_cover}>
+      <MainImgWrap>
+        <Video page="openinnovation" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
           <GridLineBox />
@@ -33,7 +36,7 @@ const OpenInnovation = () => {
       <Header />
       <Path>{`HOME > OPEN INNOVATION`}</Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>
+        <HeadLine style={{ fontSize: window.innerWidth < 901 && '55px' }}>
           OPEN <br /> INNOVATION
         </HeadLine>
         <img
@@ -205,17 +208,30 @@ const OpenInnovation = () => {
             alt="intro_bg"
           />
           <TextWrap style={{ width: '100%', position: 'relative', backgroundColor: 'transparent' }}>
-            <Text $color="#939598" $fontSize="16px" $fontWeight="600">
+            <Text $color="#939598" $fontSize="16px" $fontWeight="400">
               OPEN INNOVATION
             </Text>
-            <Text $fontSize="23px" $fontWeight="400">
-              AriBio is dedicated to driving advancements in neurodegenerative diseases.
+            <Text $fontSize="23px" $fontWeight="600">
+              AriBio is dedicated to
+              <br /> driving advancements in neurodegenerative diseases.
             </Text>
-            <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '0 0 2em 0' }} />
+            <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '0 0 2em 0' }} />
             <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%' }}>
-              Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and we’re strengthened by our
-              commitment to open innovation. We actively collaborate with innovative companies around the world, aiming
-              to create impactful solutions for these challenging diseases.
+              Our foundation is the ARIDD platform,
+              <br />
+              designed for multi-mechanism drugs,
+              <br />
+              and we’re strengthened by
+              <br />
+              our commitment to open innovation.
+              <br />
+              We actively collaborate with innovative
+              <br />
+              companies around the world,
+              <br />
+              aiming to create impactful solutions
+              <br />
+              for these challenging diseases.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -247,19 +263,36 @@ const OpenInnovation = () => {
           >
             <Text
               $color="#939598"
-              $fontSize="18px"
+              $fontSize="16px"
               $fontWeight="300"
               $align="start"
-              style={{ paddingLeft: '15vw', marginBottom: '10em' }}
+              style={{ paddingLeft: '15vw', marginBottom: '10em', lineHeight: '20px' }}
             >
-              <HR style={{ marginBottom: '2em' }} />
-              Our approach blends polypharmacological strategies with a belief in multi-modal management for these
+              <HR style={{ marginBottom: '2em', height: '1px', width: '20px' }} />
+              Our approach blends polypharma
+              <br />
+              cological strategies with a belief in
+              <br />
+              multi-modal management for these
+              <br />
               conditions.
               <br />
               <br />
-              While pioneering work in this area has its challenges and risks, the urgent need for solutions in
-              neurodegenerative diseases propels us forward. Alongside our partners, we utilize AI and digital tools to
-              support patients and deepen our understanding of these disorders.
+              While pioneering work in this area
+              <br />
+              has its challenges and risks, the
+              <br />
+              urgent need for solutions in
+              <br />
+              neurodegenerative diseases propels
+              <br />
+              us forward. Alongside our partners,
+              <br />
+              we utilize AI and digital tools to
+              <br />
+              support patients and deepen our
+              <br />
+              understanding of these disorders.
             </Text>
             <ContentWrap style={{ justifySelf: 'end', flexDirection: 'column', padding: '0 0 10em 33%' }}>
               <Text
@@ -273,9 +306,10 @@ const OpenInnovation = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  width: '100%',
-                  paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  width: '213px',
+                  height: '31px',
+                  paddingBottom: '0',
+                  borderBottom: '1px solid #ffffff',
                 }}
                 onClick={() => navigate('/')}
               >
@@ -293,9 +327,10 @@ const OpenInnovation = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  width: '100%',
-                  paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  width: '213px',
+                  height: '31px',
+                  paddingBottom: '0',
+                  borderBottom: '1px solid #ffffff',
                 }}
                 onClick={() => navigate('/')}
               >

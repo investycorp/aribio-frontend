@@ -39,6 +39,8 @@ import {
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
+import Video from '../../components/Video';
+
 import useCareerList from '../../hooks/career/useCareerList';
 
 const Career = () => {
@@ -119,18 +121,30 @@ const Career = () => {
       title: 'Application Submission',
       desc: (
         <>
-          Enthusiasm, positive attitude, sincerity, and social skills will be determined Successful applicants will be
-          individually contacted.
+          Enthusiasm, positive attitude, sincerity,
+          <br /> and social skills will be determined
+          <br /> Successful applicants will be
+          <br /> individually contacted.
         </>
       ),
     },
     {
       title: 'Primary Interview',
-      desc: <>Panel interview format Practical skills and knowledge-based interview.</>,
+      desc: (
+        <>
+          Panel interview format Practical skills <br />
+          and knowledge-based interview.
+        </>
+      ),
     },
     {
       title: 'In-depth Interview',
-      desc: <>One-on-one format Personality based interview.</>,
+      desc: (
+        <>
+          One-on-one format Personality
+          <br /> based interview.
+        </>
+      ),
     },
     {
       title: 'Employment',
@@ -269,9 +283,10 @@ const Career = () => {
     <Container>
       <Header />
       <Path>{`HOME > CAREER`}</Path>
-      <MainImgWrap $src={career_cover}>
+      <MainImgWrap>
+        <Video page="career" />
         <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox style={{ borderLeft: '2px solid #5d5d5d' }} />
+          <GridLineBox />
           <GridLineBox />
           <GridLineBox />
         </ContainerGridLineWrap>
@@ -735,7 +750,7 @@ const Career = () => {
                 </Text>
               </TextWrap>
             </HomeComponentWrap>
-            <HomeComponentWrap>
+            {/* <HomeComponentWrap>
               <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
               <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start">
                 Core Values
@@ -784,7 +799,7 @@ const Career = () => {
                   </GridContentWrap>
                 ))}
               </div>
-            </HomeComponentWrap>
+            </HomeComponentWrap> */}
             <HomeComponentWrap>
               <Text
                 $fontSize="20px"
@@ -860,7 +875,10 @@ const Career = () => {
                 ))}
               </ContentBox>
             </HomeComponentWrap>
-            <HomeComponentWrap style={{ display: 'grid', gridTemplateColumns: '1fr', alignItems: 'start' }}>
+            <HomeComponentWrap
+              id="benefits"
+              style={{ display: 'grid', gridTemplateColumns: '1fr', alignItems: 'start' }}
+            >
               <TextWrap style={{ width: 'fit-content', marginBottom: '3rem' }}>
                 <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start">
                   Benefits
@@ -870,6 +888,7 @@ const Career = () => {
               <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '5vh' }}>
                 {benefits.map((item, index) => (
                   <ContentBox
+                    id="benefits"
                     className="benefits"
                     key={`benefits${index}`}
                     style={{
@@ -892,7 +911,7 @@ const Career = () => {
                         width: '100%',
                       }}
                     >
-                      <Image src={item.img} alt="icon_work" style={{ height: '3rem' }} />
+                      <Image src={item.img} alt="icon_work" style={{ height: '40px' }} />
                       <Text
                         $fontSize="18px"
                         $fontWeight="300"
@@ -904,7 +923,7 @@ const Career = () => {
                       </Text>
                     </div>
                     <TextWrap style={{ position: 'relative', width: 'fit-content' }}>
-                      <DescriptionWrap>
+                      <DescriptionWrap style={{ paddingRight: '2rem' }}>
                         {item.desc.map((descItem, descIndex) => (
                           <DescriptionItem
                             style={{
@@ -931,7 +950,7 @@ const Career = () => {
                     }}
                   >
                     <Text
-                      $fontSize="20px"
+                      $fontSize="16px"
                       $fontWeight="300"
                       $color="#ffffff"
                       $align="start"
@@ -941,7 +960,7 @@ const Career = () => {
                         flexDirection: 'row',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        width: '45%',
+                        width: '213px',
                         paddingBottom: '0.7em',
                         borderBottom: '2px solid #ffffff',
                       }}
@@ -953,7 +972,7 @@ const Career = () => {
                       <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
                     </Text>
                     <Text
-                      $fontSize="20px"
+                      $fontSize="16px"
                       $fontWeight="300"
                       $color="#ffffff"
                       $align="start"
@@ -963,7 +982,7 @@ const Career = () => {
                         flexDirection: 'row',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        width: '45%',
+                        width: '213px',
                         paddingBottom: '0.7em',
                         borderBottom: '2px solid #ffffff',
                       }}

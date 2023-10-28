@@ -72,29 +72,44 @@ const Video = ({ page }) => {
         width: '100vw',
         height: '100vh',
         backgroundColor: '#121212',
-        zIndex: isVideo ? '0' : '999',
+        zIndex: '10',
         overflow: 'hidden',
         transition: 'all 0.5s ease-in-out',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        preload="metadata"
-        style={{ width: '100vw', height: 'fit-content', opacity: page === 'home' ? '1' : '0.3' }}
-      >
-        <Desktop>
+      <Desktop>
+        <video
+          ref={videoRef}
+          playsInline
+          autoPlay
+          muted
+          controls={false}
+          preload="metadata"
+          style={{ width: '100vw', height: 'fit-content', opacity: page === 'home' ? '1' : '0.3' }}
+        >
           {window.innerWidth > 1280 ? (
             <source src={process.env.PUBLIC_URL + '/assets/videos/home/Home_1920.mp4'} type="video/mp4" />
           ) : (
             <source src={process.env.PUBLIC_URL + '/assets/videos/home/Home_1280.mp4'} type="video/mp4" />
           )}
-        </Desktop>
-        <Mobile>
+        </video>
+      </Desktop>
+      <Mobile>
+        <video
+          ref={videoRef}
+          playsInline
+          autoPlay
+          muted
+          controls={false}
+          preload="metadata"
+          style={{ width: 'fit-content', height: '100vh', opacity: page === 'home' ? '1' : '0.3' }}
+        >
           <source src={process.env.PUBLIC_URL + '/assets/videos/home/Home_360.mp4'} type="video/mp4" />
-        </Mobile>
-      </video>
+        </video>
+      </Mobile>
     </Container>
   );
 };

@@ -33,6 +33,9 @@ const ContainerGridLineWrap = styled.div.attrs((props) => ({
   &.visible {
     visibility: visible;
   }
+  @media screen and (max-width: 900px) {
+    padding: 0 5vw;
+  }
 `;
 
 const GridLineBox = styled.div`
@@ -98,6 +101,9 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    padding: 10vh 5vw;
+  }
 `;
 
 const HomeAboutUsTextWrap = styled.div`
@@ -108,6 +114,9 @@ const HomeAboutUsTextWrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  @media screen and (max-width: 900px) {
+    width: 86vw;
+  }
 `;
 
 const HeadLineTitle = styled.div`
@@ -126,6 +135,7 @@ const HeadLineTitle = styled.div`
 
   @media screen and (max-width: 900px) {
     font-size: 30px;
+    width: 100%;
   }
 `;
 
@@ -152,7 +162,9 @@ const HeadLineText = styled.div.attrs((props) => ({
   }
 
   @media screen and (max-width: 900px) {
-    font-size: 20px;
+    width: 100%;
+    font-size: 23px;
+    line-height: 31px;
   }
 `;
 

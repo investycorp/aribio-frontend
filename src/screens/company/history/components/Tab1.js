@@ -8,6 +8,7 @@ import graydot from '../assets/graydot.svg';
 import { Desktop, Mobile } from '../../../../utils/MediaQuery';
 
 const HomeComponentWrap = styled.div`
+  position: relative;
   width: 100%;
   max-width: 100%;
   height: fit-content;
@@ -21,7 +22,7 @@ const HomeComponentWrap = styled.div`
   z-index: 10;
   @media screen and (max-width: 900px) {
     grid-template-columns: 1fr;
-    padding: 0 7vw 10vh 7vw;
+    padding: 0 5vw 10vh 5vw;
   }
 `;
 
@@ -242,7 +243,7 @@ const Tab1 = ({ listItems, index }) => {
 
         for (let i = 0; i < listItems?.length; i++) {
           if (
-            document.getElementsByClassName(listItems[i]?.title)[0]?.offsetTop - window.innerHeight * 0.4 <
+            document.getElementsByClassName(listItems[i]?.title)[0]?.offsetTop + window.innerHeight * 1.2 <
             window.scrollY
           ) {
             setScrollTab(listItems[i].title);
@@ -301,6 +302,7 @@ const Tab1 = ({ listItems, index }) => {
 
   useEffect(() => {
     console.log('listContents', listContents);
+    console.log('tabNames', tabNames);
   }, [listContents]);
 
   return (
@@ -378,21 +380,48 @@ const Tab1 = ({ listItems, index }) => {
       <Mobile>
         <HomeComponentWrap className="description-grid">
           {tabNames?.map((tabName, index) => (
-            <GridBox key={'tabnames' + index} className={`${tabNames[index]} mobile_gridbox`}>
-              <Image
-                src={tabName === scrollTab ? whitedot : graydot}
-                $isActive={tabName === scrollTab ? true : false}
+            <GridBox
+              key={'tabnames' + index}
+              className={`${tabNames[index]} mobile_gridbox`}
+              style={{ alignItems: 'stretch', position: 'relative' }}
+            >
+              <div
                 style={{
-                  margin: '2px 1rem 0 0',
-                  padding: '0.5em',
+                  height: 'auto',
                   display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  width: '6px',
+                  flexDirection: 'row',
+                  alignItems: 'start',
+                  justifyContent: 'start',
                 }}
-              />
+              >
+                <Image
+                  src={tabName === scrollTab ? whitedot : graydot}
+                  $isActive={tabName === scrollTab ? true : false}
+                  style={{
+                    marginRight: '24px',
+                    padding: '12px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: '8px',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '0',
+                    left: '17px',
+                    width: '2px',
+                    height: index !== tabNames.length - 1 ? '-webkit-fill-available' : '18px',
+                    borderRight: '2px dotted rgba(255, 255, 255, 0.5)',
+                    margin: index === 0 ? '18px 0 0 0' : '0',
+                  }}
+                ></div>
+              </div>
               <GridBoxContentWrap key={tabName} style={{ alignItems: 'start' }}>
-                <Text $isActive={tabName === scrollTab ? true : false}>{tabName}</Text>
+                <Text $isActive={tabName === scrollTab ? true : false} style={{ lineHeight: '1.5em' }}>
+                  {tabName}
+                </Text>
 
                 <DescriptionWrap
                   ref={refs[index]}

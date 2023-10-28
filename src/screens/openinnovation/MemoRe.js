@@ -19,6 +19,7 @@ import arrow from '../../assets/images/arrow.svg';
 
 import Language from '../../atom/Language';
 import useLinkList from '../../hooks/useLink';
+import Video from '../../components/Video';
 
 const MemoRe = () => {
   const [language, setLanguage] = useRecoilState(Language);
@@ -52,7 +53,8 @@ const MemoRe = () => {
   }, [data]);
   return (
     <Container className="container">
-      <MainImgWrap $src={openinnovation_memore_cover}>
+      <MainImgWrap>
+        <Video page="memoRe" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
           <GridLineBox />
@@ -61,7 +63,10 @@ const MemoRe = () => {
       </MainImgWrap>
 
       <Header />
-      <Path>{`HOME > OPEN INNOVATION > MEMO:RE PROJECT`}</Path>
+      <Path>
+        {`HOME  >  OPEN INNOVATION  >`} {window.innerWidth <= 900 && <br />}
+        MEMO:RE PROJECT
+      </Path>
 
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>
@@ -263,25 +268,37 @@ const MemoRe = () => {
               style={{
                 width: '50%',
                 alignSelf: 'flex-start',
-                height: '6em',
+                height: '60px',
                 borderRight: '1px solid #ffffff',
                 margin: '0 0 4rem 0',
               }}
             ></div>
             <Text $fontSize="23px" $fontWeight="400" style={{ width: '70%', margin: '0' }}>
-              Help Preserve Your Loved One’s Memories
+              Help Preserve Your
+              <br /> Loved One’s Memories
             </Text>
-            <hr style={{ width: '2rem', border: '1px solid #ffffff', margin: '3rem 0 1rem 0' }} />
+            <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '2rem 0 2rem 0' }} />
             <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3">
-              We believe that life’s most precious gift is the memories we create, and it is essential to preserve these
-              memories,
-              <br /> especially for our aging family members who hold them dear. Memo:Re is more than just a social
-              media platform;
-              <br /> it’s a digital sanctuary crafted specifically to safeguard these precious memories.
+              We believe that life’s most precious gift
+              <br />
+              is the memories we create, and it is
+              <br />
+              essential to preserve these memories,
+              <br />
+              especially for our aging family members <br />
+              who hold them dear.
+              <br />
+              Memo:Re is more than just a social
+              <br />
+              media platform; it’s a digital sanctuary
+              <br />
+              crafted specifically to safeguard
+              <br />
+              these precious memories.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
-        <HomeComponentWrap style={{}}>
+        <HomeComponentWrap>
           <Image
             src={openinnovation_memore_mobile_middle1}
             alt="openinnovation_mobile_middle1"
@@ -289,24 +306,60 @@ const MemoRe = () => {
           />
           <TextWrap style={{ margin: '5em 0', width: '100%' }}>
             <Text $color="#C9C9C9" $fontSize="18px" $fontWeight="300" $align="center">
-              Memo:Re isn’t just a digital tool; it’s a bridge. With its user-friendly design,
-              <br /> both parents and senior family members can effortlessly journey through their life stories,
-              <br /> cherishing each moment all over again. By facilitating these shared reminiscences, <br />
-              we reinforce familial bonds and provide an emotional safety net.
-              <br /> Most importantly, through Memo:Re,we send a profound message to our elderly loved ones:
-              <br /> they are not journeying through memory alone.
+              Memo:Re isn’t just a digital tool; <br />
+              it’s a bridge. With its
               <br />
-              We are right beside them, every step of the way.
+              user-friendly design, both parents
+              <br />
+              and senior family members can
+              <br />
+              effortlessly journey through their
+              <br />
+              life stories, cherishing each moment
+              <br />
+              all over again. By facilitating
+              <br />
+              these shared reminiscences,
+              <br />
+              we reinforce familial bonds and provide
+              <br />
+              an emotional safety net.
+              <br />
+              Most importantly, through Memo:Re,
+              <br />
+              we send a profound message to
+              <br />
+              our elderly loved ones:
+              <br />
+              they are not journeying through
+              <br />
+              memory alone. We are right beside
+              <br />
+              them, every step of the way.
               <br />
               <br />
+              But we don’t stop there.
               <br />
+              Grounded in the principles of
               <br />
-              But we don’t stop there. Grounded in the principles of Reminiscence Therapy, <br />
-              Memo:Re is engineered to evoke and reinforce forgotten memories
-              <br /> through the sharing of photos, videos, and heartfelt messages.
-              <br /> Our unique Memo:Re scheduler ensures these memories resurface regularly,
-              <br /> offering comfort and a sense of belonging, and has been linked to a slower progression of memory
-              loss.
+              Reminiscence Therapy, Memo:Re is
+              <br />
+              engineered to evoke and reinforce
+              <br />
+              forgotten memories through the
+              <br />
+              sharing of photos, videos,
+              <br />
+              and heartfelt messages.
+              <br />
+              Our unique Memo:Re scheduler
+              <br />
+              ensures these memories resurface
+              <br />
+              regularly, offering comfort and a sense
+              <br />
+              of belonging, and has been linked to
+              <br />a slower progression of memory loss.
             </Text>
           </TextWrap>
           <ContentWrap
@@ -341,9 +394,10 @@ const MemoRe = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  width: 'auto',
-                  paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  width: '213px',
+                  height: '31px',
+
+                  borderBottom: '1px solid #ffffff',
                   gap: '1em',
                   margin: '0',
                 }}
@@ -363,9 +417,10 @@ const MemoRe = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  width: 'auto',
-                  paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  width: '213px',
+                  height: '31px',
+
+                  borderBottom: '1px solid #ffffff',
                   gap: '1em',
                   margin: '0',
                 }}
@@ -385,9 +440,10 @@ const MemoRe = () => {
                   flexDirection: 'row',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  width: 'auto',
-                  paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  width: '213px',
+                  height: '31px',
+
+                  borderBottom: '1px solid #ffffff',
                   gap: '1em',
                   margin: '0',
                 }}

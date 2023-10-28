@@ -6,7 +6,6 @@ import Language from '../atom/Language';
 import WindowSize from '../atom/MediaQuery';
 import { Desktop, Mobile } from '../utils/MediaQuery';
 
-import Logo from '../assets/images/logo.svg';
 import lang_globe from '../assets/images/lang_globe.svg';
 import plus from '../assets/images/plus.svg';
 import toggle from '../assets/images/toggle.svg';
@@ -41,6 +40,10 @@ const HeaderTop = styled.div`
   z-index: 100;
   @media screen and (max-width: 1280px) {
     height: 97px;
+  }
+  @media screen and (max-width: 900px) {
+    justify-content: space-between;
+    padding: 0 5vw;
   }
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -79,13 +82,13 @@ const HeaderNavWrap = styled.div`
 
   @media screen and (max-width: 900px) {
     display: grid;
-    width: -webkit-fill-available;
+    width: 100%;
     align-items: start;
     justify-content: start;
-    padding: 1em 7vw;
-    gap: 0.5rem;
-    height: 85vh;
-
+    padding: 0 5vw;
+    gap: 0;
+    height: fit-content;
+    max-height: 75vh;
     overflow-y: scroll;
   }
 `;
@@ -130,8 +133,10 @@ const HeaderNavMenuTextWrap = styled.div`
   }
   @media screen and (max-width: 900px) {
     border-bottom: 1px solid #464646;
-    width: 84vw;
+    width: 90vw;
     align-items: start;
+    height: fit-content;
+    padding: 0;
   }
 `;
 
@@ -197,6 +202,7 @@ const HeaderBottom = styled.div`
   }
   @media screen and (max-width: 900px) {
     flex-direction: column;
+    padding: 0 5vw;
   }
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -313,7 +319,7 @@ const Header = () => {
     <>
       <Mobile>
         <HeaderContainer
-          style={{ display: 'grid', backgroundColor: '#121212' }}
+          style={{ display: 'grid', backgroundColor: '#121212', width: '100vw' }}
           tabIndex={1}
           onBlur={async () => {
             await new Promise((resolve) => setTimeout(resolve, 100));
@@ -370,18 +376,29 @@ const Header = () => {
                 >
                   <div
                     style={{
-                      paddingBottom: '0.3rem',
+                      height: '56px',
                       cursor: 'pointer',
+                      padding: '0',
+                      margin: '0',
                     }}
                     onClick={() => {
                       subMenuOpen === menu.linkTo ? setSubMenuOpen('') : setSubMenuOpen(menu.linkTo);
                     }}
                   >
-                    <span style={{ zIndex: '-1' }}>{menu.title.toUpperCase()}</span>
+                    <span style={{ fontSize: '20px', fontWeight: '300', color: '#BFBFBF', zIndex: '-1' }}>
+                      {menu.title.toUpperCase()}
+                    </span>
                     <Image style={{ zIndex: '-1' }} src={plus} alt="open" />
                   </div>
                   <div
-                    style={{ display: 'grid', width: '100%', alignItems: 'stretch', gap: '0.5rem', marginBottom: '0' }}
+                    style={{
+                      display: 'grid',
+                      width: '100%',
+                      alignItems: 'stretch',
+                      gap: '24px',
+                      marginBottom: '0',
+                      padding: subMenuOpen === menu.linkTo ? '14px 0' : '0',
+                    }}
                   >
                     {subMenuOpen === menu.linkTo &&
                       subMenu[menu.linkTo]?.map((subMenu) => (
@@ -393,12 +410,16 @@ const Header = () => {
                             flexDirection: 'row',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            width: '84vw',
+                            width: '90vw',
                           }}
                           key={'submenu' + subMenu.linkTo}
                         >
                           <Link
-                            to={menu.linkTo === 'pipeline' ? `/${menu.linkTo}` : `/${menu.linkTo}/${subMenu.linkTo}`}
+                            to={
+                              menu.linkTo === 'pipeline' || menu.linkTo === 'career'
+                                ? `/${menu.linkTo}`
+                                : `/${menu.linkTo}/${subMenu.linkTo}`
+                            }
                             style={{
                               textDecoration: 'none',
                               color: '#EFEFEF',
@@ -407,11 +428,15 @@ const Header = () => {
                               justifyContent: 'center',
                               alignItems: 'center',
                               padding: '0.2em',
-                              borderBottom: '2px solid transparent',
+                              borderBottom:
+                                location.pathname?.split('/')[location.pathname?.split('/')?.length - 1] ===
+                                subMenu.linkTo
+                                  ? '1px solid #fff'
+                                  : '1px solid transparent',
                             }}
                             key={subMenu.linkTo}
                             onClick={() => {
-                              if (subMenu.linkTo !== 'pipeline') {
+                              if (subMenu.linkTo !== 'pipeline' && subMenu.linkTo !== 'career') {
                                 if (subMenu.linkTo === location.pathname.split('/')[2]) {
                                   window.location.reload();
                                 }
@@ -522,7 +547,7 @@ const Header = () => {
                   >
                     {subMenu[currentMenu]?.map((menu) => (
                       <Link
-                        to={`/${currentMenu}/${menu.linkTo}`}
+                        to={currentMenu === 'career' ? `/${currentMenu}` : `/${currentMenu}/${menu.linkTo}`}
                         style={{ textDecoration: 'none' }}
                         key={menu.linkTo}
                         onClick={() => {
@@ -591,7 +616,7 @@ const LangButton = () => {
             gap: '0.5rem',
           }}
         >
-          <img style={{ zIndex: '-1', cursor: 'pointer', height: '14px' }} src={lang_globe} alt="lang" />
+          <span style={{ zIndex: '-1', cursor: 'pointer', fontSize: '14px', color: '#fff' }}> • </span>
           <span style={{ paddingTop: '0.1em', zIndex: '-1' }}>{language}</span>
         </div>
       </Mobile>

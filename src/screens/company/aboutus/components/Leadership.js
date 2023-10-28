@@ -121,7 +121,7 @@ const Leadership = () => {
       </Desktop>
 
       <Mobile>
-        <TabContentWrap>
+        <TabContentWrap id="leadership">
           {tabContents.map((item, index) => (
             <div
               style={{
@@ -138,13 +138,13 @@ const Leadership = () => {
                   $align="start"
                   $color="#F2F2F2"
                   $fontSize="20px"
-                  style={{ paddingLeft: `${index % 2 === 0 ? '7vw' : '0'}`, margin: '0' }}
+                  style={{ paddingLeft: `${index % 2 === 0 ? '5vw' : '0'}`, margin: '0', fontSize: '15px' }}
                 >
                   {item.position}
                 </Text>
                 <Image src={item.photo} alt="leadershipphoto" style={{ width: '100%' }} />
-                <ContentBoxNameWrap style={{ paddingLeft: `${index % 2 === 0 ? '7vw' : '0'}` }}>
-                  <Text $fontSize="18px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
+                <ContentBoxNameWrap style={{ padding: `${index % 2 === 0 ? ' 0 0 0 5vw' : ' 0 5vw 0 0'}` }}>
+                  <Text $fontSize="18px" $fontWeight="700" $align="start" style={{ margin: '0' }}>
                     {item.name}
                   </Text>
                   {item.isOpen ? (
@@ -160,7 +160,7 @@ const Leadership = () => {
                       }}
                       src={minus}
                       alt="minus"
-                      style={{ height: '1.5rem' }}
+                      style={{ height: '20px' }}
                     />
                   ) : (
                     <Image
@@ -181,7 +181,7 @@ const Leadership = () => {
                 </ContentBoxNameWrap>
                 <DescriptionWrap
                   style={{
-                    padding: index % 3 === 0 ? ' 0 40px 0 10vw' : index % 3 === 1 ? '0 40px 0 3vw' : '0 10vw 0 3vw',
+                    padding: index % 2 === 0 ? ' 0 20px 0 9vw' : '0 0 0 20px',
                   }}
                   $isActive={item.isOpen}
                 >

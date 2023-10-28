@@ -77,15 +77,6 @@ const Advisors = () => {
   const [language] = useRecoilValue(Language);
   const { data, isLoading } = useAdvisorList(language);
   const [tabContents, setTabContents] = useState([]);
-  // const [tabContents, setTabContents] = useState([
-  //   { name: 'Sharon Sha', position: 'MD', description: 'Neurology, Stanford University' },
-  //   { name: 'Sang-Yun Kim', position: 'MD, PhD', description: 'Neurology, Seoul National University Bundang Hospital' },
-  //   {
-  //     name: 'Jeffrey Cummings',
-  //     position: 'MD, ScD',
-  //     description: 'Neurology, UNLV school of integrated Health Sciences',
-  //   },
-  // ]);
 
   useEffect(() => {
     let itemList = [];
@@ -142,7 +133,7 @@ const Advisors = () => {
         </TabContentWrap>
       </Desktop>
       <Mobile>
-        <TabContentWrap>
+        <TabContentWrap style={{ width: '90vw' }}>
           {tabContents?.map((item, index) => (
             <div
               style={{
@@ -150,20 +141,39 @@ const Advisors = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                alignItems: `${index % 2 === 0 ? 'flex-start' : 'flex-end'}`,
               }}
               key={'tabContent' + index}
             >
-              <ContentBox key={index}>
-                <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
-                  <Text $fontSize="18px" $fontWeight="400" $align="start" style={{ margin: '0' }}>
-                    {item.name}
-                    <span style={{ fontSize: '15px', marginLeft: '1rem' }}>{item.position}</span>
-                  </Text>
-                </ContentBoxNameWrap>
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end',
+                  alignItems: 'center',
+                }}
+              >
+                {index % 2 === 0 && <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>}
+                <ContentBox
+                  style={{
+                    width: 'fit-content',
+                    border: 'none',
+                    margin: '0',
+                    padding: index % 2 === 0 ? '0 0 0 1em' : '0 1em 0 0',
+                  }}
+                  key={index}
+                >
+                  <ContentBoxNameWrap style={{ width: 'fit-content' }}>
+                    <Text $fontSize="18px" $fontWeight="700" $align="start" style={{ margin: '0', padding: '0' }}>
+                      {item.name}
+                      <span style={{ fontSize: '15px', fontWeight: '300', marginLeft: '1rem' }}>{item.position}</span>
+                    </Text>
+                  </ContentBoxNameWrap>
 
-                <SchoolText style={{ fontSize: '16px' }}>{item.description}</SchoolText>
-              </ContentBox>
+                  <SchoolText style={{ fontSize: '16px', fontWeight: '100' }}>{item.description}</SchoolText>
+                </ContentBox>
+                {index % 2 === 1 && <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>}
+              </div>
             </div>
           ))}
         </TabContentWrap>

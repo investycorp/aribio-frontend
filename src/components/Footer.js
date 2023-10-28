@@ -32,6 +32,7 @@ const FooterContainer = styled.div`
 `;
 
 const FooterGridWrap = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -73,7 +74,7 @@ const ContactBoxText = styled.div`
     font-size: 11px;
   }
   @media screen and (max-width: 900px) {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 10px;
   }
 `;
@@ -108,6 +109,9 @@ const ContactUsBox = styled.div`
   @media screen and (max-width: 900px) {
     width: fit-content;
     font-size: 18px;
+    span {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -239,11 +243,20 @@ const Footer = () => {
         <FooterContainer>
           <FooterGridWrap style={{ padding: '0' }}>
             <Link style={{ textDecoration: 'none' }} to="/">
-              <img src={logo} alt="logo" style={{ cursor: 'pointer', zIndex: '-1', width: '5rem' }} />
+              <img src={logo} alt="logo" style={{ cursor: 'pointer', zIndex: '-1', width: '53px' }} />
             </Link>
+            <GoToTop />
             <ContactUsWrap>
               <Link style={{ textDecoration: 'none' }} to="/contactus">
-                <ContactUsBox style={{ cursor: 'pointer', marginBottom: '1rem' }}>
+                <ContactUsBox
+                  style={{
+                    cursor: 'pointer',
+                    marginBottom: '1rem',
+                    width: '162px',
+                    padding: '0',
+                    borderBottom: '1px solid #707070',
+                  }}
+                >
                   <div style={{ cursor: 'pointer', zIndex: '-1' }}>CONTACT US</div>
                   <img
                     src={arrow}
@@ -288,7 +301,7 @@ const Footer = () => {
                   } else setFooterToggle('Head Office');
                 }}
               >
-                <span>Head Office.</span>
+                <span style={{ fontSize: '16px' }}>Head Office.</span>
                 <img src={dropdown} alt="dropdown" style={{ padding: '1rem' }} />
               </ContactBoxTitle>
               {footerToggle === 'Head Office' && (
@@ -319,7 +332,7 @@ const Footer = () => {
                   } else setFooterToggle('US Office');
                 }}
               >
-                <span>US Office.</span>
+                <span style={{ fontSize: '16px' }}>US Office.</span>
                 <img src={dropdown} alt="dropdown" style={{ padding: '1rem' }} />
               </ContactBoxTitle>
               {footerToggle === 'US Office' && (
@@ -343,10 +356,13 @@ const Footer = () => {
               gap: '1rem',
             }}
           >
-            <Link to="/" style={{ color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content' }}>
+            <Link
+              to="/"
+              style={{ color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content', fontSize: '14px' }}
+            >
               Privacy Policy |
             </Link>
-            <div style={{ minWidth: 'fit-content' }}>© 2023 by ARIBIO. All Rights Reserved.</div>
+            <span style={{ minWidth: 'fit-content', fontSize: '14px' }}>© 2023 by ARIBIO. All Rights Reserved.</span>
           </ContactUsBox>
         </FooterContainer>
       </Mobile>

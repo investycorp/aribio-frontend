@@ -28,6 +28,7 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 import useContact from '../../hooks/contact/useContact';
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
+import Video from '../../components/Video';
 
 const Contact = () => {
   const [language] = useRecoilValue(Language);
@@ -128,7 +129,8 @@ const Contact = () => {
   return (
     <Container className="container">
       <Header />
-      <MainImgWrap $src={contact_cover}>
+      <MainImgWrap>
+        <Video page="contactus" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
           <GridLineBox />
@@ -400,7 +402,7 @@ const Contact = () => {
         </HomeComponentWrap>
       </Desktop>
       <Mobile>
-        <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+        <HomeComponentWrap>
           <TextWrap style={{ width: '80vw' }}>
             <Text $fontSize="16px" $fontWeight="300" $color="#939598">
               CONTACT US
@@ -428,14 +430,32 @@ const Contact = () => {
           <FormWrap style={{ paddingLeft: '0', paddingTop: '1rem', marginTop: '0' }}>
             <ErrorBox
               id={isError ? 'warning' : ''}
-              style={{ position: 'relative', fontSize: '16px', left: '0', top: '0', width: '100%', margin: '1rem 0' }}
+              style={{
+                position: 'relative',
+                fontSize: '16px',
+                left: '0',
+                top: '0',
+                width: '100%',
+                margin: '1rem 0',
+                lineHeight: '22px',
+              }}
               $isActive={isError}
             >
-              Sorry, there was an error submitting the form. Please try again.
+              Sorry,
+              <br /> there was an error submitting the form.
+              <br /> Please try again.
             </ErrorBox>
             <SuccessBox
               id={isSuccess ? 'warning' : ''}
-              style={{ position: 'relative', fontSize: '16px', left: '0', top: '0', width: '100%', margin: '1rem 0' }}
+              style={{
+                position: 'relative',
+                fontSize: '16px',
+                left: '0',
+                top: '0',
+                width: '100%',
+                margin: '1rem 0',
+                lineHeight: '22px',
+              }}
               $isActive={isSuccess}
             >
               Form has been submitted successfully!
@@ -454,7 +474,7 @@ const Contact = () => {
                   onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.firstName && (
-                  <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
+                  <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
                     <span
                       style={{
                         margin: '0 0.5rem 0 0',
@@ -482,7 +502,7 @@ const Contact = () => {
                   onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.lastName && (
-                  <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
+                  <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
                     <span
                       style={{
                         margin: '0 0.5rem 0 0',
@@ -510,7 +530,7 @@ const Contact = () => {
                   onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && (!contactInfo.email || !contactInfo.email.includes('@')) && (
-                  <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
+                  <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
                     <span
                       style={{
                         margin: '0 0.5rem 0 0',
@@ -560,7 +580,7 @@ const Contact = () => {
                   onKeyDown={(e) => handleEnter(e)}
                 />
                 {isError && !contactInfo.message && (
-                  <RequiredField style={{ fontSize: '14px', fontWeight: '300' }}>
+                  <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
                     <span
                       style={{
                         margin: '0 0.5rem 0 0',
@@ -593,11 +613,14 @@ const Contact = () => {
                   className={isSuccess ? 'submit' : ''}
                   style={{
                     display: 'flex',
-                    justifyContent: 'space-between',
+                    justifyContent: 'start',
                     alignItems: 'center',
-                    gap: '1em',
+
                     fontSize: '14px',
-                    width: '45%',
+                    width: '131px',
+                    height: '47px',
+                    borderWidth: '1px',
+                    padding: '0',
                   }}
                   onClick={(e) => handleSubmit(e)}
                 >
@@ -605,11 +628,12 @@ const Contact = () => {
                     src={arrow}
                     alt="arrow"
                     style={{
-                      border: '2px solid #ffffff',
+                      border: '1px solid #ffffff',
                       borderRadius: '50%',
-                      padding: '0.5em',
+                      padding: '0',
                       zIndex: '-1',
-                      width: '25%',
+                      height: '45px',
+                      marginRight: '1em',
                     }}
                   />
                   SUBMIT
@@ -619,13 +643,13 @@ const Contact = () => {
           </FormWrap>
         </HomeComponentWrap>
         <HomeComponentWrap style={{ borderTop: '2px solid #B1B1B1' }}>
-          <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
-          <Text $fontSize="23px" $fontWeight="300" $color="#E5E5E5" $align="start">
+          <HR style={{ alignSelf: 'start', marginBottom: '0.5em', height: '1px', width: '20px' }} />
+          <Text $fontSize="20px" $fontWeight="300" $color="#D3D3D3" $align="start">
             Locations
           </Text>
           <FormWrap style={{ gap: '1em', paddingLeft: '0', marginTop: '2em', marginBottom: '10em' }}>
             <RowWrap
-              style={{ borderBottom: '1px solid #707070', padding: '0.5em' }}
+              style={{ borderBottom: '2px solid #707070', padding: '0.2em 0', height: '33px' }}
               onClick={() => {
                 window.open(
                   'https://www.google.com/maps/place/La+Jolla+Centre+I,+4660+La+Jolla+Village+Dr+%231070,+San+Diego,+CA+92121,+USA/@32.8746797,-117.2089889,17z/data=!3m1!4b1!4m5!3m4!1s0x80dc073244120117:0xad78fb4d9afd9f57!8m2!3d32.8746797!4d-117.206414?entry=ttu',
@@ -634,10 +658,15 @@ const Contact = () => {
               }}
             >
               <span style={{ fontSize: '16px', zIndex: '-1' }}>San Diego, 92112, USA</span>
-              <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1' }} />
+              <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1', height: '25px' }} />
             </RowWrap>
             <RowWrap
-              style={{ borderBottom: '1px solid #707070', padding: '0.5em' }}
+              style={{
+                borderBottom: '2px solid #707070',
+                padding: '0.2em 0',
+                lineHeight: '20px',
+                height: '33px',
+              }}
               onClick={() => {
                 window.open(
                   'https://www.google.com/maps/place/(%EC%A3%BC)%EC%95%84%EB%A6%AC%EB%B0%94%EC%9D%B4%EC%98%A4/data=!3m1!4b1!4m6!3m5!1s0x357b58759f3e1a6f:0xba7138c19b018cf2!8m2!3d37.3878714!4d127.1149864!16s%2Fg%2F11bytsn4nc?entry=ttu',
@@ -646,7 +675,7 @@ const Contact = () => {
               }}
             >
               <span style={{ fontSize: '16px', zIndex: '-1' }}>Gyeonggi-do, Republic of Korea</span>
-              <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1' }} />
+              <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1', height: '25px' }} />
             </RowWrap>
           </FormWrap>
         </HomeComponentWrap>

@@ -36,18 +36,22 @@ const GridLineBox = styled.div`
 `;
 
 const MainImgWrap = styled.div`
-  position: relative;
-  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #121212;
-  background-image: url(${(props) => props.$src});
+  background-color: transparent;
+  padding-bottom: 10vh;
   z-index: 10;
+  background-image: url(${(props) => props.$src});
+  overflow: hidden;
 `;
 
 const Path = styled.div`
@@ -69,7 +73,10 @@ const HeadLine = styled.div`
   font-size: 200px;
   font-weight: 500;
 `;
-const HomeComponentWrap = styled.div`
+const HomeComponentWrap = styled.div.attrs((props) => ({
+  className: props.className,
+  id: props.id,
+}))`
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -81,6 +88,16 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+
+  @media screen and (max-width: 900px) {
+    div#fadeIn {
+      opacity: 0.1;
+      transition: all 0.3s ease-in-out;
+    }
+    div#fadeIn.fadeIn {
+      opacity: 1;
+    }
+  }
 `;
 
 const TextWrap = styled.div`
@@ -258,7 +275,10 @@ const TableContentBox = styled.div.attrs((props) => ({
   }
 `;
 
-const ContentBoxWrap = styled.div`
+const ContentBoxWrap = styled.div.attrs((props) => ({
+  className: props.className,
+  id: props.id,
+}))`
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -268,6 +288,15 @@ const ContentBoxWrap = styled.div`
   padding: 0;
   margin: 0;
   border: none;
+  @media screen and (max-width: 900px) {
+    &#toggleWrap {
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    &#toggleWrap.fadein {
+      opcacity: 1;
+    }
+  }
 `;
 
 const RowWrap = styled.div`
@@ -291,7 +320,7 @@ const ContentBox = styled.div.attrs((props) => ({
   justify-content: center;
   align-items: start;
   background-color: transparent;
-  padding: 1rem;
+  padding: 1em 0.5em;
   text-align: left;
   font-size: 16px;
   font-weight: 300;
@@ -473,15 +502,15 @@ const ToggleButton = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: fit-content;
+  height: 40px;
   background-color: transparent;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.2rem;
   margin: 0;
   border: 1px solid #707070;
   border-radius: 10rem;
   font-size: 20px;
   font-weight: 400;
-  color: #ffffff;
+  color: #e8e8e8;
   position: relative;
   margin-top: 5rem;
 `;
@@ -501,7 +530,7 @@ const ToggleListWrap = styled.div`
   padding: 0.5rem 0;
   margin: 0;
   border: 1px solid #fff;
-  border-radius: 0.5rem;
+  border-radius: 9px;
   font-size: 18px;
   font-weight: 300;
   color: #ffffff;
@@ -517,13 +546,14 @@ const ToggleList = styled.div`
   display: flex;
   text-align: left;
   font-size: 18px;
-  color: #f2f2f2;
-  font-weight: 300;
-  padding: 0.5rem 1.5rem;
+  color: #e8e8e8;
+  font-weight: 100;
+  padding: 0.5rem 1em;
   &:hover,
   &:active,
   &:focus {
     background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 300;
   }
   transition: all 0.3s ease-in-out;
 `;

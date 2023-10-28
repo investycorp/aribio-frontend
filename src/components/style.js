@@ -29,12 +29,15 @@ const ContainerGridLineWrap = styled.div.attrs((props) => ({
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 30;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
   &.visible {
     visibility: visible;
-    opacity: 1;
+    opacity: 0.7;
+  }
+  @media screen and (max-width: 900px) {
+    padding: 0 5vw;
   }
 `;
 
@@ -45,6 +48,16 @@ const GridLineBox = styled.div`
   border-right: 2px solid rgba(177, 177, 177, 0.3);
   z-index: 1;
   transition: all 0.5s ease-in-out;
+  &:nth-child(1) {
+    border-left: 2px solid rgba(177, 177, 177, 0.3);
+    @media screen and (max-width: 900px) {
+      border-left: 1px solid rgba(177, 177, 177, 0.3);
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    border-right: 2px solid rgba(177, 177, 177, 0.3);
+  }
 `;
 
 const MainImgWrap = styled.div`
@@ -61,7 +74,7 @@ const MainImgWrap = styled.div`
   background-repeat: no-repeat;
   background-color: transparent;
   padding-bottom: 10vh;
-  z-index: 0;
+  z-index: 10;
   background-image: url(${(props) => props.$src});
   overflow: hidden;
 `;
@@ -82,6 +95,7 @@ const Path = styled.div`
   @media screen and (max-width: 900px) {
     font-size: 15px;
     top: 120px;
+    line-height: 1.5em;
   }
 `;
 const HeadLineTitle = styled.div`

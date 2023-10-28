@@ -7,6 +7,7 @@ import ourapproach_polypharm_middle from './assets/ourapproach_polypharm_middle.
 import { Container, HomeComponentWrap, TextWrap, Text, Image, HR } from './style';
 import { HeadLine, Path, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
+import Video from '../../components/Video';
 
 const PolyPharmacology = () => {
   useEffect(() => {
@@ -18,9 +19,9 @@ const PolyPharmacology = () => {
     <Container className="container">
       <Header />
 
-      <MainImgWrap $src={ourapproach_polypharma_cover}></MainImgWrap>
+      <Video page="polypharmacology" />
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine className="midsize">
+        <HeadLine className="midsize" style={{ fontSize: window.innerWidth < 901 && '40px' }}>
           POLY- <br />
           PHARMA
           {window.innerWidth < 900 && <br />}
@@ -32,9 +33,13 @@ const PolyPharmacology = () => {
           alt="vertical_arrow"
         />
       </HomeComponentWrap>
+      <Path>
+        {`HOME > OUR APPROACH >`}
+        {window.innerWidth <= 900 && <br />}
+        POLY-PHARMACOLOGY
+      </Path>
 
       <Desktop>
-        <Path>{`HOME > OUR APPROACH > POLY-PHARMACOLOGY`}</Path>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
             <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
@@ -96,23 +101,17 @@ const PolyPharmacology = () => {
       </Desktop>
       <Mobile>
         <div style={{ overflowX: 'hidden' }}>
-          <Path>
-            {`HOME > OUR APPROACH >`}
-            <br />
-            <br /> {`POLY-PHARMACOLOGY`}
-          </Path>
-
-          <HomeComponentWrap style={{ padding: '5vh 7vw 15vh 7vw' }}>
+          <HomeComponentWrap style={{ padding: '5vh 5vw' }}>
             <TextWrap>
               <Text $fontSize="16px" $fontWeight="300" $color="#939598">
                 Polypharmacology
               </Text>
               <div
                 style={{
-                  width: '100%',
+                  width: '50%',
                   alignSelf: 'flex-start',
-                  height: '4em',
-                  borderRight: '2px solid #ffffff',
+                  height: '60px',
+                  borderRight: '1px solid #ffffff',
                   margin: '2rem 0',
                 }}
               ></div>
@@ -120,19 +119,30 @@ const PolyPharmacology = () => {
                 Merging Multi-Target and <br /> Multi-Mechanism Drug Discovery with AI
               </Text>
               <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ marginTop: '2em' }}>
-                Neurodegenerative diseases, such as Alzheimer’s, manifest from a confluence of genetic, environmental,
-                and physiological factors. The limitations of traditional single-target drugs become evident in their
-                struggle to achieve clinically meaningful clinical outcomes against these multifactorial diseases.
+                Neurodegenerative diseases,
+                <br /> such as Alzheimer’s, manifest <br />
+                from a confluence of genetic,
+                <br /> environmental, and physiological
+                <br /> factors. The limitations of traditional
+                <br /> single-target drugs become evident <br />
+                in their struggle to achieve clinically
+                <br /> meaningful clinical outcomes against <br />
+                these multifactorial diseases.
                 <br />
                 <br />
-                Polypharmacology goes beyond traditional drug discovery by emphasizing drugs designed to engage multiple
-                targets and mechanisms concurrently. This nuanced approach grasps the multifaceted nature of biological
-                systems, paving the way for a more comprehensive therapeutic approach.
+                Polypharmacology goes beyond <br />
+                traditional drug discovery by <br />
+                emphasizing drugs designed to engage <br />
+                multiple targets and mechanisms <br />
+                concurrently. This nuanced approach <br />
+                grasps the multifaceted nature of
+                <br /> biological systems, paving the way for
+                <br /> a more comprehensive therapeutic approach.
               </Text>
             </TextWrap>
 
             <Image
-              src={ourapproach_polypharm_middle}
+              src={process.env.PUBLIC_URL + '/assets/images/ourapproach_polypharma1.png'}
               alt="polypharm_middle"
               style={{ margin: '5vh 0', width: '90%' }}
             />

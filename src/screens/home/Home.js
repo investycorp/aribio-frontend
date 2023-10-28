@@ -44,6 +44,7 @@ const Home = () => {
           return {
             id: item.id,
             date: `${item.year}.${item.month}.${item.day}`,
+            mobileDate: `${item.month} ${item.day}, ${item.year}`,
             title: item.title,
             imageUrl: item.fileDto?.fileUrl ? item.fileDto?.fileUrl : home_notice1,
           };
@@ -80,12 +81,7 @@ const Home = () => {
         </MainImgWrap>
         <Desktop>
           <HomeComponentWrap className="home home_1">
-            <MainImgTextWrap style={{ height: '100vh' }}>
-              {/* <HeadLineTitle>OVERCOME</HeadLineTitle>
-              <HeadLineTitle style={{ marginBottom: '2rem' }}>NEURODEGENERATION</HeadLineTitle>
-              <HeadLineText>We keep striving to develop new therapeutic agents for</HeadLineText>
-              <HeadLineText>neurodegenerative diseases hitherto.</HeadLineText> */}
-            </MainImgTextWrap>
+            <MainImgTextWrap style={{ height: '100vh' }}></MainImgTextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap className="home home_2">
             <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
@@ -291,22 +287,71 @@ const Home = () => {
         </Desktop>
         <Mobile>
           <HomeComponentWrap className="home home_1">
-            <MainImgTextWrap style={{ height: '100vh' }}>
-              {/* <HeadLineTitle>OVERCOME</HeadLineTitle>
-              <HeadLineTitle style={{ marginBottom: '2rem' }}>NEURODEGENERATION</HeadLineTitle>
-              <HeadLineText>
-                We keep striving to develop new therapeutic agents for <br />
-                neurodegenerative diseases hitherto.
-              </HeadLineText> */}
-            </MainImgTextWrap>
+            <MainImgTextWrap style={{ height: '100vh' }}></MainImgTextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap className="home home_2">
             <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
-              <HeadLineText $fontSize="60px">AriBio Co., Ltd. is a biotechnology company</HeadLineText>
-              <HeadLineText $fontSize="60px">that aims to develop a meaningful therapies for </HeadLineText>
-              <HeadLineText $fontSize="60px" $textColor="#B1B1B1">
-                neurodegenerative diseases through its innovative platform ARIDD™ (AI-powered, Reverse engineered &
-                Integrated Drug Development) and Open Innovation.
+              <HeadLineText $fontSize="23px">
+                {' '}
+                <span
+                  className="highlight1"
+                  style={{
+                    color:
+                      document.querySelector('.highlight1')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                        ? '#ffffff'
+                        : 'rgba(255, 255, 255, 0.5)',
+                  }}
+                >
+                  AriBio Co., Ltd. is a biotechnology company
+                </span>
+                <br />
+                <span
+                  className="highlight2"
+                  style={{
+                    color:
+                      document.querySelector('.highlight2')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                        ? '#ffffff'
+                        : 'rgba(255, 255, 255, 0.5)',
+                  }}
+                >
+                  that aims to develop a meaningful therapies for
+                </span>
+                <br />
+                <span
+                  className="highlight3"
+                  style={{
+                    color:
+                      document.querySelector('.highlight3')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                        ? '#ffffff'
+                        : 'rgba(255, 255, 255, 0.5)',
+                  }}
+                >
+                  neurodegenerative diseases through its innovative platform ARIDD™
+                </span>
+                <span
+                  className="highlight4"
+                  style={{
+                    color:
+                      document.querySelector('.highlight4')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                        ? '#ffffff'
+                        : 'rgba(255, 255, 255, 0.5)',
+                  }}
+                >
+                  (AI-powered, Reverse engineered & Integrated Drug Development)
+                </span>
+                <br />
+                <span
+                  className="highlight5"
+                  style={{
+                    color:
+                      document.querySelector('.highlight5')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                        ? '#ffffff'
+                        : 'rgba(255, 255, 255, 0.5)',
+                  }}
+                >
+                  and Open Innovation.
+                </span>
+                <br />
               </HeadLineText>
             </HomeAboutUsTextWrap>
             <SubPageButton title="About Us" linkTo="/company/aboutus" />
@@ -320,51 +365,70 @@ const Home = () => {
           >
             <SubPageButton title="Our Approach" linkTo="/ourapproach/poly-pharmacology" />
             <ComponentGridWrap>
-              <ComponentTextWrap
+              <div
                 style={{
-                  borderLeft: '2px solid #B1B1B1',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'stretch',
+                  alignItems: 'center',
                   gridColumn: '1/3',
                 }}
               >
-                <ComponentText style={{ fontWeight: '500' }}>Expansion Phase</ComponentText>
-                <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>
-                  Clinical development and Pipeline Extension
-                </ComponentText>
-              </ComponentTextWrap>
-              <HomeComponentImageWrap $src={home_ourapproach1}></HomeComponentImageWrap>
+                <div style={{ width: '1px', height: '40px', backgroundColor: '#B1B1B1' }}></div>
+                <ComponentTextWrap style={{}}>
+                  <ComponentText style={{ fontWeight: '500' }}>Expansion Phase</ComponentText>
+                  <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>
+                    Clinical development and Pipeline Extension
+                  </ComponentText>
+                </ComponentTextWrap>
+              </div>
+              <HomeComponentImageWrap $src={home_ourapproach1} style={{ borderRadius: '8px' }}></HomeComponentImageWrap>
             </ComponentGridWrap>
             <ComponentGridWrap>
               <HomeComponentImageWrap
                 style={{
                   gridColumn: '1/1',
+                  borderRadius: '8px',
                 }}
                 $src={home_ourapproach2}
               />
-              <ComponentTextWrap
+              <div
                 style={{
-                  borderRight: '2px solid #B1B1B1',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'stretch',
+                  alignItems: 'center',
                   gridColumn: '2/4',
                 }}
               >
-                <ComponentText style={{ fontWeight: '500' }}>Expansion Phase</ComponentText>
-                <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>
-                  Clinical, engineering and regulatory experts work integrally and …
-                </ComponentText>
-              </ComponentTextWrap>
+                <ComponentTextWrap style={{}}>
+                  <ComponentText style={{ fontWeight: '500' }}>Expansion Phase</ComponentText>
+                  <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>
+                    Clinical, engineering and regulatory experts work integrally and …
+                  </ComponentText>
+                </ComponentTextWrap>
+                <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>
+              </div>
             </ComponentGridWrap>
             <ComponentGridWrap>
-              <ComponentTextWrap
+              <div
                 style={{
-                  borderLeft: '2px solid #B1B1B1',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'stretch',
+                  alignItems: 'center',
                   gridColumn: '1/3',
                 }}
               >
-                <ComponentText style={{ fontWeight: '500' }}>Expansion Phase</ComponentText>
-                <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>
-                  We prioritize the relevance of our robotic technologies…
-                </ComponentText>
-              </ComponentTextWrap>
-              <HomeComponentImageWrap $src={home_ourapproach1}></HomeComponentImageWrap>
+                <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>
+                <ComponentTextWrap style={{}}>
+                  <ComponentText style={{ fontWeight: '500' }}>Expansion Phase</ComponentText>
+                  <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>
+                    We prioritize the relevance of our robotic technologies…
+                  </ComponentText>
+                </ComponentTextWrap>
+              </div>
+              <HomeComponentImageWrap style={{ borderRadius: '8px' }} $src={home_ourapproach1}></HomeComponentImageWrap>
             </ComponentGridWrap>
           </HomeComponentWrap>
           <HomeComponentWrap
@@ -379,7 +443,7 @@ const Home = () => {
             <ComponentText
               style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF', alignSelf: 'start', padding: '0.5rem 0' }}
             >
-              Clinical development and Pipeline Extension
+              Clinical development and Pipeline
             </ComponentText>
             <div
               style={{ width: '100%', marginTop: '4rem', display: 'flex', alignItems: 'end', justifyContent: 'end' }}
@@ -411,7 +475,7 @@ const Home = () => {
                 Notice
               </ComponentText>
               <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0.5em 0' }}>
-                Clinical development and Pipeline Extension
+                Clinical development and Pipeline
               </ComponentText>
             </div>
 
@@ -421,7 +485,8 @@ const Home = () => {
                 style={{
                   padding: '0',
                   gridTemplateColumns: '1fr',
-                  width: '86vw',
+                  width: '90vw',
+                  height: '82px',
                 }}
               >
                 <HomeComponentImageWrap
@@ -432,17 +497,17 @@ const Home = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
-                    gap: '1rem',
-                    padding: '2rem',
+                    gap: '0.5rem',
+                    padding: '1rem',
                     fontWeight: '300',
                     position: 'relative',
                     borderRadius: '10px',
                   }}
                 >
                   <FilterShadow />
-                  <p style={{ position: 'relative', fontSize: '15px', color: '#D1D1D1' }}>{item.date}</p>
-                  <p style={{ position: 'relative', fontSize: '16px', color: '#E5E5E5', lineHeight: '1.3em' }}>
-                    {item.title}
+                  <p style={{ position: 'relative', fontSize: '15px', color: '#D1D1D1' }}>{item.mobileDate}</p>
+                  <p style={{ position: 'relative', fontSize: '16px', color: '#E5E5E5', lineHeight: '20px' }}>
+                    {item.title.slice(0, 60)}...
                   </p>
                 </HomeComponentImageWrap>
               </ComponentGridWrap>

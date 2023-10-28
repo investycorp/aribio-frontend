@@ -42,7 +42,7 @@ const AboutUs = () => {
       <MainImgWrap>
         <Video page="aboutus" />
         <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
           <GridLineBox />
           <GridLineBox />
         </ContainerGridLineWrap>
@@ -109,26 +109,31 @@ const AboutUs = () => {
       </Desktop>
       <Mobile>
         <HomeComponentWrap>
-          <TextWrap>
-            <Text $color="#939598" $fontSize="16px" $fontWeight="300">
+          <TextWrap style={{ width: '100%' }}>
+            <Text $color="#939598" $fontWeight="300" style={{ fontSize: '16px' }}>
               ABOUT US
             </Text>
             <Text $fontSize="23px" $fontWeight="400">
               Company Overview
             </Text>
-            <hr style={{ width: '15%', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
-            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3">
-              AriBIo Co., Ltd. is a biotechnology company that aims to develop a meaningful therapies for
-              neurodegenerative diseases through its innovative platform ARIDD™
+            <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '0 0 2rem 0' }} />
+            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '20px', fontSize: '18px' }}>
+              AriBio Co., Ltd.
+              <br /> is a biotechnology leader focused on
               <br />
-              (AI-powered, Reverse engineered & Integrated Drug Development) and Open Innovation.
+              creating impactful therapies for neurodegenerative diseases.
+              <br />
+              Through our groundbreaking ARIDD™ platform (AI-powered, Reverse engineered & Integrated Drug Development)
+              and a <br />
+              commitment to Open Innovation,
+              <br /> we are poised to make significant strides in the field.
               <br />
               <br />
-              Our mission is to develop develop novel therapies for neurodegenerative diseases.
+              Our mission is clear: <br /> develop innovative therapies for neurodegenerative diseases.
               <br />
               <br />
-              Meet our team of experts in science, technology, pharmaceuticals, and regulations joined together to lead
-              AriBio.
+              Meet our dedicated leadership team, of experts in science, technology, pharmaceuticals, and regulatory
+              fields.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -137,6 +142,7 @@ const AboutUs = () => {
             <TabItem
               key={index}
               $isActive={currentTab === item ? true : false}
+              style={{ fontSize: '20px' }}
               onClick={() => {
                 setCurrentTab(item);
                 console.log(item);

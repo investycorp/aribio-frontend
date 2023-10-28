@@ -24,13 +24,19 @@ const ContainerGridLineWrap = styled.div`
   top: 0;
   left: 0;
   overflow: hidden;
-  z-index: 0;
+  z-index: 10;
+  @media screen and (max-width: 900px) {
+    padding: 0 5vw;
+  }
 `;
 
 const GridLineBox = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  &:nth-child(1) {
+    border-left: 2px solid rgba(177, 177, 177, 0.2);
+  }
   border-right: 2px solid rgba(177, 177, 177, 0.2);
 `;
 
@@ -79,6 +85,9 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    padding: 10vh 5vw;
+  }
 `;
 
 const TextWrap = styled.div`
