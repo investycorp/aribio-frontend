@@ -344,17 +344,19 @@ const Tab1 = ({ listItems, index }) => {
                     padding: '8px',
                     display: 'flex',
                     justifyContent: 'center',
-                    alignItems: 'center',
+                    alignItems: 'stretch',
                     width: '8px',
                   }}
                 />
                 <div
                   style={{
+                    display: 'flex',
+
                     position: 'absolute',
                     top: '0',
                     left: '13px',
                     width: '2px',
-                    height: index !== tabNames.length - 1 ? '-webkit-fill-available' : '18px',
+                    height: index !== tabNames.length - 1 ? '100%' : '18px',
                     borderRight: '2px dotted rgba(255, 255, 255, 0.5)',
                     margin: index === 0 ? '18px 0 0 0' : '0',
                   }}

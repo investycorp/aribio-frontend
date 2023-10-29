@@ -70,15 +70,17 @@ const Home = () => {
     <>
       <Container className="container">
         <Header />
-        <SideSlider />
+
         <Video page="home" />
         <MainImgWrap>
+          <SideSlider />
           <ContainerGridLineWrap className="grid_bg">
             <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
             <GridLineBox />
             <GridLineBox />
           </ContainerGridLineWrap>
         </MainImgWrap>
+
         <Desktop>
           <HomeComponentWrap className="home home_1">
             <MainImgTextWrap style={{ height: '100vh' }}></MainImgTextWrap>

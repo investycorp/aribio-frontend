@@ -378,7 +378,7 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
       border-radius: 20px;
       top: 0;
       left: 0;
-      height: -webkit-fill-available;
+      height: 180px;
       display: none;
       flex-direction: column;
       gap: 1rem;
@@ -438,7 +438,8 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
     }
 
     @media (max-width: 900px) {
-      max-width: 86vw;
+      max-width: 90vw;
+      height: 180px;
       &:nth-child(odd) {
         align-items: end;
         ${Text} {

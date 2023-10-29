@@ -102,7 +102,7 @@ const HomeComponentWrap = styled.div`
   padding: 10vh 7vw;
   z-index: 10;
   @media screen and (max-width: 900px) {
-    padding: 10vh 5vw;
+    padding: 5vh 5vw;
   }
 `;
 
@@ -199,6 +199,9 @@ const HomeComponentImageWrap = styled.div`
   height: 28.7vw;
   justify-self: flex-end;
   border-radius: 20px;
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 const ComponentTextWrap = styled.div`

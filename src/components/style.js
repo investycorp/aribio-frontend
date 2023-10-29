@@ -74,7 +74,7 @@ const MainImgWrap = styled.div`
   background-repeat: no-repeat;
   background-color: transparent;
   padding-bottom: 10vh;
-  z-index: 10;
+  z-index: 0;
   background-image: url(${(props) => props.$src});
   overflow: hidden;
 `;
@@ -191,6 +191,9 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    padding: 5vh 5vw;
+  }
 `;
 
 const TextWrap = styled.div`

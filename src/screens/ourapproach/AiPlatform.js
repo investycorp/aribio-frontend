@@ -860,7 +860,7 @@ const AiPlatform = () => {
                     $fontSize="18px"
                     $fontWeight="400"
                     $color="#ffffff"
-                    style={{ width: 'fit-content', height: '-webkit-fill-available' }}
+                    style={{ width: 'fit-content', height: 'fit-content' }}
                   >
                     •{'\t'}
                     {predictions[activeButton].title}
@@ -905,7 +905,7 @@ const AiPlatform = () => {
               </Text>
             </TextWrap>
             <ComponentWrap style={{ padding: '0' }}>
-              <ComponentWrap style={{ flexDirection: 'column', paddingTop: '0', height: '-webkit-fill-available' }}>
+              <ComponentWrap style={{ flexDirection: 'column', paddingTop: '0', height: 'fit-content' }}>
                 <ComponentWrap
                   className="pathwaydata_wrap_top"
                   style={{
@@ -1042,7 +1042,7 @@ const AiPlatform = () => {
                 className="pathwaydata_wrap"
                 style={{
                   flexDirection: 'row',
-                  height: '-webkit-fill-available',
+                  height: 'fit-content',
                   paddingTop: '3rem',
                 }}
               >

@@ -82,7 +82,7 @@ const HomeComponentWrap = styled.div`
   padding: 10vh 7vw;
   z-index: 20;
   @media screen and (max-width: 900px) {
-    padding: 10vh 5vw;
+    padding: 5vh 5vw;
   }
 `;
 

@@ -172,6 +172,7 @@ const ContentBox = styled.div`
   height: -webkit-fill-available;
   @media screen and (max-width: 900px) {
     gap: 1rem;
+    height: fit-content;
   }
 `;
 const ColorBarTextWrap = styled.div`

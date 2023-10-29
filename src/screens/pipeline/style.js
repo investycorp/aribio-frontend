@@ -90,6 +90,7 @@ const HomeComponentWrap = styled.div.attrs((props) => ({
   z-index: 10;
 
   @media screen and (max-width: 900px) {
+    padding: 5vh 5vw;
     div#fadeIn {
       opacity: 0.1;
       transition: all 0.3s ease-in-out;
