@@ -105,7 +105,7 @@ const Video = ({ page }) => {
           muted
           controls={false}
           preload="metadata"
-          style={{ width: 'fit-content', height: '100vh', opacity: page === 'home' ? '1' : '0.3' }}
+          style={{ width: '100vw', height: 'fit-content', opacity: page === 'home' ? '1' : '0.3' }}
         >
           <source src={process.env.PUBLIC_URL + '/assets/videos/home/Home_360.mp4'} type="video/mp4" />
         </video>
