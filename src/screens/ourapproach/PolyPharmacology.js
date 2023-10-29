@@ -18,8 +18,9 @@ const PolyPharmacology = () => {
   return (
     <Container className="container">
       <Header />
-
-      <Video page="polypharmacology" />
+      <MainImgWrap>
+        <Video page="polypharmacology" />
+      </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine className="midsize" style={{ fontSize: window.innerWidth < 901 && '40px' }}>
           POLY- <br />

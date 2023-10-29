@@ -90,6 +90,9 @@ const HeaderNavWrap = styled.div`
     height: fit-content;
     max-height: 75vh;
     overflow-y: scroll;
+
+    backdrop-filter: blur(200px);
+    -webkit-backdrop-filter: blur(200px);
   }
 `;
 
@@ -319,7 +322,7 @@ const Header = () => {
     <>
       <Mobile>
         <HeaderContainer
-          style={{ display: 'grid', backgroundColor: '#121212', width: '100vw' }}
+          style={{ display: 'grid', width: '100vw' }}
           tabIndex={1}
           onBlur={async () => {
             await new Promise((resolve) => setTimeout(resolve, 100));

@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import vertical_arrow from '../../assets/images/vertical_arrow.svg';
-import ourapproach_publications_cover from './assets/ourapproach_publications_cover.png';
 import docthumbnail from './assets/ourapproach_docthumbnail.png';
-import arrow from '../../assets/images/arrow.svg';
 import search from './assets/icon_search.svg';
 
 import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, GridComponentWrap, Image } from './style';

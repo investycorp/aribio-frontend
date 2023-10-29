@@ -26,7 +26,7 @@ const MainImgWrap = styled.div`
   background-repeat: no-repeat;
   background-color: #121212;
   background-image: url(${(props) => props.$src});
-  z-index: 10;
+  z-index: 0;
 `;
 
 const Path = styled.div`
