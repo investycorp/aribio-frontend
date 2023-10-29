@@ -379,7 +379,7 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
       border-radius: 20px;
       top: 0;
       left: 0;
-      height: 180px;
+      height: -webkit-fill-available;
       display: none;
       flex-direction: column;
       gap: 1rem;
@@ -396,6 +396,7 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
         font-size: 21px;
       }
       @media (max-width: 900px) {
+        height: 180px;
       }
     }
 

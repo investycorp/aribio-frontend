@@ -451,7 +451,6 @@ const Career = () => {
               <ContentBox
                 className="recruitmentProcess_rowscroll"
                 onWheel={(e) => {
-                  e.preventDefault();
                   const container = document.querySelector('.recruitmentProcess_rowscroll');
                   const scrollAmount = e.deltaY;
                   container.scrollLeft += scrollAmount;

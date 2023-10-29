@@ -235,20 +235,18 @@ const AiPlatform = () => {
           <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
             <HR $height="2px" $color="#ffffff" />
             <Text
-              $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
               $fontWeight="400"
               $align="start"
               $color="#ffffff"
-              style={{ margin: '1.5em 0 0 0' }}
+              style={{ margin: '1.5em 0 0 0', fontSize: window.innerWidth > 1280 ? '34px' : '21px' }}
             >
               Prediction Algorithms
             </Text>
             <Text
-              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="100"
               $color="#C9C9C9"
               $align="start"
-              style={{ marginTop: '1.5em', width: '75%' }}
+              style={{ marginTop: '1.5em', width: '75%', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
             >
               The “Prediction Algorithms” consist of a range of advanced AI prediction models and simulation tools
               designed specifically for the fields of chemistry and biology. Each model and solution is carefully
@@ -284,7 +282,7 @@ const AiPlatform = () => {
             >
               <TextWrap style={{ margin: '0', padding: '0 0 0 10vw', width: '100%', alignItems: 'start' }}>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '1em' : '1em'}
+                  $fontSize={window.innerWidth > 1280 ? '21px' : '18px'}
                   $fontWeight="400"
                   $color="#ffffff"
                   style={{ width: 'fit-content', height: '-webkit-fill-available' }}
