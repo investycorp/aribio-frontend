@@ -301,7 +301,7 @@ const RoundButton = styled.button`
 
 const ComponentWrap = styled.div.attrs((props) => ({ className: props.className }))`
   width: 100%;
-  height: 'fit-content';
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: start;

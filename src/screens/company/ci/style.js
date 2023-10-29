@@ -82,7 +82,7 @@ const HomeComponentWrap = styled.div`
   padding: 10vh 7vw;
   z-index: 10;
   @media screen and (max-width: 900px) {
-    padding: 10vh 5vw;
+    padding: 5vh 5vw;
   }
 `;
 
@@ -233,14 +233,14 @@ const ColorBar = styled.div`
     ${ColorBarTextWrap} {
       opacity: 1;
     }
+    width: 300px;
     &:nth-child(1) {
-      width: 93%;
+      margin-left: 10vw;
     }
     &:nth-child(2) {
-      width: 83%;
+      margin-left: 5vw;
     }
     &:nth-child(3) {
-      width: 73%;
     }
   }
 `;

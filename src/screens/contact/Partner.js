@@ -10,6 +10,7 @@ import { Container, HomeComponentWrap, TextWrap, Text, Image, ContentBox } from 
 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
+import Video from '../../components/Video';
 
 import useParnerList from '../../hooks/contact/usePartnerList';
 import Language from '../../atom/Language';
@@ -44,7 +45,8 @@ const Partner = () => {
   return (
     <Container className="container">
       <Header />
-      <MainImgWrap $src={contact_partner_cover}>
+      <MainImgWrap>
+        <Video page="partner" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
           <GridLineBox />
@@ -152,7 +154,7 @@ const Partner = () => {
         </HomeComponentWrap>
       </Desktop>
       <Mobile>
-        <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+        <HomeComponentWrap style={{ padding: '10vh 5vw' }}>
           <TextWrap style={{ width: '100%' }}>
             <Text $color="#939598" $fontSize="16px" $fontWeight="300">
               PARTNER
@@ -160,11 +162,21 @@ const Partner = () => {
             <Text $fontSize="23px" $fontWeight="400">
               Current Partnerships
             </Text>
-            <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '0 0 2em 0' }} />
+            <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '0 0 2em 0' }} />
             <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3">
-              Aligned in our mission, we focus on addressing the challenges of neurodegeneration with our collaborative
-              network spanning academia, industry, and patient advocacy groups worldwide. Our goal is to be a trusted
-              partner in this field.
+              Aligned in our mission,
+              <br />
+              we focus on addressing
+              <br />
+              the challenges of neurodegeneration
+              <br />
+              with our collaborative network spanning
+              <br />
+              academia, industry, and patient
+              <br />
+              advocacy groups worldwide.
+              <br />
+              Our goal is to be a trusted partner to all.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -172,7 +184,7 @@ const Partner = () => {
           style={{
             paddingTop: '0',
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr 1fr',
+            gridTemplateColumns: '1fr',
             gap: '1em',
           }}
         >
@@ -184,10 +196,10 @@ const Partner = () => {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                padding: '1em',
+                padding: '1em ',
               }}
             >
-              <Image style={{ width: '100%' }} src={item.imgUrl} alt="logo" />
+              <Image style={{ width: '160px' }} src={item.imgUrl} alt="logo" />
             </ContentBox>
           ))}
         </HomeComponentWrap>
@@ -214,9 +226,9 @@ const Partner = () => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                width: '100%',
-                paddingBottom: '0.7em',
-                borderBottom: '2px solid #ffffff',
+                width: '214px',
+                paddingBottom: '0',
+                borderBottom: '1px solid #ffffff',
                 gap: '1em',
                 margin: '0',
                 cursor: 'pointer',
@@ -224,7 +236,7 @@ const Partner = () => {
               onClick={() => navigate('/contact/contactus')}
             >
               <span style={{ zIndex: '-1', fontSize: '16px' }}>CONTACT US</span>
-              <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+              <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
             </Text>
           </ContentBox>
         </HomeComponentWrap>

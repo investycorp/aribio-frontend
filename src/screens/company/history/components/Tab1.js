@@ -133,6 +133,7 @@ const DescriptionWrap = styled.ul`
     }
   }
   @media screen and (max-width: 900px) {
+    padding: 1.5em 0;
     gap: 1rem;
   }
 `;
@@ -146,7 +147,7 @@ const DescriptionItem = styled.li`
   list-style: none;
   list-style-position: outside;
   &::marker {
-    content: '  •  ';
+    content: '• ';
     font-size: 1em;
     text-align: left;
   }
@@ -165,65 +166,6 @@ const Tab1 = ({ listItems, index }) => {
   const [currentTab, setCurrentTab] = useState('');
   const [scrollTab, setScrollTab] = useState('');
   const [listContents, setListContents] = useState([]);
-
-  const [historyContents, setHistoryContents] = useState([
-    {
-      content: [
-        'Ministry of Health and Welfare ‘2023 Electronic Medicine Technology Development Project’ Selected as a Gamma Frequency Rhythmic Vibroacoustic Device in the field of dementia',
-        'Joint development and partnership agreement with Vietnam OPC Pharmaceuticals',
-        'AD/PD 2023 Conference to be announced “AR1001 Plasma Biomarker Analysis from Phase 2 Trial of AR1001 in Mild to Moderate Alzheimer’s Disease Patients”',
-        'Fujirebio Diagnostics, Inc. Announce Strategic Partnership to Advance Biomarker Development for Alzheimer’s Disease and Neurodegeneration',
-        '6th NFAD, Neuroscience Forum on Alzheimer’s Disease, “AR1001 Phase 3 Trial Information & Plasma Biomarker Analysis from Phase 2 Trial of AR1001 in Mild to Moderate Alzheimer’s Disease Patients”',
-        'Samjin Pharmaceuticals to domestic phase 3 clinical trial joint progress agreement ceremony. (AR1001)',
-        'Selected as KoNECT (Korea National Enterprise for Clinical Trials) ‘Public Interest Clinical Trial Support Project’',
-        '41th JP Morgan Healthcare Conference Invitation Participation (AR1001)',
-      ],
-    },
-    {
-      content: [
-        'AR1001 (AD DMT) First patients phase 3 clinical trial, first medication started',
-        'Awarded for Venture company Pharma/Biotech Sector Minister of SMEs and Start-ups',
-        'AR1001 (AD DMT) Phase 3 IND Approval (US FDA)',
-        'Selected as ‘Development and commercialization of wearable-based acoustic vibration devices to improve cognitive impairment in old age in new product development projects with purchase conditions` by Ministry of Science and ICT',
-        'Published a research article on mechanisms of action of AR001 in the journal ’Alzheimer’s Research & Therapy’',
-        'Selected as ‘Dementia Unit’ at Research driven Hospital Project by Ministry of Health and Welfare',
-        'Selected as ‘Preliminary Unicorn’ at K- Unicorn Project by Ministry of Science and ICT',
-        'Selected as ‘Bio-medical Al data Collection Leader’ by National Information Society Agency',
-        'MOU with Samjin Pharmaceuticals to collaborate for the development of neurodegenerative disease and therapies',
-        'AR1001 US FDA EOP2 meeting and Phase 3 Kick-off',
-        'Secured workspace at CIC (Cambridge Innovation Center) in Boston, USA',
-        'Selected as an awardee of ’K-Blockbuster project to support entering the US market’ by Korea Health Industry Development Institute',
-        'AR1004 L/I from KOREA INSTITUTE OF ORIENTAL MEDICINE',
-      ],
-    },
-    {
-      content: [
-        'MOH Minister Award on Health Industry Contribution',
-        'Novel Device Designation of a Vibroacoustics for Dementia treatment by MFDS',
-        'AR1001 Phase 2 Result Presentation at 14th Clinical Trials on Alzheimer’s Disease (CTAD)',
-        'AR1001 Phase 2, 12month treatment complete',
-        'Partnership Agreement on the development of new drugs for neurodegenerativedisease with Daegu-Gyeongbuk Medical Innovation Foundation',
-      ],
-    },
-    {
-      content: [
-        'AR1001 Phase 2, 6month treatment complete',
-        'MOU with Yonsei Univ Hospital to establish a Research Institute on Dementia',
-        'AR1001 Polipharmacological MOA presentation (AAIC)',
-        'AR1001 Phase 2 Patient recruitment Completed',
-        'AR1002 License In (Columbia University)',
-        'MOU of AR1003 (AD treatment) with BioTox Tech and kick-off its development',
-        'Established Joint Research Agreement with Korea Institute of Science and Technology (KIST) for Development of Dementia Therapy',
-      ],
-    },
-    {
-      content: [
-        'AR1002 L/I from Columbia University',
-        'AR1001 (Alzheimer’s Disease) Therapeutic Agent) Approval for Phase 2Extension Study (USFDA)',
-        'AR1001 (VD DMT) Phase 2 IND Approval (US FDA)',
-      ],
-    },
-  ]);
 
   const handleScroll = () => {
     if (listItems?.length > 0) {
@@ -398,8 +340,8 @@ const Tab1 = ({ listItems, index }) => {
                   src={tabName === scrollTab ? whitedot : graydot}
                   $isActive={tabName === scrollTab ? true : false}
                   style={{
-                    marginRight: '24px',
-                    padding: '12px',
+                    marginRight: '12px',
+                    padding: '8px',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -410,7 +352,7 @@ const Tab1 = ({ listItems, index }) => {
                   style={{
                     position: 'absolute',
                     top: '0',
-                    left: '17px',
+                    left: '13px',
                     width: '2px',
                     height: index !== tabNames.length - 1 ? '-webkit-fill-available' : '18px',
                     borderRight: '2px dotted rgba(255, 255, 255, 0.5)',
@@ -419,7 +361,7 @@ const Tab1 = ({ listItems, index }) => {
                 ></div>
               </div>
               <GridBoxContentWrap key={tabName} style={{ alignItems: 'start' }}>
-                <Text $isActive={tabName === scrollTab ? true : false} style={{ lineHeight: '1.5em' }}>
+                <Text $isActive={tabName === scrollTab ? true : false} style={{ lineHeight: '26px' }}>
                   {tabName}
                 </Text>
 

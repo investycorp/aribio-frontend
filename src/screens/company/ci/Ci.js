@@ -13,15 +13,13 @@ import {
   TextWrap,
   Text,
   ContentBox,
-  ContainerGridLineWrap,
-  GridLineBox,
   ColorBarTextWrap,
   Image,
   ColorBar,
   HR,
   ContentWrap,
 } from './style';
-import { HeadLine, Path, MainImgWrap } from '../../../components/style';
+import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 import useCi from '../../../hooks/company/useCi';
@@ -63,13 +61,13 @@ const Ci = () => {
       <MainImgWrap>
         <Video page="ceomessage" />
         <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
+          <GridLineBox />
           <GridLineBox />
           <GridLineBox />
         </ContainerGridLineWrap>
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine className="midsize">
+        <HeadLine className="midsize" style={{ fontSize: window.innerWidth <= 900 && '56px' }}>
           CORPORATE
           <br /> IDENTITY
         </HeadLine>
@@ -309,15 +307,15 @@ const Ci = () => {
               style={{
                 width: '50%',
                 alignSelf: 'flex-start',
-                height: '4em',
-                borderRight: '2px solid #ffffff',
+                height: '60px',
+                borderRight: '1px solid #ffffff',
                 margin: '2rem 0',
               }}
             />
-            <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
+            <Text $fontSize="23px" $fontWeight="600" $color="#ffffff" style={{ margin: '0' }}>
               AriBio CI
             </Text>
-            <Text $fontSize="18px" $fontWeight="200" $color="#D3D3D3" style={{ marginTop: '2em' }}>
+            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em' }}>
               We are dedicated to pioneering
               <br /> treatments for neurodegenerative
               <br /> diseases, offering innovative
@@ -328,7 +326,7 @@ const Ci = () => {
         <HomeComponentWrap style={{ backgroundColor: '#ffffff', height: '160px' }}>
           <Image src={ci_logo_png} alt="ci_logo" style={{ width: '108px' }} />
         </HomeComponentWrap>
-        <HomeComponentWrap style={{ padding: '10vh 0', display: 'grid' }}>
+        <HomeComponentWrap style={{ padding: '5vh 0', display: 'grid' }}>
           <ContentBox style={{ position: 'relative', paddingTop: '1em' }}>
             <ColorBar $color1="rgba(4,50,75,0.9)" $color2="rgba(7,100,150,0.9)">
               <ColorBarTextWrap>

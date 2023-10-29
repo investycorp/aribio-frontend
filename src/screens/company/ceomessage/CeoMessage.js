@@ -4,18 +4,9 @@ import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
 import ceophoto from './assets/ceophoto.png';
 
-import {
-  Container,
-  HomeComponentWrap,
-  ContainerGridLineWrap,
-  GridLineBox,
-  TextWrap,
-  Text,
-  ContentBox,
-  Image,
-} from './style';
+import { Container, HomeComponentWrap, TextWrap, Text, ContentBox, Image } from './style';
 
-import { HeadLine, Path, MainImgWrap } from '../../../components/style';
+import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 import Video from '../../../components/Video';
 
@@ -129,7 +120,8 @@ const CeoMessage = () => {
               $color="#EAEAEA"
               style={{ textAlign: 'start', margin: '0', padding: '0 20% 0 0' }}
             >
-              AriBio is at the forefront of innovative drug development for neurodegenerative diseases.
+              AriBio is at the forefront of innovative drug development
+              <br /> for neurodegenerative diseases.
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
@@ -137,22 +129,32 @@ const CeoMessage = () => {
               $color="#909090"
               style={{ textAlign: 'start', margin: '0', padding: '0 10% 0 0', lineHeight: '1.7' }}
             >
-              As the founder of AriBio, I have spent the past 35 years devoted to the research and development of new
-              treatments for patients. My life-long experience in drug development and licensing has driven me to
-              establish AriBio in 2010, with the mission to develop meaningful therapies for neurodegenerative diseases,
-              which is one of the largest challenges of humanity. The loss of memory due to dementia is a process that
-              denies a person’s dignity and life, causing great sacrifice and pain not only to the patient but also to
-              the family members who care for them. Although it has been 110 years since the discovery of Alzheimer’s
-              disease, pharmaceutical companies still face the highest failure rate in developing treatments.
-              Nonetheless, AriBio is determined to tackle this challenge with a bold vision and unwavering
-              determination. Over the past decade, we have developed an integrated drug development system that enables
-              us to develop new drugs quickly and cost-effectively. We have also built an innovative pipeline with deep
-              expertise in clinical development as well as regulatory affairs with the US FDA.
+              As the founder of AriBio, I have spent the past 35 years devoted to the research and
+              <br />
+              development of new treatments for patients. With these experiences, I established AriBio in
+              <br />
+              2010 with the core purpose of developing meaningful therapies for neurodegenerative
+              <br />
+              diseases. The loss of memory due to dementia is a process that denies a person’s dignity
+              <br />
+              and life, impacting not only to the patient, but also the family members who care for them.
+              <br />
+              Although it has been 110 years since the discovery of Alzheimer’s disease, pharmaceutical
+              <br />
+              companies still face the highest failure rate in developing treatments. Yet, AriBio is
+              <br />
+              determined to tackle this challenge with a bold vision and unwavering determination. <br />
+              Over the past decade, we have developed an innovative pipeline that enables us to develop
+              <br />
+              new drugs quickly and cost-effectively.
               <br />
               <br />
-              At AriBio, developing new drugs is like a perilous voyage across an open sea to an unknown destination.
-              Our team of experts and employees share a sense of purpose, steadfastly sailing towards our goal despite
-              the turbulent water and unpredictable storms that may lie ahead.
+              At AriBio, developing new treatments is like stargazing across the night sky, plotting our
+              <br />
+              course through the vast unknown. Our team shares a common mission , steadily working
+              <br />
+              towards our goal despite the cosmic uncertainties and challenges that may arise.
+              <br />
             </Text>
           </ContentBox>
         </HomeComponentWrap>
@@ -168,8 +170,16 @@ const CeoMessage = () => {
             </Text>
             <hr style={{ width: '20px', margin: '3em 0' }} />
             <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
-              AriBio’s mission is to improve the quality of human life by developing innovative drugs that can give hope
-              to patients who suffer from incurable diseases across the globe.
+              AriBio’s mission is to improve
+              <br />
+              the quality of human life by developing
+              <br />
+              innovative drugs that can give hope
+              <br />
+              to patients who suffer from
+              <br />
+              incurable diseases across the globe.
+              <br />
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -180,7 +190,7 @@ const CeoMessage = () => {
         >
           <TextWrap>
             <Text
-              $fontSize="40px"
+              $fontSize="20px"
               $fontWeight="200"
               $color="#ffffff"
               style={{
@@ -191,7 +201,7 @@ const CeoMessage = () => {
                 lineHeight: '1',
               }}
             >
-              “
+              ”
             </Text>
             <Text
               $fontSize="16px"
@@ -204,14 +214,14 @@ const CeoMessage = () => {
               However, AriBio is making this dream a reality with our innovative drug development.
             </Text>
             <Text
-              $fontSize="40px"
+              $fontSize="20px"
               $fontWeight="200"
               $color="#ffffff"
               style={{ width: '100%', textAlign: 'end', margin: '0' }}
             >
               ”
             </Text>
-            <Text $fontSize="20px" $fontWeight="200" $color="#D6D6D6" style={{ width: '100%', textAlign: 'end' }}>
+            <Text $fontSize="14px" $fontWeight="200" $color="#D6D6D6" style={{ width: '100%', textAlign: 'center' }}>
               AriBio Co., Ltd. CEO Jai Jun Choung
             </Text>
           </TextWrap>
@@ -223,7 +233,7 @@ const CeoMessage = () => {
             style={{ width: '95vw', maxWidth: '400px' }}
           />
 
-          <ContentBox style={{ padding: '4rem 5vw 0 5vw', gap: '1rem' }}>
+          <ContentBox style={{ padding: '4rem 5vw 0 5vw', gap: '1rem', marginBottom: '10em' }}>
             <div style={{ width: '20px', height: '1px', backgroundColor: '#939598' }} />
             <Text
               $fontSize="18px"
@@ -239,27 +249,61 @@ const CeoMessage = () => {
               $color="#909090"
               style={{ textAlign: 'start', margin: '0', padding: '0', lineHeight: '1.7' }}
             >
-              As the founder of AriBio, I have spent the past 35 years devoted to the research and development of new
-              treatments for patients. My life-long experience in drug development and licensing has driven me to
-              establish AriBio in 2010, with the mission to develop meaningful therapies for neurodegenerative diseases,
-              which is one of the largest challenges of humanity. The loss of memory due to dementia is a process that
-              denies a person’s dignity and life, causing great sacrifice and pain not only to the patient but also to
-              the family members who care for them.
+              As the founder of AriBio, I have spent the
+              <br />
+              past 35 years devoted to the research and
+              <br />
+              development of new treatments for patients.
+              <br />
+              With these experiences, I established AriBio
+              <br />
+              in 2010 with the core purpose of developing
+              <br />
+              meaningful therapies for neurodegenerative
+              <br />
+              diseases. The loss of memory due to
+              <br />
+              dementia is a process that denies a person’s
+              <br />
+              dignity and life, impacting not only to the
+              <br />
+              patient, but also the family members who
+              <br />
+              care for them. Although it has been 110 years
+              <br />
+              since the discovery of Alzheimer’s disease,
+              <br />
+              pharmaceutical companies still face the
+              <br />
+              highest failure rate in developing treatments.
+              <br />
+              Yet, AriBio is determined to tackle this
+              <br />
+              challenge with a bold vision and unwavering
+              <br />
+              determination. <br />
+              Over the past decade, we have developed
+              <br />
+              an innovative pipeline that enables us
+              <br />
+              to develop new drugs quickly and
+              <br />
+              cost-effectively.
               <br />
               <br />
-              Although it has been 110 years since the discovery of Alzheimer’s disease, pharmaceutical companies still
-              face the highest failure rate in developing treatments. Nonetheless, AriBio is determined to tackle this
-              challenge with a bold vision and unwavering determination.
+              At AriBio, developing new treatments is like
               <br />
+              stargazing across the night sky, plotting our
               <br />
-              Over the past decade, we have developed an integrated drug development system that enables us to develop
-              new drugs quickly and cost-effectively. We have also built an innovative pipeline with deep expertise in
-              clinical development as well as regulatory affairs with the US FDA.
+              course through the vast unknown.
               <br />
+              Our team shares a common mission,
               <br />
-              At AriBio, developing new drugs is like a perilous voyage across an open sea to an unknown destination.
-              Our team of experts and employees share a sense of purpose, steadfastly sailing towards our goal despite
-              the turbulent water and unpredictable storms that may lie ahead.
+              steadily working towards our goal despite
+              <br />
+              the cosmic uncertainties and challenges
+              <br />
+              that may arise.
             </Text>
           </ContentBox>
         </HomeComponentWrap>

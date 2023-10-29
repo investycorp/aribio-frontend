@@ -33,14 +33,15 @@ const MediaKit = () => {
     if (data?.data.success) {
       setItemsList([]);
       const item = data.data.data.mediaKitDtoList;
-      item.map((comtent) => {
+      item.map((content) => {
         setItemsList((prev) => [
           ...prev,
           {
-            id: comtent.id,
-            title: comtent.title,
-            date: `${comtent.year}-${comtent.month}-${comtent.day}}`,
-            link: comtent.url,
+            id: content.id,
+            title: content.title,
+
+            date: `${content.month} ${content.day}, ${content.year}`,
+            link: content.url,
           },
         ]);
 
@@ -107,7 +108,7 @@ const MediaKit = () => {
           </HomeComponentWrap>
           <HomeComponentWrap>
             <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '0' }}>
-              <ReactPlayer url={currentVideo.url} width="100%" height="50vh" />
+              <ReactPlayer url={currentVideo.url} width="100%" height="50vh" playsinline={true} />
             </ComponentWrap>
             <ComponentWrap
               className="mediakit_item"
@@ -160,19 +161,19 @@ const MediaKit = () => {
         <Mobile>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap style={{ width: '70vw' }}>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
                 MEDIA
               </Text>
               <div
                 style={{
                   width: '50%',
                   alignSelf: 'flex-start',
-                  height: '8em',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
+                  height: '60px',
+                  borderRight: '1px solid #ffffff',
+                  margin: '0',
                 }}
               ></div>
-              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+              <Text $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0', fontSize: '23px' }}>
                 Explore Our Content
               </Text>
             </TextWrap>
@@ -180,7 +181,7 @@ const MediaKit = () => {
 
           <HomeComponentWrap>
             <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '0' }}>
-              <img src={irpr_mediakit_videopreviewimg} alt="video preview" style={{ width: '100%' }} />
+              <ReactPlayer url={currentVideo.url} width="100%" height="328px" playsinline={true} />
             </ComponentWrap>
             <ComponentWrap
               style={{
@@ -201,21 +202,23 @@ const MediaKit = () => {
                     flexDirection: 'column',
                     justifyContent: 'start',
                     alignItems: 'start',
-                    padding: '1rem 2rem',
-                    borderLeft: '2px solid #B1B1B1',
+                    padding: '1rem 1rem',
+                    borderLeft: '1px solid #B1B1B1',
+                  }}
+                  onClick={() => {
+                    navigate(`/irpr/mediakit/${item.id}`);
                   }}
                 >
                   <Text
                     $align="start"
-                    $fontSize="18px"
                     $fontWeight="300"
                     $color="#ffffff"
-                    style={{ margin: '0 0 1rem 0' }}
+                    style={{ margin: '0 0 1rem 0', fontSize: '18px' }}
                   >
                     {item.title}
                   </Text>
 
-                  <Text $align="start" $fontSize="16px" $fontWeight="300" $color="#E3E3E3" style={{ margin: '0' }}>
+                  <Text $align="start" $fontWeight="300" style={{ margin: '0', fontSize: '16px', color: '#DBDBDB' }}>
                     {item.date}
                   </Text>
                 </div>

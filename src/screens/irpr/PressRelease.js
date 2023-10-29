@@ -44,206 +44,6 @@ const PressRelease = () => {
   const [detailPage, setDetailPage] = useState(false);
 
   const [itemList, setItemList] = useState([]);
-  // const [itemList, setItemList] = useState([
-  //   {
-  //     date: '26 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: (
-  //       <div>
-  //         Today AriBio Co., Ltd. announced the completion of the end of phase 2 meeting (EOP2) with the United States
-  //         Food and Drug Administration (FDA), Division of Neurology 1. The EOP2 meeting, which occurred April 28 th on
-  //         Thursday morning Eastern Standard Time (EST), included several individuals from different departments within
-  //         the FDA, including non-clinical, clinical, biostatistics, and Dr. Billy Dunn, the Director from the Office of
-  //         Neuroscience. “AriBio is very appreciative of the time and attention the FDA provided in preparation for and
-  //         during this EOP2 meeting,” said James Rock, CEO of AriBio USA, INC.
-  //         <br />
-  //         <br />
-  //         “Importantly, AriBio was able to discuss the Phase 3 program including the target Alzheimer’s population and
-  //         thoughts on acceptable endpoints for the study. We now have a clear understanding of FDA current thinking on
-  //         drug development for the Alzheimer’s population, and the endpoints for a Phase 3 program,” stated Dr. Matthew
-  //         Choung, CEO of AriBio Co., Ltd. Attendees on behalf of AriBio included clinical, non-clinical, medical,
-  //         statistics and regulatory experts with a deep understanding of drug development for the Alzheimer’s
-  //         population. <br />
-  //         <br />
-  //         <section>
-  //           About AR1001
-  //           <br />
-  //           <br />
-  //           AR1001 is a first-in-class oral drug with novel polypharmacological mechanisms for the treatment of
-  //           Alzheimer’s disease. Pre-clinical studies have confirmed neuroprotective effects of AR1001 via inhibiting
-  //           neuron apoptosis and restoring synaptic plasticity. AR1001 also has demonstrated notable effects against
-  //           amyloid plaques and tau proteins via autophagy activation. The results of a Double-Blind, Randomized and
-  //           Placebo-Controlled Study to Evaluate Efficacy and Safety of 52-Week Treatment in Patients with Mild to
-  //           Moderate Alzheimer’s disease was reported at 14th Conference of Clinical Trials on Alzheimer’s Disease
-  //           (CTAD) that was held in Boston, USA, from November 9-12, 2021. The study provided encouraging evidence of
-  //           the tolerability and activity of AR1001 in slowing the progression of Alzheimer’s disease through various
-  //           cognitive and functional assessments, subject to ongoing clinical testing.
-  //         </section>
-  //         <section>
-  //           <br />
-  //           <br />
-  //           About AriBio Co., Ltd.
-  //           <br />
-  //           <br /> AriBio Co., Ltd. is a biopharmaceutical company based in South Korea with a focus on the development
-  //           of new drugs for neurodegenerative disease. AR1001 is the lead candidate for Alzheimer’s disease, which is
-  //           scheduled to enter a multinational Phase 3 study in the United States, Europe, and Korea in 2022.​ AriBio is
-  //           also developing several other drug candidates for the treatment of neurodegenerative diseases.
-  //         </section>
-  //       </div>
-  //     ),
-  //   },
-  //   {
-  //     date: '6 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: '',
-  //   },
-  //   {
-  //     date: '2 APR 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: '',
-  //   },
-  //   {
-  //     date: '26 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: '',
-  //   },
-  //   {
-  //     date: '26 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: (
-  //       <div>
-  //         Today AriBio Co., Ltd. announced the completion of the end of phase 2 meeting (EOP2) with the United States
-  //         Food and Drug Administration (FDA), Division of Neurology 1. The EOP2 meeting, which occurred April 28 th on
-  //         Thursday morning Eastern Standard Time (EST), included several individuals from different departments within
-  //         the FDA, including non-clinical, clinical, biostatistics, and Dr. Billy Dunn, the Director from the Office of
-  //         Neuroscience. “AriBio is very appreciative of the time and attention the FDA provided in preparation for and
-  //         during this EOP2 meeting,” said James Rock, CEO of AriBio USA, INC.
-  //         <br />
-  //         <br />
-  //         “Importantly, AriBio was able to discuss the Phase 3 program including the target Alzheimer’s population and
-  //         thoughts on acceptable endpoints for the study. We now have a clear understanding of FDA current thinking on
-  //         drug development for the Alzheimer’s population, and the endpoints for a Phase 3 program,” stated Dr. Matthew
-  //         Choung, CEO of AriBio Co., Ltd. Attendees on behalf of AriBio included clinical, non-clinical, medical,
-  //         statistics and regulatory experts with a deep understanding of drug development for the Alzheimer’s
-  //         population. <br />
-  //         <br />
-  //         <section>
-  //           About AR1001
-  //           <br />
-  //           <br />
-  //           AR1001 is a first-in-class oral drug with novel polypharmacological mechanisms for the treatment of
-  //           Alzheimer’s disease. Pre-clinical studies have confirmed neuroprotective effects of AR1001 via inhibiting
-  //           neuron apoptosis and restoring synaptic plasticity. AR1001 also has demonstrated notable effects against
-  //           amyloid plaques and tau proteins via autophagy activation. The results of a Double-Blind, Randomized and
-  //           Placebo-Controlled Study to Evaluate Efficacy and Safety of 52-Week Treatment in Patients with Mild to
-  //           Moderate Alzheimer’s disease was reported at 14th Conference of Clinical Trials on Alzheimer’s Disease
-  //           (CTAD) that was held in Boston, USA, from November 9-12, 2021. The study provided encouraging evidence of
-  //           the tolerability and activity of AR1001 in slowing the progression of Alzheimer’s disease through various
-  //           cognitive and functional assessments, subject to ongoing clinical testing.
-  //         </section>
-  //         <section>
-  //           <br />
-  //           <br />
-  //           About AriBio Co., Ltd.
-  //           <br />
-  //           <br /> AriBio Co., Ltd. is a biopharmaceutical company based in South Korea with a focus on the development
-  //           of new drugs for neurodegenerative disease. AR1001 is the lead candidate for Alzheimer’s disease, which is
-  //           scheduled to enter a multinational Phase 3 study in the United States, Europe, and Korea in 2022.​ AriBio is
-  //           also developing several other drug candidates for the treatment of neurodegenerative diseases.
-  //         </section>
-  //       </div>
-  //     ),
-  //   },
-  //   {
-  //     date: '6 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: '',
-  //   },
-  //   {
-  //     date: '2 APR 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: '',
-  //   },
-  //   {
-  //     date: '26 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: '',
-  //   },
-  //   {
-  //     date: '26 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: (
-  //       <div>
-  //         Today AriBio Co., Ltd. announced the completion of the end of phase 2 meeting (EOP2) with the United States
-  //         Food and Drug Administration (FDA), Division of Neurology 1. The EOP2 meeting, which occurred April 28 th on
-  //         Thursday morning Eastern Standard Time (EST), included several individuals from different departments within
-  //         the FDA, including non-clinical, clinical, biostatistics, and Dr. Billy Dunn, the Director from the Office of
-  //         Neuroscience. “AriBio is very appreciative of the time and attention the FDA provided in preparation for and
-  //         during this EOP2 meeting,” said James Rock, CEO of AriBio USA, INC.
-  //         <br />
-  //         <br />
-  //         “Importantly, AriBio was able to discuss the Phase 3 program including the target Alzheimer’s population and
-  //         thoughts on acceptable endpoints for the study. We now have a clear understanding of FDA current thinking on
-  //         drug development for the Alzheimer’s population, and the endpoints for a Phase 3 program,” stated Dr. Matthew
-  //         Choung, CEO of AriBio Co., Ltd. Attendees on behalf of AriBio included clinical, non-clinical, medical,
-  //         statistics and regulatory experts with a deep understanding of drug development for the Alzheimer’s
-  //         population. <br />
-  //         <br />
-  //         <section>
-  //           About AR1001
-  //           <br />
-  //           <br />
-  //           AR1001 is a first-in-class oral drug with novel polypharmacological mechanisms for the treatment of
-  //           Alzheimer’s disease. Pre-clinical studies have confirmed neuroprotective effects of AR1001 via inhibiting
-  //           neuron apoptosis and restoring synaptic plasticity. AR1001 also has demonstrated notable effects against
-  //           amyloid plaques and tau proteins via autophagy activation. The results of a Double-Blind, Randomized and
-  //           Placebo-Controlled Study to Evaluate Efficacy and Safety of 52-Week Treatment in Patients with Mild to
-  //           Moderate Alzheimer’s disease was reported at 14th Conference of Clinical Trials on Alzheimer’s Disease
-  //           (CTAD) that was held in Boston, USA, from November 9-12, 2021. The study provided encouraging evidence of
-  //           the tolerability and activity of AR1001 in slowing the progression of Alzheimer’s disease through various
-  //           cognitive and functional assessments, subject to ongoing clinical testing.
-  //         </section>
-  //         <section>
-  //           <br />
-  //           <br />
-  //           About AriBio Co., Ltd.
-  //           <br />
-  //           <br /> AriBio Co., Ltd. is a biopharmaceutical company based in South Korea with a focus on the development
-  //           of new drugs for neurodegenerative disease. AR1001 is the lead candidate for Alzheimer’s disease, which is
-  //           scheduled to enter a multinational Phase 3 study in the United States, Europe, and Korea in 2022.​ AriBio is
-  //           also developing several other drug candidates for the treatment of neurodegenerative diseases.
-  //         </section>
-  //       </div>
-  //     ),
-  //   },
-  //   {
-  //     date: '6 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: '',
-  //   },
-  //   {
-  //     date: '2 APR 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: '',
-  //   },
-  //   {
-  //     date: '26 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: '',
-  //   },
-  // ]);
   const [filteredList, setFilteredList] = useState([]);
   const { data, isLoading: loading, refetch } = useNoticeList(searchValue, language, pageNumber);
   const [isLoading, setIsLoading] = useState(loading);
@@ -427,18 +227,18 @@ const PressRelease = () => {
                       return (
                         <Link
                           style={{ textDecoration: 'none', width: '100%' }}
-                          key={'noticeItem' + index}
+                          key={'noticeItem' + item.id}
                           to={`/irpr/pressrelease/${item.id}`}
                         >
                           <RowWrap
                             onMouseOver={() => {
-                              setHoverItem(index);
+                              setHoverItem(item.id);
                             }}
                             onMouseLeave={() => {
                               setHoverItem();
                             }}
                             onFocus={() => {
-                              setHoverItem(index);
+                              setHoverItem(item.id);
                             }}
                             onClick={() => {
                               setDetailPage(true);
@@ -470,7 +270,7 @@ const PressRelease = () => {
                             <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
                               <Image
                                 style={{ padding: '1em', cursor: 'pointer', zIndex: '20' }}
-                                src={hoverItem === index ? icon_circlearrow_white : icon_circlearrow_dark}
+                                src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
                                 alt="icon_circlearrow_dark"
                               />
                             </div>
@@ -523,20 +323,25 @@ const PressRelease = () => {
           <Mobile>
             <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
               <TextWrap style={{ width: '70vw' }}>
-                <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+                <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
                   PRESS RELEASE
                 </Text>
                 <div
                   style={{
                     width: '50%',
                     alignSelf: 'flex-start',
-                    height: '8em',
-                    borderRight: '2px solid #ffffff',
-                    margin: '2rem 0',
+                    height: '60px',
+                    borderRight: '1px solid #ffffff',
+                    margin: '0',
                   }}
                 ></div>
-                <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                  We Deliver the Latest AriBio News.
+                <Text
+                  $fontSize="23px"
+                  $fontWeight="400"
+                  $color="#ffffff"
+                  style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
+                >
+                  Latest AriBio News
                 </Text>
               </TextWrap>
             </HomeComponentWrap>
@@ -547,7 +352,7 @@ const PressRelease = () => {
                     width: '100%',
                     flexDirection: 'row',
                     color: '#ffffff',
-                    borderBottom: '2px solid #ffffff',
+                    borderBottom: '1px solid #ffffff',
                     padding: '0',
                   }}
                 >
@@ -570,7 +375,7 @@ const PressRelease = () => {
                     src={search}
                     alt="search"
                     onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
-                    style={{ height: '1rem' }}
+                    style={{ height: '20px' }}
                   />
                 </ComponentWrap>
               </ComponentWrap>
@@ -583,18 +388,18 @@ const PressRelease = () => {
                       return (
                         <Link
                           style={{ textDecoration: 'none', width: '100%' }}
-                          key={'noticeItem' + index}
-                          to={`/irpr/pressrelease/${index}`}
+                          key={'noticeItem' + item.id}
+                          to={`/irpr/pressrelease/${item.id}`}
                         >
                           <RowWrap
                             onMouseOver={() => {
-                              setHoverItem(index);
+                              setHoverItem(item.id);
                             }}
                             onMouseLeave={() => {
                               setHoverItem();
                             }}
                             onFocus={() => {
-                              setHoverItem(index);
+                              setHoverItem(item.id);
                             }}
                             onClick={() => {
                               setDetailPage(true);
@@ -620,8 +425,8 @@ const PressRelease = () => {
                               </div>
 
                               <Image
-                                style={{ padding: '0', cursor: 'pointer', height: '1.3rem' }}
-                                src={hoverItem === index ? icon_circlearrow_white : icon_circlearrow_dark}
+                                style={{ padding: '0', cursor: 'pointer', height: '20px' }}
+                                src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
                                 alt="icon_circlearrow_dark"
                               />
                             </TitleWrap>
@@ -652,7 +457,7 @@ const PressRelease = () => {
                     }
                   }}
                 >
-                  <Image style={{ zIndex: '-1', height: '2rem' }} src={icon_more} alt="more" />
+                  <Image style={{ zIndex: '-1', height: '24px' }} src={icon_more} alt="more" />
                   <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
                     View more
                   </Text>

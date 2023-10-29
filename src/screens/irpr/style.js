@@ -81,6 +81,9 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+  @media screen and (max-width: 900px) {
+    padding: 5vh 5vw;
+  }
 `;
 
 const TextWrap = styled.div`
@@ -250,6 +253,7 @@ const SearchInput = styled.input`
   }
 `;
 const ComponentWrap = styled.div.attrs((props) => ({ className: props.className }))`
+  position: relative;
   width: 100%;
   height: 'fit-content';
   display: flex;
@@ -270,13 +274,7 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
     div {
       cursor: pointer;
       &:active {
-        background-color: rgba(203, 203, 203, 0.2);
       }
-    }
-  }
-  .button {
-    &:hover {
-      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     }
   }
 `;
@@ -304,6 +302,7 @@ const RowWrap = styled.div`
     grid-template-columns: 1fr;
     padding: 1rem;
     border: 1px solid #c4c4c4;
+    border-radius: 8px;
   }
 `;
 

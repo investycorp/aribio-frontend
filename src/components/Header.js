@@ -366,12 +366,12 @@ const Header = () => {
               {menuList.map((menu, index) => (
                 <HeaderNavMenuTextWrap
                   key={menu.linkTo + index}
-                  onClick={() => {
-                    // if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
-                    //   if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
-                    //   else window.location.reload();
-                    // }
-                  }}
+                  // onClick={() => {
+                  //   if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
+                  //     if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
+                  //     else window.location.reload();
+                  //   }
+                  // }}
                   $isActive={menu.linkTo === currentMenu ? true : false}
                 >
                   <div
@@ -429,8 +429,9 @@ const Header = () => {
                               alignItems: 'center',
                               padding: '0.2em',
                               borderBottom:
-                                location.pathname?.split('/')[location.pathname?.split('/')?.length - 1] ===
-                                subMenu.linkTo
+                                location.pathname?.split('/')[2] === subMenu.linkTo ||
+                                (menu.linkTo === 'career' && location.pathname === '/career') ||
+                                (menu.linkTo === 'pipeline' && location.pathname === '/pipeline')
                                   ? '1px solid #fff'
                                   : '1px solid transparent',
                             }}

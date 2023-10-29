@@ -7,6 +7,8 @@ import { useRecoilValue } from 'recoil';
 import useDetailContent from '../../../hooks/irpr/useDetailContent';
 import Language from '../../../atom/Language';
 
+import { ContainerGridLineWrap, GridLineBox } from '../../../components/style';
+
 const DetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -19,15 +21,6 @@ const DetailPage = () => {
   const [prevItem, setPrevItem] = useState({});
   const { data, isLoading, refetch } = useDetailContent(outletContext[0]?.toLowerCase(), language, id);
 
-  //     date: '26 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: (
-  //       <div>
-  //       </div>
-  //     ),
-  //   },
-
   useEffect(() => {
     document.querySelector('.irpr_detailpage')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     setPage(outletContext[0]);
@@ -39,35 +32,29 @@ const DetailPage = () => {
     setPrevItem({});
     if (data?.data?.success) {
       const item = data?.data.data;
+      console.log('item', item);
+      console.log(outletContext[0]);
       setCurrentItem({
         id: item.id,
         date: `${item.month} ${item.day}, ${item.year}`,
         title: item.title,
         image: item.image,
-        content: <div>{item.contents.replace('\n', '<br/>')}</div>,
+        content: item.contents,
       });
+      // outletContext[0].toLowerCase() === 'notice'
+      //       ? item.beforeAndAfterNoticeDto.afterNoticeId
+      //       : item.beforeAndAfterPressReleaseDto.afterPressReleaseId,
       setNextItem({
-        id:
-          outletContext[0].toLowerCase() === 'notice'
-            ? item.beforeAndAfterNoticeDto.afterNoticeId
-            : item.beforeAndAfterPressReleaseDto.afterPressReleaseId,
-        title:
-          outletContext[0].toLowerCase() === 'notice'
-            ? item.beforeAndAfterNoticeDto.afterNoticeTitle
-            : item.beforeAndAfterPressReleaseDto.afterPressReleaseTitle,
+        id: item?.beforeAndAfterNoticeDto.afterNoticeId,
+
+        title: item?.beforeAndAfterNoticeDto.afterNoticeTitle,
       });
       setPrevItem({
-        id:
-          outletContext[0].toLowerCase() === 'notice'
-            ? item.beforeAndAfterNoticeDto.beforeNoticeId
-            : item.beforeAndAfterPressReleaseDto.beforePressReleaseId,
-        title:
-          outletContext[0].toLowerCase() === 'notice'
-            ? item.beforeAndAfterNoticeDto.beforeNoticeTitle
-            : item.beforeAndAfterPressReleaseDto.beforePressReleaseTitle,
+        id: item?.beforeAndAfterNoticeDto.beforeNoticeId,
+
+        title: item?.beforeAndAfterNoticeDto.beforeNoticeTitle,
       });
     }
-    console.log(data?.data?.data?.id);
   }, [data]);
 
   useEffect(() => {
@@ -86,6 +73,11 @@ const DetailPage = () => {
 
   return (
     <HomeComponentWrap id="irpr_detailpage" style={{ backgroundColor: '#fff' }}>
+      {/* <ContainerGridLineWrap className="grid_bg" style={{ visibility: 'visible', opacity: '0.6', zIndex: '20' }}>
+        <GridLineBox />
+        <GridLineBox />
+        <GridLineBox />
+      </ContainerGridLineWrap> */}
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
@@ -324,7 +316,7 @@ const DetailPage = () => {
             }}
           >
             <Image
-              style={{ zIndex: '-1', height: '2rem' }}
+              style={{ zIndex: '-1', height: '20px' }}
               src={process.env.PUBLIC_URL + '/assets/icons/circle_arrow.svg'}
               alt="go back"
             />
@@ -378,10 +370,17 @@ const DetailPage = () => {
               padding: '0',
               textAlign: 'start',
               fontSize: '21px',
+              fontWeight: '400',
+              lineHeight: '25px',
               color: '#141414',
             }}
           >
-            {currentItem?.title}
+            {currentItem?.title?.split('\\n')?.map((line, index) => (
+              <span key={'title line' + index}>
+                {line}
+                <br />
+              </span>
+            ))}
           </Text>
           <HR style={{ margin: '1rem 0', width: '40px', height: '1px' }} $color="#B5B5B5" />
           {currentItem.image && (
@@ -394,17 +393,24 @@ const DetailPage = () => {
               padding: '0',
               textAlign: 'start',
               fontSize: '18px',
+              lineHeight: '23px',
               fontWeight: '200',
               color: '#272727',
             }}
             id="printableid"
           >
-            {currentItem?.content}
+            {currentItem?.content?.split('\\n')?.map((line, index) => (
+              <span key={'contentline' + index}>
+                {line}
+                <br />
+              </span>
+            ))}
           </Text>
         </ComponentWrap>
         <div
           style={{
-            margin: '3em',
+            margin: '4em 0 1em 0',
+            padding: '0',
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
@@ -413,16 +419,16 @@ const DetailPage = () => {
             hover: 'none',
           }}
         >
-          <Button onClick={() => clickPrint()}>
-            <span style={{ padding: '0 0.5em', zIndex: '-1', fontSize: '18px' }}>Print</span>{' '}
+          <Button style={{ width: '90px', height: '41px', padding: '0' }} onClick={() => clickPrint()}>
+            <span style={{ padding: '0 0.5em', zIndex: '-1', fontSize: '15px' }}>Print</span>{' '}
             <Image
-              style={{ zIndex: '-1', height: '2rem' }}
+              style={{ zIndex: '-1', width: '9.4px' }}
               src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'}
               alt="print"
             />
           </Button>
         </div>
-        <HomeComponentWrap style={{ paddingTop: '3rem', borderTop: '2px solid #B5B5B5', marginTop: '3rem' }}>
+        <HomeComponentWrap style={{ padding: '0', borderTop: '1px solid #B5B5B5', marginTop: '2em' }}>
           <ComponentWrap
             style={{
               display: 'grid',
@@ -441,18 +447,18 @@ const DetailPage = () => {
                 >
                   <Text
                     style={{
-                      margin: '3em 0 2em 0',
+                      margin: '3em 0 1em 0',
                       padding: '0',
                       textAlign: 'start',
-                      fontSize: '18px',
-                      fontWeight: '200',
+                      fontSize: '14px',
+                      fontWeight: '400',
                       color: '#909090',
                       cursor: 'pointer',
                     }}
                   >
                     PREV
                   </Text>
-                  <HR $color="#909090" $width="3em" style={{ cursor: 'pointer' }} />
+                  <HR $color="#909090" $width="35px" $height="1px" style={{ margin: '0', cursor: 'pointer' }} />
 
                   <Text
                     className="prev"
@@ -461,13 +467,13 @@ const DetailPage = () => {
                       margin: '1em 0',
                       padding: '0',
                       textAlign: 'start',
-                      fontSize: '18px',
+                      fontSize: '16px',
                       fontWeight: '400',
                       color: '#141414',
                       cursor: 'pointer',
                     }}
                   >
-                    {prevItem?.title?.slice(0, 40)}...
+                    {prevItem?.title?.slice(0, 60)}...
                   </Text>
                 </Link>
               </div>
@@ -483,18 +489,18 @@ const DetailPage = () => {
                 >
                   <Text
                     style={{
-                      margin: '3em 0 2em 0',
+                      margin: '3em 0 1em 0',
                       padding: '0',
                       textAlign: 'start',
-                      fontSize: '18px',
-                      fontWeight: '200',
+                      fontSize: '14px',
+                      fontWeight: '400',
                       color: '#909090',
                       cursor: 'pointer',
                     }}
                   >
                     NEXT
                   </Text>
-                  <HR $color="#909090" $width="3em" style={{ cursor: 'pointer' }} />
+                  <HR $color="#909090" $width="35px" $height="1px" style={{ margin: '0', cursor: 'pointer' }} />
 
                   <Text
                     className="next"
@@ -503,12 +509,12 @@ const DetailPage = () => {
                       margin: '1em 0',
                       padding: '0',
                       textAlign: 'start',
-                      fontSize: '18px',
+                      fontSize: '16px',
                       fontWeight: '400',
                       color: '#141414',
                     }}
                   >
-                    {nextItem?.title?.slice(0, 40)}...
+                    {nextItem?.title?.slice(0, 60)}...
                   </Text>
                 </Link>
               </div>
@@ -536,22 +542,21 @@ const DetailPage = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    minWidth: 'fit-content',
-                    paddingBottom: '0.7em',
+
                     margin: '1em 0',
                     borderBottom: '1px solid #212121',
                     gap: '3em',
                     zIndex: '-1',
                     color: '#212121',
                     cursor: 'pointer',
-                    fontSize: '18px',
+                    width: '213px',
                   }}
                 >
-                  <span style={{ zIndex: '-1' }}>View List</span>
+                  <span style={{ zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>View List</span>
                   <Image
                     src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'}
                     alt="arrow"
-                    style={{ width: '1.2rem', zIndex: '-1' }}
+                    style={{ width: '8px', zIndex: '-1' }}
                   />
                 </Text>
               </Link>
