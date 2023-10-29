@@ -73,12 +73,12 @@ const Home = () => {
 
         <Video page="home" />
         <MainImgWrap>
-          <SideSlider />
           <ContainerGridLineWrap className="grid_bg">
             <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
             <GridLineBox />
             <GridLineBox />
           </ContainerGridLineWrap>
+          <SideSlider />
         </MainImgWrap>
 
         <Desktop>
@@ -488,7 +488,7 @@ const Home = () => {
                   padding: '0',
                   gridTemplateColumns: '1fr',
                   width: '90vw',
-                  height: '82px',
+                  height: '92px',
                 }}
               >
                 <HomeComponentImageWrap

@@ -23,10 +23,10 @@ const SliderContainer = styled.div`
   z-index: 20;
   gap: 60px;
   @media screen and (max-width: 900px) {
+    position: sticky;
     grid-template-columns: repeat(5, 1fr);
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
     height: fit-content;
   }
 `;
