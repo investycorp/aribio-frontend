@@ -181,7 +181,7 @@ const Leadership = () => {
                 </ContentBoxNameWrap>
                 <DescriptionWrap
                   style={{
-                    padding: index % 2 === 0 ? ' 0 20px 0 9vw' : '0 0 0 20px',
+                    padding: index % 2 === 0 ? ' 0 0 0 9vw' : '0 0 0 0',
                   }}
                   $isActive={item.isOpen}
                 >

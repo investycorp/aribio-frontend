@@ -73,11 +73,11 @@ const DetailPage = () => {
 
   return (
     <HomeComponentWrap id="irpr_detailpage" style={{ backgroundColor: '#fff' }}>
-      {/* <ContainerGridLineWrap className="grid_bg" style={{ visibility: 'visible', opacity: '0.6', zIndex: '20' }}>
+      <ContainerGridLineWrap className="grid_bg" style={{ visibility: 'visible', opacity: '0.6', zIndex: '0' }}>
         <GridLineBox />
         <GridLineBox />
         <GridLineBox />
-      </ContainerGridLineWrap> */}
+      </ContainerGridLineWrap>
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
@@ -420,7 +420,7 @@ const DetailPage = () => {
           }}
         >
           <Button style={{ width: '90px', height: '41px', padding: '0' }} onClick={() => clickPrint()}>
-            <span style={{ padding: '0 0.5em', zIndex: '-1', fontSize: '15px' }}>Print</span>{' '}
+            <span style={{ padding: '0 0.5em', zIndex: '-1', fontSize: '15px', fontWeight: '400' }}>Print</span>{' '}
             <Image
               style={{ zIndex: '-1', width: '9.4px' }}
               src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'}
@@ -556,7 +556,7 @@ const DetailPage = () => {
                   <Image
                     src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'}
                     alt="arrow"
-                    style={{ width: '8px', zIndex: '-1' }}
+                    style={{ width: '12px', height: '12px', zIndex: '-1' }}
                   />
                 </Text>
               </Link>

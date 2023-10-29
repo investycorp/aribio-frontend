@@ -700,12 +700,14 @@ const Career = () => {
                     width: '50%',
                     alignSelf: 'flex-start',
                     height: '4em',
-                    borderRight: '2px solid #ffffff',
+                    borderRight: '1px solid #ffffff',
                     margin: '2rem 0',
                   }}
                 ></div>
                 <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                  Pioneering Solutions for Neurodegeneration
+                  Join Us at the Forefront of
+                  <br />
+                  Neurodegenerative Solutions
                 </Text>
               </TextWrap>
             </HomeComponentWrap>
@@ -716,13 +718,13 @@ const Career = () => {
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
                 backgroundColor: '#121212',
-                padding: '8vh 7vw',
+                padding: '5vh 5vw',
                 marginBottom: '20vh',
               }}
             >
-              <TextWrap>
+              <TextWrap style={{ width: '90vw' }}>
                 <Text
-                  $fontSize="30px"
+                  $fontSize="20px"
                   $fontWeight="200"
                   $color="#ffffff"
                   style={{ width: '100%', textAlign: 'start', margin: '0', height: 'fit-content', lineHeight: '1' }}
@@ -730,18 +732,34 @@ const Career = () => {
                   “
                 </Text>
                 <Text
-                  $fontSize="20px"
+                  $fontSize="18px"
                   $fontWeight="300"
-                  $color="#ffffff"
-                  style={{ padding: '0 18px', width: '90%', textAlign: 'center', margin: '0' }}
+                  $color="#EFEFEF"
+                  style={{ padding: '0 18px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '24px' }}
                 >
-                  At Aribio, we’re at the cutting edge of tackling neurodegenerative disorders. <br />
-                  Our dedicated team is set on discovering transformative treatments. <br />
-                  We invite innovative minds to join our mission. <br />
-                  Together, let’s usher in a new era of therapeutic breakthroughs for those in need.
+                  At Aribio,
+                  <br />
+                  we’re at the cutting edge of tackling
+                  <br />
+                  neurodegenerative disorders.
+                  <br />
+                  Our dedicated team is set on
+                  <br />
+                  discovering transformative
+                  <br />
+                  treatments. We invite
+                  <br />
+                  innovative minds to join our mission.
+                  <br />
+                  Together, let’s usher in a new era
+                  <br />
+                  of therapeutic breakthroughs
+                  <br />
+                  for those in need.
+                  <br />
                 </Text>
                 <Text
-                  $fontSize="30px"
+                  $fontSize="20px"
                   $fontWeight="200"
                   $color="#ffffff"
                   style={{ width: '100%', textAlign: 'end', margin: '0', lineHeight: '1' }}
@@ -816,7 +834,7 @@ const Career = () => {
                 }}
               >
                 Recruitment Process
-                <HR $width="40px" />
+                <HR $width="40px" $height="1px" />
               </Text>
               <ContentBox
                 className="recruitment_process"
@@ -847,14 +865,14 @@ const Career = () => {
                       $fontWeight="400"
                       $color="#00A6FF"
                       $align="start"
-                      style={{ width: 'fit-content', overflow: 'hidden' }}
+                      style={{ width: 'fit-content', overflow: 'hidden', paddingTop: '3px' }}
                     >
                       {`0${index + 1}`}
                     </Text>
                     <TextWrap style={{ alignItems: 'start', gap: '0.5rem', width: '85%' }}>
                       <Text
                         $fontSize="18px"
-                        $fontWeight="300"
+                        $fontWeight="400"
                         $color="#ffffff"
                         $align="start"
                         style={{ width: 'auto', overflow: 'hidden' }}
@@ -863,7 +881,7 @@ const Career = () => {
                       </Text>
                       <Text
                         $fontSize="16px"
-                        $fontWeight="100"
+                        $fontWeight="200"
                         $color="#C9C9C9"
                         $align="start"
                         style={{ width: 'auto', overflow: 'hidden' }}
@@ -883,7 +901,7 @@ const Career = () => {
                 <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start">
                   Benefits
                 </Text>
-                <HR style={{ alignSelf: 'start', margin: '1rem 0', width: '40px' }} />
+                <HR $height="1px" style={{ alignSelf: 'start', margin: '1rem 0', width: '40px' }} />
               </TextWrap>
               <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '5vh' }}>
                 {benefits.map((item, index) => (
@@ -923,12 +941,13 @@ const Career = () => {
                       </Text>
                     </div>
                     <TextWrap style={{ position: 'relative', width: 'fit-content' }}>
-                      <DescriptionWrap style={{ paddingRight: '2rem' }}>
+                      <DescriptionWrap style={{ paddingRight: '0' }}>
                         {item.desc.map((descItem, descIndex) => (
                           <DescriptionItem
                             style={{
-                              listStyle: 'disc outside',
+                              listStyle: 'none outside',
                               marginLeft: '1rem',
+                              lineHeight: '22px',
                             }}
                             key={descItem + descIndex}
                           >
@@ -962,7 +981,7 @@ const Career = () => {
                         justifyContent: 'space-between',
                         width: '213px',
                         paddingBottom: '0.7em',
-                        borderBottom: '2px solid #ffffff',
+                        borderBottom: '1px solid #ffffff',
                       }}
                       onClick={() => {
                         navigate('/aboutus');
@@ -984,7 +1003,7 @@ const Career = () => {
                         justifyContent: 'space-between',
                         width: '213px',
                         paddingBottom: '0.7em',
-                        borderBottom: '2px solid #ffffff',
+                        borderBottom: '1px solid #ffffff',
                       }}
                       // onClick={() => downloadCi('png')}
                     >
@@ -998,7 +1017,7 @@ const Career = () => {
             <HomeComponentWrap>
               <TextWrap style={{ marginBottom: '5em', zIndex: '10' }}>
                 <HR style={{ alignSelf: 'start', margin: '1rem 0', width: '40px', height: '1px' }} />
-                <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start">
+                <Text $fontSize="20px" $fontWeight="600" $color="#E5E5E5" $align="start">
                   Join Us!
                 </Text>
               </TextWrap>
@@ -1011,24 +1030,30 @@ const Career = () => {
                         onClick={() => {
                           navigate(`${item.id}`);
                         }}
-                        style={{ padding: '4em 3em', cursor: 'pointer' }}
+                        style={{ cursor: 'pointer', height: '124px' }}
                       >
-                        <TextWrap>
+                        <TextWrap
+                          style={{
+                            height: '124px',
+                            justifyContent: 'space-between',
+                            alignItems: 'start',
+                            padding: '1.5em 0 1.5em 1em',
+                          }}
+                        >
                           <Text
-                            $fontSize="14px"
-                            $fontWeight="300"
+                            $fontWeight="400"
                             $color="#DDDDDD"
                             $align="start"
-                            style={{ marginBottom: '1.5em', zIndex: '-1' }}
+                            style={{ zIndex: '-1', fontSize: '14px' }}
                           >
-                            <span style={{ margin: '0 1em 0 0' }}>·</span> {item.type}
+                            <span style={{ margin: '0 0.5em 0 0' }}>·</span> {item.type}
                           </Text>
                           <Text
                             $fontSize="15px"
-                            $fontWeight="100"
+                            $fontWeight="200"
                             $color="#ffffff"
                             $align="start"
-                            style={{ marginBottom: '0.5em', zIndex: '-1' }}
+                            style={{ zIndex: '-1' }}
                           >
                             {item.location}-
                           </Text>
@@ -1037,9 +1062,10 @@ const Career = () => {
                             $fontWeight="400"
                             $color="#E3E3E3"
                             $align="start"
-                            style={{ zIndex: '-1' }}
+                            style={{ zIndex: '-1', whiteSpace: 'nowrap', overflow: 'hidden', width: '80vw' }}
                           >
-                            {item.title}
+                            {item.title.slice(0, 30)}
+                            {item.title.length > 30 && '..'}
                           </Text>
                         </TextWrap>
                         <Image
@@ -1050,7 +1076,7 @@ const Career = () => {
                             borderRadius: '50%',
                             width: '20px',
                             alignSelf: 'end',
-                            marginBottom: '0.2rem',
+                            margin: '1.5em 1em 1.5em 0',
                             zIndex: '-1',
                           }}
                         />

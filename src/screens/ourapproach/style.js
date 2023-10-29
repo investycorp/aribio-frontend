@@ -89,7 +89,7 @@ const HomeComponentWrap = styled.div`
   padding: 10vh 7vw;
   z-index: 10;
   overflow-x: hidden;
-  @media and screen (max-width: 900px) {
+  @media screen and (max-width: 900px) {
     padding: 5vh 5vw;
   }
 `;
@@ -296,6 +296,7 @@ const RoundButton = styled.button`
     font-size: 14px;
     height: 40px;
     border-width: 1px;
+    border-color: #707070;
   }
 `;
 
@@ -511,6 +512,7 @@ const DescriptionItem = styled.li`
     font-size: 16px;
     margin-left: 0;
     width: 100%;
+    line-height: 21px;
   }
 `;
 

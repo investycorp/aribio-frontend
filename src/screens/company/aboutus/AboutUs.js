@@ -119,21 +119,40 @@ const AboutUs = () => {
             <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '0 0 2rem 0' }} />
             <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '20px', fontSize: '18px' }}>
               AriBio Co., Ltd.
-              <br /> is a biotechnology leader focused on
               <br />
-              creating impactful therapies for neurodegenerative diseases.
+              is a biotechnology leader focused on
               <br />
-              Through our groundbreaking ARIDD™ platform (AI-powered, Reverse engineered & Integrated Drug Development)
-              and a <br />
+              creating impactful therapies for
+              <br />
+              neurodegenerative diseases.
+              <br />
+              Through our groundbreaking
+              <br />
+              ARIDD™ platform (AI-powered,
+              <br />
+              Reverse engineered & Integrated
+              <br />
+              Drug Development) and a<br />
               commitment to Open Innovation,
-              <br /> we are poised to make significant strides in the field.
+              <br />
+              we’re poised to make significant
+              <br />
+              strides in the field.
               <br />
               <br />
-              Our mission is clear: <br /> develop innovative therapies for neurodegenerative diseases.
+              Our mission is clear:
+              <br />
+              develop innovative therapies
+              <br />
+              for neurodegenerative diseases.
               <br />
               <br />
-              Meet our dedicated leadership team, of experts in science, technology, pharmaceuticals, and regulatory
-              fields.
+              Meet our dedicated leadership team,
+              <br />
+              of experts in science, technology,
+              <br />
+              pharmaceuticals, and regulatory fields.
+              <br />
             </Text>
           </TextWrap>
         </HomeComponentWrap>

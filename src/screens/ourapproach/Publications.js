@@ -284,7 +284,7 @@ const Publications = () => {
                 width: '50%',
                 alignSelf: 'flex-start',
                 height: '4em',
-                borderRight: '2px solid #ffffff',
+                borderRight: '1px solid #ffffff',
                 margin: '2rem 0',
               }}
             ></div>
@@ -293,7 +293,7 @@ const Publications = () => {
             </Text>
           </TextWrap>
           <GridComponentWrap
-            style={{ display: 'grid', gridTemplateColumns: '1fr', rowGap: '0', minHeight: '50vh', width: '86vw' }}
+            style={{ display: 'grid', gridTemplateColumns: '1fr', rowGap: '0', minHeight: '50vh', width: '90vw' }}
           >
             <ComponentWrap
               style={{
@@ -302,7 +302,7 @@ const Publications = () => {
                 marginTop: '4rem',
                 borderBottom: '1px solid #ffffff',
                 padding: '0',
-                width: '80vw',
+                width: '322px',
               }}
             >
               <SearchInput
@@ -371,6 +371,7 @@ const Publications = () => {
                           fontWeight: '300',
                           alignItems: 'start',
                           textAlign: 'start',
+                          whiteSpace: 'nowrap',
                         }}
                       >
                         {doc.journal.slice(0, 25)}...
@@ -379,10 +380,16 @@ const Publications = () => {
                         className="text"
                         $fontSize="18px"
                         $fontWeight="300"
-                        $color="#ffffff"
-                        style={{ alignItems: 'start', margin: '0.5rem 0', textAlign: 'start', flexWrap: 'wrap' }}
+                        $color="#F0F0F0"
+                        style={{
+                          alignItems: 'start',
+                          margin: '0.5rem 0',
+                          textAlign: 'start',
+                          flexWrap: 'wrap',
+                          lineHeight: '22px',
+                        }}
                       >
-                        {doc.title.slice(0, 50)}...
+                        {doc.title.slice(0, 50)}..
                       </Text>
                       <Text
                         className="text"

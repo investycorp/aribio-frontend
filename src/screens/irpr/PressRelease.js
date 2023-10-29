@@ -28,6 +28,7 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import { Link, Outlet, useParams } from 'react-router-dom';
 import useNoticeList from '../../hooks/irpr/useNoticeList';
+import Video from '../../components/Video';
 
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
@@ -142,7 +143,8 @@ const PressRelease = () => {
 
   return (
     <Container className="container">
-      <MainImgWrap $src={irpr_pressrelease_cover}>
+      <MainImgWrap>
+        <Video page="pressrelease" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
           <GridLineBox />

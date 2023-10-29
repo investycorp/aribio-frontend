@@ -166,10 +166,10 @@ const CeoMessage = () => {
               CEO MESSAGE
             </Text>
             <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-              A biotech company brought together by those who dream of a brighter, healthier future.
+              Meet Our CEO
             </Text>
             <hr style={{ width: '20px', margin: '3em 0' }} />
-            <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
+            <Text $fontSize="18px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0' }}>
               AriBio’s mission is to improve
               <br />
               the quality of human life by developing
@@ -209,9 +209,17 @@ const CeoMessage = () => {
               $color="#ffffff"
               style={{ padding: '0 20px', width: '100%', textAlign: 'center', margin: '0' }}
             >
-              Regaining a healthy life and a bright smile may seem like a dream for patients and families with dementia.{' '}
+              AriBio’s mission is
               <br />
-              However, AriBio is making this dream a reality with our innovative drug development.
+              to improve the quality of human
+              <br />
+              life by developing innovative drugs <br />
+              that can give hope to patients
+              <br />
+              who suffer from incurable diseases
+              <br />
+              across the globe.
+              <br />
             </Text>
             <Text
               $fontSize="20px"
@@ -234,18 +242,20 @@ const CeoMessage = () => {
           />
 
           <ContentBox style={{ padding: '4rem 5vw 0 5vw', gap: '1rem', marginBottom: '10em' }}>
-            <div style={{ width: '20px', height: '1px', backgroundColor: '#939598' }} />
+            <div style={{ width: '20px', height: '1px', backgroundColor: '#939598', marginTop: '5em' }} />
+
             <Text
               $fontSize="18px"
-              $fontWeight="300"
+              $fontWeight="400"
               $color="#EAEAEA"
               style={{ textAlign: 'start', margin: '0', padding: '0 ' }}
             >
-              AriBio is at the forefront of innovative drug development for neurodegenerative diseases.
+              AriBio is at the forefront of innovative
+              <br /> drug development for neurodegenerative diseases.
             </Text>
             <Text
               $fontSize="16px"
-              $fontWeight="200"
+              $fontWeight="300"
               $color="#909090"
               style={{ textAlign: 'start', margin: '0', padding: '0', lineHeight: '1.7' }}
             >

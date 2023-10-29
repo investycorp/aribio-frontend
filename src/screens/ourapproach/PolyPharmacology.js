@@ -105,7 +105,7 @@ const PolyPharmacology = () => {
           <HomeComponentWrap style={{ padding: '5vh 5vw' }}>
             <TextWrap>
               <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                Polypharmacology
+                POLYPHARMACOLOGY
               </Text>
               <div
                 style={{
@@ -117,9 +117,14 @@ const PolyPharmacology = () => {
                 }}
               ></div>
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
-                Merging Multi-Target and <br /> Multi-Mechanism Drug Discovery with AI
+                Merging Multi-Mechanism Drug Discovery with AI
               </Text>
-              <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ marginTop: '2em' }}>
+              <Text
+                $fontSize="18px"
+                $fontWeight="200"
+                $color="#E5E5E5"
+                style={{ marginTop: '2em', lineHeight: '21px' }}
+              >
                 Neurodegenerative diseases,
                 <br /> such as Alzheimer’s, manifest <br />
                 from a confluence of genetic,
@@ -138,7 +143,8 @@ const PolyPharmacology = () => {
                 concurrently. This nuanced approach <br />
                 grasps the multifaceted nature of
                 <br /> biological systems, paving the way for
-                <br /> a more comprehensive therapeutic approach.
+                <br /> a more comprehensive
+                <br /> therapeutic approach.
               </Text>
             </TextWrap>
 
@@ -147,8 +153,8 @@ const PolyPharmacology = () => {
               alt="polypharm_middle"
               style={{ margin: '5vh 0', width: '90%' }}
             />
-            <HR $height="2px" $color="#9A9A9A" />
-            <Text $fontSize="16px" $fontWeight="200" $color="#ffffff" style={{ marginTop: '2em', width: '80vw' }}>
+            <HR $height="1px" $width="20px" $color="#9A9A9A" />
+            <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em', width: '80vw' }}>
               At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies. With
               the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span multiple
               targets and mechanisms. By leveraging AI, we aim to achieve heightened drug efficacy and expand potential

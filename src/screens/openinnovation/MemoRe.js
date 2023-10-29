@@ -277,8 +277,8 @@ const MemoRe = () => {
               Help Preserve Your
               <br /> Loved One’s Memories
             </Text>
-            <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '2rem 0 2rem 0' }} />
-            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3">
+            <hr style={{ width: '20px', borderTop: '1px solid #707070', margin: '2rem 0 2rem 0' }} />
+            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '21px' }}>
               We believe that life’s most precious gift
               <br />
               is the memories we create, and it is
@@ -305,7 +305,7 @@ const MemoRe = () => {
             style={{ width: '100%', marginTop: '0em' }}
           />
           <TextWrap style={{ margin: '5em 0', width: '100%' }}>
-            <Text $color="#C9C9C9" $fontSize="18px" $fontWeight="300" $align="center">
+            <Text $color="#C9C9C9" $fontSize="18px" $fontWeight="300" $align="center" style={{ lineHeight: '21px' }}>
               Memo:Re isn’t just a digital tool; <br />
               it’s a bridge. With its
               <br />
@@ -379,7 +379,7 @@ const MemoRe = () => {
                 gridTemplateColumns: '1fr',
                 padding: '0',
                 columnGap: '2em',
-                rowGap: '4em',
+                rowGap: '1em',
                 paddingLeft: '33%',
               }}
             >
@@ -404,7 +404,7 @@ const MemoRe = () => {
                 onClick={() => window.open(links.memoReEngLink, '_blank')}
               >
                 <span style={{ zIndex: '-1' }}>Go to Memo:Re (ENG)</span>
-                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
               </Text>
               <Text
                 $fontSize="16px"
@@ -427,7 +427,7 @@ const MemoRe = () => {
                 onClick={() => window.open(links.memoReKorLink, '_blank')}
               >
                 <span style={{ zIndex: '-1' }}>Go to Memo:Re (KOR)</span>
-                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
               </Text>
               <Text
                 $fontSize="16px"
@@ -445,7 +445,7 @@ const MemoRe = () => {
 
                   borderBottom: '1px solid #ffffff',
                   gap: '1em',
-                  margin: '0',
+                  margin: '1em 0 0 0',
                 }}
                 onClick={() => {
                   let userOs = detectOS();
@@ -459,7 +459,7 @@ const MemoRe = () => {
                 }}
               >
                 <span style={{ zIndex: '-1' }}>APP Download</span>
-                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
               </Text>
             </ContentWrap>
           </ContentWrap>

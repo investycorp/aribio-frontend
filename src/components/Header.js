@@ -264,18 +264,15 @@ const Header = () => {
   const [currentTab, setCurrentTab] = useState('');
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState('');
+  const [scrollY, setScrollY] = useState(0);
   const [windowSize, setWindowSize] = useRecoilState(WindowSize);
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(
-    () => {
-      setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
-      setCurrentTab(location.pathname.split('/')[1]);
-    },
-    [document.getElementsByClassName('header-navwrap')[0]?.clientWidth],
-    location.pathname,
-  );
+  useEffect(() => {
+    setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
+    setCurrentTab(location.pathname.split('/')[1]);
+  }, [document.getElementsByClassName('header-navwrap')[0]?.clientWidth, location.pathname]);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -330,7 +327,7 @@ const Header = () => {
             setSubMenuOpen('');
           }}
         >
-          <HeaderTop>
+          <HeaderTop style={{ backgroundColor: '#121212' }}>
             <HeaderLogoWrap>
               <Link
                 to="/"
@@ -365,7 +362,7 @@ const Header = () => {
             </div>
           </HeaderTop>
           {isToggleOpen && (
-            <HeaderNavWrap className="header-navwrap">
+            <HeaderNavWrap className="header-navwrap" style={{ backgroundColor: '#121212' }}>
               {menuList.map((menu, index) => (
                 <HeaderNavMenuTextWrap
                   key={menu.linkTo + index}

@@ -28,6 +28,7 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import { Link, Outlet, useParams } from 'react-router-dom';
 import useNoticeList from '../../hooks/irpr/useNoticeList';
+import Video from '../../components/Video';
 
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
@@ -143,7 +144,8 @@ const Notice = () => {
 
   return (
     <Container className="container">
-      <MainImgWrap $src={irpr_notice_cover}>
+      <MainImgWrap>
+        <Video page="notice" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
           <GridLineBox />
@@ -324,8 +326,8 @@ const Notice = () => {
             </HomeComponentWrap>
           </Desktop>
           <Mobile>
-            <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-              <TextWrap style={{ width: '70vw' }}>
+            <HomeComponentWrap>
+              <TextWrap style={{ width: '90vw' }}>
                 <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
                   NOTICE
                 </Text>
@@ -344,7 +346,8 @@ const Notice = () => {
                   $color="#ffffff"
                   style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
                 >
-                  We Share Our Transparent Management Information.
+                  Company Updates
+                  <br /> and Announcements
                 </Text>
               </TextWrap>
             </HomeComponentWrap>

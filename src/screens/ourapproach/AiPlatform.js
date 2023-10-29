@@ -663,7 +663,7 @@ const AiPlatform = () => {
                 <br /> engineered & Integrated
                 <br /> Drug Development
               </Text>
-              <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '2em 0' }}>
+              <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '2em 0', lineHeight: '21px' }}>
                 ARIDD™ is
                 <br />
                 a drug development platform <br />
@@ -691,7 +691,12 @@ const AiPlatform = () => {
               <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
                 ARIS Structure
               </Text>
-              <Text $fontSize="16px" $fontWeight="200" $color="#ffffff" style={{ marginTop: '2em', width: '90vw' }}>
+              <Text
+                $fontSize="16px"
+                $fontWeight="300"
+                $color="#D3D3D3"
+                style={{ marginTop: '2em', width: '90vw', lineHeight: '20px' }}
+              >
                 At AriBio,
                 <br />
                 our commitment to polypharmacology
@@ -739,7 +744,7 @@ const AiPlatform = () => {
               <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
                 ARIS (AI-based Reliable In-Silico)
               </Text>
-              <Text $fontSize="16px" $fontWeight="100" $color="#C9C9C9" style={{ marginTop: '2em', width: '80vw' }}>
+              <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{ marginTop: '2em', width: '80vw' }}>
                 ARIS is fundamentally structured
                 <br /> around two concepts,
                 <br /> “BRAIN” and its “Prediction Algorithms”.
@@ -755,10 +760,10 @@ const AiPlatform = () => {
               <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
                 BRAIN
               </Text>
-              <Text $fontSize="16px" $fontWeight="100" $color="#C9C9C9" style={{ marginTop: '2em', width: '80vw' }}>
+              <Text $fontSize="16px" $fontWeight="200" $color="#C9C9C9" style={{ marginTop: '2em', width: '80vw' }}>
                 BRAIN, short for {`\t`}
                 <br />
-                <span style={{ color: '#ffffff', fontWeight: '300' }}>
+                <span style={{ color: '#ffffff', fontWeight: '400' }}>
                   “The Bridge between AI and In Silico,
                   <br /> In Vitro, and In Vivo”,
                 </span>{' '}
@@ -767,13 +772,13 @@ const AiPlatform = () => {
                 <br /> a Knowledge Graph (KG)
                 <br /> and a Large Language Model (LLM).
                 <br />
-                Together, they form a cohesive <span style={{ color: '#ffffff', fontWeight: '300' }}>Bridge</span>,
+                Together, they form a cohesive <span style={{ color: '#ffffff', fontWeight: '400' }}>Bridge</span>,
                 <br />
                 seamlessly linking the KG and ARIS <br />
-                <span style={{ color: '#ffffff', fontWeight: '300' }}>Prediction Algorithms</span> to real-world
+                <span style={{ color: '#ffffff', fontWeight: '400' }}>Prediction Algorithms</span> to real-world
                 <br />
                 applications across{' '}
-                <span style={{ color: '#ffffff', fontWeight: '300' }}>
+                <span style={{ color: '#ffffff', fontWeight: '400' }}>
                   In Silico, In Vitro,
                   <br /> and In Vivo
                 </span>{' '}
@@ -786,12 +791,12 @@ const AiPlatform = () => {
               style={{ width: '90%' }}
             />
           </HomeComponentWrap>
-          <HomeComponentWrap>
+          <HomeComponentWrap style={{}}>
             <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
               <HR $height="1px" $color="#ffffff" $width="20px" />
               <Text
                 $fontSize="18px"
-                $fontWeight="400"
+                $fontWeight="600"
                 $align="start"
                 $color="#ffffff"
                 style={{ margin: '1.5em 0 0 0' }}
@@ -800,7 +805,7 @@ const AiPlatform = () => {
               </Text>
               <Text
                 $fontSize="16px"
-                $fontWeight="100"
+                $fontWeight="300"
                 $color="#C9C9C9"
                 $align="start"
                 style={{ marginTop: '1.5em', width: '100%' }}
@@ -834,17 +839,20 @@ const AiPlatform = () => {
                 </RoundButton>
               ))}
             </ButtonWrap>
-            <ComponentWrap style={{ borderTop: '1px solid #ffffff' }}>
+            <ComponentWrap style={{ borderTop: '1px solid #ffffff', paddingTop: '4em', margin: '0' }}>
               <ComponentWrap
                 style={{
-                  display: 'grid',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                   border: '1px solid rgba(255,255,255,0.4)',
                   borderRadius: '10px',
                   background: 'linear-gradient(to left, rgba(0,90,139,0.4), rgba(0, 26, 41, 0.4))',
-                  marginTop: '3rem',
-                  padding: '1rem',
+                  padding: '1.5rem 1.5rem',
                   alignItems: 'start',
-                  height: '291pxO',
+                  height: '291px',
+                  gap: '1rem',
                 }}
               >
                 <TextWrap
@@ -852,6 +860,7 @@ const AiPlatform = () => {
                     margin: '0',
                     padding: '0 0 1rem 0',
                     width: '100%',
+
                     alignItems: 'start',
                     borderBottom: '1px solid #6E6E6E',
                   }}
@@ -866,7 +875,7 @@ const AiPlatform = () => {
                     {predictions[activeButton].title}
                   </Text>
                 </TextWrap>
-                <DescriptionWrap style={{ padding: '0' }}>
+                <DescriptionWrap style={{ padding: '0', margin: '0', height: 'fit-content' }}>
                   {predictions[activeButton].content.map((item, index) => (
                     <DescriptionItem key={item + index}>{item}</DescriptionItem>
                   ))}
@@ -877,10 +886,10 @@ const AiPlatform = () => {
           <HomeComponentWrap>
             <TextWrap style={{ marginBottom: '5em' }}>
               <HR $height="1px" $color="#ffffff" $width="20px" />
-              <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
+              <Text $fontSize="18px" $fontWeight="600" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
                 Pathway Data
               </Text>
-              <Text $fontSize="16px" $fontWeight="100" $color="#C9C9C9" style={{ marginTop: '2em' }}>
+              <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{ marginTop: '2em' }}>
                 Since its origin,
                 <br />
                 the development and objectives of ARIS
@@ -1239,18 +1248,41 @@ const AiPlatform = () => {
               </ComponentWrap>
             </ComponentWrap>
             <TextWrap style={{ width: '86vw', marginTop: '10em' }}>
-              <Text $fontSize="16px" $fontWeight="100" $color="#C9C9C9" style={{ marginTop: '2em' }}>
-                At the heart of polypharmacological drug discovery lies the pivotal step of target identification.
+              <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{ marginTop: '2em' }}>
+                At the heart of polypharmacological drug <br />
+                discovery lies the pivotal step of target
                 <br />
-                This involves discerning which biological targets a drug should engage with, to address a specific
-                disease.
+                identification. This involves discerning
                 <br />
-                The inherent challenge stems from the intricate interdependencies within our body; no single component
+                which biological targets a drug
+                <br />
+                should engage with, to address a specific
+                <br />
+                disease. The inherent challenge stems
+                <br />
+                from the intricate interdependencies
+                <br />
+                within our body; no single component
+                <br />
                 operates in isolation.
-                <br />A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of
-                subsequent interactions that collectively contribute to disease treatment. Hence, pinpointing a viable
-                drug target necessitates a profound comprehension of these protein interplays within the body —a
-                knowledge rooted in pathway data.
+                <br />
+                A drug’s interaction with a singular protein
+                <br />
+                isn’t the sole therapeutic agent;
+                <br />
+                it’s the cascade of subsequent
+                <br />
+                interactions that collectively contribute
+                <br />
+                to disease treatment. Hence, pinpointing
+                <br />
+                a viable drug target necessitates
+                <br />
+                a profound comprehension of these
+                <br />
+                protein interplays within the body — <br />
+                a knowledge rooted in pathway data.
+                <br />
               </Text>
             </TextWrap>
           </HomeComponentWrap>

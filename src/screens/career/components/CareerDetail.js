@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useOutletContext, useParams } from 'react-router-dom';
 import { HomeComponentWrap, Text, Image, ComponentWrap, HR, Button } from '../style';
+import { ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 import { useRecoilValue } from 'recoil';
 
@@ -40,7 +41,18 @@ const CareerDetail = () => {
         date: `${item.month} ${item.day}, ${item.year}`,
         title: item.jobGroup,
         image: item.popupFileDto?.fileUrl,
-        content: item.popupContents,
+        content: (
+          <>
+            {item.popupContents.split('\\n').map((line, index) => {
+              return (
+                <span key={'content line' + index} style={{ fontSize: '18', lineHeight: '23px' }}>
+                  {line}
+                  <br />
+                </span>
+              );
+            })}
+          </>
+        ),
         url: item.url,
       });
     }
@@ -53,6 +65,11 @@ const CareerDetail = () => {
 
   return (
     <HomeComponentWrap id="irpr_detailpage" style={{ backgroundColor: '#fff' }}>
+      <ContainerGridLineWrap className="grid_bg" style={{ visibility: 'visible', opacity: '0.6', zIndex: '0' }}>
+        <GridLineBox />
+        <GridLineBox />
+        <GridLineBox />
+      </ContainerGridLineWrap>
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
@@ -231,6 +248,7 @@ const CareerDetail = () => {
               padding: '0',
               textAlign: 'start',
               fontSize: '18px',
+              lineHeight: '23px',
               fontWeight: '200',
               color: '#272727',
             }}
@@ -251,11 +269,13 @@ const CareerDetail = () => {
         >
           <Button
             onClick={() => currentItem?.url && (window.location.href = `//${currentItem.url}`)}
-            style={{ width: 'fit-content', borderBottom: '1px solid #707070' }}
+            style={{ width: '213px', borderBottom: '1px solid #707070', justifyContent: 'space-between' }}
           >
-            <span style={{ padding: '0.5rem', zIndex: '-1' }}>Apply for this job</span>
+            <span style={{ padding: '0.5rem 0', zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>
+              Apply for this job
+            </span>
             <Image
-              style={{ zIndex: '-1', height: '2rem' }}
+              style={{ zIndex: '-1', height: '10px' }}
               src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'}
               alt="print"
             />

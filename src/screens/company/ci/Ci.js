@@ -434,7 +434,7 @@ const Ci = () => {
                   justifyContent: 'space-between',
                   width: '57.3vw',
                   paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  borderBottom: '1px solid #ffffff',
                 }}
                 onClick={() => downloadCi('ai')}
               >
@@ -454,7 +454,7 @@ const Ci = () => {
                   justifyContent: 'space-between',
                   width: '57.3vw',
                   paddingBottom: '0.7em',
-                  borderBottom: '2px solid #ffffff',
+                  borderBottom: '1px solid #ffffff',
                 }}
                 onClick={() => downloadCi('png')}
               >

@@ -393,7 +393,7 @@ const DigitalHealth = () => {
                 marginBottom: '3rem',
               }}
             ></div>
-            <Text $fontSize="23px" $fontWeight="400" style={{ margin: '0' }}>
+            <Text $fontSize="23px" $fontWeight="400" style={{ margin: '0', lineHeight: '26px' }}>
               Leveraging Digital Health
               <br />
               Technologies for
@@ -403,7 +403,7 @@ const DigitalHealth = () => {
               and Intervention
             </Text>
             <hr style={{ width: '20px', border: '1px solid #C9C9C9', margin: '2rem 0' }} />
-            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3">
+            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '21px' }}>
               In today’s rapidly evolving world,
               <br />
               where technology continues
@@ -434,10 +434,10 @@ const DigitalHealth = () => {
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '3rem', gap: '2em', width: '100%' }}>
-            <Text $fontSize="20px" $fontWeight="300" $color="#E6E6E6" style={{ margin: '0' }}>
+            <Text $fontSize="20px" $fontWeight="300" $color="#E6E6E6" style={{ margin: '0', lineHeight: '23px' }}>
               Understanding the Challenge
             </Text>
-            <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0' }}>
+            <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0', lineHeight: '21px' }}>
               Dementia is a complex and <br />
               progressive neurological disorder
               <br />
@@ -468,7 +468,7 @@ const DigitalHealth = () => {
             <Text $fontSize="20px" $fontWeight="300" $color="#E6E6E6" style={{ margin: '0' }}>
               The Power of Digital Health
             </Text>
-            <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0' }}>
+            <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0', lineHeight: '21px' }}>
               In an age where smartphones,
               <br />
               wearables, and smart home devices
@@ -570,6 +570,7 @@ const DigitalHealth = () => {
                 textAlign: 'right',
                 fontSize: '14px',
                 color: '#E5E5E5',
+                lineHeight: '17px',
               }}
             >
               *Electroceutical - II & Digital Toolkit
@@ -581,10 +582,16 @@ const DigitalHealth = () => {
           <ContentWrap style={{ padding: '0', marginBottom: '6rem' }}>
             <TextWrap style={{ alignItems: 'start', margin: '0', gap: '0.5em', width: '100%' }}>
               <HR $color="#F8F8F8" $width="20px" $height="1px" />
-              <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start" style={{ margin: '0' }}>
+              <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start" style={{ margin: '0 0 2em 0' }}>
                 Electroceutical - I
               </Text>
-              <Text $fontSize="16px" $fontWeight="100" $color="#D3D3D3" $align="start" style={{ margin: '0' }}>
+              <Text
+                $fontSize="16px"
+                $fontWeight="200"
+                $color="#D3D3D3"
+                $align="start"
+                style={{ margin: '0', lineHeight: '20px' }}
+              >
                 Our product, MDAR3001, harnesses <br />
                 proprietary sound source, designed to
                 <br />
@@ -615,7 +622,7 @@ const DigitalHealth = () => {
               alt="openinnovation_mobile_middle3"
               style={{ width: '100%', marginTop: '2em', padding: '5em 0', borderTop: '1px solid #696969' }}
             />
-            <Text $align="start" $color="#D3D3D3" $fontSize="16px" $fontWeight="300">
+            <Text $align="start" $color="#D3D3D3" $fontSize="16px" $fontWeight="200" style-={{ lineHeight: '20px' }}>
               In a world where technology continually
               <br />
               evolves, our commitment remains
@@ -661,13 +668,13 @@ const DigitalHealth = () => {
                 width: '213px',
                 height: '31px',
 
-                borderBottom: '1px solid #ffffff',
+                borderBottom: '1px solid #FDFDFD',
 
                 margin: '0',
               }}
               onClick={() => navigate('/')}
             >
-              <span style={{ zIndex: '-1', fontSize: '16px' }}>Go to HERIZON</span>
+              <span style={{ zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>Go to HERIZON</span>
               <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
             </Text>
           </ContentWrap>

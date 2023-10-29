@@ -211,12 +211,12 @@ const OpenInnovation = () => {
             <Text $color="#939598" $fontSize="16px" $fontWeight="400">
               OPEN INNOVATION
             </Text>
-            <Text $fontSize="23px" $fontWeight="600">
+            <Text $fontSize="23px" $fontWeight="600" style={{ lineHeight: '26px' }}>
               AriBio is dedicated to
               <br /> driving advancements in neurodegenerative diseases.
             </Text>
-            <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '0 0 2em 0' }} />
-            <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%' }}>
+            <hr style={{ width: '20px', borderTop: '1px solid #ffffff', borderBottom: 'none', margin: '0 0 2em 0' }} />
+            <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%', lineHeight: '21px' }}>
               Our foundation is the ARIDD platform,
               <br />
               designed for multi-mechanism drugs,
@@ -262,11 +262,15 @@ const OpenInnovation = () => {
             }}
           >
             <Text
-              $color="#939598"
-              $fontSize="16px"
               $fontWeight="300"
               $align="start"
-              style={{ paddingLeft: '15vw', marginBottom: '10em', lineHeight: '20px' }}
+              style={{
+                paddingLeft: '15vw',
+                marginBottom: '10em',
+                lineHeight: '20px',
+                color: '#D3D3D3',
+                fontSize: '16px',
+              }}
             >
               <HR style={{ marginBottom: '2em', height: '1px', width: '20px' }} />
               Our approach blends polypharma
@@ -314,7 +318,7 @@ const OpenInnovation = () => {
                 onClick={() => navigate('/')}
               >
                 <span style={{ zIndex: '-1', fontSize: '16px' }}>Digital Health</span>
-                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
               </Text>
               <Text
                 $fontSize="20px"
@@ -335,7 +339,7 @@ const OpenInnovation = () => {
                 onClick={() => navigate('/')}
               >
                 <span style={{ zIndex: '-1', fontSize: '16px' }}>Memo:Re Project</span>
-                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
               </Text>
             </ContentWrap>
           </TextWrap>

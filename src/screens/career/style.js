@@ -209,12 +209,17 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
         font-weight: 500;
       }
     }
-
-    &:nth-child(odd) {
-      margin-bottom: 2em;
+    @media screen and (min-width: 901px) {
+      &:nth-child(odd) {
+        margin-bottom: 2em;
+      }
+      &:nth-child(even) {
+        margin-top: 2em;
+      }
     }
-    &:nth-child(even) {
-      margin-top: 2em;
+
+    @media screen and (max-width: 900px) {
+      height: 124px;
     }
   }
 `;
@@ -264,6 +269,15 @@ const DescriptionItem = styled.li`
   font-weight: 100;
   line-height: 1.5em;
   list-style: none outside;
+  &::marker {
+    content: '•  ';
+    font-weight: 200;
+    font-size: 10px;
+  }
+  @media screen and (max-width: 900px) {
+    font-size: 16px;
+    font-weight: 200;
+  }
 `;
 
 const HR = styled.div`

@@ -162,8 +162,8 @@ const Partner = () => {
             <Text $fontSize="23px" $fontWeight="400">
               Current Partnerships
             </Text>
-            <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '0 0 2em 0' }} />
-            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3">
+            <hr style={{ width: '20px', borderTop: '1px solid #ffffff', borderBottom: 'none', margin: '0 0 2em 0' }} />
+            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '21px' }}>
               Aligned in our mission,
               <br />
               we focus on addressing
@@ -216,7 +216,6 @@ const Partner = () => {
             }}
           >
             <Text
-              $fontSize="20px"
               $fontWeight="300"
               $color="#ffffff"
               $align="start"
@@ -236,7 +235,7 @@ const Partner = () => {
               onClick={() => navigate('/contact/contactus')}
             >
               <span style={{ zIndex: '-1', fontSize: '16px' }}>CONTACT US</span>
-              <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
+              <Image src={arrow} alt="arrow" style={{ height: '24px', width: '24px', zIndex: '-1' }} />
             </Text>
           </ContentBox>
         </HomeComponentWrap>

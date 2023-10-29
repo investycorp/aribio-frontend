@@ -10,6 +10,7 @@ import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, HR } from 
 
 import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
+import Video from '../../components/Video';
 
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Language from '../../atom/Language';
@@ -63,7 +64,8 @@ const MediaKit = () => {
 
   return (
     <Container className="container">
-      <MainImgWrap $src={irpr_mediakit_cover}>
+      <MainImgWrap>
+        <Video page="mediakit" />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
           <GridLineBox />
