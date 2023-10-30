@@ -130,7 +130,7 @@ const DigitalHealth = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }} $fontWeight="600">
+            <Text style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }} $fontWeight="500">
               Leveraging Digital Health Technologies
               <br /> for Early Dementia Detection and Intervention
             </Text>
@@ -195,7 +195,7 @@ const DigitalHealth = () => {
               <HR $color="#F8F8F8" />
               <Text
                 style={{ fontSize: window.innerWidth > 1280 ? '34px' : '19px', margin: '0' }}
-                $fontWeight="600"
+                $fontWeight="j00"
                 $color="#F4F4F4"
               >
                 Our Approach
@@ -214,7 +214,7 @@ const DigitalHealth = () => {
               <HR $color="#F8F8F8" />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '19px'}
-                $fontWeight="600"
+                $fontWeight="500"
                 $color="#F4F4F4"
                 style={{ margin: '0' }}
               >
@@ -247,8 +247,8 @@ const DigitalHealth = () => {
                     <ShootingStar
                       className="shooting_star"
                       style={{
-                        height: '6px',
-                        width: '6px',
+                        height: '16px',
+                        width: '16px',
                       }}
                       $phase={item.phase}
                     />
@@ -582,7 +582,7 @@ const DigitalHealth = () => {
           <ContentWrap style={{ padding: '0', marginBottom: '6rem' }}>
             <TextWrap style={{ alignItems: 'start', margin: '0', gap: '0.5em', width: '100%' }}>
               <HR $color="#F8F8F8" $width="20px" $height="1px" />
-              <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start" style={{ margin: '0 0 2em 0' }}>
+              <Text $fontSize="20px" $fontWeight="500" $color="#E5E5E5" $align="start" style={{ margin: '0 0 2em 0' }}>
                 Electroceutical - I
               </Text>
               <Text

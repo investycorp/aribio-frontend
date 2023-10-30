@@ -63,10 +63,10 @@ const OpenInnovation = () => {
             alt="intro_bg"
           />
           <TextWrap style={{ width: '70vw', position: 'relative', backgroundColor: 'transparent' }}>
-            <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="600">
+            <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
               OPEN INNOVATION
             </Text>
-            <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="400">
+            <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
               AriBio is dedicated to driving advancements
               <br />
               in neurodegenerative diseases.

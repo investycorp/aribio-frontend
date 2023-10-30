@@ -84,7 +84,7 @@ const MemoRe = () => {
         >
           <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
             <Text $color="#C9C9C9" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
-              DIGITAL HEALTH
+              MEMO:RE PROJECT
             </Text>
             <div
               style={{
@@ -95,7 +95,7 @@ const MemoRe = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="400">
+            <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
               Help Preserve Your Loved One’s Memories
             </Text>
             <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
@@ -114,7 +114,7 @@ const MemoRe = () => {
             src={openinnovation_memore_middle1}
             alt="openinnovation_middle2"
             style={{
-              width: '80%',
+              width: '70%',
               transition: 'opacity 0.5s ease-in-out',
             }}
           />
