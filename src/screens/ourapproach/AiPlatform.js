@@ -44,39 +44,88 @@ const AiPlatform = () => {
         'Accuracy : Correlation coefficient of 0.616.',
         'Completion Time : Approximately 10 seconds per Ligand-Protein complex.',
       ],
+      width: '149px',
     },
 
     {
       title: 'IC50 predictor',
-      content: ['Sample : Sample text', 'Sample : Sample text', 'Sample : Sample text'],
+      content: [
+        `Description :
+
+        A Machine Learning framework tailored to model a target protein’s IC50 activity.
+        This model predicts the IC50 value for a specific Ligand-Protein complex,
+        utilizing the Ligand’s chemical structure. It is instrumental in validating or estimating the potential
+        of an interaction between a ligand and a target protein.`,
+      ],
+      width: '227px',
     },
     {
       title: 'Blinding Affinity Prediction',
-      content: ['Sample : Sample text', 'Sample : Sample text', 'Sample : Sample text'],
+      content: [
+        'Type: Low Throughput, Structure-based (Ligand-Protein).',
+        'Technology: Deep Learning (3D Convolutional Neural Networks).',
+        'Accuracy: Correlation coefficient of 0.827.',
+        'Completion Time: Approximately 10 minutes per Ligand-Protein complex.',
+      ],
+      width: '352px',
     },
     {
       title: 'DrugSim',
-      content: ['Sample : Sample text', 'Sample : Sample text', 'Sample : Sample text'],
+      content: [
+        `Description :
+
+        A Drug Similarity Search module, which, when provided with an input molecule,
+        seeks similar drugs based not only on their chemical structures but also considering their comprehensive
+        metadata within DrugBank, encompassing MOA, targets, drug-drug interactions, and more.`,
+      ],
+      width: '159px',
     },
     {
       title: 'Ligand Hunter',
-      content: ['Sample : Sample text', 'Sample : Sample text', 'Sample : Sample text'],
+      content: [
+        `Description :
+
+        Efficiently identifies ligands that exhibit binding to a specified protein.`,
+      ],
+      width: '217px',
     },
     {
       title: 'BBB Predictor',
-      content: ['Sample : Sample text', 'Sample : Sample text', 'Sample : Sample text'],
+      content: [
+        `Description :
+
+        Offers Blood Brain Barrier (BBB) permeability predictions, leveraging a plethora of metrics.`,
+      ],
+      width: '212px',
     },
     {
       title: 'Target Hunter',
-      content: ['Sample : Sample text', 'Sample : Sample text', 'Sample : Sample text'],
+      content: [
+        `Description :
+
+        Determines potential targets that exhibit binding to a particular ligand.`,
+      ],
+      width: '215px',
     },
     {
       title: 'ARI-Net',
-      content: ['Sample : Sample text', 'Sample : Sample text', 'Sample : Sample text'],
+      content: [
+        `Description :
+
+        This tool predicts disease-gene associations through random walks executed on our Knowledge Graph.
+        It is pivotal for “Pathway Prediction”, implying its ability to forecast novel associations between genes and
+        diseases within our knowledge graph. A foundational module for target identification in ARIS.`,
+      ],
+      width: '147px',
     },
     {
       title: 'ADMET Toxicity',
-      content: ['Sample : Sample text', 'Sample : Sample text', 'Sample : Sample text'],
+      content: [
+        `Description :
+
+        Proffers predictions on how a specific compound might be metabolized and processed within the human body.`,
+      ],
+      width: '235px',
     },
   ]);
 
@@ -135,9 +184,13 @@ const AiPlatform = () => {
               $color="#E5E5E5"
               style={{ margin: '2em 0' }}
             >
-              ARIDDTM is a drug development platform that augments the discovery and development of polypharmacological
-              drugs. To accelerate the development of drugs with multiple mechanisms of action, we’ve unveiled ARIS –
-              our cutting-edge AI platform designed for dependable in-silico predictions and analyses.
+              ARIDD™ is a drug development platform that augments the discovery and
+              <br />
+              development of polypharmacological drugs. To accelerate the development of drugs with
+              <br />
+              multiple mechanisms of action, we’ve unveiled ARIS, our cutting-edge
+              <br />
+              AI platform designed for dependable in-silico predictions and analyses.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -146,7 +199,7 @@ const AiPlatform = () => {
             <HR $height="2px" $color="#ffffff" />
             <Text
               $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
-              $fontWeight="400"
+              $fontWeight="500"
               $color="#ffffff"
               style={{ margin: '2em 0 0 0' }}
             >
@@ -158,12 +211,14 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ marginTop: '2em', width: '70vw' }}
             >
-              Existing AI drug discovery tools often prioritize drug synthesis, intermolecular binding prediction, and
-              ADMET processes. While crucial for single-mechanism drug exploration, polypharmacological discovery
+              Existing AI drug discovery tools often prioritize drug synthesis, intermolecular binding prediction,
+              <br />
+              and ADMET processes. While crucial for single-mechanism drug exploration, polypharmacological discovery
+              <br />
               demands a nuanced approach.
             </Text>
           </TextWrap>
-          <Image src={ourapproach_ai_middle1} alt="ai_middle1" style={{ width: '90%', marginLeft: '17.5%' }} />
+          <Image src={ourapproach_ai_middle1} alt="ai_middle1" style={{ width: '80%', marginLeft: '17.5%' }} />
           <TextWrap style={{ width: 'fit-content', marginTop: '10rem' }}>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -171,18 +226,23 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ marginTop: '2em', width: '70vw' }}
             >
-              Polypharmacology requires a deep understanding of interactions among drugs, proteins, cells, and diseases,
-              alongside the ability to predict and identify novel biological relationships.
+              {/* ? - 디자인 반영, 시트엔 없음 */}
+              Polypharmacology requires a deep understanding of interactions among drugs,
+              <br />
+              proteins, cells, and diseases, alongside the ability to predict and identify novel biological
+              relationships.
               <br /> To address this complexity, ARIBIO’s Platform Research Center has developed ARIS:
               <br /> a proprietary AI platform optimized for predicting these multifaceted biological
-              interrelationships, thus advancing our drug discovery initiatives.
+              interrelationships,
+              <br />
+              thus advancing our drug discovery initiatives.
             </Text>
           </TextWrap>
           <TextWrap style={{ width: 'fit-content', marginTop: '10em' }}>
             <HR $height="2px" $color="#ffffff" />
             <Text
               $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
-              $fontWeight="400"
+              $fontWeight="500"
               $color="#ffffff"
               style={{ margin: '2em 0 0 0' }}
             >
@@ -198,7 +258,7 @@ const AiPlatform = () => {
               <br /> “BRAIN” and its “Prediction Algorithms”.
             </Text>
           </TextWrap>
-          <Image src={ourapproach_ai_middle2} alt="ai_middle2" style={{ width: '90%' }} />
+          <Image src={ourapproach_ai_middle2} alt="ai_middle2" style={{ width: '80%' }} />
           <TextWrap style={{ width: 'fit-content', marginTop: '10em' }}>
             <HR $height="2px" $color="#ffffff" />
             <Text
@@ -224,12 +284,13 @@ const AiPlatform = () => {
               <br />
               Together, they form a cohesive <span style={{ color: '#ffffff', fontWeight: '300' }}>Bridge</span>,
               seamlessly linking the KG and ARIS{' '}
-              <span style={{ color: '#ffffff', fontWeight: '300' }}>Prediction Algorithms</span> to real-world
-              applications across{' '}
+              <span style={{ color: '#ffffff', fontWeight: '300' }}>Prediction Algorithms</span>
+              <br />
+              to real-world applications across{' '}
               <span style={{ color: '#ffffff', fontWeight: '300' }}>In Silico, In Vitro, and In Vivo</span> domains.
             </Text>
           </TextWrap>
-          <Image src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '90%' }} />
+          <Image src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '80%' }} />
         </HomeComponentWrap>
         <HomeComponentWrap>
           <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
@@ -249,9 +310,12 @@ const AiPlatform = () => {
               style={{ marginTop: '1.5em', width: '75%', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
             >
               The “Prediction Algorithms” consist of a range of advanced AI prediction models and simulation tools
+              <br />
               designed specifically for the fields of chemistry and biology. Each model and solution is carefully
-              crafted to provide researchers with practical and direct applications, both on its own and in
-              collaboration with the BRAIN platform.
+              crafted to provide
+              <br />
+              researchers with practical and direct applications, both on its own and in collaboration with the BRAIN
+              platform.
             </Text>
           </TextWrap>
           <ButtonWrap>
@@ -261,6 +325,13 @@ const AiPlatform = () => {
                 $isActive={activeButton === index}
                 onClick={() => {
                   setActiveButton(index);
+                }}
+                style={{
+                  gap: '40px',
+                  border: '1px solid rgba(255,255,255,0.6)',
+                  margin: '0px 0em',
+                  height: '62px',
+                  width: item.width,
                 }}
               >
                 {item.title}
@@ -293,14 +364,16 @@ const AiPlatform = () => {
               </TextWrap>
               <DescriptionWrap style={{ padding: '0 10vw 0 0' }}>
                 {predictions[activeButton].content.map((item, index) => (
-                  <DescriptionItem key={item + index}>{item}</DescriptionItem>
+                  <DescriptionItem key={item + index} style={{ whiteSpace: 'pre-line', width: '100%' }}>
+                    {item}
+                  </DescriptionItem>
                 ))}
               </DescriptionWrap>
             </ComponentWrap>
           </ComponentWrap>
         </HomeComponentWrap>
         <HomeComponentWrap>
-          <TextWrap style={{ marginBottom: '10em' }}>
+          <TextWrap style={{ marginBottom: '10em', width: '60vw' }}>
             <HR $height="2px" $color="#ffffff" />
             <Text
               $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
@@ -316,13 +389,21 @@ const AiPlatform = () => {
               $color="#C9C9C9"
               style={{ marginTop: '2em' }}
             >
-              Since its origin, the development and objectives of ARIS have always been closely aligned with AriBio’s
-              polypharmacological approach. Hence, we emphasize harnessing contextual information when discovering novel
-              polypharmacological drug candidates. When considering contextual information for polypharmacological drug
-              discovery, pathway data is most critical. <br /> <br />
-              We extract this pathway data from various sources, leveraging two advanced Deep Learning techniques: Named
-              Entity Recognition (NER) and Relation Extraction (RE).
-              <br /> The execution flow and interplay of these methods are illustrated below:
+              Since its origin, the development and objectives of ARIS have always been closely aligned with
+              <br />
+              AriBio’s polypharmacological approach. Hence, we emphasize harnessing contextual information
+              <br />
+              when discovering novel polypharmacological drug candidates.
+              <br />
+              When considering contextual information for polypharmacological drug discovery, pathway data is most
+              critical.
+              <br />
+              <br />
+              We extract this pathway data from various sources, leveraging two advanced Deep Learning techniques:
+              <br />
+              Named Entity Recognition (NER) and Relation Extraction (RE).
+              <br />
+              The execution flow and interplay of these methods are illustrated below:
             </Text>
           </TextWrap>
           <ComponentWrap style={{ padding: '0' }}>
@@ -632,10 +713,13 @@ const AiPlatform = () => {
               <br />
               The inherent challenge stems from the intricate interdependencies within our body; no single component
               operates in isolation.
-              <br />A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of
-              subsequent interactions that collectively contribute to disease treatment. Hence, pinpointing a viable
-              drug target necessitates a profound comprehension of these protein interplays within the body —a knowledge
-              rooted in pathway data.
+              <br />
+              A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of
+              subsequent interactions that
+              <br />
+              collectively contribute to disease treatment. Hence, pinpointing a viable drug target necessitates
+              <br />a profound comprehension of these protein interplays within the body —a knowledge rooted in pathway
+              data.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
