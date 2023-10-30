@@ -175,7 +175,7 @@ const Leadership = () => {
                       }}
                       src={plus}
                       alt="plus"
-                      style={{ height: '1.5rem' }}
+                      style={{ height: '20px' }}
                     />
                   )}
                 </ContentBoxNameWrap>
