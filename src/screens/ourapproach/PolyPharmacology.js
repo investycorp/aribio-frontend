@@ -44,7 +44,7 @@ const PolyPharmacology = () => {
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
             <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-              POLYPHARMACOLOGY
+              POLY-PHARMACOLOGY
             </Text>
             <div
               style={{
@@ -57,11 +57,11 @@ const PolyPharmacology = () => {
             ></div>
             <Text
               $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-              $fontWeight="400"
+              $fontWeight="500"
               $color="#ffffff"
               style={{ margin: '0' }}
             >
-              Merging Multi-Target and <br /> Multi-Mechanism Drug Discovery with AI
+              Merging Multi-Mechanism Drug Discovery with AI
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '16px'}
@@ -80,7 +80,7 @@ const PolyPharmacology = () => {
             </Text>
           </TextWrap>
 
-          <Image src={ourapproach_polypharm_middle} alt="polypharm_middle" style={{ margin: '15vh 0', width: '90%' }} />
+          <Image src={ourapproach_polypharm_middle} alt="polypharm_middle" style={{ margin: '15vh 0', width: '80%' }} />
           <HR $height="2px" $color="#9A9A9A" />
           <Text
             $fontSize={window.innerWidth > 1280 ? '20px' : '16px'}
@@ -88,15 +88,21 @@ const PolyPharmacology = () => {
             $color="#ffffff"
             style={{ marginTop: '2em', width: '80vw' }}
           >
-            At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies. With
-            the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span multiple
+            At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies.
+            <br />
+            With the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span
+            multiple
+            <br />
             targets and mechanisms. By leveraging AI, we aim to achieve heightened drug efficacy and expand potential
+            <br />
             therapeutic indications, positioning AriBio as a leader in innovative treatments for neurodegenerative
             diseases.
             <br />
             <br />
             Join our pursuit to advance the future of drug discovery, where AI meets the sophistication of
-            polypharmacology, to tackle the challenges posed by neurodegenerative disorders.
+            polypharmacology,
+            <br />
+            and tackle the challenges posed by neurodegenerative disorders.
           </Text>
         </HomeComponentWrap>
       </Desktop>
