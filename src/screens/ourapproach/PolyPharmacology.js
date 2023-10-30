@@ -42,7 +42,7 @@ const PolyPharmacology = () => {
 
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-          <TextWrap>
+          <TextWrap style={{ width: '60vw' }}>
             <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               POLY-PHARMACOLOGY
             </Text>
@@ -67,16 +67,21 @@ const PolyPharmacology = () => {
               $fontSize={window.innerWidth > 1280 ? '23px' : '16px'}
               $fontWeight="200"
               $color="#E5E5E5"
-              style={{ marginTop: '2em' }}
+              style={{ marginTop: '4em' }}
             >
-              Neurodegenerative diseases, such as Alzheimer’s, manifest from a confluence of genetic, environmental, and
-              physiological factors. The limitations of traditional single-target drugs become evident in their struggle
+              Neurodegenerative diseases, such as Alzheimer’s, manifest from a confluence of genetic, environmental,
+              <br />
+              and physiological factors. The limitations of traditional single-target drugs become evident in their
+              struggle
+              <br />
               to achieve clinically meaningful clinical outcomes against these multifactorial diseases.
               <br />
               <br />
-              Polypharmacology goes beyond traditional drug discovery by emphasizing drugs designed to engage multiple
-              targets and mechanisms concurrently. This nuanced approach grasps the multifaceted nature of biological
-              systems, paving the way for a more comprehensive therapeutic approach.
+              Polypharmacology goes beyond traditional drug discovery by emphasizing drugs designed to engage
+              <br />
+              multiple targets and mechanisms concurrently. This nuanced approach grasps the multifaceted nature of
+              <br />
+              biological systems, paving the way for a more comprehensive therapeutic approach.
             </Text>
           </TextWrap>
 
