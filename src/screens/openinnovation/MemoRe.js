@@ -73,11 +73,6 @@ const MemoRe = () => {
           MEMO:RE
           <br /> PROJECT
         </HeadLine>
-        <img
-          style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
-          src={vertical_arrow}
-          alt="vertical_arrow"
-        />
       </HomeComponentWrap>
 
       <Desktop>

@@ -28,11 +28,6 @@ const PolyPharmacology = () => {
           {window.innerWidth < 900 && <br />}
           COLOGY
         </HeadLine>
-        <img
-          style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
-          src={vertical_arrow}
-          alt="vertical_arrow"
-        />
       </HomeComponentWrap>
       <Path>
         {`HOME > OUR APPROACH >`}
