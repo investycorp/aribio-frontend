@@ -195,7 +195,7 @@ const DigitalHealth = () => {
               <HR $color="#F8F8F8" />
               <Text
                 style={{ fontSize: window.innerWidth > 1280 ? '34px' : '19px', margin: '0' }}
-                $fontWeight="j00"
+                $fontWeight="500"
                 $color="#F4F4F4"
               >
                 Our Approach
