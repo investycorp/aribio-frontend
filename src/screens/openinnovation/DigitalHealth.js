@@ -135,23 +135,24 @@ const DigitalHealth = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text style={{ fontSiz: window.innerWidth > 1280 ? '50px' : '34px' }} $fontWeight="600">
+            <Text style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }} $fontWeight="600">
               Leveraging Digital Health Technologies
               <br /> for Early Dementia Detection and Intervention
             </Text>
             <hr style={{ width: '60px', border: '2px solid #C9C9C9', margin: '3.5rem 0 5rem 0' }} />
             <Text style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }} $fontWeight="300" $color="#C9C9C9">
-              In today’s rapidly evolving world, where technology continues to reshape our lives, it’s only fitting that
-              we turn to innovative digital health technologies to address one of the most pressing healthcare
-              challenges of our time – dementia. Our dedicated digital health team is on a mission to leverage the power
-              of these digital tools to advance the early detection and intervention of dementia, ultimately improving
-              the lives of those affected by this devastating condition.
+              In today’s rapidly evolving world, it is necessary to turn to innovative digital health <br />
+              technologies to address the most pressing healthcare challenge of our time – dementia. <br />
+              Our team is on a mission to leverage the power of these digital tools.
+              <br />
+              We aim to advance the early detection and intervention of dementia, <br />
+              ultimately improving the lives of those affected by this devastating condition.
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '5em', gap: '2em' }}>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
-              $fontWeight="400"
+              $fontWeight="500"
               $color="#C9C9C9"
               style={{ margin: '0' }}
             >
@@ -163,16 +164,17 @@ const DigitalHealth = () => {
               $color="#C9C9C9"
               style={{ margin: '0' }}
             >
-              Dementia is a complex and progressive neurological disorder that affects millions of individuals
-              worldwide. It not only robs people of their memories and cognitive abilities but also places a significant
-              burden on their families and caregivers. Early detection and intervention are crucial to slowing down the
-              progression of the disease and enhancing the quality of life for those affected.
+              Dementia is a complex and progressive neurological disorder <br />
+              that affects millions of individuals worldwide. It not only robs people of their memories <br />
+              and cognitive abilities but also places a significant burden <br />
+              on their families and caregivers. Early detection and intervention are crucial to slowing down <br />
+              the progression of the disease and enhancing the quality of life for those affected.
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '5em', gap: '2em' }}>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
-              $fontWeight="400"
+              $fontWeight="500"
               $color="#C9C9C9"
               style={{ margin: '0' }}
             >
@@ -185,8 +187,10 @@ const DigitalHealth = () => {
               style={{ margin: '0' }}
             >
               In an age where smartphones, wearables, and smart home devices have become integral parts of our daily
-              lives, we have an incredible opportunity to harness the potential of these technologies for healthcare
-              purposes. By doing so, we can revolutionize the way we approach dementia care.
+              lives, <br />
+              we have an incredible opportunity to harness the potential of these technologies for healthcare purposes.
+              <br />
+              By doing so, we can revolutionize the way we approach dementia care.
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -328,10 +332,11 @@ const DigitalHealth = () => {
               style={{ width: '80vw' }}
             >
               In a world where technology continually evolves, our commitment remains steadfast – to leverage digital
-              health technologies
-              <br /> for the early detection and intervention of dementia. Our mission is to improve the quality of life
-              for individuals affected by dementia,
-              <br /> and we believe that by working together, we can make a significant impact.
+              health technologies <br />
+              for the early detection and intervention of dementia. We strive to Our mission is to improve the quality
+              of life for individuals affected by
+              <br />
+              dementia, and we believe that by working together, we can make a significant impact.
             </Text>
           </ContentWrap>
 

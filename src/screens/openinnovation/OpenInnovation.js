@@ -129,9 +129,13 @@ const OpenInnovation = () => {
               <br /> with a belief in multi-modal management for these conditions.
               <br />
               <br />
-              While pioneering work in this area has its challenges and risks, the urgent need for solutions in
-              neurodegenerative diseases propels us forward. Alongside our partners, we utilize AI and digital tools to
-              support patients and deepen our understanding of these disorders.
+              While pioneering work in this area has its challenges and risks,
+              <br />
+              the urgent need for solutions in neurodegenerative diseases propels us forward.
+              <br />
+              Alongside our partners, we utilize AI and digital tools to support patients
+              <br />
+              and deepen our understanding of these disorders.
             </Text>
             <ContentWrap style={{ justifySelf: 'end', flexDirection: 'row', padding: '0' }}>
               <Text

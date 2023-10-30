@@ -176,6 +176,7 @@ const Publications = () => {
                   handleChange(e);
                 }}
                 autoFocus={true}
+                style={{ opacity: searchValue ? '100%' : '50%' }}
               />
               <Image src={search} alt="search" />
             </ComponentWrap>
@@ -189,9 +190,10 @@ const Publications = () => {
                 margin: '1rem',
               }}
             >
-              <Dot $color="#004D76" />
-              <span style={{ marginRight: '1rem' }}>Publication</span>
-              <Dot $color="#760027" /> <span>Conference</span>
+              <Dot $color="#004D76" style={{ width: '14px', height: '14px' }} />
+              <span style={{ marginRight: '1rem', fontSize: '20px', color: '#E6E6E6' }}>Publication</span>
+              <Dot $color="#760027" style={{ width: '14px', height: '14px' }} />{' '}
+              <span style={{ fontSize: '20px', color: '#E6E6E6' }}>Conference</span>
             </ComponentWrap>
             <ComponentWrap></ComponentWrap>
             {filteredList.length > 0 ? (
@@ -228,6 +230,7 @@ const Publications = () => {
                           margin: '0.5rem 0',
                           fontSize: window.innerWidth > 1280 ? '18px' : '12px',
                           alignItems: 'start',
+                          color: '#CECECE',
                         }}
                       >
                         {doc.journal}
