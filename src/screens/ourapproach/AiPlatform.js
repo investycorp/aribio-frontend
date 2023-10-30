@@ -62,10 +62,10 @@ const AiPlatform = () => {
     {
       title: 'Blinding Affinity Prediction',
       content: [
-        'Type: Low Throughput, Structure-based (Ligand-Protein).',
-        'Technology: Deep Learning (3D Convolutional Neural Networks).',
-        'Accuracy: Correlation coefficient of 0.827.',
-        'Completion Time: Approximately 10 minutes per Ligand-Protein complex.',
+        'Type : Low Throughput, Structure-based (Ligand-Protein).',
+        'Technology : Deep Learning (3D Convolutional Neural Networks).',
+        'Accuracy : Correlation coefficient of 0.827.',
+        'Completion Time : Approximately 10 minutes per Ligand-Protein complex.',
       ],
       width: '352px',
     },
