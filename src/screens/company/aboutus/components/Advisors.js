@@ -105,7 +105,7 @@ const Advisors = () => {
               >
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
-                  $fontWeight="700"
+                  $fontWeight="600"
                   $align="start"
                   style={{ margin: '0' }}
                 >
@@ -114,6 +114,7 @@ const Advisors = () => {
                     style={{
                       fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                       marginLeft: window.innerWidth > 1280 ? '2rem' : '1rem',
+                      fontWeight: '400',
                     }}
                   >
                     {item.position}

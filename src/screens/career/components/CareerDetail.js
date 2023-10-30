@@ -19,17 +19,9 @@ const CareerDetail = () => {
 
   const { data, isLoading, refetch } = useCareerDetail(language, id);
 
-  //     date: '26 JUL 2023',
-  //     title:
-  //       '[AP News]AriBio Co., Ltd. Announces the Successful Completion of Their End of Phase 2 Meeting With the USFDA',
-  //     content: (
-  //       <div>
-  //       </div>
-  //     ),
-  //   },
-
   useEffect(() => {
-    document.querySelector('.irpr_detailpage')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.scrollTo(0, window.innerHeight);
+    document.querySelector('.irpr_detailpage')?.scrollIntoView({ block: 'start' });
   }, []);
 
   useEffect(() => {
@@ -56,7 +48,6 @@ const CareerDetail = () => {
         url: item.url,
       });
     }
-    console.log(data?.data);
   }, [data]);
 
   useEffect(() => {
@@ -65,7 +56,10 @@ const CareerDetail = () => {
 
   return (
     <HomeComponentWrap id="irpr_detailpage" style={{ backgroundColor: '#fff' }}>
-      <ContainerGridLineWrap className="grid_bg" style={{ visibility: 'visible', opacity: '0.6', zIndex: '0' }}>
+      <ContainerGridLineWrap
+        className="grid_bg"
+        style={{ position: 'absolute', height: '100%', visibility: 'visible', opacity: '1', zIndex: '0' }}
+      >
         <GridLineBox />
         <GridLineBox />
         <GridLineBox />
@@ -159,11 +153,13 @@ const CareerDetail = () => {
         >
           <Button
             onClick={() => currentItem?.url && (window.location.href = `//${currentItem.url}`)}
-            style={{ width: 'fit-content', borderBottom: '1px solid #707070' }}
+            style={{ width: '260px', justifyContent: 'space-between', borderBottom: '1px solid #212121' }}
           >
-            <span style={{ padding: '0.5rem', zIndex: '-1' }}>Apply for this job</span>{' '}
+            <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '12px', padding: '0.5rem', zIndex: '-1' }}>
+              Apply for this job
+            </span>{' '}
             <Image
-              style={{ zIndex: '-1', width: '1rem' }}
+              style={{ zIndex: '-1', width: window.innerWidth > 1280 ? '14px' : '9px' }}
               src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'}
               alt="print"
             />

@@ -350,25 +350,9 @@ const Button = styled.button.attrs((props) => ({
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    img {
-      transform: translateX(8px);
-      transition: all 0.2s ease-in-out;
-    }
-    &:focus {
-      &:active {
-        background-color: #f1f1f1;
-        color: #121212;
-        font-weight: 500;
-      }
-      img {
-        background-color: rgba(15, 22, 31, 0.8);
-        z-index: 10;
-      }
-    }
-  }
-  &.submit {
-    background-color: #ffffff;
+    background-color: #f1f1f1;
     color: #121212;
+    font-weight: 300;
   }
 `;
 
@@ -418,7 +402,7 @@ const SuccessBox = styled.div`
   position: absolute;
   top: -8em;
   left: 33.3%;
-  width: 627px;
+  width: 405px;
   height: fit-content;
   padding: 1em 1em;
   background-color: rgba(0, 166, 255, 0.6);
@@ -432,7 +416,7 @@ const SuccessBox = styled.div`
   opacity: ${(props) => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
   @media screen and (max-width: 1280px) {
-    width: 395px;
+    width: 266px;
     font-size: 13px;
   }
   @media screen and (max-width: 900px) {

@@ -199,16 +199,16 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
     background-position: center;
     background-repeat: no-repeat;
     justify-content: space-between;
-    &:active {
-      ${FilterShadow} {
-        background-color: #fff;
-        opacity: 0.3;
-      }
-      ${Text} {
-        color: #1f1f1f;
-        font-weight: 500;
-      }
-    }
+    // &:active {
+    //   ${FilterShadow} {
+    //     background-color: #fff;
+    //     opacity: 0.3;
+    //   }
+    //   ${Text} {
+    //     color: #1f1f1f;
+    //     font-weight: 500;
+    //   }
+    // }
     @media screen and (min-width: 901px) {
       &:nth-child(odd) {
         margin-bottom: 2em;
@@ -270,7 +270,7 @@ const DescriptionItem = styled.li`
   line-height: 1.5em;
   list-style: none outside;
   &::marker {
-    content: '•  ';
+    content: '•    ';
     font-weight: 200;
     font-size: 10px;
   }

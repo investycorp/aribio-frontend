@@ -53,13 +53,13 @@ const Leadership = () => {
               >
                 {item.position}
               </Text>
-              <Image src={item.photo} alt="leadershipphoto1" />
+              <Image src={item.photo} alt="leadershipphoto1" style={{ width: '100%' }} />
               <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '34px' : '20'}
-                  $fontWeight="400"
+                  $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
+                  $fontWeight="600"
                   $align="start"
-                  style={{ margin: '0' }}
+                  style={{ margin: '0.5rem 0 0 0' }}
                 >
                   {item.name}
                 </Text>
@@ -80,7 +80,7 @@ const Leadership = () => {
                     style={{
                       paddingRight: index % 3 === 2 && '7vw',
                       cursor: 'pointer',
-                      height: window.innerWidth > 1280 ? '34px' : '28px',
+                      height: window.innerWidth > 1280 ? '40px' : '28px',
                     }}
                   />
                 ) : (
@@ -100,13 +100,13 @@ const Leadership = () => {
                     style={{
                       paddingRight: index % 3 === 2 && '7vw',
                       cursor: 'pointer',
-                      height: window.innerWidth > 1280 ? '34px' : '28px',
+                      height: window.innerWidth > 1280 ? '40px' : '28px',
                     }}
                   />
                 )}
                 <DescriptionWrap
                   style={{
-                    padding: index % 3 === 0 ? ' 0 40px 0 10vw' : index % 3 === 1 ? '0 40px 0 3vw' : '0 10vw 0 3vw',
+                    padding: index % 3 === 0 ? ' 0 0 0 10vw' : index % 3 === 1 ? '0 40px 0 3vw' : '0 7vw 0 3vw',
                   }}
                   $isActive={item.isOpen}
                 >

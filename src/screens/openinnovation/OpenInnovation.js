@@ -81,7 +81,7 @@ const OpenInnovation = () => {
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="300"
               $color="#D3D3D3"
-              style={{ width: '50vw' }}
+              style={{ width: '50vw', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
             >
               Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and
               <br />

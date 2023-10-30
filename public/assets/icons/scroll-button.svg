@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="60" viewBox="0 0 48 60">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_31630" data-name="Rectangle 31630" width="48" height="60" transform="translate(-21809 -20868)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_639" data-name="Mask Group 639" transform="translate(21809 20868)" clip-path="url(#clip-path)">
+    <path id="Union_28" data-name="Union 28" d="M21.514,59.043V10.417c-.285.719-.605,1.45-.963,2.183a23.84,23.84,0,0,1-7.132,8.837A23.061,23.061,0,0,1,.07,25.775L0,23.416a20.739,20.739,0,0,0,12.007-3.873,21.489,21.489,0,0,0,6.418-7.978A32.839,32.839,0,0,0,21.515,0L22.683.05H22.7L23.877,0h0A32.985,32.985,0,0,0,27,11.632a21.467,21.467,0,0,0,6.419,7.936,20.756,20.756,0,0,0,11.974,3.848l-.07,2.358a23.055,23.055,0,0,1-13.348-4.338A23.82,23.82,0,0,1,24.841,12.6c-.358-.733-.678-1.463-.963-2.182V59.043Z" transform="translate(-21762.305 -20808.957) rotate(180)" fill="#fff"/>
+  </g>
+</svg>

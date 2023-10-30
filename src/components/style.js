@@ -18,24 +18,21 @@ const Container = styled.div`
 const ContainerGridLineWrap = styled.div.attrs((props) => ({
   className: props.$className,
 }))`
+  position: absolute;
   width: 100vw;
-  height: 100vh;
-  visibility: hidden;
-  opacity: 0;
+  height: 100%;
+  visibility: visible;
+  opacity: 0.7;
   display: grid;
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 7vw;
-  position: fixed;
+
   top: 0;
   left: 0;
-  z-index: 30;
+  z-index: 0;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
-  &.visible {
-    visibility: visible;
-    opacity: 0.7;
-  }
   @media screen and (max-width: 900px) {
     padding: 0 5vw;
   }

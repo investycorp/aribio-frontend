@@ -19,7 +19,7 @@ const ContainerGridLineWrap = styled.div.attrs((props) => ({
 }))`
   width: 100vw;
   height: 100vh;
-  visibility: hidden;
+  visibility: visible;
   display: grid;
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;

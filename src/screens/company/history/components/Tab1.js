@@ -112,37 +112,11 @@ const Image = styled.img`
   transition: border 0.3s ease-in-out;
 `;
 
-const DescriptionWrap = styled.ul`
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: left;
-  gap: 2em;
-  background-color: transparent;
-  padding: 1.5em;
-  transition: all 0.2s ease-in-out;
-  margin-bottom: 1em;
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#707070')};
-  &:nth-child(1) {
-    margin-top: 3em;
-  }
-  @media screen and (min-width: 901px) {
-    &:last-child {
-      margin-bottom: 55vh;
-    }
-  }
-  @media screen and (max-width: 900px) {
-    padding: 1.5em 0;
-    gap: 1rem;
-  }
-`;
 const DescriptionItem = styled.li`
   width: 100%;
   height: fit-content;
   text-align: left;
   font-size: 20px;
-  font-weight: 200;
   line-height: 1.5em;
   list-style: none;
   list-style-position: outside;
@@ -156,6 +130,36 @@ const DescriptionItem = styled.li`
   }
   @media screen and (max-width: 900px) {
     font-size: 16px;
+  }
+`;
+
+const DescriptionWrap = styled.ul`
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: left;
+  gap: 2em;
+  background-color: transparent;
+  padding: 1.5em;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 1em;
+  color: ${(props) => (props.$isActive ? '#ffffff' : '#707070')};
+
+  ${DescriptionItem} {
+    font-weight: ${(props) => (props.$isActive ? '600' : '100')};
+  }
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+  @media screen and (min-width: 901px) {
+    &:last-child {
+      margin-bottom: 55vh;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    padding: 1.5em 0;
+    gap: 1rem;
   }
 `;
 
@@ -259,7 +263,7 @@ const Tab1 = ({ listItems, index }) => {
                 style={{
                   position: 'absolute',
                   top: index === 0 ? '0' : '-6rem',
-                  left: window.innerWidth > 1280 ? '-1px' : '0',
+                  left: window.innerWidth > 1280 ? '-3px' : '0',
                   zIndex: '10',
                   margin: index === 0 ? '0.18em 0.15em' : '0.10em',
                   padding: '2rem',
@@ -273,7 +277,7 @@ const Tab1 = ({ listItems, index }) => {
                 style={{
                   position: 'absolute',
                   top: index === 0 ? '0' : '-3.9rem',
-                  left: '2.06em',
+                  left: '31px',
                   zIndex: '10',
                   margin: '0',
                   padding: '0 0 2em 0',
@@ -288,7 +292,7 @@ const Tab1 = ({ listItems, index }) => {
                   <Image
                     src={tabName === scrollTab ? whitedot : graydot}
                     $isActive={tabName === scrollTab ? true : false}
-                    style={{ padding: '1em', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                    style={{ padding: '14px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                   />
                 }
                 <Text

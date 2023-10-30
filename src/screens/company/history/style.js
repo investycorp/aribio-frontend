@@ -135,14 +135,14 @@ const TabItem = styled.div`
   font-size: 36px;
   font-weight: 400;
   color: ${(props) => (props.$isActive ? '#ffffff' : '#464646')};
-  border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
-  line-height: 1.8em;
+  border-bottom: ${(props) => (props.$isActive ? '4px solid #ffffff' : '4px solid transparent')};
+  line-height: 1.5em;
   transition: all 0.2s ease-in-out;
   &:hover,
   &:active,
   &:focus {
     color: #ffffff;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     @media screen and (max-width: 900px) {
       border-bottom: 1px solid #ffffff;

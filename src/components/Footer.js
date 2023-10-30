@@ -175,7 +175,14 @@ const Footer = () => {
                 </ContactUsBox>
               </Link>
               <ContactUsBox
-                style={{ border: 'none', width: '100%', padding: '0 1rem 0 0', margin: '0 0 20px 0', color: '#B1B1B1' }}
+                style={{
+                  gap: '20px',
+                  border: 'none',
+                  width: '100%',
+                  padding: '0 1rem 0 0',
+                  margin: '0 0 20px 0',
+                  color: '#B1B1B1',
+                }}
               >
                 <Link
                   to="/"

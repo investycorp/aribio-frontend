@@ -368,7 +368,7 @@ const Publications = () => {
                         style={{
                           margin: '0.5rem 0',
                           fontSize: '14px',
-                          fontWeight: '300',
+                          fontWeight: '400',
                           alignItems: 'start',
                           textAlign: 'start',
                           whiteSpace: 'nowrap',

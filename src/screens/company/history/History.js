@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
-import history_cover from './assets/history_cover.png';
+
 import Tab1 from './components/Tab1.js';
-import Tab2 from './components/Tab2.js';
-import Tab3 from './components/Tab3.js';
+
 import { Container, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './style';
 
 import { HeadLine, Path, MainImgWrap } from '../../../components/style';
@@ -61,11 +60,6 @@ const History = () => {
       <Video page="history" />
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>HISTORY</HeadLine>
-        <img
-          style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
-          src={vertical_arrow}
-          alt="vertical_arrow"
-        />
       </HomeComponentWrap>
 
       <Desktop>
@@ -85,9 +79,9 @@ const History = () => {
             ></div>
             <Text
               $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-              $fontWeight="400"
+              $fontWeight="500"
               $color="#ffffff"
-              style={{ margin: '2rem 0 0 0' }}
+              style={{ margin: '2rem 0 0 0', lineHeight: '1em' }}
             >
               {textItems[currentTab]?.title}
             </Text>
@@ -95,7 +89,7 @@ const History = () => {
               $fontSize={window.innerWidth > 1280 ? '30px' : '14px'}
               $fontWeight="200"
               $color="#E5E5E5"
-              style={{ margin: '2em 0 0 0' }}
+              style={{ margin: '24px 0 0 0' }}
             >
               {textItems[currentTab]?.subtitle}
             </Text>
@@ -132,7 +126,7 @@ const History = () => {
                 margin: '2rem 0',
               }}
             ></div>
-            <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+            <Text $fontSize="23px" $color="#ffffff" style={{ margin: '2rem 0 0 0', fontWeight: '500' }}>
               {textItems[currentTab]?.title}
             </Text>
             <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>

@@ -72,7 +72,6 @@ const HeadLine = styled.div`
 const HomeComponentWrap = styled.div`
   position: relative;
   width: 100%;
-  max-width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -239,7 +238,6 @@ const SearchInput = styled.input`
   font-weight: 300;
   margin: 0.3em 0;
   opacity: 0.5;
-  &:focus,
   &:active,
   &:hover {
     opacity: 1;

@@ -12,7 +12,6 @@ import { ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 const DetailPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const parser = new DOMParser();
   const [language] = useRecoilValue(Language);
   const outletContext = useOutletContext();
   const [page, setPage] = useState('');
@@ -32,14 +31,22 @@ const DetailPage = () => {
     setPrevItem({});
     if (data?.data?.success) {
       const item = data?.data.data;
-      console.log('item', item);
-      console.log(outletContext[0]);
       setCurrentItem({
         id: item.id,
         date: `${item.month} ${item.day}, ${item.year}`,
-        title: item.title,
+        title: item?.title?.split('\\n')?.map((line, index) => (
+          <span key={'title line' + index}>
+            {line}
+            <br />
+          </span>
+        )),
         image: item.image,
-        content: item.contents,
+        content: item?.contents?.split('\\n')?.map((line, index) => (
+          <span key={'content line' + index}>
+            {line}
+            <br />
+          </span>
+        )),
       });
       // outletContext[0].toLowerCase() === 'notice'
       //       ? item.beforeAndAfterNoticeDto.afterNoticeId
@@ -73,8 +80,11 @@ const DetailPage = () => {
 
   return (
     <HomeComponentWrap id="irpr_detailpage" style={{ backgroundColor: '#fff' }}>
-      <ContainerGridLineWrap className="grid_bg" style={{ visibility: 'visible', opacity: '0.6', zIndex: '0' }}>
-        <GridLineBox />
+      <ContainerGridLineWrap
+        className="grid_bg"
+        style={{ position: 'absolute', height: '100%', visibility: 'visible', opacity: '1', zIndex: '0' }}
+      >
+        <GridLineBox style={{}} />
         <GridLineBox />
         <GridLineBox />
       </ContainerGridLineWrap>
@@ -170,14 +180,15 @@ const DetailPage = () => {
             <Image style={{ zIndex: '-1' }} src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'} alt="print" />
           </Button>
         </div>
-        <HomeComponentWrap style={{ paddingTop: '3rem', borderTop: '2px solid #B5B5B5', marginTop: '3rem' }}>
+        <HomeComponentWrap style={{ padding: '3rem 0 0 0', borderTop: '2px solid #B5B5B5', marginTop: '3rem' }}>
           <ComponentWrap
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr 1fr',
-              columnGap: '2rem',
+              columnGap: '0',
               justifyContent: 'center',
               alignItems: 'center',
+              width: '100%',
             }}
           >
             {prevItem.id ? (
@@ -205,7 +216,7 @@ const DetailPage = () => {
                   <Text
                     className="prev"
                     style={{
-                      width: '80%',
+                      width: '90%',
                       margin: '1em 0',
                       padding: '0',
                       textAlign: 'start',
@@ -215,7 +226,7 @@ const DetailPage = () => {
                       cursor: 'pointer',
                     }}
                   >
-                    {prevItem?.title?.slice(0, 40)}...
+                    {prevItem?.title?.slice(0, 60)}...
                   </Text>
                 </Link>
               </div>
@@ -247,7 +258,7 @@ const DetailPage = () => {
                   <Text
                     className="next"
                     style={{
-                      width: '80%',
+                      width: '90%',
                       margin: '1em 0',
                       padding: '0',
                       textAlign: 'start',
@@ -256,7 +267,7 @@ const DetailPage = () => {
                       color: '#141414',
                     }}
                   >
-                    {nextItem?.title?.slice(0, 40)}...
+                    {nextItem?.title?.slice(0, 60)}...
                   </Text>
                 </Link>
               </div>
@@ -292,7 +303,7 @@ const DetailPage = () => {
                     zIndex: '-1',
                     color: '#212121',
                     cursor: 'pointer',
-                    fontSize: window.innerWidth > 1280 ? '18px' : '13px',
+                    fontSize: window.innerWidth > 1280 ? '20px' : '13px',
                   }}
                 >
                   <span style={{ color: '#212121', zIndex: '-1' }}>View List</span>
@@ -375,12 +386,7 @@ const DetailPage = () => {
               color: '#141414',
             }}
           >
-            {currentItem?.title?.split('\\n')?.map((line, index) => (
-              <span key={'title line' + index}>
-                {line}
-                <br />
-              </span>
-            ))}
+            {currentItem?.title}
           </Text>
           <HR style={{ margin: '1rem 0', width: '40px', height: '1px' }} $color="#B5B5B5" />
           {currentItem.image && (
@@ -399,12 +405,7 @@ const DetailPage = () => {
             }}
             id="printableid"
           >
-            {currentItem?.content?.split('\\n')?.map((line, index) => (
-              <span key={'contentline' + index}>
-                {line}
-                <br />
-              </span>
-            ))}
+            {currentItem?.content}
           </Text>
         </ComponentWrap>
         <div

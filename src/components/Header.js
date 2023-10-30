@@ -499,6 +499,7 @@ const Header = () => {
                     onClick={() => {
                       //menu.linkTo === 'career' || menu.linkTo === 'openinnovation'
                       if (menu.linkTo === 'pipeline' || menu.linkTo === 'career') {
+                        if (menu.linkTo === 'career') navigate(`/${menu.linkTo}`);
                         if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
                         else window.location.reload();
                       } else {
@@ -548,7 +549,7 @@ const Header = () => {
                   >
                     {subMenu[currentMenu]?.map((menu) => (
                       <Link
-                        to={currentMenu === 'career' ? `/${currentMenu}` : `/${currentMenu}/${menu.linkTo}`}
+                        to={`/${currentMenu}/${menu.linkTo}`}
                         style={{ textDecoration: 'none' }}
                         key={menu.linkTo}
                         onClick={() => {

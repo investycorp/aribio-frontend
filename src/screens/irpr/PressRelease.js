@@ -145,330 +145,331 @@ const PressRelease = () => {
     <Container className="container">
       <MainImgWrap>
         <Video page="pressrelease" />
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.3)' }} />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
       </MainImgWrap>
       <Header />
       <Path>{`HOME > IR & PR > PRESS RELEASE`}</Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>PRESS{window.innerWidth <= 900 && <br />} RELEASE</HeadLine>
-        <img
-          style={{ position: 'absolute', top: '90vh', right: '10vw', rotate: '180deg', height: '3.3vh' }}
-          src={vertical_arrow}
-          alt="vertical_arrow"
-        />
       </HomeComponentWrap>
+      <div style={{ margin: '0', padding: '0', position: 'relative' }}>
+        <ContainerGridLineWrap className="grid_bg">
+          <GridLineBox />
+          <GridLineBox />
+          <GridLineBox />
+        </ContainerGridLineWrap>
 
-      {detailPage ? (
-        <>
-          <Outlet context={['Press Release', currentItem]} />
-        </>
-      ) : (
-        <>
-          <Desktop>
-            <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-              <TextWrap style={{ width: '70vw' }}>
-                <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-                  PRESS RELEASE
-                </Text>
-                <div
-                  style={{
-                    width: '50%',
-                    alignSelf: 'flex-start',
-                    height: '8em',
-                    borderRight: '2px solid #ffffff',
-                    margin: '2rem 0',
-                  }}
-                ></div>
-                <Text
-                  $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-                  $fontWeight="400"
-                  $color="#ffffff"
-                  style={{ margin: '2rem 0 0 0' }}
-                >
-                  We Deliver the Latest AriBio News.
-                </Text>
-              </TextWrap>
-            </HomeComponentWrap>
-            <HomeComponentWrap>
-              <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
-                <ComponentWrap
-                  style={{
-                    width: '33.3%',
-                    flexDirection: 'row',
-                    color: '#ffffff',
-                    borderBottom: '2px solid #ffffff',
-                    padding: '0',
-                  }}
-                >
-                  <SearchInput
-                    placeholder="Please enter a search term."
-                    type="text"
-                    value={searchValue}
-                    onChange={(e) => {
-                      setSearchValue(e.target.value);
-                    }}
-                    autoFocus={true}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') {
-                        handleSearchClick(e.target.value);
-                      }
-                    }}
-                  />
-
-                  <Image src={search} alt="search" onClick={(e) => handleSearchClick(e.target.previousSibling.value)} />
-                </ComponentWrap>
-              </ComponentWrap>
-              <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '5em 0' }}>
-                {filteredList.length > 0 ? (
-                  filteredList.map((item, index) => {
-                    if (index < pageNumber * itemPerPage) {
-                      return (
-                        <Link
-                          style={{ textDecoration: 'none', width: '100%' }}
-                          key={'noticeItem' + item.id}
-                          to={`/irpr/pressrelease/${item.id}`}
-                        >
-                          <RowWrap
-                            onMouseOver={() => {
-                              setHoverItem(item.id);
-                            }}
-                            onMouseLeave={() => {
-                              setHoverItem();
-                            }}
-                            onFocus={() => {
-                              setHoverItem(item.id);
-                            }}
-                            onClick={() => {
-                              setDetailPage(true);
-                              setCurrentItem(item);
-                            }}
-                          >
-                            <DateWrap>
-                              <Text className="date">{item.date}</Text>
-                              <Text className="month year">
-                                {item.month}
-                                {`\t`}
-                                {item.year}
-                              </Text>
-                            </DateWrap>
-                            <TitleWrap style={{ overflow: 'hidden' }}>
-                              <div
-                                className="ticker_item"
-                                style={{
-                                  display: 'inline-block',
-                                  width: '100%',
-                                  height: '100%',
-                                  overflow: 'hidden',
-                                  whiteSpace: 'nowrap',
-                                }}
-                              >
-                                {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 30)}...
-                              </div>
-                            </TitleWrap>
-                            <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
-                              <Image
-                                style={{ padding: '1em', cursor: 'pointer', zIndex: '20' }}
-                                src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
-                                alt="icon_circlearrow_dark"
-                              />
-                            </div>
-                          </RowWrap>
-                        </Link>
-                      );
-                    }
-                  })
-                ) : (
-                  <ComponentWrap style={{ gap: '2em', height: '50vh', justifyContent: 'center' }}>
-                    <HR />
-                    <Text>There are no published posts registered.</Text>
-                  </ComponentWrap>
-                )}
-              </ComponentWrap>
-              {(viewMoreOn || pageNumber * itemPerPage <= filteredList.length) && (
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => {
-                    if (pageNumber * itemPerPage <= filteredList.length) {
-                      setPageNumber(pageNumber + 1);
-                    }
-                  }}
-                >
-                  <Image
-                    style={{ zIndex: '-1', height: window.innerWidth > 1280 ? '40px' : '24px' }}
-                    src={icon_more}
-                    alt="more"
-                  />
-                  <Text
+        {detailPage ? (
+          <>
+            <Outlet context={['Press Release', currentItem]} />
+          </>
+        ) : (
+          <>
+            <Desktop>
+              <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+                <TextWrap style={{ width: '70vw' }}>
+                  <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
+                    PRESS RELEASE
+                  </Text>
+                  <div
                     style={{
-                      zIndex: '-1',
-                      width: 'fit-content',
-                      margin: '0.5em',
-                      fontSize: window.innerWidth > 1280 ? '26px' : '15px',
+                      width: '50%',
+                      alignSelf: 'flex-start',
+                      height: '8em',
+                      borderRight: '2px solid #ffffff',
+                      margin: '2rem 0',
+                    }}
+                  ></div>
+                  <Text
+                    $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+                    $fontWeight="400"
+                    $color="#ffffff"
+                    style={{ margin: '2rem 0 0 0' }}
+                  >
+                    Latest AriBio News
+                  </Text>
+                </TextWrap>
+              </HomeComponentWrap>
+              <HomeComponentWrap>
+                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
+                  <ComponentWrap
+                    style={{
+                      width: '33.3%',
+                      flexDirection: 'row',
+                      color: '#ffffff',
+                      borderBottom: '2px solid #ffffff',
+                      padding: '0',
                     }}
                   >
-                    View more
-                  </Text>
-                </div>
-              )}
-            </HomeComponentWrap>
-          </Desktop>
-          <Mobile>
-            <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-              <TextWrap style={{ width: '70vw' }}>
-                <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
-                  PRESS RELEASE
-                </Text>
-                <div
-                  style={{
-                    width: '50%',
-                    alignSelf: 'flex-start',
-                    height: '60px',
-                    borderRight: '1px solid #ffffff',
-                    margin: '0',
-                  }}
-                ></div>
-                <Text
-                  $fontSize="23px"
-                  $fontWeight="400"
-                  $color="#ffffff"
-                  style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
-                >
-                  Latest AriBio News
-                </Text>
-              </TextWrap>
-            </HomeComponentWrap>
-            <HomeComponentWrap>
-              <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
-                <ComponentWrap
-                  style={{
-                    width: '100%',
-                    flexDirection: 'row',
-                    color: '#ffffff',
-                    borderBottom: '1px solid #ffffff',
-                    padding: '0',
-                  }}
-                >
-                  <SearchInput
-                    placeholder="Please enter a search term."
-                    type="text"
-                    value={searchValue}
-                    onChange={(e) => {
-                      setSearchValue(e.target.value);
+                    <SearchInput
+                      placeholder="Please enter a search term."
+                      type="text"
+                      value={searchValue}
+                      onChange={(e) => {
+                        setSearchValue(e.target.value);
+                      }}
+                      autoFocus={true}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          handleSearchClick(e.target.value);
+                        }
+                      }}
+                    />
+
+                    <Image
+                      src={search}
+                      alt="search"
+                      onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
+                    />
+                  </ComponentWrap>
+                </ComponentWrap>
+                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '5em 0' }}>
+                  {filteredList.length > 0 ? (
+                    filteredList.map((item, index) => {
+                      if (index < pageNumber * itemPerPage) {
+                        return (
+                          <Link
+                            style={{ textDecoration: 'none', width: '100%' }}
+                            key={'noticeItem' + item.id}
+                            to={`/irpr/pressrelease/${item.id}`}
+                          >
+                            <RowWrap
+                              onMouseOver={() => {
+                                setHoverItem(item.id);
+                              }}
+                              onMouseLeave={() => {
+                                setHoverItem();
+                              }}
+                              onFocus={() => {
+                                setHoverItem(item.id);
+                              }}
+                              onClick={() => {
+                                setDetailPage(true);
+                                setCurrentItem(item);
+                              }}
+                            >
+                              <DateWrap>
+                                <Text className="date">{item.date}</Text>
+                                <Text className="month year">
+                                  {item.month}
+                                  {`\t`}
+                                  {item.year}
+                                </Text>
+                              </DateWrap>
+                              <TitleWrap style={{ overflow: 'hidden' }}>
+                                <div
+                                  className="ticker_item"
+                                  style={{
+                                    display: 'inline-block',
+                                    width: '100%',
+                                    height: '100%',
+                                    overflow: 'hidden',
+                                    whiteSpace: 'nowrap',
+                                  }}
+                                >
+                                  {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 30)}...
+                                </div>
+                              </TitleWrap>
+                              <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
+                                <Image
+                                  style={{ padding: '1em', cursor: 'pointer', zIndex: '20' }}
+                                  src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
+                                  alt="icon_circlearrow_dark"
+                                />
+                              </div>
+                            </RowWrap>
+                          </Link>
+                        );
+                      }
+                    })
+                  ) : (
+                    <ComponentWrap style={{ gap: '2em', height: '50vh', justifyContent: 'center' }}>
+                      <HR />
+                      <Text>There are no published posts registered.</Text>
+                    </ComponentWrap>
+                  )}
+                </ComponentWrap>
+                {(viewMoreOn || pageNumber * itemPerPage <= filteredList.length) && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      cursor: 'pointer',
                     }}
-                    autoFocus={true}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') {
-                        handleSearchClick(e.target.value);
+                    onClick={() => {
+                      if (pageNumber * itemPerPage <= filteredList.length) {
+                        setPageNumber(pageNumber + 1);
                       }
                     }}
-                  />
-
-                  <Image
-                    src={search}
-                    alt="search"
-                    onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
-                    style={{ height: '20px' }}
-                  />
-                </ComponentWrap>
-              </ComponentWrap>
-              <ComponentWrap
-                style={{ justifyContent: 'center', alignItems: 'center', padding: '8rem 0 4rem 0', gap: '0.5rem' }}
-              >
-                {filteredList.length > 0 ? (
-                  filteredList.map((item, index) => {
-                    if (index < pageNumber * itemPerPage) {
-                      return (
-                        <Link
-                          style={{ textDecoration: 'none', width: '100%' }}
-                          key={'noticeItem' + item.id}
-                          to={`/irpr/pressrelease/${item.id}`}
-                        >
-                          <RowWrap
-                            onMouseOver={() => {
-                              setHoverItem(item.id);
-                            }}
-                            onMouseLeave={() => {
-                              setHoverItem();
-                            }}
-                            onFocus={() => {
-                              setHoverItem(item.id);
-                            }}
-                            onClick={() => {
-                              setDetailPage(true);
-                              setCurrentItem(item);
-                            }}
-                          >
-                            <DateWrap>
-                              <Text className="date">{`${item.month} ${item.date}, ${item.year}`}</Text>
-                            </DateWrap>
-                            <TitleWrap style={{ overflow: 'hidden' }}>
-                              <div
-                                className="ticker_item"
-                                style={{
-                                  display: 'inline-block',
-                                  width: '100%',
-                                  height: '100%',
-                                  overflow: 'hidden',
-                                  whiteSpace: 'nowrap',
-                                  marginRight: '1rem',
-                                }}
-                              >
-                                {item.title.slice(0, 25)}...
-                              </div>
-
-                              <Image
-                                style={{ padding: '0', cursor: 'pointer', height: '20px' }}
-                                src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
-                                alt="icon_circlearrow_dark"
-                              />
-                            </TitleWrap>
-                          </RowWrap>
-                        </Link>
-                      );
-                    }
-                  })
-                ) : (
-                  <ComponentWrap style={{ gap: '2em', height: '30vh', justifyContent: 'center' }}>
-                    <HR style={{ width: '24px', height: '1px' }} />
-                    <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
-                  </ComponentWrap>
+                  >
+                    <Image
+                      style={{ zIndex: '-1', height: window.innerWidth > 1280 ? '40px' : '24px' }}
+                      src={icon_more}
+                      alt="more"
+                    />
+                    <Text
+                      style={{
+                        zIndex: '-1',
+                        width: 'fit-content',
+                        margin: '0.5em',
+                        fontSize: window.innerWidth > 1280 ? '26px' : '15px',
+                      }}
+                    >
+                      View more
+                    </Text>
+                  </div>
                 )}
-              </ComponentWrap>
-              {pageNumber * itemPerPage <= filteredList.length && (
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    cursor: 'pointer',
-                  }}
-                  onClick={async () => {
-                    if (pageNumber * itemPerPage <= filteredList.length) {
-                      setPageNumber(pageNumber + 1);
-                    }
-                  }}
-                >
-                  <Image style={{ zIndex: '-1', height: '24px' }} src={icon_more} alt="more" />
-                  <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
-                    View more
+              </HomeComponentWrap>
+            </Desktop>
+            <Mobile>
+              <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+                <TextWrap style={{ width: '70vw' }}>
+                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
+                    PRESS RELEASE
                   </Text>
-                </div>
-              )}
-            </HomeComponentWrap>
-          </Mobile>
-        </>
-      )}
+                  <div
+                    style={{
+                      width: '50%',
+                      alignSelf: 'flex-start',
+                      height: '60px',
+                      borderRight: '1px solid #ffffff',
+                      margin: '0',
+                    }}
+                  ></div>
+                  <Text
+                    $fontSize="23px"
+                    $fontWeight="400"
+                    $color="#ffffff"
+                    style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
+                  >
+                    Latest AriBio News
+                  </Text>
+                </TextWrap>
+              </HomeComponentWrap>
+              <HomeComponentWrap>
+                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
+                  <ComponentWrap
+                    style={{
+                      width: '100%',
+                      flexDirection: 'row',
+                      color: '#ffffff',
+                      borderBottom: '1px solid #ffffff',
+                      padding: '0',
+                    }}
+                  >
+                    <SearchInput
+                      placeholder="Please enter a search term."
+                      type="text"
+                      value={searchValue}
+                      onChange={(e) => {
+                        setSearchValue(e.target.value);
+                      }}
+                      autoFocus={true}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          handleSearchClick(e.target.value);
+                        }
+                      }}
+                    />
+
+                    <Image
+                      src={search}
+                      alt="search"
+                      onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
+                      style={{ height: '20px' }}
+                    />
+                  </ComponentWrap>
+                </ComponentWrap>
+                <ComponentWrap
+                  style={{ justifyContent: 'center', alignItems: 'center', padding: '8rem 0 4rem 0', gap: '0.5rem' }}
+                >
+                  {filteredList.length > 0 ? (
+                    filteredList.map((item, index) => {
+                      if (index < pageNumber * itemPerPage) {
+                        return (
+                          <Link
+                            style={{ textDecoration: 'none', width: '100%' }}
+                            key={'noticeItem' + item.id}
+                            to={`/irpr/pressrelease/${item.id}`}
+                          >
+                            <RowWrap
+                              onMouseOver={() => {
+                                setHoverItem(item.id);
+                              }}
+                              onMouseLeave={() => {
+                                setHoverItem();
+                              }}
+                              onFocus={() => {
+                                setHoverItem(item.id);
+                              }}
+                              onClick={() => {
+                                setDetailPage(true);
+                                setCurrentItem(item);
+                              }}
+                            >
+                              <DateWrap>
+                                <Text className="date">{`${item.month} ${item.date}, ${item.year}`}</Text>
+                              </DateWrap>
+                              <TitleWrap style={{ overflow: 'hidden' }}>
+                                <div
+                                  className="ticker_item"
+                                  style={{
+                                    display: 'inline-block',
+                                    width: '100%',
+                                    height: '100%',
+                                    overflow: 'hidden',
+                                    whiteSpace: 'nowrap',
+                                    marginRight: '1rem',
+                                  }}
+                                >
+                                  {item.title.slice(0, 25)}...
+                                </div>
+
+                                <Image
+                                  style={{ padding: '0', cursor: 'pointer', height: '20px' }}
+                                  src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
+                                  alt="icon_circlearrow_dark"
+                                />
+                              </TitleWrap>
+                            </RowWrap>
+                          </Link>
+                        );
+                      }
+                    })
+                  ) : (
+                    <ComponentWrap style={{ gap: '2em', height: '30vh', justifyContent: 'center' }}>
+                      <HR style={{ width: '24px', height: '1px' }} />
+                      <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                    </ComponentWrap>
+                  )}
+                </ComponentWrap>
+                {pageNumber * itemPerPage <= filteredList.length && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      cursor: 'pointer',
+                    }}
+                    onClick={async () => {
+                      if (pageNumber * itemPerPage <= filteredList.length) {
+                        setPageNumber(pageNumber + 1);
+                      }
+                    }}
+                  >
+                    <Image style={{ zIndex: '-1', height: '24px' }} src={icon_more} alt="more" />
+                    <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
+                      View more
+                    </Text>
+                  </div>
+                )}
+              </HomeComponentWrap>
+            </Mobile>
+          </>
+        )}
+      </div>
 
       <Footer />
     </Container>

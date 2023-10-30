@@ -207,8 +207,11 @@ const ColorBar = styled.div`
   width: 80%;
   background: ${(props) => `linear-gradient(to right, ${props.$color1}, ${props.$color2})`};
   transition: all 0.2s ease-in-out;
-  height: 100px;
+  height: 140px;
   opacity: 0.3;
+  @media screen and (max-width: 1280px) {
+    height: 100px;
+  }
   @media screen and (min-width: 901px) {
     &:hover,
     &:focus,

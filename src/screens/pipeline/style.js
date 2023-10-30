@@ -102,7 +102,7 @@ const HomeComponentWrap = styled.div.attrs((props) => ({
 `;
 
 const TextWrap = styled.div`
-  width: 50vw;
+  width: 80vw;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -418,7 +418,7 @@ const ShootingStar = styled.span.attrs((props) => ({
   top: calc(50%-4px);
   left: 0%;
   width: 4px;
-  height: 8px;
+  height: 6px;
   background: #fff;
   border-radius: 50%;
   box-shadow:

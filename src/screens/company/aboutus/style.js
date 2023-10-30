@@ -196,7 +196,7 @@ const ContentBox = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: left;
-  gap: 2rem;
+  gap: 1rem;
   background-color: transparent;
   // border: 1px solid #ffffff;
   @media screen and (min-width: 901px) {
@@ -204,7 +204,7 @@ const ContentBox = styled.div`
       margin-bottom: 20vh;
     }
     &:nth-child(3n + 2) {
-      margin-top: 90vh;
+      margin-top: 80vh;
       margin-bottom: 7vh;
     }
     &:nth-child(3n) {
@@ -243,7 +243,7 @@ const Image = styled.img.attrs((props) => ({
 
 const DescriptionWrap = styled.ul`
   position: absolute;
-  top: 4em;
+  top: 5rem;
   left: 0;
   height: fit-content;
   display: flex;
@@ -270,7 +270,7 @@ const DescriptionItem = styled.li`
   text-align: left;
   font-size: 18px;
   color: #f2f2f2;
-  font-weight: 100;
+  font-weight: 200;
   line-height: 1.5em;
   list-style: none;
   list-style-position: outside;
