@@ -45,8 +45,18 @@ const HeaderTop = styled.div`
     justify-content: space-between;
     padding: 0 5vw;
   }
+`;
+
+const BlurTop = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 144px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+  @media screen and (max-width: 1280px) {
+    height: 97px;
+  }
 `;
 
 const HeaderLogoWrap = styled.div`
@@ -187,7 +197,7 @@ const HeaderBottom = styled.div`
   position: fixed;
   text-decoration: none;
   padding: 0 7vw;
-  top: 146px;
+  top: 144px;
   left: 0;
   display: flex;
   opacity: 0;
@@ -200,7 +210,7 @@ const HeaderBottom = styled.div`
   cursor: default;
   transition: opacity 0.5s ease-in-out;
   @media screen and (max-width: 1280px) {
-    top: 97px;
+    top: 95px;
     height: 72px;
   }
   @media screen and (max-width: 900px) {
@@ -473,6 +483,7 @@ const Header = () => {
             }}
             tabIndex={1}
           >
+            <BlurTop />
             <HeaderTop>
               <HeaderLogoWrap>
                 <Link

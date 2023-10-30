@@ -120,7 +120,8 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    neurodegenerative diseases through its innovative platform ARIDD™{' '}
+                    neurodegenerative diseases through its{window.innerWidth < 1281 && <br />} innovative platform
+                    ARIDD™{' '}
                   </span>
                   <span
                     className="highlight4"
@@ -131,7 +132,9 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    (AI-powered, Reverse engineered & Integrated Drug Development) and Open Innovation.
+                    (AI-powered, Reverse {window.innerWidth < 1281 && <br />}engineered & Integrated Drug Development)
+                    {window.innerWidth < 1281 && <br />}
+                    and Open Innovation.
                   </span>
                   <br />
                 </HeadLineText>
@@ -165,10 +168,24 @@ const Home = () => {
                     height: '100%',
                   }}
                 >
-                  <div style={{ width: '2px', height: '200px', backgroundColor: '#B1B1B1' }}></div>
-                  <ComponentTextWrap style={{}}>
-                    <ComponentText style={{ fontSize: '60px', fontWeight: '500' }}>Expansion Phase</ComponentText>
-                    <ComponentText style={{ fontSize: '28px', fontWeight: '300', color: '#AFAFAF' }}>
+                  <div
+                    style={{
+                      width: '2px',
+                      height: window.innerWidth > 1280 ? '200px' : '100px',
+                      backgroundColor: '#B1B1B1',
+                    }}
+                  ></div>
+                  <ComponentTextWrap style={{ padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem' }}>
+                    <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '60px' : '30px', fontWeight: '500' }}>
+                      Expansion Phase
+                    </ComponentText>
+                    <ComponentText
+                      style={{
+                        fontSize: window.innerWidth > 1280 ? '28px' : '14px',
+                        fontWeight: '300',
+                        color: '#AFAFAF',
+                      }}
+                    >
                       Clinical development and Pipeline Extension
                     </ComponentText>
                   </ComponentTextWrap>
@@ -230,9 +247,17 @@ const Home = () => {
             </HomeComponentWrap>
             <HomeComponentWrap
               className="home home_4"
-              style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '0' }}
+              style={{
+                minHeight: 'fit-content',
+                justifyContent: 'space-between',
+                margin: '0',
+              }}
             >
-              <img style={{ margin: '5em 0' }} src={home_mediakit_video} alt="home_mediakit_video" />
+              <img
+                style={{ margin: '5em 0', height: window.innerWidth > 1280 ? '726px' : '484px' }}
+                src={home_mediakit_video}
+                alt="home_mediakit_video"
+              />
               <ComponentText style={{ fontSize: '60px', fontWeight: '500', alignSelf: 'start' }}>
                 Media Kit
               </ComponentText>
@@ -255,7 +280,11 @@ const Home = () => {
               className="home home_5"
               style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '12vh 0' }}
             >
-              <ComponentText style={{ fontSize: '60px', fontWeight: '500', alignSelf: 'start' }}>Notice</ComponentText>
+              <ComponentText
+                style={{ fontSize: window.innerWidth > 1280 ? '60px' : '36px', fontWeight: '500', alignSelf: 'start' }}
+              >
+                Notice
+              </ComponentText>
               <div
                 style={{
                   display: 'flex',
@@ -265,7 +294,9 @@ const Home = () => {
                   width: '100%',
                 }}
               >
-                <ComponentText style={{ fontSize: '28px', fontWeight: '300', color: '#AFAFAF' }}>
+                <ComponentText
+                  style={{ fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF' }}
+                >
                   Clinical development and Pipeline Extension
                 </ComponentText>
                 <SubPageButton linkTo="/irpr/notice" title="View all Notice" />

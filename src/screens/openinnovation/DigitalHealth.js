@@ -367,7 +367,15 @@ const DigitalHealth = () => {
               onClick={() => window.open('http://herzion.com/appstore/index.html', '_blank')}
             >
               <span style={{ zIndex: '-1' }}>Go to HERIZON</span>
-              <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+              <Image
+                src={arrow}
+                alt="arrow"
+                style={{
+                  height: window.innerWidth > 1280 ? '14px' : '12px',
+
+                  zIndex: '-1',
+                }}
+              />
             </Text>
           </ContentWrap>
         </HomeComponentWrap>
@@ -675,7 +683,7 @@ const DigitalHealth = () => {
               onClick={() => navigate('/')}
             >
               <span style={{ zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>Go to HERIZON</span>
-              <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
+              <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
             </Text>
           </ContentWrap>
         </HomeComponentWrap>

@@ -115,53 +115,59 @@ const Ci = () => {
               backgroundColor: 'rgba(255,255,255,0.7)',
             }}
           >
-            <Image src={pngImg} alt="ci_logo" style={{ width: '30vw' }} />
+            <Image src={pngImg} alt="ci_logo" style={{ width: window.innerWidth > 1280 ? '532px' : '364px' }} />
           </HomeComponentWrap>
           <HomeComponentWrap style={{ padding: '25vh 0', display: 'grid', gridTemplateColumns: '64.33vw 35.67vw' }}>
             <ContentBox style={{ position: 'relative', paddingTop: '1em' }}>
               <ColorBar $color1="#04324B" $color2="#076496">
                 <ColorBarTextWrap>
-                  {window.innerWidth > 1280 && (
-                    <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
-                  )}
+                  <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
                   <Text
-                    $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
+                    $fontSize={window.innerWidth > 1280 ? '18px' : '11px'}
                     $fontWeight="300"
                     $color="#F2F2F2"
                     $align="start"
                   >
                     AriBio Blue
                   </Text>
-                  <Text $fontSize="14px" $fontWeight="100" $color="#D3D3D3" $align="start">
+                  <Text
+                    $fontSize={window.innerWidth > 1280 ? '14px' : '9px'}
+                    $fontWeight="100"
+                    $color="#D3D3D3"
+                    $align="start"
+                  >
                     #076496
                   </Text>
                 </ColorBarTextWrap>
               </ColorBar>
               <ColorBar $color1="#661832" $color2="#CB3063">
                 <ColorBarTextWrap>
-                  {window.innerWidth > 1280 && (
-                    <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
-                  )}
+                  <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
+
                   <Text
-                    $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
+                    $fontSize={window.innerWidth > 1280 ? '18px' : '11px'}
                     $fontWeight="300"
                     $color="#F2F2F2"
                     $align="start"
                   >
                     AriBio Pink
                   </Text>
-                  <Text $fontSize="14px" $fontWeight="100" $color="#D3D3D3" $align="start">
+                  <Text
+                    $fontSize={window.innerWidth > 1280 ? '14px' : '9px'}
+                    $fontWeight="100"
+                    $color="#D3D3D3"
+                    $align="start"
+                  >
                     #CB3063
                   </Text>
                 </ColorBarTextWrap>
               </ColorBar>
               <ColorBar $color1="#4A4B4C" $color2="#939598">
                 <ColorBarTextWrap>
-                  {window.innerWidth > 1280 && (
-                    <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
-                  )}
+                  <HR $width="20px" $color="#C4C4C4" $height="1px" style={{ marginBottom: '0.5em' }} />
+
                   <Text
-                    $fontSize={window.innerWidth > 1280 ? '18px' : '14px'}
+                    $fontSize={window.innerWidth > 1280 ? '18px' : '11px'}
                     $fontWeight="300"
                     $color="#F2F2F2"
                     $align="start"
@@ -169,7 +175,7 @@ const Ci = () => {
                     AriBio Gray
                   </Text>
                   <Text
-                    $fontSize={window.innerWidth > 1280 ? '14px' : '12px'}
+                    $fontSize={window.innerWidth > 1280 ? '14px' : '9px'}
                     $fontWeight="100"
                     $color="#D3D3D3"
                     $align="start"
@@ -180,7 +186,7 @@ const Ci = () => {
                 </ColorBarTextWrap>
               </ColorBar>
             </ContentBox>
-            <ContentBox style={{ padding: '0 7vw 0 0' }}>
+            <ContentBox style={{ padding: '0 7vw 0 0', gap: '2rem' }}>
               <ContentWrap>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '26px' : '17px'}
@@ -195,6 +201,7 @@ const Ci = () => {
                   $fontWeight="300"
                   $color="#D5D5D5"
                   $align="start"
+                  style={{ marginTop: '0.5rem' }}
                 >
                   ‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable
                   diseases and become a biopharmaceutical leader of South Korea.
@@ -266,8 +273,18 @@ const Ci = () => {
                   }}
                   onClick={() => downloadCi('ai')}
                 >
-                  <span style={{ zIndex: '-1' }}>AI download</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  <span style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '20px' : '12px' }}>
+                    AI download
+                  </span>
+                  <Image
+                    src={arrow}
+                    alt="arrow"
+                    style={{
+                      height: window.innerWidth > 1280 ? '14px' : '12px',
+
+                      zIndex: '-1',
+                    }}
+                  />
                 </Text>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
@@ -286,8 +303,14 @@ const Ci = () => {
                   }}
                   onClick={() => downloadCi('png')}
                 >
-                  <span style={{ zIndex: '-1' }}>PNG download</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  <span style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '20px' : '12px' }}>
+                    PNG download
+                  </span>
+                  <Image
+                    src={arrow}
+                    alt="arrow"
+                    style={{ height: window.innerWidth > 1280 ? '14px' : '12px', zIndex: '-1' }}
+                  />
                 </Text>
               </ContentWrap>
             </ContentBox>
@@ -367,9 +390,9 @@ const Ci = () => {
                   01
                 </Text>
                 <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                  ‘AriBio’ embodies our ambition to contribute
-                  <br /> to the world by developing therapeutics
-                  <br /> for incurable diseases and become a<br /> biopharmaceutical leader of South Korea.
+                  ‘AriBio’ embodies our ambition to contribute to the world <br />
+                  by developing therapeutics for incurable diseases
+                  <br /> and become a biopharmaceutical leader of South Korea.
                 </Text>
               </ContentWrap>
               <ContentWrap style={{ width: '80%' }}>
@@ -437,7 +460,7 @@ const Ci = () => {
                   onClick={() => downloadCi('ai')}
                 >
                   <span style={{ zIndex: '-1' }}>AI download</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
                 <Text
                   $fontSize="16px"
@@ -457,7 +480,7 @@ const Ci = () => {
                   onClick={() => downloadCi('png')}
                 >
                   <span style={{ zIndex: '-1' }}>PNG download</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
               </ContentWrap>
             </ContentBox>

@@ -31,7 +31,7 @@ const CareerDetail = () => {
       setCurrentItem({
         id: item.id,
         date: `${item.month} ${item.day}, ${item.year}`,
-        title: item.jobGroup,
+        title: `[${item.location}] ${item.jobGroup}`,
         image: item.popupFileDto?.fileUrl,
         content: (
           <>
@@ -48,6 +48,7 @@ const CareerDetail = () => {
         url: item.url,
       });
     }
+    console.log(data?.data?.data);
   }, [data]);
 
   useEffect(() => {
@@ -67,7 +68,7 @@ const CareerDetail = () => {
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
-            style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', gap: '2em' }}
+            style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', gap: '2em', zIndex: '10' }}
             onClick={() => {
               navigate(-1);
             }}
@@ -101,28 +102,37 @@ const CareerDetail = () => {
                 margin: '0.5em 0',
                 borderRight: '1px solid #727272',
                 color: '#005684',
+                fontSize: window.innerWidth > 1280 ? '22px' : '12px',
+                lineHeight: '1em',
               }}
             >
               {page}
             </span>
-            <span style={{ margin: '0.5em 1em', color: '#727272' }}>
+            <span
+              style={{
+                fontSize: window.innerWidth > 1280 ? '22px' : '12px',
+                lineHeight: '1em',
+                margin: '0.5em 1em',
+                color: '#727272',
+              }}
+            >
               <span>{currentItem?.date}</span>
             </span>
           </Text>
           <Text
             style={{
               width: '60%',
-              margin: '1em 0',
+              margin: window.innerWidth > 1280 ? '1em 0' : '0.5em 0',
               padding: '0',
               textAlign: 'start',
-              fontSize: window.innerWidth > 1280 ? '32px' : '24px',
+              fontSize: window.innerWidth > 1280 ? '32px' : '18px',
               color: '#141414',
               fontWeight: '400',
             }}
           >
             {currentItem?.title}
           </Text>
-          <HR style={{ margin: '3em 0' }} $color="#B5B5B5" />
+          <HR style={{ margin: window.innerWidth > 1280 ? '3em 0' : '3em 0 1em 0' }} $color="#B5B5B5" />
           {currentItem?.image && (
             <Image src={currentItem?.image} alt="image" style={{ width: '50%', margin: '1rem 0' }} />
           )}
@@ -153,9 +163,13 @@ const CareerDetail = () => {
         >
           <Button
             onClick={() => currentItem?.url && (window.location.href = `//${currentItem.url}`)}
-            style={{ width: '260px', justifyContent: 'space-between', borderBottom: '1px solid #212121' }}
+            style={{
+              width: window.innerWidth > 1280 ? '260px' : '158px',
+              justifyContent: 'space-between',
+              borderBottom: '1px solid #212121',
+            }}
           >
-            <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '12px', padding: '0.5rem', zIndex: '-1' }}>
+            <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '12px', padding: '0.5rem 0', zIndex: '-1' }}>
               Apply for this job
             </span>{' '}
             <Image

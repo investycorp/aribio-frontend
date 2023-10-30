@@ -188,7 +188,15 @@ const MemoRe = () => {
                   onClick={() => window.open(links.memoReEngLink, '_blank')}
                 >
                   <span style={{ zIndex: '-1' }}>Go to Memo:Re (ENG)</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  <Image
+                    src={arrow}
+                    alt="arrow"
+                    style={{
+                      height: window.innerWidth > 1280 ? '14px' : '12px',
+
+                      zIndex: '-1',
+                    }}
+                  />
                 </Text>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
@@ -211,7 +219,14 @@ const MemoRe = () => {
                   onClick={() => window.open(links.memoReKorLink, '_blank')}
                 >
                   <span style={{ zIndex: '-1' }}>Go to Memo:Re (KOR)</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  <Image
+                    src={arrow}
+                    alt="arrow"
+                    style={{
+                      height: window.innerWidth > 1280 ? '14px' : '12px',
+                      zIndex: '-1',
+                    }}
+                  />
                 </Text>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
@@ -243,7 +258,14 @@ const MemoRe = () => {
                   }}
                 >
                   <span style={{ zIndex: '-1' }}>APP Download</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  <Image
+                    src={arrow}
+                    alt="arrow"
+                    style={{
+                      height: window.innerWidth > 1280 ? '14px' : '12px',
+                      zIndex: '-1',
+                    }}
+                  />
                 </Text>
               </ContentWrap>
             </ContentWrap>
@@ -400,7 +422,7 @@ const MemoRe = () => {
                   onClick={() => window.open(links.memoReEngLink, '_blank')}
                 >
                   <span style={{ zIndex: '-1' }}>Go to Memo:Re (ENG)</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
+                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
                 <Text
                   $fontSize="16px"
@@ -423,7 +445,7 @@ const MemoRe = () => {
                   onClick={() => window.open(links.memoReKorLink, '_blank')}
                 >
                   <span style={{ zIndex: '-1' }}>Go to Memo:Re (KOR)</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
+                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
                 <Text
                   $fontSize="16px"
@@ -455,7 +477,7 @@ const MemoRe = () => {
                   }}
                 >
                   <span style={{ zIndex: '-1' }}>APP Download</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
+                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
               </ContentWrap>
             </ContentWrap>

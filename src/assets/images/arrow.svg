@@ -1,9 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
-  <g id="Group_238" data-name="Group 238" transform="translate(22609 21824)">
-    <g id="Group_237" data-name="Group 237" transform="translate(-22587.1 -21810.586) rotate(45)">
-      <path id="선_9" data-name="선 9" d="M12,1H0A1,1,0,0,1-1,0,1,1,0,0,1,0-1H12a1,1,0,0,1,1,1A1,1,0,0,1,12,1Z" fill="#f8f8f8"/>
-      <path id="선_10" data-name="선 10" d="M0,13a1,1,0,0,1-1-1V0A1,1,0,0,1,0-1,1,1,0,0,1,1,0V12A1,1,0,0,1,0,13Z" transform="translate(12)" fill="#f8f8f8"/>
-      <path id="선_11" data-name="선 11" d="M0,12.071a1,1,0,0,1-.707-.293,1,1,0,0,1,0-1.414L10.364-.707a1,1,0,0,1,1.414,0,1,1,0,0,1,0,1.414L.707,11.778A1,1,0,0,1,0,12.071Z" transform="translate(0.929 0)" fill="#f8f8f8"/>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="12.324" height="13.199" viewBox="0 0 12.324 13.199">
+  <g id="Group_92" data-name="Group 92" transform="translate(5.724) rotate(45)">
+    <path id="선_9" data-name="선 9" d="M8.667,1.333h-8A.667.667,0,0,1,.667,0h8a.667.667,0,1,1,0,1.333Z" transform="translate(0 0)" fill="#e5e5e5"/>
+    <path id="선_10" data-name="선 10" d="M.667,9.333A.667.667,0,0,1,0,8.667v-8a.667.667,0,0,1,1.333,0v8A.667.667,0,0,1,.667,9.333Z" transform="translate(8 0)" fill="#e5e5e5"/>
+    <path id="선_11" data-name="선 11" d="M.667,8.714A.667.667,0,0,1,.2,7.576L7.576.2a.667.667,0,1,1,.943.943L1.138,8.519A.665.665,0,0,1,.667,8.714Z" transform="translate(0.619 0)" fill="#e5e5e5"/>
   </g>
 </svg>

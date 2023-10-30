@@ -33,11 +33,26 @@ const SubPageButton = ({ title, linkTo, align }) => {
             cursor: 'pointer',
           }}
         >
-          <span style={{ fontSize: '26px', fontWeight: '300', marginRight: '1rem', zIndex: '-1' }}>{title}</span>
+          <span
+            style={{
+              fontSize: window.innerWidth > 1280 ? '26px' : '14px',
+              fontWeight: '300',
+              marginRight: '1rem',
+              zIndex: '-1',
+            }}
+          >
+            {title}
+          </span>
           <img
             src={arrow}
             alt="arrow"
-            style={{ zIndex: '-1', border: '2px solid #ffffff', borderRadius: '50%', height: '40px' }}
+            style={{
+              zIndex: '-1',
+              border: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+              borderRadius: '50%',
+              height: window.innerWidth > 1280 ? '14px' : '12px',
+              padding: window.innerWidth > 1280 ? '12px' : '8px',
+            }}
           />
         </Link>
       </Desktop>
@@ -57,7 +72,7 @@ const SubPageButton = ({ title, linkTo, align }) => {
           <img
             src={arrow}
             alt="arrow"
-            style={{ zIndex: '-1', border: '1px solid #ffffff', borderRadius: '50%', height: '20px' }}
+            style={{ zIndex: '-1', border: '1px solid #ffffff', borderRadius: '50%', height: '20px', padding: '10px' }}
           />
         </Link>
       </Mobile>

@@ -346,18 +346,25 @@ const Career = () => {
               >
                 <TextWrap>
                   <Text
-                    $fontSize={window.innerWidth > 1280 ? '40px' : '30px'}
+                    $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
                     $color="#ffffff"
-                    style={{ width: '70%', textAlign: 'start', margin: '0', height: 'fit-content', lineHeight: '1' }}
+                    style={{
+                      fontFamily: 'Copperplate',
+                      width: '70%',
+                      textAlign: 'start',
+                      margin: '0',
+                      height: 'fit-content',
+                      lineHeight: '1',
+                    }}
                   >
                     “
                   </Text>
                   <Text
-                    $fontSize={window.innerWidth > 1280 ? '28px' : '14px'}
+                    $fontSize={window.innerWidth > 1280 ? '28px' : '18px'}
                     $fontWeight="400"
                     $color="#ffffff"
-                    style={{ padding: '0 20px', width: '70%', textAlign: 'center', margin: '0' }}
+                    style={{ padding: '0 20px', width: '80%', textAlign: 'center', margin: '0' }}
                   >
                     Our dedicated team is set on discovering transformative treatments.
                     <br />
@@ -367,10 +374,10 @@ const Career = () => {
                     <br />
                   </Text>
                   <Text
-                    $fontSize={window.innerWidth > 1280 ? '40px' : '30px'}
+                    $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
                     $color="#ffffff"
-                    style={{ width: '70%', textAlign: 'end', margin: '0', lineHeight: '1' }}
+                    style={{ fontFamily: 'Copperplate', width: '70%', textAlign: 'end', margin: '0', lineHeight: '1' }}
                   >
                     ”
                   </Text>
@@ -558,6 +565,7 @@ const Career = () => {
                               style={{
                                 listStyle: 'disc outside',
                                 marginLeft: '1rem',
+                                lineHeight: '1.2em',
                                 fontSize: window.innerWidth > 1280 ? '18px' : '10px',
                               }}
                             >
@@ -593,7 +601,15 @@ const Career = () => {
                         }}
                       >
                         <span style={{ zIndex: '-1' }}>Meet Our Leadership</span>
-                        <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                        <Image
+                          src={arrow}
+                          alt="arrow"
+                          style={{
+                            height: window.innerWidth > 1280 ? '14px' : '12px',
+                            padding: '0',
+                            zIndex: '-1',
+                          }}
+                        />
                       </Text>
                       <Text
                         className="clickable"
@@ -615,7 +631,15 @@ const Career = () => {
                         // onClick={() => downloadCi('png')}
                       >
                         <span style={{ zIndex: '-1' }}>Linked In</span>
-                        <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                        <Image
+                          src={arrow}
+                          alt="arrow"
+                          style={{
+                            height: window.innerWidth > 1280 ? '14px' : '12px',
+                            padding: '0',
+                            zIndex: '-1',
+                          }}
+                        />
                       </Text>
                     </ContentWrap>
                   </ContentBox>
@@ -683,7 +707,8 @@ const Career = () => {
                             borderRadius: '50%',
                             zIndex: '1',
                             cursor: 'pointer',
-                            width: window.innerWidth > 1280 ? '44px' : '26px',
+                            height: window.innerWidth > 1280 ? '14px' : '12px',
+                            padding: window.innerWidth > 1280 ? '12px' : '8px',
                           }}
                           // onClick={() => {
                           //   navigate(`${item.id}`);
@@ -995,7 +1020,7 @@ const Career = () => {
                         }}
                       >
                         <span style={{ zIndex: '-1' }}>Meet Our Leadership</span>
-                        <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                        <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                       </Text>
                       <Text
                         $fontSize="16px"
@@ -1015,7 +1040,7 @@ const Career = () => {
                         // onClick={() => downloadCi('png')}
                       >
                         <span style={{ zIndex: '-1' }}>Linked In</span>
-                        <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                        <Image src={arrow} alt="arrow" style={{ height: '10px', zIndex: '-1' }} />
                       </Text>
                     </ContentWrap>
                   </ContentBox>
@@ -1081,7 +1106,8 @@ const Career = () => {
                             style={{
                               border: '1px solid #ffffff',
                               borderRadius: '50%',
-                              width: '20px',
+                              width: '10px',
+                              padding: '5px',
                               alignSelf: 'end',
                               margin: '1.5em 1em 1.5em 0',
                               zIndex: '-1',

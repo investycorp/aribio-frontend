@@ -145,7 +145,11 @@ const Partner = () => {
                 onClick={() => navigate('/contact/contactus')}
               >
                 <span style={{ zIndex: '-1' }}>CONTACT US</span>
-                <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                <Image
+                  src={arrow}
+                  alt="arrow"
+                  style={{ height: window.innerWidth > 1280 ? '14px' : '12px', zIndex: '-1' }}
+                />
               </Text>
             </ContentBox>
           </HomeComponentWrap>
@@ -234,7 +238,7 @@ const Partner = () => {
                 onClick={() => navigate('/contact/contactus')}
               >
                 <span style={{ zIndex: '-1', fontSize: '16px' }}>CONTACT US</span>
-                <Image src={arrow} alt="arrow" style={{ height: '24px', width: '24px', zIndex: '-1' }} />
+                <Image src={arrow} alt="arrow" style={{ height: '10px', width: '10px', zIndex: '-1' }} />
               </Text>
             </ContentBox>
           </HomeComponentWrap>

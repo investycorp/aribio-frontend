@@ -156,7 +156,15 @@ const OpenInnovation = () => {
                   <span style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px' }}>
                     Digital Health
                   </span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  <Image
+                    src={arrow}
+                    alt="arrow"
+                    style={{
+                      height: window.innerWidth > 1280 ? '14px' : '12px',
+
+                      zIndex: '-1',
+                    }}
+                  />
                 </Text>
                 <Text
                   $fontWeight="300"
@@ -180,7 +188,15 @@ const OpenInnovation = () => {
                   <span style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px' }}>
                     Memo:Re Project
                   </span>
-                  <Image src={arrow} alt="arrow" style={{ width: '1.5em', zIndex: '-1' }} />
+                  <Image
+                    src={arrow}
+                    alt="arrow"
+                    style={{
+                      height: window.innerWidth > 1280 ? '14px' : '12px',
+
+                      zIndex: '-1',
+                    }}
+                  />
                 </Text>
               </ContentWrap>
             </TextWrap>
@@ -320,7 +336,7 @@ const OpenInnovation = () => {
                   onClick={() => navigate('/')}
                 >
                   <span style={{ zIndex: '-1', fontSize: '16px' }}>Digital Health</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
+                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
                 <Text
                   $fontSize="20px"
@@ -341,7 +357,7 @@ const OpenInnovation = () => {
                   onClick={() => navigate('/')}
                 >
                   <span style={{ zIndex: '-1', fontSize: '16px' }}>Memo:Re Project</span>
-                  <Image src={arrow} alt="arrow" style={{ width: '24px', zIndex: '-1' }} />
+                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
               </ContentWrap>
             </TextWrap>

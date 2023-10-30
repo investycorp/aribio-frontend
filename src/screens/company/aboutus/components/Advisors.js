@@ -11,7 +11,7 @@ const TabContentWrap = styled.div`
   width: 100%;
   height: fit-content;
   display: grid;
-  grid-template-columns: 28.7vw 28.7vw 28.7vw;
+  grid-template-columns: 28.65vw 28.65vw 28.65vw;
   grid-template-rows: 1fr;
   flex-wrap: wrap;
   justify-content: start;
@@ -99,12 +99,12 @@ const Advisors = () => {
       <Desktop>
         <TabContentWrap>
           {tabContents?.map((item, index) => (
-            <ContentBox key={index}>
+            <ContentBox key={index} style={{ height: '121px', justifyContent: 'center' }}>
               <ContentBoxNameWrap
                 style={{ paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end' }}
               >
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
+                  $fontSize={window.innerWidth > 1280 ? '30px' : '20px'}
                   $fontWeight="600"
                   $align="start"
                   style={{ margin: '0' }}
@@ -114,7 +114,7 @@ const Advisors = () => {
                     style={{
                       fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                       marginLeft: window.innerWidth > 1280 ? '2rem' : '1rem',
-                      fontWeight: '400',
+                      fontWeight: '300',
                     }}
                   >
                     {item.position}

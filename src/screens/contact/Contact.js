@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import vertical_arrow from '../../assets/images/vertical_arrow.svg';
+
 import arrow from '../../assets/images/arrow.svg';
-import contact_cover from './assets/contact_cover.png';
+
 import {
   Container,
   HomeComponentWrap,
@@ -383,7 +383,15 @@ const Contact = () => {
                 <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '12px', fontWeight: '400', zIndex: '-1' }}>
                   San Diego, 92112, USA
                 </span>
-                <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1' }} />
+                <Image
+                  src={arrow}
+                  alt="location_arrow"
+                  style={{
+                    height: window.innerWidth > 1280 ? '14px' : '12px',
+
+                    zIndex: '-1',
+                  }}
+                />
               </RowWrap>
               <RowWrap
                 style={{ borderBottom: '1px solid #707070', padding: '0.5em 0' }}
@@ -398,7 +406,15 @@ const Contact = () => {
                   {' '}
                   Gyeonggi-do, Republic of Korea
                 </span>
-                <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1' }} />
+                <Image
+                  src={arrow}
+                  alt="location_arrow"
+                  style={{
+                    height: window.innerWidth > 1280 ? '14px' : '12px',
+
+                    zIndex: '-1',
+                  }}
+                />
               </RowWrap>
             </FormWrap>
           </HomeComponentWrap>
@@ -632,9 +648,10 @@ const Contact = () => {
                       style={{
                         border: '1px solid #ffffff',
                         borderRadius: '50%',
-                        padding: '0',
+                        padding: '12px',
                         zIndex: '-1',
-                        height: '45px',
+                        height: '20px',
+
                         marginRight: '1em',
                       }}
                     />
@@ -660,7 +677,7 @@ const Contact = () => {
                 }}
               >
                 <span style={{ fontSize: '16px', zIndex: '-1' }}>San Diego, 92112, USA</span>
-                <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1', height: '25px' }} />
+                <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1', height: '10px' }} />
               </RowWrap>
               <RowWrap
                 style={{
@@ -677,7 +694,7 @@ const Contact = () => {
                 }}
               >
                 <span style={{ fontSize: '16px', zIndex: '-1' }}>Gyeonggi-do, Republic of Korea</span>
-                <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1', height: '25px' }} />
+                <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1', height: '10px' }} />
               </RowWrap>
             </FormWrap>
           </HomeComponentWrap>

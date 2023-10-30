@@ -170,12 +170,18 @@ const Footer = () => {
                   <img
                     src={arrow}
                     alt="arrow"
-                    style={{ width: '40px', height: '40px', cursor: 'pointer', zIndex: '-1' }}
+                    style={{
+                      width: window.innerWidth > 1280 ? '14px' : '9px',
+
+                      cursor: 'pointer',
+                      zIndex: '-1',
+                    }}
                   />
                 </ContactUsBox>
               </Link>
               <ContactUsBox
                 style={{
+                  justifyContent: 'start',
                   gap: '20px',
                   border: 'none',
                   width: '100%',
@@ -192,11 +198,12 @@ const Footer = () => {
                     textDecoration: 'none',
                     minWidth: 'fit-content',
                     fontSize: window.innerWidth > 1280 ? '20px' : '13px',
+                    paddingRight: window.innerWidth > 1280 ? '20px' : '16px',
                   }}
                 >
                   Privacy Policy
                 </Link>{' '}
-                <div>|</div>{' '}
+                <div style={{ paddingRight: window.innerWidth > 1280 ? '20px' : '16px' }}>|</div>{' '}
                 <div style={{ fontSize: window.innerWidth > 1280 ? '20px' : '13px', minWidth: 'fit-content' }}>
                   © 2023 by ARIBIO. All Rights Reserved.
                 </div>
@@ -265,11 +272,7 @@ const Footer = () => {
                   }}
                 >
                   <div style={{ cursor: 'pointer', zIndex: '-1' }}>CONTACT US</div>
-                  <img
-                    src={arrow}
-                    alt="arrow"
-                    style={{ width: '30px', height: '30px', cursor: 'pointer', zIndex: '-1' }}
-                  />
+                  <img src={arrow} alt="arrow" style={{ height: '10px', cursor: 'pointer', zIndex: '-1' }} />
                 </ContactUsBox>
               </Link>
               <div

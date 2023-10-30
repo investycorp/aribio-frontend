@@ -28,7 +28,7 @@ const ModalContentWrap = styled.div`
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-radius: 10px;
+  border-radius: 20px;
   border: 2px solid #707070;
   padding: 2rem;
   z-index: 10;

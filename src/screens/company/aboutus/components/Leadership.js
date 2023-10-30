@@ -48,18 +48,20 @@ const Leadership = () => {
               <Text
                 $align="start"
                 $color="#F2F2F2"
-                $fontSize="20px"
-                style={{ paddingLeft: index % 3 === 0 ? '7vw' : '0', margin: '0' }}
+                style={{
+                  paddingLeft: index % 3 === 0 ? '7vw' : '0',
+                  margin: '0',
+                  fontSize: window.innerWidth > 1280 ? '20px' : '12px',
+                }}
               >
                 {item.position}
               </Text>
               <Image src={item.photo} alt="leadershipphoto1" style={{ width: '100%' }} />
               <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
                   $fontWeight="600"
                   $align="start"
-                  style={{ margin: '0.5rem 0 0 0' }}
+                  style={{ margin: '0.5rem 0 0 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
                 >
                   {item.name}
                 </Text>

@@ -180,10 +180,10 @@ const ColorBarTextWrap = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: end;
   align-items: start;
   padding: 1em 0 0 0;
-  gap: 0.5em;
+  gap: 0.2em;
   opacity: 0;
   transition: all 0.3s ease-in-out;
   @media screen and (max-width: 1280px) {
@@ -211,6 +211,7 @@ const ColorBar = styled.div`
   opacity: 0.3;
   @media screen and (max-width: 1280px) {
     height: 100px;
+    padding: 0;
   }
   @media screen and (min-width: 901px) {
     &:hover,

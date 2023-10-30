@@ -256,6 +256,9 @@ const DescriptionWrap = styled.ul`
   background-color: transparent;
   padding: 0 40px 0 3.1vw;
   transition: all 0.2s ease-in-out;
+  @media screen and (max-width: 1280px) {
+    top: 3rem;
+  }
   @media screen and (max-width: 900px) {
     display: ${(props) => (props.$isActive ? 'flex' : 'none')};
     transition: all 0.2s ease-in-out;

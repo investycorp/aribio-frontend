@@ -6,6 +6,7 @@ import sidebar_short from '../assets/sidebar_short.svg';
 import whitedot from '../assets/whitedot.svg';
 import graydot from '../assets/graydot.svg';
 import { Desktop, Mobile } from '../../../../utils/MediaQuery';
+import WindowSize from '../../../../atom/MediaQuery';
 
 const HomeComponentWrap = styled.div`
   position: relative;
@@ -71,6 +72,9 @@ const GridBox = styled.div`
   position: relative;
   width: 100%;
   height: fit-content;
+  @media screen and (max-width: 1280px) {
+    gap: 0;
+  }
   @media screen and (max-width: 900px) {
     display: flex;
     flex-direction: row;
@@ -262,8 +266,8 @@ const Tab1 = ({ listItems, index }) => {
                 alt="sidebar"
                 style={{
                   position: 'absolute',
-                  top: index === 0 ? '0' : '-6rem',
-                  left: window.innerWidth > 1280 ? '-3px' : '0',
+                  top: index === 0 ? '0' : window.innerWidth > 1280 ? '-6rem' : '-4.5rem',
+                  left: window.innerWidth > 1280 ? '-3px' : '-8px',
                   zIndex: '10',
                   margin: index === 0 ? '0.18em 0.15em' : '0.10em',
                   padding: '2rem',
@@ -276,8 +280,8 @@ const Tab1 = ({ listItems, index }) => {
                 alt="sidebar_short"
                 style={{
                   position: 'absolute',
-                  top: index === 0 ? '0' : '-3.9rem',
-                  left: '31px',
+                  top: index === 0 ? '0' : window.innerWidth > 1280 ? '-3.9rem' : '-2.3rem',
+                  left: window.innerWidth > 1280 ? '-31px' : '26px',
                   zIndex: '10',
                   margin: '0',
                   padding: '0 0 2em 0',
@@ -292,7 +296,12 @@ const Tab1 = ({ listItems, index }) => {
                   <Image
                     src={tabName === scrollTab ? whitedot : graydot}
                     $isActive={tabName === scrollTab ? true : false}
-                    style={{ padding: '14px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                    style={{
+                      padding: window.innerWidth > 1280 ? '14px' : '7px',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
                   />
                 }
                 <Text

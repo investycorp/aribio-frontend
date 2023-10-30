@@ -49,7 +49,13 @@ const CeoMessage = () => {
               >
                 Meet Our CEO
               </Text>
-              <hr style={{ width: '60px', margin: '5em 0', border: '2px solid #ffffff' }} />
+              <hr
+                style={{
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
+                  margin: '5em 0',
+                  border: '2px solid #ffffff',
+                }}
+              />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="200"
@@ -63,14 +69,24 @@ const CeoMessage = () => {
           </HomeComponentWrap>
 
           <HomeComponentWrap
-            style={{ background: 'background: linear-gradient(rgba(0, 111, 170, 0.6), rgba(0, 56, 85, 0.6)' }}
+            style={{
+              height: window.innerWidth > 1280 ? '594px' : '382px',
+              background: 'linear-gradient(rgba(0, 111, 170, 0.6), rgba(0, 56, 85, 0.6)',
+            }}
           >
             <TextWrap>
               <Text
-                $fontSize="40px"
+                $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                 $fontWeight="200"
                 $color="#ffffff"
-                style={{ width: '65%', textAlign: 'start', margin: '0', height: 'fit-content', lineHeight: '1' }}
+                style={{
+                  fontFamily: 'Copperplate',
+                  width: '65%',
+                  textAlign: 'start',
+                  margin: '0',
+                  height: 'fit-content',
+                  lineHeight: '1',
+                }}
               >
                 “
               </Text>
@@ -78,7 +94,7 @@ const CeoMessage = () => {
                 $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
                 $fontWeight="400"
                 $color="#ffffff"
-                style={{ padding: '0 20px', width: '65%', textAlign: 'center', margin: '0' }}
+                style={{ padding: '0 20px', width: '70%', textAlign: 'center', margin: '0' }}
               >
                 At AriBio,
                 <br />
@@ -90,7 +106,12 @@ const CeoMessage = () => {
                 <br />
                 despite the cosmic uncertainties and challenges that may arise.
               </Text>
-              <Text $fontSize="40px" $fontWeight="200" $color="#ffffff" style={{ width: '65%', textAlign: 'end' }}>
+              <Text
+                $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
+                $fontWeight="200"
+                $color="#ffffff"
+                style={{ fontFamily: 'Copperplate', width: '65%', textAlign: 'end' }}
+              >
                 ”
               </Text>
               <Text
@@ -108,13 +129,13 @@ const CeoMessage = () => {
             <ContentBox style={{ alignItems: 'end' }}>
               <Image src={ceophoto} alt="ceophoto" style={{ width: '125%' }} />
             </ContentBox>
-            <ContentBox style={{ padding: '0 0 0 6.5rem', gap: '5em' }}>
+            <ContentBox style={{ padding: '0 0 0 6.5rem', gap: '3em' }}>
               <div style={{ width: '60px', height: '2px', backgroundColor: '#939598' }} />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                 $fontWeight="300"
                 $color="#EAEAEA"
-                style={{ textAlign: 'start', margin: '0', padding: '0 20% 0 0' }}
+                style={{ textAlign: 'start', margin: '0', padding: '0' }}
               >
                 AriBio is at the forefront of innovative drug development
                 <br /> for neurodegenerative diseases.

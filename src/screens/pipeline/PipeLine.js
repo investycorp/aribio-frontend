@@ -37,6 +37,7 @@ const PipeLine = () => {
   const [toggleOn, setToggleOn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalItem, setModalItem] = useState({});
+  const [scrollPosition, setScrollPosition] = useState(0);
   const [tableHeader, setTableHeader] = useState([
     <span>
       Drug <br />
@@ -122,13 +123,7 @@ const PipeLine = () => {
   }, []);
 
   useEffect(() => {
-    console.log(isModalOpen);
-    if (isModalOpen) {
-      //   console.log(document.querySelector('.container').getBoundingClientRect().y);
-      //   document.querySelector('.container').style.overflow = 'visible';
-      // } else {
-      //   document.querySelector('.container').style.overflow = 'visible';
-    }
+    handleScroll();
   }, [isModalOpen]);
 
   useEffect(() => {
@@ -140,6 +135,23 @@ const PipeLine = () => {
   const handleBlur = (e) => {
     if (!e.currentTarget.contains(e.relatedTarget)) {
       setToggleOn(false);
+    }
+  };
+
+  const handleScroll = async () => {
+    if (isModalOpen) {
+      const scrollY = window.scrollY;
+      setScrollPosition(scrollY);
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.removeProperty('overflow');
+      document.body.style.removeProperty('position');
+      document.body.style.removeProperty('top');
+      document.body.style.removeProperty('width');
+      window.scrollTo(0, scrollPosition);
     }
   };
 

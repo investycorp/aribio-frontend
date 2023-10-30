@@ -59,7 +59,7 @@ const AboutUs = () => {
               <Text $color="#939598" $fontWeight="400" style={{ fontsize: window.innerWidth > 1280 ? '26px' : '18px' }}>
                 ABOUT US
               </Text>
-              <Text $fontSize="34px" $fontWeight="500" style={{ fontsize: window.innerWidth > 1280 ? '50px' : '34px' }}>
+              <Text $fontWeight="500" style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}>
                 Company Overview
               </Text>
               <hr
