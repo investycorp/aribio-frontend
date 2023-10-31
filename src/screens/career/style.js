@@ -146,6 +146,9 @@ const FilterShadow = styled.div`
   opacity: 0.5;
   background-color: #1f1f1f;
   z-index: 1;
+  @media screen and (max-width: 900px) {
+    border-radius: 10px;
+  }
 `;
 
 const ContentBox = styled.div.attrs((props) => ({ className: props.className }))`
@@ -220,6 +223,9 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
 
     @media screen and (max-width: 900px) {
       height: 124px;
+      width: 90vw;
+      padding: 23px;
+      border-radius: 10px;
     }
   }
 `;

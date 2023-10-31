@@ -213,6 +213,8 @@ const CeoMessage = () => {
           <HomeComponentWrap
             style={{
               background: 'linear-gradient(to bottom, rgba(0,111,170,0.5), rgba(0, 56, 85, 0.5))',
+              height: '257px',
+              margin: '5em 0 7em 0',
             }}
           >
             <TextWrap>
@@ -226,15 +228,16 @@ const CeoMessage = () => {
                   margin: '0',
                   height: 'fit-content',
                   lineHeight: '1',
+                  fontFamily: 'Copperplate',
                 }}
               >
-                ”
+                “
               </Text>
               <Text
                 $fontSize="16px"
                 $fontWeight="300"
                 $color="#ffffff"
-                style={{ padding: '0 20px', width: '100%', textAlign: 'center', margin: '0' }}
+                style={{ padding: '0 20px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px' }}
               >
                 AriBio’s mission is
                 <br />
@@ -252,18 +255,23 @@ const CeoMessage = () => {
                 $fontSize="20px"
                 $fontWeight="200"
                 $color="#ffffff"
-                style={{ width: '100%', textAlign: 'end', margin: '0' }}
+                style={{ width: '100%', textAlign: 'end', margin: '0', fontFamily: 'Copperplate' }}
               >
                 ”
               </Text>
-              <Text $fontSize="14px" $fontWeight="200" $color="#D6D6D6" style={{ width: '100%', textAlign: 'center' }}>
+              <Text
+                $fontSize="14px"
+                $fontWeight="200"
+                $color="#D6D6D6"
+                style={{ width: '100%', textAlign: 'center', marginBottom: '0' }}
+              >
                 AriBio Co., Ltd. CEO Jai Jun Choung
               </Text>
             </TextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap style={{ display: 'grid', padding: '0' }}>
             <Image
-              src={process.env.PUBLIC_URL + '/assets/images/ceomessage_ceophoto_mobile.png'}
+              src={process.env.PUBLIC_URL + '/assets/images/ceoimage_mobile.png'}
               alt="ceophoto"
               style={{ width: '95vw', maxWidth: '400px' }}
             />
@@ -284,7 +292,7 @@ const CeoMessage = () => {
                 $fontSize="16px"
                 $fontWeight="300"
                 $color="#909090"
-                style={{ textAlign: 'start', margin: '0', padding: '0', lineHeight: '1.7' }}
+                style={{ textAlign: 'start', margin: '0', padding: '0', lineHeight: '1.5' }}
               >
                 As the founder of AriBio, I have spent the
                 <br />

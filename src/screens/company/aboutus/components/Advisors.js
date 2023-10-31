@@ -118,7 +118,7 @@ const Advisors = () => {
                     style={{
                       fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                       marginLeft: window.innerWidth > 1280 ? '2rem' : '1rem',
-                      fontWeight: '300',
+                      fontWeight: '400',
                     }}
                   >
                     {item.position}
@@ -147,6 +147,7 @@ const Advisors = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
+                padding: index % 2 === 0 ? '0 20% 0 0' : ' 0 0 0 33.3%',
               }}
               key={'tabContent' + index}
             >
@@ -155,7 +156,7 @@ const Advisors = () => {
                   width: '100%',
                   display: 'flex',
                   flexDirection: 'row',
-                  justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end',
+                  justifyContent: index % 2 === 0 ? 'flex-start' : 'space-between',
                   alignItems: 'center',
                 }}
               >

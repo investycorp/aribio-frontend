@@ -361,7 +361,7 @@ const Home = () => {
                         flexDirection: 'column',
                         justifyContent: 'flex-end',
                         gap: '2rem',
-                        padding: '3em 3em',
+                        padding: window.innerWidth > 1280 ? '3em 3em' : '2em 3em',
                         marginLeft: index === 0 ? '0' : '1rem',
                         fontWeight: '300',
                         position: 'relative',
@@ -401,8 +401,7 @@ const Home = () => {
             </HomeComponentWrap>
             <HomeComponentWrap className="home home_2">
               <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
-                <HeadLineText $fontSize="23px">
-                  {' '}
+                <HeadLineText $fontSize="23px" style={{ fontWeight: '400' }}>
                   <span
                     className="highlight1"
                     style={{
@@ -412,7 +411,7 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    AriBio Co., Ltd. is a biotechnology company
+                    AriBio Co., Ltd.
                   </span>
                   <br />
                   <span
@@ -424,7 +423,8 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    that aims to develop a meaningful therapies for
+                    is a biotechnology
+                    <br /> company that aims to develop
                   </span>
                   <br />
                   <span
@@ -436,8 +436,11 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    neurodegenerative diseases through its innovative platform ARIDD™
+                    a meaningful therapies for neurodegenerative diseases
+                    <br />
+                    through its innovative platform
                   </span>
+                  <br />
                   <span
                     className="highlight4"
                     style={{
@@ -447,7 +450,8 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    (AI-powered, Reverse engineered & Integrated Drug Development)
+                    ARIDD™ (AI-powered, Reverse <br /> engineered & Integrated
+                    <br /> Drug Development)
                   </span>
                   <br />
                   <span
@@ -484,7 +488,7 @@ const Home = () => {
                     gridColumn: '1/3',
                   }}
                 >
-                  <div style={{ width: '1px', height: '40px', backgroundColor: '#B1B1B1' }}></div>
+                  <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>
                   <ComponentTextWrap style={{}}>
                     <ComponentText style={{ fontWeight: '500' }}>Expansion Phase</ComponentText>
                     <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>

@@ -117,7 +117,7 @@ const Partner = () => {
                     height: '30vh',
                   }}
                 >
-                  <Image style={{ width: '--webkit-fill-available' }} src={item.imgUrl} alt="logo" />
+                  <Image style={{ width: window.innerWidth > 1280 ? '220px' : '160px' }} src={item.imgUrl} alt="logo" />
                 </ContentBox>
               ))}
           </HomeComponentWrap>
@@ -151,6 +151,7 @@ const Partner = () => {
                   margin: '0',
                   cursor: 'pointer',
                   fontSize: window.innerWidth > 1280 ? '20px' : '12px',
+                  borderWidth: window.innerWidth > 1280 ? '2px' : '1px',
                 }}
                 onClick={() => navigate('/contact/contactus')}
               >
@@ -198,7 +199,7 @@ const Partner = () => {
               paddingTop: '0',
               display: 'grid',
               gridTemplateColumns: '1fr',
-              gap: '1em',
+              gap: '3em',
             }}
           >
             {itemList.map((item, index) => (
@@ -212,7 +213,7 @@ const Partner = () => {
                   padding: '1em ',
                 }}
               >
-                <Image style={{ width: '160px' }} src={item.imgUrl} alt="logo" />
+                <Image style={{ width: '160px', height: '58px' }} src={item.imgUrl} alt="logo" />
               </ContentBox>
             ))}
           </HomeComponentWrap>

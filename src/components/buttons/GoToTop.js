@@ -21,7 +21,7 @@ const GoToTop = () => {
             visibility: isShow ? 'visible' : 'hidden',
             position: 'absolute',
             bottom: '28vh',
-            right: '4.5vw',
+            right: window.innerWidth > 1280 ? '-40px' : '-25px',
             zIndex: '10',
             width: 'fit-content',
             cursor: 'pointer',
@@ -55,7 +55,7 @@ const GoToTop = () => {
           }}
         >
           <img
-            style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '40px' : '25px' }}
+            style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '40px' : '28px' }}
             src={vertical_arrow}
             alt="vertical_arrow"
           />

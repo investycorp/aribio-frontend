@@ -190,10 +190,9 @@ const PressRelease = () => {
                     }}
                   ></div>
                   <Text
-                    $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                     $fontWeight="400"
                     $color="#ffffff"
-                    style={{ margin: '2rem 0 0 0' }}
+                    style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                   >
                     Latest AriBio News
                   </Text>
@@ -380,7 +379,7 @@ const PressRelease = () => {
                   ></div>
                   <Text
                     $fontSize="23px"
-                    $fontWeight="400"
+                    $fontWeight="500"
                     $color="#ffffff"
                     style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
                   >

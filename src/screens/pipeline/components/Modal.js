@@ -37,7 +37,8 @@ const ModalContentWrap = styled.div`
     width: 656px;
   }
   @media (max-width: 900px) {
-    width: 84vw;
+    width: 90vw;
+    padding: 24px;
   }
 `;
 
@@ -53,6 +54,8 @@ const ModalTitleWrap = styled.div`
   padding-bottom: 1em;
   border-bottom: 2px solid rgba(112, 112, 112, 1);
   gap: 1em;
+  @media screen and (max-width: 900px) {
+  }
 `;
 
 const ModalDescriotionWrap = styled.div`

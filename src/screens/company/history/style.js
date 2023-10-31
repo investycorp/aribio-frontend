@@ -120,6 +120,9 @@ const Tab = styled.div`
   padding-bottom: 1rem;
   margin-bottom: 7em;
   z-index: 10;
+  @media screen and (max-width: 1280px) {
+    gap: 3rem;
+  }
   @media screen and (max-width: 900px) {
     gap: 1rem;
     margin-bottom: 2rem;
@@ -144,13 +147,19 @@ const TabItem = styled.div`
     color: #ffffff;
     border-bottom: 4px solid #ffffff;
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    @media screen and (max-width: 1280px) {
+      font-size: 21px;
+      border-width: 2px;
+    }
     @media screen and (max-width: 900px) {
+      font-size: 18px;
       border-bottom: 1px solid #ffffff;
     }
   }
   cursor: pointer;
   @media screen and (max-width: 1280px) {
     font-size: 21px;
+    border-width: 2px;
   }
   @media screen and (max-width: 900px) {
     font-size: 18px;

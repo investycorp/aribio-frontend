@@ -121,7 +121,7 @@ const AboutUs = () => {
               <Text $color="#939598" $fontWeight="300" style={{ fontSize: '16px' }}>
                 ABOUT US
               </Text>
-              <Text $fontSize="23px" $fontWeight="400">
+              <Text $fontWeight="400" style={{ fontSize: '23px' }}>
                 Company Overview
               </Text>
               <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '0 0 2rem 0' }} />
@@ -169,12 +169,12 @@ const AboutUs = () => {
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          <Tab style={{ padding: '0 7vw' }}>
+          <Tab style={{ padding: '0 5vw' }}>
             {tabNames.map((item, index) => (
               <TabItem
                 key={index}
                 $isActive={currentTab === item ? true : false}
-                style={{ fontSize: '20px' }}
+                style={{ fontSize: '20px', borderWidth: '1px' }}
                 onClick={() => {
                   setCurrentTab(item);
                   console.log(item);

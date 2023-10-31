@@ -187,7 +187,7 @@ const TabContentWrap = styled.div.attrs((props) => ({
     grid-template-columns: 1fr;
     padding-bottom: 3rem;
     margin-top: 2rem;
-    row-gap: 10rem;
+    row-gap: 120px;
   }
 `;
 
@@ -224,6 +224,7 @@ const ContentBox = styled.div`
     }
   }
   @media screen and (max-width: 900px) {
+    gap: 0.8rem;
     width: 64.26vw;
     &:nth-child(odd) {
       justify-content: center;

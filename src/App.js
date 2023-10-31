@@ -43,8 +43,14 @@ function App() {
         document.querySelector('.grid_bg')?.classList.remove('visible');
       }
     });
+    window.addEventListener('resize', () => {
+      window.location.reload();
+    });
     return () => {
       window.removeEventListener('scroll', () => {
+        console.log('done');
+      });
+      window.removeEventListener('resize', () => {
         console.log('done');
       });
     };

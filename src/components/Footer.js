@@ -105,6 +105,7 @@ const ContactUsBox = styled.div`
   @media screen and (max-width: 1280px) {
     font-size: 13px;
     width: 264px;
+    border-width: 1px;
   }
   @media screen and (max-width: 900px) {
     width: fit-content;
@@ -171,7 +172,7 @@ const Footer = () => {
                     src={arrow}
                     alt="arrow"
                     style={{
-                      width: window.innerWidth > 1280 ? '14px' : '9px',
+                      width: window.innerWidth > 1280 ? '14px' : '12px',
 
                       cursor: 'pointer',
                       zIndex: '-1',
@@ -182,7 +183,7 @@ const Footer = () => {
               <ContactUsBox
                 style={{
                   justifyContent: 'start',
-                  gap: '20px',
+
                   border: 'none',
                   width: '100%',
                   padding: '0 1rem 0 0',
@@ -267,7 +268,7 @@ const Footer = () => {
                     cursor: 'pointer',
                     marginBottom: '1rem',
                     width: '162px',
-                    padding: '0',
+                    padding: '0 0 7px 0',
                     borderBottom: '1px solid #707070',
                   }}
                 >
@@ -363,14 +364,15 @@ const Footer = () => {
               padding: '0 1rem 0 0',
               margin: '0 0 20px 0',
               color: '#B1B1B1',
-              gap: '1rem',
+              gap: '7px',
+              fontWeight: '200',
             }}
           >
             <Link
               to="/"
               style={{ color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content', fontSize: '14px' }}
             >
-              Privacy Policy |
+              <span>Privacy Policy</span> <span style={{ padding: '0 4px' }}>|</span>
             </Link>
             <span style={{ minWidth: 'fit-content', fontSize: '14px' }}>© 2023 by ARIBIO. All Rights Reserved.</span>
           </ContactUsBox>

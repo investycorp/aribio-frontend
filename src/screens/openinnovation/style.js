@@ -82,6 +82,10 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
+  background-image: url(${(props) => props.$src});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   @media screen and (max-width: 900px) {
     padding: 5vh 5vw;
   }

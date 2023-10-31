@@ -8,6 +8,7 @@ import { Desktop, Mobile } from '../utils/MediaQuery';
 
 import lang_globe from '../assets/images/lang_globe.svg';
 import plus from '../assets/images/plus.svg';
+import minus from '../assets/images/minus_menu.svg';
 import toggle from '../assets/images/toggle.svg';
 
 const HeaderContainer = styled.div`
@@ -24,6 +25,9 @@ const HeaderContainer = styled.div`
   overflow: hidden;
   &:hover {
     background-color: rgba(26, 26, 26, 0.3);
+  }
+  @media screen and (max-width: 900px) {
+    background-color: #121212;
   }
 `;
 
@@ -100,7 +104,7 @@ const HeaderNavWrap = styled.div`
     height: fit-content;
     max-height: 75vh;
     overflow-y: scroll;
-
+    z-index: 100;
     backdrop-filter: blur(200px);
     -webkit-backdrop-filter: blur(200px);
   }
@@ -363,12 +367,21 @@ const Header = () => {
               }}
             >
               {isToggleOpen && <LangButton />}
-              <Image
-                src={toggle}
-                alt="toggle_menu"
-                style={{ padding: '1.5em' }}
-                onClick={() => setIsToggleOpen(!isToggleOpen)}
-              />
+              {!isToggleOpen ? (
+                <Image
+                  src={toggle}
+                  alt="toggle_menu"
+                  style={{ margin: '1.5em 0', height: '24px', width: '24px' }}
+                  onClick={() => setIsToggleOpen(!isToggleOpen)}
+                />
+              ) : (
+                <Image
+                  src={process.env.PUBLIC_URL + '/assets/icons/closeMenu.svg'}
+                  alt="toggle_close"
+                  style={{ margin: '1.5em 0', height: '24px', width: '24px' }}
+                  onClick={() => setIsToggleOpen(!isToggleOpen)}
+                />
+              )}
             </div>
           </HeaderTop>
           {isToggleOpen && (
@@ -398,7 +411,11 @@ const Header = () => {
                     <span style={{ fontSize: '20px', fontWeight: '300', color: '#BFBFBF', zIndex: '-1' }}>
                       {menu.title.toUpperCase()}
                     </span>
-                    <Image style={{ zIndex: '-1' }} src={plus} alt="open" />
+                    {subMenuOpen === menu.linkTo ? (
+                      <Image style={{ zIndex: '-1', height: '18px', width: '18px' }} src={minus} alt="minus" />
+                    ) : (
+                      <Image style={{ zIndex: '-1', height: '18px', width: '18px' }} src={plus} alt="open" />
+                    )}
                   </div>
                   <div
                     style={{
@@ -629,8 +646,18 @@ const LangButton = () => {
             gap: '0.5rem',
           }}
         >
-          <span style={{ zIndex: '-1', cursor: 'pointer', fontSize: '14px', color: '#fff' }}> • </span>
-          <span style={{ paddingTop: '0.1em', zIndex: '-1' }}>{language}</span>
+          <span
+            style={{
+              height: '4px',
+              width: '4px',
+              zIndex: '-1',
+              cursor: 'pointer',
+              fontSize: '14px',
+              borderRadius: '50%',
+              backgroundColor: '#fff',
+            }}
+          ></span>
+          <span style={{ fontWeight: '400', paddingTop: '0.1em', zIndex: '-1' }}>{language}</span>
         </div>
       </Mobile>
     </>

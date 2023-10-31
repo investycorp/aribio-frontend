@@ -71,6 +71,12 @@ const DocType = styled.span`
   font-size: 0.8rem;
   font-weight: 300;
   color: #ffffff;
+  @media screen and (max-width: 900px) {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const Publications = () => {
@@ -377,8 +383,20 @@ const Publications = () => {
                     />
                     <span style={{ fontSize: '16px', cursor: 'pointer', zIndex: '-1' }}>Read More</span>
                   </div>
-                  <div className="wrap" style={{ alignItems: 'stretch', gridTemplateColumns: '1fr 2fr' }}>
-                    <div style={{ padding: '0' }}>
+                  <div
+                    className="wrap"
+                    style={{ alignItems: 'stretch', gridTemplateColumns: '25vw 50vw', overflow: 'hidden' }}
+                  >
+                    <div
+                      style={{
+                        position: 'relative',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '0',
+                      }}
+                    >
                       {doc.type === 'CONFERENCE' ? (
                         <DocType $color={'#430016'}>Conf</DocType>
                       ) : (
@@ -406,11 +424,11 @@ const Publications = () => {
                       <Text
                         className="text"
                         $fontSize="18px"
-                        $fontWeight="300"
+                        $fontWeight="400"
                         $color="#F0F0F0"
                         style={{
                           alignItems: 'start',
-                          margin: '0.5rem 0',
+                          margin: '0.3rem 0 0.4rem 0',
                           textAlign: 'start',
                           flexWrap: 'wrap',
                           lineHeight: '22px',

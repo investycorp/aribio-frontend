@@ -151,7 +151,7 @@ const DescriptionWrap = styled.ul`
   color: ${(props) => (props.$isActive ? '#ffffff' : '#707070')};
 
   ${DescriptionItem} {
-    font-weight: ${(props) => (props.$isActive ? '600' : '100')};
+    font-weight: 200;
   }
   &:nth-child(1) {
     margin-top: 0;
@@ -354,7 +354,7 @@ const Tab1 = ({ listItems, index }) => {
                   $isActive={tabName === scrollTab ? true : false}
                   style={{
                     marginRight: '12px',
-                    padding: '8px',
+                    padding: '6px',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'stretch',
@@ -364,12 +364,11 @@ const Tab1 = ({ listItems, index }) => {
                 <div
                   style={{
                     display: 'flex',
-
                     position: 'absolute',
-                    top: '0',
-                    left: '13px',
+                    top: '-1px',
+                    left: '11px',
                     width: '2px',
-                    height: index !== tabNames.length - 1 ? '100%' : '18px',
+                    height: index !== tabNames.length - 1 ? '100%' : '10px',
                     borderRight: '2px dotted rgba(255, 255, 255, 0.5)',
                     margin: index === 0 ? '18px 0 0 0' : '0',
                   }}

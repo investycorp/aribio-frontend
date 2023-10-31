@@ -124,7 +124,7 @@ const History = () => {
       <Mobile>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
-            <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+            <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ margin: '0' }}>
               HISTORY
             </Text>
             <div
@@ -133,10 +133,10 @@ const History = () => {
                 alignSelf: 'flex-start',
                 height: '60px',
                 borderRight: '1px solid #ffffff',
-                margin: '2rem 0',
+                margin: '20px 0',
               }}
             ></div>
-            <Text $fontSize="23px" $color="#ffffff" style={{ margin: '2rem 0 0 0', fontWeight: '500' }}>
+            <Text $fontSize="23px" $color="#ffffff" style={{ margin: '0', fontWeight: '500' }}>
               {textItems[currentTab]?.title}
             </Text>
             <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '0' }}>
@@ -152,6 +152,7 @@ const History = () => {
               onClick={() => {
                 setCurrentTab(index);
               }}
+              style={{ lineHeight: '1.4em' }}
             >
               {item}
             </TabItem>

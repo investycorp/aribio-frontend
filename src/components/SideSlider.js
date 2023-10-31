@@ -26,10 +26,11 @@ const SliderContainer = styled.div`
     gap: 35px;
   }
   @media screen and (max-width: 900px) {
-    position: sticky;
+    position: fixed;
     grid-template-columns: repeat(5, 1fr);
-    top: 0;
-    left: 0;
+    top: 90vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: fit-content;
   }
 `;
@@ -67,7 +68,7 @@ const SliderImg = styled.img`
   @media screen and (max-width: 900px) {
     transform: rotate(90deg);
     left: calc(50%);
-    height: 290px;
+    height: 195px;
   }
 `;
 

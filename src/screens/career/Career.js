@@ -746,7 +746,7 @@ const Career = () => {
                       margin: '2rem 0',
                     }}
                   ></div>
-                  <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
                     Join Us at the Forefront of
                     <br />
                     Neurodegenerative Solutions
@@ -775,7 +775,7 @@ const Career = () => {
                   </Text>
                   <Text
                     $fontSize="18px"
-                    $fontWeight="300"
+                    $fontWeight="400"
                     $color="#EFEFEF"
                     style={{ padding: '0 18px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '24px' }}
                   >
@@ -863,7 +863,7 @@ const Career = () => {
               <HomeComponentWrap>
                 <Text
                   $fontSize="20px"
-                  $fontWeight="300"
+                  $fontWeight="500"
                   $color="#E5E5E5"
                   $align="start"
                   style={{
@@ -904,7 +904,7 @@ const Career = () => {
                     >
                       <Text
                         $fontSize="16px"
-                        $fontWeight="400"
+                        $fontWeight="500"
                         $color="#00A6FF"
                         $align="start"
                         style={{ width: 'fit-content', overflow: 'hidden', paddingTop: '3px' }}
@@ -940,7 +940,7 @@ const Career = () => {
                 style={{ display: 'grid', gridTemplateColumns: '1fr', alignItems: 'start' }}
               >
                 <TextWrap style={{ width: 'fit-content', marginBottom: '3rem' }}>
-                  <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start">
+                  <Text $fontSize="20px" $fontWeight="500" $color="#E5E5E5" $align="start">
                     Benefits
                   </Text>
                   <HR $height="1px" style={{ alignSelf: 'start', margin: '1rem 0', width: '40px' }} />
@@ -974,7 +974,7 @@ const Career = () => {
                         <Image src={item.img} alt="icon_work" style={{ height: '40px' }} />
                         <Text
                           $fontSize="18px"
-                          $fontWeight="300"
+                          $fontWeight="400"
                           $color="#ffffff"
                           $align="center"
                           style={{ maxWidth: '80%' }}

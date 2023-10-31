@@ -115,7 +115,7 @@ const HomeAboutUsTextWrap = styled.div`
   align-items: center;
   background-color: transparent;
   @media screen and (max-width: 900px) {
-    width: 86vw;
+    width: 90vw;
   }
 `;
 
@@ -155,10 +155,13 @@ const HeadLineText = styled.div.attrs((props) => ({
     font-size: 60px;
     //add text color changing animation here
     color: rgba(255, 255, 255, 0.5);
+    @media screen and (max-width: 1280px) {
+      font-size: 32px;
+    }
   }
 
   @media screen and (max-width: 1280px) {
-    font-size: 26px;
+    font-size: 32px;
   }
 
   @media screen and (max-width: 900px) {

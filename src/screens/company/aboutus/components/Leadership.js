@@ -146,7 +146,7 @@ const Leadership = () => {
                 </Text>
                 <Image src={item.photo} alt="leadershipphoto" style={{ width: '100%' }} />
                 <ContentBoxNameWrap style={{ padding: `${index % 2 === 0 ? ' 0 0 0 5vw' : ' 0 5vw 0 0'}` }}>
-                  <Text $fontSize="18px" $fontWeight="700" $align="start" style={{ margin: '0' }}>
+                  <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ margin: '0' }}>
                     {item.name}
                   </Text>
                   {item.isOpen ? (

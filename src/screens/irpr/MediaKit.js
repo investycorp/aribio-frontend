@@ -105,10 +105,9 @@ const MediaKit = () => {
                   }}
                 ></div>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-                  $fontWeight="400"
+                  $fontWeight="500"
                   $color="#ffffff"
-                  style={{ margin: '2rem 0 0 0' }}
+                  style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                 >
                   Explore Our Content
                 </Text>
@@ -149,6 +148,7 @@ const MediaKit = () => {
                       padding: window.innerWidth > 1280 ? '0 2rem' : '0 1.5rem',
                       borderLeft: '2px solid #B1B1B1',
                       height: window.innerWidth > 1280 ? '200px' : '121px',
+                      borderWidth: window.innerWidth > 1280 ? '2px' : '1px',
                     }}
                     onClick={() => {
                       navigate(`/irpr/mediakit/${item.id}`);
@@ -166,7 +166,11 @@ const MediaKit = () => {
                     >
                       {item.title}
                     </Text>
-                    <HR $width={window.innerWidth > 1280 ? '40px' : '25px'} style={{ marginTop: '1em' }} />
+                    <HR
+                      $width={window.innerWidth > 1280 ? '40px' : '25px'}
+                      $height={window.innerWidth > 1280 ? '2px' : '1px'}
+                      style={{ marginTop: '1em' }}
+                    />
                     <Text
                       $align="start"
                       $fontWeight="300"
@@ -237,7 +241,7 @@ const MediaKit = () => {
                   >
                     <Text
                       $align="start"
-                      $fontWeight="300"
+                      $fontWeight="400"
                       $color="#ffffff"
                       style={{ margin: '0 0 1rem 0', fontSize: '18px' }}
                     >

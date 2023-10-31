@@ -118,7 +118,7 @@ const PipeLine = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.querySelector('.container').scrollTo(0, 0);
+    document.querySelector('.container')?.scrollTo(0, 0);
     setSelectedItem(data?.[0]);
   }, []);
 
@@ -128,7 +128,7 @@ const PipeLine = () => {
 
   useEffect(() => {
     if (toggleOn) {
-      document.getElementById('toggleWrap').focus();
+      document.getElementById('toggleWrap')?.focus();
     }
   }, [toggleOn]);
 
@@ -286,8 +286,17 @@ const PipeLine = () => {
                   margin: '2rem 0',
                 }}
               ></div>
-              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                Pipeline List
+              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+                Our Path to Pioneering
+                <br />
+                Treatments for
+                <br />
+                Neurodegenerative Diseases,
+                <br />
+                Offering Innovative Therapies
+                <br />
+                for a Brighter Future
+                <br />
               </Text>
             </TextWrap>
             <div style={{ width: '100%' }} id="fadeIn">
@@ -305,7 +314,7 @@ const PipeLine = () => {
                   }}
                   style={{}}
                 >
-                  <span style={{ fontSize: '20px', fontWeight: '600', color: '#E8E8E8' }}>Drug Candidate</span>
+                  <span style={{ fontSize: '20px', fontWeight: '500', color: '#E8E8E8' }}>Drug Candidate</span>
                   <img
                     src={icon_opentoggle}
                     alt="open_toggle"
@@ -317,7 +326,7 @@ const PipeLine = () => {
                   {data?.map((item, index) => (
                     <ToggleList
                       key={'toggle' + item?.drugCandidate + index}
-                      style={{ fontSize: '18px', fontWeight: '300' }}
+                      style={{ fontSize: '18px', fontWeight: '500' }}
                       onClick={async () => {
                         await setSelectedItem(item);
                         setToggleOn(false);
@@ -331,11 +340,11 @@ const PipeLine = () => {
               </div>
 
               <ContentBoxWrap>
-                <ContentBox style={{ paddingBottom: '3rem', borderBottom: '1px solid #fff' }}>
+                <ContentBox style={{ paddingBottom: '3rem', borderBottom: '1px solid #fff', gap: '18px' }}>
                   <RowWrap style={{ padding: '0 0 0 1em' }}>
                     <span>
                       <span style={{ marginRight: '1em' }}>•</span>
-                      <span style={{ fontSize: '16px', fontWeight: '300' }}>{selectedItem?.drugCandidate}</span>
+                      <span style={{ fontSize: '16px', fontWeight: '500' }}>{selectedItem?.drugCandidate}</span>
                     </span>
 
                     <img
@@ -370,6 +379,48 @@ const PipeLine = () => {
                   <RowWrap style={{ backgroundColor: 'rgba(177,177,177,0.2)', padding: '0.5rem 1rem' }}>
                     Indication
                   </RowWrap>
+                  <ContentBox
+                    className="gridline"
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(5, 1fr)',
+                      padding: '1rem 0',
+                      margin: '30px 0 60px 0',
+                      fontSize: '13px',
+                      fontWeight: '300',
+                    }}
+                  >
+                    <RowWrap>
+                      <hr />
+                      <span>
+                        IND- <br />
+                        Enabling
+                      </span>
+                    </RowWrap>
+                    <RowWrap>
+                      <hr />
+                      <span>
+                        Phase <br />1
+                      </span>
+                    </RowWrap>
+                    <RowWrap>
+                      <hr />
+                      <span>
+                        Phase
+                        <br />2
+                      </span>
+                    </RowWrap>
+                    <RowWrap>
+                      <hr />
+                      <span>
+                        Phase <br />3
+                      </span>
+                    </RowWrap>
+                    <RowWrap>
+                      <hr />
+                      <span>Approval</span>
+                    </RowWrap>
+                  </ContentBox>
                   {selectedItem?.indication?.map((indication, index) => (
                     <ContentBox
                       key={'mobile_indication' + index}
@@ -391,41 +442,6 @@ const PipeLine = () => {
                       </span>
                     </ContentBox>
                   ))}
-                </ContentBox>
-                <ContentBox
-                  className="gridline"
-                  style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', padding: '1rem 0' }}
-                >
-                  <RowWrap>
-                    <hr />
-                    <span>
-                      IND- <br />
-                      Enabling
-                    </span>
-                  </RowWrap>
-                  <RowWrap>
-                    <hr />
-                    <span>
-                      Phase <br />1
-                    </span>
-                  </RowWrap>
-                  <RowWrap>
-                    <hr />
-                    <span>
-                      Phase
-                      <br />2
-                    </span>
-                  </RowWrap>
-                  <RowWrap>
-                    <hr />
-                    <span>
-                      Phase <br />3
-                    </span>
-                  </RowWrap>
-                  <RowWrap>
-                    <hr />
-                    <span>Approval</span>
-                  </RowWrap>
                 </ContentBox>
               </ContentBoxWrap>
             </div>

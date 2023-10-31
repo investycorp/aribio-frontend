@@ -289,8 +289,12 @@ const MemoRe = () => {
             }}
           >
             <TextWrap style={{ position: 'relative', backgroundColor: 'transparent', width: '100%' }}>
-              <Text $color="#C9C9C9" $fontSize="26px" $fontWeight="300">
-                DIGITAL HEALTH
+              <Text
+                $color="#C9C9C9"
+                $fontWeight="300"
+                style={{ fontSize: window.innerWidth > 1280 ? '26px' : '16px', margin: '0' }}
+              >
+                MEMO:RE PROJECT
               </Text>
               <div
                 style={{
@@ -298,10 +302,10 @@ const MemoRe = () => {
                   alignSelf: 'flex-start',
                   height: '60px',
                   borderRight: '1px solid #ffffff',
-                  margin: '0 0 4rem 0',
+                  margin: '2rem 0 2rem 0',
                 }}
               ></div>
-              <Text $fontSize="23px" $fontWeight="400" style={{ width: '70%', margin: '0' }}>
+              <Text $fontSize="23px" $fontWeight="400" style={{ width: '100%', margin: '0' }}>
                 Help Preserve Your
                 <br /> Loved One’s Memories
               </Text>
@@ -413,7 +417,7 @@ const MemoRe = () => {
               >
                 <Text
                   $fontSize="16px"
-                  $fontWeight="300"
+                  $fontWeight="400"
                   $color="#ffffff"
                   $align="start"
                   $clickable={true}
@@ -436,7 +440,7 @@ const MemoRe = () => {
                 </Text>
                 <Text
                   $fontSize="16px"
-                  $fontWeight="300"
+                  $fontWeight="400"
                   $color="#ffffff"
                   $align="start"
                   $clickable={true}
@@ -459,7 +463,7 @@ const MemoRe = () => {
                 </Text>
                 <Text
                   $fontSize="16px"
-                  $fontWeight="300"
+                  $fontWeight="400"
                   $color="#ffffff"
                   $align="start"
                   $clickable={true}

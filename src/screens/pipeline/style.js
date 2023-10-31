@@ -102,7 +102,7 @@ const HomeComponentWrap = styled.div.attrs((props) => ({
 `;
 
 const TextWrap = styled.div`
-  width: 80vw;
+  width: 90vw;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -295,7 +295,7 @@ const ContentBoxWrap = styled.div.attrs((props) => ({
       transition: all 0.3s ease-in-out;
     }
     &#toggleWrap.fadein {
-      opcacity: 1;
+      opacity: 1;
     }
   }
 `;
@@ -480,21 +480,22 @@ const move = (phase) => keyframes`
     -webkit-transform: ${`translateX(calc(8vw * ${phase} - 10px))`};
     opacity: 1;
   }
+  
   @media screen and (max-width: 900px) {
-  0% {
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
-    opacity: 1;
+    0% {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
+      -webkit-transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
+      opacity: 1;
+    }
   }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
-    -webkit-transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
-    opacity: 1;
-  }
-}
 `;
 
 const ToggleButton = styled.div`
@@ -519,7 +520,7 @@ const ToggleListWrap = styled.div`
   position: absolute;
   opacity: ${(props) => (props.$toggleOn ? 1 : 0)};
   display: ${(props) => (props.$toggleOn ? 'grid' : 'none')};
-  top: 8rem;
+  top: 45px;
   left: 50%;
   transform: translateX(-50%);
   grid-template-columns: 1fr;

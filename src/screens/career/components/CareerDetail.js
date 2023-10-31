@@ -28,6 +28,7 @@ const CareerDetail = () => {
     setCurrentItem({});
     if (data?.data?.success) {
       const item = data?.data?.data;
+      console.log('career', item);
       setCurrentItem({
         id: item.id,
         date: `${item.month} ${item.day}, ${item.year}`,
@@ -97,7 +98,7 @@ const CareerDetail = () => {
           >
             <span
               style={{
-                width: 'fit-content',
+                width: 'auto',
                 padding: '0 1em 0 0',
                 margin: '0.5em 0',
                 borderRight: '1px solid #727272',
@@ -110,6 +111,7 @@ const CareerDetail = () => {
             </span>
             <span
               style={{
+                width: 'auto',
                 fontSize: window.innerWidth > 1280 ? '22px' : '12px',
                 lineHeight: '1em',
                 margin: '0.5em 1em',
@@ -183,13 +185,13 @@ const CareerDetail = () => {
       <Mobile>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
-            style={{ display: 'flex', flexDirection: 'row', gap: '1rem', alignItems: 'center' }}
+            style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center' }}
             onClick={() => {
               navigate(-1);
             }}
           >
             <Image
-              style={{ zIndex: '-1', height: '2rem' }}
+              style={{ zIndex: '-1', height: '20px' }}
               src={process.env.PUBLIC_URL + '/assets/icons/circle_arrow.svg'}
               alt="go back"
             />

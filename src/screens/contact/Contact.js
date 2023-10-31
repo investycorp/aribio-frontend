@@ -170,7 +170,7 @@ const Contact = () => {
               ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-                $fontWeight="400"
+                $fontWeight="500"
                 $color="#ffffff"
                 style={{ margin: '2rem 0 0 0' }}
               >
@@ -211,17 +211,11 @@ const Contact = () => {
                   />
                   {isError && !contactInfo.firstName && (
                     <RequiredField style={{ fontWeight: '200' }}>
-                      <span
-                        style={{
-                          margin: '0 0.5rem 0 0',
-                          padding: '0 0.5em',
-                          border: '1px solid #CB305A',
-                          borderRadius: '50%',
-                          fontWeight: '200',
-                        }}
-                      >
-                        !
-                      </span>{' '}
+                      <img
+                        src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
+                        alt="warning"
+                        style={{ height: window.innerWidth > 1280 ? '20px' : '14px' }}
+                      />
                       This field is required.
                     </RequiredField>
                   )}
@@ -240,17 +234,11 @@ const Contact = () => {
                   />
                   {isError && !contactInfo.lastName && (
                     <RequiredField style={{ fontWeight: '200' }}>
-                      <span
-                        style={{
-                          margin: '0 0.5rem 0 0',
-                          padding: '0 0.5em',
-                          border: '1px solid #CB305A',
-                          borderRadius: '50%',
-                          fontWeight: '200',
-                        }}
-                      >
-                        !
-                      </span>{' '}
+                      <img
+                        src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
+                        alt="warning"
+                        style={{ height: window.innerWidth > 1280 ? '20px' : '14px' }}
+                      />
                       This field is required.
                     </RequiredField>
                   )}
@@ -269,18 +257,12 @@ const Contact = () => {
                   />
                   {isError && (!contactInfo.email || !contactInfo.email.includes('@')) && (
                     <RequiredField style={{ fontWeight: '200' }}>
-                      <span
-                        style={{
-                          margin: '0 0.5rem 0 0',
-                          padding: '0 0.5em',
-                          border: '1px solid #CB305A',
-                          borderRadius: '50%',
-                          fontWeight: '200',
-                        }}
-                      >
-                        !
-                      </span>
-                      {emailError}
+                      <img
+                        src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
+                        alt="warning"
+                        style={{ height: window.innerWidth > 1280 ? '20px' : '14px' }}
+                      />
+                      This field is required.
                     </RequiredField>
                   )}
                 </FormInputRowWrap>
@@ -320,17 +302,11 @@ const Contact = () => {
                   />
                   {isError && !contactInfo.message && (
                     <RequiredField style={{ fontWeight: '200' }}>
-                      <span
-                        style={{
-                          margin: '0 0.5rem 0 0',
-                          padding: '0 0.5em',
-                          border: '1px solid #CB305A',
-                          borderRadius: '50%',
-                          fontWeight: '200',
-                        }}
-                      >
-                        !
-                      </span>{' '}
+                      <img
+                        src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
+                        alt="warning"
+                        style={{ height: window.innerWidth > 1280 ? '20px' : '14px' }}
+                      />
                       This field is required.
                     </RequiredField>
                   )}
@@ -343,6 +319,7 @@ const Contact = () => {
                     alignItems: 'end',
                     border: 'none',
                     gap: '0.5em',
+                    fontSize: window.innerWidth > 1280 ? '23px' : '13px',
                   }}
                 >
                   <span>
@@ -352,9 +329,9 @@ const Contact = () => {
                   <Button
                     style={{
                       display: 'flex',
-                      justifyContent: 'space-between',
+                      justifyContent: 'start',
                       alignItems: 'center',
-
+                      gap: '1.3em',
                       fontSize: window.innerWidth > 1280 ? '20px' : '10px',
                     }}
                     onClick={(e) => handleSubmit(e)}
@@ -365,7 +342,7 @@ const Contact = () => {
                       style={{
                         border: '2px solid #ffffff',
                         borderRadius: '50%',
-                        padding: window.innerWidth > 1280 ? '20px' : '12px',
+                        padding: window.innerWidth > 1280 ? '20px' : '11px',
                         cursor: 'pointer',
                         backgroundColor: '#121212',
                         height: window.innerWidth > 1280 ? '14px' : '9px',
@@ -451,8 +428,9 @@ const Contact = () => {
                   margin: '0 0',
                 }}
               ></div>
-              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                We appreciate your interest in AriBio.
+              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+                We Look Forward <br />
+                To Hearing From You.
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -510,16 +488,11 @@ const Contact = () => {
                   />
                   {isError && !contactInfo.firstName && (
                     <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
-                      <span
-                        style={{
-                          margin: '0 0.5rem 0 0',
-                          padding: '0 0.5em',
-                          border: '1px solid #CB305A',
-                          borderRadius: '50%',
-                        }}
-                      >
-                        !
-                      </span>{' '}
+                      <img
+                        src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
+                        alt="warning"
+                        style={{ height: 'auto' }}
+                      />
                       This field is required.
                     </RequiredField>
                   )}
@@ -538,16 +511,11 @@ const Contact = () => {
                   />
                   {isError && !contactInfo.lastName && (
                     <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
-                      <span
-                        style={{
-                          margin: '0 0.5rem 0 0',
-                          padding: '0 0.5em',
-                          border: '1px solid #CB305A',
-                          borderRadius: '50%',
-                        }}
-                      >
-                        !
-                      </span>{' '}
+                      <img
+                        src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
+                        alt="warning"
+                        style={{ height: 'auto' }}
+                      />
                       This field is required.
                     </RequiredField>
                   )}
@@ -566,16 +534,11 @@ const Contact = () => {
                   />
                   {isError && (!contactInfo.email || !contactInfo.email.includes('@')) && (
                     <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
-                      <span
-                        style={{
-                          margin: '0 0.5rem 0 0',
-                          padding: '0 0.5em',
-                          border: '1px solid #CB305A',
-                          borderRadius: '50%',
-                        }}
-                      >
-                        !
-                      </span>
+                      <img
+                        src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
+                        alt="warning"
+                        style={{ height: 'auto' }}
+                      />
                       {emailError}
                     </RequiredField>
                   )}
@@ -616,16 +579,11 @@ const Contact = () => {
                   />
                   {isError && !contactInfo.message && (
                     <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
-                      <span
-                        style={{
-                          margin: '0 0.5rem 0 0',
-                          padding: '0 0.5em',
-                          border: '1px solid #CB305A',
-                          borderRadius: '50%',
-                        }}
-                      >
-                        !
-                      </span>{' '}
+                      <img
+                        src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
+                        alt="warning"
+                        style={{ height: 'auto' }}
+                      />
                       This field is required.
                     </RequiredField>
                   )}
@@ -642,7 +600,7 @@ const Contact = () => {
                 >
                   <span>
                     <span style={{ color: '#00A6FF' }}>* </span>
-                    <span style={{ color: '#E5E5E5' }}>is a required field. </span>
+                    <span style={{ fontSize: '14px', fontWeight: '200', color: '#E5E5E5' }}>is a required field. </span>
                   </span>
                   <Button
                     className={isSuccess ? 'submit' : ''}
@@ -665,8 +623,8 @@ const Contact = () => {
                       style={{
                         border: '1px solid #ffffff',
                         borderRadius: '50%',
-                        padding: '12px',
-                        zIndex: '-1',
+                        padding: '11.5px',
+                        zIndex: '1',
                         height: '20px',
 
                         marginRight: '1em',

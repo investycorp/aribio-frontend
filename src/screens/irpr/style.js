@@ -295,7 +295,7 @@ const RowWrap = styled.div`
     border: 1px solid #c4c4c4;
   }
   @media screen and (max-width: 1280px) {
-    height: 90px;
+    height: 89px;
   }
 
   @media screen and (max-width: 900px) {
@@ -400,8 +400,9 @@ const Button = styled.button`
   margin: 0;
   font-size: 20px;
   font-weight: 400;
-  color: ##414141;
+  color: #414141;
   cursor: pointer;
+
   img {
     height: 20px;
   }
@@ -413,6 +414,7 @@ const Button = styled.button`
     }
   }
   @media screen and (max-width: 1280px) {
+    border-width: 1px;
     width: 79px;
     height: 39px;
     span {

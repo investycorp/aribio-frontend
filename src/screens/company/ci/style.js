@@ -238,7 +238,7 @@ const ColorBar = styled.div`
     ${ColorBarTextWrap} {
       opacity: 1;
     }
-    width: 300px;
+    width: 305px;
     &:nth-child(1) {
       margin-left: 10vw;
     }

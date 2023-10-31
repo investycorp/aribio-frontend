@@ -220,6 +220,19 @@ const OpenInnovation = () => {
           </HomeComponentWrap>
         </Desktop>
         <Mobile>
+          <Image
+            style={{
+              position: 'absolute',
+              top: '45vh',
+              left: '-60vw',
+              width: '200%',
+              height: 'auto',
+              opacity: '0.5',
+              zIndex: '10',
+            }}
+            src={openinnovation_middle1}
+            alt="intro_bg"
+          />
           <HomeComponentWrap
             style={{
               backgroundColor: 'transparent',
@@ -227,31 +240,19 @@ const OpenInnovation = () => {
               overflow: 'hidden',
             }}
           >
-            <Image
-              style={{
-                position: 'absolute',
-                top: '50vh',
-                left: '0',
-                width: '100%',
-                height: 'auto',
-                opacity: '0.3',
-                zIndex: '10',
-              }}
-              src={openinnovation_middle1}
-              alt="intro_bg"
-            />
             <TextWrap style={{ width: '100%', position: 'relative', backgroundColor: 'transparent' }}>
               <Text $color="#939598" $fontSize="16px" $fontWeight="400">
                 OPEN INNOVATION
               </Text>
-              <Text $fontSize="23px" $fontWeight="600" style={{ lineHeight: '26px' }}>
+              <Text $fontSize="23px" $fontWeight="500" style={{ lineHeight: '26px' }}>
                 AriBio is dedicated to
-                <br /> driving advancements in neurodegenerative diseases.
+                <br /> driving advancements in
+                <br /> neurodegenerative diseases.
               </Text>
               <hr
                 style={{ width: '20px', borderTop: '1px solid #ffffff', borderBottom: 'none', margin: '0 0 2em 0' }}
               />
-              <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%', lineHeight: '21px' }}>
+              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%', lineHeight: '21px' }}>
                 Our foundation is the ARIDD platform,
                 <br />
                 designed for multi-mechanism drugs,

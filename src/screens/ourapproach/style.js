@@ -257,7 +257,11 @@ const ButtonWrap = styled.div`
   align-items: center;
   background-color: transparent;
   margin: 4rem 0;
-  gap: 1.5rem;
+  gap: 40px;
+  @media screen and (max-width: 1280px) {
+    margin: 2rem 0;
+    gap: 24px;
+  }
   @media screen and (max-width: 900px) {
     padding-right: 0;
     gap: 1rem;

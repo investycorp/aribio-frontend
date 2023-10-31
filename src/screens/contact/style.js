@@ -230,7 +230,7 @@ const HR = styled.div`
 const FormWrap = styled.div`
   width: 100%;
   height: fit-content;
-  padding-left: 33.5%;
+  padding-left: 33.35%;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -251,6 +251,9 @@ const Form = styled.form`
   row-gap: 3.5rem;
   overflow: hidden;
   column-gap: 0.5rem;
+  @media screen and (max-width: 900px) {
+    row-gap: 32px;
+  }
 `;
 
 const FormInputRowWrap = styled.div`
@@ -269,12 +272,19 @@ const FormInputRowWrap = styled.div`
   ${(props) =>
     props.$isFilled &&
     `
-     label {
+label {
       position: absolute;
-      top: -0.2em;
+      top: -0.1em;
       left: 0;
       font-size: 14px;
       color: #707070;
+      transition: font-size 0.2s ease-in-out;
+      @media screen and (max-width: 1280px) {
+        font-size: 8px;
+      }
+      @media screen and (max-width: 900px) {
+        font-size: 14px;
+      }
     }
   `}
   &:hover,
@@ -293,6 +303,9 @@ const FormInputRowWrap = styled.div`
         font-size: 14px;
       }
     }
+  }
+  @media screen and (max-width: 1280px) {
+    border-width: 1px;
   }
 `;
 
@@ -340,20 +353,25 @@ const Button = styled.button.attrs((props) => ({
   height: 60px;
   background-color: transparent;
   color: #ffffff;
-  border: 2px solid #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 10em;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   justify-content: center;
   align-items: center;
   outline: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: #f1f1f1;
     color: #121212;
     font-weight: 300;
+    img {
+      background-color: #121212;
+    }
   }
   @media screen and (max-width: 1280px) {
     width: 113px;
@@ -433,14 +451,22 @@ const RequiredField = styled.span`
   position: absolute;
   bottom: -2em;
   left: 0;
+  padding: 0;
   color: #cb305a;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 100;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
   gap: 0.3em;
   transition: all 0.2s ease-in-out;
+  span {
+  }
   @media screen and (max-width: 1280px) {
-    font-size: 13px;
+    font-size: 12px;
+    span {
+    }
   }
   @media screen and (max-width: 900px) {
     font-weight: 300;

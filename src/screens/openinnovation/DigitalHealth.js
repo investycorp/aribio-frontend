@@ -458,7 +458,7 @@ const DigitalHealth = () => {
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '3rem', gap: '2em', width: '100%' }}>
-            <Text $fontSize="20px" $fontWeight="300" $color="#E6E6E6" style={{ margin: '0', lineHeight: '23px' }}>
+            <Text $fontSize="20px" $fontWeight="400" $color="#E6E6E6" style={{ margin: '0', lineHeight: '23px' }}>
               Understanding the Challenge
             </Text>
             <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0', lineHeight: '21px' }}>
@@ -489,7 +489,7 @@ const DigitalHealth = () => {
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '3rem', gap: '2em', width: '100%' }}>
-            <Text $fontSize="20px" $fontWeight="300" $color="#E6E6E6" style={{ margin: '0' }}>
+            <Text $fontSize="20px" $fontWeight="400" $color="#E6E6E6" style={{ margin: '0' }}>
               The Power of Digital Health
             </Text>
             <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0', lineHeight: '21px' }}>

@@ -24,9 +24,7 @@ const PolyPharmacology = () => {
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine className="midsize" style={{ fontSize: window.innerWidth < 901 && '40px' }}>
           POLY- <br />
-          PHARMA
-          {window.innerWidth < 900 && <br />}
-          COLOGY
+          PHARMACOLOGY
         </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
@@ -171,15 +169,43 @@ const PolyPharmacology = () => {
             />
             <HR $height="1px" $width="20px" $color="#9A9A9A" />
             <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em', width: '80vw' }}>
-              At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies. With
-              the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span multiple
-              targets and mechanisms. By leveraging AI, we aim to achieve heightened drug efficacy and expand potential
-              therapeutic indications, positioning AriBio as a leader in innovative treatments for neurodegenerative
-              diseases.
+              At AriBio, our commitment to
+              <br />
+              polypharmacology is
+              <br />
+              fortified by the power of advanced
+              <br />
+              AI technologies. With the ARIDD™ platform,
+              <br />
+              we delve into vast molecular databases,
+              <br />
+              predicting interactions that span multiple
+              <br />
+              targets and mechanisms.
+              <br />
+              By leveraging AI, we aim to achieve
+              <br />
+              heightened drug efficacy and
+              <br />
+              expand potential therapeutic indications,
+              <br />
+              positioning AriBio as a leader
+              <br />
+              in innovative treatments
+              <br />
+              for neurodegenerative diseases.
               <br />
               <br />
-              Join our pursuit to advance the future of drug discovery, where AI meets the sophistication of
-              polypharmacology, to tackle the challenges posed by neurodegenerative disorders.
+              Join our pursuit to advance the future of
+              <br />
+              drug discovery, where AI meets
+              <br />
+              the sophistication of polypharmacology,
+              <br />
+              and tackle the challenges posed by
+              <br />
+              neurodegenerative disorders.
+              <br />
             </Text>
           </HomeComponentWrap>
         </div>

@@ -345,7 +345,7 @@ const AiPlatform = () => {
               </RoundButton>
             ))}
           </ButtonWrap>
-          <ComponentWrap style={{ borderTop: '2px solid #ffffff' }}>
+          <ComponentWrap style={{ borderTop: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff' }}>
             <ComponentWrap
               style={{
                 display: 'grid',
@@ -353,14 +353,14 @@ const AiPlatform = () => {
                 border: '1px solid rgba(255,255,255,0.4)',
                 borderRadius: '30px',
                 background: 'linear-gradient(to left, rgba(0,90,139,0.4), rgba(0, 26, 41, 0.4))',
-                margin: '8em 0',
+                margin: '4em 0',
                 padding: '4em 0',
                 alignItems: 'start',
               }}
             >
               <TextWrap style={{ margin: '0', padding: '0 0 0 10vw', width: '100%', alignItems: 'start' }}>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '21px' : '16px'}
+                  $fontSize={window.innerWidth > 1280 ? '28px' : '16px'}
                   $fontWeight="400"
                   $color="#ffffff"
                   style={{ width: 'fit-content', height: '-webkit-fill-available' }}
@@ -421,7 +421,7 @@ const AiPlatform = () => {
               The execution flow and interplay of these methods are illustrated below:
             </Text>
           </TextWrap>
-          <ComponentWrap style={{ padding: '0' }}>
+          <ComponentWrap style={{ padding: window.innerWidth > 1280 ? '0' : '4em' }}>
             <ComponentWrap style={{ flexDirection: 'row', paddingTop: '8em', height: '-webkit-fill-available' }}>
               <ComponentWrap
                 className="pathwaydata_wrap_top"
@@ -785,7 +785,7 @@ const AiPlatform = () => {
           <HomeComponentWrap>
             <TextWrap style={{ width: 'fit-content', marginBottom: '5em' }}>
               <HR $height="1px" $Width="20px" $color="#ffffff" style={{ width: '20px' }} />
-              <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
+              <Text $fontSize="18px" $fontWeight="500" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
                 ARIS Structure
               </Text>
               <Text
@@ -931,6 +931,7 @@ const AiPlatform = () => {
                   onClick={() => {
                     setActiveButton(index);
                   }}
+                  style={{ fontWeight: '400' }}
                 >
                   {item.title}
                 </RoundButton>
@@ -962,12 +963,7 @@ const AiPlatform = () => {
                     borderBottom: '1px solid #6E6E6E',
                   }}
                 >
-                  <Text
-                    $fontSize="18px"
-                    $fontWeight="400"
-                    $color="#ffffff"
-                    style={{ width: 'fit-content', height: 'fit-content' }}
-                  >
+                  <Text $fontWeight="400" $color="#ffffff" style={{ width: 'fit-content', height: 'fit-content' }}>
                     •{'\t'}
                     {predictions[activeButton].title}
                   </Text>

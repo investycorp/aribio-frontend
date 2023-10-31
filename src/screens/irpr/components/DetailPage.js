@@ -22,7 +22,7 @@ const DetailPage = () => {
 
   useEffect(() => {
     document.querySelector('.irpr_detailpage')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setPage(outletContext[0]);
+    setPage(outletContext[0].replace(' ', ''));
   }, []);
 
   useEffect(() => {
@@ -104,17 +104,32 @@ const DetailPage = () => {
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
-            style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', gap: '2em' }}
+            style={{
+              cursor: 'pointer',
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: window.innerWidth > 1280 ? '2em' : '1em',
+            }}
             onClick={() => {
               navigate(-1);
             }}
           >
             <Image
-              style={{ zIndex: '-1' }}
+              style={{ zIndex: '-1', height: window.innerWidth > 1280 ? '44px' : '28px' }}
               src={process.env.PUBLIC_URL + '/assets/icons/circle_arrow.svg'}
               alt="go back"
             />
-            <Text style={{ width: 'fit-content', margin: '1em 0', padding: '0', zIndex: '-1', color: '#414141' }}>
+            <Text
+              style={{
+                fontSize: window.innerWidth > 1280 ? '26px' : '15px',
+                width: 'fit-content',
+                margin: '1em 0',
+                padding: '0',
+                zIndex: '-1',
+                color: '#414141',
+              }}
+            >
               Back
             </Text>
           </span>
@@ -138,11 +153,14 @@ const DetailPage = () => {
                 margin: '0.5em 0',
                 borderRight: '1px solid #727272',
                 color: '#005684',
+                fontSize: window.innerWidth > 1280 ? '22px' : '12px',
               }}
             >
               {page}
             </span>
-            <span style={{ margin: '0.5em 1em', color: '#727272' }}>
+            <span
+              style={{ margin: '0.5em 1em', color: '#727272', fontSize: window.innerWidth > 1280 ? '22px' : '12px' }}
+            >
               <span>{currentItem?.date}</span>
             </span>
           </Text>
@@ -152,7 +170,7 @@ const DetailPage = () => {
               margin: '1em 0',
               padding: '0',
               textAlign: 'start',
-              fontSize: window.innerWidth > 1280 ? '32px' : '24px',
+              fontSize: window.innerWidth > 1280 ? '32px' : '18px',
               color: '#141414',
               fontWeight: '400',
             }}
@@ -169,7 +187,7 @@ const DetailPage = () => {
               margin: '1em 0',
               padding: '0',
               textAlign: 'start',
-              fontSize: window.innerWidth > 1280 ? '20px' : '14px',
+              fontSize: window.innerWidth > 1280 ? '20px' : '12px',
               fontWeight: '200',
               color: '#272727',
             }}
@@ -209,7 +227,7 @@ const DetailPage = () => {
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  to={`/irpr/${outletContext[0].toLowerCase()}/${prevItem.id}`}
+                  to={`/irpr/${page?.toLowerCase()}/${prevItem.id}`}
                 >
                   <Text
                     style={{
@@ -251,7 +269,7 @@ const DetailPage = () => {
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  to={`/irpr/${outletContext[0].toLowerCase()}/${nextItem.id}`}
+                  to={`/irpr/${page?.toLowerCase()}/${nextItem.id}`}
                 >
                   <Text
                     style={{
@@ -296,7 +314,11 @@ const DetailPage = () => {
                 alignItems: 'end',
               }}
             >
-              <Link className="button" style={{ textDecoration: 'none' }} to="/irpr/notice">
+              <Link
+                className="button"
+                style={{ textDecoration: 'none' }}
+                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : 'notice'}
+              >
                 <Text
                   $fontSize="20px"
                   $fontWeight="300"
@@ -334,7 +356,7 @@ const DetailPage = () => {
       <Mobile>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
-            style={{ display: 'flex', flexDirection: 'row', gap: '1rem', alignItems: 'center' }}
+            style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center' }}
             onClick={() => {
               navigate(-1);
             }}
@@ -457,7 +479,7 @@ const DetailPage = () => {
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  to={`/irpr/${outletContext[0].toLowerCase()}/${prevItem.id}`}
+                  to={`/irpr/${page?.toLowerCase()}/${prevItem.id}`}
                 >
                   <Text
                     style={{
@@ -483,7 +505,7 @@ const DetailPage = () => {
                       textAlign: 'start',
                       fontSize: '16px',
                       fontWeight: '400',
-                      color: '#141414',
+                      color: 'rgba(75,75,75,1)',
                       cursor: 'pointer',
                     }}
                   >
@@ -499,7 +521,7 @@ const DetailPage = () => {
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  to={`/irpr/${outletContext[0].toLowerCase()}/${nextItem.id}`}
+                  to={`/irpr/${page?.toLowerCase()}/${nextItem.id}`}
                 >
                   <Text
                     style={{
@@ -525,7 +547,7 @@ const DetailPage = () => {
                       textAlign: 'start',
                       fontSize: '16px',
                       fontWeight: '400',
-                      color: '#141414',
+                      color: 'rgba(75,75,75,1)',
                     }}
                   >
                     {nextItem?.title?.slice(0, 60)}...
@@ -544,7 +566,11 @@ const DetailPage = () => {
                 alignItems: 'end',
               }}
             >
-              <Link className="button" style={{ textDecoration: 'none' }} to="/irpr/notice">
+              <Link
+                className="button"
+                style={{ textDecoration: 'none' }}
+                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : 'notice'}
+              >
                 <Text
                   $fontSize="18px"
                   $fontWeight="300"
