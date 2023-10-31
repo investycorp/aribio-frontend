@@ -55,24 +55,24 @@ const DetailPage = () => {
       setNextItem({
         id:
           outletContext[0].toLowerCase() === 'notice'
-            ? item.beforeAndAfterNoticeDto.afterNoticeId
-            : item.beforeAndAfterPressReleaseDto.afterPressReleaseId,
+            ? item?.beforeAndAfterNoticeDto?.afterNoticeId
+            : item?.beforeAndAfterPressReleaseDto?.afterPressReleaseId,
 
         title:
           outletContext[0].toLowerCase() === 'notice'
-            ? item.beforeAndAfterNoticeDto.afterNoticeTitle
-            : item.beforeAndAfterPressReleaseDto.afterPressReleaseTitle,
+            ? item?.beforeAndAfterNoticeDto?.afterNoticeTitle
+            : item?.beforeAndAfterPressReleaseDto?.afterPressReleaseTitle,
       });
       setPrevItem({
         id:
           outletContext[0].toLowerCase() === 'notice'
-            ? item.beforeAndAfterNoticeDto.afterNoticeId
-            : item.beforeAndAfterPressReleaseDto.beforePressReleaseId,
+            ? item?.beforeAndAfterNoticeDto?.afterNoticeId
+            : item?.beforeAndAfterPressReleaseDto?.beforePressReleaseId,
 
         title:
           outletContext[0].toLowerCase() === 'notice'
-            ? item.beforeAndAfterNoticeDto.afterNoticeTitle
-            : item.beforeAndAfterPressReleaseDto.beforePressReleaseTitle,
+            ? item?.beforeAndAfterNoticeDto?.afterNoticeTitle
+            : item?.beforeAndAfterPressReleaseDto?.beforePressReleaseTitle,
       });
     }
   }, [data]);
