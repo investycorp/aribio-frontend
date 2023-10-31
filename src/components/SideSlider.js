@@ -22,6 +22,9 @@ const SliderContainer = styled.div`
   transition: opacity 0.2s ease-in-out;
   z-index: 20;
   gap: 60px;
+  @media screen and (max-width: 1280px) {
+    gap: 35px;
+  }
   @media screen and (max-width: 900px) {
     position: sticky;
     grid-template-columns: repeat(5, 1fr);
@@ -45,11 +48,22 @@ const Circle = styled.div`
   opacity: ${(props) => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
   z-index: 20;
+  @media screen and (max-width: 1280px) {
+    width: 30px;
+    height: 30px;
+    left: -10px;
+    top: ${(props) => (props.$isActive ? '-7px' : '-7px')};
+  }
 `;
 
 const SliderImg = styled.img`
   position: absolute;
   z-index: -1;
+
+  @media screen and (max-width: 1280px) {
+    left: 1.5px;
+    height: 215px;
+  }
   @media screen and (max-width: 900px) {
     transform: rotate(90deg);
     left: calc(50%);

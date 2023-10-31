@@ -279,12 +279,23 @@ const Notice = () => {
                                     whiteSpace: 'nowrap',
                                   }}
                                 >
-                                  {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 30)}...
+                                  {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 50)}...
                                 </div>
                               </TitleWrap>
-                              <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
+                              <div
+                                style={{
+                                  display: 'flex',
+                                  justifyContent: 'end',
+                                  padding: window.innerWidth > 1280 ? '1em 3em 1em 0' : '0',
+                                }}
+                              >
                                 <Image
-                                  style={{ padding: '1em', cursor: 'pointer', zIndex: '20' }}
+                                  style={{
+                                    padding: window.innerWidth > 1280 ? '1em 2em' : '0.5em 2em',
+                                    cursor: 'pointer',
+                                    zIndex: '20',
+                                    height: window.innerWidth > 1280 ? '44px' : '27px',
+                                  }}
                                   src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
                                   alt="icon_circlearrow_dark"
                                 />

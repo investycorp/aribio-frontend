@@ -144,10 +144,11 @@ const MediaKit = () => {
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
-                      justifyContent: 'start',
+                      justifyContent: 'center',
                       alignItems: 'start',
-                      padding: '2rem',
+                      padding: window.innerWidth > 1280 ? '0 2rem' : '0 1.5rem',
                       borderLeft: '2px solid #B1B1B1',
+                      height: window.innerWidth > 1280 ? '200px' : '121px',
                     }}
                     onClick={() => {
                       navigate(`/irpr/mediakit/${item.id}`);
@@ -165,7 +166,7 @@ const MediaKit = () => {
                     >
                       {item.title}
                     </Text>
-                    <HR $width="40px" style={{ marginTop: '1em' }} />
+                    <HR $width={window.innerWidth > 1280 ? '40px' : '25px'} style={{ marginTop: '1em' }} />
                     <Text
                       $align="start"
                       $fontWeight="300"

@@ -74,10 +74,10 @@ const AboutUs = () => {
                 style={{
                   width: window.innerWidth > 1280 ? '60px' : '40px',
                   border: '1px solid #ffffff',
-                  margin: '3.5rem 0 5rem 0',
+                  margin: '2.5rem 0 4rem 0',
                 }}
               />
-              <Text $fontSize="23px" $fontWeight="300" $color="#D3D3D3">
+              <Text $fontWeight="300" $color="#D3D3D3" style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}>
                 AriBio Co., Ltd. is a biotechnology leader focused on creating impactful therapies
                 <br />
                 for neurodegenerative diseases. Through our groundbreaking ARIDD™ platform

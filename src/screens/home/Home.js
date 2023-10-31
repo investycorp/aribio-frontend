@@ -13,8 +13,6 @@ import home_notice1 from './assets/home_notice1.png';
 import {
   Container,
   MainImgTextWrap,
-  ContainerGridLineWrap,
-  GridLineBox,
   HeadLineText,
   HomeComponentWrap,
   HomeAboutUsTextWrap,
@@ -24,6 +22,7 @@ import {
   ComponentText,
   FilterShadow,
 } from './style';
+import { ContainerGridLineWrap, GridLineBox } from '../../components/style';
 
 import useNoticeList from '../../hooks/irpr/useNoticeList';
 import Language from '../../atom/Language';
@@ -210,13 +209,27 @@ const Home = () => {
                   }}
                 >
                   <ComponentTextWrap style={{}}>
-                    <ComponentText style={{ fontSize: '60px', fontWeight: '500' }}>Expansion Phase</ComponentText>
-                    <ComponentText style={{ fontSize: '28px', fontWeight: '300', color: '#AFAFAF' }}>
+                    <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '60px' : '30px', fontWeight: '500' }}>
+                      Expansion Phase
+                    </ComponentText>
+                    <ComponentText
+                      style={{
+                        fontSize: window.innerWidth > 1280 ? '28px' : '14px',
+                        fontWeight: '300',
+                        color: '#AFAFAF',
+                      }}
+                    >
                       Clinical, engineering and regulatory experts work integrally and seamlessly for fast clinical
                       realization.
                     </ComponentText>
                   </ComponentTextWrap>
-                  <div style={{ width: '2px', height: '200px', backgroundColor: '#B1B1B1' }}></div>
+                  <div
+                    style={{
+                      width: '2px',
+                      height: window.innerWidth > 1280 ? '200px' : '100px',
+                      backgroundColor: '#B1B1B1',
+                    }}
+                  ></div>
                 </div>
               </ComponentGridWrap>
               <ComponentGridWrap>
@@ -230,10 +243,24 @@ const Home = () => {
                     height: '100%',
                   }}
                 >
-                  <div style={{ width: '2px', height: '200px', backgroundColor: '#B1B1B1' }}></div>
+                  <div
+                    style={{
+                      width: '2px',
+                      height: window.innerWidth > 1280 ? '200px' : '100px',
+                      backgroundColor: '#B1B1B1',
+                    }}
+                  ></div>
                   <ComponentTextWrap style={{}}>
-                    <ComponentText style={{ fontSize: '60px', fontWeight: '500' }}>Expansion Phase</ComponentText>
-                    <ComponentText style={{ fontSize: '28px', fontWeight: '300', color: '#AFAFAF' }}>
+                    <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '60px' : '30px', fontWeight: '500' }}>
+                      Expansion Phase
+                    </ComponentText>
+                    <ComponentText
+                      style={{
+                        fontSize: window.innerWidth > 1280 ? '28px' : '14px',
+                        fontWeight: '300',
+                        color: '#AFAFAF',
+                      }}
+                    >
                       We prioritize the clinical relevance of our robotic technologies and work diligently with our
                       partners to maximize their value through innovative and persistent clinical research
                       collaborations.
@@ -258,7 +285,9 @@ const Home = () => {
                 src={home_mediakit_video}
                 alt="home_mediakit_video"
               />
-              <ComponentText style={{ fontSize: '60px', fontWeight: '500', alignSelf: 'start' }}>
+              <ComponentText
+                style={{ fontSize: window.innerWidth > 1280 ? '60px' : '36px', fontWeight: '500', alignSelf: 'start' }}
+              >
                 Media Kit
               </ComponentText>
               <div
@@ -270,7 +299,9 @@ const Home = () => {
                   width: '100%',
                 }}
               >
-                <ComponentText style={{ fontSize: '28px', fontWeight: '300', color: '#AFAFAF' }}>
+                <ComponentText
+                  style={{ fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF' }}
+                >
                   Clinical development and Pipeline Extension
                 </ComponentText>
                 <SubPageButton linkTo="/irpr/mediakit" title="IR & PR" />
@@ -324,7 +355,7 @@ const Home = () => {
                     <HomeComponentImageWrap
                       $src={item.imageUrl}
                       style={{
-                        width: '100%',
+                        width: 'auto',
                         height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
@@ -337,9 +368,26 @@ const Home = () => {
                       }}
                     >
                       <FilterShadow />
-                      <p style={{ position: 'relative', fontSize: '22px', color: '#D1D1D1' }}>{item.date}</p>
-                      <p style={{ position: 'relative', fontSize: '26px', color: '#E5E5E5', lineHeight: '1.3em' }}>
-                        {item.title}
+                      <p
+                        style={{
+                          position: 'relative',
+                          fontWeight: '300',
+                          fontSize: window.innerWidth > 1280 ? '22px' : '12px',
+                          color: '#D1D1D1',
+                        }}
+                      >
+                        {item.date}
+                      </p>
+                      <p
+                        style={{
+                          position: 'relative',
+                          fontWeight: '400',
+                          fontSize: window.innerWidth > 1280 ? '26px' : '15px',
+                          color: '#E5E5E5',
+                          lineHeight: '1.3em',
+                        }}
+                      >
+                        {item.title.slice(0, 70) + '...'}
                       </p>
                     </HomeComponentImageWrap>
                   </ComponentGridWrap>

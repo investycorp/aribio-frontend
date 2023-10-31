@@ -257,8 +257,8 @@ const DigitalHealth = () => {
                     <ShootingStar
                       className="shooting_star"
                       style={{
-                        height: '16px',
-                        width: '16px',
+                        height: '6px',
+                        width: '6px',
                       }}
                       $phase={item.phase}
                     />

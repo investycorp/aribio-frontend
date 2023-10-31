@@ -335,8 +335,9 @@ const Button = styled.button.attrs((props) => ({
 }))`
   padding: 0 1.5em 0 0;
   margin-top: 5em;
-  width: fit-content;
-  height: fit-content;
+
+  width: 187px;
+  height: 60px;
   background-color: transparent;
   color: #ffffff;
   border: 2px solid #ffffff;
@@ -353,6 +354,10 @@ const Button = styled.button.attrs((props) => ({
     background-color: #f1f1f1;
     color: #121212;
     font-weight: 300;
+  }
+  @media screen and (max-width: 1280px) {
+    width: 113px;
+    height: 36px;
   }
 `;
 

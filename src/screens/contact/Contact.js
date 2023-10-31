@@ -350,7 +350,13 @@ const Contact = () => {
                     <span style={{ color: '#E5E5E5' }}>is a required field. </span>
                   </span>
                   <Button
-                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1em' }}
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+
+                      fontSize: window.innerWidth > 1280 ? '20px' : '10px',
+                    }}
                     onClick={(e) => handleSubmit(e)}
                   >
                     <Image
@@ -359,9 +365,10 @@ const Contact = () => {
                       style={{
                         border: '2px solid #ffffff',
                         borderRadius: '50%',
-                        padding: '0.5em',
+                        padding: window.innerWidth > 1280 ? '20px' : '12px',
                         cursor: 'pointer',
                         backgroundColor: '#121212',
+                        height: window.innerWidth > 1280 ? '14px' : '9px',
                       }}
                     />
                     SUBMIT

@@ -11,13 +11,16 @@ const TabContentWrap = styled.div`
   width: 100%;
   height: fit-content;
   display: grid;
-  grid-template-columns: 28.65vw 28.65vw 28.65vw;
+  grid-template-columns: 28.55vw 28.68vw 28.7vw;
   grid-template-rows: 1fr;
   flex-wrap: wrap;
   justify-content: start;
   align-items: left;
   background-color: transparent;
   row-gap: 5em;
+  @media screen and (max-width: 1280px) {
+    grid-template-columns: 28.6vw 28.65vw 28.7vw;
+  }
   @media screen and (max-width: 900px) {
     grid-template-columns: 1fr;
     padding-bottom: 3rem;
@@ -36,7 +39,7 @@ const ContentBox = styled.div`
   gap: 0.5em;
   padding: 0 0 0 3em;
   margin: 3em 0;
-  border-left: 1px solid #ffffff;
+  border-left: 2px solid #ffffff;
   background-color: transparent;
   &:nth-child(3n + 2) {
     margin-top: 10vh;
@@ -44,6 +47,7 @@ const ContentBox = styled.div`
 
   @media screen and (min-width: 901px) and (max-width: 1280px) {
     padding: 0 0 0 1.5rem;
+    border-left: 1px solid #ffffff;
     &:nth-child(3n + 2) {
       margin-top: 15vh;
     }
@@ -123,9 +127,10 @@ const Advisors = () => {
               </ContentBoxNameWrap>
               <hr
                 style={{
-                  width: '2em',
+                  width: window.innerWidth > 1280 ? '40px' : '25px',
                   border: '1px solid #ffffff',
-                  margin: window.innerWidth > 1280 ? '1rem 0 0 0' : '0.5rem 0 0 0',
+                  margin: window.innerWidth > 1280 ? '1.5rem 0 1rem 0' : '1rem 0 0.5rem 0',
+                  borderWeight: window.innerWidth > 1280 ? '2px' : '1px',
                 }}
               />
               <SchoolText>{item.description}</SchoolText>

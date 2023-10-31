@@ -279,7 +279,7 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
 
 const RowWrap = styled.div`
   width: 100%;
-  height: fit-content;
+  height: 147px;
   display: grid;
   grid-template-columns: 33.3% auto 15%;
   align-items: center;
@@ -287,13 +287,15 @@ const RowWrap = styled.div`
   padding: 0;
   border: ${(props) => (props.$isActive ? '1px solid #C4C4C4' : '1px solid rgba(196, 196, 196, 0.5)')};
   border-radius: 20px;
-  margin-bottom: 1em;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
     background-color: rgba(203, 203, 203, 0.2);
     border: 1px solid #c4c4c4;
+  }
+  @media screen and (max-width: 1280px) {
+    height: 90px;
   }
 
   @media screen and (max-width: 900px) {
@@ -305,7 +307,7 @@ const RowWrap = styled.div`
 `;
 
 const DateWrap = styled.div`
-  padding: 2em 3em;
+  padding: 0 3em;
   width: fit-content;
   height: fit-content;
   display: flex;
@@ -314,6 +316,11 @@ const DateWrap = styled.div`
   align-items: center;
   cursor: pointer;
   background-color: transparent;
+  gap: 0.5em;
+  @media screen and (max-width: 1280px) {
+    padding: 0 2em;
+    gap: 0.25em;
+  }
   @media screen and (max-width: 900px) {
     padding: 0;
   }
@@ -322,7 +329,7 @@ const DateWrap = styled.div`
     font-size: 26px;
     font-weight: 400;
     color: #ffffff;
-    margin-bottom: 0.5em;
+    margin-bottom: 0;
     padding: 0;
     text-align: center;
     @media screen and (max-width: 1280px) {

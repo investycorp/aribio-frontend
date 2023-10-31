@@ -194,13 +194,14 @@ const Ci = () => {
                 </ColorBarTextWrap>
               </ColorBar>
             </ContentBox>
-            <ContentBox style={{ padding: '0 7vw 0 0', gap: '2rem' }}>
+            <ContentBox style={{ padding: '0 7vw 0 0', gap: '1.5rem' }}>
               <ContentWrap>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '26px' : '17px'}
                   $fontWeight="100"
                   $color="#797979"
                   $align="start"
+                  style={{ marginTop: '0.5rem' }}
                 >
                   01
                 </Text>
@@ -209,7 +210,6 @@ const Ci = () => {
                   $fontWeight="300"
                   $color="#D5D5D5"
                   $align="start"
-                  style={{ marginTop: '0.5rem' }}
                 >
                   ‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable
                   diseases and become a biopharmaceutical leader of South Korea.

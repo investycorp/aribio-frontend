@@ -199,16 +199,28 @@ const ContentBox = styled.div`
   gap: 1rem;
   background-color: transparent;
   // border: 1px solid #ffffff;
-  @media screen and (min-width: 901px) {
+  @media screen and (min-width: 901px) and (max-width: 1280px) {
     &:nth-child(3n + 1) {
-      margin-bottom: 20vh;
+      margin-bottom: 200px;
     }
     &:nth-child(3n + 2) {
-      margin-top: 80vh;
-      margin-bottom: 7vh;
+      margin-top: 900px;
+      margin-bottom: 200px;
     }
     &:nth-child(3n) {
-      margin-top: 20vh;
+      margin-top: 200px;
+    }
+  }
+  @media screen and (min-width: 1281px) {
+    &:nth-child(3n + 1) {
+      margin-bottom: 800px;
+    }
+    &:nth-child(3n + 2) {
+      margin-top: 1300px;
+      margin-bottom: 300px;
+    }
+    &:nth-child(3n) {
+      margin-top: 300px;
     }
   }
   @media screen and (max-width: 900px) {

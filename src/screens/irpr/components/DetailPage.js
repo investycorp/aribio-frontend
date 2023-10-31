@@ -26,6 +26,7 @@ const DetailPage = () => {
   }, []);
 
   useEffect(() => {
+    console.log(data?.data);
     setCurrentItem({});
     setNextItem({});
     setPrevItem({});
@@ -52,14 +53,26 @@ const DetailPage = () => {
       //       ? item.beforeAndAfterNoticeDto.afterNoticeId
       //       : item.beforeAndAfterPressReleaseDto.afterPressReleaseId,
       setNextItem({
-        id: item?.beforeAndAfterNoticeDto.afterNoticeId,
+        id:
+          outletContext[0].toLowerCase() === 'notice'
+            ? item.beforeAndAfterNoticeDto.afterNoticeId
+            : item.beforeAndAfterPressReleaseDto.afterPressReleaseId,
 
-        title: item?.beforeAndAfterNoticeDto.afterNoticeTitle,
+        title:
+          outletContext[0].toLowerCase() === 'notice'
+            ? item.beforeAndAfterNoticeDto.afterNoticeTitle
+            : item.beforeAndAfterPressReleaseDto.afterPressReleaseTitle,
       });
       setPrevItem({
-        id: item?.beforeAndAfterNoticeDto.beforeNoticeId,
+        id:
+          outletContext[0].toLowerCase() === 'notice'
+            ? item.beforeAndAfterNoticeDto.afterNoticeId
+            : item.beforeAndAfterPressReleaseDto.beforePressReleaseId,
 
-        title: item?.beforeAndAfterNoticeDto.beforeNoticeTitle,
+        title:
+          outletContext[0].toLowerCase() === 'notice'
+            ? item.beforeAndAfterNoticeDto.afterNoticeTitle
+            : item.beforeAndAfterPressReleaseDto.beforePressReleaseTitle,
       });
     }
   }, [data]);
@@ -84,9 +97,9 @@ const DetailPage = () => {
         className="grid_bg"
         style={{ position: 'absolute', height: '100%', visibility: 'visible', opacity: '1', zIndex: '0' }}
       >
-        <GridLineBox style={{}} />
-        <GridLineBox />
-        <GridLineBox />
+        <GridLineBox style={{ borderColor: 'rgba(0, 0, 0, 0.15)' }} />
+        <GridLineBox style={{ borderColor: 'rgba(0, 0, 0, 0.15)' }} />
+        <GridLineBox style={{ borderColor: 'rgba(0, 0, 0, 0.15)' }} />
       </ContainerGridLineWrap>
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>

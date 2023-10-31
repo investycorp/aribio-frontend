@@ -232,13 +232,23 @@ const PressRelease = () => {
                     />
                   </ComponentWrap>
                 </ComponentWrap>
-                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '5em 0' }}>
+                <ComponentWrap
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '5em 0',
+                    gap: window.innerWidth > 1280 ? '28px' : '17px',
+                  }}
+                >
                   {filteredList.length > 0 ? (
                     filteredList.map((item, index) => {
                       if (index < pageNumber * itemPerPage) {
                         return (
                           <Link
-                            style={{ textDecoration: 'none', width: '100%' }}
+                            style={{
+                              textDecoration: 'none',
+                              width: '100%',
+                            }}
                             key={'noticeItem' + item.id}
                             to={`/irpr/pressrelease/${item.id}`}
                           >
@@ -258,8 +268,18 @@ const PressRelease = () => {
                               }}
                             >
                               <DateWrap>
-                                <Text className="date">{item.date}</Text>
-                                <Text className="month year">
+                                <Text
+                                  className="date"
+                                  $fontSize="500"
+                                  style={{ fontSize: window.innerWidth > 1280 ? '28px' : '17px' }}
+                                >
+                                  {item.date}
+                                </Text>
+                                <Text
+                                  className="month year"
+                                  $fontSize="300"
+                                  style={{ fontSize: window.innerWidth > 1280 ? '22px' : '13px' }}
+                                >
                                   {item.month}
                                   {`\t`}
                                   {item.year}
@@ -276,12 +296,23 @@ const PressRelease = () => {
                                     whiteSpace: 'nowrap',
                                   }}
                                 >
-                                  {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 30)}...
+                                  {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 50)}...
                                 </div>
                               </TitleWrap>
-                              <div style={{ display: 'flex', justifyContent: 'end', padding: '1em 3em 1em 0' }}>
+                              <div
+                                style={{
+                                  display: 'flex',
+                                  justifyContent: 'end',
+                                  padding: window.innerWidth > 1280 ? '1em 3em 1em 0' : '0',
+                                }}
+                              >
                                 <Image
-                                  style={{ padding: '1em', cursor: 'pointer', zIndex: '20' }}
+                                  style={{
+                                    padding: window.innerWidth > 1280 ? '1em 2em' : '0.5em 2em',
+                                    cursor: 'pointer',
+                                    zIndex: '20',
+                                    height: window.innerWidth > 1280 ? '44px' : '27px',
+                                  }}
                                   src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
                                   alt="icon_circlearrow_dark"
                                 />

@@ -20,8 +20,8 @@ const CareerDetail = () => {
   const { data, isLoading, refetch } = useCareerDetail(language, id);
 
   useEffect(() => {
-    window.scrollTo(0, window.innerHeight);
-    document.querySelector('.irpr_detailpage')?.scrollIntoView({ block: 'start' });
+    window.scrollTo(0, 0);
+    // document.querySelector('.irpr_detailpage')?.scrollIntoView({ block: 'start' });
   }, []);
 
   useEffect(() => {
@@ -61,9 +61,9 @@ const CareerDetail = () => {
         className="grid_bg"
         style={{ position: 'absolute', height: '100%', visibility: 'visible', opacity: '1', zIndex: '0' }}
       >
-        <GridLineBox />
-        <GridLineBox />
-        <GridLineBox />
+        <GridLineBox style={{ borderColor: 'rgba(0, 0, 0, 0.15)' }} />
+        <GridLineBox style={{ borderColor: 'rgba(0, 0, 0, 0.15)' }} />
+        <GridLineBox style={{ borderColor: 'rgba(0, 0, 0, 0.15)' }} />
       </ContainerGridLineWrap>
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
