@@ -95,14 +95,14 @@ const HeaderNavWrap = styled.div`
   }
 
   @media screen and (max-width: 900px) {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     align-items: start;
     justify-content: start;
     padding: 0 5vw;
     gap: 0;
-    height: fit-content;
-    max-height: 75vh;
+    height: 683px;
     overflow-y: scroll;
     z-index: 100;
     backdrop-filter: blur(200px);
@@ -366,7 +366,8 @@ const Header = () => {
                 gap: '1em',
               }}
             >
-              {isToggleOpen && <LangButton />}
+              {/* isToggleOpen && */}
+              {<LangButton />}
               {!isToggleOpen ? (
                 <Image
                   src={toggle}
@@ -384,6 +385,7 @@ const Header = () => {
               )}
             </div>
           </HeaderTop>
+
           {isToggleOpen && (
             <HeaderNavWrap className="header-navwrap" style={{ backgroundColor: '#121212' }}>
               {menuList.map((menu, index) => (
@@ -655,6 +657,7 @@ const LangButton = () => {
               fontSize: '14px',
               borderRadius: '50%',
               backgroundColor: '#fff',
+              marginTop: '1px',
             }}
           ></span>
           <span style={{ fontWeight: '400', paddingTop: '0.1em', zIndex: '-1' }}>{language}</span>

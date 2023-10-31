@@ -39,9 +39,9 @@ const AiPlatform = () => {
     {
       title: 'Docking',
       content: [
-        'Type : High Throughput, Structure-based (Ligand-Protein).',
+        'Type : High Throughput, \\n Structure-based (Ligand-Protein).',
         'Technology : Machine Learning.',
-        'Accuracy : Correlation coefficient of 0.616.',
+        'Accuracy : \\n Correlation coefficient of 0.616.',
         'Completion Time : Approximately 10 seconds per Ligand-Protein complex.',
       ],
       width: '149px',
@@ -50,7 +50,7 @@ const AiPlatform = () => {
     {
       title: 'IC50 predictor',
       content: [
-        `Description :
+        `Description : \\n
 
         A Machine Learning framework tailored to model a target protein’s IC50 activity.
         This model predicts the IC50 value for a specific Ligand-Protein complex,
@@ -64,7 +64,7 @@ const AiPlatform = () => {
       content: [
         'Type : Low Throughput, Structure-based (Ligand-Protein).',
         'Technology : Deep Learning (3D Convolutional Neural Networks).',
-        'Accuracy : Correlation coefficient of 0.827.',
+        'Accuracy : \\n Correlation coefficient of 0.827.',
         'Completion Time : Approximately 10 minutes per Ligand-Protein complex.',
       ],
       width: '352px',
@@ -72,7 +72,7 @@ const AiPlatform = () => {
     {
       title: 'DrugSim',
       content: [
-        `Description :
+        `Description : \\n
 
         A Drug Similarity Search module, which, when provided with an input molecule,
         seeks similar drugs based not only on their chemical structures but also considering their comprehensive
@@ -83,7 +83,7 @@ const AiPlatform = () => {
     {
       title: 'Ligand Hunter',
       content: [
-        `Description :
+        `Description : \\n
 
         Efficiently identifies ligands that exhibit binding to a specified protein.`,
       ],
@@ -92,7 +92,7 @@ const AiPlatform = () => {
     {
       title: 'BBB Predictor',
       content: [
-        `Description :
+        `Description : \\n
 
         Offers Blood Brain Barrier (BBB) permeability predictions, leveraging a plethora of metrics.`,
       ],
@@ -101,7 +101,7 @@ const AiPlatform = () => {
     {
       title: 'Target Hunter',
       content: [
-        `Description :
+        `Description : \\n
 
         Determines potential targets that exhibit binding to a particular ligand.`,
       ],
@@ -110,7 +110,7 @@ const AiPlatform = () => {
     {
       title: 'ARI-Net',
       content: [
-        `Description :
+        `Description : \\n
 
         This tool predicts disease-gene associations through random walks executed on our Knowledge Graph.
         It is pivotal for “Pathway Prediction”, implying its ability to forecast novel associations between genes and
@@ -121,7 +121,7 @@ const AiPlatform = () => {
     {
       title: 'ADMET Toxicity',
       content: [
-        `Description :
+        `Description : \\n
 
         Proffers predictions on how a specific compound might be metabolized and processed within the human body.`,
       ],
@@ -931,7 +931,7 @@ const AiPlatform = () => {
                   onClick={() => {
                     setActiveButton(index);
                   }}
-                  style={{ fontWeight: '400' }}
+                  style={{ fontSize: '14px', fontWeight: '400' }}
                 >
                   {item.title}
                 </RoundButton>
@@ -942,14 +942,14 @@ const AiPlatform = () => {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  justifyContent: 'start',
                   border: '1px solid rgba(255,255,255,0.4)',
                   borderRadius: '10px',
                   background: 'linear-gradient(to left, rgba(0,90,139,0.4), rgba(0, 26, 41, 0.4))',
-                  padding: '1.5rem 1.5rem',
+                  padding: '32px 32px',
                   alignItems: 'start',
-                  height: '291px',
+                  minHeight: '291px',
+                  height: 'fit-content',
                   gap: '1rem',
                 }}
               >
@@ -958,19 +958,36 @@ const AiPlatform = () => {
                     margin: '0',
                     padding: '0 0 1rem 0',
                     width: '100%',
-
+                    height: '61px',
                     alignItems: 'start',
                     borderBottom: '1px solid #6E6E6E',
                   }}
                 >
-                  <Text $fontWeight="400" $color="#ffffff" style={{ width: 'fit-content', height: 'fit-content' }}>
+                  <Text
+                    $fontWeight="500"
+                    $color="#ffffff"
+                    style={{ fontSize: '18px', width: 'fit-content', height: 'fit-content' }}
+                  >
                     •{'\t'}
                     {predictions[activeButton].title}
                   </Text>
                 </TextWrap>
                 <DescriptionWrap style={{ padding: '0', margin: '0', height: 'fit-content' }}>
                   {predictions[activeButton].content.map((item, index) => (
-                    <DescriptionItem key={item + index}>{item}</DescriptionItem>
+                    <DescriptionItem key={item + index} style={{ fontSize: '16px', fontWeight: '200' }}>
+                      {item.split('\\n').map((line) => (
+                        <span>
+                          {line.includes('Description') ? (
+                            <>
+                              {line} <br />
+                            </>
+                          ) : (
+                            line
+                          )}
+                          <br />
+                        </span>
+                      ))}
+                    </DescriptionItem>
                   ))}
                 </DescriptionWrap>
               </ComponentWrap>

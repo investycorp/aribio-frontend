@@ -66,9 +66,21 @@ const SubPageButton = ({ title, linkTo, align }) => {
             justifyContent: 'center',
             alignItems: 'center',
             cursor: 'pointer',
+            width: 'fit-content',
           }}
         >
-          <span style={{ fontSize: '18px', fontWeight: '300', marginRight: '1rem', zIndex: '-1' }}>{title}</span>
+          <span
+            style={{
+              display: 'flex',
+              minWidth: 'fit-content',
+              fontSize: '18px',
+              fontWeight: '300',
+              marginRight: '1rem',
+              zIndex: '-1',
+            }}
+          >
+            {title}
+          </span>
           <img
             src={arrow}
             alt="arrow"

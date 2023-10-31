@@ -103,7 +103,7 @@ const Video = ({ page }) => {
             style={{
               position: 'absolute',
               right: '7vw',
-              bottom: '5vw',
+              bottom: '0',
               height: window.innerWidth > 1280 ? '60px' : '36px',
             }}
           />

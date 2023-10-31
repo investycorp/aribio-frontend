@@ -309,7 +309,7 @@ const Home = () => {
             </HomeComponentWrap>
             <HomeComponentWrap
               className="home home_5"
-              style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '12vh 0' }}
+              style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '12vh 0 0 0' }}
             >
               <ComponentText
                 style={{ fontSize: window.innerWidth > 1280 ? '60px' : '36px', fontWeight: '500', alignSelf: 'start' }}
@@ -584,7 +584,8 @@ const Home = () => {
                 display: 'grid',
                 minHeight: 'fit-content',
                 justifyContent: 'space-between',
-                margin: '12vh 0',
+                paddingBottom: '8em',
+                margin: '10vh 0 0 0',
                 gap: '2rem',
               }}
             >

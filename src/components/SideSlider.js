@@ -28,7 +28,7 @@ const SliderContainer = styled.div`
   @media screen and (max-width: 900px) {
     position: fixed;
     grid-template-columns: repeat(5, 1fr);
-    top: 90vh;
+    top: 93vh;
     left: 50%;
     transform: translate(-50%, -50%);
     height: fit-content;
@@ -151,7 +151,7 @@ const SideSlider = () => {
               scrollY > document.querySelector(`.home_3`)?.offsetTop - window.innerHeight / 2
                 ? 0
                 : 1,
-            zIndex: '999',
+            zIndex: '99',
           }}
         >
           <SliderImg src={scroll_bar} alt="scroll_bar" />
