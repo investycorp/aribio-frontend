@@ -47,6 +47,16 @@ const Partner = () => {
       <Path>{`HOME > CONTACT > PARTNER`}</Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>PARTNER</HeadLine>
+        <img
+          src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
+          alt="home"
+          style={{
+            position: 'absolute',
+            right: '7vw',
+            bottom: '5vw',
+            height: window.innerWidth > 1280 ? '60px' : '36px',
+          }}
+        />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
         <ContainerGridLineWrap className="grid_bg">

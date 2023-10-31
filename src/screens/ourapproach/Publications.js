@@ -124,6 +124,16 @@ const Publications = () => {
       <Path>{`HOME > OUR APPROACH > PUBLICATIONS`}</Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine className="midsize">PUBLICATIONS</HeadLine>
+        <img
+          src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
+          alt="home"
+          style={{
+            position: 'absolute',
+            right: '7vw',
+            bottom: '5vw',
+            height: window.innerWidth > 1280 ? '60px' : '36px',
+          }}
+        />
       </HomeComponentWrap>
 
       <Desktop>

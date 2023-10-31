@@ -96,16 +96,18 @@ const Video = ({ page }) => {
             <source src={process.env.PUBLIC_URL + '/assets/videos/home/Home_1280.mp4'} type="video/mp4" />
           )}
         </video>
-        <img
-          src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
-          alt="home"
-          style={{
-            position: 'absolute',
-            right: '7vw',
-            bottom: '5vw',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
-          }}
-        />
+        {page === 'home' && (
+          <img
+            src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
+            alt="home"
+            style={{
+              position: 'absolute',
+              right: '7vw',
+              bottom: '5vw',
+              height: window.innerWidth > 1280 ? '60px' : '36px',
+            }}
+          />
+        )}
       </Desktop>
       <Mobile>
         <video

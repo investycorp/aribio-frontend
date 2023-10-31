@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { saveAs } from 'file-saver';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
 import ci_logo_png from './assets/ci_logo.png';
-import ci_cover from './assets/ci_cover.png';
 import arrow from '../../../assets/images/arrow.svg';
 
 import {
@@ -66,6 +64,16 @@ const Ci = () => {
           CORPORATE
           <br /> IDENTITY
         </HeadLine>
+        <img
+          src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
+          alt="home"
+          style={{
+            position: 'absolute',
+            right: '7vw',
+            bottom: '5vw',
+            height: window.innerWidth > 1280 ? '60px' : '36px',
+          }}
+        />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
         <ContainerGridLineWrap className="grid_bg">

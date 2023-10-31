@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
-
 import { Container, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './style';
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import Leadership from './components/Leadership';
 import Advisors from './components/Advisors';
-import aboutus_cover from './assets/aboutus_cover.png';
+
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 import Video from '../../../components/Video';
@@ -46,6 +44,16 @@ const AboutUs = () => {
         <HeadLine>
           ABOUT <br /> US
         </HeadLine>
+        <img
+          src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
+          alt="home"
+          style={{
+            position: 'absolute',
+            right: '7vw',
+            bottom: '5vw',
+            height: window.innerWidth > 1280 ? '60px' : '36px',
+          }}
+        />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
         <ContainerGridLineWrap className="grid_bg">
