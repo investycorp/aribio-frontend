@@ -87,7 +87,8 @@ const Publications = () => {
       data.data.dataList.map((item) => {
         itemList.push({
           id: item.id,
-          title: item.title,
+          // Unescape new line characters
+          title: item.title.replaceAll('\\n', '\n'),
           image: item.fileDto?.fileUrl,
           url: item.url,
           type: item.type,
@@ -196,9 +197,13 @@ const Publications = () => {
               }}
             >
               <Dot $color="#004D76" style={{ width: '14px', height: '14px' }} />
-              <span style={{ marginRight: '1rem', fontSize: '20px', color: '#E6E6E6' }}>Publication</span>
+              <span
+                style={{ marginRight: '1rem', fontSize: window.innerWidth > 1280 ? '20px' : '14px', color: '#E6E6E6' }}
+              >
+                Publication
+              </span>
               <Dot $color="#760027" style={{ width: '14px', height: '14px' }} />{' '}
-              <span style={{ fontSize: '20px', color: '#E6E6E6' }}>Conference</span>
+              <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '14px', color: '#E6E6E6' }}>Conference</span>
             </ComponentWrap>
             <ComponentWrap></ComponentWrap>
             {filteredList.length > 0 ? (
@@ -217,9 +222,18 @@ const Publications = () => {
                     <img
                       src={process.env.PUBLIC_URL + '/assets/icons/plus.svg'}
                       alt="read more"
-                      style={{ cursor: 'pointer', zIndex: '-1' }}
+                      style={{
+                        cursor: 'pointer',
+                        zIndex: '-1',
+                        width: window.innerWidth > 1280 ? '40px' : '24px',
+                        height: window.innerWidth > 1280 ? '40px' : '24px',
+                      }}
                     />
-                    <span style={{ cursor: 'pointer', zIndex: '-1' }}>Read More</span>
+                    <span
+                      style={{ cursor: 'pointer', zIndex: '-1', fontSize: window.innerWidth > 1280 ? '26px' : '15px' }}
+                    >
+                      Read More
+                    </span>
                   </div>
                   <div className="wrap" style={{ alignItems: 'stretch' }}>
                     <div style={{ padding: '1rem' }}>
@@ -233,7 +247,7 @@ const Publications = () => {
                         $align="start"
                         style={{
                           margin: '0.5rem 0',
-                          fontSize: window.innerWidth > 1280 ? '18px' : '12px',
+                          fontSize: window.innerWidth > 1280 ? '18px' : '11px',
                           alignItems: 'start',
                           color: '#CECECE',
                         }}
@@ -246,7 +260,12 @@ const Publications = () => {
                         $fontWeight="300"
                         $color="#ffffff"
                         $align="start"
-                        style={{ margin: '0.5rem 0' }}
+                        style={{
+                          margin: '0.5rem 0',
+                          fontSize: window.innerWidth > 1280 ? '26px' : '13px',
+                          whiteSpace: 'pre-wrap',
+                          alignItems: 'start',
+                        }}
                       >
                         {doc.title}
                       </Text>
@@ -261,7 +280,7 @@ const Publications = () => {
                           justifyContent: 'space-between',
                           alignItems: 'center',
                           margin: '0.5rem 0',
-                          fontSize: window.innerWidth > 1280 ? '18px' : '12px',
+                          fontSize: window.innerWidth > 1280 ? '18px' : '10px',
                         }}
                       >
                         <span>{doc.date}</span>

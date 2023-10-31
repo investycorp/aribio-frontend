@@ -125,14 +125,14 @@ const MemoRe = () => {
               src={openinnovation_memore_middle1}
               alt="openinnovation_middle2"
               style={{
-                width: '70%',
+                width: window.innerWidth > 1280 ? '70%' : '60%',
                 transition: 'opacity 0.5s ease-in-out',
               }}
             />
             <TextWrap style={{ margin: '10em 0' }}>
               <Text
                 $color="#C9C9C9"
-                $fontSize={window.innerWidth > 1280 ? '26px' : '18px'}
+                $fontSize={window.innerWidth > 1280 ? '26px' : '14px'}
                 $fontWeight="300"
                 $align="center"
               >

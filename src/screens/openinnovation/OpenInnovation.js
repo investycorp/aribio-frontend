@@ -143,7 +143,15 @@ const OpenInnovation = () => {
                 <br />
                 and deepen our understanding of these disorders.
               </Text>
-              <ContentWrap style={{ justifySelf: 'end', flexDirection: 'row', padding: '0', gap: '2em' }}>
+              <ContentWrap
+                style={{
+                  justifySelf: 'end',
+                  flexDirection: 'row',
+                  padding: '0 0 0 33%',
+                  justifyContent: 'space-between',
+                  gap: '2em',
+                }}
+              >
                 <Text
                   $fontWeight="300"
                   $color="#ffffff"
@@ -156,7 +164,7 @@ const OpenInnovation = () => {
                     justifyContent: 'space-between',
                     width: window.innerWidth > 1280 ? '260px' : '158px',
                     marginBottom: '0',
-                    borderBottom: '2px solid #ffffff',
+                    borderBottom: '1px solid #ffffff',
                     gap: '1em',
                     cursor: 'pointer',
                   }}
@@ -188,7 +196,7 @@ const OpenInnovation = () => {
                     width: window.innerWidth > 1280 ? '260px' : '158px',
                     padding: '0',
                     marginBottom: '0',
-                    borderBottom: '2px solid #ffffff',
+                    borderBottom: '1px solid #ffffff',
                     gap: '1em',
                     cursor: 'pointer',
                   }}

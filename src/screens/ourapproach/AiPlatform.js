@@ -163,7 +163,7 @@ const AiPlatform = () => {
       <Desktop>
         <HomeComponentWrap>
           <TextWrap style={{ margin: '0' }}>
-            <Text $fontSize="26px" $fontWeight="300" $color="#939598">
+            <Text $fontWeight="300" $color="#939598" style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}>
               AI PLATFORM
             </Text>
             <div
@@ -335,8 +335,10 @@ const AiPlatform = () => {
                   gap: '40px',
                   border: '1px solid rgba(255,255,255,0.6)',
                   margin: '0px 0em',
-                  height: '62px',
-                  width: item.width,
+                  width: window.innerWidth > 1280 ? item.width : '',
+                  padding: window.innerWidth > 1280 ? '1em' : '1em 1.5em',
+                  height: window.innerWidth > 1280 ? '62px' : '41px',
+                  fontSize: window.innerWidth > 1280 ? '24px' : '14px',
                 }}
               >
                 {item.title}
@@ -358,7 +360,7 @@ const AiPlatform = () => {
             >
               <TextWrap style={{ margin: '0', padding: '0 0 0 10vw', width: '100%', alignItems: 'start' }}>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '21px' : '18px'}
+                  $fontSize={window.innerWidth > 1280 ? '21px' : '16px'}
                   $fontWeight="400"
                   $color="#ffffff"
                   style={{ width: 'fit-content', height: '-webkit-fill-available' }}
@@ -369,7 +371,14 @@ const AiPlatform = () => {
               </TextWrap>
               <DescriptionWrap style={{ padding: '0 10vw 0 0' }}>
                 {predictions[activeButton].content.map((item, index) => (
-                  <DescriptionItem key={item + index} style={{ whiteSpace: 'pre-line', width: '100%' }}>
+                  <DescriptionItem
+                    key={item + index}
+                    style={{
+                      whiteSpace: 'pre-line',
+                      width: '100%',
+                      fontSize: window.innerWidth > 1280 ? '20px' : '12px',
+                    }}
+                  >
                     {item}
                   </DescriptionItem>
                 ))}
@@ -377,6 +386,7 @@ const AiPlatform = () => {
             </ComponentWrap>
           </ComponentWrap>
         </HomeComponentWrap>
+        {/* ? - Every bits inside this tag need to be changed */}
         <HomeComponentWrap>
           <TextWrap style={{ marginBottom: '10em', width: '60vw' }}>
             <HR $height="2px" $color="#ffffff" />

@@ -146,11 +146,16 @@ const DigitalHealth = () => {
             </Text>
             <hr style={{ width: '60px', border: '2px solid #C9C9C9', margin: '3.5rem 0 5rem 0' }} />
             <Text style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }} $fontWeight="300" $color="#C9C9C9">
-              In today’s rapidly evolving world, it is necessary to turn to innovative digital health <br />
-              technologies to address the most pressing healthcare challenge of our time – dementia. <br />
-              Our team is on a mission to leverage the power of these digital tools.
+              In today’s rapidly evolving world, where technology continues to reshape our lives,
               <br />
-              We aim to advance the early detection and intervention of dementia, <br />
+              it’s only fitting that we turn to innovative digital health technologies to address
+              <br />
+              one of the most pressing healthcare challenges of our time – dementia.
+              <br />
+              Our dedicated digital health team is on a mission to leverage the power of these digital tools to advance
+              <br />
+              the early detection and intervention of dementia,
+              <br />
               ultimately improving the lives of those affected by this devastating condition.
             </Text>
           </TextWrap>
@@ -251,6 +256,7 @@ const DigitalHealth = () => {
                 <TableContentBox style={{ fontSize: window.innerWidth > 1280 ? '24px' : '13px', fontWeight: '300' }}>
                   {item.region}
                 </TableContentBox>
+                {/* 아래 박스 내 가로선을 꽉 차게 하면 phase 표시 원이 어긋남 */}
                 <TableContentBox>
                   <ShootingStarWrap className="shooting_star_wrap">
                     <hr style={{ width: '100%', opacity: '0.4' }} />
@@ -369,7 +375,7 @@ const DigitalHealth = () => {
                 justifyContent: 'space-between',
                 width: window.innerWidth > 1280 ? '260px' : '158px',
                 paddingBottom: '0.7em',
-                borderBottom: '2px solid #ffffff',
+                borderBottom: '1px solid #ffffff',
                 gap: '1em',
                 margin: '0',
                 cursor: 'pointer',
