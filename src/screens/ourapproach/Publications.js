@@ -222,7 +222,9 @@ const Publications = () => {
                   <div
                     className="readmore"
                     onClick={() => {
-                      document.location.href = `//${doc.url}`;
+                      setTimeout(() => {
+                        doc.url && window.open(`${doc.url}`, '_blank');
+                      }, 10);
                     }}
                   >
                     <img
@@ -273,7 +275,8 @@ const Publications = () => {
                           alignItems: 'start',
                         }}
                       >
-                        {doc.title}
+                        {doc.title.slice(0, 85)}
+                        {doc.title.length > 85 && '...'}
                       </Text>
                       <Text
                         className="text"
@@ -373,7 +376,9 @@ const Publications = () => {
                   <div
                     className="readmore"
                     onClick={() => {
-                      document.location.href = `//${doc.url}`;
+                      setTimeout(() => {
+                        doc.url && window.open(`${doc.url}`, '_blank');
+                      }, 10);
                     }}
                   >
                     <img
@@ -434,7 +439,8 @@ const Publications = () => {
                           lineHeight: '22px',
                         }}
                       >
-                        {doc.title.slice(0, 50)}..
+                        {doc.title.slice(0, 50)}
+                        {doc.title.length > 50 && '...'}
                       </Text>
                       <Text
                         className="text"

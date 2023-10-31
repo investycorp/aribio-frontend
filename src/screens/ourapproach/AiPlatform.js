@@ -379,7 +379,7 @@ const AiPlatform = () => {
                       fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                     }}
                   >
-                    {item}
+                    {item.replace(/\\n/g, '')}
                   </DescriptionItem>
                 ))}
               </DescriptionWrap>

@@ -336,7 +336,7 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
 const GridComponentWrap = styled.div.attrs((props) => ({ className: props.className }))`
   margin: 3em 0;
   width: 100%;
-  height: 'fit-content';
+  height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: start;
@@ -372,8 +372,11 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
 
   ${ComponentWrap}.irdoc {
     position: relative;
+    height: 330px;
+
     align-items: center;
     padding: 0;
+
     border: 1px solid #707070;
     border-radius: 20px;
     padding: 2rem 1rem;
@@ -383,7 +386,7 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
       border-radius: 20px;
       top: 0;
       left: 0;
-      height: -webkit-fill-available;
+      height: 100%;
       display: none;
       flex-direction: column;
       gap: 1rem;
@@ -441,6 +444,9 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
       }
       div {
       }
+    }
+    @media (max-width: 1280px) {
+      height: 200px;
     }
 
     @media (max-width: 900px) {

@@ -211,7 +211,9 @@ const DetailPage = () => {
             <Image style={{ zIndex: '-1' }} src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'} alt="print" />
           </Button>
         </div>
-        <HomeComponentWrap style={{ padding: '3rem 0 0 0', borderTop: '2px solid #B5B5B5', marginTop: '3rem' }}>
+        <HomeComponentWrap
+          style={{ height: 'fit-content', padding: '3rem 0 0 0', borderTop: '2px solid #B5B5B5', marginTop: '3rem' }}
+        >
           <ComponentWrap
             style={{
               display: 'grid',
@@ -220,10 +222,11 @@ const DetailPage = () => {
               justifyContent: 'center',
               alignItems: 'center',
               width: '100%',
+              height: 'fit-content',
             }}
           >
             {prevItem.id ? (
-              <div>
+              <div style={{ height: 'fit-content' }}>
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
@@ -265,7 +268,7 @@ const DetailPage = () => {
               <div></div>
             )}
             {nextItem.id ? (
-              <div>
+              <div style={{ height: 'fit-content' }}>
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
@@ -307,7 +310,7 @@ const DetailPage = () => {
             )}
             <div
               style={{
-                height: '100%',
+                height: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'end',
@@ -475,7 +478,7 @@ const DetailPage = () => {
             }}
           >
             {prevItem.id ? (
-              <div>
+              <div style={{ height: 'fit-content' }}>
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
@@ -517,7 +520,7 @@ const DetailPage = () => {
               <div></div>
             )}
             {nextItem.id ? (
-              <div>
+              <div style={{ height: 'fit-content' }}>
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
