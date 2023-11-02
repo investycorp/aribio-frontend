@@ -72,7 +72,7 @@ const Video = ({ page }) => {
         width: '100vw',
         height: '100vh',
         backgroundColor: '#121212',
-        zIndex: '10',
+        zIndex: page === 'home' ? '90' : '10',
         overflow: 'hidden',
         transition: 'all 0.5s ease-in-out',
         display: 'flex',

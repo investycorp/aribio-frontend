@@ -283,7 +283,7 @@ const OpenInnovation = () => {
             <Image
               src={openinnovation_middle2}
               alt="openinnovation_middle2"
-              style={{ width: '66%', marginTop: '5em', alignSelf: 'start' }}
+              style={{ width: '65vw', marginTop: '5em', alignSelf: 'start' }}
             />
             <TextWrap
               style={{
@@ -334,7 +334,15 @@ const OpenInnovation = () => {
                 <br />
                 understanding of these disorders.
               </Text>
-              <ContentWrap style={{ justifySelf: 'end', flexDirection: 'column', padding: '0 0 10em 33%' }}>
+              <ContentWrap
+                style={{
+                  display: 'flex',
+                  justifySelf: 'end',
+                  alignItems: 'end',
+                  flexDirection: 'column',
+                  padding: '0 0 10em 33%',
+                }}
+              >
                 <Text
                   $fontSize="20px"
                   $fontWeight="300"

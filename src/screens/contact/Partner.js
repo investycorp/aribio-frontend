@@ -217,13 +217,13 @@ const Partner = () => {
               </ContentBox>
             ))}
           </HomeComponentWrap>
-          <HomeComponentWrap style={{ padding: '0 7vw 20vh 7vw' }}>
+          <HomeComponentWrap style={{ padding: '0 5vw 20vh 5vw' }}>
             <ContentBox
               style={{
                 display: 'flex',
                 width: '100%',
                 justifyContent: 'center',
-                alignItems: 'start',
+                alignItems: 'end',
                 paddingLeft: '33%',
                 columnGap: '2em',
                 rowGap: '4em',

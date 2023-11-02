@@ -87,7 +87,7 @@ const MediaKit = () => {
         </ContainerGridLineWrap>
         <>
           <Desktop>
-            <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+            <HomeComponentWrap style={{ padding: '15vh 7vw 5vh 7vw' }}>
               <TextWrap style={{ width: '70vw' }}>
                 <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="500" $color="#939598">
                   MEDIA
@@ -132,7 +132,7 @@ const MediaKit = () => {
                   alignItems: 'center',
                   padding: '0',
                   margin: '10vh 0',
-                  rowGap: '2rem',
+                  rowGap: '5rem',
                 }}
               >
                 {itemsList.map((item, index) => (

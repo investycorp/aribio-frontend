@@ -407,12 +407,14 @@ const MemoRe = () => {
             >
               <ContentWrap
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr',
+                  display: 'flex',
+                  flexDirection: 'column',
                   padding: '0',
                   columnGap: '2em',
                   rowGap: '1em',
                   paddingLeft: '33%',
+                  justifyContent: 'center',
+                  alignItems: 'end',
                 }}
               >
                 <Text

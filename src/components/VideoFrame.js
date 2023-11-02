@@ -29,30 +29,26 @@ const VideoFrameWrap = styled.div`
 `;
 
 const VideoFrame = ({ src }) => {
-  const [source, setSource] = useState('');
   const [videoId, setVideoId] = useState('');
   const videoRef = useRef();
 
   useEffect(() => {
     if (src) {
+      window.scrollTo(0, window.innerHeight * 1.2);
       setVideoId('');
       if (src.includes('youtube.com')) setVideoId(src?.split('watch?v=')[1]?.split('&')[0]);
       videoRef.current?.load();
     }
-
-    !src || (src === '' && setSource(process.env.PUBLIC_URL + '/assets/videos/home/Home_Media_AR1001_script.mp4'));
   }, [src]);
 
   return (
     <>
       {videoId ? (
-        <VideoFrameWrap>
+        <VideoFrameWrap id="focus">
           <iframe
             width="853"
             height="480"
-            scrolling="no"
             src={`https://www.youtube.com/embed/${videoId}?modestbranding=0&rel=0`}
-            frameBorder="0"
             allow=" clipboard-write; encrypted-media;  picture-in-picture"
             allowFullScreen
             title="Embedded youtube"
@@ -71,10 +67,7 @@ const VideoFrame = ({ src }) => {
               height: window.innerWidth > 1280 ? '726px' : window.innerWidth > 900 ? '484px' : '202px',
             }}
           >
-            <source
-              src={src?.length > 0 ? src : process.env.PUBLIC_URL + '/assets/videos/home/Home_Media_AR1001_script.mp4'}
-              type="video/mp4"
-            />
+            <source src={src} type="video/mp4" />
           </video>
         </div>
       )}

@@ -60,7 +60,7 @@ const Circle = styled.div`
     width: 16px;
     height: 16px;
     left: -6px;
-    top: ${(props) => (props.$isActive ? '3.5px' : '3.5px')};
+    top: ${(props) => (props.$isActive ? '4px' : '4px')};
   }
 `;
 
@@ -166,7 +166,7 @@ const SideSlider = () => {
               scrollY > document.querySelector(`.home_3`)?.offsetTop - window.innerHeight / 2
                 ? 0
                 : 1,
-            zIndex: '99',
+            zIndex: '50',
           }}
         >
           {offsetHeights?.map((location, index) => (
