@@ -80,6 +80,24 @@ const PipeLine = () => {
 
   useEffect(() => {
     //animation starts on scroll event
+    const scrollXElement = document.getElementById('scrollX');
+    if (window.innerWidth < 900) {
+      if (scrollXElement) {
+        scrollXElement.addEventListener('scroll', () => {
+          const scrollPosition = scrollXElement.scrollLeft;
+          const scrollWidth = scrollXElement.scrollWidth;
+          const elementWidth = scrollXElement.offsetWidth;
+          const scrollThreshold = (scrollWidth - elementWidth) / 2; // 50vw in pixels
+
+          if (scrollPosition >= scrollThreshold) {
+            scrollXElement.classList.add('animation');
+          } else {
+            scrollXElement.classList.remove('animation');
+          }
+        });
+      }
+    }
+
     window.addEventListener('scroll', () => {
       //add fadeIn animation
       let fadeIn = document.querySelector('#fadeIn');
@@ -90,29 +108,33 @@ const PipeLine = () => {
         fadeIn?.classList.remove('fadeIn');
       }
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          //add animation class if intersecting
-          const squares = entry.target.querySelectorAll('.shooting_star');
-          if (entry.isIntersecting) {
-            for (const square of squares) {
-              square?.classList.add('animate');
+      if (window.innerWidth > 900) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            //add animation class if intersecting
+            const squares = entry.target.querySelectorAll('.shooting_star');
+            if (entry.isIntersecting) {
+              for (const square of squares) {
+                square?.classList.add('animate');
+              }
+              return; // if we added the class, exit the function
             }
-            return; // if we added the class, exit the function
-          }
 
-          // We're not intersecting, so remove the class!
-          for (const square of squares) {
-            square?.classList.remove('animate');
-          }
+            // We're not intersecting, so remove the class!
+            for (const square of squares) {
+              square?.classList.remove('animate');
+            }
+          });
         });
-      });
-      if (document.querySelector('.table')) observer.observe(document.querySelector('.table'));
+
+        if (document.querySelector('.table')) observer.observe(document.querySelector('.table'));
+      }
     });
     return () => {
       window.removeEventListener('scroll', () => {
         console.log('done');
       });
+      scrollXElement?.removeEventListener('scroll', () => {});
     };
   }, []);
 
@@ -237,16 +259,24 @@ const PipeLine = () => {
                   <TableContentBox>{item.target}</TableContentBox>
                   <TableContentBox>{item.modality}</TableContentBox>
                   <TableContentBox className="indication" style={{ padding: '0' }}>
-                    {item?.indication.map((indication, index) => (
+                    {item?.indication.map((indication_item, index) => (
                       <div key={'indication' + index}>
-                        <div className="section" key={indication?.section + index}>
-                          {indication?.section}
+                        <div
+                          className="section"
+                          key={indication_item?.section + index}
+                          style={{ borderBottom: item?.indication.length - 1 === index && 'none' }}
+                        >
+                          {indication_item?.section}
                         </div>
-                        <div className="phase" key={'phase' + index}>
+                        <div
+                          className="phase"
+                          key={'phase' + index}
+                          style={{ borderBottom: item?.indication.length - 1 === index && 'none' }}
+                        >
                           <span>
                             <ShootingStarWrap className="shooting_star_wrap">
-                              <hr style={{ width: '100%', opacity: '0.4' }} />
-                              <ShootingStar className="shooting_star" $phase={indication?.phase} />
+                              <hr style={{ width: '100%', opacity: '0.4', border: 'dotted 1px' }} />
+                              <ShootingStar className="shooting_star" $phase={indication_item?.phase} />
                             </ShootingStarWrap>
                           </span>
                           <span></span>
@@ -326,7 +356,7 @@ const PipeLine = () => {
                   {data?.map((item, index) => (
                     <ToggleList
                       key={'toggle' + item?.drugCandidate + index}
-                      style={{ fontSize: '18px', fontWeight: '500' }}
+                      style={{ fontSize: '18px' }}
                       onClick={async () => {
                         await setSelectedItem(item);
                         setToggleOn(false);
@@ -340,7 +370,7 @@ const PipeLine = () => {
               </div>
 
               <ContentBoxWrap>
-                <ContentBox style={{ paddingBottom: '3rem', borderBottom: '1px solid #fff', gap: '18px' }}>
+                <ContentBox style={{ padding: '28px 0.5em', borderBottom: '1px solid #fff', gap: '18px' }}>
                   <RowWrap style={{ padding: '0 0 0 1em' }}>
                     <span>
                       <span style={{ marginRight: '1em' }}>•</span>
@@ -385,7 +415,7 @@ const PipeLine = () => {
                       display: 'grid',
                       gridTemplateColumns: 'repeat(5, 1fr)',
                       padding: '1rem 0',
-                      margin: '30px 0 60px 0',
+                      margin: '0 0 60px 0',
                       fontSize: '13px',
                       fontWeight: '300',
                     }}
@@ -423,13 +453,14 @@ const PipeLine = () => {
                   </ContentBox>
                   {selectedItem?.indication?.map((indication, index) => (
                     <ContentBox
+                      id="scrollX"
                       key={'mobile_indication' + index}
                       style={{ padding: '0', fontWeight: '100', gap: '0.5rem', alignItems: 'stretch' }}
                     >
                       <span>{indication?.section}</span>
                       <span style={{ width: '100%' }}>
                         <ShootingStarWrap className="shooting_star_wrap">
-                          <hr style={{ width: '100%', opacity: '0.4', borderTop: '1px dotted' }} />
+                          <hr style={{ width: '100%', opacity: '0.4', border: '1px dotted' }} />
                           <ShootingStar
                             className="shooting_star"
                             style={{

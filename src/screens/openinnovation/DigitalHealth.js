@@ -257,9 +257,9 @@ const DigitalHealth = () => {
                   {item.region}
                 </TableContentBox>
                 {/* 아래 박스 내 가로선을 꽉 차게 하면 phase 표시 원이 어긋남 */}
-                <TableContentBox>
+                <TableContentBox style={{ padding: '0' }}>
                   <ShootingStarWrap className="shooting_star_wrap">
-                    <hr style={{ width: '100%', opacity: '0.4' }} />
+                    <hr style={{ width: '100%', border: '1px dotted', opacity: '0.4' }} />
                     <ShootingStar
                       className="shooting_star"
                       style={{
@@ -524,7 +524,7 @@ const DigitalHealth = () => {
             <Image
               src={process.env.PUBLIC_URL + '/assets/images/openinnovation_digital1.png'}
               alt="openinnovation_mobile_middle1"
-              style={{ width: '-webkit-fill-available', padding: '2em 0' }}
+              style={{ width: '90vw', padding: '2em 0', filter: 'brightness(80%)' }}
             />
           </ContentWrap>
         </HomeComponentWrap>
@@ -540,7 +540,7 @@ const DigitalHealth = () => {
           <div id="horizontal" style={{ overflowX: 'scroll', width: '100vw', paddingLeft: '5vw' }}>
             <TableWrap
               className="table"
-              style={{ width: 'fit-content', alignSelf: 'start', margin: '4em 0 0 0', padding: '0' }}
+              style={{ width: 'fit-content', alignSelf: 'start', margin: '4em 5vw 0 0', padding: '0' }}
             >
               <TableRowWrap className="th">
                 {tableHeader.map((item, index) => (
@@ -560,9 +560,9 @@ const DigitalHealth = () => {
                   <TableContentBox style={{ fontSize: '15px', fontWeight: '300', color: '#F4F4F4' }}>
                     {item.region}
                   </TableContentBox>
-                  <TableContentBox>
+                  <TableContentBox style={{ padding: 0 }}>
                     <ShootingStarWrap className="shooting_star_wrap">
-                      <hr style={{ width: '100%', opacity: '0.4' }} />
+                      <hr style={{ width: '100%', opacity: '0.4', border: '1px dotted' }} />
                       <ShootingStar className="shooting_star" $phase={item.phase} />
                     </ShootingStarWrap>
                   </TableContentBox>

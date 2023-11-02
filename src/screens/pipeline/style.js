@@ -173,8 +173,8 @@ const TableRowWrap = styled.div.attrs((props) => ({
   width: 100%;
   height: fit-content;
   display: grid;
-  grid-template-columns: 8vw 12vw 8vw 17vw 8vw 8vw 8vw 8vw 8vw;
-  column-gap: 1px;
+  grid-template-columns: 8vw 12vw 8vw 18vw repeat(5, 8vw);
+  column-gap: 0;
   justify-content: center;
   align-items: stretch;
   background-color: transparent;
@@ -185,7 +185,7 @@ const TableRowWrap = styled.div.attrs((props) => ({
     font-weight: 300;
   }
   &.tr {
-    grid-template-columns: 8vw 12vw 8vw 57vw;
+    grid-template-columns: 8vw 12vw 8vw 58vw;
   }
   &:last-child {
     border-bottom: none;
@@ -226,7 +226,7 @@ const TableContentBox = styled.div.attrs((props) => ({
     align-items: stretch;
     div {
       display: grid;
-      grid-template-columns: 17vw 40vw;
+      grid-template-columns: 18vw 40vw;
       width: 100%;
       height: auto;
       justify-content: center;
@@ -252,6 +252,7 @@ const TableContentBox = styled.div.attrs((props) => ({
         height: auto;
         max-height: 10vh;
         border-bottom: 2px solid rgba(177, 177, 177, 0.3);
+
         span {
           border-right: 1px solid rgba(177, 177, 177, 0.3);
           &:last-child {
@@ -520,15 +521,15 @@ const ToggleListWrap = styled.div`
   position: absolute;
   opacity: ${(props) => (props.$toggleOn ? 1 : 0)};
   display: ${(props) => (props.$toggleOn ? 'grid' : 'none')};
-  top: 45px;
+  top: 55px;
   left: 50%;
   transform: translateX(-50%);
   grid-template-columns: 1fr;
-  width: 84vw;
+  width: 90vw;
   height: fit-content;
   max-height: 50vw;
   overflow-y: scroll;
-  background-color: transparent;
+  background-color: rgba(177, 177, 177, 0.3);
   padding: 0.5rem 0;
   margin: 0;
   border: 1px solid #fff;
@@ -549,13 +550,13 @@ const ToggleList = styled.div`
   text-align: left;
   font-size: 18px;
   color: #e8e8e8;
-  font-weight: 100;
+  font-weight: 300;
   padding: 0.5rem 1em;
   &:hover,
   &:active,
   &:focus {
     background-color: rgba(255, 255, 255, 0.2);
-    font-weight: 300;
+    font-weight: 500;
   }
   transition: all 0.3s ease-in-out;
 `;

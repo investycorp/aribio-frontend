@@ -39,6 +39,8 @@ const ModalContentWrap = styled.div`
   @media (max-width: 900px) {
     width: 90vw;
     padding: 24px;
+    border: 1px solid #707070;
+    border-radius: 10px;
   }
 `;
 

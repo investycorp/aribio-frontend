@@ -26,8 +26,7 @@ const SearchInput = styled.input`
   font-weight: 300;
   margin: 0.3em 0;
   opacity: 0.5;
-  &:focus,
-  &:active,
+
   &:hover {
     opacity: 1;
   }

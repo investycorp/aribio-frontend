@@ -34,6 +34,7 @@ function App() {
   document.addEventListener('contextmenu', (event) => {
     event.preventDefault();
   });
+
   useEffect(() => {
     window.scrollTo(0, 0);
     window.addEventListener('scroll', () => {

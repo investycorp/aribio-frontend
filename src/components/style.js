@@ -56,7 +56,7 @@ const GridLineBox = styled.div`
   }
 
   @media screen and (max-width: 900px) {
-    border-right: 2px solid rgba(177, 177, 177, 0.3);
+    border-width: 1px;
   }
 `;
 

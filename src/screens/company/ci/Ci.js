@@ -368,7 +368,7 @@ const Ci = () => {
               <ColorBar $color1="rgba(102,24,50,0.9)" $color2="rgba(203,48,99,0.9)">
                 <ColorBarTextWrap>
                   <Text $fontSize="14px" $fontWeight="300" $color="#F2F2F2" $align="start">
-                    AriBio Red
+                    AriBio Pink
                   </Text>
                   <Text $fontSize="14px" $fontWeight="100" $color="#D3D3D3" $align="start">
                     #CB3063

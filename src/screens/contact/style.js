@@ -311,7 +311,7 @@ label {
 
 const Input = styled.input`
   width: 90%;
-  height: 2.5rem;
+  height: 2em;
   background-color: transparent;
   color: #ffffff;
   border: none;

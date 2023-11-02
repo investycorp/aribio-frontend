@@ -945,7 +945,7 @@ const Career = () => {
                   </Text>
                   <HR $height="1px" style={{ alignSelf: 'start', margin: '1rem 0', width: '40px' }} />
                 </TextWrap>
-                <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '5vh' }}>
+                <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '80px' }}>
                   {benefits.map((item, index) => (
                     <ContentBox
                       id="benefits"
@@ -955,7 +955,7 @@ const Career = () => {
                         display: 'grid',
                         gridTemplateColumns: '1fr 2fr',
                         justifyContent: 'center',
-                        alignItems: 'center',
+                        alignItems: 'stretch',
                         columnGap: '0',
                         rowGap: '2rem',
                       }}
@@ -1099,30 +1099,48 @@ const Career = () => {
                             >
                               {item.location}-
                             </Text>
-                            <Text
-                              $fontSize="18px"
-                              $fontWeight="400"
-                              $color="#E3E3E3"
-                              $align="start"
-                              style={{ zIndex: '-1', whiteSpace: 'nowrap', overflow: 'hidden', width: '80vw' }}
+                            <div
+                              style={{
+                                height: 'fit-content',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'end',
+                                justifyContent: 'space-between',
+                                gap: '0.5em',
+                                width: '100%',
+                              }}
                             >
-                              {item.title.slice(0, 30)}
-                              {item.title.length > 30 && '..'}
-                            </Text>
+                              <Text
+                                $fontSize="18px"
+                                $fontWeight="400"
+                                $color="#E3E3E3"
+                                $align="start"
+                                style={{
+                                  zIndex: '-1',
+                                  whiteSpace: 'nowrap',
+                                  overflow: 'hidden',
+                                  width: '100%',
+                                  lineHeight: '1em',
+                                }}
+                              >
+                                {item.title.slice(0, 30)}
+                                {item.title.length > 30 && '..'}
+                              </Text>
+                              <Image
+                                src={arrow}
+                                alt="arrow"
+                                style={{
+                                  border: '1px solid #ffffff',
+                                  borderRadius: '50%',
+                                  width: '10px',
+                                  padding: '5px',
+                                  alignSelf: 'end',
+                                  margin: '0',
+                                  zIndex: '-1',
+                                }}
+                              />
+                            </div>
                           </TextWrap>
-                          <Image
-                            src={arrow}
-                            alt="arrow"
-                            style={{
-                              border: '1px solid #ffffff',
-                              borderRadius: '50%',
-                              width: '10px',
-                              padding: '5px',
-                              alignSelf: 'end',
-                              margin: '1.5em 1em 1.5em 0',
-                              zIndex: '-1',
-                            }}
-                          />
                         </Button>
                       </ContentBox>
                     ))}

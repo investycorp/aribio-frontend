@@ -41,7 +41,7 @@ const DetailPage = () => {
             <br />
           </span>
         )),
-        image: item.image,
+        image: item.fileDto?.fileUrl,
         content: item?.contents?.split('\\n')?.map((line, index) => (
           <span key={'content line' + index}>
             {line}
@@ -97,9 +97,9 @@ const DetailPage = () => {
         className="grid_bg"
         style={{ position: 'absolute', height: '100%', visibility: 'visible', opacity: '1', zIndex: '0' }}
       >
-        <GridLineBox style={{ borderColor: 'rgba(0, 0, 0, 0.15)' }} />
-        <GridLineBox style={{ borderColor: 'rgba(0, 0, 0, 0.15)' }} />
-        <GridLineBox style={{ borderColor: 'rgba(0, 0, 0, 0.15)' }} />
+        <GridLineBox style={{ borderColor: 'rgba(177, 177, 177, 0.4)' }} />
+        <GridLineBox style={{ borderColor: 'rgba(177, 177, 177, 0.4)' }} />
+        <GridLineBox style={{ borderColor: 'rgba(177, 177, 177, 0.4)' }} />
       </ContainerGridLineWrap>
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
@@ -467,7 +467,9 @@ const DetailPage = () => {
             />
           </Button>
         </div>
-        <HomeComponentWrap style={{ padding: '0', borderTop: '1px solid #B5B5B5', marginTop: '2em' }}>
+        <HomeComponentWrap
+          style={{ padding: '0', borderTop: '1px solid #B5B5B5', marginTop: '2em', height: 'fit-content' }}
+        >
           <ComponentWrap
             style={{
               display: 'grid',
@@ -478,7 +480,7 @@ const DetailPage = () => {
             }}
           >
             {prevItem.id ? (
-              <div style={{ height: 'fit-content' }}>
+              <div style={{ height: '200px' }}>
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
@@ -520,7 +522,7 @@ const DetailPage = () => {
               <div></div>
             )}
             {nextItem.id ? (
-              <div style={{ height: 'fit-content' }}>
+              <div style={{ height: '200px' }}>
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
@@ -562,7 +564,7 @@ const DetailPage = () => {
             )}
             <div
               style={{
-                height: '100%',
+                height: '200px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'end',

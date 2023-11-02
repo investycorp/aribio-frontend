@@ -456,7 +456,7 @@ const Header = () => {
                               flexDirection: 'row',
                               justifyContent: 'center',
                               alignItems: 'center',
-                              padding: '0.2em',
+                              padding: '0.2em 0',
                               borderBottom:
                                 location.pathname?.split('/')[2] === subMenu.linkTo ||
                                 (menu.linkTo === 'career' && location.pathname === '/career') ||

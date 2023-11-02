@@ -948,7 +948,6 @@ const AiPlatform = () => {
                   background: 'linear-gradient(to left, rgba(0,90,139,0.4), rgba(0, 26, 41, 0.4))',
                   padding: '32px 32px',
                   alignItems: 'start',
-                  minHeight: '291px',
                   height: 'fit-content',
                   gap: '1rem',
                 }}

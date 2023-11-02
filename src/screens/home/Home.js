@@ -26,17 +26,19 @@ import { ContainerGridLineWrap, GridLineBox } from '../../components/style';
 
 import useNoticeList from '../../hooks/irpr/useNoticeList';
 import Language from '../../atom/Language';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import Video from '../../components/Video';
+import VideoFrame from '../../components/VideoFrame';
 
 const Home = () => {
-  const language = useRecoilValue(Language);
+  const [language, setLanguage] = useRecoilState(Language);
   const [scrollY, setScrollY] = useState(0);
   const { data, isLoading, refetch } = useNoticeList('', language, 1);
   const [noticeList, setNoticeList] = useState([]);
 
   useEffect(() => {
     if (data?.data?.success) {
+      console.log('data:', data.data);
       const list = data.data.data.noticeDtoList.map((item, index) => {
         if (index < 3) {
           return {
@@ -51,6 +53,11 @@ const Home = () => {
       setNoticeList(list.slice(0, 3));
     }
   }, [data]);
+
+  useEffect(() => {
+    console.log('Language');
+    refetch();
+  }, [language]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -280,13 +287,20 @@ const Home = () => {
                 margin: '0',
               }}
             >
-              <img
-                style={{ margin: '5em 0', height: window.innerWidth > 1280 ? '726px' : '484px' }}
-                src={home_mediakit_video}
-                alt="home_mediakit_video"
+              <VideoFrame
+                src={
+                  language === 'ENG'
+                    ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4'
+                    : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4'
+                }
               />
               <ComponentText
-                style={{ fontSize: window.innerWidth > 1280 ? '60px' : '36px', fontWeight: '500', alignSelf: 'start' }}
+                style={{
+                  fontSize: window.innerWidth > 1280 ? '60px' : '36px',
+                  fontWeight: '500',
+                  alignSelf: 'start',
+                  marginTop: '3em',
+                }}
               >
                 Media Kit
               </ComponentText>
@@ -555,8 +569,22 @@ const Home = () => {
               className="home home_4"
               style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '0' }}
             >
-              <img style={{ margin: '5em 0' }} src={home_mediakit_video} alt="home_mediakit_video" />
-              <ComponentText style={{ fontSize: '20px', fontWeight: '500', alignSelf: 'start', padding: '0.5rem 0' }}>
+              <VideoFrame
+                src={
+                  language === 'ENG'
+                    ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4'
+                    : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4'
+                }
+              />
+              <ComponentText
+                style={{
+                  fontSize: '20px',
+                  fontWeight: '500',
+                  alignSelf: 'start',
+                  padding: '0.5rem 0',
+                  marginTop: '38px',
+                }}
+              >
                 Media Kit
               </ComponentText>
 

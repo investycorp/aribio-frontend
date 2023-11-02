@@ -3,7 +3,6 @@ import { Desktop, Mobile } from '../utils/MediaQuery';
 
 import styled from 'styled-components';
 import scroll_bar from '../assets/images/scroll_bar.svg';
-import scroll_bar_x from '../assets/images/scroll_bar_x.svg';
 
 import whitedot from '../assets/images/whitedot.svg';
 
@@ -28,10 +27,11 @@ const SliderContainer = styled.div`
   @media screen and (max-width: 900px) {
     position: fixed;
     grid-template-columns: repeat(5, 1fr);
-    top: 93vh;
+    top: 88.5vh;
     left: 50%;
     transform: translate(-50%, -50%);
     height: fit-content;
+    gap: 23px;
   }
 `;
 
@@ -53,7 +53,14 @@ const Circle = styled.div`
     width: 30px;
     height: 30px;
     left: -10px;
-    top: ${(props) => (props.$isActive ? '-7px' : '-7px')};
+    top: ${(props) => (props.$isActive ? '-6px' : '-6px')};
+    border: 1px solid #ffffff;
+  }
+  @media screen and (max-width: 900px) {
+    width: 16px;
+    height: 16px;
+    left: -6px;
+    top: ${(props) => (props.$isActive ? '3.5px' : '3.5px')};
   }
 `;
 
@@ -66,9 +73,6 @@ const SliderImg = styled.img`
     height: 215px;
   }
   @media screen and (max-width: 900px) {
-    transform: rotate(90deg);
-    left: calc(50%);
-    height: 195px;
   }
 `;
 
@@ -80,7 +84,6 @@ const SideSlider = () => {
   const [offsetHeights, setOffsetHeights] = useState([]);
   const [scrollY, setScrollY] = useState(0);
   const [scrollNumber, setScrollNumber] = useState(0);
-  const [scrollXNumber, setScrollXNumber] = useState(0);
 
   useEffect(() => {
     setOffsetHeights([]);
@@ -144,6 +147,18 @@ const SideSlider = () => {
         </SliderContainer>
       </Desktop>
       <Mobile>
+        {/* <hr
+          style={{
+            position: 'fixed',
+            top: '87.8vh',
+            left: '50%',
+            transform: 'translate(-50%,-50%)',
+            width: '112px',
+            height: '1px',
+            backgroundColor: '#434343',
+            border: 'none',
+          }}
+        /> */}
         <SliderContainer
           style={{
             opacity:
@@ -154,12 +169,12 @@ const SideSlider = () => {
             zIndex: '99',
           }}
         >
-          <SliderImg src={scroll_bar} alt="scroll_bar" />
           {offsetHeights?.map((location, index) => (
             <div key={`sideSlider${index}`} style={{ position: 'relative' }}>
               <Circle $position={scrollNumber} $isActive={scrollNumber === index ? true : false} />
               {/* {index === 0 && } */}
-              <Image src={whitedot} alt="whitedot" />
+
+              <Image src={whitedot} alt="whitedot" style={{ height: '4px', width: '4px' }} />
             </div>
           ))}
         </SliderContainer>

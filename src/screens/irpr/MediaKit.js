@@ -2,9 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import ReactPlayer from 'react-player/youtube';
-import vertical_arrow from './../../assets/images/vertical_arrow.svg';
-import irpr_mediakit_cover from './assets/irpr_mediakit_cover.png';
-import irpr_mediakit_videopreviewimg from './assets/irpr_mediakit_videopreviewimg.png';
 
 import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, HR } from './style';
 
@@ -16,9 +13,11 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import Language from '../../atom/Language';
 import { useRecoilState } from 'recoil';
 import useMediaList from '../../hooks/irpr/useMediaList';
+import VideoFrame from '../../components/VideoFrame';
 
 const MediaKit = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
+  const [id, setId] = useState();
   const navigate = useNavigate();
   const [language, setLanguage] = useRecoilState(Language);
   const { data, isLoading, refetch } = useMediaList(language);
@@ -26,12 +25,24 @@ const MediaKit = () => {
   const [itemsList, setItemsList] = useState([]);
 
   useEffect(() => {
+    refetch();
+  }, [language]);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
+    setCurrentVideo({
+      title: 'AriBio Main Promotion Video',
+      url:
+        language === 'ENG'
+          ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4'
+          : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4',
+    });
   }, []);
 
   useEffect(() => {
     if (data?.data.success) {
+      console.log(data, data);
       setItemsList([]);
       const item = data.data.data.mediaKitDtoList;
       item.map((content) => {
@@ -40,27 +51,13 @@ const MediaKit = () => {
           {
             id: content.id,
             title: content.title,
-
             date: `${content.month} ${content.day}, ${content.year}`,
             link: content.url,
           },
         ]);
-
-        if (!id) setCurrentVideo({ title: item[0]?.title, url: item[0]?.url });
       });
     }
   }, [data]);
-
-  useEffect(() => {
-    if (id) {
-      const video = itemsList?.find((item) => item.id === parseInt(id));
-      setCurrentVideo({ title: video?.title, url: video?.link });
-    }
-  }, [id]);
-
-  useEffect(() => {
-    console.log(currentVideo?.title);
-  }, [currentVideo]);
 
   return (
     <Container className="container">
@@ -124,7 +121,7 @@ const MediaKit = () => {
                   borderRadius: '20px',
                 }}
               >
-                <ReactPlayer url={currentVideo.url} width="100%" height="50vh" playsinline={true} />
+                <VideoFrame src={currentVideo.url} />
               </ComponentWrap>
               <ComponentWrap
                 className="mediakit_item"
@@ -135,6 +132,7 @@ const MediaKit = () => {
                   alignItems: 'center',
                   padding: '0',
                   margin: '10vh 0',
+                  rowGap: '2rem',
                 }}
               >
                 {itemsList.map((item, index) => (
@@ -151,7 +149,7 @@ const MediaKit = () => {
                       borderWidth: window.innerWidth > 1280 ? '2px' : '1px',
                     }}
                     onClick={() => {
-                      navigate(`/irpr/mediakit/${item.id}`);
+                      item?.id && setCurrentVideo({ id: item.id, title: item?.title, url: item?.link });
                     }}
                   >
                     <Text
@@ -164,7 +162,8 @@ const MediaKit = () => {
                         zIndex: '-1',
                       }}
                     >
-                      {item.title}
+                      {item.title.slice(0, 20)}
+                      {item.title.length > 20 && '...'}
                     </Text>
                     <HR
                       $width={window.innerWidth > 1280 ? '40px' : '25px'}
@@ -211,7 +210,7 @@ const MediaKit = () => {
 
             <HomeComponentWrap>
               <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '0' }}>
-                <ReactPlayer url={currentVideo.url} width="100%" height="328px" playsinline={true} />
+                <VideoFrame src={currentVideo.url} />
               </ComponentWrap>
               <ComponentWrap
                 style={{
@@ -236,7 +235,7 @@ const MediaKit = () => {
                       borderLeft: '1px solid #B1B1B1',
                     }}
                     onClick={() => {
-                      navigate(`/irpr/mediakit/${item.id}`);
+                      item?.id && setCurrentVideo({ id: item.id, title: item?.title, url: item?.link });
                     }}
                   >
                     <Text
@@ -245,7 +244,8 @@ const MediaKit = () => {
                       $color="#ffffff"
                       style={{ margin: '0 0 1rem 0', fontSize: '18px' }}
                     >
-                      {item.title}
+                      {item.title.slice(0, 20)}
+                      {item.title.length > 20 && '...'}
                     </Text>
 
                     <Text $align="start" $fontWeight="300" style={{ margin: '0', fontSize: '16px', color: '#DBDBDB' }}>
