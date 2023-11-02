@@ -411,6 +411,25 @@ const ShootingStarWrap = styled.section`
   }
 `;
 
+const move = (start, phase, gap) => keyframes`
+0% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -o-transform: translateX(0);
+
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: ${`translateX(calc(${start} * ${phase} - ${gap}))`};
+    -webkit-transform: ${`translateX(calc(${start} * ${phase} - ${gap}))`};
+    -o-transform: ${`translateX(calc(${start} * ${phase} - ${gap}))`};
+    opacity: 1;
+  }
+`;
+
 const ShootingStar = styled.span.attrs((props) => ({
   className: props.className,
 }))`
@@ -427,20 +446,51 @@ const ShootingStar = styled.span.attrs((props) => ({
     0 0 0 6px rgba(255, 255, 255, 0.1),
     0 0 8px rgba(255, 255, 255, 0.1);
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
 
   &.animate {
     opacity: 1;
-    animation-name: ${(props) => move(props.$phase)};
+    animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    -webkit-animation-name: ${(props) => move(props.$phase)};
+    -webkit-animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
+    -o-animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
+    -o-animation-duration: 2s;
+    -o-animation-iteration-count: 1;
+    -o-animation-timing-function: linear;
+    -o-animation-fill-mode: forwards;
+    -moz-animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
+    -moz-animation-duration: 2s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: linear;
+    -moz-animation-fill-mode: forwards;
+    -ms-animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
+    -ms-animation-duration: 2s;
+    -ms-animation-iteration-count: 1;
+    -ms-animation-timing-function: linear;
+    -ms-animation-fill-mode: forwards;
+
+    @media screen and (max-width: 900px) {
+      -ms-animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
+      -moz-animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
+      -o-animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
+      -webkit-animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
+      animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
+    }
   }
 
   &:before {
@@ -448,54 +498,11 @@ const ShootingStar = styled.span.attrs((props) => ({
     position: absolute;
     top: 50%;
     right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props.$phase}*8vw)` : `calc(10vw)`)};
+    width: ${(props) => (props.$phase ? `calc(${props?.$phase}*8vw)` : `calc(10vw)`)};
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
     transform: translate(0, -50%);
-  }
-  @media screen and (max-width: 900px) {
-    &:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 0;
-      width: ${(props) => (props.$phase ? `calc(${props.$phase}*17.5vw)` : `calc(10vw)`)};
-      height: 2px;
-      background: linear-gradient(270deg, #ffffff, transparent);
-      transform: translate(0, -50%);
-    }
-  }
-`;
-
-const move = (phase) => keyframes`
-0% {
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    transform: ${`translateX(calc(8vw * ${phase} - 10px))`};
-    -webkit-transform: ${`translateX(calc(8vw * ${phase} - 10px))`};
-    opacity: 1;
-  }
-  
-  @media screen and (max-width: 900px) {
-    0% {
-      transform: translateX(0);
-      -webkit-transform: translateX(0);
-      opacity: 1;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
-      -webkit-transform: ${`translateX(calc(17.5vw * ${phase} - 16px))`};
-      opacity: 1;
-    }
+    -webkit-transform: translate(0, -50%);
   }
 `;
 

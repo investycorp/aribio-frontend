@@ -25,11 +25,9 @@ import {
 import { HeadLine, Path, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
-import openinnovation_digitalhealth_cover from './assets/openinnovation_digitalhealth_cover.png';
 import openinnovation_digitalhealth_middle1 from './assets/openinnovation_digitalhealth_middle1.png';
 import openinnovation_digitalhealth_middle2 from './assets/openinnovation_digitalhealth_middle2.png';
-import openinnovation_digitalhealth_mobile_middle1 from './assets/openinnovation_digitalhealth_mobile_middle1.png';
-import openinnovation_digitalhealth_mobile_middle2 from './assets/openinnovation_digitalhealth_mobile_middle2.png';
+
 import arrow from '../../assets/images/arrow.svg';
 import Video from '../../components/Video';
 
@@ -69,24 +67,48 @@ const DigitalHealth = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
-    document.addEventListener('scroll', () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const squares = entry.target.querySelectorAll('.shooting_star');
-          if (entry.isIntersecting) {
-            for (const square of squares) {
-              square.classList.add('animate');
+    const scrollX = document.querySelector('#horizontal');
+    if (scrollX && window.innerWidth <= 900) {
+      scrollX.addEventListener('scroll', () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const squares = entry.target.querySelectorAll('.shooting_star');
+            if (entry.isIntersecting) {
+              for (const square of squares) {
+                square.classList.add('animate');
+              }
+              return; // if we added the class, exit the function
             }
-            return; // if we added the class, exit the function
-          }
 
-          // We're not intersecting, so remove the class!
-          for (const square of squares) {
-            square.classList.remove('animate');
-          }
+            // We're not intersecting, so remove the class!
+            for (const square of squares) {
+              square.classList.remove('animate');
+            }
+          });
         });
+        if (document.querySelector('.table')) observer.observe(document.querySelector('.table'));
       });
-      if (document.querySelector('.table')) observer.observe(document.querySelector('.table'));
+    }
+    document.addEventListener('scroll', () => {
+      if (window.innerWidth > 900) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const squares = entry.target.querySelectorAll('.shooting_star');
+            if (entry.isIntersecting) {
+              for (const square of squares) {
+                square.classList.add('animate');
+              }
+              return; // if we added the class, exit the function
+            }
+
+            // We're not intersecting, so remove the class!
+            for (const square of squares) {
+              square.classList.remove('animate');
+            }
+          });
+        });
+        if (document.querySelector('.table')) observer.observe(document.querySelector('.table'));
+      }
     });
     return () => {
       document.removeEventListener('scroll', () => {
@@ -97,7 +119,16 @@ const DigitalHealth = () => {
   return (
     <Container className="container">
       <MainImgWrap>
-        <Video page="digitalhealth" />
+        <Video
+          page="digitalhealth"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB1100PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB2000PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2900PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <Header />
       <Path>
@@ -216,11 +247,14 @@ const DigitalHealth = () => {
                 Our Approach
               </Text>
             </TextWrap>
-            <Image
-              src={openinnovation_digitalhealth_middle1}
-              alt="openinnovation_middle1"
-              style={{ width: '-webkit-fill-available', marginTop: '5em', padding: '7em' }}
-            />
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+              <Image
+                id="fadeIn"
+                src={openinnovation_digitalhealth_middle1}
+                alt="openinnovation_middle1"
+                style={{ width: '70vw', marginTop: '5em' }}
+              />
+            </div>
           </ContentWrap>
         </HomeComponentWrap>
         <HomeComponentWrap style={{ justifyContent: 'start' }}>
@@ -330,11 +364,14 @@ const DigitalHealth = () => {
                 this approach aims to boost memory and cognition by invoking autobiographical memory recall in patients.
               </Text>
             </TextWrap>
-            <Image
-              src={openinnovation_digitalhealth_middle2}
-              alt="openinnovation_middle2"
-              style={{ width: '-webkit-fill-available', marginTop: '5em', padding: '7em' }}
-            />
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+              <Image
+                id="fadeIn"
+                src={openinnovation_digitalhealth_middle2}
+                alt="openinnovation_middle2"
+                style={{ width: '70vw', margin: '5em 0', padding: '0' }}
+              />
+            </div>
             <Text
               $align="start"
               $color="#C9C9C9"
@@ -522,6 +559,7 @@ const DigitalHealth = () => {
               </Text>
             </TextWrap>
             <Image
+              id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/images/openinnovation_digital1.png'}
               alt="openinnovation_mobile_middle1"
               style={{ width: '90vw', padding: '2em 0', filter: 'brightness(80%)' }}
@@ -637,11 +675,13 @@ const DigitalHealth = () => {
               </Text>
             </TextWrap>
             <Image
+              id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/images/openinnovation_digital2.png'}
               alt="openinnovation_mobile_middle2"
               style={{ width: '100%', marginTop: '0', padding: '2em 0' }}
             />
             <Image
+              id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/images/openinnovation_digital3.png'}
               alt="openinnovation_mobile_middle3"
               style={{ width: '100%', marginTop: '2em', padding: '5em 0', borderTop: '1px solid #696969' }}

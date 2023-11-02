@@ -31,7 +31,7 @@ const SliderContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     height: fit-content;
-    gap: 23px;
+    gap: 12px;
   }
 `;
 
@@ -53,15 +53,30 @@ const Circle = styled.div`
     width: 30px;
     height: 30px;
     left: -10px;
-    top: ${(props) => (props.$isActive ? '-6px' : '-6px')};
+    top: ${(props) => (props.$isActive ? '-7px' : '-7px')};
     border: 1px solid #ffffff;
   }
   @media screen and (max-width: 900px) {
     width: 16px;
     height: 16px;
-    left: -6px;
-    top: ${(props) => (props.$isActive ? '4px' : '4px')};
+    top: 50%;
+    left: 50%;
+    /* top: ${(props) => (props.$isActive ? '3px' : '3px')}; */
+    transform: translate(-50%, -50%);
   }
+`;
+
+const HR = styled.hr`
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 108px;
+  height: 1px;
+  background-color: #434343;
+  border: none;
+  z-index: -1;
+  margin: 0;
 `;
 
 const SliderImg = styled.img`
@@ -97,7 +112,7 @@ const SideSlider = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    window.addEventListener(
+    document.addEventListener(
       'scroll',
       () => {
         handleScroll();
@@ -105,7 +120,7 @@ const SideSlider = () => {
       false,
     );
     return () => {
-      window.removeEventListener('scroll', () => handleScroll());
+      document.removeEventListener('scroll', () => handleScroll());
     };
   }, []);
 
@@ -147,18 +162,6 @@ const SideSlider = () => {
         </SliderContainer>
       </Desktop>
       <Mobile>
-        {/* <hr
-          style={{
-            position: 'fixed',
-            top: '87.8vh',
-            left: '50%',
-            transform: 'translate(-50%,-50%)',
-            width: '112px',
-            height: '1px',
-            backgroundColor: '#434343',
-            border: 'none',
-          }}
-        /> */}
         <SliderContainer
           style={{
             opacity:
@@ -167,16 +170,30 @@ const SideSlider = () => {
                 ? 0
                 : 1,
             zIndex: '50',
+            rowGap: '0',
           }}
         >
           {offsetHeights?.map((location, index) => (
             <div key={`sideSlider${index}`} style={{ position: 'relative' }}>
-              <Circle $position={scrollNumber} $isActive={scrollNumber === index ? true : false} />
-              {/* {index === 0 && } */}
-
-              <Image src={whitedot} alt="whitedot" style={{ height: '4px', width: '4px' }} />
+              <Image
+                src={whitedot}
+                alt="whitedot"
+                style={{
+                  height: '4px',
+                  width: '4px',
+                  padding: '4px',
+                  border: '1px solid',
+                  borderRadius: '50%',
+                  borderColor: scrollNumber === index ? '#ffffff' : 'transparent',
+                  transotion: 'all 0.2s ease-in-out',
+                  zIndex: '10',
+                }}
+              />
             </div>
           ))}
+          <div style={{ position: 'relative', gridColumnEnd: 'span 5' }}>
+            <HR />
+          </div>
         </SliderContainer>
       </Mobile>
     </>

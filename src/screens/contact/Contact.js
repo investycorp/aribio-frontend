@@ -130,7 +130,16 @@ const Contact = () => {
     <Container className="container">
       <Header />
       <MainImgWrap>
-        <Video page="contactus" />
+        <Video
+          page="contactus"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0900PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1800PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2700PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <Path>{`HOME > CONTACT > CONTACT US`}</Path>
       <HomeComponentWrap style={{ height: '100vh' }}>

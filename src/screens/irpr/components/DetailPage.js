@@ -320,7 +320,7 @@ const DetailPage = () => {
               <Link
                 className="button"
                 style={{ textDecoration: 'none' }}
-                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : 'notice'}
+                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : '/irpr/notice'}
               >
                 <Text
                   $fontSize="20px"
@@ -574,7 +574,7 @@ const DetailPage = () => {
               <Link
                 className="button"
                 style={{ textDecoration: 'none' }}
-                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : 'notice'}
+                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : '/irpr/notice'}
               >
                 <Text
                   $fontSize="18px"

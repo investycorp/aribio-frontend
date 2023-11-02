@@ -15,7 +15,8 @@ const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: transparent;
+  background-color: rgba(26, 26, 26, 0.6);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,6 +93,7 @@ const HeaderNavWrap = styled.div`
   }
 
   @media screen and (max-width: 1280px) {
+    padding: 2rem;
   }
 
   @media screen and (max-width: 900px) {
@@ -391,12 +393,12 @@ const Header = () => {
               {menuList.map((menu, index) => (
                 <HeaderNavMenuTextWrap
                   key={menu.linkTo + index}
-                  // onClick={() => {
-                  //   if (menu.linkTo === 'career' || menu.linkTo === 'openinnovation' || menu.linkTo === 'pipeline') {
-                  //     if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
-                  //     else window.location.reload();
-                  //   }
-                  // }}
+                  onClick={() => {
+                    if (menu.linkTo === 'career' || menu.linkTo === 'pipeline') {
+                      if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
+                      else window.location.reload();
+                    }
+                  }}
                   $isActive={menu.linkTo === currentMenu ? true : false}
                 >
                   <div
@@ -413,7 +415,7 @@ const Header = () => {
                     <span style={{ fontSize: '20px', fontWeight: '300', color: '#BFBFBF', zIndex: '-1' }}>
                       {menu.title.toUpperCase()}
                     </span>
-                    {subMenuOpen === menu.linkTo ? (
+                    {menu.linkTo !== 'career' && menu.linkTo !== 'pipeline' && subMenuOpen === menu.linkTo ? (
                       <Image style={{ zIndex: '-1', height: '18px', width: '18px' }} src={minus} alt="minus" />
                     ) : (
                       <Image style={{ zIndex: '-1', height: '18px', width: '18px' }} src={plus} alt="open" />
@@ -426,10 +428,15 @@ const Header = () => {
                       alignItems: 'stretch',
                       gap: '24px',
                       marginBottom: '0',
-                      padding: subMenuOpen === menu.linkTo ? '14px 0' : '0',
+                      padding:
+                        menu.linkTo !== 'career' && menu.linkTo !== 'pipeline' && subMenuOpen === menu.linkTo
+                          ? '14px 0'
+                          : '0',
                     }}
                   >
-                    {subMenuOpen === menu.linkTo &&
+                    {menu.linkTo !== 'career' &&
+                      menu.linkTo !== 'pipeline' &&
+                      subMenuOpen === menu.linkTo &&
                       subMenu[menu.linkTo]?.map((subMenu) => (
                         <div
                           style={{
@@ -572,8 +579,6 @@ const Header = () => {
                     style={{
                       width: 'webkit-fill-available',
                       margin: '0 122px',
-                      padding: '0 5em',
-                      gap: '5em',
                       justifyContent: 'start',
                     }}
                   >

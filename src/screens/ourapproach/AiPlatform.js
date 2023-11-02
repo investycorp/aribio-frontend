@@ -1,8 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import vertical_arrow from '../../assets/images/vertical_arrow.svg';
-import ourapproach_ai_cover from './assets/ourapproach_ai_cover.png';
 import ourapproach_ai_middle1 from './assets/ourapproach_ai_middle1.png';
 import ourapproach_ai_middle2 from './assets/ourapproach_ai_middle2.png';
 import ourapproach_ai_middle3 from './assets/ourapproach_ai_middle3.png';
@@ -137,7 +135,16 @@ const AiPlatform = () => {
   return (
     <Container className="container">
       <MainImgWrap>
-        <Video page="aiplatform" />
+        <Video
+          page="aiplatform"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0500PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1400PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2300PB_VD.mp4'
+          }
+        />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
           <GridLineBox />
@@ -223,7 +230,12 @@ const AiPlatform = () => {
               demands a nuanced approach.
             </Text>
           </TextWrap>
-          <Image src={ourapproach_ai_middle1} alt="ai_middle1" style={{ width: '80%', marginLeft: '17.5%' }} />
+          <Image
+            id="fadeIn"
+            src={ourapproach_ai_middle1}
+            alt="ai_middle1"
+            style={{ width: '60vh', marginLeft: '17.5%' }}
+          />
           <TextWrap style={{ width: 'fit-content', marginTop: '10rem' }}>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -263,7 +275,7 @@ const AiPlatform = () => {
               <br /> “BRAIN” and its “Prediction Algorithms”.
             </Text>
           </TextWrap>
-          <Image src={ourapproach_ai_middle2} alt="ai_middle2" style={{ width: '80%' }} />
+          <Image id="fadeIn" src={ourapproach_ai_middle2} alt="ai_middle2" style={{ width: '60vh' }} />
           <TextWrap style={{ width: 'fit-content', marginTop: '10em' }}>
             <HR $height="2px" $color="#ffffff" />
             <Text
@@ -295,7 +307,7 @@ const AiPlatform = () => {
               <span style={{ color: '#ffffff', fontWeight: '300' }}>In Silico, In Vitro, and In Vivo</span> domains.
             </Text>
           </TextWrap>
-          <Image src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '80%' }} />
+          <Image id="fadeIn" src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '70vw' }} />
         </HomeComponentWrap>
         <HomeComponentWrap>
           <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
@@ -421,11 +433,19 @@ const AiPlatform = () => {
               The execution flow and interplay of these methods are illustrated below:
             </Text>
           </TextWrap>
-          <ComponentWrap style={{ padding: window.innerWidth > 1280 ? '0' : '4em' }}>
-            <ComponentWrap style={{ flexDirection: 'row', paddingTop: '8em', height: '-webkit-fill-available' }}>
+          <ComponentWrap
+            id="fadeIn"
+            style={{ padding: window.innerWidth < 1280 ? '0' : '4em', transition: 'all 0.2s easy-in-out' }}
+          >
+            <ComponentWrap style={{ flexDirection: 'row', paddingTop: '8em', height: 'fit-content', width: '70vw' }}>
               <ComponentWrap
                 className="pathwaydata_wrap_top"
-                style={{ flexDirection: 'row', alignItems: 'stretch', minHeight: '286px' }}
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'stretch',
+                  minHeight: '286px',
+                  padding: window.innerWidth > 1700 ? '0 4em' : '0',
+                }}
               >
                 <Image src={docthumbnail} alt="ai_pathwaydata" style={{ height: '286px', alignSelf: 'center' }} />
                 <TextWrap
@@ -507,11 +527,17 @@ const AiPlatform = () => {
                     .”
                   </Text>
                 </TextWrap>
-                <div style={{ position: 'relative' }}>
+                <div id="fadeIn" style={{ position: 'relative' }}>
                   <Image
                     src={ourapproach_ai_pathwaydata2}
                     alt="ai_pathwaydata2"
-                    style={{ height: 'auto', padding: '3em 0' }}
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      height: 'auto',
+                      padding: '3em 0',
+                    }}
                   />
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
@@ -536,7 +562,9 @@ const AiPlatform = () => {
               className="pathwaydata_wrap"
               style={{
                 flexDirection: 'row',
-                height: '-webkit-fill-available',
+                justifyContent: 'center',
+                height: 'fit-content',
+                padding: '0 0 0 0',
               }}
             >
               <TextWrap
@@ -544,17 +572,24 @@ const AiPlatform = () => {
                   position: 'relative',
                   justifyContent: 'center',
                   alignItems: 'start',
-                  margin: '0',
-                  padding: '4em',
-                  gap: '2em',
+                  margin: '0 0 0 8em',
+                  padding: window.innerWidth > 1280 ? '4em' : '2em',
+                  gap: window.innerWidth > 1280 ? '2em' : '1em',
                   border: '2px solid #838383',
                   minWidth: 'fit-content',
+                  width: 'fit-content',
                 }}
               >
                 <Image
                   src={ourapproach_ai_pathwaydata3}
                   alt="ai_pathwaydata3"
-                  style={{ position: 'absolute', bottom: '50%', left: '-100px', height: 'auto', padding: '0' }}
+                  style={{
+                    position: 'absolute',
+                    bottom: '50%',
+                    left: window.innerWidth > 1280 ? '-12vw' : '-8vw',
+                    height: '200px',
+                    padding: '0',
+                  }}
                 />
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '23px' : '18px'}
@@ -565,7 +600,7 @@ const AiPlatform = () => {
                     margin: '0',
                     position: 'absolute',
                     top: '20%',
-                    left: '-10vw',
+                    left: window.innerWidth > 1280 ? '-15vw' : '-11vw',
                     width: 'fit-content',
                   }}
                 >
@@ -832,6 +867,7 @@ const AiPlatform = () => {
               </Text>
             </TextWrap>
             <Image
+              id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/images/ourapproach_aiplatform1.png'}
               alt="ai_middle1"
               style={{ width: '90vw', marginLeft: '0' }}
@@ -848,6 +884,7 @@ const AiPlatform = () => {
               </Text>
             </TextWrap>
             <Image
+              id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/images/ourapproach_aiplatform2.png'}
               alt="ai_middle2"
               style={{ width: '90%' }}
@@ -883,6 +920,7 @@ const AiPlatform = () => {
               </Text>
             </TextWrap>
             <Image
+              id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/images/ourapproach_aiplatform3.png'}
               alt="ai_middle3"
               style={{ width: '90%' }}
@@ -975,7 +1013,7 @@ const AiPlatform = () => {
                   {predictions[activeButton].content.map((item, index) => (
                     <DescriptionItem key={item + index} style={{ fontSize: '16px', fontWeight: '200' }}>
                       {item.split('\\n').map((line) => (
-                        <span>
+                        <span key={'prediction line' + index}>
                           {line.includes('Description') ? (
                             <>
                               {line} <br />
@@ -1022,8 +1060,14 @@ const AiPlatform = () => {
                 pathway data is most critical.
               </Text>
             </TextWrap>
-            <ComponentWrap style={{ padding: '0' }}>
-              <ComponentWrap style={{ flexDirection: 'column', paddingTop: '0', height: 'fit-content' }}>
+            <ComponentWrap id="fadeIn" style={{ padding: '0', transition: 'all 0.2s easy-in-out' }}>
+              <ComponentWrap
+                style={{
+                  flexDirection: 'column',
+                  paddingTop: '0',
+                  height: 'fit-content',
+                }}
+              >
                 <ComponentWrap
                   className="pathwaydata_wrap_top"
                   style={{

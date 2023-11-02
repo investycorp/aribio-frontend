@@ -284,9 +284,9 @@ const Footer = () => {
                   width: '100%',
                 }}
               >
-                <ContactBoxText style={{ margin: '0' }}>TEL. 02-2637-0009</ContactBoxText>
+                <ContactBoxText style={{ textDecoration: 'none', margin: '0' }}>TEL. 02-2637-0009</ContactBoxText>
 
-                <ContactBoxText style={{ margin: '0' }}>FAX. 02-2633-9911</ContactBoxText>
+                <ContactBoxText style={{ bodrer: 'transparent', margin: '0' }}>FAX. 02-2633-9911</ContactBoxText>
               </div>
             </ContactUsWrap>
           </FooterGridWrap>

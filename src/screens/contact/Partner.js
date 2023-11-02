@@ -42,7 +42,16 @@ const Partner = () => {
     <Container className="container">
       <Header />
       <MainImgWrap>
-        <Video page="partner" />
+        <Video
+          page="partner"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0900PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1800PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2700PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <Path>{`HOME > CONTACT > PARTNER`}</Path>
       <HomeComponentWrap style={{ height: '100vh' }}>

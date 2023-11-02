@@ -25,12 +25,11 @@ const MemoRe = () => {
   const [language, setLanguage] = useRecoilState(Language);
   const { data, isLoading, refetch } = useLinkList(language);
   const [links, setLinks] = useState({});
-  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
 
-    window.addEventListener('scroll', () => {
+    document.addEventListener('scroll', () => {
       const image = document.getElementById('image');
       if (image) {
         const imageTop = image.getBoundingClientRect().top;
@@ -39,6 +38,9 @@ const MemoRe = () => {
         } else image.classList.remove('fadein');
       }
     });
+    return () => {
+      document.removeEventListener('scroll', () => {});
+    };
   }, []);
   useEffect(() => {
     if (data?.data?.success) {
@@ -54,7 +56,16 @@ const MemoRe = () => {
   return (
     <Container className="container">
       <MainImgWrap>
-        <Video page="memoRe" />
+        <Video
+          page="memoRe"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB1200PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB2100PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB3000PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
 
       <Header />
@@ -119,13 +130,13 @@ const MemoRe = () => {
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{}}>
+          <HomeComponentWrap>
             <Image
               id="image"
               src={openinnovation_memore_middle1}
               alt="openinnovation_middle2"
               style={{
-                width: window.innerWidth > 1280 ? '70%' : '60%',
+                width: '50vw',
                 transition: 'opacity 0.5s ease-in-out',
               }}
             />

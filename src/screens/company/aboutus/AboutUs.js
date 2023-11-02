@@ -18,7 +18,7 @@ const AboutUs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
-    window.addEventListener('scroll', () => {
+    document.addEventListener('scroll', () => {
       const leader = document.querySelectorAll('#leadership');
       const advisor = document.querySelector('#advisor');
 
@@ -29,7 +29,7 @@ const AboutUs = () => {
       }
     });
     return () => {
-      window.removeEventListener('scroll', () => {});
+      document.removeEventListener('scroll', () => {});
     };
   }, []);
 
@@ -38,7 +38,16 @@ const AboutUs = () => {
       <Header />
       <Path>{`HOME > COMPANY > ABOUT US`}</Path>
       <MainImgWrap>
-        <Video page="aboutus" />
+        <Video
+          page="aboutus"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0400PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1300PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2200PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>

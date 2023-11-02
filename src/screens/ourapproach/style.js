@@ -128,6 +128,8 @@ const Text = styled.div.attrs((props) => ({ className: props.className }))`
   }
 
   &.pathwaydata_text {
+    min-width: fit-content;
+    width: fit-content;
     img {
       width: 0.7rem;
       padding: 0.35rem 0;
@@ -239,6 +241,7 @@ const ColorBar = styled.div`
 `;
 const Image = styled.img`
   z-index: 10;
+  transition: all 0.2s ease-in-out;
 `;
 const HR = styled.div`
   width: ${(props) => (props.$width ? props.$width : '60px')};
@@ -312,14 +315,14 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
   justify-content: start;
   align-items: center;
   background-color: transparent;
-  padding: 4em 0;
+  padding: 4em 0 10vh 0;
   @media (max-width: 1500px) {
-    padding: 0;
+    padding: 0 0 10vh 0;
   }
   &.pathwaydata_wrap_top {
-    padding: 0 12em 0 12em;
+    padding: 0;
     @media (max-width: 1500px) {
-      padding: 0 5em;
+      padding: 0;
     }
   }
   &.pathwaydata_wrap {

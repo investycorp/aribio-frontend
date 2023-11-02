@@ -6,7 +6,7 @@ import isVideoPlayed from '../atom/isVideoPlayed';
 import { useRecoilState } from 'recoil';
 import { Desktop, Mobile } from '../utils/MediaQuery';
 
-const Video = ({ page }) => {
+const Video = ({ page, src }) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [isVideo, setIsVideo] = useRecoilState(isVideoPlayed);
@@ -20,8 +20,15 @@ const Video = ({ page }) => {
     const handleVideoEnd = () => {
       // When the video ends, set the currentTime to the start of the loop
       if (video) {
-        video.currentTime = 15; // Set the start time of the loop (in seconds)
-        video.play();
+        if (page !== 'home') {
+          video.currentTime = 0; // Set the start time of the loop (in seconds)
+          video?.play();
+          return;
+        } else {
+          video.currentTime = 15; // Set the start time of the loop (in seconds)
+          video?.play();
+        }
+
         // !isVideo && document.querySelector('.container').scrollTo(0, 0);
         setIsVideo(true);
       }
@@ -42,8 +49,7 @@ const Video = ({ page }) => {
     if (video) {
       // else
       if (page !== 'home') {
-        video.currentTime = 15;
-        video?.play();
+        // video?.play();
       }
 
       video.addEventListener('ended', handleVideoEnd);
@@ -72,7 +78,8 @@ const Video = ({ page }) => {
         width: '100vw',
         height: '100vh',
         backgroundColor: '#121212',
-        zIndex: page === 'home' ? '90' : '10',
+        // zIndex: window.innerWidth <= 900 && page === 'home' ? '90' : '10',
+        zIndex: '10',
         overflow: 'hidden',
         transition: 'all 0.5s ease-in-out',
         display: 'flex',
@@ -88,12 +95,12 @@ const Video = ({ page }) => {
           muted
           controls={false}
           preload="metadata"
-          style={{ width: '100vw', height: 'fit-content', opacity: page === 'home' ? '1' : '0.3' }}
+          style={{ width: '100vw', height: '100vh', opacity: page === 'home' ? '1' : '1' }}
         >
           {window.innerWidth > 1280 ? (
-            <source src={process.env.PUBLIC_URL + '/assets/videos/home/Home_1920.mp4'} type="video/mp4" />
+            <source src={src ? src : process.env.PUBLIC_URL + '/assets/videos/home/Home_1920.mp4'} type="video/mp4" />
           ) : (
-            <source src={process.env.PUBLIC_URL + '/assets/videos/home/Home_1280.mp4'} type="video/mp4" />
+            <source src={src ? src : process.env.PUBLIC_URL + '/assets/videos/home/Home_1280.mp4'} type="video/mp4" />
           )}
         </video>
         {page === 'home' && (
@@ -119,7 +126,7 @@ const Video = ({ page }) => {
           preload="metadata"
           style={{ width: '100vw', height: 'fit-content', opacity: page === 'home' ? '1' : '0.3' }}
         >
-          <source src={process.env.PUBLIC_URL + '/assets/videos/home/Home_360.mp4'} type="video/mp4" />
+          <source src={src ? src : process.env.PUBLIC_URL + '/assets/videos/home/Home_360.mp4'} type="video/mp4" />
         </video>
       </Mobile>
     </Container>

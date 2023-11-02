@@ -80,25 +80,8 @@ const PipeLine = () => {
 
   useEffect(() => {
     //animation starts on scroll event
-    const scrollXElement = document.getElementById('scrollX');
-    if (window.innerWidth < 900) {
-      if (scrollXElement) {
-        scrollXElement.addEventListener('scroll', () => {
-          const scrollPosition = scrollXElement.scrollLeft;
-          const scrollWidth = scrollXElement.scrollWidth;
-          const elementWidth = scrollXElement.offsetWidth;
-          const scrollThreshold = (scrollWidth - elementWidth) / 2; // 50vw in pixels
 
-          if (scrollPosition >= scrollThreshold) {
-            scrollXElement.classList.add('animation');
-          } else {
-            scrollXElement.classList.remove('animation');
-          }
-        });
-      }
-    }
-
-    window.addEventListener('scroll', () => {
+    document.addEventListener('scroll', () => {
       //add fadeIn animation
       let fadeIn = document.querySelector('#fadeIn');
       let getY = fadeIn?.getBoundingClientRect().top;
@@ -108,33 +91,30 @@ const PipeLine = () => {
         fadeIn?.classList.remove('fadeIn');
       }
 
-      if (window.innerWidth > 900) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            //add animation class if intersecting
-            const squares = entry.target.querySelectorAll('.shooting_star');
-            if (entry.isIntersecting) {
-              for (const square of squares) {
-                square?.classList.add('animate');
-              }
-              return; // if we added the class, exit the function
-            }
-
-            // We're not intersecting, so remove the class!
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          //add animation class if intersecting
+          const squares = entry.target.querySelectorAll('.shooting_star');
+          if (entry.isIntersecting) {
             for (const square of squares) {
-              square?.classList.remove('animate');
+              square?.classList.add('animate');
             }
-          });
-        });
+            return; // if we added the class, exit the function
+          }
 
-        if (document.querySelector('.table')) observer.observe(document.querySelector('.table'));
-      }
+          // We're not intersecting, so remove the class!
+          for (const square of squares) {
+            square?.classList.remove('animate');
+          }
+        });
+      });
+
+      if (document.querySelector('.table')) observer.observe(document.querySelector('.table'));
     });
     return () => {
       window.removeEventListener('scroll', () => {
         console.log('done');
       });
-      scrollXElement?.removeEventListener('scroll', () => {});
     };
   }, []);
 
@@ -149,8 +129,9 @@ const PipeLine = () => {
   }, [isModalOpen]);
 
   useEffect(() => {
+    //mobile toggle focus
     if (toggleOn) {
-      document.getElementById('toggleWrap')?.focus();
+      // document.getElementById('toggleWrap')?.focus();
     }
   }, [toggleOn]);
 
@@ -180,7 +161,16 @@ const PipeLine = () => {
   return (
     <Container className="container">
       <MainImgWrap>
-        <Video page="pipeline" />
+        <Video
+          page="pipeline"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0601PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1500PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2401PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <Header />
       <Path>{`HOME > PIPELINE`}</Path>
@@ -360,7 +350,12 @@ const PipeLine = () => {
                       onClick={async () => {
                         await setSelectedItem(item);
                         setToggleOn(false);
-                        window.scrollTo(0, document.querySelector('#toggleWrap')?.offsetTop + window.innerHeight * 0.3);
+                        window.scrollTo(
+                          0,
+                          document.getElementById('toggleWrap')
+                            ? document.getElementById('toggleWrap').scrollIntoView()
+                            : window.innerHeight * 1.3,
+                        );
                       }}
                     >
                       {item?.drugCandidate}
@@ -453,7 +448,6 @@ const PipeLine = () => {
                   </ContentBox>
                   {selectedItem?.indication?.map((indication, index) => (
                     <ContentBox
-                      id="scrollX"
                       key={'mobile_indication' + index}
                       style={{ padding: '0', fontWeight: '100', gap: '0.5rem', alignItems: 'stretch' }}
                     >
@@ -462,7 +456,7 @@ const PipeLine = () => {
                         <ShootingStarWrap className="shooting_star_wrap">
                           <hr style={{ width: '100%', opacity: '0.4', border: '1px dotted' }} />
                           <ShootingStar
-                            className="shooting_star"
+                            className="shooting_star animation_mobile"
                             style={{
                               height: '6px',
                               width: '6px',

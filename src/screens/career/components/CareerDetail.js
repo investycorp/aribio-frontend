@@ -283,9 +283,7 @@ const CareerDetail = () => {
             onClick={() => currentItem?.url && (window.location.href = `//${currentItem.url}`)}
             style={{ width: '213px', borderBottom: '1px solid #707070', justifyContent: 'space-between' }}
           >
-            <span
-              style={{ textDecoration: 'none', padding: '0.5rem 0', zIndex: '-1', fontSize: '16px', fontWeight: '400' }}
-            >
+            <span style={{ color: '#212121', padding: '0.5rem 0', zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>
               Apply for this job
             </span>
             <Image

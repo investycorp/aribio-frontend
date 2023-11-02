@@ -4,16 +4,12 @@ import { Outlet, useNavigate, useParams } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 
-import career_cover from './assets/career_cover.png';
 import career_middle from './assets/career_middle.png';
 import icon_work from './assets/icon_work.svg';
 import icon_balancedLife from './assets/icon_balancedlife.svg';
 import icon_culture from './assets/icon_culture.svg';
 import icon_etc from './assets/icon_etc.svg';
-import career_joinus1 from './assets/career_joinus1.png';
-import career_joinus2 from './assets/career_joinus2.png';
 
 import arrow from '../../assets/images/arrow.svg';
 
@@ -222,7 +218,7 @@ const Career = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
-    window.addEventListener('scroll', () => {
+    document.addEventListener('scroll', () => {
       if (window.scrollY > window.innerHeight * 0.7) {
         //show grid when scroll down
         document.querySelector('.grid_bg')?.classList.add('visible');
@@ -256,7 +252,7 @@ const Career = () => {
       }
     });
     return () => {
-      window.removeEventListener('scroll', () => {
+      document.removeEventListener('scroll', () => {
         console.log('done');
       });
     };
@@ -264,17 +260,14 @@ const Career = () => {
 
   useEffect(() => {
     if (data?.data?.success) {
+      console.log(data?.data?.dataList);
       let item = data.data.dataList?.map((item) => {
         return {
           id: item.id,
           type: item.type ? item.type : 'Job Openings',
           location: item.location,
           title: item.jobGroup,
-          img: item.fileDtoList.map((item) => {
-            if (item.fileType === 'JOIN_US') {
-              return item.fileUrl;
-            }
-          })[0],
+          img: item.backgroundIUrl,
           url: item.url,
           content: item.popupContents,
         };
@@ -288,7 +281,16 @@ const Career = () => {
       <Header />
       <Path>{`HOME > CAREER`}</Path>
       <MainImgWrap>
-        <Video page="career" />
+        <Video
+          page="career"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0800PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1700PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2600PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
 
       <HomeComponentWrap style={{ height: '100vh' }}>

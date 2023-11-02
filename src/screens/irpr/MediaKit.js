@@ -62,7 +62,16 @@ const MediaKit = () => {
   return (
     <Container className="container">
       <MainImgWrap>
-        <Video page="mediakit" />
+        <Video
+          page="mediakit"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0700PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1600PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2500PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <Header />
       <Path>{`HOME > IR & PR > MEDIA`}</Path>
@@ -150,6 +159,7 @@ const MediaKit = () => {
                     }}
                     onClick={() => {
                       item?.id && setCurrentVideo({ id: item.id, title: item?.title, url: item?.link });
+                      window.scrollTo(0, window.innerHeight * 1.2);
                     }}
                   >
                     <Text
@@ -236,6 +246,7 @@ const MediaKit = () => {
                     }}
                     onClick={() => {
                       item?.id && setCurrentVideo({ id: item.id, title: item?.title, url: item?.link });
+                      window.scrollTo(0, window.innerHeight * 1.2);
                     }}
                   >
                     <Text

@@ -57,7 +57,16 @@ const History = () => {
     <Container className="container">
       <Header />
       <Path>{`HOME > COMPANY > HISTORY`}</Path>
-      <Video page="history" />
+      <Video
+        page="history"
+        src={
+          window.innerWidth > 1280
+            ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0400PB_VD.mp4'
+            : window.innerWidth > 900
+            ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1300PB_VD.mp4'
+            : process.env.PUBLIC_URL + '/assets/videos/360/AB2200PB_VD.mp4'
+        }
+      />
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>HISTORY</HeadLine>
         <img

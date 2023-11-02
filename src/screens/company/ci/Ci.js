@@ -57,7 +57,16 @@ const Ci = () => {
       <Header />
       <Path>{`HOME > COMPANY > CORPORATE IDENTITY`}</Path>
       <MainImgWrap>
-        <Video page="ceomessage" />
+        <Video
+          page="ceomessage"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0400PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1300PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2200PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine className="midsize" style={{ fontSize: window.innerWidth <= 900 && '56px' }}>

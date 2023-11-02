@@ -4,10 +4,8 @@ import { useNavigate } from 'react-router';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 
 import { Container, HomeComponentWrap, TextWrap, Text, Image, HR, ContentWrap } from './style';
-import openinnovation_cover from './assets/openinnovation_cover.png';
 import openinnovation_middle1 from './assets/openinnovation_middle1.png';
 import openinnovation_middle2 from './assets/openinnovation_middle2.png';
 import arrow from '../../assets/images/arrow.svg';
@@ -26,7 +24,16 @@ const OpenInnovation = () => {
   return (
     <Container className="container">
       <MainImgWrap>
-        <Video page="openinnovation" />
+        <Video
+          page="openinnovation"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB1000PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1900PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2800PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <Header />
       <Path>{`HOME > OPEN INNOVATION`}</Path>
@@ -293,7 +300,7 @@ const OpenInnovation = () => {
                 width: '100%',
                 height: '100%',
                 backgroundColor: 'transparent',
-                padding: '1em 7vw 1em 7vw',
+                padding: '1em 5vw',
                 marginTop: '3em',
               }}
             >

@@ -6,7 +6,6 @@ import sidebar_short from '../assets/sidebar_short.svg';
 import whitedot from '../assets/whitedot.svg';
 import graydot from '../assets/graydot.svg';
 import { Desktop, Mobile } from '../../../../utils/MediaQuery';
-import WindowSize from '../../../../atom/MediaQuery';
 
 const HomeComponentWrap = styled.div`
   position: relative;
@@ -235,7 +234,7 @@ const Tab1 = ({ listItems, index }) => {
         handleScroll();
       });
     } else {
-      window.addEventListener('scroll', () => {
+      document.addEventListener('scroll', () => {
         handleScroll();
       });
     }
@@ -244,7 +243,7 @@ const Tab1 = ({ listItems, index }) => {
       document.querySelector('.description-grid')?.removeEventListener('scroll', () => {
         handleScroll();
       });
-      window.removeEventListener('scroll', () => {
+      document.removeEventListener('scroll', () => {
         handleScroll();
       });
     };

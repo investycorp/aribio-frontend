@@ -119,7 +119,16 @@ const Publications = () => {
   return (
     <Container className="container">
       <MainImgWrap>
-        <Video page="publications" />
+        <Video
+          page="publications"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0500PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1400PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2300PB_VD.mp4'
+          }
+        />
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
           <GridLineBox />

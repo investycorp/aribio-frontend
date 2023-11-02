@@ -54,7 +54,6 @@ const PressRelease = () => {
     if (pageNumber === 1) {
       const items = [];
       if (data?.data) {
-        console.log(data);
         data?.data.data.noticeDtoList.map((item) => {
           items.push({
             id: item.id,
@@ -66,12 +65,11 @@ const PressRelease = () => {
           });
         });
       }
-      // setItemList(items);
+
       setFilteredList(items);
     }
     if (pageNumber > 1) {
       if (data?.data?.success) {
-        console.log('data');
         data?.data.data.noticeDtoList.map((item) => {
           setFilteredList((prev) => [
             ...prev,
@@ -87,6 +85,7 @@ const PressRelease = () => {
         });
       }
     }
+    setViewMoreOn(pageNumber !== data?.data?.data?.totalPages);
   }, [data]);
 
   useEffect(() => {
@@ -144,7 +143,16 @@ const PressRelease = () => {
   return (
     <Container className="container">
       <MainImgWrap>
-        <Video page="pressrelease" />
+        <Video
+          page="pressrelease"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0700PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1600PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2500PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <Header />
       <Path>{`HOME > IR & PR > PRESS RELEASE`}</Path>
@@ -405,7 +413,7 @@ const PressRelease = () => {
                       onChange={(e) => {
                         setSearchValue(e.target.value);
                       }}
-                      autoFocus={true}
+                      autoFocus={false}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter') {
                           handleSearchClick(e.target.value);

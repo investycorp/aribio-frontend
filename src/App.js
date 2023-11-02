@@ -37,23 +37,29 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > window.innerHeight * 0.7) {
-        document.querySelector('.grid_bg')?.classList.add('visible');
-      } else {
-        document.querySelector('.grid_bg')?.classList.remove('visible');
+    document.addEventListener('scroll', function () {
+      const elements = document.querySelectorAll('#fadeIn');
+      const content = document.getElementsByClassName('container')[0];
+
+      if (content) {
+        const windowHeight = window.innerHeight;
+
+        elements.forEach(function (element) {
+          const elementPosition = element.getBoundingClientRect().top;
+          if (elementPosition < windowHeight * 0.7) {
+            element.style.opacity = '1';
+          } else {
+            element.style.opacity = '0';
+            element.style.transition = 'all 0.2s ease-in-out';
+          }
+        });
       }
     });
-    // window.addEventListener('resize', () => {
-    //   window.location.reload();
-    // });
+
     return () => {
-      window.removeEventListener('scroll', () => {
+      document.removeEventListener('scroll', () => {
         console.log('done');
       });
-      // window.removeEventListener('resize', () => {
-      //   console.log('done');
-      // });
     };
   }, []);
   return (

@@ -34,7 +34,6 @@ const VideoFrame = ({ src }) => {
 
   useEffect(() => {
     if (src) {
-      window.scrollTo(0, window.innerHeight * 1.2);
       setVideoId('');
       if (src.includes('youtube.com')) setVideoId(src?.split('watch?v=')[1]?.split('&')[0]);
       videoRef.current?.load();

@@ -19,7 +19,16 @@ const PolyPharmacology = () => {
     <Container className="container">
       <Header />
       <MainImgWrap>
-        <Video page="polypharmacology" />
+        <Video
+          page="polypharmacology"
+          src={
+            window.innerWidth > 1280
+              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0500PB_VD.mp4'
+              : window.innerWidth > 900
+              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1400PB_VD.mp4'
+              : process.env.PUBLIC_URL + '/assets/videos/360/AB2300PB_VD.mp4'
+          }
+        />
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine className="midsize" style={{ fontSize: window.innerWidth < 901 && '40px' }}>
@@ -88,7 +97,12 @@ const PolyPharmacology = () => {
             </Text>
           </TextWrap>
 
-          <Image src={ourapproach_polypharm_middle} alt="polypharm_middle" style={{ margin: '15vh 0', width: '80%' }} />
+          <Image
+            id="fadeIn"
+            src={ourapproach_polypharm_middle}
+            alt="polypharm_middle"
+            style={{ margin: '15vh 0', width: '70vw' }}
+          />
           <HR $height="2px" $color="#9A9A9A" />
           <Text
             $fontSize={window.innerWidth > 1280 ? '20px' : '16px'}
@@ -163,6 +177,7 @@ const PolyPharmacology = () => {
             </TextWrap>
 
             <Image
+              id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/images/ourapproach_polypharma1.png'}
               alt="polypharm_middle"
               style={{ margin: '5vh 0', width: '90%' }}

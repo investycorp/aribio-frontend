@@ -5,13 +5,6 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 const GoToTop = () => {
   const [isShow, setIsShow] = useState(false);
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > window.innerHeight * 0.7) {
-      setIsShow(true);
-    } else {
-      setIsShow(false);
-    }
-  });
   return (
     <>
       <Desktop>
