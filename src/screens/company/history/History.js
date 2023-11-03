@@ -61,10 +61,10 @@ const History = () => {
         page="history"
         src={
           window.innerWidth > 1280
-            ? process.env.PUBLIC_URL + '/assets/videos/1920/AB0400PB_VD.mp4'
+            ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0400PB_VD.mp4'
             : window.innerWidth > 900
-            ? process.env.PUBLIC_URL + '/assets/videos/1280/AB1300PB_VD.mp4'
-            : process.env.PUBLIC_URL + '/assets/videos/360/AB2200PB_VD.mp4'
+            ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1300PB_VD.mp4'
+            : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2200PB_VD.mp4'
         }
       />
       <HomeComponentWrap style={{ height: '100vh' }}>

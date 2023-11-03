@@ -95,13 +95,9 @@ const Video = ({ page, src }) => {
           muted
           controls={false}
           preload="metadata"
-          style={{ width: '100vw', height: '100vh', opacity: page === 'home' ? '1' : '1' }}
+          style={{ width: '100vw', height: '100vh' }}
         >
-          {window.innerWidth > 1280 ? (
-            <source src={src ? src : process.env.PUBLIC_URL + '/assets/videos/home/Home_1920.mp4'} type="video/mp4" />
-          ) : (
-            <source src={src ? src : process.env.PUBLIC_URL + '/assets/videos/home/Home_1280.mp4'} type="video/mp4" />
-          )}
+          <source src={src} type="video/mp4" />
         </video>
         {page === 'home' && (
           <img
@@ -124,9 +120,9 @@ const Video = ({ page, src }) => {
           muted
           controls={false}
           preload="metadata"
-          style={{ width: '100vw', height: 'fit-content', opacity: page === 'home' ? '1' : '0.3' }}
+          style={{ width: '100vw', height: '100vh' }}
         >
-          <source src={src ? src : process.env.PUBLIC_URL + '/assets/videos/home/Home_360.mp4'} type="video/mp4" />
+          <source src={src} type="video/mp4" />
         </video>
       </Mobile>
     </Container>

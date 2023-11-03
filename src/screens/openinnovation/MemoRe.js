@@ -60,10 +60,10 @@ const MemoRe = () => {
           page="memoRe"
           src={
             window.innerWidth > 1280
-              ? process.env.PUBLIC_URL + '/assets/videos/1920/AB1200PB_VD.mp4'
+              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1200PB_VD.mp4'
               : window.innerWidth > 900
-              ? process.env.PUBLIC_URL + '/assets/videos/1280/AB2100PB_VD.mp4'
-              : process.env.PUBLIC_URL + '/assets/videos/360/AB3000PB_VD.mp4'
+              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2100PB_VD.mp4'
+              : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB3000PB_VD.mp4'
           }
         />
       </MainImgWrap>

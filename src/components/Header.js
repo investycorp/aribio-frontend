@@ -85,11 +85,9 @@ const HeaderNavWrap = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
   height: 100%;
 
-  @media screen and (max-width: 1460px) {
-    gap: 1rem;
+  @media screen and (max-width: 1400px) {
   }
 
   @media screen and (max-width: 1280px) {
@@ -145,7 +143,7 @@ const HeaderNavMenuTextWrap = styled.div`
     }
   }
   @media screen and (max-width: 1460px) {
-    font-size: 19px;
+    font-size: 17px;
   }
   @media screen and (max-width: 1280px) {
     font-size: 12px;
@@ -577,9 +575,10 @@ const Header = () => {
                 >
                   <HeaderNavWrap
                     style={{
-                      width: 'webkit-fill-available',
+                      width: '100%',
                       margin: '0 122px',
                       justifyContent: 'start',
+                      gap: window.innerWidth > 1400 ? '105px' : window.innerWidth > 1280 ? '80px' : '50px',
                     }}
                   >
                     {subMenu[currentMenu]?.map((menu) => (
@@ -630,11 +629,21 @@ const LangButton = () => {
         >
           <HeaderLangButton style={{ cursor: 'pointer' }} onClick={handleClick}>
             <img
-              style={{ height: window.innerWidth > 1280 ? '20px' : '13px', zIndex: '-1', cursor: 'pointer' }}
+              style={{
+                height: window.innerWidth > 1400 ? '20px' : window.innerWidth > 1280 ? '15px' : '13px',
+                zIndex: '-1',
+                cursor: 'pointer',
+              }}
               src={lang_globe}
               alt="lang"
             />
-            <div style={{ fontSize: window.innerWidth > 1280 ? '18px' : '11px', zIndex: '-1', cursor: 'pointer' }}>
+            <div
+              style={{
+                fontSize: window.innerWidth > 1400 ? '18px' : window.innerWidth > 1280 ? '15px' : '11px',
+                zIndex: '-1',
+                cursor: 'pointer',
+              }}
+            >
               {language}
             </div>
           </HeaderLangButton>

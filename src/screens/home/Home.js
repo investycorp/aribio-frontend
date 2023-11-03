@@ -76,7 +76,16 @@ const Home = () => {
       <Container className="container">
         <Header />
 
-        <Video page="home" />
+        <Video
+          page="home"
+          src={
+            window.innerWidth > 1280
+              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0100PB_VD.mp4'
+              : window.innerWidth > 900
+              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
+              : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0300PB_VD.mp4'
+          }
+        />
         <SideSlider />
 
         <div style={{ margin: '0', padding: '0', position: 'relative' }}>
