@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import vertical_arrow from '../../assets/images/vertical_arrow.svg';
-import ourapproach_polypharma_cover from './assets/ourapproach_polypharma_cover.png';
 import ourapproach_polypharm_middle from './assets/ourapproach_polypharm_middle.png';
 import { Container, HomeComponentWrap, TextWrap, Text, Image, HR } from './style';
 import { HeadLine, Path, MainImgWrap } from '../../components/style';

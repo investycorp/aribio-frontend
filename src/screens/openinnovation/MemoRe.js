@@ -28,19 +28,6 @@ const MemoRe = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
-
-    document.addEventListener('scroll', () => {
-      const image = document.getElementById('image');
-      if (image) {
-        const imageTop = image.getBoundingClientRect().top;
-        if (imageTop < window.scrollY - window.innerHeight * 0.5) {
-          image.classList.add('fadein');
-        } else image.classList.remove('fadein');
-      }
-    });
-    return () => {
-      document.removeEventListener('scroll', () => {});
-    };
   }, []);
   useEffect(() => {
     if (data?.data?.success) {
@@ -132,7 +119,7 @@ const MemoRe = () => {
           </HomeComponentWrap>
           <HomeComponentWrap>
             <Image
-              id="image"
+              id="fadeIn"
               src={openinnovation_memore_middle1}
               alt="openinnovation_middle2"
               style={{
@@ -140,6 +127,9 @@ const MemoRe = () => {
                 transition: 'opacity 0.5s ease-in-out',
               }}
             />
+            <video id="fadeIn" autoPlay muted loop playsInline style={{ width: '50vw' }}>
+              <source src="https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2100PB_VD.mp4" type="video/mp4" />
+            </video>
             <TextWrap style={{ margin: '10em 0' }}>
               <Text
                 $color="#C9C9C9"
@@ -343,6 +333,7 @@ const MemoRe = () => {
           </HomeComponentWrap>
           <HomeComponentWrap>
             <Image
+              id="fadeIn"
               src={openinnovation_memore_mobile_middle1}
               alt="openinnovation_mobile_middle1"
               style={{ width: '100%', marginTop: '0em' }}

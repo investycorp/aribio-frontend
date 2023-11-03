@@ -21,11 +21,12 @@ const AboutUs = () => {
     document.addEventListener('scroll', () => {
       const leader = document.querySelectorAll('#leadership');
       const advisor = document.querySelector('#advisor');
-
-      if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.7) {
-        leader[1]?.classList.add('moveup');
-      } else {
-        leader[1]?.classList.remove('moveup');
+      if (window.innerWidth > 900) {
+        if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.7) {
+          leader[1]?.classList.add('moveup');
+        } else {
+          leader[1]?.classList.remove('moveup');
+        }
       }
     });
     return () => {

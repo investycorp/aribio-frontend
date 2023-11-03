@@ -171,23 +171,31 @@ const TabContentWrap = styled.div.attrs((props) => ({
   margin-top: 3rem;
   padding-bottom: 10rem;
 
-  &#leadership {
-    transform: translateY(20vh);
-    -webkit-transform: translateY(20vh);
-    opacity: 0;
-  }
-  &#leadership.moveup {
-    transform: translateY(0);
-    -webkit-transform: translateY(0);
-    transition: all 0.5s ease-in-out;
-    opacity: 1;
+  @media screen and (min-width: 901px) {
+    &#leadership {
+      transform: translateY(20vh);
+      -webkit-transform: translateY(20vh);
+      -o-transform: translateY(20vh);
+      -ms-transform: translateY(20vh);
+      -moz-transform: translateY(20vh);
+      transition: all 0.5s ease-in-out;
+      -webkit-transition: all 0.5s ease-in-out;
+      opacity: 0;
+    }
+    &#leadership.moveup {
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -o-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -moz-transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   @media screen and (max-width: 900px) {
-    grid-template-columns: 1fr;
+    display: block;
     padding-bottom: 3rem;
     margin-top: 2rem;
-    row-gap: 120px;
   }
 `;
 
@@ -224,8 +232,9 @@ const ContentBox = styled.div`
     }
   }
   @media screen and (max-width: 900px) {
+    margin-bottom: 120px;
     gap: 0.8rem;
-    width: 64.26vw;
+    width: 65vw;
     &:nth-child(odd) {
       justify-content: center;
       align-items: end;

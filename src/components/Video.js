@@ -9,58 +9,52 @@ import { Desktop, Mobile } from '../utils/MediaQuery';
 const Video = ({ page, src }) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(false);
-  const [isVideo, setIsVideo] = useRecoilState(isVideoPlayed);
-  const [hasVideoEnded, setHasVideoEnded] = useState(false);
 
   useEffect(() => {
-    // if (page !== 'home') setIsVideo(true);
     const video = videoRef?.current;
     setLoading(true);
 
     const handleVideoEnd = () => {
-      // When the video ends, set the currentTime to the start of the loop
       if (video) {
-        if (page !== 'home') {
-          video.currentTime = 0; // Set the start time of the loop (in seconds)
-          video?.play();
-          return;
-        } else {
-          video.currentTime = 15; // Set the start time of the loop (in seconds)
-          video?.play();
-        }
-
-        // !isVideo && document.querySelector('.container').scrollTo(0, 0);
-        setIsVideo(true);
+        // if (page !== 'home') {
+        //   video.currentTime = 0; // Set the start time of the loop (in seconds)
+        //   video?.play();
+        //   return;
+        // } else {
+        video.currentTime = 15; // Set the start time of the loop (in seconds)
+        video?.play();
+        // }
       }
     };
-
-    const handleKeyDown = (e) => {
-      // && video.currentTime > 7
-      if (!hasVideoEnded && !isVideo) {
-        if (e.key === 'Escape' || e.key === 'Esc' || e.key === 'Enter') {
-          setHasVideoEnded(true); // Set the flag to true to ensure it only triggers once
-          handleVideoEnd();
-        }
+    const handleBodyClick = () => {
+      const videoElement = videoRef.current;
+      if (videoElement && !videoElement.playing) {
+        videoElement.play();
       }
-      window.removeEventListener('keydown', handleKeyDown);
     };
-    window.addEventListener('keydown', handleKeyDown);
 
     if (video) {
-      // else
-      if (page !== 'home') {
-        // video?.play();
-      }
-
-      video.addEventListener('ended', handleVideoEnd);
       video.addEventListener('loadeddata', () => {
         setLoading(false);
       });
+
+      if (page === 'home') {
+        video.addEventListener('ended', handleVideoEnd);
+      }
+
+      //when video is suspended on mobile
+      if (window.innerWidth <= 900) {
+        document.body.addEventListener('click', handleBodyClick);
+        document.body.addEventListener('touchstart', handleBodyClick);
+        video.addEventListener('suspend', () => {});
+      }
     }
 
     // Clean up the event listener when the component unmounts
     return () => {
       video?.removeEventListener('ended', handleVideoEnd);
+      document.body.removeEventListener('click', handleBodyClick);
+      document.body.removeEventListener('touchstart', handleBodyClick);
 
       video?.removeEventListener('loadeddata', () => {
         console.log('unloaded');
@@ -72,13 +66,12 @@ const Video = ({ page, src }) => {
     <Container
       id="video_container"
       style={{
-        position: page === 'home' && isVideo ? 'absolute' : 'fixed',
+        position: page === 'home' ? 'absolute' : 'fixed',
         top: '0',
         left: '0',
         width: '100vw',
         height: '100vh',
         backgroundColor: '#121212',
-        // zIndex: window.innerWidth <= 900 && page === 'home' ? '90' : '10',
         zIndex: '10',
         overflow: 'hidden',
         transition: 'all 0.5s ease-in-out',
@@ -93,9 +86,10 @@ const Video = ({ page, src }) => {
           playsInline
           autoPlay
           muted
+          loop={page !== 'home'}
           controls={false}
           preload="metadata"
-          style={{ width: '100vw', height: '100vh' }}
+          style={{ objectFit: 'cover', width: '100vw', height: '100vh' }}
         >
           <source src={src} type="video/mp4" />
         </video>
@@ -118,9 +112,10 @@ const Video = ({ page, src }) => {
           playsInline
           autoPlay
           muted
+          loop={page !== 'home'}
           controls={false}
           preload="metadata"
-          style={{ width: '100vw', height: '100vh' }}
+          style={{ objectFit: 'cover', width: '100vw', height: '100vh' }}
         >
           <source src={src} type="video/mp4" />
         </video>

@@ -123,9 +123,10 @@ const Leadership = () => {
       </Desktop>
 
       <Mobile>
-        <TabContentWrap id="leadership">
+        <TabContentWrap>
           {tabContents.map((item, index) => (
             <div
+              id="fadeIn"
               style={{
                 width: '100%',
                 display: 'flex',
