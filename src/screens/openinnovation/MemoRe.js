@@ -127,9 +127,9 @@ const MemoRe = () => {
                 transition: 'opacity 0.5s ease-in-out',
               }}
             />
-            <video id="fadeIn" autoPlay muted loop playsInline style={{ width: '50vw' }}>
+            {/* <video id="fadeIn" autoPlay muted loop playsInline style={{ width: '50vw' }}>
               <source src="https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2100PB_VD.mp4" type="video/mp4" />
-            </video>
+            </video> */}
             <TextWrap style={{ margin: '10em 0' }}>
               <Text
                 $color="#C9C9C9"

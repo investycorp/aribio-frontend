@@ -11,6 +11,8 @@ import plus from '../assets/images/plus.svg';
 import minus from '../assets/images/minus_menu.svg';
 import toggle from '../assets/images/toggle.svg';
 
+import i18n from '../locales/i18n';
+
 const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
@@ -91,7 +93,7 @@ const HeaderNavWrap = styled.div`
   }
 
   @media screen and (max-width: 1280px) {
-    padding: 2rem;
+    padding: 0 2rem;
   }
 
   @media screen and (max-width: 900px) {
@@ -610,10 +612,24 @@ export default Header;
 
 const LangButton = () => {
   const [language, setLanguage] = useRecoilState(Language);
+  useEffect(() => {
+    if (window.navigator.language.includes('en')) {
+      setLanguage('ENG');
+      i18n.changeLanguage('en');
+    } else {
+      setLanguage('KOR');
+      i18n.changeLanguage('ko');
+    }
+  }, []);
 
   const handleClick = () => {
-    if (language === 'ENG') setLanguage('KOR');
-    else setLanguage('ENG');
+    if (language === 'ENG') {
+      i18n.changeLanguage('ko');
+      setLanguage('KOR');
+    } else {
+      i18n.changeLanguage('en');
+      setLanguage('ENG');
+    }
   };
   return (
     <>

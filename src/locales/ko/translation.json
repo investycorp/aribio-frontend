@@ -1,0 +1,27 @@
+{
+  "home": {
+    "aboutus": {
+      "1": "우리 웹 사이트에 오신 것을 환영합니다.",
+      "2": "that aims to develop a meaningful therapies for",
+      "3": "neurodegenerative diseases through its",
+      "4": "innovative platform ARIDD",
+      "5": "(AI-powered, Reverse",
+      "6": "engineered & Integrated Drug Development)",
+      "7": "and Open Innovation."
+    },
+    "ourapproach": {
+      "expansion_phase": "Expansion Phase",
+      "1": "Clinical development and Pipeline Extension",
+      "2": "Clinical, engineering and regulatory experts work integrally and seamlessly for fast clinical realization.",
+      "3": "We prioritize the clinical relevance of our robotic technologies and work diligently with our partners to maximize their value through innovative and persistent clinical research collaborations."
+    },
+    "media_kit": {
+      "title": "Media Kit",
+      "content": "Clinical development and Pipeline Extension"
+    },
+    "notice": {
+      "title": "Notice",
+      "content": "Clinical development and Pipeline Extension"
+    }
+  }
+}

@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-
 import { Container } from './style';
-
-import isVideoPlayed from '../atom/isVideoPlayed';
-import { useRecoilState } from 'recoil';
 import { Desktop, Mobile } from '../utils/MediaQuery';
 
 const Video = ({ page, src }) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [isSuspended, setIsSuspended] = useState(false);
 
   useEffect(() => {
     const video = videoRef?.current;
@@ -16,19 +13,13 @@ const Video = ({ page, src }) => {
 
     const handleVideoEnd = () => {
       if (video) {
-        // if (page !== 'home') {
-        //   video.currentTime = 0; // Set the start time of the loop (in seconds)
-        //   video?.play();
-        //   return;
-        // } else {
-        video.currentTime = 15; // Set the start time of the loop (in seconds)
+        video.currentTime = 15;
         video?.play();
-        // }
       }
     };
     const handleBodyClick = () => {
       const videoElement = videoRef.current;
-      if (videoElement && !videoElement.playing) {
+      if (videoElement && videoElement.paused) {
         videoElement.play();
       }
     };
@@ -46,7 +37,11 @@ const Video = ({ page, src }) => {
       if (window.innerWidth <= 900) {
         document.body.addEventListener('click', handleBodyClick);
         document.body.addEventListener('touchstart', handleBodyClick);
-        video.addEventListener('suspend', () => {});
+        if (window.navigator.userAgent.includes('iPhone')) {
+          video.addEventListener('suspend', () => {
+            if (video.paused) setIsSuspended(true);
+          });
+        }
       }
     }
 
@@ -55,6 +50,8 @@ const Video = ({ page, src }) => {
       video?.removeEventListener('ended', handleVideoEnd);
       document.body.removeEventListener('click', handleBodyClick);
       document.body.removeEventListener('touchstart', handleBodyClick);
+
+      video.removeEventListener('suspend', () => {});
 
       video?.removeEventListener('loadeddata', () => {
         console.log('unloaded');
@@ -107,18 +104,28 @@ const Video = ({ page, src }) => {
         )}
       </Desktop>
       <Mobile>
-        <video
-          ref={videoRef}
-          playsInline
-          autoPlay
-          muted
-          loop={page !== 'home'}
-          controls={false}
-          preload="metadata"
-          style={{ objectFit: 'cover', width: '100vw', height: '100vh' }}
-        >
-          <source src={src} type="video/mp4" />
-        </video>
+        {
+          // !isSuspended ? (
+          <video
+            ref={videoRef}
+            playsInline
+            autoPlay
+            muted
+            loop={page !== 'home'}
+            controls={false}
+            preload="metadata"
+            style={{ objectFit: 'cover', width: '100vw', height: '100vh' }}
+          >
+            <source src={src} type="video/mp4" />
+          </video>
+          // ) : (
+          //   <img
+          //     src="https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0800PB_VD_opt.png"
+          //     alt={`${page} background`}
+          //     style={{ objectFit: 'cover', width: '100vw', height: '100vh' }}
+          //   />
+          // )
+        }
       </Mobile>
     </Container>
   );

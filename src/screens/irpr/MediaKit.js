@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import ReactPlayer from 'react-player/youtube';
 
 import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, HR } from './style';
 

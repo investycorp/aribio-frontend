@@ -4,14 +4,14 @@ import styled from 'styled-components';
 const VideoFrameWrap = styled.div`
   position: relative;
   width: 100%;
-  height: 584px;
+  height: 726px;
   padding-bottom: 50px;
   overflow: hidden;
   border-radius: 20px;
   margin: 0;
   padding: 0;
   @media screen and (max-width: 1280px) {
-    height: 355px;
+    height: 484px;
   }
   @media screen and (max-width: 900px) {
     height: 202px;
@@ -33,11 +33,30 @@ const VideoFrame = ({ src }) => {
   const videoRef = useRef();
 
   useEffect(() => {
+    const video = videoRef.current;
     if (src) {
       setVideoId('');
       if (src.includes('youtube.com')) setVideoId(src?.split('watch?v=')[1]?.split('&')[0]);
-      videoRef.current?.load();
+      videoRef?.current?.load();
+      //only works in <video> component
     }
+    const handleClickStart = () => {
+      if (video && video.paused) {
+        video.play();
+      } else if (video && !video.paused) {
+        video.pause();
+      }
+    };
+    video?.addEventListener('click', handleClickStart);
+    video?.addEventListener('touchstart', handleClickStart);
+    video?.addEventListener('loaded', () => {
+      console.log('loaded');
+    });
+    return () => {
+      video?.removeEventListener('click', handleClickStart);
+      video?.removeEventListener('touchstart', handleClickStart);
+      video?.removeEventListener('loaded', () => {});
+    };
   }, [src]);
 
   return (
@@ -62,6 +81,7 @@ const VideoFrame = ({ src }) => {
             controls={true}
             preload="auto"
             style={{
+              borderRadius: '20px',
               width: window.innerWidth > 900 ? '86vw' : '90vw',
               height: window.innerWidth > 1280 ? '726px' : window.innerWidth > 900 ? '484px' : '202px',
             }}

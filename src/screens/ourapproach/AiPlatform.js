@@ -8,8 +8,7 @@ import docthumbnail from './assets/ourapproach_docthumbnail.png';
 import ourapproach_ai_pathwaydata2 from './assets/ourapproach_ai_pathwaydata2.png';
 import ourapproach_ai_pathwaydata3 from './assets/ourapproach_ai_pathwaydata3.png';
 import arrow_thin from './assets/arrow_thin.svg';
-import ner from './assets/ner.svg';
-import re from './assets/re.svg';
+
 import {
   Container,
   HomeComponentWrap,
@@ -433,6 +432,7 @@ const AiPlatform = () => {
               The execution flow and interplay of these methods are illustrated below:
             </Text>
           </TextWrap>
+          {/* !!!!! */}
           <ComponentWrap
             id="fadeIn"
             style={{ padding: window.innerWidth < 1280 ? '0' : '4em', transition: 'all 0.2s easy-in-out' }}
@@ -749,6 +749,7 @@ const AiPlatform = () => {
               </TextWrap>
             </ComponentWrap>
           </ComponentWrap>
+          {/* !!!!! */}
           <TextWrap style={{ width: '80vw', marginTop: '10em' }}>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -1013,7 +1014,7 @@ const AiPlatform = () => {
                   {predictions[activeButton].content.map((item, index) => (
                     <DescriptionItem key={item + index} style={{ fontSize: '16px', fontWeight: '200' }}>
                       {item.split('\\n').map((line) => (
-                        <span key={'prediction line' + index}>
+                        <span key={'prediction' + line}>
                           {line.includes('Description') ? (
                             <>
                               {line} <br />
@@ -1060,7 +1061,14 @@ const AiPlatform = () => {
                 pathway data is most critical.
               </Text>
             </TextWrap>
-            <ComponentWrap id="fadeIn" style={{ padding: '0', transition: 'all 0.2s easy-in-out' }}>
+            <Image
+              id="fadeIn"
+              src={process.env.PUBLIC_URL + '/assets/images/aiplatform/pathwaydata_360.png'}
+              alt="pathwaydata"
+              style={{ height: '80vh' }}
+            />
+            {/* !!!!! */}
+            {/* <ComponentWrap id="fadeIn" style={{ padding: '0', transition: 'all 0.2s easy-in-out' }}>
               <ComponentWrap
                 style={{
                   flexDirection: 'column',
@@ -1399,7 +1407,7 @@ const AiPlatform = () => {
                   </Text>
                 </TextWrap>
               </ComponentWrap>
-            </ComponentWrap>
+            </ComponentWrap> */}
             <TextWrap style={{ width: '86vw', marginTop: '10em' }}>
               <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{ marginTop: '2em' }}>
                 At the heart of polypharmacological drug <br />

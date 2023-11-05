@@ -7,8 +7,9 @@ import SubPageButton from '../../components/buttons/SubPageButton';
 import home_ourapproach1 from './assets/home_ourapproach1.png';
 import home_ourapproach2 from './assets/home_ourapproach2.png';
 import home_ourapproach3 from './assets/home_ourapproach3.png';
-import home_mediakit_video from './assets/home_mediakit_video.png';
 import home_notice1 from './assets/home_notice1.png';
+
+import { useTranslation, Trans } from 'react-i18next';
 
 import {
   Container,
@@ -26,11 +27,12 @@ import { ContainerGridLineWrap, GridLineBox } from '../../components/style';
 
 import useNoticeList from '../../hooks/irpr/useNoticeList';
 import Language from '../../atom/Language';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import Video from '../../components/Video';
 import VideoFrame from '../../components/VideoFrame';
 
 const Home = () => {
+  const { t } = useTranslation();
   const [language, setLanguage] = useRecoilState(Language);
   const [scrollY, setScrollY] = useState(0);
   const { data, isLoading, refetch } = useNoticeList('', language, 1);
@@ -111,7 +113,7 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    AriBio Co., Ltd. is a biotechnology company
+                    {t('home.aboutus.1')}
                   </span>
                   <br />
                   <span
@@ -123,7 +125,7 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    that aims to develop a meaningful therapies for
+                    {t('home.aboutus.2')}
                   </span>
                   <br />
                   <span
@@ -135,8 +137,9 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    neurodegenerative diseases through its{window.innerWidth < 1281 && <br />} innovative platform
-                    ARIDD™{' '}
+                    {t('home.aboutus.3')}
+                    {window.innerWidth < 1281 && <br />}
+                    {t('home.aboutus.4')}
                   </span>
                   <span
                     className="highlight4"
@@ -147,9 +150,11 @@ const Home = () => {
                           : 'rgba(255, 255, 255, 0.5)',
                     }}
                   >
-                    (AI-powered, Reverse {window.innerWidth < 1281 && <br />}engineered & Integrated Drug Development)
+                    {t('home.aboutus.5')} {window.innerWidth < 1281 && <br />}
+                    {t('home.aboutus.6')}
                     {window.innerWidth < 1281 && <br />}
-                    and Open Innovation.
+                    {`\t`}
+                    {t('home.aboutus.7')}
                   </span>
                   <br />
                 </HeadLineText>
@@ -192,7 +197,7 @@ const Home = () => {
                   ></div>
                   <ComponentTextWrap style={{ padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem' }}>
                     <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '60px' : '30px', fontWeight: '500' }}>
-                      Expansion Phase
+                      {t('home.ourapproach.expansion_phase')}
                     </ComponentText>
                     <ComponentText
                       style={{
@@ -201,7 +206,7 @@ const Home = () => {
                         color: '#AFAFAF',
                       }}
                     >
-                      Clinical development and Pipeline Extension
+                      {t('home.ourapproach.1')}
                     </ComponentText>
                   </ComponentTextWrap>
                 </div>
@@ -226,7 +231,7 @@ const Home = () => {
                 >
                   <ComponentTextWrap style={{}}>
                     <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '60px' : '30px', fontWeight: '500' }}>
-                      Expansion Phase
+                      {t('home.ourapproach.expansion_phase')}
                     </ComponentText>
                     <ComponentText
                       style={{
@@ -235,8 +240,7 @@ const Home = () => {
                         color: '#AFAFAF',
                       }}
                     >
-                      Clinical, engineering and regulatory experts work integrally and seamlessly for fast clinical
-                      realization.
+                      {t('home.ourapproach.2')}
                     </ComponentText>
                   </ComponentTextWrap>
                   <div
@@ -268,7 +272,7 @@ const Home = () => {
                   ></div>
                   <ComponentTextWrap style={{}}>
                     <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '60px' : '30px', fontWeight: '500' }}>
-                      Expansion Phase
+                      {t('home.ourapproach.expansion_phase')}
                     </ComponentText>
                     <ComponentText
                       style={{
@@ -277,9 +281,7 @@ const Home = () => {
                         color: '#AFAFAF',
                       }}
                     >
-                      We prioritize the clinical relevance of our robotic technologies and work diligently with our
-                      partners to maximize their value through innovative and persistent clinical research
-                      collaborations.
+                      {t('home.ourapproach.3')}
                     </ComponentText>
                   </ComponentTextWrap>
                 </div>
@@ -311,7 +313,7 @@ const Home = () => {
                   marginTop: '3em',
                 }}
               >
-                Media Kit
+                {t('home.media_kit.title')}
               </ComponentText>
               <div
                 style={{
@@ -325,7 +327,7 @@ const Home = () => {
                 <ComponentText
                   style={{ fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF' }}
                 >
-                  Clinical development and Pipeline Extension
+                  {t('home.media_kit.content')}
                 </ComponentText>
                 <SubPageButton linkTo="/irpr/mediakit" title="IR & PR" />
               </div>
@@ -337,7 +339,7 @@ const Home = () => {
               <ComponentText
                 style={{ fontSize: window.innerWidth > 1280 ? '60px' : '36px', fontWeight: '500', alignSelf: 'start' }}
               >
-                Notice
+                {t('home.notice.title')}
               </ComponentText>
               <div
                 style={{
@@ -351,7 +353,7 @@ const Home = () => {
                 <ComponentText
                   style={{ fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF' }}
                 >
-                  Clinical development and Pipeline Extension
+                  {t('home.notice.content')}
                 </ComponentText>
                 <SubPageButton linkTo="/irpr/notice" title="View all Notice" />
               </div>

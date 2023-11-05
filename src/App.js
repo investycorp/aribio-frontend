@@ -51,7 +51,7 @@ function App() {
           } else {
             element.style.opacity = '0';
             if (!element.style.transition) {
-              element.style.transition = 'all 0.3s ease-in-out';
+              element.style.transition = 'opacity 1s ease-in-out';
             }
           }
         });
