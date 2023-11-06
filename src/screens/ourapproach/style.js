@@ -406,7 +406,7 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
         font-size: 21px;
       }
       @media (max-width: 900px) {
-        height: 180px;
+        height: 178px;
       }
     }
 

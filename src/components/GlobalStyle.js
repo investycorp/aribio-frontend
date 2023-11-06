@@ -18,13 +18,13 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'pretendard';
-    background-color: '#121212';
+    background-color: #121212;
     height: fit-content;
     overflow-x: hidden;
   }
   div {
     box-sizing: border-box;
-    background-color: '#121212';
+    background-color: transparent;
     -ms-user-select: none; 
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'pretendard';
     line-height: 1.2;
     overscroll-behavior: none;
-    background-color: '#121212';
+    background-color: transparent;
     cursor: default;
       &::-webkit-scrollbar {
     display: none;

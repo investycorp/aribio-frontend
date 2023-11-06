@@ -328,7 +328,7 @@ const Image = styled.img.attrs((props) => ({
   id: props.id,
 }))`
   z-index: 10;
-  &#image {
+  &#fadeIn {
     opacity: 0;
     &.fadein {
       opacity: 1;

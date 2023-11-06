@@ -27,7 +27,7 @@ const SliderContainer = styled.div`
   @media screen and (max-width: 900px) {
     position: fixed;
     grid-template-columns: repeat(5, 1fr);
-    top: 88.5vh;
+    top: 93vh;
     left: 50%;
     transform: translate(-50%, -50%);
     height: fit-content;
@@ -163,6 +163,7 @@ const SideSlider = () => {
       </Desktop>
       <Mobile>
         <SliderContainer
+          id="hide"
           style={{
             opacity:
               document.querySelector(`.home_3`) &&

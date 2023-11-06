@@ -66,6 +66,18 @@ const Home = () => {
     document.querySelector('.container')?.scrollTo(0, 0);
     window.addEventListener('scroll', () => {
       setScrollY(window.scrollY);
+      let elementToHide = document.getElementById('hide');
+      let scrollPosition = window.scrollY;
+      if (window.innerWidth <= 900 && elementToHide) {
+        if (
+          (scrollPosition >= 0 && scrollPosition <= 0.3 * window.innerHeight) ||
+          (scrollPosition >= window.innerHeight && scrollPosition <= 1.3 * window.innerHeight)
+        ) {
+          elementToHide.style.display = 'grid';
+        } else {
+          elementToHide.style.display = 'none';
+        }
+      }
     });
 
     return () => {
@@ -84,6 +96,8 @@ const Home = () => {
             window.innerWidth > 1280
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0100PB_VD.mp4'
               : window.innerWidth > 900
+              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
+              : window.innerWidth > window.innerHeight
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0300PB_VD.mp4'
           }

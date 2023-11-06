@@ -366,7 +366,7 @@ const OpenInnovation = () => {
                     paddingBottom: '0',
                     borderBottom: '1px solid #ffffff',
                   }}
-                  onClick={() => navigate('/')}
+                  onClick={() => navigate('/openinnovation/digitalhealth')}
                 >
                   <span style={{ zIndex: '-1', fontSize: '16px' }}>Digital Health</span>
                   <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
@@ -387,7 +387,7 @@ const OpenInnovation = () => {
                     paddingBottom: '0',
                     borderBottom: '1px solid #ffffff',
                   }}
-                  onClick={() => navigate('/')}
+                  onClick={() => navigate('/openinnovation/memoreproject')}
                 >
                   <span style={{ zIndex: '-1', fontSize: '16px' }}>Memo:Re Project</span>
                   <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />

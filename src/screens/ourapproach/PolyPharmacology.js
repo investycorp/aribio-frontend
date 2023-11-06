@@ -181,7 +181,7 @@ const PolyPharmacology = () => {
               style={{ margin: '5vh 0', width: '90%' }}
             />
             <HR $height="1px" $width="20px" $color="#9A9A9A" />
-            <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em', width: '80vw' }}>
+            <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em', width: '90vw' }}>
               At AriBio, our commitment to
               <br />
               polypharmacology is

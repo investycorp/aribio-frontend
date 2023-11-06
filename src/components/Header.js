@@ -97,14 +97,14 @@ const HeaderNavWrap = styled.div`
   }
 
   @media screen and (max-width: 900px) {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    display: inline-block;
+    width: 100vw;
     align-items: start;
     justify-content: start;
     padding: 0 5vw;
     gap: 0;
     height: 683px;
+    max-height: calc(100vh - 97px);
     overflow-y: scroll;
     z-index: 100;
     backdrop-filter: blur(200px);
@@ -368,7 +368,6 @@ const Header = () => {
                 gap: '1em',
               }}
             >
-              {/* isToggleOpen && */}
               {<LangButton />}
               {!isToggleOpen ? (
                 <Image
@@ -389,7 +388,11 @@ const Header = () => {
           </HeaderTop>
 
           {isToggleOpen && (
-            <HeaderNavWrap className="header-navwrap" style={{ backgroundColor: '#121212' }}>
+            <HeaderNavWrap
+              className="header-navwrap"
+              $isSmall={window.innerHeight < 780}
+              style={{ backgroundColor: '#121212' }}
+            >
               {menuList.map((menu, index) => (
                 <HeaderNavMenuTextWrap
                   key={menu.linkTo + index}
