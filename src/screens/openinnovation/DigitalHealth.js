@@ -558,12 +558,22 @@ const DigitalHealth = () => {
                 Our Approach
               </Text>
             </TextWrap>
-            <Image
-              id="fadeIn"
-              src={process.env.PUBLIC_URL + '/assets/images/openinnovation_digital1.png'}
-              alt="openinnovation_mobile_middle1"
-              style={{ width: '90vw', padding: '2em 0', filter: 'brightness(80%)' }}
-            />
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+              }}
+            >
+              <Image
+                id="fadeIn"
+                src={process.env.PUBLIC_URL + '/assets/images/openinnovation_digital1.png'}
+                alt="openinnovation_mobile_middle1"
+                style={{ height: '80vh', width: 'auto', padding: '2em 0', filter: 'brightness(80%)' }}
+              />
+            </div>
           </ContentWrap>
         </HomeComponentWrap>
         <HomeComponentWrap style={{ justifyContent: 'start' }}>

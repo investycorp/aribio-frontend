@@ -120,7 +120,11 @@ const MemoRe = () => {
           <HomeComponentWrap>
             <Image
               id="fadeIn"
-              src={openinnovation_memore_middle1}
+              src={
+                process.env.PUBLIC_URL + window.innerWidth > 1280
+                  ? '/assets/interaction/1920/AB4000IT_VD.png'
+                  : '/assets/interaction/1280/AB4100IT_VD.png'
+              }
               alt="openinnovation_middle2"
               style={{
                 width: '50vw',
@@ -334,8 +338,8 @@ const MemoRe = () => {
           <HomeComponentWrap>
             <Image
               id="fadeIn"
-              src={openinnovation_memore_mobile_middle1}
-              alt="openinnovation_mobile_middle1"
+              src={process.env.PUBLIC_URL + '/assets/interaction/360/AB4200IT_VD.png'}
+              alt="memore_mobile_middle1"
               style={{ width: '100%', marginTop: '0em' }}
             />
             <TextWrap style={{ margin: '5em 0', width: '100%' }}>

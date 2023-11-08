@@ -97,9 +97,13 @@ const PolyPharmacology = () => {
 
           <Image
             id="fadeIn"
-            src={ourapproach_polypharm_middle}
+            src={
+              process.env.PUBLIC_URL + window.innerWidth > 1280
+                ? '/assets/interaction/1920/AB3100IT_VD.png'
+                : '/assets/interaction/1280/AB3200IT_VD.png'
+            }
             alt="polypharm_middle"
-            style={{ margin: '15vh 0', width: '70vw' }}
+            style={{ margin: '5vh 0', width: '90%', opacity: '1' }}
           />
           <HR $height="2px" $color="#9A9A9A" />
           <Text
@@ -129,7 +133,7 @@ const PolyPharmacology = () => {
       <Mobile>
         <div style={{ overflowX: 'hidden' }}>
           <HomeComponentWrap style={{ padding: '5vh 5vw' }}>
-            <TextWrap>
+            <TextWrap style={{ margin: '0' }}>
               <Text $fontSize="16px" $fontWeight="300" $color="#939598">
                 POLYPHARMACOLOGY
               </Text>
@@ -176,9 +180,9 @@ const PolyPharmacology = () => {
 
             <Image
               id="fadeIn"
-              src={process.env.PUBLIC_URL + '/assets/images/ourapproach_polypharma1.png'}
+              src={process.env.PUBLIC_URL + '/assets/interaction/360/AB3300IT_VD.png'}
               alt="polypharm_middle"
-              style={{ margin: '5vh 0', width: '90%' }}
+              style={{ margin: '5vh 0', width: '90%', opacity: '1' }}
             />
             <HR $height="1px" $width="20px" $color="#9A9A9A" />
             <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em', width: '90vw' }}>
