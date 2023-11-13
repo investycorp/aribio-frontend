@@ -119,19 +119,21 @@ const Notice = () => {
       //when page has refreshed from detail page
       console.log('page ID', id);
       setDetailPage(true);
-      setCurrentItem(itemList[id]);
+      setCurrentItem(filteredList[id]);
       console.log(itemList[id]);
     } else if (!id) {
       //when page came back from detail page by clicking view list button
       //or loaded for the first time
-      setDetailPage(false);
-      setCurrentItem({});
+      console.log('list page');
       setSearchValue('');
+
+      setDetailPage(false);
+      // refetch(1, language, '');
+      setCurrentItem({});
+
       setIsLoading(false);
-      setFilteredList(itemList);
+      // setFilteredList(itemList);
       setHoverItem();
-      setPageNumber(1);
-      refetch(pageNumber, language, searchValue);
     }
   }, [id]);
 
@@ -179,7 +181,7 @@ const Notice = () => {
         {detailPage ? (
           // rendering detail page and detail page footer navigation
           <>
-            <Outlet context={['Notice', currentItem]} />
+            <Outlet context={['Notice', currentItem]} setPageNumber={setPageNumber} />
           </>
         ) : (
           <>

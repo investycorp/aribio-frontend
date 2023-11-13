@@ -130,6 +130,7 @@ const CareerDetail = () => {
               fontSize: window.innerWidth > 1280 ? '32px' : '18px',
               color: '#141414',
               fontWeight: '400',
+              whiteSpace: 'pre-line',
             }}
           >
             {currentItem?.title}
@@ -147,6 +148,7 @@ const CareerDetail = () => {
               fontSize: window.innerWidth > 1280 ? '20px' : '14px',
               fontWeight: '200',
               color: '#272727',
+              whiteSpace: 'pre-line',
             }}
           >
             {currentItem?.content}
@@ -245,6 +247,7 @@ const CareerDetail = () => {
               textAlign: 'start',
               fontSize: '21px',
               color: '#141414',
+              whiteSpace: 'pre-line',
             }}
           >
             {currentItem?.title}
@@ -263,6 +266,7 @@ const CareerDetail = () => {
               lineHeight: '23px',
               fontWeight: '200',
               color: '#272727',
+              whiteSpace: 'pre-line',
             }}
           >
             {currentItem?.content}

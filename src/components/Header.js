@@ -27,7 +27,7 @@ const HeaderContainer = styled.div`
   z-index: 100;
   overflow: hidden;
   &:hover {
-    background-color: rgba(26, 26, 26, 0.3);
+    background-color: rgba(26, 26, 26, 0.6);
   }
   @media screen and (max-width: 900px) {
     background-color: #121212;
@@ -211,7 +211,7 @@ const HeaderBottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
-  background-color: rgba(26, 26, 26, 0.3);
+  background-color: rgba(26, 26, 26, 0.6);
   border-top: 2px solid #5d5d5d;
   cursor: default;
   transition: opacity 0.5s ease-in-out;

@@ -26,12 +26,12 @@ const DetailPage = () => {
   }, []);
 
   useEffect(() => {
-    console.log(data?.data);
     setCurrentItem({});
     setNextItem({});
     setPrevItem({});
     if (data?.data?.success) {
       const item = data?.data.data;
+      console.log(item?.contents?.split('</b>')?.map((line, index) => line.split('<b>')));
       setCurrentItem({
         id: item.id,
         date: `${item.month} ${item.day}, ${item.year}`,
@@ -42,9 +42,14 @@ const DetailPage = () => {
           </span>
         )),
         image: item.fileDto?.fileUrl,
+
         content: item?.contents?.split('\\n')?.map((line, index) => (
           <span key={'content line' + index}>
-            {line}
+            {line.includes('<b>') && line.includes('</b>') ? (
+              <span style={{ fontWeight: 'bold' }}>{line?.replace('<b>', '').replace('</b>', '')}</span>
+            ) : (
+              <span>{line}</span>
+            )}
             <br />
           </span>
         )),
@@ -173,6 +178,7 @@ const DetailPage = () => {
               fontSize: window.innerWidth > 1280 ? '32px' : '18px',
               color: '#141414',
               fontWeight: '400',
+              whiteSpace: 'pre-line',
             }}
           >
             {currentItem?.title}
@@ -190,6 +196,7 @@ const DetailPage = () => {
               fontSize: window.innerWidth > 1280 ? '20px' : '12px',
               fontWeight: '200',
               color: '#272727',
+              whiteSpace: 'pre-line',
             }}
           >
             {currentItem?.content}
@@ -422,6 +429,7 @@ const DetailPage = () => {
               fontWeight: '400',
               lineHeight: '25px',
               color: '#141414',
+              whiteSpace: 'pre-line',
             }}
           >
             {currentItem?.title}
@@ -440,6 +448,7 @@ const DetailPage = () => {
               lineHeight: '23px',
               fontWeight: '200',
               color: '#272727',
+              whiteSpace: 'pre-line',
             }}
             id="printableid"
           >

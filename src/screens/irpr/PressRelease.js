@@ -89,6 +89,7 @@ const PressRelease = () => {
   }, [data]);
 
   useEffect(() => {
+    console.log('pageNumber', pageNumber);
     if (pageNumber > 1) {
       refetch(pageNumber, language, searchValue);
       console.log('refetch', pageNumber);
@@ -103,6 +104,7 @@ const PressRelease = () => {
   useEffect(() => {
     if (detailPage) {
       window.scrollTo(0, window.innerHeight * 0.8);
+    } else {
     }
   }, [detailPage]);
 
@@ -118,19 +120,19 @@ const PressRelease = () => {
       //when page has refreshed from detail page
       console.log('page ID', id);
       setDetailPage(true);
-      setCurrentItem(itemList[id]);
+      setCurrentItem(filteredList[id]);
       console.log(itemList[id]);
     } else if (!id) {
       //when page came back from detail page by clicking view list button
       //or loaded for the first time
+      // refetch(1, language, '');
       setDetailPage(false);
       setCurrentItem({});
+      // setPageNumber(1);
       setSearchValue('');
       setIsLoading(false);
-      setFilteredList(itemList);
+      // setFilteredList(itemList);
       setHoverItem();
-      setPageNumber(1);
-      refetch(pageNumber, language, searchValue);
     }
   }, [id]);
 
@@ -256,7 +258,7 @@ const PressRelease = () => {
                               textDecoration: 'none',
                               width: '100%',
                             }}
-                            key={'noticeItem' + item.id}
+                            key={'prItem' + item.id}
                             to={`/irpr/pressrelease/${item.id}`}
                           >
                             <RowWrap
@@ -348,6 +350,7 @@ const PressRelease = () => {
                     onClick={() => {
                       if (pageNumber * itemPerPage <= filteredList.length) {
                         setPageNumber(pageNumber + 1);
+                        console.log('view more', pageNumber);
                       }
                     }}
                   >
