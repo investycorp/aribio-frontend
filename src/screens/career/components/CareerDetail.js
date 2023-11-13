@@ -26,9 +26,25 @@ const CareerDetail = () => {
 
   useEffect(() => {
     setCurrentItem({});
+    const getHTMl = (content) => {
+      let regex = /<b>(.*?)<\/b>|([^<>]+)/g;
+      let matches;
+      let result = [];
+      while ((matches = regex.exec(content))) {
+        if (matches[1]) {
+          result.push(`<span style="font-weight: bold">${matches[1]}<br/></span>`);
+        }
+        // If the match is outside <b> tags, push the captured content
+        else if (matches[2]) {
+          result.push(`<span >${matches[2]}<br/><span>`);
+        }
+      }
+
+      return result;
+    };
     if (data?.data?.success) {
       const item = data?.data?.data;
-      console.log('career', item);
+      const temp = getHTMl(item.popupContents);
       setCurrentItem({
         id: item.id,
         date: `${item.month} ${item.day}, ${item.year}`,
@@ -36,14 +52,9 @@ const CareerDetail = () => {
         image: item.popupFileDto?.fileUrl,
         content: (
           <>
-            {item.popupContents.split('\\n').map((line, index) => {
-              return (
-                <span key={'content line' + index} style={{ fontSize: '18', lineHeight: '23px' }}>
-                  {line}
-                  <br />
-                </span>
-              );
-            })}
+            {temp?.map((line, index) => (
+              <span key={'content line' + index} dangerouslySetInnerHTML={{ __html: line }}></span>
+            ))}
           </>
         ),
         url: item.url,

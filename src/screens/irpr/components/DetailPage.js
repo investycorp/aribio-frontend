@@ -39,7 +39,7 @@ const DetailPage = () => {
           result.push(`<span >${matches[2]}<br/><span>`);
         }
       }
-      console.log(result);
+
       return result;
     };
     setCurrentItem({});
