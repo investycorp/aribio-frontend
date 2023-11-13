@@ -9,6 +9,8 @@ import home_ourapproach2 from './assets/home_ourapproach2.png';
 import home_ourapproach3 from './assets/home_ourapproach3.png';
 import home_notice1 from './assets/home_notice1.png';
 
+import Modal from '../../components/Modal';
+
 import { useTranslation, Trans } from 'react-i18next';
 
 import {
@@ -30,17 +32,20 @@ import Language from '../../atom/Language';
 import { useRecoilState } from 'recoil';
 import Video from '../../components/Video';
 import VideoFrame from '../../components/VideoFrame';
+import usePopup from '../../hooks/popup/usePopup';
 
 const Home = () => {
   const { t } = useTranslation();
   const [language, setLanguage] = useRecoilState(Language);
   const [scrollY, setScrollY] = useState(0);
   const { data, isLoading, refetch } = useNoticeList('', language, 1);
+  const { data: popupData } = usePopup(language);
   const [noticeList, setNoticeList] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalData, setModalData] = useState();
 
   useEffect(() => {
     if (data?.data?.success) {
-      console.log('data:', data.data);
       const list = data.data.data.noticeDtoList.map((item, index) => {
         if (index < 3) {
           return {
@@ -53,6 +58,12 @@ const Home = () => {
         }
       });
       setNoticeList(list.slice(0, 3));
+    }
+    if (popupData?.data?.success) {
+      if (popupData?.data?.dataList.length > 0) {
+        setModalOpen(true);
+        setModalData(popupData.data.dataList);
+      }
     }
   }, [data]);
 
@@ -103,6 +114,7 @@ const Home = () => {
           }
         />
         <SideSlider />
+        {modalOpen && <Modal setModalOpen={setModalOpen} modalData={modalData} />}
 
         <div style={{ margin: '0', padding: '0', position: 'relative' }}>
           <ContainerGridLineWrap className="grid_bg">
