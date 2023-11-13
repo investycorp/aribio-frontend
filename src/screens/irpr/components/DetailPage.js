@@ -26,12 +26,29 @@ const DetailPage = () => {
   }, []);
 
   useEffect(() => {
+    const getHTMl = (content) => {
+      let regex = /<b>(.*?)<\/b>|([^<>]+)/g;
+      let matches;
+      let result = [];
+      while ((matches = regex.exec(content))) {
+        if (matches[1]) {
+          result.push(`<span style="font-weight: bold">${matches[1]}<br/></span>`);
+        }
+        // If the match is outside <b> tags, push the captured content
+        else if (matches[2]) {
+          result.push(`<span >${matches[2]}<br/><span>`);
+        }
+      }
+      console.log(result);
+      return result;
+    };
     setCurrentItem({});
     setNextItem({});
     setPrevItem({});
     if (data?.data?.success) {
       const item = data?.data.data;
-      console.log(item?.contents?.split('</b>')?.map((line, index) => line.split('<b>')));
+
+      const temp = getHTMl(item?.contents);
       setCurrentItem({
         id: item.id,
         date: `${item.month} ${item.day}, ${item.year}`,
@@ -43,15 +60,8 @@ const DetailPage = () => {
         )),
         image: item.fileDto?.fileUrl,
 
-        content: item?.contents?.split('\\n')?.map((line, index) => (
-          <span key={'content line' + index}>
-            {line.includes('<b>') && line.includes('</b>') ? (
-              <span style={{ fontWeight: 'bold' }}>{line?.replace('<b>', '').replace('</b>', '')}</span>
-            ) : (
-              <span>{line}</span>
-            )}
-            <br />
-          </span>
+        content: temp?.map((line, index) => (
+          <span key={'content line' + index} dangerouslySetInnerHTML={{ __html: line }}></span>
         )),
       });
       // outletContext[0].toLowerCase() === 'notice'
