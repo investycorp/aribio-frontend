@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import vertical_arrow from './../../assets/images/vertical_arrow.svg';
-import irpr_pressrelease_cover from './assets/irpr_pressrelease_cover.png';
+
 import search from './assets/icon_search.svg';
 import icon_circlearrow_dark from './assets/icon_circlearrow_dark.svg';
 import icon_more from './assets/icon_more.svg';
@@ -27,11 +26,12 @@ import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from 
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import { Link, Outlet, useParams } from 'react-router-dom';
-import useNoticeList from '../../hooks/irpr/useNoticeList';
+
 import Video from '../../components/Video';
 
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
+import usePressReleaseList from '../../hooks/irpr/usePressReleaseList';
 
 const PressRelease = () => {
   const { id } = useParams();
@@ -46,7 +46,7 @@ const PressRelease = () => {
 
   const [itemList, setItemList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
-  const { data, isLoading: loading, refetch } = useNoticeList(searchValue, language, pageNumber);
+  const { data, isLoading: loading, refetch } = usePressReleaseList(searchValue, language, pageNumber);
   const [isLoading, setIsLoading] = useState(loading);
   const [viewMoreOn, setViewMoreOn] = useState(true);
 
