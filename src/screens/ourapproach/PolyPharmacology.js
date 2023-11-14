@@ -103,14 +103,14 @@ const PolyPharmacology = () => {
                 : '/assets/interaction/1280/AB3200IT_VD.png'
             }
             alt="polypharm_middle"
-            style={{ margin: '5vh 0', width: '90%', opacity: '1' }}
+            style={{ margin: '0 0 100px 0', width: '100%', opacity: '1' }}
           />
           <HR $height="2px" $color="#9A9A9A" />
           <Text
             $fontSize={window.innerWidth > 1280 ? '20px' : '16px'}
             $fontWeight="200"
             $color="#ffffff"
-            style={{ marginTop: '2em', width: '80vw' }}
+            style={{ marginTop: '4em', width: '80vw' }}
           >
             At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies.
             <br />

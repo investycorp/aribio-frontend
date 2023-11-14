@@ -101,7 +101,7 @@ const Video = ({ page, src }) => {
             style={{
               position: 'absolute',
               right: '7vw',
-              bottom: '0',
+              bottom: '5vw',
               height: window.innerWidth > 1280 ? '60px' : '36px',
             }}
           />
@@ -134,6 +134,18 @@ const Video = ({ page, src }) => {
           //   />
           // )
         }
+        {page === 'home' && (
+          <img
+            src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
+            alt="home"
+            style={{
+              position: 'absolute',
+              right: '7vw',
+              bottom: '7vh',
+              height: window.innerWidth > 1280 ? '60px' : '36px',
+            }}
+          />
+        )}
       </Mobile>
     </Container>
   );

@@ -319,7 +319,7 @@ const Notice = () => {
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
-                {(viewMoreOn || pageNumber * itemPerPage <= filteredList.length) && (
+                {filteredList.length > 0 && (viewMoreOn || pageNumber * itemPerPage <= filteredList.length) && (
                   <div
                     style={{
                       display: 'flex',
@@ -476,7 +476,7 @@ const Notice = () => {
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
-                {pageNumber * itemPerPage <= filteredList.length && (
+                {filteredList.length > 0 && pageNumber * itemPerPage <= filteredList.length && (
                   <div
                     style={{
                       display: 'flex',

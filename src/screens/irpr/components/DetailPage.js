@@ -82,12 +82,12 @@ const DetailPage = () => {
       setPrevItem({
         id:
           outletContext[0].toLowerCase() === 'notice'
-            ? item?.beforeAndAfterNoticeDto?.afterNoticeId
+            ? item?.beforeAndAfterNoticeDto?.beforeNoticeId
             : item?.beforeAndAfterPressReleaseDto?.beforePressReleaseId,
 
         title:
           outletContext[0].toLowerCase() === 'notice'
-            ? item?.beforeAndAfterNoticeDto?.afterNoticeTitle
+            ? item?.beforeAndAfterNoticeDto?.beforeNoticeTitle
             : item?.beforeAndAfterPressReleaseDto?.beforePressReleaseTitle,
       });
     }

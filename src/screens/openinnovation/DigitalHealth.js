@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 
 import {
   Container,
@@ -30,9 +29,11 @@ import openinnovation_digitalhealth_middle2 from './assets/openinnovation_digita
 
 import arrow from '../../assets/images/arrow.svg';
 import Video from '../../components/Video';
+import useLinkList from '../../hooks/useLink';
 
 const DigitalHealth = () => {
   const navigate = useNavigate();
+  const { data: linkData } = useLinkList();
   const [tableHeader, setTableHeader] = useState([
     'Focus',
     'Indication',
@@ -63,6 +64,12 @@ const DigitalHealth = () => {
       phase: 2,
     },
   ]);
+
+  useEffect(() => {
+    if (linkData?.data.success) {
+      // console.log(linkData?.data.data.goToHorizon);
+    }
+  }, [linkData]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -417,7 +424,7 @@ const DigitalHealth = () => {
                 margin: '0',
                 cursor: 'pointer',
               }}
-              onClick={() => window.open('http://herzion.com/appstore/index.html', '_blank')}
+              onClick={() => window.open(linkData?.data?.data?.goToHorizon, '_blank')}
             >
               <span style={{ zIndex: '-1' }}>Go to HERIZON</span>
               <Image
@@ -688,13 +695,13 @@ const DigitalHealth = () => {
               id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/images/openinnovation_digital2.png'}
               alt="openinnovation_mobile_middle2"
-              style={{ width: '100%', marginTop: '0', padding: '2em 0' }}
+              style={{ width: '100%', marginTop: '0', padding: '0 0 0 0' }}
             />
             <Image
               id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/images/openinnovation_digital3.png'}
               alt="openinnovation_mobile_middle3"
-              style={{ width: '100%', marginTop: '2em', padding: '5em 0', borderTop: '1px solid #696969' }}
+              style={{ width: '100%', marginTop: '2em', padding: '3em 0', borderTop: '1px solid #696969' }}
             />
             <Text $align="start" $color="#D3D3D3" $fontSize="16px" $fontWeight="200" style-={{ lineHeight: '20px' }}>
               In a world where technology continually
@@ -746,7 +753,7 @@ const DigitalHealth = () => {
 
                 margin: '0',
               }}
-              onClick={() => navigate('/')}
+              onClick={() => window.open(linkData?.data?.data?.goToHorizon, '_blank')}
             >
               <span style={{ zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>Go to HERIZON</span>
               <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />

@@ -378,9 +378,9 @@ const PipeLine = () => {
                       alt="modal_open"
                       onClick={() => {
                         // !!!!Add when pop content is ready!!!!
-                        // setIsModalOpen(true);
-                        // setModalItem({ ...selectedItem?.modal, item: selectedItem?.drugCandidate });
-                        // setToggleOn(false);
+                        setIsModalOpen(true);
+                        setModalItem({ ...selectedItem?.modal, item: selectedItem?.drugCandidate });
+                        setToggleOn(false);
                       }}
                     />
                   </RowWrap>

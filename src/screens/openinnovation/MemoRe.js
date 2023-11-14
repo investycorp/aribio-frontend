@@ -114,7 +114,7 @@ const MemoRe = () => {
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap>
+          <HomeComponentWrap style={{ paddingTop: '0' }}>
             <Image
               id="fadeIn"
               src={
@@ -124,8 +124,11 @@ const MemoRe = () => {
               }
               alt="openinnovation_middle2"
               style={{
-                width: '50vw',
+                objectFit: 'cover',
+                height: 'auto',
+                width: '86vw',
                 transition: 'opacity 0.5s ease-in-out',
+                padding: '0',
               }}
             />
             {/* <video id="fadeIn" autoPlay muted loop playsInline style={{ width: '50vw' }}>

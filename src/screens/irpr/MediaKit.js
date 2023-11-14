@@ -24,18 +24,16 @@ const MediaKit = () => {
   const [itemsList, setItemsList] = useState([]);
 
   useEffect(() => {
-    refetch();
+    console.log('language:', language);
+    refetch(language);
   }, [language]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
     setCurrentVideo({
-      title: 'AriBio Main Promotion Video',
-      url:
-        language === 'ENG'
-          ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4'
-          : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4',
+      title: '',
+      url: null,
     });
   }, []);
 
