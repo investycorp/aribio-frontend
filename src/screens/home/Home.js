@@ -53,7 +53,7 @@ const Home = () => {
             date: `${item.year}.${item.month}.${item.day}`,
             mobileDate: `${item.month} ${item.day}, ${item.year}`,
             title: item.title,
-            imageUrl: item.fileDto?.fileUrl ? item.fileDto?.fileUrl : home_notice1,
+            imageUrl: item.fileDto?.fileUrl ? item?.fileDto?.fileUrl : home_notice1,
           };
         }
       });
@@ -114,7 +114,7 @@ const Home = () => {
           }
         />
         <SideSlider />
-        {modalOpen && <Modal setModalOpen={setModalOpen} modalData={modalData} />}
+        {/* {modalOpen && <Modal setModalOpen={setModalOpen} modalData={modalData} />} */}
 
         <div style={{ margin: '0', padding: '0', position: 'relative' }}>
           <ContainerGridLineWrap className="grid_bg">

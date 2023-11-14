@@ -242,7 +242,6 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ marginTop: '2em', width: '70vw' }}
             >
-              {/* ? - 디자인 반영, 시트엔 없음 */}
               Polypharmacology requires a deep understanding of interactions among drugs,
               <br />
               proteins, cells, and diseases, alongside the ability to predict and identify novel biological
@@ -279,7 +278,9 @@ const AiPlatform = () => {
             src={process.env.PUBLIC_URL + '/assets/interaction/360/AB3900IT_VD.png'}
             alt="openinnovation_middle2"
             style={{
-              width: '50vw',
+              objectFit: 'cover',
+              width: '40vw',
+              height: '90vh',
               transition: 'opacity 0.5s ease-in-out',
             }}
           />

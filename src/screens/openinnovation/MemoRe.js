@@ -8,9 +8,6 @@ import Footer from '../../components/Footer';
 import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 
 import { Container, HomeComponentWrap, TextWrap, Text, Image, HR, ContentWrap } from './style';
-import openinnovation_memore_cover from './assets/openinnovation_memore_cover.png';
-import openinnovation_memore_middle1 from './assets/openinnovation_memore_middle1.png';
-import openinnovation_memore_mobile_middle1 from './assets/openinnovation_memore_mobile_middle1.png';
 
 import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';

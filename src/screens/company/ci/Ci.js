@@ -30,8 +30,7 @@ const Ci = () => {
 
   useEffect(() => {
     if (!isLoading && data?.data?.data?.fileDtoList) {
-      console.log(data.data?.data.fileDtoList);
-      const itemList = data.data?.data.fileDtoList;
+      const itemList = data.data?.data?.fileDtoList;
       itemList?.map((item) => {
         item.fileType.includes('PNG') && setPngImg(item.fileUrl);
         item.fileType.includes('AI') && setAiImg(item.fileUrl);

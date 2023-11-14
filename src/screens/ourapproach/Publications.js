@@ -112,9 +112,16 @@ const Publications = () => {
 
   const handleChange = async (e) => {
     setSearchValue(e.target.value);
-    const filtered = await irDocs.filter((doc) => doc.title.includes(e.target.value));
-    await setFilteredList(filtered);
+    const filtered = await filteredList.filter(
+      (doc) =>
+        doc.title?.toLowerCase()?.includes(e.target.value?.toLowerCase()) ||
+        doc.journal?.toLowerCase()?.includes(e.target.value?.toLowerCase()),
+    );
+    // console.log(filtered);
+    setFilteredList(filtered);
   };
+
+  const handleSearchClick = async () => {};
 
   return (
     <Container className="container">

@@ -25,7 +25,7 @@ const Modal = ({ setModalOpen, modalData }) => {
           >
             <div style={{ display: 'block', position: 'relative' }}>
               <h2 style={{ color: 'black' }}>{data.title}</h2>
-              <img src={data.fileDto.fileUrl} alt={data.title} style={{ width: '100%', height: '100%' }} />
+              <img src={data?.fileDto?.fileUrl} alt={data.title} style={{ width: '100%', height: '100%' }} />
               <p
                 style={{
                   display: 'flex',

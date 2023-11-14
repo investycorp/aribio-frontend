@@ -280,7 +280,7 @@ const Tab1 = ({ listItems, index }) => {
                 style={{
                   position: 'absolute',
                   top: index === 0 ? '0' : window.innerWidth > 1280 ? '-3.9rem' : '-2.3rem',
-                  left: window.innerWidth > 1280 ? '-31px' : '25.5px',
+                  left: window.innerWidth > 1280 ? '30.5px' : '25.5px',
                   zIndex: '10',
                   margin: '0',
                   padding: '0 0 2em 0',
