@@ -137,10 +137,11 @@ const TabItem = styled.div`
   align-items: center;
   font-size: 36px;
   font-weight: 400;
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#464646')};
+  color: #ffffff;
   border-bottom: ${(props) => (props.$isActive ? '4px solid #ffffff' : '4px solid transparent')};
   line-height: 1.5em;
   transition: all 0.2s ease-in-out;
+  opacity: ${(props) => (props.$isActive ? '1' : '0.5')};
   &:hover,
   &:active,
   &:focus {

@@ -14,6 +14,7 @@ import usePublicationList from '../../hooks/ourapproach/usePublication';
 import { useNavigate } from 'react-router-dom';
 
 import Video from '../../components/Video';
+import { t } from 'i18next';
 
 const SearchInput = styled.input`
   width: 100%;
@@ -136,9 +137,11 @@ const Publications = () => {
         </ContainerGridLineWrap>
       </MainImgWrap>
       <Header />
-      <Path>{`HOME > OUR APPROACH > PUBLICATIONS`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > OUR APPROACH > `}</span>PUBLICATIONS
+      </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine className="midsize">PUBLICATIONS</HeadLine>
+        <HeadLine className="midsize">{t('publication.headline')}</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -155,7 +158,7 @@ const Publications = () => {
         <HomeComponentWrap>
           <TextWrap style={{ margin: '0' }}>
             <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-              PUBLICATION
+              {t('publication.title')}
             </Text>
             <div
               style={{
@@ -172,7 +175,7 @@ const Publications = () => {
               $color="#ffffff"
               style={{ margin: '0' }}
             >
-              Explore Our Research
+              {t('publication.subtitle')}
             </Text>
           </TextWrap>
           <GridComponentWrap
@@ -189,7 +192,7 @@ const Publications = () => {
               }}
             >
               <SearchInput
-                placeholder="Please enter a search term."
+                placeholder={t('publication.search')}
                 type="text"
                 value={searchValue}
                 onChange={(e) => {
@@ -312,7 +315,7 @@ const Publications = () => {
                 </ComponentWrap>
               ))
             ) : (
-              <NoResult>No Result</NoResult>
+              <NoResult>{t('publication.noresult')}</NoResult>
             )}
           </GridComponentWrap>
         </HomeComponentWrap>
@@ -321,7 +324,7 @@ const Publications = () => {
         <HomeComponentWrap>
           <TextWrap style={{ margin: '0' }}>
             <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-              PUBLICATION
+              {t('publication.title')}
             </Text>
             <div
               style={{
@@ -333,7 +336,7 @@ const Publications = () => {
               }}
             ></div>
             <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
-              Explore Our Research
+              {t('publication.subtitle')}
             </Text>
           </TextWrap>
           <GridComponentWrap
@@ -350,7 +353,7 @@ const Publications = () => {
               }}
             >
               <SearchInput
-                placeholder="Please enter a search term."
+                placeholder={t('publication.search')}
                 type="text"
                 value={searchValue}
                 style={{ fontSize: '18px', width: '322px' }}
@@ -472,7 +475,7 @@ const Publications = () => {
                 </ComponentWrap>
               ))
             ) : (
-              <NoResult>No Result</NoResult>
+              <NoResult>{t('publication.noresult')}</NoResult>
             )}
           </GridComponentWrap>
         </HomeComponentWrap>

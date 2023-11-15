@@ -173,7 +173,10 @@ const PipeLine = () => {
         />
       </MainImgWrap>
       <Header />
-      <Path>{`HOME > PIPELINE`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > `}</span>
+        PIPELINE
+      </Path>
 
       <HomeComponentWrap style={{ height: '100vh', width: '100vw' }}>
         <HeadLine>PIPELINE</HeadLine>

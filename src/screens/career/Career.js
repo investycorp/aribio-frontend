@@ -279,7 +279,9 @@ const Career = () => {
   return (
     <Container>
       <Header />
-      <Path>{`HOME > CAREER`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > `}</span>CAREER
+      </Path>
       <MainImgWrap>
         <Video
           page="career"

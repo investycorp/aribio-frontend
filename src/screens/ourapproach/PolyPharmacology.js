@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import ourapproach_polypharm_middle from './assets/ourapproach_polypharm_middle.png';
+
 import { Container, HomeComponentWrap, TextWrap, Text, Image, HR } from './style';
 import { HeadLine, Path, MainImgWrap } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 import Video from '../../components/Video';
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
 
 const PolyPharmacology = () => {
   useEffect(() => {
@@ -30,8 +32,7 @@ const PolyPharmacology = () => {
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine className="midsize" style={{ fontSize: window.innerWidth < 901 && '40px' }}>
-          POLY- <br />
-          PHARMACOLOGY
+          <Trans i18nKey="polypharma.headline" components={{ 1: <br /> }} />
         </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
@@ -45,7 +46,7 @@ const PolyPharmacology = () => {
         />
       </HomeComponentWrap>
       <Path>
-        {`HOME > OUR APPROACH >`}
+        <span style={{ opacity: '0.5' }}>{`HOME > OUR APPROACH > `}</span>
         {window.innerWidth <= 900 && <br />}
         POLY-PHARMACOLOGY
       </Path>
@@ -54,7 +55,7 @@ const PolyPharmacology = () => {
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap style={{ width: '60vw' }}>
             <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-              POLY-PHARMACOLOGY
+              {t('polypharma.title')}
             </Text>
             <div
               style={{
@@ -71,7 +72,7 @@ const PolyPharmacology = () => {
               $color="#ffffff"
               style={{ margin: '0' }}
             >
-              Merging Multi-Mechanism Drug Discovery with AI
+              {t('polypharma.subtitle')}
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '16px'}
@@ -79,19 +80,7 @@ const PolyPharmacology = () => {
               $color="#E5E5E5"
               style={{ marginTop: '4em' }}
             >
-              Neurodegenerative diseases, such as Alzheimer’s, manifest from a confluence of genetic, environmental,
-              <br />
-              and physiological factors. The limitations of traditional single-target drugs become evident in their
-              struggle
-              <br />
-              to achieve clinically meaningful clinical outcomes against these multifactorial diseases.
-              <br />
-              <br />
-              Polypharmacology goes beyond traditional drug discovery by emphasizing drugs designed to engage
-              <br />
-              multiple targets and mechanisms concurrently. This nuanced approach grasps the multifaceted nature of
-              <br />
-              biological systems, paving the way for a more comprehensive therapeutic approach.
+              <Trans i18nKey="polypharma.desc1" components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
 
@@ -112,21 +101,7 @@ const PolyPharmacology = () => {
             $color="#ffffff"
             style={{ marginTop: '2em', width: '80vw' }}
           >
-            At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies.
-            <br />
-            With the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span
-            multiple
-            <br />
-            targets and mechanisms. By leveraging AI, we aim to achieve heightened drug efficacy and expand potential
-            <br />
-            therapeutic indications, positioning AriBio as a leader in innovative treatments for neurodegenerative
-            diseases.
-            <br />
-            <br />
-            Join our pursuit to advance the future of drug discovery, where AI meets the sophistication of
-            polypharmacology,
-            <br />
-            and tackle the challenges posed by neurodegenerative disorders.
+            <Trans i18nKey="polypharma.desc2" components={{ 1: <br /> }} />
           </Text>
         </HomeComponentWrap>
       </Desktop>
@@ -135,7 +110,7 @@ const PolyPharmacology = () => {
           <HomeComponentWrap style={{ padding: '5vh 5vw' }}>
             <TextWrap style={{ margin: '0' }}>
               <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                POLYPHARMACOLOGY
+                {t('polypharma.title')}
               </Text>
               <div
                 style={{
@@ -147,7 +122,7 @@ const PolyPharmacology = () => {
                 }}
               ></div>
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
-                Merging Multi-Mechanism Drug Discovery with AI
+                {t('polypharma.subtitle')}
               </Text>
               <Text
                 $fontSize="18px"
@@ -155,26 +130,7 @@ const PolyPharmacology = () => {
                 $color="#E5E5E5"
                 style={{ marginTop: '2em', lineHeight: '21px' }}
               >
-                Neurodegenerative diseases,
-                <br /> such as Alzheimer’s, manifest <br />
-                from a confluence of genetic,
-                <br /> environmental, and physiological
-                <br /> factors. The limitations of traditional
-                <br /> single-target drugs become evident <br />
-                in their struggle to achieve clinically
-                <br /> meaningful clinical outcomes against <br />
-                these multifactorial diseases.
-                <br />
-                <br />
-                Polypharmacology goes beyond <br />
-                traditional drug discovery by <br />
-                emphasizing drugs designed to engage <br />
-                multiple targets and mechanisms <br />
-                concurrently. This nuanced approach <br />
-                grasps the multifaceted nature of
-                <br /> biological systems, paving the way for
-                <br /> a more comprehensive
-                <br /> therapeutic approach.
+                <Trans i18nKey="polypharma_m.desc1" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
 
@@ -186,43 +142,7 @@ const PolyPharmacology = () => {
             />
             <HR $height="1px" $width="20px" $color="#9A9A9A" />
             <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em', width: '90vw' }}>
-              At AriBio, our commitment to
-              <br />
-              polypharmacology is
-              <br />
-              fortified by the power of advanced
-              <br />
-              AI technologies. With the ARIDD™ platform,
-              <br />
-              we delve into vast molecular databases,
-              <br />
-              predicting interactions that span multiple
-              <br />
-              targets and mechanisms.
-              <br />
-              By leveraging AI, we aim to achieve
-              <br />
-              heightened drug efficacy and
-              <br />
-              expand potential therapeutic indications,
-              <br />
-              positioning AriBio as a leader
-              <br />
-              in innovative treatments
-              <br />
-              for neurodegenerative diseases.
-              <br />
-              <br />
-              Join our pursuit to advance the future of
-              <br />
-              drug discovery, where AI meets
-              <br />
-              the sophistication of polypharmacology,
-              <br />
-              and tackle the challenges posed by
-              <br />
-              neurodegenerative disorders.
-              <br />
+              <Trans i18nKey="polypharma_m.desc2" components={{ 1: <br /> }} />
             </Text>
           </HomeComponentWrap>
         </div>

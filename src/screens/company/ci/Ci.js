@@ -22,6 +22,8 @@ import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 import useCi from '../../../hooks/company/useCi';
 import Video from '../../../components/Video';
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
 
 const Ci = () => {
   const { data, isLoading } = useCi();
@@ -55,7 +57,9 @@ const Ci = () => {
   return (
     <Container className="container">
       <Header />
-      <Path>{`HOME > COMPANY > CORPORATE IDENTITY`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > COMPANY > `}</span>CORPORATE IDENTITY
+      </Path>
       <MainImgWrap>
         <Video
           page="ceomessage"
@@ -70,8 +74,7 @@ const Ci = () => {
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine className="midsize" style={{ fontSize: window.innerWidth <= 900 && '56px' }}>
-          CORPORATE
-          <br /> IDENTITY
+          <Trans i18nKey="ci.headline" components={{ 1: <br /> }} />
         </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
@@ -95,7 +98,7 @@ const Ci = () => {
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap>
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="400" $color="#939598">
-                CORPORATE IDENTITY
+                {t('ci.title')}
               </Text>
               <div
                 style={{
@@ -112,7 +115,7 @@ const Ci = () => {
                 $color="#ffffff"
                 style={{ margin: '0' }}
               >
-                AriBio CI
+                {t('ci.subtitle')}
               </Text>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -120,8 +123,7 @@ const Ci = () => {
                 $color="#D3D3D3"
                 style={{ marginTop: '2em' }}
               >
-                We are dedicated to pioneering treatments for neurodegenerative diseases, offering innovative therapies
-                for a brighter future.
+                {t('ci.desc1')}
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -220,8 +222,7 @@ const Ci = () => {
                   $color="#D5D5D5"
                   $align="start"
                 >
-                  ‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable
-                  diseases and become a biopharmaceutical leader of South Korea.
+                  {t('ci.desc2')}
                 </Text>
               </ContentWrap>
               <ContentWrap>
@@ -249,7 +250,7 @@ const Ci = () => {
                     $color="#D5D5D5"
                     $align="start"
                   >
-                    Traditional Korean term for ‘Wide and Deep, Beauty, A Person with Wisdom’
+                    {t('ci.ari')}
                   </Text>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'start', gap: '0.5em' }}>
@@ -268,7 +269,7 @@ const Ci = () => {
                     $color="#D5D5D5"
                     $align="start"
                   >
-                    Derived from the Greek word ‘bios’ meaning ‘life’
+                    {t('ci.bio')}
                   </Text>
                 </div>
               </ContentWrap>
@@ -337,7 +338,7 @@ const Ci = () => {
           <HomeComponentWrap>
             <TextWrap>
               <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                CORPORATE IDENTITY
+                {t('ci.title')}
               </Text>
               <div
                 style={{
@@ -349,13 +350,10 @@ const Ci = () => {
                 }}
               />
               <Text $fontSize="23px" $fontWeight="600" $color="#ffffff" style={{ margin: '0' }}>
-                AriBio CI
+                {t('ci.subtitle')}
               </Text>
               <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em' }}>
-                We are dedicated to pioneering
-                <br /> treatments for neurodegenerative
-                <br /> diseases, offering innovative
-                <br /> therapies for a brighter future.
+                <Trans i18nKey="ci_m.desc1" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -407,9 +405,7 @@ const Ci = () => {
                   01
                 </Text>
                 <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                  ‘AriBio’ embodies our ambition to contribute to the world <br />
-                  by developing therapeutics for incurable diseases
-                  <br /> and become a biopharmaceutical leader of South Korea.
+                  <Trans i18nKey="ci_m.desc2" components={{ 1: <br /> }} />
                 </Text>
               </ContentWrap>
               <ContentWrap style={{ width: '80%' }}>
@@ -435,8 +431,7 @@ const Ci = () => {
                   </Text>
 
                   <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                    Traditional Korean term for
-                    <br /> ‘Wide and Deep, Beauty, A Person with Wisdom’
+                    <Trans i18nKey="ci_m.ari" components={{ 1: <br /> }} />
                   </Text>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'start', gap: '0.5em' }}>
@@ -449,11 +444,8 @@ const Ci = () => {
                   >
                     Bio:
                   </Text>
-
-                  <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                    Derived from the Greek word ‘bios’
-                    <br /> meaning ‘life’
-                  </Text>
+                  <Trans i18nKey="ci_m.bio" components={{ 1: <br /> }} />
+                  <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start"></Text>
                 </div>
               </ContentWrap>
               <ContentWrap

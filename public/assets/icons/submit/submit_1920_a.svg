@@ -1,0 +1,17 @@
+<svg id="Component_19_2" data-name="Component 19 – 2" xmlns="http://www.w3.org/2000/svg" width="187" height="60" viewBox="0 0 187 60">
+  <rect id="Rectangle_1448" data-name="Rectangle 1448" width="187" height="60" rx="30" fill="#fff"/>
+  <g id="Rectangle_305" data-name="Rectangle 305" fill="none" stroke="#fff" stroke-width="2" opacity="0.6">
+    <rect width="187" height="60" rx="30" stroke="none"/>
+    <rect x="1" y="1" width="185" height="58" rx="29" fill="none"/>
+  </g>
+  <g id="Ellipse_286" data-name="Ellipse 286" fill="#00659b" stroke="#fff" stroke-width="1" opacity="0.6">
+    <circle cx="30" cy="30" r="30" stroke="none"/>
+    <circle cx="30" cy="30" r="29.5" fill="none"/>
+  </g>
+  <g id="Group_300" data-name="Group 300" transform="translate(30 21) rotate(45)">
+    <path id="선_9" data-name="선 9" d="M13,2H1A1,1,0,1,1,1,0H13a1,1,0,0,1,0,2Z" transform="translate(0 0)" fill="#fdfdfd"/>
+    <path id="선_10" data-name="선 10" d="M1,14a1,1,0,0,1-1-1V1A1,1,0,1,1,2,1V13A1,1,0,0,1,1,14Z" transform="translate(12 0)" fill="#fdfdfd"/>
+    <path id="선_11" data-name="선 11" d="M1,13.071a1,1,0,0,1-.707-1.707L11.364.293a1,1,0,1,1,1.414,1.414L1.707,12.778A1,1,0,0,1,1,13.071Z" transform="translate(0.929 0)" fill="#fdfdfd"/>
+  </g>
+  <text id="SUBMIT" transform="translate(80.601 38)" fill="#212121" font-size="20" font-family="Pretendard-Medium, Pretendard" font-weight="500"><tspan x="0" y="0">SUBMIT</tspan></text>
+</svg>

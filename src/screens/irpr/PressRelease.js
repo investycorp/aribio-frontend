@@ -157,7 +157,9 @@ const PressRelease = () => {
         />
       </MainImgWrap>
       <Header />
-      <Path>{`HOME > IR & PR > PRESS RELEASE`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > IR & PR > `}</span>PRESS RELEASE
+      </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>PRESS{window.innerWidth <= 900 && <br />} RELEASE</HeadLine>
         <img

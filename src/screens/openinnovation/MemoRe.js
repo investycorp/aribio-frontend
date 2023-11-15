@@ -57,7 +57,8 @@ const MemoRe = () => {
 
       <Header />
       <Path>
-        {`HOME  >  OPEN INNOVATION  >`} {window.innerWidth <= 900 && <br />}
+        <span style={{ opacity: '0.5' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
+        {window.innerWidth <= 900 && <br />}
         MEMO:RE PROJECT
       </Path>
 

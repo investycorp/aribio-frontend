@@ -56,7 +56,9 @@ const History = () => {
   return (
     <Container className="container">
       <Header />
-      <Path>{`HOME > COMPANY > HISTORY`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > COMPANY > `}</span>HISTORY
+      </Path>
       <Video
         page="history"
         src={

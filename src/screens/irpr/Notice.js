@@ -158,7 +158,9 @@ const Notice = () => {
         />
       </MainImgWrap>
       <Header />
-      <Path>{`HOME > IR & PR > NOTICE`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > IR & PR > `}</span>NOTICE
+      </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>NOTICE</HeadLine>
         <img

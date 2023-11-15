@@ -421,7 +421,10 @@ const Header = () => {
                     {menu.linkTo !== 'career' && menu.linkTo !== 'pipeline' && subMenuOpen === menu.linkTo ? (
                       <Image style={{ zIndex: '-1', height: '18px', width: '18px' }} src={minus} alt="minus" />
                     ) : (
-                      <Image style={{ zIndex: '-1', height: '18px', width: '18px' }} src={plus} alt="open" />
+                      menu.linkTo !== 'career' &&
+                      menu.linkTo !== 'pipeline' && (
+                        <Image style={{ zIndex: '-1', height: '18px', width: '18px' }} src={plus} alt="open" />
+                      )
                     )}
                   </div>
                   <div

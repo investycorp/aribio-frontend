@@ -9,6 +9,8 @@ import { Container, HomeComponentWrap, TextWrap, Text, ContentBox, Image } from 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 import Video from '../../../components/Video';
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
 
 const CeoMessage = () => {
   useEffect(() => {
@@ -31,7 +33,9 @@ const CeoMessage = () => {
         />
       </MainImgWrap>
       <Header />
-      <Path>{`HOME > COMPANY > CEO MESSAGE`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > COMPANY > `}</span>CEO MESSAGE
+      </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>
           CEO <br /> MESSAGE
@@ -58,7 +62,7 @@ const CeoMessage = () => {
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap>
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-                CEO MESSAGE
+                {t('ceomessage.title')}
               </Text>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
@@ -66,7 +70,7 @@ const CeoMessage = () => {
                 $color="#ffffff"
                 style={{ margin: '2rem 0 0 0' }}
               >
-                Meet Our CEO
+                {t('ceomessage.subtitle')}
               </Text>
               <hr
                 style={{
@@ -81,8 +85,7 @@ const CeoMessage = () => {
                 $color="#E5E5E5"
                 style={{ margin: '0' }}
               >
-                AriBio’s mission is to improve the quality of human life by developing innovative drugs <br />
-                that can give hope to patients who suffer from incurable diseases across the globe.
+                <Trans i18nKey="ceomessage.desc1" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -115,15 +118,7 @@ const CeoMessage = () => {
                 $color="#ffffff"
                 style={{ padding: '0 20px', width: '70%', textAlign: 'center', margin: '0' }}
               >
-                At AriBio,
-                <br />
-                developing new treatments is like stargazing across the night sky,
-                <br />
-                plotting our course through the vast unknown.
-                <br />
-                Our team shares a common mission , steadily working towards our goal
-                <br />
-                despite the cosmic uncertainties and challenges that may arise.
+                <Trans i18nKey="ceomessage.message" components={{ 1: <br /> }} />
               </Text>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
@@ -139,7 +134,7 @@ const CeoMessage = () => {
                 $color="#D6D6D6"
                 style={{ width: '50%', textAlign: window.innerWidth > 1280 ? 'end' : 'center' }}
               >
-                AriBio Co., Ltd. CEO Jai Jun Choung
+                {t('ceomessage.message2')}
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -156,8 +151,7 @@ const CeoMessage = () => {
                 $color="#EAEAEA"
                 style={{ textAlign: 'start', margin: '0', padding: '0' }}
               >
-                AriBio is at the forefront of innovative drug development
-                <br /> for neurodegenerative diseases.
+                <Trans i18nKey="ceomessage.desc2" components={{ 1: <br /> }} />
               </Text>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
@@ -165,32 +159,7 @@ const CeoMessage = () => {
                 $color="#909090"
                 style={{ textAlign: 'start', margin: '0', padding: '0 10% 0 0', lineHeight: '1.7' }}
               >
-                As the founder of AriBio, I have spent the past 35 years devoted to the research and
-                <br />
-                development of new treatments for patients. With these experiences, I established AriBio in
-                <br />
-                2010 with the core purpose of developing meaningful therapies for neurodegenerative
-                <br />
-                diseases. The loss of memory due to dementia is a process that denies a person’s dignity
-                <br />
-                and life, impacting not only to the patient, but also the family members who care for them.
-                <br />
-                Although it has been 110 years since the discovery of Alzheimer’s disease, pharmaceutical
-                <br />
-                companies still face the highest failure rate in developing treatments. Yet, AriBio is
-                <br />
-                determined to tackle this challenge with a bold vision and unwavering determination. <br />
-                Over the past decade, we have developed an innovative pipeline that enables us to develop
-                <br />
-                new drugs quickly and cost-effectively.
-                <br />
-                <br />
-                At AriBio, developing new treatments is like stargazing across the night sky, plotting our
-                <br />
-                course through the vast unknown. Our team shares a common mission , steadily working
-                <br />
-                towards our goal despite the cosmic uncertainties and challenges that may arise.
-                <br />
+                <Trans i18nKey="ceomessage.desc3" components={{ 1: <br /> }} />
               </Text>
             </ContentBox>
           </HomeComponentWrap>
@@ -199,23 +168,14 @@ const CeoMessage = () => {
           <HomeComponentWrap>
             <TextWrap>
               <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                CEO MESSAGE
+                {t('ceomessage.title')}
               </Text>
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                Meet Our CEO
+                {t('ceomessage.subtitle')}
               </Text>
               <hr style={{ width: '20px', margin: '3em 0' }} />
               <Text $fontSize="18px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0' }}>
-                AriBio’s mission is to improve
-                <br />
-                the quality of human life by developing
-                <br />
-                innovative drugs that can give hope
-                <br />
-                to patients who suffer from
-                <br />
-                incurable diseases across the globe.
-                <br />
+                <Trans i18nKey="ceomessage_m.desc1" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -248,17 +208,7 @@ const CeoMessage = () => {
                 $color="#ffffff"
                 style={{ padding: '0 20px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px' }}
               >
-                AriBio’s mission is
-                <br />
-                to improve the quality of human
-                <br />
-                life by developing innovative drugs <br />
-                that can give hope to patients
-                <br />
-                who suffer from incurable diseases
-                <br />
-                across the globe.
-                <br />
+                <Trans i18nKey="ceomessage_m.message" components={{ 1: <br /> }} />
               </Text>
               <Text
                 $fontSize="20px"
@@ -274,7 +224,7 @@ const CeoMessage = () => {
                 $color="#D6D6D6"
                 style={{ width: '100%', textAlign: 'center', marginBottom: '0' }}
               >
-                AriBio Co., Ltd. CEO Jai Jun Choung
+                {t('ceomessage.message2')}
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -294,8 +244,7 @@ const CeoMessage = () => {
                 $color="#EAEAEA"
                 style={{ textAlign: 'start', margin: '0', padding: '0 ' }}
               >
-                AriBio is at the forefront of innovative
-                <br /> drug development for neurodegenerative diseases.
+                <Trans i18nKey="ceomessage_m.desc2" components={{ 1: <br /> }} />
               </Text>
               <Text
                 $fontSize="16px"
@@ -303,61 +252,7 @@ const CeoMessage = () => {
                 $color="#909090"
                 style={{ textAlign: 'start', margin: '0', padding: '0', lineHeight: '1.5' }}
               >
-                As the founder of AriBio, I have spent the
-                <br />
-                past 35 years devoted to the research and
-                <br />
-                development of new treatments for patients.
-                <br />
-                With these experiences, I established AriBio
-                <br />
-                in 2010 with the core purpose of developing
-                <br />
-                meaningful therapies for neurodegenerative
-                <br />
-                diseases. The loss of memory due to
-                <br />
-                dementia is a process that denies a person’s
-                <br />
-                dignity and life, impacting not only to the
-                <br />
-                patient, but also the family members who
-                <br />
-                care for them. Although it has been 110 years
-                <br />
-                since the discovery of Alzheimer’s disease,
-                <br />
-                pharmaceutical companies still face the
-                <br />
-                highest failure rate in developing treatments.
-                <br />
-                Yet, AriBio is determined to tackle this
-                <br />
-                challenge with a bold vision and unwavering
-                <br />
-                determination. <br />
-                Over the past decade, we have developed
-                <br />
-                an innovative pipeline that enables us
-                <br />
-                to develop new drugs quickly and
-                <br />
-                cost-effectively.
-                <br />
-                <br />
-                At AriBio, developing new treatments is like
-                <br />
-                stargazing across the night sky, plotting our
-                <br />
-                course through the vast unknown.
-                <br />
-                Our team shares a common mission,
-                <br />
-                steadily working towards our goal despite
-                <br />
-                the cosmic uncertainties and challenges
-                <br />
-                that may arise.
+                <Trans i18nKey="ceomessage_m.desc3" components={{ 1: <br /> }} />
               </Text>
             </ContentBox>
           </HomeComponentWrap>

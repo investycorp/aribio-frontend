@@ -132,7 +132,7 @@ const DigitalHealth = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        {`HOME > OPEN INNOVATION >`}
+        <span style={{ opacity: '0.5' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
         {window.innerWidth <= 900 && <br />}
         {` DIGITAL HEALTH`}
       </Path>

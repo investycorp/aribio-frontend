@@ -42,6 +42,7 @@ const Contact = () => {
   });
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [submitSrc, setSubmitSrc] = useState();
   const [emailError, setEmailError] = useState('This field is required.');
   const {
     mutate,
@@ -54,6 +55,13 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
+    setSubmitSrc(
+      process.env.PUBLIC_URL + window.innerWidth > 1280
+        ? '/assets/icons/submit/submit_1920.svg'
+        : window.innerWidth > 900
+        ? '/assets/icons/submit/submit_1280.svg'
+        : '/assets/icons/submit/submit_360.svg',
+    );
   }, []);
 
   useEffect(() => {
@@ -86,7 +94,6 @@ const Contact = () => {
 
     let isValid = await checkValidation();
     if (isValid === true) {
-      console.log('ContactInfo', contactInfo);
       const response = await mutate();
       if (mutationSuccess) {
         await setIsSuccess(true);
@@ -141,7 +148,9 @@ const Contact = () => {
           }
         />
       </MainImgWrap>
-      <Path>{`HOME > CONTACT > CONTACT US`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > CONTACT > `}</span>CONTACT US
+      </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>CONTACT {window.innerWidth <= 900 && <br />}US</HeadLine>
         <img
@@ -335,7 +344,33 @@ const Contact = () => {
                     <span style={{ color: '#00A6FF' }}>* </span>
                     <span style={{ color: '#E5E5E5' }}>is a required field. </span>
                   </span>
-                  <Button
+
+                  <Image
+                    src={submitSrc}
+                    alt="submit"
+                    style={{
+                      cursor: 'pointer',
+                      marginTop: window.innerWidth > 1280 ? '120px' : '74px',
+                      width: window.innerWidth > 1280 ? '187px' : '113px',
+                    }}
+                    onClick={(e) => handleSubmit(e)}
+                    onMouseOver={() =>
+                      setSubmitSrc(
+                        process.env.PUBLIC_URL + window.innerWidth > 1280
+                          ? '/assets/icons/submit/submit_1920_a.svg'
+                          : '/assets/icons/submit/submit_1280_a.svg',
+                      )
+                    }
+                    onMouseOut={() =>
+                      setSubmitSrc(
+                        process.env.PUBLIC_URL + window.innerWidth > 1280
+                          ? '/assets/icons/submit/submit_1920.svg'
+                          : '/assets/icons/submit/submit_1280.svg',
+                      )
+                    }
+                  />
+
+                  {/* <Button
                     style={{
                       display: 'flex',
                       justifyContent: 'start',
@@ -358,7 +393,7 @@ const Contact = () => {
                       }}
                     />
                     SUBMIT
-                  </Button>
+                  </Button> */}
                 </FormInputRowWrap>
               </Form>
             </FormWrap>
@@ -611,7 +646,19 @@ const Contact = () => {
                     <span style={{ color: '#00A6FF' }}>* </span>
                     <span style={{ fontSize: '14px', fontWeight: '200', color: '#E5E5E5' }}>is a required field. </span>
                   </span>
-                  <Button
+                  <Image
+                    src={submitSrc}
+                    alt="submit"
+                    style={{
+                      cursor: 'pointer',
+                      marginTop: '80px',
+                      width: '131px',
+                    }}
+                    onClick={(e) => handleSubmit(e)}
+                    onMouseOver={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360_a.svg')}
+                    onMouseOut={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360.svg')}
+                  />
+                  {/* <Button
                     className={isSuccess ? 'submit' : ''}
                     style={{
                       display: 'flex',
@@ -640,7 +687,7 @@ const Contact = () => {
                       }}
                     />
                     SUBMIT
-                  </Button>
+                  </Button> */}
                 </FormInputRowWrap>
               </Form>
             </FormWrap>

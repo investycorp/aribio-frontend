@@ -2,12 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import ourapproach_ai_middle1 from './assets/ourapproach_ai_middle1.png';
-import ourapproach_ai_middle2 from './assets/ourapproach_ai_middle2.png';
 import ourapproach_ai_middle3 from './assets/ourapproach_ai_middle3.png';
-import docthumbnail from './assets/ourapproach_docthumbnail.png';
-import ourapproach_ai_pathwaydata2 from './assets/ourapproach_ai_pathwaydata2.png';
-import ourapproach_ai_pathwaydata3 from './assets/ourapproach_ai_pathwaydata3.png';
-import arrow_thin from './assets/arrow_thin.svg';
 
 import {
   Container,
@@ -29,6 +24,8 @@ import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from 
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import Video from '../../components/Video';
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
 
 const AiPlatform = () => {
   const [activeButton, setActiveButton] = useState(0);
@@ -151,9 +148,14 @@ const AiPlatform = () => {
         </ContainerGridLineWrap>
       </MainImgWrap>
       <Header />
-      <Path>{`HOME > OUR APPROACH > AI PLATFORM`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > OUR APPROACH > `}</span>AI PLATFORM
+      </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>AI {window.innerWidth <= 900 && <br />}PLATFORM</HeadLine>
+        <HeadLine>
+          {t('aiplatform.headline1')} {window.innerWidth <= 900 && <br />}
+          {t('aiplatform.headline2')}
+        </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -170,7 +172,7 @@ const AiPlatform = () => {
         <HomeComponentWrap>
           <TextWrap style={{ margin: '0' }}>
             <Text $fontWeight="300" $color="#939598" style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}>
-              AI PLATFORM
+              {t('aiplatform.title')}
             </Text>
             <div
               style={{
@@ -187,7 +189,7 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ margin: '0' }}
             >
-              AI-powered, Reverse engineered &<br /> Integrated Drug Development
+              <Trans i18nKey="aiplatform.subtitle" components={{ 1: <br /> }} />
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -195,13 +197,7 @@ const AiPlatform = () => {
               $color="#E5E5E5"
               style={{ margin: '2em 0' }}
             >
-              ARIDD™ is a drug development platform that augments the discovery and
-              <br />
-              development of polypharmacological drugs. To accelerate the development of drugs with
-              <br />
-              multiple mechanisms of action, we’ve unveiled ARIS, our cutting-edge
-              <br />
-              AI platform designed for dependable in-silico predictions and analyses.
+              <Trans i18nKey="aiplatform.desc1" components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -214,7 +210,7 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ margin: '2em 0 0 0' }}
             >
-              ARIS Structure
+              {t('aiplatform.subtitle2')}
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -222,11 +218,7 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ marginTop: '2em', width: '70vw' }}
             >
-              Existing AI drug discovery tools often prioritize drug synthesis, intermolecular binding prediction,
-              <br />
-              and ADMET processes. While crucial for single-mechanism drug exploration, polypharmacological discovery
-              <br />
-              demands a nuanced approach.
+              <Trans i18nKey="aiplatform.desc2" components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
           <Image
@@ -242,16 +234,7 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ marginTop: '2em', width: '70vw' }}
             >
-              {/* ? - 디자인 반영, 시트엔 없음 */}
-              Polypharmacology requires a deep understanding of interactions among drugs,
-              <br />
-              proteins, cells, and diseases, alongside the ability to predict and identify novel biological
-              relationships.
-              <br /> To address this complexity, ARIBIO’s Platform Research Center has developed ARIS:
-              <br /> a proprietary AI platform optimized for predicting these multifaceted biological
-              interrelationships,
-              <br />
-              thus advancing our drug discovery initiatives.
+              <Trans i18nKey="aiplatform.desc2-1" components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
           <TextWrap style={{ width: 'fit-content', marginTop: '10em' }}>
@@ -262,7 +245,7 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ margin: '2em 0 0 0' }}
             >
-              ARIS (AI-based Reliable In-Silico)
+              {t('aiplatform.subtitle3')}
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -270,8 +253,7 @@ const AiPlatform = () => {
               $color="#C9C9C9"
               style={{ marginTop: '2em', width: '70vw' }}
             >
-              ARIS is fundamentally structured around two concepts,
-              <br /> “BRAIN” and its “Prediction Algorithms”.
+              <Trans i18nKey="aiplatform.desc3" components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
           <Image
@@ -291,7 +273,7 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ margin: '2em 0 0 0' }}
             >
-              BRAIN
+              {t('aiplatform.subtitle4')}
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -299,19 +281,10 @@ const AiPlatform = () => {
               $color="#C9C9C9"
               style={{ marginTop: '2em', width: '70vw' }}
             >
-              BRAIN, short for {`\t`}
-              <span style={{ color: '#ffffff', fontWeight: '300' }}>
-                “The Bridge between AI and In Silico, In Vitro, and In Vivo”,
-              </span>{' '}
-              <br />
-              has two primary components: a Knowledge Graph (KG) and a Large Language Model (LLM).
-              <br />
-              Together, they form a cohesive <span style={{ color: '#ffffff', fontWeight: '300' }}>Bridge</span>,
-              seamlessly linking the KG and ARIS{' '}
-              <span style={{ color: '#ffffff', fontWeight: '300' }}>Prediction Algorithms</span>
-              <br />
-              to real-world applications across{' '}
-              <span style={{ color: '#ffffff', fontWeight: '300' }}>In Silico, In Vitro, and In Vivo</span> domains.
+              <Trans
+                i18nKey="aiplatform.desc4"
+                components={{ 1: <br />, 2: <span style={{ color: '#ffffff', fontWeight: '300' }}></span> }}
+              />
             </Text>
           </TextWrap>
           <Image id="fadeIn" src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '70vw' }} />
@@ -325,7 +298,7 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ margin: '1.5em 0 0 0', fontSize: window.innerWidth > 1280 ? '34px' : '21px' }}
             >
-              Prediction Algorithms
+              {t('aiplatform.subtitle5')}
             </Text>
             <Text
               $fontWeight="100"
@@ -333,13 +306,7 @@ const AiPlatform = () => {
               $align="start"
               style={{ marginTop: '1.5em', width: '75%', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
             >
-              The “Prediction Algorithms” consist of a range of advanced AI prediction models and simulation tools
-              <br />
-              designed specifically for the fields of chemistry and biology. Each model and solution is carefully
-              crafted to provide
-              <br />
-              researchers with practical and direct applications, both on its own and in collaboration with the BRAIN
-              platform.
+              <Trans i18nKey="aiplatform.desc5" components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
           <ButtonWrap>
@@ -415,7 +382,7 @@ const AiPlatform = () => {
               $color="#ffffff"
               style={{ margin: '2em 0 0 0' }}
             >
-              Pathway Data
+              {t('aiplatform.subtitle6')}
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -423,21 +390,7 @@ const AiPlatform = () => {
               $color="#C9C9C9"
               style={{ marginTop: '2em' }}
             >
-              Since its origin, the development and objectives of ARIS have always been closely aligned with
-              <br />
-              AriBio’s polypharmacological approach. Hence, we emphasize harnessing contextual information
-              <br />
-              when discovering novel polypharmacological drug candidates.
-              <br />
-              When considering contextual information for polypharmacological drug discovery, pathway data is most
-              critical.
-              <br />
-              <br />
-              We extract this pathway data from various sources, leveraging two advanced Deep Learning techniques:
-              <br />
-              Named Entity Recognition (NER) and Relation Extraction (RE).
-              <br />
-              The execution flow and interplay of these methods are illustrated below:
+              <Trans i18nKey="aiplatform.desc6" components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
           <Image
@@ -453,7 +406,6 @@ const AiPlatform = () => {
               transition: 'opacity 0.5s ease-in-out',
             }}
           />
-          {/* !!!!! */}
 
           <TextWrap style={{ width: '80vw', marginTop: '10em' }}>
             <Text
@@ -462,20 +414,7 @@ const AiPlatform = () => {
               $color="#C9C9C9"
               style={{ marginTop: '2em' }}
             >
-              At the heart of polypharmacological drug discovery lies the pivotal step of target identification.
-              <br />
-              This involves discerning which biological targets a drug should engage with, to address a specific
-              disease.
-              <br />
-              The inherent challenge stems from the intricate interdependencies within our body; no single component
-              operates in isolation.
-              <br />
-              A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of
-              subsequent interactions that
-              <br />
-              collectively contribute to disease treatment. Hence, pinpointing a viable drug target necessitates
-              <br />a profound comprehension of these protein interplays within the body —a knowledge rooted in pathway
-              data.
+              <Trans i18nKey="aiplatform.desc6-2" components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -485,7 +424,7 @@ const AiPlatform = () => {
           <HomeComponentWrap>
             <TextWrap style={{ margin: '0' }}>
               <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                AI PLATFORM
+                {t('aiplatform.title')}
               </Text>
               <div
                 style={{
@@ -497,29 +436,10 @@ const AiPlatform = () => {
                 }}
               ></div>
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
-                AI-powered, Reverse
-                <br /> engineered & Integrated
-                <br /> Drug Development
+                <Trans i18nKey="aiplatform.subtitle" components={{ 1: <br /> }} />
               </Text>
               <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '2em 0', lineHeight: '21px' }}>
-                ARIDD™ is
-                <br />
-                a drug development platform <br />
-                that augments the discovery and
-                <br />
-                development of
-                <br />
-                polypharmacological drugs.
-                <br />
-                To accelerate the development of drugs
-                <br />
-                with multiple mechanisms of action,
-                <br />
-                we’ve unveiled ARIS, our cutting-edge
-                <br />
-                AI platform designed for dependable
-                <br />
-                in-silico predictions and analyses.
+                <Trans i18nKey="aiplatform_m.desc1" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -527,7 +447,7 @@ const AiPlatform = () => {
             <TextWrap style={{ width: 'fit-content', marginBottom: '5em' }}>
               <HR $height="1px" $Width="20px" $color="#ffffff" style={{ width: '20px' }} />
               <Text $fontSize="18px" $fontWeight="500" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
-                ARIS Structure
+                {t('aiplatform.subtitle2')}
               </Text>
               <Text
                 $fontSize="16px"
@@ -535,41 +455,7 @@ const AiPlatform = () => {
                 $color="#D3D3D3"
                 style={{ marginTop: '2em', width: '90vw', lineHeight: '20px' }}
               >
-                At AriBio,
-                <br />
-                our commitment to polypharmacology
-                <br />
-                is fortified by the power of advanced
-                <br />
-                AI technologies. <br />
-                With the ARIDD™ platform,
-                <br />
-                we delve into vast molecular databases,
-                <br />
-                predicting interactions that span multiple <br />
-                targets and mechanisms.
-                <br />
-                By leveraging AI, we aim to achieve
-                <br />
-                heightened drug efficacy and expand
-                <br />
-                potential therapeutic indications,
-                <br />
-                positioning AriBio as a leader in innovative
-                <br />
-                treatments for neurodegenerative diseases.
-                <br />
-                <br />
-                <br />
-                Join our pursuit to advance the future of
-                <br />
-                drug discovery, where AI meets the
-                <br />
-                sophistication of polypharmacology,
-                <br />
-                to tackle the challenges posed by
-                <br />
-                neurodegenerative disorders.
+                <Trans i18nKey="aiplatform_m.desc2" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <Image
@@ -581,12 +467,10 @@ const AiPlatform = () => {
             <TextWrap style={{ width: 'fit-content', marginTop: '5em', marginBottom: '5em' }}>
               <HR $height="1px" $color="#ffffff" style={{ width: '20px' }} />
               <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
-                ARIS (AI-based Reliable In-Silico)
+                {t('aiplatform.subtitle3')}
               </Text>
               <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{ marginTop: '2em', width: '80vw' }}>
-                ARIS is fundamentally structured
-                <br /> around two concepts,
-                <br /> “BRAIN” and its “Prediction Algorithms”.
+                <Trans i18nKey="aiplatform_m.desc3" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <Image
@@ -598,31 +482,13 @@ const AiPlatform = () => {
             <TextWrap style={{ width: 'fit-content', marginTop: '5em', marginBottom: '5em' }}>
               <HR $height="1px" $color="#ffffff" style={{ width: '20px' }} />
               <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
-                BRAIN
+                {t('aiplatform.subtitle4')}
               </Text>
               <Text $fontSize="16px" $fontWeight="200" $color="#C9C9C9" style={{ marginTop: '2em', width: '80vw' }}>
-                BRAIN, short for {`\t`}
-                <br />
-                <span style={{ color: '#ffffff', fontWeight: '400' }}>
-                  “The Bridge between AI and In Silico,
-                  <br /> In Vitro, and In Vivo”,
-                </span>{' '}
-                <br />
-                has two primary components:
-                <br /> a Knowledge Graph (KG)
-                <br /> and a Large Language Model (LLM).
-                <br />
-                Together, they form a cohesive <span style={{ color: '#ffffff', fontWeight: '400' }}>Bridge</span>,
-                <br />
-                seamlessly linking the KG and ARIS <br />
-                <span style={{ color: '#ffffff', fontWeight: '400' }}>Prediction Algorithms</span> to real-world
-                <br />
-                applications across{' '}
-                <span style={{ color: '#ffffff', fontWeight: '400' }}>
-                  In Silico, In Vitro,
-                  <br /> and In Vivo
-                </span>{' '}
-                domains.
+                <Trans
+                  i18nKey="aiplatform_m.desc4"
+                  components={{ 1: <br />, 2: <span style={{ color: '#ffffff', fontWeight: '400' }}></span> }}
+                />
               </Text>
             </TextWrap>
             <Image
@@ -642,7 +508,7 @@ const AiPlatform = () => {
                 $color="#ffffff"
                 style={{ margin: '1.5em 0 0 0' }}
               >
-                Prediction Algorithms
+                {t('aiplatform.subtitle5')}
               </Text>
               <Text
                 $fontSize="16px"
@@ -651,20 +517,7 @@ const AiPlatform = () => {
                 $align="start"
                 style={{ marginTop: '1.5em', width: '100%' }}
               >
-                The “Prediction Algorithms” consist of a<br />
-                range of advanced AI prediction models and
-                <br />
-                simulation tools designed specifically for the
-                <br />
-                fields of chemistry and biology. Each model
-                <br />
-                and solution is carefully crafted to provide
-                <br />
-                researchers with practical and direct
-                <br />
-                applications, both on its own and in
-                <br />
-                collaboration with the BRAIN platform.
+                <Trans i18nKey="aiplatform_m.desc5" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <ButtonWrap>
@@ -740,30 +593,10 @@ const AiPlatform = () => {
             <TextWrap style={{ marginBottom: '5em' }}>
               <HR $height="1px" $color="#ffffff" $width="20px" />
               <Text $fontSize="18px" $fontWeight="600" $color="#ffffff" style={{ margin: '2em 0 0 0' }}>
-                Pathway Data
+                {t('aiplatform.subtitle6')}
               </Text>
               <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{ marginTop: '2em' }}>
-                Since its origin,
-                <br />
-                the development and objectives of ARIS
-                <br />
-                have always been closely aligned with
-                <br />
-                AriBio’s polypharmacological approach.
-                <br />
-                Hence, we emphasize harnessing
-                <br />
-                contextual information when
-                <br />
-                discovering novel polypharmacological
-                <br />
-                drug candidates.
-                <br />
-                When considering contextual information
-                <br />
-                for polypharmacological drug discovery,
-                <br />
-                pathway data is most critical.
+                <Trans i18nKey="aiplatform_m.desc6" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <Image
@@ -775,40 +608,7 @@ const AiPlatform = () => {
 
             <TextWrap style={{ width: '86vw', marginTop: '10em' }}>
               <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{ marginTop: '2em' }}>
-                At the heart of polypharmacological drug <br />
-                discovery lies the pivotal step of target
-                <br />
-                identification. This involves discerning
-                <br />
-                which biological targets a drug
-                <br />
-                should engage with, to address a specific
-                <br />
-                disease. The inherent challenge stems
-                <br />
-                from the intricate interdependencies
-                <br />
-                within our body; no single component
-                <br />
-                operates in isolation.
-                <br />
-                A drug’s interaction with a singular protein
-                <br />
-                isn’t the sole therapeutic agent;
-                <br />
-                it’s the cascade of subsequent
-                <br />
-                interactions that collectively contribute
-                <br />
-                to disease treatment. Hence, pinpointing
-                <br />
-                a viable drug target necessitates
-                <br />
-                a profound comprehension of these
-                <br />
-                protein interplays within the body — <br />
-                a knowledge rooted in pathway data.
-                <br />
+                <Trans i18nKey="aiplatform_m.desc6-2" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>

@@ -36,7 +36,9 @@ const OpenInnovation = () => {
         />
       </MainImgWrap>
       <Header />
-      <Path>{`HOME > OPEN INNOVATION`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > `}</span>OPEN INNOVATION
+      </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine style={{ fontSize: window.innerWidth < 901 && '55px' }}>
           OPEN <br /> INNOVATION

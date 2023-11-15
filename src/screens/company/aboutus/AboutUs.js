@@ -10,6 +10,8 @@ import Advisors from './components/Advisors';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 import Video from '../../../components/Video';
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
 
 const AboutUs = () => {
   const [tabNames, setTabNames] = useState(['Leadership', 'Advisors']);
@@ -37,7 +39,9 @@ const AboutUs = () => {
   return (
     <Container className="container">
       <Header />
-      <Path>{`HOME > COMPANY > ABOUT US`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > COMPANY > `}</span>ABOUT US
+      </Path>
       <MainImgWrap>
         <Video
           page="aboutus"
@@ -52,7 +56,7 @@ const AboutUs = () => {
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>
-          ABOUT <br /> US
+          <Trans i18nKey="aboutus.headline" components={{ 1: <br /> }} />
         </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
@@ -75,10 +79,10 @@ const AboutUs = () => {
           <HomeComponentWrap>
             <TextWrap>
               <Text $color="#939598" $fontWeight="400" style={{ fontsize: window.innerWidth > 1280 ? '26px' : '18px' }}>
-                ABOUT US
+                {t('aboutus.title')}
               </Text>
               <Text $fontWeight="500" style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}>
-                Company Overview
+                {t('aboutus.subtitle')}
               </Text>
               <hr
                 style={{
@@ -88,24 +92,7 @@ const AboutUs = () => {
                 }}
               />
               <Text $fontWeight="300" $color="#D3D3D3" style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}>
-                AriBio Co., Ltd. is a biotechnology leader focused on creating impactful therapies
-                <br />
-                for neurodegenerative diseases. Through our groundbreaking ARIDD™ platform
-                <br />
-                (AI-powered, Reverse engineered & Integrated Drug Development)
-                <br />
-                and a commitment to Open Innovation, we are poised to make significant strides in the field.
-                <br />
-                <br />
-                We are dedicated to pioneering treatments for neurodegenerative diseases,
-                <br />
-                offering innovative therapies for a brighter future
-                <br />
-                <br />
-                Meet our dedicated leadership team of experts in science,
-                <br />
-                technology, pharmaceuticals, and regulatory fields.
-                <br />
+                <Trans i18nKey="aboutus.desc" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -129,10 +116,10 @@ const AboutUs = () => {
           <HomeComponentWrap>
             <TextWrap style={{ width: '100%' }}>
               <Text $color="#939598" $fontWeight="300" style={{ fontSize: '16px' }}>
-                ABOUT US
+                {t('aboutus.title')}
               </Text>
               <Text $fontWeight="400" style={{ fontSize: '23px' }}>
-                Company Overview
+                {t('aboutus.subtitle')}
               </Text>
               <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '0 0 2rem 0' }} />
               <Text
@@ -141,41 +128,7 @@ const AboutUs = () => {
                 $color="#D3D3D3"
                 style={{ lineHeight: '20px', fontSize: '18px' }}
               >
-                AriBio Co., Ltd.
-                <br />
-                is a biotechnology leader focused on
-                <br />
-                creating impactful therapies for
-                <br />
-                neurodegenerative diseases.
-                <br />
-                Through our groundbreaking
-                <br />
-                ARIDD™ platform (AI-powered,
-                <br />
-                Reverse engineered & Integrated
-                <br />
-                Drug Development) and a<br />
-                commitment to Open Innovation,
-                <br />
-                we’re poised to make significant
-                <br />
-                strides in the field.
-                <br />
-                <br />
-                Our mission is clear:
-                <br />
-                develop innovative therapies
-                <br />
-                for neurodegenerative diseases.
-                <br />
-                <br />
-                Meet our dedicated leadership team,
-                <br />
-                of experts in science, technology,
-                <br />
-                pharmaceuticals, and regulatory fields.
-                <br />
+                <Trans i18nKey="aboutus_m.desc" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>

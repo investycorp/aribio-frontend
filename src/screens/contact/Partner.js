@@ -53,7 +53,9 @@ const Partner = () => {
           }
         />
       </MainImgWrap>
-      <Path>{`HOME > CONTACT > PARTNER`}</Path>
+      <Path>
+        <span style={{ opacity: '0.5' }}>{`HOME > CONTACT > `}</span>PARTNER
+      </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>PARTNER</HeadLine>
         <img
