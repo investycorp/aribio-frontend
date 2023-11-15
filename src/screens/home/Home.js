@@ -52,7 +52,7 @@ const Home = () => {
             date: `${item.year}.${item.month}.${item.day}`,
             mobileDate: `${item.month} ${item.day}, ${item.year}`,
             title: item.title,
-            imageUrl: item.fileDto?.fileUrl ? item.fileDto?.fileUrl : home_notice1,
+            imageUrl: item.fileDto?.fileUrl ? item?.fileDto?.fileUrl : home_notice1,
           };
         }
       });

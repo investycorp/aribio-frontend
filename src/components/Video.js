@@ -86,7 +86,11 @@ const Video = ({ page, src }) => {
           loop={page !== 'home'}
           controls={false}
           preload="metadata"
-          style={{ objectFit: 'cover', width: '100vw', height: '100vh' }}
+          style={{
+            objectFit: page === 'home' && window.innerWidth < 1100 ? 'contain' : 'cover',
+            width: '100vw',
+            height: '100vh',
+          }}
         >
           <source src={src} type="video/mp4" />
         </video>
@@ -97,7 +101,7 @@ const Video = ({ page, src }) => {
             style={{
               position: 'absolute',
               right: '7vw',
-              bottom: '0',
+              bottom: '5vw',
               height: window.innerWidth > 1280 ? '60px' : '36px',
             }}
           />
@@ -115,7 +119,7 @@ const Video = ({ page, src }) => {
             controls={false}
             preload="metadata"
             style={{
-              objectFit: 'cover',
+              objectFit: page === 'home' ? 'contain' : 'cover',
               width: '100vw',
               height: '100vh',
             }}
@@ -130,6 +134,18 @@ const Video = ({ page, src }) => {
           //   />
           // )
         }
+        {page === 'home' && (
+          <img
+            src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
+            alt="home"
+            style={{
+              position: 'absolute',
+              right: '7vw',
+              bottom: '7vh',
+              height: window.innerWidth > 1280 ? '60px' : '36px',
+            }}
+          />
+        )}
       </Mobile>
     </Container>
   );

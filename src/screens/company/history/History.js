@@ -42,7 +42,7 @@ const History = () => {
         setTabNames((prev) => [...prev, `${item.startYear}-${item.endYear}`]);
         setTextItems((prev) => [...prev, { title: item.title, subtitle: item.subtitle }]);
         const contentList = [];
-        item.userHistoryDtoList?.map((content) => {
+        item?.userHistoryDtoList?.map((content) => {
           contentList.push({ title: content.year.toString(), content: content.contents });
         });
 

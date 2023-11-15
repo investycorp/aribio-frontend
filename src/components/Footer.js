@@ -133,22 +133,23 @@ const Footer = () => {
 
   useEffect(() => {
     if (data?.data?.success) {
-      const item = data.data.data;
-      setCompanyInfo({
-        logo: item.fileDto.fileUrl,
-        tel: item.tel,
-        fax: item.fax,
-        head: {
-          address1: item.headAddress1,
-          address2: item.headAddress2,
-          address3: item.headAddress3,
-        },
-        us: {
-          address1: item.usAddress1,
-          address2: item.usAddress2,
-          address3: item.usAddress3,
-        },
-      });
+      const item = data.data?.data;
+      item &&
+        setCompanyInfo({
+          logo: item?.fileDto?.fileUrl,
+          tel: item?.tel,
+          fax: item?.fax,
+          head: {
+            address1: item.headAddress1,
+            address2: item.headAddress2,
+            address3: item.headAddress3,
+          },
+          us: {
+            address1: item.usAddress1,
+            address2: item.usAddress2,
+            address3: item.usAddress3,
+          },
+        });
     }
   }, [data]);
 
@@ -165,7 +166,7 @@ const Footer = () => {
               />
             </Link>
             <ContactUsWrap>
-              <Link style={{ textDecoration: 'none' }} to="/contactus">
+              <Link style={{ textDecoration: 'none' }} to="/contact/contactus">
                 <ContactUsBox style={{ cursor: 'pointer' }}>
                   <div style={{ cursor: 'pointer', zIndex: '-1' }}>CONTACT US</div>
                   <img
@@ -262,7 +263,7 @@ const Footer = () => {
             </Link>
             <GoToTop />
             <ContactUsWrap>
-              <Link style={{ textDecoration: 'none' }} to="/contactus">
+              <Link style={{ textDecoration: 'none' }} to="/contact/contactus">
                 <ContactUsBox
                   style={{
                     cursor: 'pointer',
@@ -284,9 +285,9 @@ const Footer = () => {
                   width: '100%',
                 }}
               >
-                <ContactBoxText style={{ textDecoration: 'none', margin: '0' }}>TEL. 02-2637-0009</ContactBoxText>
+                <ContactBoxText style={{ textDecoration: 'none', margin: '0' }}>TEL. {companyInfo.tel}</ContactBoxText>
 
-                <ContactBoxText style={{ bodrer: 'transparent', margin: '0' }}>FAX. 02-2633-9911</ContactBoxText>
+                <ContactBoxText style={{ bodrer: 'transparent', margin: '0' }}>FAX. {companyInfo.fax}</ContactBoxText>
               </div>
             </ContactUsWrap>
           </FooterGridWrap>

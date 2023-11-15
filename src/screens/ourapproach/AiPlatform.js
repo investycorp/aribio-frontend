@@ -225,7 +225,11 @@ const AiPlatform = () => {
             id="fadeIn"
             src={ourapproach_ai_middle1}
             alt="ai_middle1"
-            style={{ width: '60vh', marginLeft: window.innerWidth > 1280 ? '12%' : '18%' }}
+            style={{
+              // width: window.innerWidth > 1280 ? '60vw' : '68vw',
+              height: window.innerWidth > 1280 ? '80vh' : '80vh',
+              marginLeft: window.innerWidth > 1280 ? '13%' : '14%',
+            }}
           />
           <TextWrap style={{ width: 'fit-content', marginTop: '10rem' }}>
             <Text
@@ -258,10 +262,16 @@ const AiPlatform = () => {
           </TextWrap>
           <Image
             id="fadeIn"
-            src={process.env.PUBLIC_URL + '/assets/interaction/360/AB3900IT_VD.png'}
+            src={
+              process.env.PUBLIC_URL + window.innerWidth > 1280
+                ? '/assets/interaction/1920/AB3700IT_VD.png'
+                : '/assets/interaction/1280/AB3800IT_VD.png'
+            }
             alt="openinnovation_middle2"
             style={{
-              width: '50vw',
+              objectFit: 'cover',
+              width: 'auto',
+              height: '80vh',
               transition: 'opacity 0.5s ease-in-out',
             }}
           />
@@ -287,7 +297,7 @@ const AiPlatform = () => {
               />
             </Text>
           </TextWrap>
-          <Image id="fadeIn" src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '70vw' }} />
+          <Image id="fadeIn" src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '65vw' }} />
         </HomeComponentWrap>
         <HomeComponentWrap>
           <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
@@ -402,7 +412,7 @@ const AiPlatform = () => {
             }
             alt="openinnovation_middle2"
             style={{
-              width: '50vw',
+              width: '85vw',
               transition: 'opacity 0.5s ease-in-out',
             }}
           />
@@ -554,15 +564,21 @@ const AiPlatform = () => {
                     margin: '0',
                     padding: '0 0 1rem 0',
                     width: '100%',
-                    height: '61px',
+                    height: 'fit-content',
                     alignItems: 'start',
+                    justifyContent: 'start',
                     borderBottom: '1px solid #6E6E6E',
                   }}
                 >
                   <Text
                     $fontWeight="500"
                     $color="#ffffff"
-                    style={{ fontSize: '18px', width: 'fit-content', height: 'fit-content' }}
+                    style={{
+                      fontSize: '18px',
+                      width: 'fit-content',
+                      height: 'fit-content',
+                      lineHeight: '1em',
+                    }}
                   >
                     •{'\t'}
                     {predictions[activeButton].title}

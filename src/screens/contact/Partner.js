@@ -26,8 +26,8 @@ const Partner = () => {
       setItemList(
         list.map((item) => ({
           id: item.id,
-          name: item.fileDto.fileName,
-          imgUrl: item.fileDto?.fileUrl,
+          name: item?.fileDto?.fileName,
+          imgUrl: item?.fileDto?.fileUrl,
         })),
       );
     }

@@ -89,10 +89,8 @@ const PressRelease = () => {
   }, [data]);
 
   useEffect(() => {
-    console.log('pageNumber', pageNumber);
     if (pageNumber > 1) {
       refetch(pageNumber, language, searchValue);
-      console.log('refetch', pageNumber);
     }
   }, [pageNumber]);
 
@@ -118,10 +116,9 @@ const PressRelease = () => {
     console.log(window.scrollY);
     if (id) {
       //when page has refreshed from detail page
-      console.log('page ID', id);
+
       setDetailPage(true);
       setCurrentItem(filteredList[id]);
-      console.log(itemList[id]);
     } else if (!id) {
       //when page came back from detail page by clicking view list button
       //or loaded for the first time
@@ -129,7 +126,7 @@ const PressRelease = () => {
       setDetailPage(false);
       setCurrentItem({});
       // setPageNumber(1);
-      setSearchValue('');
+      // setSearchValue('');
       setIsLoading(false);
       // setFilteredList(itemList);
       setHoverItem();
@@ -138,8 +135,8 @@ const PressRelease = () => {
 
   const handleSearchClick = async (val) => {
     setPageNumber(1);
-    refetch(pageNumber, language, searchValue);
-    setViewMoreOn(true);
+    refetch(1, language, val);
+    // setViewMoreOn(true);
   };
 
   return (

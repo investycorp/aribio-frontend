@@ -113,8 +113,16 @@ const Publications = () => {
 
   const handleChange = async (e) => {
     setSearchValue(e.target.value);
-    const filtered = await irDocs.filter((doc) => doc.title.includes(e.target.value));
-    await setFilteredList(filtered);
+  };
+
+  const handleSearchClick = async (e) => {
+    const filtered = await filteredList.filter(
+      (doc) =>
+        doc.title?.toLowerCase()?.includes(searchValue?.toLowerCase()) ||
+        doc.journal?.toLowerCase()?.includes(searchValue?.toLowerCase()),
+    );
+
+    setFilteredList(filtered);
   };
 
   return (
@@ -198,19 +206,31 @@ const Publications = () => {
                 onChange={(e) => {
                   handleChange(e);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleSearchClick(e);
+                  }
+                }}
                 autoFocus={true}
                 style={{ opacity: searchValue ? '100%' : '50%' }}
               />
-              <Image src={search} alt="search" />
+              <Image
+                src={search}
+                onClick={(e) => {
+                  handleSearchClick(e);
+                }}
+                alt="search"
+              />
             </ComponentWrap>
             <ComponentWrap
               style={{
                 display: 'flex',
                 flexDirection: 'row',
-                margin: '2rem',
+
                 width: '100%',
                 gap: '1rem',
                 margin: '1rem',
+                padding: '60px 0',
               }}
             >
               <Dot $color="#004D76" style={{ width: '14px', height: '14px' }} />
@@ -222,13 +242,13 @@ const Publications = () => {
               <Dot $color="#760027" style={{ width: '14px', height: '14px' }} />{' '}
               <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '14px', color: '#E6E6E6' }}>Conference</span>
             </ComponentWrap>
-            <ComponentWrap></ComponentWrap>
+            <ComponentWrap style={{ padding: '60px 0' }}></ComponentWrap>
             {filteredList.length > 0 ? (
               filteredList.map((doc, index) => (
                 <ComponentWrap
                   key={doc.title + index}
                   className="irdoc"
-                  style={{ justifyContent: 'center', alignItems: 'start' }}
+                  style={{ justifyContent: 'center', alignItems: 'start', padding: '32px' }}
                 >
                   <div
                     className="readmore"
@@ -360,15 +380,27 @@ const Publications = () => {
                 onChange={(e) => {
                   handleChange(e);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleSearchClick(e);
+                  }
+                }}
                 autoFocus={true}
               />
-              <Image src={search} alt="search" />
+              <Image
+                src={search}
+                onClick={(e) => {
+                  handleSearchClick(e);
+                }}
+                alt="search"
+              />
             </ComponentWrap>
             <ComponentWrap
               style={{
                 display: 'flex',
                 flexDirection: 'row',
-                margin: '6rem 0 2rem 0',
+                margin: '2rem 0 2rem 0',
+                padding: '0',
                 width: '100%',
                 gap: '1rem',
               }}

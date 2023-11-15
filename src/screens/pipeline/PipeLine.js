@@ -243,9 +243,9 @@ const PipeLine = () => {
                       src={icon_open}
                       alt="modal_open"
                       onClick={() => {
-                        setIsModalOpen(true);
-
-                        setModalItem({ ...item.modal, item: item?.drugCandidate });
+                        // !!!!Add when pop content is ready!!!!
+                        // setIsModalOpen(true);
+                        // setModalItem({ ...item.modal, item: item?.drugCandidate });
                       }}
                     />
                   </TableContentBox>
@@ -380,6 +380,7 @@ const PipeLine = () => {
                       src={icon_open}
                       alt="modal_open"
                       onClick={() => {
+                        // !!!!Add when pop content is ready!!!!
                         setIsModalOpen(true);
                         setModalItem({ ...selectedItem?.modal, item: selectedItem?.drugCandidate });
                         setToggleOn(false);

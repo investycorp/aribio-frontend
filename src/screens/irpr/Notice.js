@@ -92,7 +92,6 @@ const Notice = () => {
   useEffect(() => {
     if (pageNumber > 1) {
       refetch(pageNumber, language, searchValue);
-      console.log('refetch', pageNumber);
     }
   }, [pageNumber]);
 
@@ -117,15 +116,14 @@ const Notice = () => {
     console.log(window.scrollY);
     if (id) {
       //when page has refreshed from detail page
-      console.log('page ID', id);
+
       setDetailPage(true);
       setCurrentItem(filteredList[id]);
-      console.log(itemList[id]);
     } else if (!id) {
       //when page came back from detail page by clicking view list button
       //or loaded for the first time
-      console.log('list page');
-      setSearchValue('');
+
+      // setSearchValue('');
 
       setDetailPage(false);
       // refetch(1, language, '');
@@ -139,8 +137,8 @@ const Notice = () => {
 
   const handleSearchClick = async (val) => {
     setPageNumber(1);
-    refetch(pageNumber, language, searchValue);
-    setViewMoreOn(true);
+    refetch(1, language, val);
+    // setViewMoreOn(true);
   };
 
   return (
@@ -323,7 +321,7 @@ const Notice = () => {
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
-                {(viewMoreOn || pageNumber * itemPerPage <= filteredList.length) && (
+                {filteredList.length > 0 && (viewMoreOn || pageNumber * itemPerPage <= filteredList.length) && (
                   <div
                     style={{
                       display: 'flex',
@@ -480,7 +478,7 @@ const Notice = () => {
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
-                {pageNumber * itemPerPage <= filteredList.length && (
+                {filteredList.length > 0 && pageNumber * itemPerPage <= filteredList.length && (
                   <div
                     style={{
                       display: 'flex',
