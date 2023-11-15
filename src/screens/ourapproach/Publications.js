@@ -85,6 +85,7 @@ const Publications = () => {
   const [searchValue, setSearchValue] = useState('');
   const [irDocs, setIrDocs] = useState([]);
   const [filteredList, setFilteredList] = useState(irDocs);
+  const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
     let itemList = [];
@@ -103,6 +104,7 @@ const Publications = () => {
         });
       });
     }
+    setDataList(itemList);
     setFilteredList(itemList);
   }, [data]);
 
@@ -116,7 +118,7 @@ const Publications = () => {
   };
 
   const handleSearchClick = async (e) => {
-    const filtered = await filteredList.filter(
+    const filtered = await dataList.filter(
       (doc) =>
         doc.title?.toLowerCase()?.includes(searchValue?.toLowerCase()) ||
         doc.journal?.toLowerCase()?.includes(searchValue?.toLowerCase()),
