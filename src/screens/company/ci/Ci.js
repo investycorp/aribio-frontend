@@ -57,7 +57,7 @@ const Ci = () => {
     <Container className="container">
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > COMPANY > `}</span>CORPORATE IDENTITY
+        <span style={{ opacity: '0.8' }}>{`HOME > COMPANY > `}</span>CORPORATE IDENTITY
       </Path>
       <MainImgWrap>
         <Video
@@ -122,7 +122,8 @@ const Ci = () => {
                 $color="#D3D3D3"
                 style={{ marginTop: '2em' }}
               >
-                {t('ci.desc1')}
+                <Trans i18nKey="ci.desc1" components={{ 1: <br /> }} />
+                {/* {t('ci.desc1')} */}
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -224,7 +225,7 @@ const Ci = () => {
                   {t('ci.desc2')}
                 </Text>
               </ContentWrap>
-              <ContentWrap>
+              <ContentWrap style={{ marginBottom: '8em' }}>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '26px' : '17px'}
                   $fontWeight="100"
@@ -252,7 +253,14 @@ const Ci = () => {
                     {t('ci.ari')}
                   </Text>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'start', gap: '0.5em' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'start',
+                    gap: '0.5em',
+                  }}
+                >
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
                     $fontWeight="300"
@@ -286,7 +294,7 @@ const Ci = () => {
                     justifyContent: 'space-between',
                     width: '45%',
                     paddingBottom: '0.7em',
-                    borderBottom: '2px solid #ffffff',
+                    borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                   }}
                   onClick={() => downloadCi('ai')}
                 >
@@ -316,7 +324,7 @@ const Ci = () => {
                     justifyContent: 'space-between',
                     width: '45%',
                     paddingBottom: '0.7em',
-                    borderBottom: '2px solid #ffffff',
+                    borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                   }}
                   onClick={() => downloadCi('png')}
                 >
@@ -461,7 +469,7 @@ const Ci = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    width: '57.3vw',
+                    width: '60vw',
                     paddingBottom: '0.7em',
                     borderBottom: '1px solid #ffffff',
                   }}
@@ -481,7 +489,7 @@ const Ci = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    width: '57.3vw',
+                    width: '60vw',
                     paddingBottom: '0.7em',
                     borderBottom: '1px solid #ffffff',
                   }}

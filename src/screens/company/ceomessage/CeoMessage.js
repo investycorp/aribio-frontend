@@ -34,7 +34,7 @@ const CeoMessage = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > COMPANY > `}</span>CEO MESSAGE
+        <span style={{ opacity: '0.8' }}>{`HOME > COMPANY > `}</span>CEO MESSAGE
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>
@@ -76,7 +76,8 @@ const CeoMessage = () => {
                 style={{
                   width: window.innerWidth > 1280 ? '60px' : '40px',
                   margin: '5em 0',
-                  borderTop: '2px solid #ffffff',
+                  borderTop: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                  borderBottom: 'none',
                 }}
               />
               <Text
@@ -147,17 +148,24 @@ const CeoMessage = () => {
               <div style={{ width: '60px', height: '2px', backgroundColor: '#939598' }} />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
-                $fontWeight="300"
+                $fontWeight="400"
                 $color="#EAEAEA"
-                style={{ textAlign: 'start', margin: '0', padding: '0' }}
+                style={{ textAlign: 'start', margin: '0', padding: '0', wordSpacing: '0.1rem' }}
               >
                 <Trans i18nKey="ceomessage.desc2" components={{ 1: <br /> }} />
               </Text>
               <Text
-                $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
-                $fontWeight="200"
+                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+                $fontWeight="300"
                 $color="#909090"
-                style={{ textAlign: 'start', margin: '0', padding: '0 10% 0 0', lineHeight: '1.7' }}
+                style={{
+                  textAlign: 'start',
+                  margin: '0',
+                  padding: '0 0 0 0',
+                  lineHeight: '1.7',
+                  wordSpacing: '0.2rem',
+                  letterSpacing: '0.02rem',
+                }}
               >
                 <Trans i18nKey="ceomessage.desc3" components={{ 1: <br /> }} />
               </Text>

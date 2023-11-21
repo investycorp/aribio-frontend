@@ -149,7 +149,7 @@ const Contact = () => {
         />
       </MainImgWrap>
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > CONTACT > `}</span>CONTACT US
+        <span style={{ opacity: '0.8' }}>{`HOME > CONTACT > `}</span>CONTACT US
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>CONTACT {window.innerWidth <= 900 && <br />}US</HeadLine>
@@ -398,7 +398,9 @@ const Contact = () => {
               </Form>
             </FormWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{ borderTop: '2px solid #B1B1B1' }}>
+          <HomeComponentWrap
+            style={{ padding: '10vh 0', margin: '0 7vw', width: '86vw', borderTop: '2px solid #B1B1B1' }}
+          >
             <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
             <Text
               $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
@@ -408,7 +410,7 @@ const Contact = () => {
             >
               Locations
             </Text>
-            <FormWrap style={{ gap: '40px' }}>
+            <FormWrap style={{ gap: window.innerWidth > 1280 ? '40px' : '25px' }}>
               <RowWrap
                 style={{
                   borderBottom: window.innerWidth > 1280 ? '2px solid #707070' : '1px solid #707070',

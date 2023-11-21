@@ -251,6 +251,9 @@ const Form = styled.form`
   row-gap: 3.5rem;
   overflow: hidden;
   column-gap: 0.5rem;
+  @media screen and (max-width: 1280px) {
+    row-gap: 2rem;
+  }
   @media screen and (max-width: 900px) {
     row-gap: 32px;
   }
@@ -274,7 +277,7 @@ const FormInputRowWrap = styled.div`
     `
 label {
       position: absolute;
-      top: -0.1em;
+      top: 0;
       left: 0;
       font-size: 14px;
       color: #707070;
@@ -291,7 +294,7 @@ label {
   &:focus-within {
     label {
       position: absolute;
-      top: -0.1em;
+      top: 0;
       left: 0;
       font-size: 14px;
       color: #707070;

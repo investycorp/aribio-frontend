@@ -147,7 +147,7 @@ const AiPlatform = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > OUR APPROACH > `}</span>AI PLATFORM
+        <span style={{ opacity: '0.8' }}>{`HOME > OUR APPROACH > `}</span>AI PLATFORM
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>
@@ -176,7 +176,7 @@ const AiPlatform = () => {
               style={{
                 width: '50%',
                 alignSelf: 'flex-start',
-                height: '4em',
+                height: '60px',
                 borderRight: '2px solid #ffffff',
                 margin: '2rem 0',
               }}
@@ -224,7 +224,9 @@ const AiPlatform = () => {
             src={ourapproach_ai_middle1}
             alt="ai_middle1"
             style={{
-              // width: window.innerWidth > 1280 ? '60vw' : '68vw',
+              objectFit: 'contain',
+              width: window.innerWidth > 1280 ? '60vw' : '68vw',
+
               height: window.innerWidth > 1280 ? '80vh' : '80vh',
               marginLeft: window.innerWidth > 1280 ? '13%' : '14%',
             }}
@@ -295,7 +297,12 @@ const AiPlatform = () => {
               />
             </Text>
           </TextWrap>
-          <Image id="fadeIn" src={ourapproach_ai_middle3} alt="ai_middle3" style={{ width: '65vw' }} />
+          <Image
+            id="fadeIn"
+            src={ourapproach_ai_middle3}
+            alt="ai_middle3"
+            style={{ width: '65vw', marginLeft: window.innerWidth > 1280 ? '0.9vw' : '0.9vw' }}
+          />
         </HomeComponentWrap>
         <HomeComponentWrap>
           <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
@@ -463,7 +470,7 @@ const AiPlatform = () => {
                   margin: '2rem 0',
                 }}
               ></div>
-              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
+              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ margin: '0', lineHeight: '1.2em' }}>
                 <Trans i18nKey="aiplatform.subtitle" components={{ 1: <br /> }} />
               </Text>
               <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{ margin: '2em 0', lineHeight: '21px' }}>
@@ -571,7 +578,7 @@ const AiPlatform = () => {
                   border: '1px solid rgba(255,255,255,0.4)',
                   borderRadius: '10px',
                   background: 'linear-gradient(to left, rgba(0,90,139,0.4), rgba(0, 26, 41, 0.4))',
-                  padding: '32px 32px',
+                  padding: '24px 24px',
                   alignItems: 'start',
                   height: 'fit-content',
                   gap: '1rem',
@@ -599,7 +606,7 @@ const AiPlatform = () => {
                     }}
                   >
                     •{'\t'}
-                    {predictions[activeButton].title}
+                    {predictions[activeButton].title.replace(/\\n/g, '')}
                   </Text>
                 </TextWrap>
                 <DescriptionWrap style={{ padding: '0', margin: '0', height: 'fit-content' }}>

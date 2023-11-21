@@ -37,7 +37,7 @@ const OpenInnovation = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > `}</span>OPEN INNOVATION
+        <span style={{ opacity: '0.8' }}>{`HOME > `}</span>OPEN INNOVATION
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine style={{ fontSize: window.innerWidth < 901 && '55px' }}>
@@ -69,7 +69,7 @@ const OpenInnovation = () => {
               overflow: 'hidden',
             }}
           >
-            <Image
+            {/* <Image
               style={{
                 position: 'absolute',
                 top: '50vh',
@@ -81,7 +81,7 @@ const OpenInnovation = () => {
               }}
               src={openinnovation_middle1}
               alt="intro_bg"
-            />
+            /> */}
             <TextWrap style={{ width: '70vw', position: 'relative', backgroundColor: 'transparent' }}>
               <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
                 OPEN INNOVATION
@@ -91,7 +91,14 @@ const OpenInnovation = () => {
                 <br />
                 in neurodegenerative diseases.
               </Text>
-              <hr style={{ width: '60px', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
+              <hr
+                style={{
+                  width: '60px',
+                  borderTop: '2px solid #ffffff',
+                  borderBottom: 'none',
+                  margin: '3.5rem 0 5rem 0',
+                }}
+              />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="300"
@@ -180,7 +187,11 @@ const OpenInnovation = () => {
                   onClick={() => navigate('/openinnovation/digitalhealth')}
                 >
                   <span
-                    style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px', lineHeight: '2em' }}
+                    style={{
+                      zIndex: '-1',
+                      fontSize: window.innerWidth > 1280 ? '20px' : '11px',
+                      lineHeight: window.innerWidth > 1280 ? '2.5em' : '3em',
+                    }}
                   >
                     Digital Health
                   </span>
@@ -214,7 +225,11 @@ const OpenInnovation = () => {
                   onClick={() => navigate('/openinnovation/memoreproject')}
                 >
                   <span
-                    style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px', lineHeight: '2em' }}
+                    style={{
+                      zIndex: '-1',
+                      fontSize: window.innerWidth > 1280 ? '20px' : '11px',
+                      lineHeight: window.innerWidth > 1280 ? '2.5em' : '3em',
+                    }}
                   >
                     Memo:Re Project
                   </span>
@@ -254,7 +269,7 @@ const OpenInnovation = () => {
             }}
           >
             <TextWrap style={{ width: '100%', position: 'relative', backgroundColor: 'transparent' }}>
-              <Text $color="#939598" $fontSize="16px" $fontWeight="400">
+              <Text $color="#939598" $fontSize="16px" $fontWeight="300">
                 OPEN INNOVATION
               </Text>
               <Text $fontSize="23px" $fontWeight="500" style={{ lineHeight: '26px' }}>
@@ -367,7 +382,7 @@ const OpenInnovation = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    width: '213px',
+                    width: '60vw',
                     height: '31px',
                     paddingBottom: '0',
                     borderBottom: '1px solid #ffffff',
@@ -388,7 +403,7 @@ const OpenInnovation = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    width: '213px',
+                    width: '60vw',
                     height: '31px',
                     paddingBottom: '0',
                     borderBottom: '1px solid #ffffff',

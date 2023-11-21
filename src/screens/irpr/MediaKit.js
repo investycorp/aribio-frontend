@@ -72,7 +72,7 @@ const MediaKit = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > IR & PR > `}</span> MEDIA
+        <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span> MEDIA
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>MEDIA</HeadLine>
@@ -97,7 +97,11 @@ const MediaKit = () => {
           <Desktop>
             <HomeComponentWrap style={{ padding: '15vh 7vw 5vh 7vw' }}>
               <TextWrap style={{ width: '70vw' }}>
-                <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
+                <Text
+                  style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}
+                  $fontWeight="300"
+                  $color="#939598"
+                >
                   MEDIA
                 </Text>
                 <div

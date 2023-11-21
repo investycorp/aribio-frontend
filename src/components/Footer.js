@@ -214,7 +214,7 @@ const Footer = () => {
           </FooterGridWrap>
           <FooterGridWrap
             style={{
-              padding: '7vh 2vw 10vh 6vw',
+              padding: '7vh 0vw 10vh 5vw',
               alignItems: 'start',
               flexDirection: 'row',
               justifyContent: 'space-evenly',

@@ -619,23 +619,23 @@ export default Header;
 const LangButton = () => {
   const [language, setLanguage] = useRecoilState(Language);
   useEffect(() => {
-    if (window.navigator.language.includes('en')) {
-      setLanguage('ENG');
-      i18n.changeLanguage('en');
-    } else {
-      setLanguage('KOR');
-      i18n.changeLanguage('ko');
-    }
+    // if (window.navigator.language.includes('en')) {
+    //   setLanguage('ENG');
+    //   i18n.changeLanguage('en');
+    // } else {
+    //   setLanguage('KOR');
+    //   i18n.changeLanguage('ko');
+    // }
   }, []);
 
   const handleClick = () => {
-    if (language === 'ENG') {
-      i18n.changeLanguage('ko');
-      setLanguage('KOR');
-    } else {
-      i18n.changeLanguage('en');
-      setLanguage('ENG');
-    }
+    // if (language === 'ENG') {
+    //   i18n.changeLanguage('ko');
+    //   setLanguage('KOR');
+    // } else {
+    //   i18n.changeLanguage('en');
+    //   setLanguage('ENG');
+    // }
     //add refetch
   };
   return (
@@ -648,6 +648,7 @@ const LangButton = () => {
             width: '122px',
             justifyContent: 'center',
             alignItems: 'end',
+            marginBottom: window.innerWidth > 1280 ? '12px' : '2px',
           }}
         >
           <HeaderLangButton style={{ cursor: 'pointer' }} onClick={handleClick}>

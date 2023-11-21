@@ -205,6 +205,9 @@ const TableWrap = styled.div.attrs((props) => ({
       background-color: rgba(255, 255, 255, 0.1);
     }
   }
+  @media screen and (max-width: 1280px) {
+    margin: 5em 0 0 0;
+  }
 `;
 
 const TableRowWrap = styled.div.attrs((props) => ({

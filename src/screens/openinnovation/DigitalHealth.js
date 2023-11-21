@@ -16,7 +16,6 @@ import {
   TableWrap,
   TableRowWrap,
   TableContentBox,
-  Tab,
   ShootingStarWrap,
   ShootingStar,
 } from './style';
@@ -139,7 +138,7 @@ const DigitalHealth = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
+        <span style={{ opacity: '0.8' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
         {window.innerWidth <= 900 && <br />}
         {` DIGITAL HEALTH`}
       </Path>
@@ -166,7 +165,7 @@ const DigitalHealth = () => {
           }}
         >
           <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
-            <Text $color="#939598" style={{ fontSiz: window.innerWidth > 1280 ? '26px' : '18px' }} $fontWeight="300">
+            <Text $color="#939598" style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }} $fontWeight="300">
               DIGITAL HEALTH
             </Text>
             <div
@@ -182,7 +181,9 @@ const DigitalHealth = () => {
               Leveraging Digital Health Technologies
               <br /> for Early Dementia Detection and Intervention
             </Text>
-            <hr style={{ width: '60px', border: '2px solid #C9C9C9', margin: '3.5rem 0 5rem 0' }} />
+            <hr
+              style={{ width: '60px', borderTop: '2px solid #C9C9C9', borderBottom: 'none', margin: '3.5rem 0 5rem 0' }}
+            />
             <Text style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }} $fontWeight="300" $color="#C9C9C9">
               In today’s rapidly evolving world, it is necessary to turn to innovative digital health {<br />}
               technologies to address the most pressing healthcare challenge of our time – dementia.{' '}
@@ -294,7 +295,7 @@ const DigitalHealth = () => {
                 <TableContentBox style={{ fontSize: window.innerWidth > 1280 ? '24px' : '13px', fontWeight: '300' }}>
                   {item.region}
                 </TableContentBox>
-                {/* 아래 박스 내 가로선을 꽉 차게 하면 phase 표시 원이 어긋남 */}
+
                 <TableContentBox style={{ padding: '0' }}>
                   <ShootingStarWrap className="shooting_star_wrap">
                     <hr style={{ width: '100%', border: '1px dotted', opacity: '0.4' }} />
@@ -458,7 +459,7 @@ const DigitalHealth = () => {
                 marginBottom: '3rem',
               }}
             ></div>
-            <Text $fontSize="23px" $fontWeight="400" style={{ margin: '0', lineHeight: '26px' }}>
+            <Text $fontSize="23px" $fontWeight="500" style={{ margin: '0', lineHeight: '26px' }}>
               Leveraging Digital Health
               <br />
               Technologies for

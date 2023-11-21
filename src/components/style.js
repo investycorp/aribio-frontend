@@ -30,7 +30,7 @@ const ContainerGridLineWrap = styled.div.attrs((props) => ({
 
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: 10;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
   @media screen and (max-width: 900px) {
@@ -47,7 +47,7 @@ const GridLineBox = styled.div`
   transition: all 0.5s ease-in-out;
   &:nth-child(1) {
     border-left: 2px solid rgba(177, 177, 177, 0.3);
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 1280px) {
       border-left: 1px solid rgba(177, 177, 177, 0.3);
     }
   }
