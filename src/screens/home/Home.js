@@ -136,6 +136,7 @@ const Home = () => {
                         document.querySelector('.highlight1')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
+                      fontWeight: '300',
                     }}
                   >
                     {t('home.aboutus.1')}
@@ -148,6 +149,7 @@ const Home = () => {
                         document.querySelector('.highlight2')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
+                      fontWeight: '300',
                     }}
                   >
                     {t('home.aboutus.2')}
@@ -160,6 +162,7 @@ const Home = () => {
                         document.querySelector('.highlight3')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
+                      fontWeight: '300',
                     }}
                   >
                     {t('home.aboutus.3')}

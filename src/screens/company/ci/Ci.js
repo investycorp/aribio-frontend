@@ -96,7 +96,7 @@ const Ci = () => {
         <Desktop>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap>
-              <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="400" $color="#939598">
+              <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
                 {t('ci.title')}
               </Text>
               <div
@@ -110,7 +110,7 @@ const Ci = () => {
               ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-                $fontWeight="400"
+                $fontWeight="500"
                 $color="#ffffff"
                 style={{ margin: '0' }}
               >

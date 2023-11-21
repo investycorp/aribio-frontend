@@ -68,8 +68,11 @@ const DocType = styled.span`
   border: 1px solid #646464;
   border-radius: 999px;
   padding: 0.25rem 0.75rem;
-  font-size: 0.8rem;
+  font-size: 20px;
   font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #ffffff;
   @media screen and (max-width: 900px) {
     position: absolute;
@@ -232,7 +235,7 @@ const Publications = () => {
                 width: '100%',
                 gap: '1rem',
                 margin: '1rem',
-                padding: '60px 0',
+                padding: '60px 0 40px 0',
               }}
             >
               <Dot $color="#004D76" style={{ width: '14px', height: '14px' }} />
@@ -297,13 +300,13 @@ const Publications = () => {
                       </Text>
                       <Text
                         className="text"
-                        $fontSize="26px"
-                        $fontWeight="300"
+                        $fontSize="24px"
+                        $fontWeight="500"
                         $color="#ffffff"
                         $align="start"
                         style={{
                           margin: '0.5rem 0',
-                          fontSize: window.innerWidth > 1280 ? '26px' : '13px',
+                          fontSize: window.innerWidth > 1280 ? '24px' : '13px',
                           whiteSpace: 'pre-wrap',
                           alignItems: 'start',
                         }}
@@ -327,9 +330,25 @@ const Publications = () => {
                       >
                         <span>{doc.date}</span>
                         {doc.type === 'CONFERENCE' ? (
-                          <DocType $color={'#430016'}>Conference</DocType>
+                          <DocType
+                            $color={'#430016'}
+                            style={{
+                              width: window.innerWidth > 1280 ? '154px' : '101px',
+                              height: window.innerWidth > 1280 ? '36px' : '24px',
+                            }}
+                          >
+                            Conference
+                          </DocType>
                         ) : (
-                          <DocType $color={'#012438'}>Publications</DocType>
+                          <DocType
+                            $color={'#012438'}
+                            style={{
+                              width: window.innerWidth > 1280 ? '159px' : '104px',
+                              height: window.innerWidth > 1280 ? '36px' : '24px',
+                            }}
+                          >
+                            Publications
+                          </DocType>
                         )}
                       </Text>
                     </div>

@@ -405,7 +405,7 @@ const ShootingStar = styled.span.attrs((props) => ({
   box-shadow:
     0 0 0 4px rgba(255, 255, 255, 0.1),
     0 0 0 6px rgba(255, 255, 255, 0.1),
-    0 0 10px rgba(255, 255, 255, 0.1);
+    0 0 8px rgba(255, 255, 255, 0.1);
   transform: translate(-50%, -50%);
   transform: rotate(180deg);
 
@@ -428,7 +428,7 @@ const ShootingStar = styled.span.attrs((props) => ({
     position: absolute;
     top: 50%;
     right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props.$phase}*8vw)` : `calc(10vw)`)};
+    width: ${(props) => (props.$phase ? `calc(${props.$phase}*10.2vw)` : `calc(10vw)`)};
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
     transform: translate(0, -50%);
@@ -444,7 +444,7 @@ const move = (phase) => keyframes`
     opacity: 1;
   }
   100% {
-    transform: translateX(${phase ? `calc(${phase}*8vw)` : `calc(10vw)`});
+    transform: translateX(${phase ? `calc(${phase}*10.2vw)` : `calc(10vw)`});
     opacity: 1;
   }
 `;

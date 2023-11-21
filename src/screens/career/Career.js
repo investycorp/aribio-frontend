@@ -92,9 +92,9 @@ const Career = () => {
       ),
       desc: (
         <>
-          “We promote” open dialogue with our team, partners, and
+          Faced with challenges, our resolve strengthens.
           <br />
-          communities fosters mutual respect and understanding.
+          We believe every setback is a stepping stone to a major leap forward.
         </>
       ),
     },
@@ -108,7 +108,7 @@ const Career = () => {
       ),
       desc: (
         <>
-          Honesty is our policy. Open dialogue with our team, partners, and <br />
+          “We promote” open dialogue with our team, partners, and <br />
           communities fosters mutual respect and understanding.
         </>
       ),
@@ -565,7 +565,7 @@ const Career = () => {
                       <TextWrap style={{ position: 'relative', width: 'fit-content' }}>
                         <Text
                           $fontSize={window.innerWidth > 1280 ? '24px' : '15px'}
-                          $fontWeight="300"
+                          $fontWeight="400"
                           $color="#ffffff"
                           $align="start"
                           style={{ marginBottom: '1em' }}

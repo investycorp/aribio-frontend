@@ -16,8 +16,6 @@ import {
   DescriptionItem,
   Image,
   HR,
-  UnderLineWrap,
-  Underline,
 } from './style';
 
 import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
@@ -54,7 +52,7 @@ const AiPlatform = () => {
       width: '227px',
     },
     {
-      title: 'Blinding Affinity Prediction',
+      title: 'Blinding Affinity \\n Prediction',
       content: [
         'Type : Low Throughput, Structure-based (Ligand-Protein).',
         'Technology : Deep Learning (3D Convolutional Neural Networks).',
@@ -185,7 +183,7 @@ const AiPlatform = () => {
             ></div>
             <Text
               $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-              $fontWeight="400"
+              $fontWeight="500"
               $color="#ffffff"
               style={{ margin: '0' }}
             >
@@ -329,7 +327,6 @@ const AiPlatform = () => {
                 }}
                 style={{
                   gap: '40px',
-                  border: '1px solid rgba(255,255,255,0.6)',
                   margin: '0px 0em',
                   width: window.innerWidth > 1280 ? item.width : '',
                   padding: window.innerWidth > 1280 ? '1em' : '1em 1.5em',
@@ -337,7 +334,7 @@ const AiPlatform = () => {
                   fontSize: window.innerWidth > 1280 ? '24px' : '14px',
                 }}
               >
-                {item.title}
+                {item.title.replace(/\\n/g, '')}
               </RoundButton>
             ))}
           </ButtonWrap>
@@ -354,18 +351,39 @@ const AiPlatform = () => {
                 alignItems: 'start',
               }}
             >
-              <TextWrap style={{ margin: '0', padding: '0 0 0 10vw', width: '100%', alignItems: 'start' }}>
+              <TextWrap
+                style={{
+                  margin: '0',
+                  padding: window.innerWidth > 1280 ? '0 0 0 160px' : '0 0 0 96px',
+                  width: '100%',
+                  alignItems: 'start',
+                }}
+              >
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '28px' : '16px'}
                   $fontWeight="400"
                   $color="#ffffff"
-                  style={{ width: 'fit-content', height: '-webkit-fill-available' }}
+                  style={{
+                    width: 'fit-content',
+                    height: '-webkit-fill-available',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'start',
+                    alignItems: 'start',
+                    gap: '0.8rem',
+                  }}
                 >
-                  •{'\t'}
-                  {predictions[activeButton].title}
+                  <span>•</span>
+                  <span style={{ textAlign: 'start' }}>
+                    {predictions[activeButton].title.split('\\n').map((line) => (
+                      <span key={'prediction' + line}>
+                        {line} <br />
+                      </span>
+                    ))}
+                  </span>
                 </Text>
               </TextWrap>
-              <DescriptionWrap style={{ padding: '0 10vw 0 0' }}>
+              <DescriptionWrap style={{ padding: window.innerWidth > 1280 ? '0 160px 0 0' : '0 96px 0 0' }}>
                 {predictions[activeButton].content.map((item, index) => (
                   <DescriptionItem
                     key={item + index}
@@ -382,7 +400,7 @@ const AiPlatform = () => {
             </ComponentWrap>
           </ComponentWrap>
         </HomeComponentWrap>
-        {/* ? - Every bits inside this tag need to be changed */}
+
         <HomeComponentWrap>
           <TextWrap style={{ marginBottom: '10em', width: '60vw' }}>
             <HR $height="2px" $color="#ffffff" />

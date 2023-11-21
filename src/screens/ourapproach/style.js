@@ -277,8 +277,8 @@ const RoundButton = styled.button`
   padding: 1em;
   width: fit-content;
   height: ${(props) => (props.$height ? props.$height : '60px')};
-  background-color: ${(props) => (props.$isActive ? '#9d9d9d' : 'transparent')};
-  border: 2px solid ${(props) => (props.$isActive ? '#9d9d9d;' : '#ffffff')};
+  background-color: ${(props) => (props.$isActive ? 'rgba(255,255,255,0.6)' : 'transparent')};
+  border: 2px solid ${(props) => (props.$isActive ? 'rgba(255, 255, 255, 0.1)' : '#ffffff')};
   border-radius: 50px;
   color: #ffffff;
   font-size: 24px;
@@ -287,10 +287,12 @@ const RoundButton = styled.button`
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
-  &:hover {
-    cursor: pointer;
-    background-color: 9d9d9d;
-    border: 2px solid #9d9d9d;
+  cursor: pointer;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
   }
   @media screen and (max-width: 1280px) {
     font-size: 18px;

@@ -328,7 +328,7 @@ const DetailPage = () => {
             )}
             <div
               style={{
-                height: 'auto',
+                height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'end',
@@ -342,7 +342,7 @@ const DetailPage = () => {
               >
                 <Text
                   $fontSize="20px"
-                  $fontWeight="300"
+                  $fontWeight="400"
                   $color="#ffffff"
                   $align="start"
                   $clickable={true}
@@ -354,7 +354,7 @@ const DetailPage = () => {
                     width: window.innerWidth > 1280 ? '260px' : '158px',
                     paddingBottom: '0.7em',
                     margin: '1em 0',
-                    borderBottom: '1px solid #212121',
+                    borderBottom: window.innerWidth > 1280 ? '2px solid #212121' : '1px solid #212121',
                     gap: '3em',
                     zIndex: '-1',
                     color: '#212121',

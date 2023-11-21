@@ -173,13 +173,15 @@ const OpenInnovation = () => {
                     justifyContent: 'space-between',
                     width: window.innerWidth > 1280 ? '260px' : '158px',
                     marginBottom: '0',
-                    borderBottom: '1px solid #ffffff',
+                    borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                     gap: '1em',
                     cursor: 'pointer',
                   }}
                   onClick={() => navigate('/openinnovation/digitalhealth')}
                 >
-                  <span style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px' }}>
+                  <span
+                    style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px', lineHeight: '2em' }}
+                  >
                     Digital Health
                   </span>
                   <Image
@@ -205,13 +207,15 @@ const OpenInnovation = () => {
                     width: window.innerWidth > 1280 ? '260px' : '158px',
                     padding: '0',
                     marginBottom: '0',
-                    borderBottom: '1px solid #ffffff',
+                    borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                     gap: '1em',
                     cursor: 'pointer',
                   }}
                   onClick={() => navigate('/openinnovation/memoreproject')}
                 >
-                  <span style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px' }}>
+                  <span
+                    style={{ zIndex: '-1', fontSize: window.innerWidth > 1280 ? '23px' : '11px', lineHeight: '2em' }}
+                  >
                     Memo:Re Project
                   </span>
                   <Image

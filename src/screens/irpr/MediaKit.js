@@ -97,7 +97,7 @@ const MediaKit = () => {
           <Desktop>
             <HomeComponentWrap style={{ padding: '15vh 7vw 5vh 7vw' }}>
               <TextWrap style={{ width: '70vw' }}>
-                <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="500" $color="#939598">
+                <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
                   MEDIA
                 </Text>
                 <div

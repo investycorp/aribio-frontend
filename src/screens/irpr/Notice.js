@@ -201,7 +201,7 @@ const Notice = () => {
                     }}
                   ></div>
                   <Text
-                    $fontWeight="400"
+                    $fontWeight="500"
                     $color="#ffffff"
                     style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                   >

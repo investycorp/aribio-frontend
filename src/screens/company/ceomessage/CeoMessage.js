@@ -76,7 +76,7 @@ const CeoMessage = () => {
                 style={{
                   width: window.innerWidth > 1280 ? '60px' : '40px',
                   margin: '5em 0',
-                  border: '2px solid #ffffff',
+                  borderTop: '2px solid #ffffff',
                 }}
               />
               <Text
