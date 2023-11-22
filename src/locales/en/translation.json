@@ -4,7 +4,7 @@
       "1": "AriBio Co., Ltd. is a biotechnology company",
       "2": "that aims to develop a meaningful therapies for",
       "3": "neurodegenerative diseases through its",
-      "4": "innovative platform ARIDD",
+      "4": "innovative platform ARIDD™",
       "5": "(AI-powered, Reverse",
       "6": "engineered & Integrated Drug Development)",
       "7": "and Open Innovation."
@@ -69,8 +69,9 @@
     "message": "At AriBio, <1/> developing new treatments is like stargazing across the night sky, <1/> plotting our course through the vast unknown. <1/> Our team shares a common mission , steadily working towards our goal <1/>despite the cosmic uncertainties and challenges that may arise.",
     "message2": "AriBio Co., Ltd. CEO Jai Jun Choung",
     "desc2": " AriBio is at the forefront of innovative drug development <1/> for neurodegenerative diseases.",
-    "desc3": "As the founder of AriBio, I have spent the past 35 years devoted to the research and <1/> development of new treatments for patients. With these experiences, I established AriBio in <1/> 2010 with the core purpose of developing meaningful therapies for neurodegenerative <1/> diseases. The loss of memory due to dementia is a process that denies a person’s dignity <1/> and life, impacting not only to the patient, but also the family members who care for them. <1/> Although it has been 110 years since the discovery of Alzheimer’s disease, pharmaceutical <1/> companies still face the highest failure rate in developing treatments. Yet, AriBio is <1/> determined to tackle this challenge with a bold vision and unwavering determination. <1/> Over the past decade, we have developed an innovative pipeline that enables us to develop <1/> new drugs quickly and cost-effectively. <1/> <1/> At AriBio, developing new treatments is like stargazing across the night sky, plotting our <1/> course through the vast unknown. Our team shares a common mission  steadily working <1/> towards our goal despite the cosmic uncertainties and challenge that may arise. <1/>"
+    "desc3": "As the founder of AriBio, I have spent the past 35 years devoted to the research and <1/> development of new treatments for patients. With these experiences, I established AriBio in <1/> 2010 with the core purpose of developing meaningful therapies for neurodegenerative <1/> diseases. The loss of memory due to dementia is a process that denies a person’s dignity <1/> and life, impacting not only to the patient, but also the family members who care for them. <1/> Although it has been 110 years since the discovery of Alzheimer’s disease, pharmaceutical <1/> companies still face the highest failure rate in developing treatments. Yet, AriBio is <1/> determined to tackle this challenge with a bold vision and unwavering determination. <1/> Over the past decade, we have developed an innovative pipeline that enables us to develop <1/> new drugs quickly and cost-effectively. <1/> <1/> At AriBio, developing new treatments is like stargazing across the night sky, plotting our <1/> course through the vast unknown. Our team shares a common mission , steadily working <1/> towards our goal despite the cosmic uncertainties and challenges that may arise.<1/>"
   },
+
   "ceomessage_m": {
     "desc1": " AriBio’s mission is to improve <1/> the quality of human life by developing <1/> innovative drugs that can give hope <1/> to patients who suffer from <1/> incurable diseases across the globe. <1/>",
     "message": "AriBio’s mission is<1/> to improve the quality of human <1/> life by developing innovative drugs <1/> that can give hope to patients <1/> who suffer from incurable diseases <1/> across the globe. <1/>",
@@ -81,7 +82,7 @@
     "headline": "CORPOPATE <1/> IDENTITY",
     "title": "CORPOPATE IDENTITY",
     "subtitle": "AriBio CI",
-    "desc1": "We are dedicated to pioneering treatments neurodegenerative diseases, offering innovative therapies for a brighter future.",
+    "desc1": "We are dedicated to pioneering treatments neurodegenerative diseases,<1/> offering innovative therapies for a brighter future.",
     "desc2": "‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable diseases and become a biopharmaceutical leader of South Korea.",
     "ari": "Traditional Korean term for ‘Wide and Deep, Beauty, A Person with Wisdom’",
     "bio": "Derived from the Greek word ‘bios’ meaning ‘life’"

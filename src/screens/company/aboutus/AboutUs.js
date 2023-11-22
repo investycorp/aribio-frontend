@@ -40,7 +40,7 @@ const AboutUs = () => {
     <Container className="container">
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > COMPANY > `}</span>ABOUT US
+        <span style={{ opacity: '0.8' }}>{`HOME > COMPANY > `}</span>ABOUT US
       </Path>
       <MainImgWrap>
         <Video
@@ -78,7 +78,7 @@ const AboutUs = () => {
         <Desktop>
           <HomeComponentWrap>
             <TextWrap>
-              <Text $color="#939598" $fontWeight="400" style={{ fontsize: window.innerWidth > 1280 ? '26px' : '18px' }}>
+              <Text $color="#939598" $fontWeight="300" style={{ fontsize: window.innerWidth > 1280 ? '26px' : '18px' }}>
                 {t('aboutus.title')}
               </Text>
               <Text $fontWeight="500" style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}>
@@ -118,7 +118,7 @@ const AboutUs = () => {
               <Text $color="#939598" $fontWeight="300" style={{ fontSize: '16px' }}>
                 {t('aboutus.title')}
               </Text>
-              <Text $fontWeight="400" style={{ fontSize: '23px' }}>
+              <Text $fontWeight="500" style={{ fontSize: '23px' }}>
                 {t('aboutus.subtitle')}
               </Text>
               <hr style={{ width: '20px', border: '1px solid #ffffff', margin: '0 0 2rem 0' }} />

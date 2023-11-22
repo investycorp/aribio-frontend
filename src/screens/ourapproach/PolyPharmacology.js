@@ -46,7 +46,7 @@ const PolyPharmacology = () => {
         />
       </HomeComponentWrap>
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > OUR APPROACH > `}</span>
+        <span style={{ opacity: '0.8' }}>{`HOME > OUR APPROACH > `}</span>
         {window.innerWidth <= 900 && <br />}
         POLY-PHARMACOLOGY
       </Path>
@@ -141,7 +141,12 @@ const PolyPharmacology = () => {
               style={{ margin: '5vh 0', width: '90%', opacity: '1' }}
             />
             <HR $height="1px" $width="20px" $color="#9A9A9A" />
-            <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em', width: '90vw' }}>
+            <Text
+              $fontSize="16px"
+              $fontWeight="300"
+              $color="#D3D3D3"
+              style={{ marginTop: '2em', width: '90vw', lineHeight: '1.2em' }}
+            >
               <Trans i18nKey="polypharma_m.desc2" components={{ 1: <br /> }} />
             </Text>
           </HomeComponentWrap>

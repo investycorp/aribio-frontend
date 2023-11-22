@@ -92,9 +92,9 @@ const Career = () => {
       ),
       desc: (
         <>
-          “We promote” open dialogue with our team, partners, and
+          Faced with challenges, our resolve strengthens.
           <br />
-          communities fosters mutual respect and understanding.
+          We believe every setback is a stepping stone to a major leap forward.
         </>
       ),
     },
@@ -108,7 +108,7 @@ const Career = () => {
       ),
       desc: (
         <>
-          Honesty is our policy. Open dialogue with our team, partners, and <br />
+          “We promote” open dialogue with our team, partners, and <br />
           communities fosters mutual respect and understanding.
         </>
       ),
@@ -280,7 +280,7 @@ const Career = () => {
     <Container>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > `}</span>CAREER
+        <span style={{ opacity: '0.8' }}>{`HOME > `}</span>CAREER
       </Path>
       <MainImgWrap>
         <Video
@@ -424,7 +424,7 @@ const Career = () => {
                           </Text>
                           <Text
                             id="core_value"
-                            $fontSize={window.innerWidth > 1280 ? '25px' : '18px'}
+                            $fontSize={window.innerWidth > 1280 ? '25px' : '16px'}
                             $fontWeight="300"
                             $color="#DDDDDD"
                             $align="start"
@@ -440,7 +440,7 @@ const Career = () => {
                         </ShootingStarWrap>
                         <Text
                           id="core_value"
-                          $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
+                          $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                           $fontWeight="300"
                           $color="#C9C9C9"
                           $align="start"
@@ -495,9 +495,11 @@ const Career = () => {
                         flex: '0 0 28.7vw',
                         display: 'flex',
                         flexDirection: 'row',
+                        justifyContent: 'start',
                         alignItems: 'start',
                         gap: '2em',
                         width: '28.7vw',
+                        marginRight: index === recruitmentProcess.length - 1 && '15px',
                       }}
                       key={`recruitmentProcess${index}`}
                     >
@@ -506,7 +508,7 @@ const Career = () => {
                         $fontWeight="400"
                         $color="#00A6FF"
                         $align="start"
-                        style={{ width: 'fit-content', overflow: 'unset' }}
+                        style={{ width: 'fit-content', overflow: 'unset', marginLeft: index === 0 && '3px' }}
                       >
                         {`0${index + 1}`}
                       </Text>
@@ -565,7 +567,7 @@ const Career = () => {
                       <TextWrap style={{ position: 'relative', width: 'fit-content' }}>
                         <Text
                           $fontSize={window.innerWidth > 1280 ? '24px' : '15px'}
-                          $fontWeight="300"
+                          $fontWeight="400"
                           $color="#ffffff"
                           $align="start"
                           style={{ marginBottom: '1em' }}
@@ -595,7 +597,7 @@ const Career = () => {
                     <ContentWrap style={{ flexDirection: 'row', padding: '0', justifyContent: 'space-between' }}>
                       <Text
                         className="clickable"
-                        $fontSize={window.innerWidth > 1400 ? '20px' : '14px'}
+                        $fontSize={window.innerWidth > 1400 ? '20px' : '12px'}
                         $fontWeight="300"
                         $color="#ffffff"
                         $align="start"
@@ -607,7 +609,7 @@ const Career = () => {
                           justifyContent: 'space-between',
                           width: '45%',
                           paddingBottom: '0.7em',
-                          borderBottom: '2px solid #ffffff',
+                          borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                           cursor: 'pointer',
                         }}
                         onClick={() => {
@@ -627,7 +629,7 @@ const Career = () => {
                       </Text>
                       <Text
                         className="clickable"
-                        $fontSize={window.innerWidth > 1400 ? '20px' : '14px'}
+                        $fontSize={window.innerWidth > 1400 ? '20px' : '12px'}
                         $fontWeight="300"
                         $color="#ffffff"
                         $align="start"
@@ -639,12 +641,13 @@ const Career = () => {
                           justifyContent: 'space-between',
                           width: '45%',
                           paddingBottom: '0.7em',
-                          borderBottom: '2px solid #ffffff',
+                          borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                           cursor: 'pointer',
                         }}
                         // onClick={() => downloadCi('png')}
+                        //Linkedin page
                       >
-                        <span style={{ zIndex: '-1' }}>Linked In</span>
+                        <span style={{ zIndex: '-1' }}>Linked-In</span>
                         <Image
                           src={arrow}
                           alt="arrow"
