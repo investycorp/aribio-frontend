@@ -80,17 +80,32 @@ const CareerDetail = () => {
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
-            style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', gap: '2em', zIndex: '10' }}
+            style={{
+              cursor: 'pointer',
+              display: 'flex',
+              flexDirection: 'row',
+              gap: window.innerWidth > 1280 ? '2em' : '1em',
+              zIndex: '10',
+            }}
             onClick={() => {
               navigate(-1);
             }}
           >
             <Image
-              style={{ zIndex: '-1' }}
+              style={{ zIndex: '-1', height: window.innerWidth > 1280 ? '44px' : '28px', margin: 'auto' }}
               src={process.env.PUBLIC_URL + '/assets/icons/circle_arrow.svg'}
               alt="go back"
             />
-            <Text style={{ width: 'fit-content', margin: '1em 0', padding: '0', zIndex: '-1', color: '#414141' }}>
+            <Text
+              style={{
+                width: 'fit-content',
+                margin: '1em 0',
+                padding: '0',
+                zIndex: '-1',
+                color: '#414141',
+                fontSize: window.innerWidth > 1280 ? '26px' : '15px',
+              }}
+            >
               Back
             </Text>
           </span>

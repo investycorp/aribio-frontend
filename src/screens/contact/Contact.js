@@ -149,7 +149,7 @@ const Contact = () => {
         />
       </MainImgWrap>
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > CONTACT > `}</span>CONTACT US
+        <span style={{ opacity: '0.8' }}>{`HOME > CONTACT > `}</span>CONTACT US
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>CONTACT {window.innerWidth <= 900 && <br />}US</HeadLine>
@@ -398,7 +398,9 @@ const Contact = () => {
               </Form>
             </FormWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{ borderTop: '2px solid #B1B1B1' }}>
+          <HomeComponentWrap
+            style={{ padding: '10vh 0', margin: '0 7vw', width: '86vw', borderTop: '2px solid #B1B1B1' }}
+          >
             <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
             <Text
               $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
@@ -408,9 +410,12 @@ const Contact = () => {
             >
               Locations
             </Text>
-            <FormWrap style={{ gap: '1em' }}>
+            <FormWrap style={{ gap: window.innerWidth > 1280 ? '40px' : '25px' }}>
               <RowWrap
-                style={{ borderBottom: '1px solid #707070', padding: '0.5em 0' }}
+                style={{
+                  borderBottom: window.innerWidth > 1280 ? '2px solid #707070' : '1px solid #707070',
+                  padding: window.innerWidth > 1280 ? '1em 0' : '0.8em 0',
+                }}
                 onClick={() => {
                   window.open(
                     'https://www.google.com/maps/place/La+Jolla+Centre+I,+4660+La+Jolla+Village+Dr+%231070,+San+Diego,+CA+92121,+USA/@32.8746797,-117.2089889,17z/data=!3m1!4b1!4m5!3m4!1s0x80dc073244120117:0xad78fb4d9afd9f57!8m2!3d32.8746797!4d-117.206414?entry=ttu',
@@ -425,14 +430,17 @@ const Contact = () => {
                   src={arrow}
                   alt="location_arrow"
                   style={{
-                    height: window.innerWidth > 1280 ? '14px' : '12px',
+                    height: window.innerWidth > 1280 ? '20px' : '12px',
 
                     zIndex: '-1',
                   }}
                 />
               </RowWrap>
               <RowWrap
-                style={{ borderBottom: '1px solid #707070', padding: '0.5em 0' }}
+                style={{
+                  borderBottom: window.innerWidth > 1280 ? '2px solid #707070' : '1px solid #707070',
+                  padding: window.innerWidth > 1280 ? '1em 0' : '0.8em 0',
+                }}
                 onClick={() => {
                   window.open(
                     'https://www.google.com/maps/place/(%EC%A3%BC)%EC%95%84%EB%A6%AC%EB%B0%94%EC%9D%B4%EC%98%A4/data=!3m1!4b1!4m6!3m5!1s0x357b58759f3e1a6f:0xba7138c19b018cf2!8m2!3d37.3878714!4d127.1149864!16s%2Fg%2F11bytsn4nc?entry=ttu',
@@ -448,7 +456,7 @@ const Contact = () => {
                   src={arrow}
                   alt="location_arrow"
                   style={{
-                    height: window.innerWidth > 1280 ? '14px' : '12px',
+                    height: window.innerWidth > 1280 ? '20px' : '12px',
 
                     zIndex: '-1',
                   }}

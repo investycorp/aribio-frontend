@@ -162,7 +162,7 @@ const TableWrap = styled.div`
   flex-direction: column;
   margin: 10em 0 0 0;
   padding: 0;
-  background-color: #121212;
+  background-color: rgba(12, 12, 12, 0.3);
   border: 1px solid #efefef;
 `;
 
@@ -179,6 +179,10 @@ const TableRowWrap = styled.div.attrs((props) => ({
   align-items: stretch;
   background-color: transparent;
   border-bottom: 2px solid #efefef;
+  @media screen and (max-width: 1280px) {
+    border-bottom: 1px solid #efefef;
+  }
+
   color: #ffffff;
   &.th {
     font-size: 20px;
@@ -213,8 +217,9 @@ const TableContentBox = styled.div.attrs((props) => ({
   @media screen and (max-width: 1400px) {
     font-size: 16px;
   }
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1280px) {
     font-size: 12px;
+    border-width: 1px;
   }
 
   &.indication {
@@ -245,18 +250,26 @@ const TableContentBox = styled.div.attrs((props) => ({
         &:last-child {
           border-bottom: none;
         }
+        @media screen and (max-width: 1280px) {
+          border-width: 1px;
+        }
       }
       div.phase {
         display: grid;
         grid-template-columns: 8vw 8vw 8vw 8vw 8vw;
         height: auto;
-        max-height: 10vh;
+
         border-bottom: 2px solid rgba(177, 177, 177, 0.3);
+        @media screen and (max-width: 1280px) {
+          border-width: 1px;
+        }
 
         span {
           border-right: 1px solid rgba(177, 177, 177, 0.3);
+          border-bottom: none;
           &:last-child {
             border-right: 2px solid transparent;
+            border-bottom: none;
           }
         }
       }
@@ -408,6 +421,7 @@ const ShootingStarWrap = styled.section`
 
   @media screen and (max-width: 900px) {
     width: 100%;
+    height: 100%;
   }
 `;
 
@@ -458,27 +472,27 @@ const ShootingStar = styled.span.attrs((props) => ({
 
   &.animate {
     opacity: 1;
-    animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
+    animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    -webkit-animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
+    -webkit-animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
-    -o-animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
+    -o-animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
     -o-animation-duration: 2s;
     -o-animation-iteration-count: 1;
     -o-animation-timing-function: linear;
     -o-animation-fill-mode: forwards;
-    -moz-animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
+    -moz-animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
     -moz-animation-duration: 2s;
     -moz-animation-iteration-count: 1;
     -moz-animation-timing-function: linear;
     -moz-animation-fill-mode: forwards;
-    -ms-animation-name: ${(props) => move('8vw', props?.$phase, '10px')};
+    -ms-animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
     -ms-animation-duration: 2s;
     -ms-animation-iteration-count: 1;
     -ms-animation-timing-function: linear;
@@ -498,7 +512,7 @@ const ShootingStar = styled.span.attrs((props) => ({
     position: absolute;
     top: 50%;
     right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props?.$phase}*8vw)` : `calc(10vw)`)};
+    width: ${(props) => (props.$phase ? `calc(${props?.$phase}*8.1vw)` : `calc(10vw)`)};
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
     transform: translate(0, -50%);

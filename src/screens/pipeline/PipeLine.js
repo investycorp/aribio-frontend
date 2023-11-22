@@ -38,6 +38,7 @@ const PipeLine = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalItem, setModalItem] = useState({});
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [firstRender, setFirstRender] = useState(true);
   const [tableHeader, setTableHeader] = useState([
     <span>
       Drug <br />
@@ -74,7 +75,6 @@ const PipeLine = () => {
       });
     }
     setData(itemList);
-    console.log(itemList);
     setSelectedItem(itemList?.[0]);
   }, [list]);
 
@@ -174,7 +174,7 @@ const PipeLine = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > `}</span>
+        <span style={{ opacity: '0.8' }}>{`HOME > `}</span>
         PIPELINE
       </Path>
 
@@ -193,11 +193,11 @@ const PipeLine = () => {
       </HomeComponentWrap>
 
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
+        {/* <ContainerGridLineWrap className="grid_bg">
           <GridLineBox />
           <GridLineBox />
           <GridLineBox />
-        </ContainerGridLineWrap>
+        </ContainerGridLineWrap> */}
 
         <Desktop>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
@@ -216,9 +216,9 @@ const PipeLine = () => {
               ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-                $fontWeight="400"
+                $fontWeight="500"
                 $color="#ffffff"
-                style={{ margin: '2rem 0 0 0' }}
+                style={{ margin: '2rem 0 0 0', lineHeight: '1.5' }}
               >
                 Our Path to Pioneering Treatments for
                 <br />
@@ -268,7 +268,7 @@ const PipeLine = () => {
                         >
                           <span>
                             <ShootingStarWrap className="shooting_star_wrap">
-                              <hr style={{ width: '100%', opacity: '0.4', border: 'dotted 1px' }} />
+                              {/* <hr style={{ width: '100%', opacity: '0.4', border: 'dotted 1px' }} /> */}
                               <ShootingStar className="shooting_star" $phase={indication_item?.phase} />
                             </ShootingStarWrap>
                           </span>
@@ -309,7 +309,12 @@ const PipeLine = () => {
                   margin: '2rem 0',
                 }}
               ></div>
-              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+              <Text
+                $fontSize="23px"
+                $fontWeight="500"
+                $color="#ffffff"
+                style={{ margin: '2rem 0 0 0', lineHeight: '1.2em' }}
+              >
                 Our Path to Pioneering
                 <br />
                 Treatments for
@@ -337,7 +342,9 @@ const PipeLine = () => {
                   }}
                   style={{}}
                 >
-                  <span style={{ fontSize: '20px', fontWeight: '500', color: '#E8E8E8' }}>Drug Candidate</span>
+                  <span style={{ fontSize: '20px', fontWeight: '500', color: '#E8E8E8' }}>
+                    {!firstRender && selectedItem?.drugCandidate ? selectedItem?.drugCandidate : 'Drug Candidate'}
+                  </span>
                   <img
                     src={icon_opentoggle}
                     alt="open_toggle"
@@ -352,6 +359,7 @@ const PipeLine = () => {
                       style={{ fontSize: '18px' }}
                       onClick={async () => {
                         await setSelectedItem(item);
+                        setFirstRender(false);
                         setToggleOn(false);
                         window.scrollTo(
                           0,

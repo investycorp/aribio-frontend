@@ -157,7 +157,7 @@ const Notice = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > IR & PR > `}</span>NOTICE
+        <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span>NOTICE
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>NOTICE</HeadLine>
@@ -188,7 +188,11 @@ const Notice = () => {
             <Desktop>
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap style={{ width: '70vw' }}>
-                  <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
+                  <Text
+                    style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}
+                    $fontWeight="300"
+                    $color="#939598"
+                  >
                     NOTICE
                   </Text>
                   <div
@@ -201,7 +205,7 @@ const Notice = () => {
                     }}
                   ></div>
                   <Text
-                    $fontWeight="400"
+                    $fontWeight="500"
                     $color="#ffffff"
                     style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                   >
@@ -216,7 +220,7 @@ const Notice = () => {
                       width: '33.3%',
                       flexDirection: 'row',
                       color: '#ffffff',
-                      borderBottom: '2px solid #ffffff',
+                      borderBottom: window.innerwidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                       padding: '0',
                     }}
                   >
@@ -239,6 +243,7 @@ const Notice = () => {
                       src={search}
                       alt="search"
                       onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
+                      style={{ height: window.innerWidth > 1280 ? '24px' : '12px' }}
                     />
                   </ComponentWrap>
                 </ComponentWrap>
@@ -288,7 +293,7 @@ const Notice = () => {
                                     whiteSpace: 'nowrap',
                                   }}
                                 >
-                                  {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 50)}...
+                                  {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 60)}...
                                 </div>
                               </TitleWrap>
                               <div

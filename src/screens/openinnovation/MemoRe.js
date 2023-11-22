@@ -54,7 +54,7 @@ const MemoRe = () => {
 
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
+        <span style={{ opacity: '0.8' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
         {window.innerWidth <= 900 && <br />}
         MEMO:RE PROJECT
       </Path>
@@ -97,7 +97,7 @@ const MemoRe = () => {
                 style={{
                   width: '50%',
                   alignSelf: 'flex-start',
-                  height: '6em',
+                  height: '60px',
                   borderRight: '2px solid #ffffff',
                   margin: '2rem 0',
                 }}
@@ -105,7 +105,9 @@ const MemoRe = () => {
               <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
                 Help Preserve Your Loved One’s Memories
               </Text>
-              <hr style={{ width: '4em', border: '2px solid #ffffff', margin: '3.5rem 0 5rem 0' }} />
+              <hr
+                style={{ width: '4em', border: '2px solid #ffffff', borderBottom: 'none', margin: '3.5rem 0 5rem 0' }}
+              />
               <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#D3D3D3">
                 We believe that life’s most precious gift is the memories we create, and it is essential to preserve
                 these memories,
@@ -138,7 +140,7 @@ const MemoRe = () => {
             <TextWrap style={{ margin: '10em 0' }}>
               <Text
                 $color="#C9C9C9"
-                $fontSize={window.innerWidth > 1280 ? '26px' : '14px'}
+                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="300"
                 $align="center"
               >
