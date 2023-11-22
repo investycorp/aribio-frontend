@@ -140,7 +140,7 @@ const TabItem = styled.div`
   align-items: center;
   font-size: 36px;
   font-weight: 400;
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#464646')};
+  color: ${(props) => (props.$isActive ? '#ffffff' : 'rgba(255,255,255,0.5)')};
   border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
   line-height: 1.8em;
   transition: all 0.2s ease-in-out;
@@ -279,7 +279,7 @@ const DescriptionWrap = styled.ul`
   padding: 0 40px 0 3.1vw;
   transition: all 0.2s ease-in-out;
   @media screen and (max-width: 1280px) {
-    top: 3rem;
+    top: 4rem;
   }
   @media screen and (max-width: 900px) {
     display: ${(props) => (props.$isActive ? 'flex' : 'none')};
@@ -312,6 +312,7 @@ const DescriptionItem = styled.li`
 
   @media screen and (max-width: 900px) {
     font-size: 16px;
+    line-height: 1.2em;
   }
 `;
 

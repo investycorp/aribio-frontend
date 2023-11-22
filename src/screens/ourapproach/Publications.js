@@ -68,8 +68,11 @@ const DocType = styled.span`
   border: 1px solid #646464;
   border-radius: 999px;
   padding: 0.25rem 0.75rem;
-  font-size: 0.8rem;
+  font-size: 20px;
   font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #ffffff;
   @media screen and (max-width: 900px) {
     position: absolute;
@@ -148,7 +151,7 @@ const Publications = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > OUR APPROACH > `}</span>PUBLICATIONS
+        <span style={{ opacity: '0.8' }}>{`HOME > OUR APPROACH > `}</span>PUBLICATIONS
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine className="midsize">{t('publication.headline')}</HeadLine>
@@ -181,7 +184,7 @@ const Publications = () => {
             ></div>
             <Text
               $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-              $fontWeight="400"
+              $fontWeight="500"
               $color="#ffffff"
               style={{ margin: '0' }}
             >
@@ -192,37 +195,54 @@ const Publications = () => {
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: '3rem', minHeight: '50vh' }}
           >
             <ComponentWrap></ComponentWrap>
+
             <ComponentWrap
               style={{
+                display: 'flex',
                 flexDirection: 'row',
-                color: '#ffffff',
-                marginTop: '4em',
-                borderBottom: '2px solid #ffffff',
                 padding: '0',
+                justifyContent: 'end',
+                alignItems: 'center',
+                width: '100%',
               }}
             >
-              <SearchInput
-                placeholder={t('publication.search')}
-                type="text"
-                value={searchValue}
-                onChange={(e) => {
-                  handleChange(e);
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+
+                  width: '28.67vw',
+                  color: '#ffffff',
+                  marginTop: '4em',
+                  borderBottom: '2px solid #ffffff',
+                  padding: '0',
+                  justifyContents: 'center',
+                  alignItems: 'center',
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
+              >
+                <SearchInput
+                  placeholder={t('publication.search')}
+                  type="text"
+                  value={searchValue}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      handleSearchClick(e);
+                    }
+                  }}
+                  autoFocus={true}
+                  style={{ opacity: searchValue ? '100%' : '50%' }}
+                />
+                <Image
+                  src={search}
+                  onClick={(e) => {
                     handleSearchClick(e);
-                  }
-                }}
-                autoFocus={true}
-                style={{ opacity: searchValue ? '100%' : '50%' }}
-              />
-              <Image
-                src={search}
-                onClick={(e) => {
-                  handleSearchClick(e);
-                }}
-                alt="search"
-              />
+                  }}
+                  alt="search"
+                />
+              </div>
             </ComponentWrap>
             <ComponentWrap
               style={{
@@ -232,17 +252,31 @@ const Publications = () => {
                 width: '100%',
                 gap: '1rem',
                 margin: '1rem',
-                padding: '60px 0',
+                padding: '60px 0 40px 0',
               }}
             >
-              <Dot $color="#004D76" style={{ width: '14px', height: '14px' }} />
+              <Dot
+                $color="#004D76"
+                style={{
+                  width: window.innerWidth > 1280 ? '14px' : '10px',
+                  height: window.innerWidth > 1280 ? '14px' : '10px',
+                }}
+              />
               <span
                 style={{ marginRight: '1rem', fontSize: window.innerWidth > 1280 ? '20px' : '14px', color: '#E6E6E6' }}
               >
                 Publication
               </span>
-              <Dot $color="#760027" style={{ width: '14px', height: '14px' }} />{' '}
-              <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '14px', color: '#E6E6E6' }}>Conference</span>
+              <Dot
+                $color="#760027"
+                style={{
+                  width: window.innerWidth > 1280 ? '14px' : '10px',
+                  height: window.innerWidth > 1280 ? '14px' : '10px',
+                }}
+              />{' '}
+              <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '14px', color: '#E6E6E6' }}>
+                Presentation
+              </span>
             </ComponentWrap>
             <ComponentWrap style={{ padding: '60px 0' }}></ComponentWrap>
             {filteredList.length > 0 ? (
@@ -278,7 +312,14 @@ const Publications = () => {
                   </div>
                   <div className="wrap" style={{ alignItems: 'stretch' }}>
                     <div style={{ padding: '1rem' }}>
-                      <Image src={docthumbnail} alt="doc" style={{ width: '10vw', height: '10vw' }} />
+                      <Image
+                        src={docthumbnail}
+                        alt="doc"
+                        style={{
+                          width: window.innerWidth > 1280 ? '170px' : '102px',
+                          height: window.innerWidth > 1280 ? '170px' : '102px',
+                        }}
+                      />
                     </div>
                     <div>
                       <Text
@@ -297,15 +338,16 @@ const Publications = () => {
                       </Text>
                       <Text
                         className="text"
-                        $fontSize="26px"
-                        $fontWeight="300"
+                        $fontSize="24px"
+                        $fontWeight="500"
                         $color="#ffffff"
                         $align="start"
                         style={{
                           margin: '0.5rem 0',
-                          fontSize: window.innerWidth > 1280 ? '26px' : '13px',
+                          fontSize: window.innerWidth > 1280 ? '24px' : '13px',
                           whiteSpace: 'pre-wrap',
                           alignItems: 'start',
+                          paddingRight: window.innerWidth > 1280 ? '80px' : '100px',
                         }}
                       >
                         {doc.title.slice(0, 85)}
@@ -327,9 +369,29 @@ const Publications = () => {
                       >
                         <span>{doc.date}</span>
                         {doc.type === 'CONFERENCE' ? (
-                          <DocType $color={'#430016'}>Conference</DocType>
+                          <DocType
+                            $color={'#430016'}
+                            style={{
+                              width: window.innerWidth > 1280 ? '154px' : '101px',
+                              height: window.innerWidth > 1280 ? '36px' : '24px',
+                              padding: '0',
+                              fontSize: window.innerWidth > 1280 ? '18px' : '13px',
+                            }}
+                          >
+                            Presentation
+                          </DocType>
                         ) : (
-                          <DocType $color={'#012438'}>Publications</DocType>
+                          <DocType
+                            $color={'#012438'}
+                            style={{
+                              width: window.innerWidth > 1280 ? '159px' : '104px',
+                              height: window.innerWidth > 1280 ? '36px' : '24px',
+                              padding: '0',
+                              fontSize: window.innerWidth > 1280 ? '18px' : '13px',
+                            }}
+                          >
+                            Publications
+                          </DocType>
                         )}
                       </Text>
                     </div>
@@ -416,7 +478,7 @@ const Publications = () => {
                 <ComponentWrap
                   key={doc.title + index}
                   className="irdoc"
-                  style={{ justifyContent: 'center', alignItems: 'start', padding: '1rem' }}
+                  style={{ justifyContent: 'center', alignItems: 'start', padding: '1rem', borderRadius: '10px' }}
                 >
                   <div
                     className="readmore"
@@ -463,7 +525,7 @@ const Publications = () => {
                         style={{
                           margin: '0.5rem 0',
                           fontSize: '14px',
-                          fontWeight: '400',
+                          fontWeight: '300',
                           alignItems: 'start',
                           textAlign: 'start',
                           whiteSpace: 'nowrap',

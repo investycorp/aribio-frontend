@@ -277,8 +277,8 @@ const RoundButton = styled.button`
   padding: 1em;
   width: fit-content;
   height: ${(props) => (props.$height ? props.$height : '60px')};
-  background-color: ${(props) => (props.$isActive ? '#9d9d9d' : 'transparent')};
-  border: 2px solid ${(props) => (props.$isActive ? '#9d9d9d;' : '#ffffff')};
+  background-color: ${(props) => (props.$isActive ? 'rgba(255,255,255,0.6)' : 'transparent')};
+  border: 2px solid ${(props) => (props.$isActive ? 'rgba(255, 255, 255, 0.01)' : 'rgba(255,255,255,0.6)')};
   border-radius: 50px;
   color: #ffffff;
   font-size: 24px;
@@ -287,14 +287,17 @@ const RoundButton = styled.button`
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
-  &:hover {
-    cursor: pointer;
-    background-color: 9d9d9d;
-    border: 2px solid #9d9d9d;
+  cursor: pointer;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
   }
   @media screen and (max-width: 1280px) {
     font-size: 18px;
     height: 50px;
+    border-width: 1px;
   }
 
   @media screen and (max-width: 900px) {
@@ -407,6 +410,7 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
       }
       @media (max-width: 900px) {
         height: 178px;
+        border-radius: 10px;
       }
     }
 
@@ -507,7 +511,7 @@ const DescriptionItem = styled.li`
   height: fit-content;
   text-align: left;
   font-size: 20px;
-  color: #f2f2f2;
+  color: rgba(230, 230, 230, 1);
   font-weight: 100;
   line-height: 1.5em;
 

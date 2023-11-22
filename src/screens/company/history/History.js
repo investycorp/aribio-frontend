@@ -57,7 +57,7 @@ const History = () => {
     <Container className="container">
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > COMPANY > `}</span>HISTORY
+        <span style={{ opacity: '0.8' }}>{`HOME > COMPANY > `}</span>HISTORY
       </Path>
       <Video
         page="history"
@@ -93,7 +93,7 @@ const History = () => {
               style={{
                 width: '50%',
                 alignSelf: 'flex-start',
-                height: '8em',
+                height: '60px',
                 borderRight: '2px solid #ffffff',
                 margin: '2rem 0',
               }}

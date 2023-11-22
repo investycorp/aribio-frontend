@@ -22,6 +22,8 @@ const SliderContainer = styled.div`
   z-index: 20;
   gap: 60px;
   @media screen and (max-width: 1280px) {
+    top: 40vh;
+    left: 4vw;
     gap: 35px;
   }
   @media screen and (max-width: 900px) {
@@ -50,10 +52,10 @@ const Circle = styled.div`
   transition: all 0.2s ease-in-out;
   z-index: 20;
   @media screen and (max-width: 1280px) {
-    width: 30px;
-    height: 30px;
-    left: -10px;
-    top: ${(props) => (props.$isActive ? '-7px' : '-7px')};
+    width: 28px;
+    height: 28px;
+    left: -11px;
+    top: ${(props) => (props.$isActive ? '-4px' : '-4px')};
     border: 1px solid #ffffff;
   }
   @media screen and (max-width: 900px) {
@@ -81,10 +83,12 @@ const HR = styled.hr`
 
 const SliderImg = styled.img`
   position: absolute;
+
   z-index: -1;
 
   @media screen and (max-width: 1280px) {
-    left: 1.5px;
+    top: 6px;
+    left: -0.5px;
     height: 215px;
   }
   @media screen and (max-width: 900px) {
@@ -156,7 +160,14 @@ const SideSlider = () => {
             <div key={`sideSlider${index}`} style={{ position: 'relative', overflowX: 'unset' }}>
               <Circle $position={scrollNumber} $isActive={scrollNumber === index ? true : false} />
               {index === 0 && <SliderImg src={scroll_bar} alt="scroll_bar" />}
-              <Image src={whitedot} alt="whitedot" />
+              <Image
+                src={whitedot}
+                alt="whitedot"
+                style={{
+                  width: window.innerWidth > 1280 ? '10px' : '6px',
+                  height: window.innerWidth > 1280 ? '10px' : '6px',
+                }}
+              />
             </div>
           ))}
         </SliderContainer>

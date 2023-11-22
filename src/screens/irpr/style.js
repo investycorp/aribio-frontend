@@ -245,6 +245,11 @@ const SearchInput = styled.input`
   &::placeholder {
     color: #ffffff;
     font-weight: 200;
+    @media screen and (max-width: 1280px) {
+      font-size: 12px;
+    }
+  }
+  @media screen and (max-width: 1280px) {
   }
   @media screen and (max-width: 900px) {
     font-size: 16px;
@@ -296,6 +301,7 @@ const RowWrap = styled.div`
   }
   @media screen and (max-width: 1280px) {
     height: 89px;
+    border-radius: 10px;
   }
 
   @media screen and (max-width: 900px) {
@@ -327,13 +333,13 @@ const DateWrap = styled.div`
 
   ${Text}.date {
     font-size: 26px;
-    font-weight: 400;
+    font-weight: 500;
     color: #ffffff;
     margin-bottom: 0;
     padding: 0;
     text-align: center;
     @media screen and (max-width: 1280px) {
-      font-size: 24px;
+      font-size: 17px;
       color: #bababa;
     }
     @media screen and (max-width: 900px) {
@@ -349,7 +355,7 @@ const DateWrap = styled.div`
     padding: 0;
     text-align: center;
     @media screen and (max-width: 1280px) {
-      font-size: 18px;
+      font-size: 13px;
       color: #bababa;
     }
   }
@@ -367,7 +373,10 @@ const TitleWrap = styled.div`
   overflow: hidden;
   cursor: pointer;
   @media screen and (max-width: 1280px) {
-    font-size: 21px;
+    font-size: 14px;
+    div {
+      font-size: 14px;
+    }
   }
   @media screen and (max-width: 900px) {
     font-size: 18px;

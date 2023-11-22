@@ -30,7 +30,7 @@ const Text = styled.div`
   width: fit-content;
   font-size: ${(props) => (props.$isActive ? '50px' : '24px')};
   font-weight: ${(props) => (props.$isActive ? '500' : '300')};
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#868686')};
+  color: ${(props) => (props.$isActive ? '#ffffff' : 'rgba(203,203,203,0.5)')};
   line-height: ${(props) => (props.$isActive ? '3rem' : '2rem')};
   display: flex;
   justify-content: center;
@@ -113,6 +113,12 @@ const Image = styled.img`
   border-radius: 50%;
   border: ${(props) => (props.$isActive ? '2px solid #848484' : '2px solid transparent')};
   transition: border 0.3s ease-in-out;
+
+  @media screen and (max-width: 1280px) {
+    border-width: 1px;
+    width: 8px;
+    height: 8px;
+  }
 `;
 
 const DescriptionItem = styled.li`
@@ -147,7 +153,7 @@ const DescriptionWrap = styled.ul`
   padding: 1.5em;
   transition: all 0.2s ease-in-out;
   margin-bottom: 1em;
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#707070')};
+  color: ${(props) => (props.$isActive ? '#ffffff' : 'rgba(203,203,203,0.5)')};
 
   ${DescriptionItem} {
     font-weight: 200;
@@ -266,10 +272,10 @@ const Tab1 = ({ listItems, index }) => {
                 style={{
                   position: 'absolute',
                   top: index === 0 ? '0' : window.innerWidth > 1280 ? '-6rem' : '-4.5rem',
-                  left: window.innerWidth > 1280 ? '-3px' : '-8px',
+                  left: window.innerWidth > 1280 ? '-3px' : '-10px',
                   zIndex: '10',
                   margin: index === 0 ? '0.18em 0.15em' : '0.10em',
-                  padding: '2rem',
+                  padding: '2.1rem 2rem',
                   height: '-webkit-fill-available',
                 }}
               />
@@ -280,7 +286,7 @@ const Tab1 = ({ listItems, index }) => {
                 style={{
                   position: 'absolute',
                   top: index === 0 ? '0' : window.innerWidth > 1280 ? '-3.9rem' : '-2.3rem',
-                  left: window.innerWidth > 1280 ? '30.5px' : '25.5px',
+                  left: window.innerWidth > 1280 ? '30.5px' : '23.2px',
                   zIndex: '10',
                   margin: '0',
                   padding: '0 0 2em 0',

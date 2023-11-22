@@ -155,7 +155,7 @@ const PressRelease = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.5' }}>{`HOME > IR & PR > `}</span>PRESS RELEASE
+        <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span>PRESS RELEASE
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>PRESS{window.innerWidth <= 900 && <br />} RELEASE</HeadLine>
@@ -186,7 +186,11 @@ const PressRelease = () => {
             <Desktop>
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap style={{ width: '70vw' }}>
-                  <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
+                  <Text
+                    style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}
+                    $fontWeight="300"
+                    $color="#939598"
+                  >
                     PRESS RELEASE
                   </Text>
                   <div
@@ -214,7 +218,7 @@ const PressRelease = () => {
                       width: '33.3%',
                       flexDirection: 'row',
                       color: '#ffffff',
-                      borderBottom: '2px solid #ffffff',
+                      borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                       padding: '0',
                     }}
                   >
@@ -237,6 +241,7 @@ const PressRelease = () => {
                       src={search}
                       alt="search"
                       onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
+                      style={{ height: window.innerWidth > 1280 ? '24px' : '12px' }}
                     />
                   </ComponentWrap>
                 </ComponentWrap>
