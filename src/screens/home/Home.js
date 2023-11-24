@@ -77,15 +77,21 @@ const Home = () => {
     window.addEventListener('scroll', () => {
       setScrollY(window.scrollY);
       let elementToHide = document.getElementById('hide');
+      let elementToHide2 = document.getElementById('hide2');
       let scrollPosition = window.scrollY;
       if (window.innerWidth <= 900 && elementToHide) {
         if (
+          elementToHide && (
           (scrollPosition >= 0 && scrollPosition <= 0.3 * window.innerHeight) ||
-          (scrollPosition >= window.innerHeight && scrollPosition <= 1.3 * window.innerHeight)
+          (scrollPosition >= 0.8 * window.innerHeight && scrollPosition <= 1.3 * window.innerHeight)
+          )
         ) {
-          elementToHide.style.display = 'grid';
+          
+          elementToHide.style.display = 'flex';
+          elementToHide2.style.opacity = '1';
         } else {
           elementToHide.style.display = 'none';
+          elementToHide2.style.opacity = '0';
         }
       }
     });
@@ -112,7 +118,8 @@ const Home = () => {
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0300PB_VD.mp4'
           }
         />
-        <SideSlider />
+        {window.innerWidth > 900 && <SideSlider />  }
+      
         {<Modal />}
 
         <div style={{ margin: '0', padding: '0', position: 'relative' }}>
@@ -519,6 +526,7 @@ const Home = () => {
                 </HeadLineText>
               </HomeAboutUsTextWrap>
               <SubPageButton title="About Us" linkTo="/company/aboutus" />
+              <img id="hide2" src={process.env.PUBLIC_URL + '/assets/icons/indicator2.svg'} alt='indocator2' style={{width: '121px', height: '16px', zIndex: '110', marginTop: '50px' }} />
             </HomeComponentWrap>
             <HomeComponentWrap
               style={{

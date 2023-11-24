@@ -481,9 +481,9 @@ const Career = () => {
                     ) {
                       window.scrollTo({
                         top: window.scrollY + scrollAmount,
-                        behavior: 'smooth', // You can use 'auto' instead of 'smooth' for instant scrolling
+                        behavior: 'auto', // You can use 'auto' instead of 'smooth' for instant scrolling
                       });
-                      e.preventDefault();
+                      
                     } else {
                       container.scrollLeft += scrollAmount;
                     }

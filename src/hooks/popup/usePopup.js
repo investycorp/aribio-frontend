@@ -14,7 +14,6 @@ const usePopup = (lan) => {
       initialData: queryClient.getQueryData('popupInfo'),
     },
   );
-  console.log('POPUP', data);
 
   return { data, isLoading, refetch };
 };

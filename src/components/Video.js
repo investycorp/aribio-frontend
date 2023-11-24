@@ -135,6 +135,7 @@ const Video = ({ page, src }) => {
           // )
         }
         {page === 'home' && (
+          <>
           <img
             src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
             alt="home"
@@ -145,6 +146,8 @@ const Video = ({ page, src }) => {
               height: window.innerWidth > 1280 ? '60px' : '36px',
             }}
           />
+          <img id="hide" src={process.env.PUBLIC_URL + '/assets/icons/indicator.svg'} alt='indocator1' style={{width: '121px', height: '16px', zIndex: '110', position: 'absolute', bottom: '7vh' }} />
+          </>
         )}
       </Mobile>
     </Container>
