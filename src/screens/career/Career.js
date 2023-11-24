@@ -260,7 +260,6 @@ const Career = () => {
 
   useEffect(() => {
     if (data?.data?.success) {
-      console.log(data?.data?.dataList);
       let item = data.data.dataList?.map((item) => {
         return {
           id: item.id,
@@ -476,7 +475,19 @@ const Career = () => {
                   onWheel={(e) => {
                     const container = document.querySelector('.recruitmentProcess_rowscroll');
                     const scrollAmount = e.deltaY;
-                    container.scrollLeft += scrollAmount;
+                    if (
+                      (scrollAmount < 0 && container.scrollLeft === 0) || 
+                      (scrollAmount > 0 && container.scrollLeft === container.scrollWidth - container.clientWidth) 
+                    ) {
+                      window.scrollTo({
+                        top: window.scrollY + scrollAmount,
+                        behavior: 'smooth', // You can use 'auto' instead of 'smooth' for instant scrolling
+                      });
+                      e.preventDefault();
+                    } else {
+                      container.scrollLeft += scrollAmount;
+                    }
+                    
                   }}
                   style={{
                     justifyContent: 'start',
