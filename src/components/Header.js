@@ -353,7 +353,7 @@ const Header = () => {
               >
                 <img
                   style={{ cursor: 'pointer', width: '74px', paddingTop: '0.5em' }}
-                  src={process.env.PUBLIC_URL + '/assets/images/header_logo.png'}
+                  src={process.env.PUBLIC_URL + '/assets/images/aribiologo_white.png'}
                   alt="logo"
                 />
               </Link>
@@ -527,7 +527,7 @@ const Header = () => {
                 >
                   <img
                     style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '122px' : '82px' }}
-                    src={process.env.PUBLIC_URL + '/assets/images/header_logo.png'}
+                    src={process.env.PUBLIC_URL + '/assets/images/aribiologo_white.png'}
                     alt="logo"
                   />
                 </Link>

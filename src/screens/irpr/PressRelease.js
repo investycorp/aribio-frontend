@@ -165,7 +165,7 @@ const PressRelease = () => {
           style={{
             position: 'absolute',
             right: '7vw',
-            bottom: '5vw',
+            bottom: window.innerWidth > 900 ? '5vw' : '7vh',
             height: window.innerWidth > 1280 ? '60px' : '36px',
           }}
         />
@@ -437,7 +437,7 @@ const PressRelease = () => {
                   </ComponentWrap>
                 </ComponentWrap>
                 <ComponentWrap
-                  style={{ justifyContent: 'center', alignItems: 'center', padding: '8rem 0 4rem 0', gap: '0.5rem' }}
+                  style={{ justifyContent: 'center', alignItems: 'center', padding: '100px 0 4rem 0', gap: '16px' }}
                 >
                   {filteredList.length > 0 ? (
                     filteredList.map((item, index) => {
@@ -476,6 +476,7 @@ const PressRelease = () => {
                                     overflow: 'hidden',
                                     whiteSpace: 'nowrap',
                                     marginRight: '1rem',
+                                    fontSize: '18px',
                                   }}
                                 >
                                   {item.title.slice(0, 25)}...

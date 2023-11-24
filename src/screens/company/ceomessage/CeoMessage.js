@@ -46,7 +46,7 @@ const CeoMessage = () => {
           style={{
             position: 'absolute',
             right: '7vw',
-            bottom: '5vw',
+            bottom: window.innerWidth > 900 ? '5vw' : '7vh',
             height: window.innerWidth > 1280 ? '60px' : '36px',
           }}
         />
@@ -156,15 +156,15 @@ const CeoMessage = () => {
               </Text>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
-                $fontWeight="300"
+                $fontWeight="400"
                 $color="#909090"
                 style={{
                   textAlign: 'start',
                   margin: '0',
                   padding: '0 0 0 0',
                   lineHeight: '1.7',
-                  wordSpacing: '0.2rem',
-                  letterSpacing: '0.02rem',
+                  // wordSpacing: '0.2rem',
+                  // letterSpacing: '0.02rem',
                 }}
               >
                 <Trans i18nKey="ceomessage.desc3" components={{ 1: <br /> }} />

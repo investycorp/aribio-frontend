@@ -167,7 +167,7 @@ const Notice = () => {
           style={{
             position: 'absolute',
             right: '7vw',
-            bottom: '5vw',
+            bottom: window.innerWidth > 900 ? '5vw' : '7vh',
             height: window.innerWidth > 1280 ? '60px' : '36px',
           }}
         />
@@ -416,12 +416,12 @@ const Notice = () => {
                       src={search}
                       alt="search"
                       onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
-                      style={{ height: '20px' }}
+                      style={{ height: window.innerWidth > 1280 ? '24px' : '12px' }}
                     />
                   </ComponentWrap>
                 </ComponentWrap>
                 <ComponentWrap
-                  style={{ justifyContent: 'center', alignItems: 'center', padding: '8rem 0 4rem 0', gap: '0.5rem' }}
+                  style={{ justifyContent: 'center', alignItems: 'center', padding: '100px 0 4rem 0', gap: '18px' }}
                 >
                   {filteredList.length > 0 ? (
                     filteredList.map((item, index) => {
@@ -460,6 +460,7 @@ const Notice = () => {
                                     overflow: 'hidden',
                                     whiteSpace: 'nowrap',
                                     marginRight: '1rem',
+                                    fontSize: '18px',
                                   }}
                                 >
                                   {item.title.slice(0, 25)}...

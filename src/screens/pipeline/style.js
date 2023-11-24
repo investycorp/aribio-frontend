@@ -499,11 +499,11 @@ const ShootingStar = styled.span.attrs((props) => ({
     -ms-animation-fill-mode: forwards;
 
     @media screen and (max-width: 900px) {
-      -ms-animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
-      -moz-animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
-      -o-animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
-      -webkit-animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
-      animation-name: ${(props) => move('18vw', props?.$phase, '10px')};
+      -ms-animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
+      -moz-animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
+      -o-animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
+      -webkit-animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
+      animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
     }
   }
 

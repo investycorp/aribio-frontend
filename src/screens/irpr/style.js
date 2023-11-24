@@ -242,11 +242,17 @@ const SearchInput = styled.input`
   &:hover {
     opacity: 1;
   }
+  @media screen and (max-width: 900px) {
+    font-size: 18px;
+  }
   &::placeholder {
     color: #ffffff;
     font-weight: 200;
     @media screen and (max-width: 1280px) {
       font-size: 12px;
+    }
+    @media screen and (max-width: 900px) {
+      font-size: 18px;
     }
   }
   @media screen and (max-width: 1280px) {
