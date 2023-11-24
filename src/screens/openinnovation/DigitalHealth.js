@@ -150,7 +150,7 @@ const DigitalHealth = () => {
           style={{
             position: 'absolute',
             right: '7vw',
-            bottom: '5vw',
+            bottom: window.innerWidth > 900 ? '5vw' : '7vh',
             height: window.innerWidth > 1280 ? '60px' : '36px',
           }}
         />
@@ -745,7 +745,7 @@ const DigitalHealth = () => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 width: '213px',
-                height: '31px',
+                height: '2.5em',
 
                 borderBottom: '1px solid #FDFDFD',
 

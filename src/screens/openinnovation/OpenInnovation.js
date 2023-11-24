@@ -49,7 +49,7 @@ const OpenInnovation = () => {
           style={{
             position: 'absolute',
             right: '7vw',
-            bottom: '5vw',
+            bottom: window.innerWidth > 900 ? '5vw' : '7vh',
             height: window.innerWidth > 1280 ? '60px' : '36px',
           }}
         />
@@ -248,7 +248,7 @@ const OpenInnovation = () => {
           </HomeComponentWrap>
         </Desktop>
         <Mobile>
-          <Image
+          {/* <Image
             style={{
               position: 'absolute',
               top: '45vh',
@@ -260,7 +260,7 @@ const OpenInnovation = () => {
             }}
             src={openinnovation_middle1}
             alt="intro_bg"
-          />
+          /> */}
           <HomeComponentWrap
             style={{
               backgroundColor: 'transparent',
@@ -304,7 +304,7 @@ const OpenInnovation = () => {
               minHeight: 'fit-content',
               padding: '0 0',
               margin: '0',
-              marginTop: '10em',
+              marginTop: '0',
               display: 'flex',
             }}
           >
@@ -322,7 +322,7 @@ const OpenInnovation = () => {
                 height: '100%',
                 backgroundColor: 'transparent',
                 padding: '1em 5vw',
-                marginTop: '3em',
+                marginTop: '8em',
               }}
             >
               <Text
@@ -383,9 +383,10 @@ const OpenInnovation = () => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     width: '60vw',
-                    height: '31px',
+                    height: '2.5em',
                     paddingBottom: '0',
                     borderBottom: '1px solid #ffffff',
+                    marginBottom: '0',
                   }}
                   onClick={() => navigate('/openinnovation/digitalhealth')}
                 >
@@ -404,7 +405,7 @@ const OpenInnovation = () => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     width: '60vw',
-                    height: '31px',
+                    height: '2.5em',
                     paddingBottom: '0',
                     borderBottom: '1px solid #ffffff',
                   }}

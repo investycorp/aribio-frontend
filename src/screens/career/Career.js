@@ -303,7 +303,7 @@ const Career = () => {
           style={{
             position: 'absolute',
             right: '7vw',
-            bottom: '5vw',
+            bottom: window.innerWidth > 900 ? '5vw' : '7vh',
             height: window.innerWidth > 1280 ? '60px' : '36px',
           }}
         />
@@ -1008,7 +1008,7 @@ const Career = () => {
                     </ContentBox>
                   ))}
                   <ContentBox></ContentBox>
-                  <ContentBox style={{ marginTop: '8em' }}>
+                  <ContentBox style={{ marginTop: '0' }}>
                     <ContentWrap
                       style={{
                         flexDirection: 'column',
@@ -1063,7 +1063,7 @@ const Career = () => {
                   </ContentBox>
                 </GridContentWrap>
               </HomeComponentWrap>
-              <HomeComponentWrap>
+              <HomeComponentWrap style={{ paddingBottom: '10em' }}>
                 <TextWrap style={{ marginBottom: '5em', zIndex: '10' }}>
                   <HR style={{ alignSelf: 'start', margin: '1rem 0', width: '40px', height: '1px' }} />
                   <Text $fontSize="20px" $fontWeight="600" $color="#E5E5E5" $align="start">
