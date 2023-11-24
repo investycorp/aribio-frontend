@@ -77,7 +77,7 @@ const History = () => {
           style={{
             position: 'absolute',
             right: '7vw',
-            bottom: '5vw',
+            bottom: window.innerWidth > 900 ? '5vw' : '7vh',
             height: window.innerWidth > 1280 ? '60px' : '36px',
           }}
         />

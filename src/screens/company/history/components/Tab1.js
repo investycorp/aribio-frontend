@@ -370,8 +370,8 @@ const Tab1 = ({ listItems, index }) => {
                   style={{
                     display: 'flex',
                     position: 'absolute',
-                    top: '-1px',
-                    left: '11px',
+                    top: '-3px',
+                    left: '9.7px',
                     width: '2px',
                     height: index !== tabNames.length - 1 ? '100%' : '10px',
                     borderRight: '2px dotted rgba(255, 255, 255, 0.5)',

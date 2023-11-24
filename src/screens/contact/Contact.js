@@ -57,10 +57,10 @@ const Contact = () => {
     document.querySelector('.container')?.scrollTo(0, 0);
     setSubmitSrc(
       process.env.PUBLIC_URL + window.innerWidth > 1280
-        ? '/assets/icons/submit/submit_1920.svg'
+        ? '/assets/icons/submit/submit_1920.png'
         : window.innerWidth > 900
-        ? '/assets/icons/submit/submit_1280.svg'
-        : '/assets/icons/submit/submit_360.svg',
+        ? '/assets/icons/submit/submit_1280.pmg'
+        : '/assets/icons/submit/submit_360.png',
     );
   }, []);
 
@@ -159,7 +159,7 @@ const Contact = () => {
           style={{
             position: 'absolute',
             right: '7vw',
-            bottom: '5vw',
+            bottom: window.innerWidth > 900 ? '5vw' : '7vh',
             height: window.innerWidth > 1280 ? '60px' : '36px',
           }}
         />
@@ -357,8 +357,8 @@ const Contact = () => {
                     onMouseOver={() =>
                       setSubmitSrc(
                         process.env.PUBLIC_URL + window.innerWidth > 1280
-                          ? '/assets/icons/submit/submit_1920_a.svg'
-                          : '/assets/icons/submit/submit_1280_a.svg',
+                          ? '/assets/icons/submit/submit_1920_a.png'
+                          : '/assets/icons/submit/submit_1280_a.png',
                       )
                     }
                     onMouseOut={() =>
@@ -663,8 +663,8 @@ const Contact = () => {
                       width: '131px',
                     }}
                     onClick={(e) => handleSubmit(e)}
-                    onMouseOver={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360_a.svg')}
-                    onMouseOut={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360.svg')}
+                    onMouseOver={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360_a.png')}
+                    onMouseOut={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360.png')}
                   />
                   {/* <Button
                     className={isSuccess ? 'submit' : ''}
@@ -700,7 +700,9 @@ const Contact = () => {
               </Form>
             </FormWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{ borderTop: '2px solid #B1B1B1' }}>
+          <HomeComponentWrap
+            style={{ padding: '10vh 0', margin: '0 5vw', width: '90vw', borderTop: '2px solid #B1B1B1' }}
+          >
             <HR style={{ alignSelf: 'start', marginBottom: '0.5em', height: '1px', width: '20px' }} />
             <Text $fontSize="20px" $fontWeight="300" $color="#D3D3D3" $align="start">
               Locations

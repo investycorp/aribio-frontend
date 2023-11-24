@@ -285,9 +285,13 @@ const Footer = () => {
                   width: '100%',
                 }}
               >
-                <ContactBoxText style={{ textDecoration: 'none', margin: '0' }}>TEL. {companyInfo.tel}</ContactBoxText>
+                <ContactBoxText style={{ textDecoration: 'none', margin: '0' }}>
+                  TEL. {companyInfo.tel?.replace('(Korea)', '')}
+                </ContactBoxText>
 
-                <ContactBoxText style={{ bodrer: 'transparent', margin: '0' }}>FAX. {companyInfo.fax}</ContactBoxText>
+                <ContactBoxText style={{ bodrer: 'transparent', margin: '0' }}>
+                  FAX. {companyInfo.fax?.replace('(Korea)', '')}
+                </ContactBoxText>
               </div>
             </ContactUsWrap>
           </FooterGridWrap>
@@ -373,7 +377,8 @@ const Footer = () => {
               to="/"
               style={{ color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content', fontSize: '14px' }}
             >
-              <span>Privacy Policy</span> <span style={{ padding: '0 4px' }}>|</span>
+              <span>Privacy Policy</span>
+              {/* <span style={{ padding: '0 4px' }}>|</span> */}
             </Link>
             <span style={{ minWidth: 'fit-content', fontSize: '14px' }}>© 2023 by ARIBIO. All Rights Reserved.</span>
           </ContactUsBox>

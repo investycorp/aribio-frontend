@@ -30,7 +30,7 @@ const ContainerGridLineWrap = styled.div.attrs((props) => ({
 
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 0;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
   @media screen and (max-width: 900px) {
