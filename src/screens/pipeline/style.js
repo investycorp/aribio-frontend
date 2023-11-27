@@ -472,27 +472,27 @@ const ShootingStar = styled.span.attrs((props) => ({
 
   &.animate {
     opacity: 1;
-    animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
+    animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    -webkit-animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
+    -webkit-animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
-    -o-animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
+    -o-animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
     -o-animation-duration: 2s;
     -o-animation-iteration-count: 1;
     -o-animation-timing-function: linear;
     -o-animation-fill-mode: forwards;
-    -moz-animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
+    -moz-animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
     -moz-animation-duration: 2s;
     -moz-animation-iteration-count: 1;
     -moz-animation-timing-function: linear;
     -moz-animation-fill-mode: forwards;
-    -ms-animation-name: ${(props) => move('8.1vw', props?.$phase, '10px')};
+    -ms-animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
     -ms-animation-duration: 2s;
     -ms-animation-iteration-count: 1;
     -ms-animation-timing-function: linear;
@@ -512,7 +512,7 @@ const ShootingStar = styled.span.attrs((props) => ({
     position: absolute;
     top: 50%;
     right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props?.$phase}*8.1vw)` : `calc(10vw)`)};
+    width: ${(props) => (props.$phase ? `calc(${props?.$phase}*8vw)` : `calc(10vw)`)};
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
     transform: translate(0, -50%);

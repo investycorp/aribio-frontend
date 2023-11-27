@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import scroll_bar from '../assets/images/scroll_bar.svg';
 
 import whitedot from '../assets/images/whitedot.svg';
+import reddot from '../assets/images/reddot.svg';
 
 const SliderContainer = styled.div`
   position: fixed;
@@ -43,8 +44,17 @@ const Circle = styled.div`
   left: -15px;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  background-color: transparent;
   border: 2px solid #ffffff;
+  //!!!
+  /* top: 3.5px;
+  left: 0px;
+  width: 10px;
+  height: 10px;
+  background-color: #cb3063;
+  border: none; */
+
+  border-radius: 50%;
   margin: 0;
   padding: 0;
   cursor: pointer;
@@ -56,7 +66,13 @@ const Circle = styled.div`
     height: 28px;
     left: -11px;
     top: ${(props) => (props.$isActive ? '-4px' : '-4px')};
+
     border: 1px solid #ffffff;
+    //!!!
+    /* left: 0px;
+    top: 7.5px;
+    width: 6px;
+    height: 6px; */
   }
   @media screen and (max-width: 900px) {
     width: 16px;
@@ -161,7 +177,7 @@ const SideSlider = () => {
               <Circle $position={scrollNumber} $isActive={scrollNumber === index ? true : false} />
               {index === 0 && <SliderImg src={scroll_bar} alt="scroll_bar" />}
               <Image
-                src={whitedot}
+                src={scrollNumber === index ? reddot : whitedot}
                 alt="whitedot"
                 style={{
                   width: window.innerWidth > 1280 ? '10px' : '6px',

@@ -168,7 +168,7 @@ const AiPlatform = () => {
         </ContainerGridLineWrap>
         <Desktop>
           <HomeComponentWrap>
-            <TextWrap style={{ margin: '0' }}>
+            <TextWrap style={{ margin: '0', width: '100%' }}>
               <Text $fontWeight="300" $color="#939598" style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}>
                 {t('aiplatform.title')}
               </Text>
@@ -200,7 +200,7 @@ const AiPlatform = () => {
             </TextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap>
-            <TextWrap style={{ width: 'fit-content' }}>
+            <TextWrap style={{ width: '100%' }}>
               <HR $height="2px" $color="#ffffff" />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
@@ -214,7 +214,7 @@ const AiPlatform = () => {
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="200"
                 $color="#ffffff"
-                style={{ marginTop: '2em', width: '70vw' }}
+                style={{ marginTop: '2em', width: '100%' }}
               >
                 <Trans i18nKey="aiplatform.desc2" components={{ 1: <br /> }} />
               </Text>
@@ -231,17 +231,17 @@ const AiPlatform = () => {
                 marginLeft: window.innerWidth > 1280 ? '13%' : '14%',
               }}
             />
-            <TextWrap style={{ width: 'fit-content', marginTop: '10rem' }}>
+            <TextWrap style={{ width: '100%', marginTop: '10rem' }}>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="200"
                 $color="#ffffff"
-                style={{ marginTop: '2em', width: '70vw' }}
+                style={{ marginTop: '2em', width: '100%' }}
               >
                 <Trans i18nKey="aiplatform.desc2-1" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
-            <TextWrap style={{ width: 'fit-content', marginTop: '10em' }}>
+            <TextWrap style={{ width: '100%', marginTop: '10em' }}>
               <HR $height="2px" $color="#ffffff" />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
@@ -255,7 +255,7 @@ const AiPlatform = () => {
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="100"
                 $color="#C9C9C9"
-                style={{ marginTop: '2em', width: '70vw' }}
+                style={{ marginTop: '2em', width: '100%' }}
               >
                 <Trans i18nKey="aiplatform.desc3" components={{ 1: <br /> }} />
               </Text>
@@ -275,7 +275,7 @@ const AiPlatform = () => {
                 transition: 'opacity 0.5s ease-in-out',
               }}
             />
-            <TextWrap style={{ width: 'fit-content', marginTop: '10em' }}>
+            <TextWrap style={{ width: '100%', marginTop: '10em' }}>
               <HR $height="2px" $color="#ffffff" />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '23px'}
@@ -289,7 +289,7 @@ const AiPlatform = () => {
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="100"
                 $color="#C9C9C9"
-                style={{ marginTop: '2em', width: '70vw' }}
+                style={{ marginTop: '2em', width: '100%' }}
               >
                 <Trans
                   i18nKey="aiplatform.desc4"
@@ -319,7 +319,7 @@ const AiPlatform = () => {
                 $fontWeight="100"
                 $color="#C9C9C9"
                 $align="start"
-                style={{ marginTop: '1.5em', width: '75%', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
+                style={{ marginTop: '1.5em', width: '100%', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
               >
                 <Trans i18nKey="aiplatform.desc5" components={{ 1: <br /> }} />
               </Text>
@@ -409,7 +409,7 @@ const AiPlatform = () => {
           </HomeComponentWrap>
 
           <HomeComponentWrap>
-            <TextWrap style={{ marginBottom: '10em', width: '60vw' }}>
+            <TextWrap style={{ marginBottom: '10em', width: '100%' }}>
               <HR $height="2px" $color="#ffffff" />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}

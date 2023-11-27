@@ -90,6 +90,8 @@ const Video = ({ page, src }) => {
             objectFit: page === 'home' && window.innerWidth < 1100 ? 'contain' : 'cover',
             width: '100vw',
             height: '100vh',
+            marginTop: page !== 'home' ? '0' : window.innerWidth > 1280 ? '240px' : '97px',
+            //!!!
           }}
         >
           <source src={src} type="video/mp4" />
@@ -136,17 +138,22 @@ const Video = ({ page, src }) => {
         }
         {page === 'home' && (
           <>
-          <img
-            src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
-            alt="home"
-            style={{
-              position: 'absolute',
-              right: '7vw',
-              bottom: '7vh',
-              height: window.innerWidth > 1280 ? '60px' : '36px',
-            }}
-          />
-          <img id="hide" src={process.env.PUBLIC_URL + '/assets/icons/indicator.svg'} alt='indocator1' style={{width: '121px', height: '16px', zIndex: '110', position: 'absolute', bottom: '7vh' }} />
+            <img
+              src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
+              alt="home"
+              style={{
+                position: 'absolute',
+                right: '7vw',
+                bottom: '7vh',
+                height: window.innerWidth > 1280 ? '60px' : '36px',
+              }}
+            />
+            <img
+              id="hide"
+              src={process.env.PUBLIC_URL + '/assets/icons/indicator.svg'}
+              alt="indocator1"
+              style={{ width: '121px', height: '16px', zIndex: '110', position: 'absolute', bottom: '7vh' }}
+            />
           </>
         )}
       </Mobile>
