@@ -92,7 +92,7 @@ const HomeComponentWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
-  width: 70vw;
+  width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -431,7 +431,7 @@ const ShootingStar = styled.span.attrs((props) => ({
     position: absolute;
     top: 50%;
     right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props.$phase}*10.2vw)` : `calc(10vw)`)};
+    width: ${(props) => (props.$phase ? `calc(${props.$phase}*10.4vw + 140px)` : `calc(10vw)`)};
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
     transform: translate(0, -50%);

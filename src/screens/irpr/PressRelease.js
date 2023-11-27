@@ -42,6 +42,7 @@ const PressRelease = () => {
   const [itemPerPage, setItemPerPage] = useState(6);
   const [currentItem, setCurrentItem] = useState({});
   const [searchValue, setSearchValue] = useState('');
+  const [searchTermShown, setSearchTermShown] = useState('');
   const [detailPage, setDetailPage] = useState(false);
 
   const [itemList, setItemList] = useState([]);
@@ -51,10 +52,11 @@ const PressRelease = () => {
   const [viewMoreOn, setViewMoreOn] = useState(true);
 
   useEffect(() => {
+    console.log('data', data);
     if (pageNumber === 1) {
       const items = [];
       if (data?.data) {
-        data?.data.data.noticeDtoList.map((item) => {
+        data?.data?.data?.noticeDtoList.map((item) => {
           items.push({
             id: item.id,
             date: item.day,
@@ -70,7 +72,7 @@ const PressRelease = () => {
     }
     if (pageNumber > 1) {
       if (data?.data?.success) {
-        data?.data.data.noticeDtoList.map((item) => {
+        data?.data?.data?.noticeDtoList.map((item) => {
           setFilteredList((prev) => [
             ...prev,
             {
@@ -136,6 +138,7 @@ const PressRelease = () => {
   const handleSearchClick = async (val) => {
     setPageNumber(1);
     refetch(1, language, val);
+    setSearchTermShown(val);
     // setViewMoreOn(true);
   };
 
@@ -338,7 +341,11 @@ const PressRelease = () => {
                   ) : (
                     <ComponentWrap style={{ gap: '2em', height: '50vh', justifyContent: 'center' }}>
                       <HR />
-                      <Text>There are no published posts registered.</Text>
+                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                        <Text>There are no published posts registered.</Text>
+                      ) : (
+                        <Text>No result found for '{searchTermShown}'</Text>
+                      )}
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
@@ -496,31 +503,36 @@ const PressRelease = () => {
                   ) : (
                     <ComponentWrap style={{ gap: '2em', height: '30vh', justifyContent: 'center' }}>
                       <HR style={{ width: '24px', height: '1px' }} />
-                      <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                        <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                      ) : (
+                        <Text style={{ fontSize: '16px' }}>No result found for '{searchTermShown}'</Text>
+                      )}
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
-                {pageNumber * itemPerPage <= filteredList.length && (
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      cursor: 'pointer',
-                    }}
-                    onClick={async () => {
-                      if (pageNumber * itemPerPage <= filteredList.length) {
-                        setPageNumber(pageNumber + 1);
-                      }
-                    }}
-                  >
-                    <Image style={{ zIndex: '-1', height: '24px' }} src={icon_more} alt="more" />
-                    <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
-                      View more
-                    </Text>
-                  </div>
-                )}
+                {viewMoreOn ||
+                  (pageNumber * itemPerPage <= filteredList.length && (
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        cursor: 'pointer',
+                      }}
+                      onClick={async () => {
+                        if (pageNumber * itemPerPage <= filteredList.length) {
+                          setPageNumber(pageNumber + 1);
+                        }
+                      }}
+                    >
+                      <Image style={{ zIndex: '-1', height: '24px' }} src={icon_more} alt="more" />
+                      <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
+                        View more
+                      </Text>
+                    </div>
+                  ))}
               </HomeComponentWrap>
             </Mobile>
           </>

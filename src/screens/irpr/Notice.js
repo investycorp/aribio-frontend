@@ -42,6 +42,7 @@ const Notice = () => {
   const [itemPerPage, setItemPerPage] = useState(6);
   const [currentItem, setCurrentItem] = useState({});
   const [searchValue, setSearchValue] = useState('');
+  const [searchTermShown, setSearchTermShown] = useState('');
   const [detailPage, setDetailPage] = useState(false);
 
   const [itemList, setItemList] = useState([]);
@@ -138,6 +139,7 @@ const Notice = () => {
   const handleSearchClick = async (val) => {
     setPageNumber(1);
     refetch(1, language, val);
+    setSearchTermShown(val);
     // setViewMoreOn(true);
   };
 
@@ -322,7 +324,11 @@ const Notice = () => {
                   ) : (
                     <ComponentWrap style={{ gap: '2em', height: '50vh', justifyContent: 'center' }}>
                       <HR />
-                      <Text>There are no published posts registered.</Text>
+                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                        <Text>There are no published posts registered.</Text>
+                      ) : (
+                        <Text>No result found for '{searchTermShown}'</Text>
+                      )}
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
@@ -480,7 +486,11 @@ const Notice = () => {
                   ) : (
                     <ComponentWrap style={{ gap: '2em', height: '30vh', justifyContent: 'center' }}>
                       <HR style={{ width: '24px', height: '1px' }} />
-                      <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                        <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                      ) : (
+                        <Text style={{ fontSize: '16px' }}>No result found for '{searchTermShown}'</Text>
+                      )}
                     </ComponentWrap>
                   )}
                 </ComponentWrap>

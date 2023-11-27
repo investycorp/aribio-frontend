@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil';
 import Language from '../atom/Language';
 import WindowSize from '../atom/MediaQuery';
 import { Desktop, Mobile } from '../utils/MediaQuery';
+import useFooter from '../hooks/footer/useFooter';
 
 import lang_globe from '../assets/images/lang_globe.svg';
 import plus from '../assets/images/plus.svg';
@@ -78,10 +79,12 @@ const HeaderLogoWrap = styled.div`
   }
 `;
 
-const HeaderNavWrap = styled.div`
+const HeaderNavWrap = styled.div.attrs((props) => ({
+  $offset: props.$offset,
+}))`
   padding: 0;
   width: -webkit-fill-available;
-  padding: 0 5em;
+  padding: ${(props) => (props.$offset ? `0 calc(5em + ${props.$offset}px)` : '0 5em')};
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -93,7 +96,7 @@ const HeaderNavWrap = styled.div`
   }
 
   @media screen and (max-width: 1280px) {
-    padding: 0 2rem;
+    padding: ${(props) => (props.$offset ? `0 calc(2rem + ${props.$offset}px)` : '0 2rem')};
   }
 
   @media screen and (max-width: 900px) {
@@ -280,10 +283,20 @@ const Header = () => {
   const [currentTab, setCurrentTab] = useState('');
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState('');
-  const [scrollY, setScrollY] = useState(0);
+  // const [scrollY, setScrollY] = useState(0);
   const [windowSize, setWindowSize] = useRecoilState(WindowSize);
+  const [language, setLanguage] = useRecoilState(Language);
+  const { data, isLoading } = useFooter(language);
+  const [logo, setLogo] = useState('');
+  const [offset, setOffset] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (data?.data?.success) {
+      setLogo(data?.data?.data?.fileDto?.fileUrl);
+    }
+  }, [data]);
 
   useEffect(() => {
     setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
@@ -353,7 +366,8 @@ const Header = () => {
               >
                 <img
                   style={{ cursor: 'pointer', width: '74px', paddingTop: '0.5em' }}
-                  src={process.env.PUBLIC_URL + '/assets/images/aribiologo_white.png'}
+                  // src={process.env.PUBLIC_URL + '/assets/images/aribiologo_white.png'}
+                  src={logo}
                   alt="logo"
                 />
               </Link>
@@ -507,11 +521,11 @@ const Header = () => {
               (fixedMenu === '' || !fixedMenu) && setCurrentMenu('');
             }}
             onBlur={() => {
-              console.log('blur');
-              setTimeout(() => {
-                setCurrentMenu('');
-                setFixedMenu('');
-              }, 200);
+              // console.log('blur');
+              // setTimeout(() => {
+              //   setCurrentMenu('');
+              //   setFixedMenu('');
+              // }, 200);
             }}
             tabIndex={1}
           >
@@ -527,7 +541,7 @@ const Header = () => {
                 >
                   <img
                     style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '122px' : '82px' }}
-                    src={process.env.PUBLIC_URL + '/assets/images/aribiologo_white.png'}
+                    src={logo}
                     alt="logo"
                   />
                 </Link>
@@ -539,8 +553,7 @@ const Header = () => {
                     onMouseOver={() => {
                       (fixedMenu === '' || !fixedMenu) && setCurrentMenu(menu.linkTo);
                     }}
-                    onClick={() => {
-                      //menu.linkTo === 'career' || menu.linkTo === 'openinnovation'
+                    onClick={(e) => {
                       if (menu.linkTo === 'pipeline' || menu.linkTo === 'career') {
                         if (menu.linkTo === 'career') navigate(`/${menu.linkTo}`);
                         if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
@@ -552,10 +565,17 @@ const Header = () => {
                         } else {
                           setFixedMenu(menu.linkTo);
                           setCurrentMenu(menu.linkTo);
+
+                          if (menu.linkTo === 'openinnovation') {
+                            setOffset(window.innerWidth - e.target.offsetLeft - e.target.offsetWidth);
+                          } else {
+                            setOffset(e.target.offsetLeft);
+                          }
                         }
                       }
                     }}
                     $isActive={menu.linkTo === currentMenu ? true : false}
+                    style={{ position: 'relative' }}
                   >
                     <div
                       style={{
@@ -565,6 +585,7 @@ const Header = () => {
                             ? '2px solid #ffffff'
                             : '2px solid transparent',
                         zIndex: '-1',
+                        position: 'relative',
                       }}
                     >
                       <span>{menu.title.toUpperCase()}</span>
@@ -578,32 +599,43 @@ const Header = () => {
               <>
                 <HeaderBottom
                   className={`header-bottom ${currentMenu}`}
-                  // style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-                  style={{ visibility: 'visible', opacity: 1 }}
+                  style={{ visibility: 'visible', opacity: 1, padding: '0' }}
                 >
-                  <HeaderNavWrap
-                    style={{
-                      width: '100%',
-                      margin: '0 122px',
-                      justifyContent: 'start',
-                      gap: window.innerWidth > 1400 ? '105px' : window.innerWidth > 1280 ? '80px' : '50px',
-                    }}
-                  >
-                    {subMenu[currentMenu]?.map((menu) => (
-                      <Link
-                        to={`/${currentMenu}/${menu.linkTo}`}
-                        style={{ textDecoration: 'none' }}
-                        key={menu.linkTo}
-                        onClick={() => {
-                          if (menu.linkTo === location.pathname.split('/')[2]) {
-                            window.location.reload();
-                          }
-                        }}
-                      >
-                        <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
-                      </Link>
-                    ))}
-                  </HeaderNavWrap>
+                  <div style={{ position: 'relative', width: '100%', height: 'fit-content', display: 'flex' }}>
+                    <HeaderNavWrap
+                      id="header-navwrap"
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        width: 'fit-content',
+                        height: 'auto',
+                        // margin: '0 122px',
+                        margin: '0',
+                        padding: '0',
+                        justifyContent: currentMenu !== 'openinnovation' ? 'start' : 'end',
+                        gap: window.innerWidth > 1400 ? '105px' : window.innerWidth > 1280 ? '80px' : '50px',
+                        position: 'absolute',
+                        top: '-0.5em',
+                        left: currentMenu !== 'openinnovation' ? `${offset}px` : 'unset',
+                        right: currentMenu === 'openinnovation' ? `${offset}px` : 'unset',
+                      }}
+                    >
+                      {subMenu[currentMenu]?.map((menu) => (
+                        <Link
+                          to={`/${currentMenu}/${menu.linkTo}`}
+                          style={{ textDecoration: 'none' }}
+                          key={menu.linkTo}
+                          onClick={() => {
+                            if (menu.linkTo === location.pathname.split('/')[2]) {
+                              window.location.reload();
+                            }
+                          }}
+                        >
+                          <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
+                        </Link>
+                      ))}
+                    </HeaderNavWrap>
+                  </div>
                 </HeaderBottom>
               </>
             )}

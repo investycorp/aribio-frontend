@@ -238,16 +238,17 @@ const PipeLine = () => {
                 <TableRowWrap className="tr" key={'tableRow' + index}>
                   <TableContentBox style={{ fontWeight: '600' }}>
                     <span style={{ padding: '0.5em', cursor: 'pointer' }}>{item?.drugCandidate}</span>
-                    <img
+
+                    {/* <img
                       style={{ padding: '0.5em', cursor: 'pointer' }}
                       src={icon_open}
                       alt="modal_open"
                       onClick={() => {
                         // !!!!Add when pop content is ready!!!!
-                        // setIsModalOpen(true);
-                        // setModalItem({ ...item.modal, item: item?.drugCandidate });
+                        setIsModalOpen(true);
+                        setModalItem({ ...item.modal, item: item?.drugCandidate });
                       }}
-                    />
+                    /> */}
                   </TableContentBox>
                   <TableContentBox>{item.target}</TableContentBox>
                   <TableContentBox>{item.modality}</TableContentBox>
@@ -383,7 +384,7 @@ const PipeLine = () => {
                       <span style={{ fontSize: '16px', fontWeight: '500' }}>{selectedItem?.drugCandidate}</span>
                     </span>
 
-                    <img
+                    {/* <img
                       style={{ padding: '0', cursor: 'pointer', height: '24px' }}
                       src={icon_open}
                       alt="modal_open"
@@ -393,7 +394,7 @@ const PipeLine = () => {
                         setModalItem({ ...selectedItem?.modal, item: selectedItem?.drugCandidate });
                         setToggleOn(false);
                       }}
-                    />
+                    /> */}
                   </RowWrap>
                   <RowWrap style={{ padding: '0' }}>
                     <span style={{ width: '100%', padding: '0 0 0 2em', fontWeight: '200' }}>

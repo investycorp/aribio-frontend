@@ -53,7 +53,7 @@ const PolyPharmacology = () => {
 
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-          <TextWrap style={{ width: '60vw' }}>
+          <TextWrap>
             <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               {t('polypharma.title')}
             </Text>
