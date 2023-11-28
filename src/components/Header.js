@@ -521,11 +521,10 @@ const Header = () => {
               (fixedMenu === '' || !fixedMenu) && setCurrentMenu('');
             }}
             onBlur={() => {
-              // console.log('blur');
-              // setTimeout(() => {
-              //   setCurrentMenu('');
-              //   setFixedMenu('');
-              // }, 200);
+              setTimeout(() => {
+                setCurrentMenu('');
+                setFixedMenu('');
+              }, 100);
             }}
             tabIndex={1}
           >
@@ -550,8 +549,15 @@ const Header = () => {
                 {menuList.map((menu, index) => (
                   <HeaderNavMenuTextWrap
                     key={menu.linkTo + index}
-                    onMouseOver={() => {
-                      (fixedMenu === '' || !fixedMenu) && setCurrentMenu(menu.linkTo);
+                    onMouseOver={(e) => {
+                      if (fixedMenu === '' || !fixedMenu) {
+                        setCurrentMenu(menu.linkTo);
+                        if (menu.linkTo === 'openinnovation') {
+                          setOffset(window.innerWidth - e.target.offsetLeft - e.target.offsetWidth);
+                        } else {
+                          setOffset(e.target.offsetLeft);
+                        }
+                      }
                     }}
                     onClick={(e) => {
                       if (menu.linkTo === 'pipeline' || menu.linkTo === 'career') {
