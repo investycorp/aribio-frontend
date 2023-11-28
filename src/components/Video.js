@@ -6,11 +6,15 @@ const Video = ({ page, src }) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [isSuspended, setIsSuspended] = useState(false);
+  const [shown, setShown] = useState(false);
 
   useEffect(() => {
     console.log(page);
     const video = videoRef?.current;
     setLoading(true);
+    window.addEventListener('scroll', () => {
+      window.scrollY > 0 && setShown(true);
+    });
 
     const handleVideoEnd = () => {
       if (video) {
@@ -51,6 +55,7 @@ const Video = ({ page, src }) => {
       video?.removeEventListener('ended', handleVideoEnd);
       document.body.removeEventListener('click', handleBodyClick);
       document.body.removeEventListener('touchstart', handleBodyClick);
+      window.removeEventListener('scroll', () => {});
 
       video.removeEventListener('suspend', () => {});
 
@@ -77,7 +82,7 @@ const Video = ({ page, src }) => {
         justifyContent: 'center',
         alignItems: 'center',
         opacity: ['home', 'notice', 'pressrelease', 'mediakit'].includes(page) ? '1' : '0.5',
-        paddingTop: page !== 'home' ? '0' : window.innerWidth > 1280 ? '240px' : '97px',
+        // paddingTop: page !== 'home' ? '0' : window.innerWidth > 1280 ? '240px' : '97px',
       }}
     >
       <Desktop>
@@ -99,6 +104,7 @@ const Video = ({ page, src }) => {
         </video>
         {page === 'home' && (
           <img
+            id="header"
             src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
             alt="home"
             style={{
@@ -106,6 +112,7 @@ const Video = ({ page, src }) => {
               right: '7vw',
               bottom: '5vw',
               height: window.innerWidth > 1280 ? '60px' : '36px',
+              opacity: shown ? '1' : '0',
             }}
           />
         )}

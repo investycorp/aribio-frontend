@@ -14,7 +14,10 @@ import toggle from '../assets/images/toggle.svg';
 
 import i18n from '../locales/i18n';
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.div.attrs((props) => ({
+  $home: props.$home,
+}))`
+  opacity: ${(props) => (props.$home ? '0' : '1')};
   position: fixed;
   top: 0;
   width: 100%;
@@ -32,6 +35,7 @@ const HeaderContainer = styled.div`
   }
   @media screen and (max-width: 900px) {
     background-color: #121212;
+    opacity: 1;
   }
 `;
 
@@ -283,7 +287,7 @@ const Header = () => {
   const [currentTab, setCurrentTab] = useState('');
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [subMenuOpen, setSubMenuOpen] = useState('');
-  // const [scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
   const [windowSize, setWindowSize] = useRecoilState(WindowSize);
   const [language, setLanguage] = useRecoilState(Language);
   const { data, isLoading } = useFooter(language);
@@ -301,9 +305,19 @@ const Header = () => {
   useEffect(() => {
     setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
     setCurrentTab(location.pathname.split('/')[1]);
+    console.log(location.pathname);
   }, [document.getElementsByClassName('header-navwrap')[0]?.clientWidth, location.pathname]);
 
   useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 0 && header) {
+        header.style.opacity = '1';
+      } else {
+        // header.style.opacity = '0';
+      }
+    });
+
     window.addEventListener('resize', () => {
       setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
       setWindowSize(window.innerWidth);
@@ -312,6 +326,9 @@ const Header = () => {
       window.removeEventListener('resize', () => {
         setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
         setWindowSize(window.innerWidth);
+      });
+      window.removeEventListener('scroll', () => {
+        setScrollY(window.scrollY);
       });
     };
   }, []);
@@ -517,6 +534,7 @@ const Header = () => {
         <>
           <HeaderContainer
             id="header"
+            $home={location.pathname === '/' ? true : false}
             onMouseLeave={() => {
               (fixedMenu === '' || !fixedMenu) && setCurrentMenu('');
             }}
