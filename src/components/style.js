@@ -150,9 +150,11 @@ const HeadLine = styled.div.attrs((props) => ({
   font-weight: 500;
   overflow: hidden;
   height: fit-content;
+  margin-top: 220px;
 
   @media screen and (max-width: 1280px) {
     font-size: 140px;
+    margin-top: 97px;
   }
   @media screen and (max-width: 1100px) {
     font-size: 110px;
