@@ -107,7 +107,7 @@ const HomeComponentWrap = styled.div`
 `;
 
 const HomeAboutUsTextWrap = styled.div`
-  width: 80%;
+  width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;

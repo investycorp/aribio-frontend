@@ -8,6 +8,7 @@ const Video = ({ page, src }) => {
   const [isSuspended, setIsSuspended] = useState(false);
 
   useEffect(() => {
+    console.log(page);
     const video = videoRef?.current;
     setLoading(true);
 
@@ -75,6 +76,8 @@ const Video = ({ page, src }) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        opacity: ['home', 'notice', 'pressrelease', 'mediakit'].includes(page) ? '1' : '0.5',
+        paddingTop: page !== 'home' ? '0' : window.innerWidth > 1280 ? '240px' : '97px',
       }}
     >
       <Desktop>
@@ -90,8 +93,6 @@ const Video = ({ page, src }) => {
             objectFit: page === 'home' && window.innerWidth < 1100 ? 'contain' : 'cover',
             width: '100vw',
             height: '100vh',
-            marginTop: page !== 'home' ? '0' : window.innerWidth > 1280 ? '240px' : '97px',
-            //!!!
           }}
         >
           <source src={src} type="video/mp4" />

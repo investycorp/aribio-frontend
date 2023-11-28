@@ -29,6 +29,9 @@ import { Link, Outlet, useParams } from 'react-router-dom';
 
 import Video from '../../components/Video';
 
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
+
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
 import usePressReleaseList from '../../hooks/irpr/usePressReleaseList';
@@ -194,7 +197,7 @@ const PressRelease = () => {
                     $fontWeight="300"
                     $color="#939598"
                   >
-                    PRESS RELEASE
+                    {t('press.title')}
                   </Text>
                   <div
                     style={{
@@ -210,7 +213,7 @@ const PressRelease = () => {
                     $color="#ffffff"
                     style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                   >
-                    Latest AriBio News
+                    {t('press.subtitle')}
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -226,7 +229,7 @@ const PressRelease = () => {
                     }}
                   >
                     <SearchInput
-                      placeholder="Please enter a search term."
+                      placeholder={t('press.placeholder')}
                       type="text"
                       value={searchValue}
                       onChange={(e) => {
@@ -388,7 +391,7 @@ const PressRelease = () => {
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap style={{ width: '70vw' }}>
                   <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
-                    PRESS RELEASE
+                    {t('press.title')}
                   </Text>
                   <div
                     style={{
@@ -405,7 +408,7 @@ const PressRelease = () => {
                     $color="#ffffff"
                     style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
                   >
-                    Latest AriBio News
+                    {t('press.subtitle')}
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -421,7 +424,7 @@ const PressRelease = () => {
                     }}
                   >
                     <SearchInput
-                      placeholder="Please enter a search term."
+                      placeholder={t('press.placeholder')}
                       type="text"
                       value={searchValue}
                       onChange={(e) => {

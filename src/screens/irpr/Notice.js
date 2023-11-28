@@ -30,6 +30,9 @@ import { Link, Outlet, useParams } from 'react-router-dom';
 import useNoticeList from '../../hooks/irpr/useNoticeList';
 import Video from '../../components/Video';
 
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
+
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
 
@@ -195,7 +198,7 @@ const Notice = () => {
                     $fontWeight="300"
                     $color="#939598"
                   >
-                    NOTICE
+                    {t('notice.title')}
                   </Text>
                   <div
                     style={{
@@ -211,7 +214,7 @@ const Notice = () => {
                     $color="#ffffff"
                     style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                   >
-                    Company Updates and Announcements
+                    {t('notice.subtitle')}
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -227,7 +230,7 @@ const Notice = () => {
                     }}
                   >
                     <SearchInput
-                      placeholder="Please enter a search term."
+                      placeholder={t('notice.placeholder')}
                       type="text"
                       value={searchValue}
                       onChange={(e) => {
@@ -370,7 +373,7 @@ const Notice = () => {
               <HomeComponentWrap>
                 <TextWrap style={{ width: '90vw' }}>
                   <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
-                    NOTICE
+                    {t('notice.title')}
                   </Text>
                   <div
                     style={{
@@ -387,8 +390,7 @@ const Notice = () => {
                     $color="#ffffff"
                     style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
                   >
-                    Company Updates
-                    <br /> and Announcements
+                    <Trans i18nKey="notice.subtitle_m" components={{ 1: <br /> }} />
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -404,7 +406,7 @@ const Notice = () => {
                     }}
                   >
                     <SearchInput
-                      placeholder="Please enter a search term."
+                      placeholder={t('notice.placeholder')}
                       type="text"
                       value={searchValue}
                       onChange={(e) => {

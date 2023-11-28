@@ -81,12 +81,10 @@ const Home = () => {
       let scrollPosition = window.scrollY;
       if (window.innerWidth <= 900 && elementToHide) {
         if (
-          elementToHide && (
-          (scrollPosition >= 0 && scrollPosition <= 0.3 * window.innerHeight) ||
-          (scrollPosition >= 0.8 * window.innerHeight && scrollPosition <= 1.3 * window.innerHeight)
-          )
+          elementToHide &&
+          ((scrollPosition >= 0 && scrollPosition <= 0.3 * window.innerHeight) ||
+            (scrollPosition >= 0.8 * window.innerHeight && scrollPosition <= 1.3 * window.innerHeight))
         ) {
-          
           elementToHide.style.display = 'flex';
           elementToHide2.style.opacity = '1';
         } else {
@@ -118,8 +116,8 @@ const Home = () => {
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0300PB_VD.mp4'
           }
         />
-        {window.innerWidth > 900 && <SideSlider />  }
-      
+        {window.innerWidth > 900 && <SideSlider />}
+
         {<Modal />}
 
         <div style={{ margin: '0', padding: '0', position: 'relative' }}>
@@ -174,8 +172,10 @@ const Home = () => {
                   >
                     {t('home.aboutus.3')}
                     {window.innerWidth < 1281 && <br />}
+                    {`\t`}
                     {t('home.aboutus.4')}
                   </span>
+
                   <span
                     className="highlight4"
                     style={{
@@ -526,7 +526,12 @@ const Home = () => {
                 </HeadLineText>
               </HomeAboutUsTextWrap>
               <SubPageButton title="About Us" linkTo="/company/aboutus" />
-              <img id="hide2" src={process.env.PUBLIC_URL + '/assets/icons/indicator2.svg'} alt='indocator2' style={{width: '121px', height: '16px', zIndex: '110', marginTop: '50px' }} />
+              <img
+                id="hide2"
+                src={process.env.PUBLIC_URL + '/assets/icons/indicator2.svg'}
+                alt="indocator2"
+                style={{ width: '121px', height: '16px', zIndex: '110', marginTop: '50px' }}
+              />
             </HomeComponentWrap>
             <HomeComponentWrap
               style={{

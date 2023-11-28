@@ -27,6 +27,8 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 import usePipelineList from '../../hooks/pipeline/usePipelineList';
 import Language from '../../atom/Language';
 import { useRecoilState } from 'recoil';
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
 
 import Video from '../../components/Video';
 
@@ -203,7 +205,7 @@ const PipeLine = () => {
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap>
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-                PIPELINE
+                {t('pipeline.title')}
               </Text>
               <div
                 style={{
@@ -220,12 +222,7 @@ const PipeLine = () => {
                 $color="#ffffff"
                 style={{ margin: '2rem 0 0 0', lineHeight: '1.5' }}
               >
-                Our Path to Pioneering Treatments for
-                <br />
-                Neurodegenerative Diseases,
-                <br />
-                Offering Innovative Therapies for a Brighter Future
-                <br />
+                <Trans i18nKey="pipeline.subtitle" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <TableWrap className="table">
@@ -298,7 +295,7 @@ const PipeLine = () => {
           <HomeComponentWrap style={{ padding: '5vh 5vw', marginBottom: '10em' }}>
             <TextWrap>
               <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                PIPELINE
+                {t('pipeline.title')}
               </Text>
               <div
                 id="modalOff"
@@ -316,16 +313,7 @@ const PipeLine = () => {
                 $color="#ffffff"
                 style={{ margin: '2rem 0 0 0', lineHeight: '1.2em' }}
               >
-                Our Path to Pioneering
-                <br />
-                Treatments for
-                <br />
-                Neurodegenerative Diseases,
-                <br />
-                Offering Innovative Therapies
-                <br />
-                for a Brighter Future
-                <br />
+                <Trans i18nKey="pipeline.subtitle_m" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <div style={{ width: '100%' }} id="fadeIn">

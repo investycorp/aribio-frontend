@@ -27,6 +27,8 @@ const ContainerGridLineWrap = styled.div.attrs((props) => ({
   background-color: transparent;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 7vw;
+  opacity: 0;
+  //!!!
 
   top: 0;
   left: 0;
