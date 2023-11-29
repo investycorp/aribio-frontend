@@ -5,9 +5,14 @@ import styled from 'styled-components';
 import scroll_bar from '../assets/images/scroll_bar.svg';
 
 import whitedot from '../assets/images/whitedot.svg';
+import reddot from '../assets/images/reddot.svg';
 
-const SliderContainer = styled.div`
+const SliderContainer = styled.div.attrs((props) => ({
+  $show: props.$show,
+  className: props.$className,
+}))`
   position: fixed;
+  opacity: ${(props) => (props.$show ? '1' : '0')};
   top: 40vh;
   left: 4vw;
   width: fit-content;
@@ -21,6 +26,7 @@ const SliderContainer = styled.div`
   transition: opacity 0.2s ease-in-out;
   z-index: 20;
   gap: 60px;
+
   @media screen and (max-width: 1280px) {
     top: 40vh;
     left: 4vw;
@@ -34,6 +40,7 @@ const SliderContainer = styled.div`
     transform: translate(-50%, -50%);
     height: fit-content;
     gap: 12px;
+    opacity: 1;
   }
 `;
 
@@ -43,8 +50,17 @@ const Circle = styled.div`
   left: -15px;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  background-color: transparent;
   border: 2px solid #ffffff;
+  //!!!
+  /* top: 3.5px;
+  left: 0px;
+  width: 10px;
+  height: 10px;
+  background-color: #cb3063;
+  border: none; */
+
+  border-radius: 50%;
   margin: 0;
   padding: 0;
   cursor: pointer;
@@ -56,7 +72,13 @@ const Circle = styled.div`
     height: 28px;
     left: -11px;
     top: ${(props) => (props.$isActive ? '-4px' : '-4px')};
+
     border: 1px solid #ffffff;
+    //!!!
+    /* left: 0px;
+    top: 7.5px;
+    width: 6px;
+    height: 6px; */
   }
   @media screen and (max-width: 900px) {
     width: 16px;
@@ -103,6 +125,7 @@ const SideSlider = () => {
   const [offsetHeights, setOffsetHeights] = useState([]);
   const [scrollY, setScrollY] = useState(0);
   const [scrollNumber, setScrollNumber] = useState(0);
+  const [shown, setShown] = useState(false);
 
   useEffect(() => {
     setOffsetHeights([]);
@@ -130,6 +153,7 @@ const SideSlider = () => {
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
+    currentScrollY > 0 && setShown(true);
     setScrollY(currentScrollY);
     // console.log(currentScrollY, document.querySelector(`.container`).offsetHeight - window.innerHeight);
 
@@ -148,20 +172,28 @@ const SideSlider = () => {
     <>
       <Desktop>
         <SliderContainer
-          style={{
-            opacity:
-              document.querySelector(`.home_3`) &&
-              scrollY > document.querySelector(`.home_3`)?.offsetTop - window.innerHeight / 2
-                ? 0
-                : 1,
-          }}
+          id="header"
+          $show={
+            (document.querySelector(`.home_3`) &&
+              scrollY > document.querySelector(`.home_3`)?.offsetTop - window.innerHeight / 2) ||
+            (scrollY === 0 && !shown)
+              ? false
+              : true
+          }
+          // style={{
+          //   opacity:
+          //     document.querySelector(`.home_3`) &&
+          //     scrollY > document.querySelector(`.home_3`)?.offsetTop - window.innerHeight / 2
+          //       ? 0
+          //       : 'unset',
+          // }}
         >
           {offsetHeights?.map((location, index) => (
             <div key={`sideSlider${index}`} style={{ position: 'relative', overflowX: 'unset' }}>
               <Circle $position={scrollNumber} $isActive={scrollNumber === index ? true : false} />
               {index === 0 && <SliderImg src={scroll_bar} alt="scroll_bar" />}
               <Image
-                src={whitedot}
+                src={scrollNumber === index ? reddot : whitedot}
                 alt="whitedot"
                 style={{
                   width: window.innerWidth > 1280 ? '10px' : '6px',

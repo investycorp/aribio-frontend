@@ -6,10 +6,15 @@ const Video = ({ page, src }) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [isSuspended, setIsSuspended] = useState(false);
+  const [shown, setShown] = useState(false);
 
   useEffect(() => {
+    console.log(page);
     const video = videoRef?.current;
     setLoading(true);
+    window.addEventListener('scroll', () => {
+      window.scrollY > 0 && setShown(true);
+    });
 
     const handleVideoEnd = () => {
       if (video) {
@@ -50,6 +55,7 @@ const Video = ({ page, src }) => {
       video?.removeEventListener('ended', handleVideoEnd);
       document.body.removeEventListener('click', handleBodyClick);
       document.body.removeEventListener('touchstart', handleBodyClick);
+      window.removeEventListener('scroll', () => {});
 
       video.removeEventListener('suspend', () => {});
 
@@ -75,6 +81,8 @@ const Video = ({ page, src }) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        opacity: ['home', 'notice', 'pressrelease', 'mediakit'].includes(page) ? '1' : '0.5',
+        // paddingTop: page !== 'home' ? '0' : window.innerWidth > 1280 ? '240px' : '97px',
       }}
     >
       <Desktop>
@@ -96,6 +104,7 @@ const Video = ({ page, src }) => {
         </video>
         {page === 'home' && (
           <img
+            id="header"
             src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
             alt="home"
             style={{
@@ -103,6 +112,7 @@ const Video = ({ page, src }) => {
               right: '7vw',
               bottom: '5vw',
               height: window.innerWidth > 1280 ? '60px' : '36px',
+              opacity: shown ? '1' : '0',
             }}
           />
         )}
@@ -136,17 +146,22 @@ const Video = ({ page, src }) => {
         }
         {page === 'home' && (
           <>
-          <img
-            src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
-            alt="home"
-            style={{
-              position: 'absolute',
-              right: '7vw',
-              bottom: '7vh',
-              height: window.innerWidth > 1280 ? '60px' : '36px',
-            }}
-          />
-          <img id="hide" src={process.env.PUBLIC_URL + '/assets/icons/indicator.svg'} alt='indocator1' style={{width: '121px', height: '16px', zIndex: '110', position: 'absolute', bottom: '7vh' }} />
+            <img
+              src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
+              alt="home"
+              style={{
+                position: 'absolute',
+                right: '7vw',
+                bottom: '7vh',
+                height: window.innerWidth > 1280 ? '60px' : '36px',
+              }}
+            />
+            <img
+              id="hide"
+              src={process.env.PUBLIC_URL + '/assets/icons/indicator.svg'}
+              alt="indocator1"
+              style={{ width: '121px', height: '16px', zIndex: '110', position: 'absolute', bottom: '7vh' }}
+            />
           </>
         )}
       </Mobile>

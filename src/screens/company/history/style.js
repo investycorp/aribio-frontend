@@ -85,7 +85,7 @@ const HomeComponentWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
-  width: 50vw;
+  width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;

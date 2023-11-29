@@ -298,7 +298,7 @@ const DigitalHealth = () => {
 
                 <TableContentBox style={{ padding: '0' }}>
                   <ShootingStarWrap className="shooting_star_wrap">
-                    <hr style={{ width: '100%', border: '1px dotted', opacity: '0.4' }} />
+                    <hr style={{ width: '100%', border: '1px dotted', opacity: '0' }} />
                     <ShootingStar
                       className="shooting_star"
                       style={{
@@ -343,7 +343,7 @@ const DigitalHealth = () => {
         </HomeComponentWrap>
         <HomeComponentWrap style={{ justifyContent: 'start' }}>
           <ContentWrap style={{ padding: '0', marginBottom: '14em' }}>
-            <TextWrap style={{ alignItems: 'start', margin: '0', gap: '2em', width: '80vw' }}>
+            <TextWrap style={{ alignItems: 'start', margin: '0', gap: '2em', width: '100%' }}>
               <HR $color="#F8F8F8" />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '19px'}

@@ -14,6 +14,8 @@ import { useRecoilState } from 'recoil';
 import useMediaList from '../../hooks/irpr/useMediaList';
 import VideoFrame from '../../components/VideoFrame';
 
+import { t } from 'i18next';
+
 const MediaKit = () => {
   // const { id } = useParams();
   const [id, setId] = useState();
@@ -102,7 +104,7 @@ const MediaKit = () => {
                   $fontWeight="300"
                   $color="#939598"
                 >
-                  MEDIA
+                  {t('media.title')}
                 </Text>
                 <div
                   style={{
@@ -118,7 +120,7 @@ const MediaKit = () => {
                   $color="#ffffff"
                   style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                 >
-                  Explore Our Content
+                  {t('media.subtitle')}
                 </Text>
               </TextWrap>
             </HomeComponentWrap>
@@ -204,7 +206,7 @@ const MediaKit = () => {
             <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
               <TextWrap style={{ width: '70vw' }}>
                 <Text $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
-                  MEDIA
+                  {t('media.title')}
                 </Text>
                 <div
                   style={{
@@ -216,7 +218,7 @@ const MediaKit = () => {
                   }}
                 ></div>
                 <Text $fontWeight="500" $color="#ffffff" style={{ margin: '2rem 0 0 0', fontSize: '23px' }}>
-                  Explore Our Content
+                  {t('media.subtitle')}
                 </Text>
               </TextWrap>
             </HomeComponentWrap>

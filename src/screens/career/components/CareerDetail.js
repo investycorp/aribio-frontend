@@ -14,7 +14,7 @@ const CareerDetail = () => {
   const parser = new DOMParser();
   const [language] = useRecoilValue(Language);
   const outletContext = useOutletContext();
-  const [page, setPage] = useState('Career_join us');
+  const [page, setPage] = useState('Career');
   const [currentItem, setCurrentItem] = useState({});
 
   const { data, isLoading, refetch } = useCareerDetail(language, id);

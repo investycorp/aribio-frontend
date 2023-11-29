@@ -217,7 +217,7 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
         margin-bottom: 2em;
       }
       &:nth-child(even) {
-        margin-top: 2em;
+        /* margin-top: 2em; !!!*/
       }
     }
 

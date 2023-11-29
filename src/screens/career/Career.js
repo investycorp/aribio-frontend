@@ -37,6 +37,9 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import Video from '../../components/Video';
 
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
+
 import useCareerList from '../../hooks/career/useCareerList';
 
 const Career = () => {
@@ -47,158 +50,145 @@ const Career = () => {
 
   const [coreValues, setCoreValues] = useState([
     {
-      title: 'Patient-Centered',
+      title: t('career.corevalue.subtitle1'),
       desc: (
         <>
-          Our unwavering commitment is to the well-being of patients and their families.
-          <br /> Every project and decision revolves around this central principle.
+          <Trans i18nKey={'career.corevalue.desc1'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Collaborative Spirit',
+      title: t('career.corevalue.subtitle2'),
       desc: (
         <>
-          Harnessing the power of collective intelligence, we value teamwork and <br />
-          interdisciplinary collaboration, driving us forward and amplifying our impact.
+          <Trans i18nKey={'career.corevalue.desc2'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Integrity in Action',
+      title: t('career.corevalue.subtitle3'),
       desc: (
         <>
-          Upholding the highest ethical and scientific standards is paramount,
-          <br /> establishing trust in both our results and our relationships.
+          <Trans i18nKey={'career.corevalue.desc3'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Continuous Learning',
+      title: t('career.corevalue.subtitle4'),
       desc: (
         <>
-          We champion ongoing growth, adaptation, and education, <br />
-          to ensure we remain leaders in our field
+          <Trans i18nKey={'career.corevalue.desc4'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
       title: (
         <>
-          <span>Resilience &</span>
-          <br />
-          <span>Perseverance</span>
+          <span>
+            <Trans i18nKey={'career.corevalue.subtitle5'} components={{ 1: <br /> }} />
+          </span>
         </>
       ),
       desc: (
         <>
-          Faced with challenges, our resolve strengthens.
-          <br />
-          We believe every setback is a stepping stone to a major leap forward.
+          <Trans i18nKey={'career.corevalue.desc5'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
       title: (
         <>
-          <span>Transparent </span>
-          <br />
-          <span>Communication</span>
+          <span>
+            <Trans i18nKey={'career.corevalue.subtitle6'} components={{ 1: <br /> }} />
+          </span>
         </>
       ),
       desc: (
         <>
-          “We promote” open dialogue with our team, partners, and <br />
-          communities fosters mutual respect and understanding.
+          <Trans i18nKey={'career.corevalue.desc6'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Keep an Open Mind',
+      title: t('career.corevalue.subtitle7'),
       desc: (
         <>
-          We approach every challenge with curiosity, welcoming
-          <br /> fresh perspectives and ideas.
+          <Trans i18nKey={'career.corevalue.desc7'} components={{ 1: <br /> }} />
         </>
       ),
     },
   ]);
   const [recruitmentProcess, setRecruitmentProcess] = useState([
     {
-      title: 'Application Submission',
+      title: t('career.recruitment.subtitle1'),
       desc: (
         <>
-          Enthusiasm, positive attitude, sincerity,
-          <br /> and social skills will be determined
-          <br /> Successful applicants will be
-          <br /> individually contacted.
+          <Trans i18nKey={'career.recruitment.desc1'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Primary Interview',
+      title: t('career.recruitment.subtitle2'),
       desc: (
         <>
-          Panel interview format Practical skills <br />
-          and knowledge-based interview.
+          <Trans i18nKey={'career.recruitment.desc2'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'In-depth Interview',
+      title: t('career.recruitment.subtitle3'),
       desc: (
         <>
-          One-on-one format Personality
-          <br /> based interview.
+          <Trans i18nKey={'career.recruitment.desc3'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Employment',
-      desc: <>Announcement of successful applicants.</>,
+      title: t('career.recruitment.subtitle4'),
+      desc: <>{t('career.recruitment.desc4')}</>,
     },
   ]);
 
   const [benefits, setBenefits] = useState([
     {
-      title: 'Work',
+      title: t('career.benefits.subtitle1'),
       img: icon_work,
       desc: [
-        'Five-day workweek',
-        'Unlimited access to beverages, coffee, and snacks',
-        'High processing laptops and monitors provided',
-        'Lunch provided',
+        t('career.benefits.desc1-1'),
+        t('career.benefits.desc1-2'),
+        t('career.benefits.desc1-3'),
+        t('career.benefits.desc1-4'),
       ],
     },
     {
-      title: 'Balanced Life',
+      title: t('career.benefits.subtitle2'),
       img: icon_balancedLife,
       desc: [
-        'Financial support for special occasions',
-        'Maternity leave, paternity leave',
-        'Stock options',
-        'Retirement benefits',
+        t('career.benefits.desc2-1'),
+        t('career.benefits.desc2-2'),
+        t('career.benefits.desc2-3'),
+        t('career.benefits.desc2-4'),
       ],
     },
     {
-      title: 'Culture',
+      title: t('career.benefits.subtitle3'),
       img: icon_culture,
       desc: [
-        'Annual workshops',
-        'Training and seminar fee supported',
-        'Literature purchase fee supported',
-        'In-house hobby clubs supported',
+        t('career.benefits.desc3-1'),
+        t('career.benefits.desc3-2'),
+        t('career.benefits.desc3-3'),
+        t('career.benefits.desc3-4'),
       ],
     },
     {
-      title: 'Etc',
+      title: t('career.benefits.subtitle4'),
       img: icon_etc,
       desc: [
-        'Holiday gifts provided',
-        'Birthday gifts provided',
-        'AriBio talent of the year award',
-        'Paid vacations / Paid public holidays',
-        'Pleasant working environment provided',
+        t('career.benefits.desc4-1'),
+        t('career.benefits.desc4-2'),
+        t('career.benefits.desc4-3'),
+        t('career.benefits.desc4-4'),
+        t('career.benefits.desc4-5'),
       ],
     },
   ]);
@@ -324,7 +314,7 @@ const Career = () => {
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap>
                   <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-                    CAREER
+                    {t('career.title')}
                   </Text>
                   <div
                     style={{
@@ -341,8 +331,7 @@ const Career = () => {
                     $color="#ffffff"
                     style={{ margin: '2rem 0 0 0' }}
                   >
-                    Join Us at the Forefront of
-                    <br /> Neurodegenerative Solutions
+                    <Trans i18nKey={'career.subtitle'} components={{ 1: <br /> }} />
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -379,12 +368,7 @@ const Career = () => {
                     $color="#ffffff"
                     style={{ padding: '0 20px', width: '80%', textAlign: 'center', margin: '0' }}
                   >
-                    Our dedicated team is set on discovering transformative treatments.
-                    <br />
-                    We invite innovative minds to join our mission.
-                    <br />
-                    Together, let’s usher in a new era of therapeutic breakthroughs for those in need.
-                    <br />
+                    <Trans i18nKey={'career.desc1'} components={{ 1: <br /> }} />
                   </Text>
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
@@ -476,18 +460,16 @@ const Career = () => {
                     const container = document.querySelector('.recruitmentProcess_rowscroll');
                     const scrollAmount = e.deltaY;
                     if (
-                      (scrollAmount < 0 && container.scrollLeft === 0) || 
-                      (scrollAmount > 0 && container.scrollLeft === container.scrollWidth - container.clientWidth) 
+                      (scrollAmount < 0 && container.scrollLeft === 0) ||
+                      (scrollAmount > 0 && container.scrollLeft === container.scrollWidth - container.clientWidth)
                     ) {
                       window.scrollTo({
                         top: window.scrollY + scrollAmount,
                         behavior: 'auto', // You can use 'auto' instead of 'smooth' for instant scrolling
                       });
-                      
                     } else {
                       container.scrollLeft += scrollAmount;
                     }
-                    
                   }}
                   style={{
                     justifyContent: 'start',
@@ -627,7 +609,7 @@ const Career = () => {
                           navigate('/company/aboutus');
                         }}
                       >
-                        <span style={{ zIndex: '-1' }}>Meet Our Leadership</span>
+                        <span style={{ zIndex: '-1' }}>{t('career.buttons.meetourleadership')}</span>
                         <Image
                           src={arrow}
                           alt="arrow"
@@ -753,7 +735,7 @@ const Career = () => {
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap>
                   <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                    CAREER
+                    {t('career.title')}
                   </Text>
                   <div
                     style={{
@@ -765,9 +747,7 @@ const Career = () => {
                     }}
                   ></div>
                   <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                    Join Us at the Forefront of
-                    <br />
-                    Neurodegenerative Solutions
+                    <Trans i18nKey={'career.subtitle'} components={{ 1: <br /> }} />
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -795,28 +775,9 @@ const Career = () => {
                     $fontSize="18px"
                     $fontWeight="400"
                     $color="#EFEFEF"
-                    style={{ padding: '0 18px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '24px' }}
+                    style={{ padding: '0 4px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '24px' }}
                   >
-                    At Aribio,
-                    <br />
-                    we’re at the cutting edge of tackling
-                    <br />
-                    neurodegenerative disorders.
-                    <br />
-                    Our dedicated team is set on
-                    <br />
-                    discovering transformative
-                    <br />
-                    treatments. We invite
-                    <br />
-                    innovative minds to join our mission.
-                    <br />
-                    Together, let’s usher in a new era
-                    <br />
-                    of therapeutic breakthroughs
-                    <br />
-                    for those in need.
-                    <br />
+                    <Trans i18nKey={'career_m.desc1'} components={{ 1: <br /> }} />
                   </Text>
                   <Text
                     $fontSize="20px"
@@ -1047,7 +1008,7 @@ const Career = () => {
                           navigate('/aboutus');
                         }}
                       >
-                        <span style={{ zIndex: '-1' }}>Meet Our Leadership</span>
+                        <span style={{ zIndex: '-1' }}>{t('career.buttons.meetourleadership')}</span>
                         <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                       </Text>
                       <Text
