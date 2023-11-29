@@ -112,7 +112,7 @@
     "desc1": "ARIDD™ is a drug development platform that augments the discovery and <1/> development of polypharmacological drugs. To accelerate the development of drugs with <1/> multiple mechanisms of action, we’ve unveiled ARIS, our cutting-edge <1/> AI platform designed for dependable in-silico predictions and analyses.",
     "subtitle2": "ARIS Structure",
     "desc2": " Existing AI drug discovery tools often prioritize drug synthesis, intermolecular binding prediction, <1/> and ADMET processes. While crucial for single-mechanism drug exploration, polypharmacological discovery <1/> demands a nuanced approach.",
-    "desc2-1": "Polypharmacology requires a deep understanding of interactions among drugs, <1/> proteins, cells, and diseases, alongside the ability to predict and identify novel biological relationships. <1/> To address this complexity, ARIBIO’s Platform Research Center has developed ARIS: <1/> a proprietary AI platform optimized for predicting these multifaceted biological interrelationships, <1/> thus advancing our drug discovery initiatives.",
+    "desc2-1": "Polypharmacology requires a deep understanding of interactions among drugs, <1/> proteins, cells, and diseases, alongside the ability to predict and identify novel biological relationships. <1/> To address this complexity, AriBio’s Platform Research Center has developed ARIS: <1/> a proprietary AI platform optimized for predicting these multifaceted biological interrelationships, <1/> thus advancing our drug discovery initiatives.",
     "subtitle3": "ARIS (AI-based Reliable In-Silico)",
     "desc3": "ARIS is fundamentally structured around two concepts, <1/> “BRAIN” and its “Prediction Algorithms”.",
     "subtitle4": "BRAIN",
@@ -121,7 +121,7 @@
     "desc5": "The “Prediction Algorithms” consist of a range of advanced AI prediction models and simulation tools <1/> designed specifically for the fields of chemistry and biology. Each model and solution is carefully crafted to provide <1/> researchers with practical and direct applications, both on its own and in collaboration with the BRAIN platform.",
     "subtitle6": "Pathway Data",
     "desc6": " Since its origin, the development and objectives of ARIS have always been closely aligned with <1/> AriBio’s polypharmacological approach. Hence, we emphasize harnessing contextual information <1/> when discovering novel polypharmacological drug candidates. <1/> When considering contextual information for polypharmacological drug discovery, pathway data is most critical. <1/> <1/> We extract this pathway data from various sources, leveraging two advanced Deep Learning techniques: <1/> Named Entity Recognition (NER) and Relation Extraction (RE). <1/> The execution flow and interplay of these methods are illustrated below:",
-    "desc6-2": " At the heart of polypharmacological drug discovery lies the pivotal step of target identification. <1/> This involves discerning which biological targets a drug should engage with, to address a specific disease. <1/> The inherent challenge stems from the intricate interdependencies within our body; no single component operates in isolation. <1/> A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of subsequent interactions that <1/> collectively contribute to disease treatment. Hence, pinpointing a viable drug target necessitates <1/> a profound comprehension of these protein interplays within the body —a knowledge rooted in pathway data."
+    "desc6-2": " At the heart of polypharmacological drug discovery lies the pivotal step of target identification. <1/> This involves discerning which biological targets a drug should engage with, to address a specific disease. <1/> The inherent challenge stems from the intricate interdependencies within our body; no single component operates in isolation. <1/> A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of subsequent interactions that <1/> collectively contribute to disease treatment. Hence, pinpointing a viable drug target necessitates <1/> a profound comprehension of these protein interplays within the body — a knowledge rooted in pathway data."
   },
   "aiplatform_m": {
     "subtitle": " AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
@@ -133,11 +133,131 @@
     "desc6": "Since its origin, <1/> the development and objectives of ARIS <1/> have always been closely aligned with <1/> AriBio’s polypharmacological approach. <1/> Hence, we emphasize harnessing <1/> contextual information when <1/> discovering novel polypharmacological <1/> drug candidates. <1/> When considering contextual information <1/> for polypharmacological drug discovery, <1/> pathway data is most critical.",
     "desc6-2": " At the heart of polypharmacological drug <1/> discovery lies the pivotal step of target <1/> identification. This involves discerning <1/> which biological targets a drug <1/> should engage with, to address a specific <1/> disease. The inherent challenge stems <1/> from the intricate interdependencies <1/> within our body; no single component <1/> operates in isolation. <1/> A drug’s interaction with a singular protein <1/> isn’t the sole therapeutic agent; <1/> it’s the cascade of subsequent <1/> interactions that collectively contribute <1/> to disease treatment. Hence, pinpointing <1/> a viable drug target necessitates <1/> a profound comprehension of these <1/> protein interplays within the body — <1/> a knowledge rooted in pathway data. <1/>"
   },
+
   "publication": {
     "headline": "PUBLICATIONS",
     "title": "PUBLICATION",
     "subtitle": "Explore Our Research",
     "search": "Please enter a search term.",
     "noresult": "No result"
+  },
+
+  "pipeline": {
+    "headline": "PIPELINE",
+    "title": "PIPELINE",
+    "subtitle": "Our Path to Pioneering Treatments for <1/> Neurodegenerative Diseases, <1/> Offering Innovative Therapies for a Brighter Future <1/>",
+    "subtitle_m": "Our Path to Pioneering <1/> Treatments for <1/> Neurodegenerative Diseases, <1/> Offering Innovative Therapies <1/> for a Brighter Future <1/>"
+  },
+  "notice": {
+    "headline": "NOTICE",
+    "title": "NOTICE",
+    "subtitle": "Company Updates and Announcements",
+    "subtitle_m": "Company Updates <1/> and Announcements",
+    "placeholder": "Please enter a search term."
+  },
+  "press": {
+    "headline": "PRESS RELEASE",
+    "title": "PRESS RELEASE",
+    "subtitle": "Latest AriBio News",
+    "placeholder": "Please enter a search term."
+  },
+  "media": {
+    "headline": "MEDIA",
+    "title": "MEDIA",
+    "subtitle": "Explore Our Content"
+  },
+  "career": {
+    "headline": "CAREER",
+    "title": "CAREER",
+    "subtitle": "Join Us at the Forefront of <1/> Neurodegenerative Solutions",
+    "desc1": "Our dedicated team is set on discovering transformative treatments. <1/> We invite innovative minds to join our mission. <1/> Together, let’s usher in a new era of therapeutic breakthroughs for those in need. <1/>",
+    "corevalue": {
+      "title": "Core Values",
+      "subtitle1": "Patient-Centered",
+      "desc1": "Our unwavering commitment is to the well-being of patients and their families. <1/> Every project and decision revolves around this central principle.",
+      "subtitle2": "Collaborative Spirit",
+      "desc2": "Harnessing the power of collective intelligence, we value teamwork and <1/> interdisciplinary collaboration, driving us forward and amplifying our impact.",
+      "subtitle3": "Integrity in Action",
+      "desc3": "Upholding the highest ethical and scientific standards is paramount, <1/> establishing trust in both our results and our relationships.",
+      "subtitle4": "Continuous Learning",
+      "desc4": "We champion ongoing growth, adaptation, and education, <1/>   to ensure we remain leaders in our field",
+      "subtitle5": " Resilience &<1/>Perseverance",
+      "desc5": "Faced with challenges, our resolve strengthens.<1/> We believe every setback is a stepping stone to a major leap forward.",
+      "subtitle6": "Transparent <1/> Communication",
+      "desc6": "“We promote” open dialogue with our team, partners, and <1/> communities fosters mutual respect and understanding.",
+      "subtitle7": "Keep an Open Mind",
+      "desc7": " We approach every challenge with curiosity, welcoming <1/> fresh perspectives and ideas."
+    },
+    "recruitment": {
+      "title": "Recruitment Process",
+      "subtitle1": "Application Submission",
+      "desc1": " Enthusiasm, positive attitude, sincerity, <1/> and social skills will be determined <1/> Successful applicants will be <1/> individually contacted.",
+      "subtitle2": "Primary Interview",
+      "desc2": "Panel interview format Practical skills <1/> and knowledge-based interview.",
+      "subtitle3": "In-depth Interview",
+      "desc3": "One-on-one format Personality <1/> based interview.",
+      "subtitle4": "Employment",
+      "desc4": "Announcement of successful applicants."
+    },
+    "benefits": {
+      "title": "Benefits",
+      "subtitle1": "Work",
+      "desc1-1": "Five-day workweek",
+      "desc1-2": "Unlimited access to beverages, coffee, and snacks",
+      "desc1-3": "High processing laptops and monitors provided",
+      "desc1-4": "Lunch provided",
+      "subtitle2": "Balanced Life",
+      "desc2-1": "Financial support for special occasions",
+      "desc2-2": "Maternity leave, paternity leave",
+      "desc2-3": "Stock options",
+      "desc2-4": "Retirement benefits",
+      "subtitle3": "Culture",
+      "desc3-1": "Annual workshops",
+      "desc3-2": "Training and seminar fee supported",
+      "desc3-3": "Literature purchase fee supported",
+      "desc3-4": "In-house hobby clubs supported",
+      "subtitle4": "Etc",
+      "desc4-1": "Holiday gifts provided",
+      "desc4-2": "Birthday gifts provided",
+      "desc4-3": "AriBio talent of the year award",
+      "desc4-4": "Paid vacations / Paid public holidays",
+      "desc4-5": "Pleasant working environment provided"
+    },
+    "buttons": {
+      "meetourleadership": "Meet Our Leadership"
+    }
+  },
+  "career_m": {
+    "desc1": "At Aribio, <1/> we’re at the cutting edge of tackling <1/> neurodegenerative disorders. <1/> Our dedicated team is set on <1/> discovering transformative <1/> treatments. We invite <1/> innovative minds to join our mission. <1/> Together, let’s usher in a new era <1/> of therapeutic breakthroughs <1/> for those in need. <1/>"
+  },
+  "partner": {
+    "headline": "PARTNER",
+    "title": "PARTNER",
+    "subtitle": "Current Partnerships",
+    "desc": "Aligned in our mission, we focus on addressing the challenges of neurodegeneration <1/> with our collaborative network spanning academia, industry, and patient advocacy groups worldwide. <1/> Our goal is to be a trusted partner to all.",
+    "desc_m": "Aligned in our mission, <1 /> we focus on addressing <1 /> the challenges of neurodegeneration <1 /> with our collaborative network spanning <1 /> academia, industry, and patient <1 /> advocacy groups worldwide. <1 /> Our goal is to be a trusted partner to all."
+  },
+  "contact": {
+    "headline": "CONTACT",
+    "title": "CONTACT",
+    "subtitle": "We Look Forward to Hearing From You",
+    "desc": "We look forward <1/>to hearing from you.",
+    "subtitle_m": "We Look Forward <1/>To Hearing From You",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "affiliation": "Affiliation",
+    "message": "Message",
+    "success": "Form has been submitted successfully!",
+    "error": "Sorry, there was an error submitting the form. Please try again.",
+    "error_m": "Sorry, <1 /> there was an error submitting the form. <1 /> Please try again.",
+    "required": "this field is required",
+    "required2": "is a required field",
+    "location": {
+      "title": "Locations",
+      "us": "San Diego, 92112, USA",
+      "kr": "Gyeonggi-do, Republic of Korea"
+    }
   }
 }

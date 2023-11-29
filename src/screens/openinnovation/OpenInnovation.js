@@ -82,7 +82,7 @@ const OpenInnovation = () => {
               src={openinnovation_middle1}
               alt="intro_bg"
             /> */}
-            <TextWrap style={{ width: '70vw', position: 'relative', backgroundColor: 'transparent' }}>
+            <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
               <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
                 OPEN INNOVATION
               </Text>
@@ -103,7 +103,7 @@ const OpenInnovation = () => {
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="300"
                 $color="#D3D3D3"
-                style={{ width: '50vw', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
+                style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
               >
                 Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and
                 <br />
