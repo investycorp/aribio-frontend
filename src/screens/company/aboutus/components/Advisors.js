@@ -17,7 +17,7 @@ const TabContentWrap = styled.div`
   justify-content: start;
   align-items: left;
   background-color: transparent;
-  row-gap: 5em;
+  row-gap: 10em;
   @media screen and (max-width: 1280px) {
     grid-template-columns: 28.6vw 28.65vw 28.7vw;
   }
@@ -32,25 +32,19 @@ const TabContentWrap = styled.div`
 const ContentBox = styled.div`
   display: flex;
   width: 100%;
+  max-width: 480px;
   height: fit-content;
   flex-direction: column;
   justify-content: start;
   align-items: left;
   gap: 0.5em;
   padding: 0 0 0 3em;
-  margin: 3em 0;
   border-left: 2px solid #ffffff;
   background-color: transparent;
-  &:nth-child(3n + 2) {
-    margin-top: 10vh;
-  }
 
   @media screen and (min-width: 901px) and (max-width: 1280px) {
     padding: 0 0 0 1.5rem;
     border-left: 1px solid #ffffff;
-    &:nth-child(3n + 2) {
-      margin-top: 15vh;
-    }
   }
   @media screen and (max-width: 900px) {
     width: 66.7%;
@@ -74,6 +68,7 @@ const SchoolText = styled.div`
   line-height: 1.5em;
   @media screen and (max-width: 1280px) {
     font-size: 10px;
+    padding-right: 2.5rem;
   }
 `;
 
@@ -108,7 +103,7 @@ const Advisors = () => {
                 style={{ paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end' }}
               >
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '30px' : '20px'}
+                  $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
                   $fontWeight="600"
                   $align="start"
                   style={{ margin: '0' }}

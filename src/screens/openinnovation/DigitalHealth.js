@@ -30,6 +30,8 @@ import arrow from '../../assets/images/arrow.svg';
 import Video from '../../components/Video';
 import useLinkList from '../../hooks/useLink';
 
+import { t } from 'i18next'
+
 const DigitalHealth = () => {
   const navigate = useNavigate();
   const { data: linkData } = useLinkList();

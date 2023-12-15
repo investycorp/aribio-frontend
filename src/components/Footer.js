@@ -91,7 +91,7 @@ const ContactUsWrap = styled.div`
 const ContactUsBox = styled.div`
   font-size: 20px;
   font-weight: medium;
-  width: 396px;
+  width: 496px;
   color: #e5e5e5;
   cursor: pointer;
   padding-bottom: 1vh;
@@ -199,14 +199,14 @@ const Footer = () => {
                     color: '#B1B1B1',
                     textDecoration: 'none',
                     minWidth: 'fit-content',
-                    fontSize: window.innerWidth > 1280 ? '20px' : '13px',
-                    paddingRight: window.innerWidth > 1280 ? '20px' : '16px',
+                    fontSize: window.innerWidth > 1280 ? '18px' : '13px',
+                    paddingRight: window.innerWidth > 1280 ? '18px' : '16px',
                   }}
                 >
                   Privacy Policy
                 </Link>{' '}
-                <div style={{ paddingRight: window.innerWidth > 1280 ? '20px' : '16px' }}>|</div>{' '}
-                <div style={{ fontSize: window.innerWidth > 1280 ? '20px' : '13px', minWidth: 'fit-content' }}>
+                <div style={{ paddingRight: window.innerWidth > 1280 ? '18px' : '16px' }}>|</div>{' '}
+                <div style={{ fontSize: window.innerWidth > 1280 ? '18px' : '13px', minWidth: 'fit-content' }}>
                   © 2023 by ARIBIO. All Rights Reserved.
                 </div>
               </ContactUsBox>
@@ -221,12 +221,6 @@ const Footer = () => {
               gap: '1em',
             }}
           >
-            <ContactBox>
-              <ContactBoxTitle>TEL.</ContactBoxTitle>
-              <ContactBoxText>{companyInfo?.tel}</ContactBoxText>
-              <ContactBoxTitle>FAX.</ContactBoxTitle>
-              <ContactBoxText>{companyInfo?.fax}</ContactBoxText>
-            </ContactBox>
             <ContactBox
               style={{
                 display: 'flex',
@@ -239,9 +233,9 @@ const Footer = () => {
             >
               <AddressWrap>
                 <ContactBoxTitle>Head Office.</ContactBoxTitle>
-                <ContactBoxText>{companyInfo?.head?.address1}</ContactBoxText>
-                <ContactBoxText>{companyInfo?.head?.address2}</ContactBoxText>
+                <ContactBoxText>{companyInfo?.head?.address1 + companyInfo?.head?.address2}</ContactBoxText>
                 <ContactBoxText>{companyInfo?.head?.address3}</ContactBoxText>
+                <ContactBoxText>{'T.' + companyInfo.tel?.replace('(Korea)', '') + 'F.'+  companyInfo.fax?.replace('(Korea)', '')}</ContactBoxText>
               </AddressWrap>
               <AddressWrap>
                 <ContactBoxTitle>US Office.</ContactBoxTitle>
@@ -277,22 +271,6 @@ const Footer = () => {
                   <img src={arrow} alt="arrow" style={{ height: '10px', cursor: 'pointer', zIndex: '-1' }} />
                 </ContactUsBox>
               </Link>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '1rem',
-                  width: '100%',
-                }}
-              >
-                <ContactBoxText style={{ textDecoration: 'none', margin: '0' }}>
-                  TEL. {companyInfo.tel?.replace('(Korea)', '')}
-                </ContactBoxText>
-
-                <ContactBoxText style={{ bodrer: 'transparent', margin: '0' }}>
-                  FAX. {companyInfo.fax?.replace('(Korea)', '')}
-                </ContactBoxText>
-              </div>
             </ContactUsWrap>
           </FooterGridWrap>
           <div>

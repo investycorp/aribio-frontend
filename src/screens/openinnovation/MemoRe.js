@@ -18,6 +18,8 @@ import Language from '../../atom/Language';
 import useLinkList from '../../hooks/useLink';
 import Video from '../../components/Video';
 
+import { t } from 'i18next';
+
 const MemoRe = () => {
   const [language, setLanguage] = useRecoilState(Language);
   const { data, isLoading, refetch } = useLinkList(language);
@@ -56,12 +58,12 @@ const MemoRe = () => {
       <Path>
         <span style={{ opacity: '0.8' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
         {window.innerWidth <= 900 && <br />}
-        MEMO:RE PROJECT
+        Memo:Re PROJECT
       </Path>
 
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>
-          MEMO:RE
+          Memo:Re
           <br /> PROJECT
         </HeadLine>
         <img
@@ -91,7 +93,7 @@ const MemoRe = () => {
           >
             <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
               <Text $color="#C9C9C9" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
-                MEMO:RE PROJECT
+                Memo:Re PROJECT
               </Text>
               <div
                 style={{

@@ -181,7 +181,8 @@ const ComponentGridWrap = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
-  padding: 3rem 0;
+  padding: 112px 0;
+
   @media screen and (max-width: 900px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -191,15 +192,15 @@ const ComponentGridWrap = styled.div`
 `;
 
 const HomeComponentImageWrap = styled.div`
-  background-size: 28.7vw 28.7vw;
+  background-size: 28.75vw 28.29vh;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #121212;
   background-image: url(${(props) => props.$src});
   display: flex;
-  width: 28.7vw;
-  height: 28.7vw;
+  width: 28.75vw;
+  height: 28.29vh;
   justify-self: flex-end;
   border-radius: 20px;
   @media screen and (max-width: 900px) {

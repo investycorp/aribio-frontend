@@ -185,9 +185,9 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
   }
 
   &.recruitmentProcess_rowscroll {
-    &:hover {
+    /* &:hover {
       background-color: rgba(255, 255, 255, 0.06);
-    }
+    } */
     &::-webkit-scrollbar {
       display: none;
     }
@@ -414,6 +414,19 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
   }
 `;
 
+  const RecruitmentItemWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 28.7vw;
+    gap: 2em;
+    max-width: 442px;
+    min-height: 308px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+  `;
+
 export {
   Container,
   MainImgWrap,
@@ -437,4 +450,5 @@ export {
   ShootingStar,
   FilterShadow,
   Button,
+  RecruitmentItemWrap,
 };

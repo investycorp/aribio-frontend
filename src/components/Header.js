@@ -21,7 +21,7 @@ const HeaderContainer = styled.div.attrs((props) => ({
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(26, 26, 26, 0.6);
+  background-color: transparent;
 
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ const HeaderContainer = styled.div.attrs((props) => ({
   z-index: 100;
   overflow: hidden;
   &:hover {
-    background-color: rgba(26, 26, 26, 0.6);
+    background-color: transparent;
   }
   @media screen and (max-width: 900px) {
     background-color: #121212;
@@ -44,7 +44,7 @@ const HeaderTop = styled.div`
   margin: 0;
   padding: 0 7vw;
   width: 100%;
-  height: 146px;
+  height: 118px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -63,7 +63,7 @@ const BlurTop = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 144px;
+  height: 118px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   @media screen and (max-width: 1280px) {
@@ -88,7 +88,7 @@ const HeaderNavWrap = styled.div.attrs((props) => ({
 }))`
   padding: 0;
   width: -webkit-fill-available;
-  padding: ${(props) => (props.$offset ? `0 calc(5em + ${props.$offset}px)` : '0 5em')};
+  padding: ${(props) => (props.$offset ? `0 calc(9.63em + ${props.$offset}px)` : '0 9.63em')};
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -206,11 +206,11 @@ const HeaderLangButton = styled.button`
 
 const HeaderBottom = styled.div`
   width: 100%;
-  height: 105px;
+  height: 88px;
   position: fixed;
   text-decoration: none;
   padding: 0 7vw;
-  top: 144px;
+  top: 118px;
   left: 0;
   display: flex;
   opacity: 0;
@@ -218,7 +218,7 @@ const HeaderBottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
-  background-color: rgba(26, 26, 26, 0.6);
+  background-color: transparent;
   border-top: 2px solid #5d5d5d;
   cursor: default;
   transition: opacity 0.5s ease-in-out;
@@ -272,8 +272,8 @@ const Header = () => {
     ],
     openinnovation: [
       { title: 'Open Innovation', linkTo: 'openinnovation' },
-      { title: 'Digital Health', linkTo: 'digitalhealth' },
-      { title: 'MEMO:RE PROJECT', linkTo: 'memoreproject' },
+      { title: 'DIGITAL HEALTH', linkTo: 'digitalhealth' },
+      { title: 'Memo:Re PROJECT', linkTo: 'memoreproject' },
     ],
     irpr: [
       { title: 'NOTICE', linkTo: 'notice/' },
@@ -655,7 +655,7 @@ const Header = () => {
                             }
                           }}
                         >
-                          <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
+                          <HeaderNavMenuTextWrap>{menu.title}</HeaderNavMenuTextWrap>
                         </Link>
                       ))}
                     </HeaderNavWrap>

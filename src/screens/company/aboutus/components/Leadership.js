@@ -10,30 +10,29 @@ import {
   Image,
   DescriptionWrap,
   DescriptionItem,
+  CeoBox,
+  MemberListWrap,
+  TextWrap,
+  HeadListWrap,
+  HeadItemWrap,
 } from '../style';
 import { Desktop, Mobile } from '../../../../utils/MediaQuery';
 import useLeadershipList from '../../../../hooks/company/useLeadershipList';
 import Language from '../../../../atom/Language';
 import { useRecoilValue } from 'recoil';
+import { ContentWrap, HR } from '../../../../components/style';
 
 const Leadership = () => {
   const [language] = useRecoilValue(Language);
   const { data, isLoading } = useLeadershipList('leadership', language);
-  const [tabContents, setTabContents] = useState([]);
+  const [ceoContents, setCeoContents] = useState({});
+  const [usContents, setUsContents] = useState([]);
+  const [headContents, setHeadContents] = useState([]);
 
   useEffect(() => {
-    let itemList = [];
-    data?.data?.dataList?.map((item, index) => {
-      itemList.push({
-        id: item.id,
-        position: item.position,
-        name: item.name,
-        photo: item?.fileDto?.fileUrl,
-        isOpen: index === 0 ? true : false,
-        description: item.contents.split(`\\n`),
-      });
-    });
-    setTabContents(itemList);
+    setCeoContents(data?.data?.data?.ceo);
+    setUsContents(data?.data?.data?.usList);
+    setHeadContents(data?.data?.data?.headList);
   }, [data]);
 
   return (
@@ -43,88 +42,278 @@ const Leadership = () => {
     >
       <Desktop>
         <TabContentWrap id="leadership">
-          {tabContents.map((item, index) => (
-            <ContentBox key={index}>
+          <CeoBox
+            style={{
+              padding: window.innerWidth > 1280 ? '0 7vw 504px' : '0 7vw 255px'
+            }}
+          >
+            <Image
+              width={window.innerWidth > 1280 ? 550 : 335}
+              height={window.innerWidth > 1280 ? 366 : 224}
+              src={ceoContents?.fileDto?.fileUrl}
+              alt="ceoProfilePicture"
+            />
+            <TextWrap
+              style={{width: window.innerWidth > 1280 ? 300 : 260}}
+            >
+              <Text
+                $align="start"
+                $color="#F2F2F2"
+                $fontWeight='500'
+                style={{
+                  margin: '0',
+                  fontSize: window.innerWidth > 1280 ? '20px' : '11px',
+                }}
+              >
+                {ceoContents?.position}
+              </Text>
+              <Text
+                $align="start"
+                $color="#F2F2F2"
+                $fontWeight='700'
+                style={{
+                  margin: '0',
+                  fontSize: window.innerWidth > 1280 ? '36px' : '20px',
+                }}
+                >
+                {ceoContents?.name}
+              </Text>
+              <HR style={{alignSelf:'start', marginTop:  window.innerWidth > 1280 ? 75 : 29 }} />
+            </TextWrap>
+            <TextWrap
+              style={{width: window.innerWidth > 1280 ? 480 : 360}}
+            >
               <Text
                 $align="start"
                 $color="#F2F2F2"
                 style={{
-                  paddingLeft: index % 3 === 0 ? '7vw' : '0',
                   margin: '0',
-                  fontSize: window.innerWidth > 1280 ? '20px' : '12px',
+                  fontSize: window.innerWidth > 1280 ? '18px' : '10px',
                 }}
               >
-                {item.position}
+                <ul style={{ listStyleType: 'disc' }}>
+                  {ceoContents?.contents?.split("\\n").map((item, index) => (
+                    <li key={index}>
+                        {item}
+                      </li>
+                  ))}
+                </ul>
               </Text>
-              <Image src={item.photo} alt="leadershipphoto1" style={{ width: '100%' }} />
-              <ContentBoxNameWrap style={{ paddingLeft: (index + 1) % 3 !== 1 && '0' }}>
+            </TextWrap>
+         </CeoBox>
+         <TextWrap
+          style={{
+            width: '100%',
+            paddingLeft: '7vw'
+          }}
+         >
+          <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
+          <Text
+            $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
+            $fontWeight="600"
+            $color="#E5E5E5"
+            $align="start"
+            style={{marginBottom: window.innerWidth > 1280 ? 150 : 100}}
+          >
+            AriBio US Office
+          </Text>
+         </TextWrap>
+          <MemberListWrap>
+          {usContents?.map((item, index) => (
+            <ContentBox key={index}>
+              <Image
+                src={item.fileDto.fileUrl}
+                alt="leadershipphoto1"
+                width={window.innerWidth > 1280 ? 454 : 274}
+                height={window.innerWidth > 1280 ? 304 : 183}
+                style={{marginBottom: window.innerWidth > 1280 ? 106 : 24}}
+              />
+              <ContentBoxNameWrap>
                 <Text
-                  $fontWeight="600"
                   $align="start"
-                  style={{ margin: '0.5rem 0 0 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
+                  $color="rgba(255,255,255,0.9)"
+                  style={{
+                    margin: '0',
+                    fontSize: window.innerWidth > 1280 ? '20px' : '12px',
+                  }}
+                >
+                  {item.position}
+                </Text>
+                <Text
+                  $fontWeight="700"
+                  $align="start"
+                  style={{ margin: window.innerWidth > 1280 ? '0.5rem 0 2.5rem 0' : '0.5rem 0 1.563rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
                 >
                   {item.name}
                 </Text>
-                {item.isOpen ? (
-                  <Image
-                    className="toggle"
-                    onClick={() => {
-                      const newTabContents = tabContents.map((item, idx) => {
-                        if (idx === index) {
-                          return { ...item, isOpen: !item.isOpen };
-                        }
-                        return item;
-                      });
-                      setTabContents(newTabContents);
-                    }}
-                    src={process.env.PUBLIC_URL + '/assets/icons/circle_minus_white.svg'}
-                    alt="minus"
-                    style={{
-                      paddingRight: index % 3 === 2 && '7vw',
-                      cursor: 'pointer',
-                      height: window.innerWidth > 1280 ? '40px' : '28px',
-                    }}
-                  />
-                ) : (
-                  <Image
-                    className="toggle"
-                    onClick={() => {
-                      const newTabContents = tabContents.map((item, idx) => {
-                        if (idx === index) {
-                          return { ...item, isOpen: !item.isOpen };
-                        }
-                        return item;
-                      });
-                      setTabContents(newTabContents);
-                    }}
-                    src={plus}
-                    alt="plus"
-                    style={{
-                      paddingRight: index % 3 === 2 && '7vw',
-                      cursor: 'pointer',
-                      height: window.innerWidth > 1280 ? '40px' : '28px',
-                    }}
-                  />
-                )}
-                <DescriptionWrap
+                <Text
+                  $align="start"
+                  $color="#F2F2F2"
                   style={{
-                    padding: index % 3 === 0 ? ' 0 0 0 10vw' : index % 3 === 1 ? '0 40px 0 3vw' : '0 7vw 0 3vw',
+                    margin: '0',
+                    fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                    paddingLeft: '1.125rem',
                   }}
-                  $isActive={item.isOpen}
                 >
-                  {item.description.map((item, index) => (
-                    <DescriptionItem key={'description' + index}>{item}</DescriptionItem>
-                  ))}
-                </DescriptionWrap>
+                  <ul style={{ listStyleType: 'disc' }}>
+                    {item.contents?.split("\\n").map((item, index) => (
+                      <li key={index}>
+                          {item}
+                        </li>
+                    ))}
+                  </ul>
+                </Text>
               </ContentBoxNameWrap>
             </ContentBox>
           ))}
+                      
+          </MemberListWrap>
+          <TextWrap
+            style={{
+              marginTop:  window.innerWidth > 1280 ? 486 : 230,
+              paddingLeft: '7vw'
+            }}
+          >
+            <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
+            <Text
+              $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
+              $fontWeight="600"
+              $color="#E5E5E5"
+              $align="start"
+              style={{marginBottom: 150}}
+            >
+              AriBio Head Office
+            </Text>
+          </TextWrap>
+          <ContentWrap>
+            <HeadListWrap>
+            {headContents?.map((item, index) => (
+              <ContentBox key={index}
+                style={{marginBottom: '18.75vh'}}
+              >
+                <ContentBoxNameWrap>
+                  <div style={{display: 'flex', flexDirection: 'row'}}>
+
+                    <HR style={{width: 2, height:  window.innerWidth > 1280 ? '5rem' : '3.25rem', marginRight: '2.0833vw'}}/>
+                    <TextWrap>
+                      <Text
+                        $align="start"
+                        $color="rgba(255, 255, 255, 0.9)"
+                        style={{
+                          margin: '0',
+                          fontSize: window.innerWidth > 1280 ? '20px' : '12px',
+                        }}
+                        >
+                        {item.position}
+                      </Text>
+                      <Text
+                        $fontWeight="700"
+                        $align="start"
+                        style={{ margin: '0.5rem 0 2.5rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
+                        >
+                        {item.name}
+                      </Text>
+                    </TextWrap>
+                  </div>
+                  <Text
+                    $align="start"
+                    $color="#F2F2F2"
+                    style={{
+                      margin: '0',
+                      fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                      paddingLeft:  window.innerWidth > 1280 ? '3.625rem' : '2.5rem',
+                    }}
+                  >
+
+                      {item.contents?.split("\\n").map((item, index) => (
+                         <DescriptionItem key={item + index}>{item}</DescriptionItem>
+                      
+                      
+                      ))}
+      
+                  </Text>
+                </ContentBoxNameWrap>
+              </ContentBox>
+            ))}
+                        
+            </HeadListWrap>
+          </ContentWrap>
         </TabContentWrap>
       </Desktop>
 
       <Mobile>
+        <TabContentWrap
+           style={{padding: '0 19px', marginBottom: 160}}
+          >
+            <Image
+              width={322}
+              height={200}
+              src={ceoContents?.fileDto?.fileUrl}
+              alt="ceoProfilePicture"
+              style={{
+                marginBottom: 45
+              }}
+            />
+            <TextWrap style={{width: '100%'}}>
+              <Text
+                $align="start"
+                $color="#F2F2F2"
+                $fontWeight='500'
+                style={{
+                  margin: '0',
+                  fontSize: 15,
+                }}
+              >
+                {ceoContents?.position}
+              </Text>
+              <Text
+                $align="start"
+                $color="#F2F2F2"
+                $fontWeight='700'
+                style={{
+                  margin: '0',
+                  marginBottom: 16,
+                  fontSize: 18,
+                }}
+                >
+                {ceoContents?.name}
+              </Text>
+            </TextWrap>
+            <TextWrap style={{width: '100%'}}>
+              <Text
+                $align="start"
+                $color="#F2F2F2"
+                style={{
+                  margin: '0',
+                  fontSize: 16,
+                  fontWeight: 300,
+                }}
+              >
+                  {ceoContents?.contents?.split("\\n").map((item, index) => (
+                    <DescriptionItem key={item + index}>{item}</DescriptionItem>
+                  ))}
+              </Text>
+            </TextWrap>
+         </TabContentWrap>
+         <div
+          style={{
+            alignSelf: 'start',
+            paddingLeft: 19
+          }}
+          >
+          <HR $width="40px" style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
+          <Text
+            $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
+            $fontWeight="600"
+            $color="#E5E5E5"
+            $align="start"
+            style={{marginBottom: 48}}
+            >
+            AriBio US Office
+          </Text>
+        </div>
         <TabContentWrap>
-          {tabContents.map((item, index) => (
+          {usContents?.map((item, index) => (
             <div
               id="fadeIn"
               style={{
@@ -132,34 +321,44 @@ const Leadership = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                alignItems: `${index % 2 === 0 ? 'flex-start' : 'flex-end'}`,
+                padding: '0 19px',
               }}
               key={'tabcontent' + index}
             >
               <ContentBox key={index}>
-                <Text
-                  $align="start"
-                  $color="#F2F2F2"
-                  $fontSize="20px"
-                  style={{ paddingLeft: `${index % 2 === 0 ? '5vw' : '0'}`, margin: '0', fontSize: '15px' }}
-                >
-                  {item.position}
-                </Text>
-                <Image src={item.photo} alt="leadershipphoto" style={{ width: '100%' }} />
-                <ContentBoxNameWrap style={{ padding: `${index % 2 === 0 ? ' 0 0 0 5vw' : ' 0 5vw 0 0'}` }}>
-                  <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ margin: '0' }}>
-                    {item.name}
-                  </Text>
+
+                <Image src={item.fileDto.fileUrl} alt="leadershipphoto" style={{ width: 322, height: 200 }} />
+                <ContentBoxNameWrap>
+                  <div style={{
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  }}>
+                  <TextWrap>
+                    <Text
+                      $align="start"
+                      $color="#F2F2F2"
+                      $fontSize="20px"
+                      style={{ margin: '0', fontSize: '15px' }}
+                      >
+                      {item.position}
+                    </Text>
+                    <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ margin: '0' }}>
+                      {item.name}
+                    </Text>
+                  </TextWrap>
                   {item.isOpen ? (
                     <Image
                       onClick={() => {
-                        const newTabContents = tabContents.map((item, idx) => {
+                        const newTabContents = usContents.map((item, idx) => {
                           if (idx === index) {
                             return { ...item, isOpen: !item.isOpen };
                           }
                           return item;
                         });
-                        setTabContents(newTabContents);
+                        setUsContents(newTabContents);
                       }}
                       src={minus}
                       alt="minus"
@@ -168,31 +367,125 @@ const Leadership = () => {
                   ) : (
                     <Image
                       onClick={() => {
-                        const newTabContents = tabContents.map((item, idx) => {
+                        const newTabContents = usContents.map((item, idx) => {
                           if (idx === index) {
                             return { ...item, isOpen: !item.isOpen };
                           }
                           return item;
                         });
-                        setTabContents(newTabContents);
+                        setUsContents(newTabContents);
                       }}
                       src={plus}
                       alt="plus"
                       style={{ height: '20px' }}
                     />
                   )}
+                </div>
                 </ContentBoxNameWrap>
                 <DescriptionWrap
-                  style={{
-                    padding: index % 2 === 0 ? ' 0 0 0 9vw' : '0 0 0 0',
-                  }}
                   $isActive={item.isOpen}
                 >
-                  {item.description.map((item, index) => (
+                   {item?.contents?.split('\\n')?.map((item, index) => (
                     <DescriptionItem key={item + index}>{item}</DescriptionItem>
                   ))}
                 </DescriptionWrap>
               </ContentBox>
+            </div>
+          ))}
+        </TabContentWrap>
+        <div
+          style={{
+            alignSelf: 'start',
+            paddingLeft: 19
+          }}
+        >
+          <HR $width="40px" style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
+          <Text
+            $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
+            $fontWeight="600"
+            $color="#E5E5E5"
+            $align="start"
+            style={{marginBottom: 48}}
+            >
+            AriBio Head Office
+          </Text>
+        </div>
+        <TabContentWrap>
+          {headContents?.map((item, index) => (
+            <div
+              id="fadeIn"
+              style={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                padding: '0 19px',
+              }}
+              key={'tabcontent' + index}
+            >
+              <HeadItemWrap key={index}>
+                <ContentBoxNameWrap>
+                  <div style={{
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  }}>
+                  <TextWrap>
+                    <Text
+                      $align="start"
+                      $color="#F2F2F2"
+                      $fontSize="20px"
+                      style={{ margin: '0', fontSize: '15px' }}
+                      >
+                      {item.position}
+                    </Text>
+                    <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ margin: '0' }}>
+                      {item.name}
+                    </Text>
+                  </TextWrap>
+                  {item.isOpen ? (
+                    <Image
+                      onClick={() => {
+                        const newTabContents = headContents.map((item, idx) => {
+                          if (idx === index) {
+                            return { ...item, isOpen: !item.isOpen };
+                          }
+                          return item;
+                        });
+                        setHeadContents(newTabContents);
+                      }}
+                      src={minus}
+                      alt="minus"
+                      style={{ height: '20px' }}
+                    />
+                  ) : (
+                    <Image
+                      onClick={() => {
+                        const newTabContents = headContents.map((item, idx) => {
+                          if (idx === index) {
+                            return { ...item, isOpen: !item.isOpen };
+                          }
+                          return item;
+                        });
+                        setHeadContents(newTabContents);
+                      }}
+                      src={plus}
+                      alt="plus"
+                      style={{ height: '20px' }}
+                    />
+                  )}
+                </div>
+                </ContentBoxNameWrap>
+                <DescriptionWrap
+                  $isActive={item.isOpen}
+                >
+                   {item?.contents?.split('\\n')?.map((item, index) => (
+                    <DescriptionItem key={item + index}>{item}</DescriptionItem>
+                  ))}
+                </DescriptionWrap>
+              </HeadItemWrap>
             </div>
           ))}
         </TabContentWrap>

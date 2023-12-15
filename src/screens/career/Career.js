@@ -11,6 +11,11 @@ import icon_balancedLife from './assets/icon_balancedlife.svg';
 import icon_culture from './assets/icon_culture.svg';
 import icon_etc from './assets/icon_etc.svg';
 
+import icon_recruitment_1 from './assets/icon_work.svg';
+import icon_recruitment_2 from './assets/icon_balancedlife.svg';
+import icon_recruitment_3 from './assets/icon_culture.svg';
+import icon_recruitment_4 from './assets/icon_etc.svg';
+
 import arrow from '../../assets/images/arrow.svg';
 
 import {
@@ -30,6 +35,7 @@ import {
   ShootingStar,
   FilterShadow,
   Button,
+  RecruitmentItemWrap,
 } from './style';
 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
@@ -121,6 +127,7 @@ const Career = () => {
   const [recruitmentProcess, setRecruitmentProcess] = useState([
     {
       title: t('career.recruitment.subtitle1'),
+      img: icon_recruitment_1,
       desc: (
         <>
           <Trans i18nKey={'career.recruitment.desc1'} components={{ 1: <br /> }} />
@@ -129,6 +136,7 @@ const Career = () => {
     },
     {
       title: t('career.recruitment.subtitle2'),
+      img: icon_recruitment_2,
       desc: (
         <>
           <Trans i18nKey={'career.recruitment.desc2'} components={{ 1: <br /> }} />
@@ -137,6 +145,7 @@ const Career = () => {
     },
     {
       title: t('career.recruitment.subtitle3'),
+      img: icon_recruitment_3,
       desc: (
         <>
           <Trans i18nKey={'career.recruitment.desc3'} components={{ 1: <br /> }} />
@@ -145,6 +154,7 @@ const Career = () => {
     },
     {
       title: t('career.recruitment.subtitle4'),
+      img: icon_recruitment_4,
       desc: <>{t('career.recruitment.desc4')}</>,
     },
   ]);
@@ -298,11 +308,6 @@ const Career = () => {
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
         {detailPage ? (
           // rendering detail page and detail page footer navigation
           <>
@@ -437,6 +442,7 @@ const Career = () => {
                 </div>
               </HomeComponentWrap>
               <HomeComponentWrap style={{ padding: '5vh 0 5vh 7vw' }}>
+                <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                   $fontWeight="300"
@@ -452,7 +458,6 @@ const Career = () => {
                   }}
                 >
                   Recruitment Process
-                  <HR />
                 </Text>
                 <ContentBox
                   className="recruitmentProcess_rowscroll"
@@ -476,36 +481,29 @@ const Career = () => {
                     alignItems: 'start',
                     overflowX: 'auto',
                     width: '100%',
-                    gap: '0',
+                    gap: '5.555vw',
                     flexwrap: 'nowrap',
                     marginBottom: '5em',
                     padding: '5rem 0',
                   }}
                 >
                   {recruitmentProcess.map((item, index) => (
-                    <TextWrap
-                      style={{
-                        flex: '0 0 28.7vw',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'start',
-                        alignItems: 'start',
-                        gap: '2em',
-                        width: '28.7vw',
-                        marginRight: index === recruitmentProcess.length - 1 && '15px',
-                      }}
+                    <RecruitmentItemWrap
                       key={`recruitmentProcess${index}`}
                     >
-                      <Text
-                        $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
-                        $fontWeight="400"
-                        $color="#00A6FF"
-                        $align="start"
-                        style={{ width: 'fit-content', overflow: 'unset', marginLeft: index === 0 && '3px' }}
-                      >
-                        {`0${index + 1}`}
-                      </Text>
-                      <TextWrap style={{ alignItems: 'start', gap: '2em', width: '85%' }}>
+                      <TextWrap style={{flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between'}}>
+                        <Image src={item.img} />
+                        <Text
+                          $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
+                          $fontWeight="400"
+                          $color="#00A6FF"
+                          $align="start"
+                          style={{ width: 'fit-content', overflow: 'unset', marginLeft: index === 0 && '3px' }}
+                          >
+                          {`0${index + 1}`}
+                        </Text>
+                      </TextWrap>
+                      <TextWrap style={{ alignItems: 'start', gap: '20px' }}>
                         <Text
                           $fontSize={window.innerWidth > 1280 ? '24px' : '15px'}
                           $fontWeight="300"
@@ -516,7 +514,7 @@ const Career = () => {
                           {item.title}
                         </Text>
                         <Text
-                          $fontSize={window.innerWidth > 1280 ? '20px' : '11px'}
+                          $fontSize={window.innerWidth > 1280 ? '18px' : '11px'}
                           $fontWeight="300"
                           $color="#C9C9C9"
                           $align="start"
@@ -525,12 +523,13 @@ const Career = () => {
                           {item.desc}
                         </Text>
                       </TextWrap>
-                    </TextWrap>
+                    </RecruitmentItemWrap>
                   ))}
                 </ContentBox>
               </HomeComponentWrap>
               <HomeComponentWrap id="benefits" style={{ flexDirection: 'row', alignItems: 'start' }}>
                 <TextWrap style={{ flex: '0 0 28.7vw', width: '28.7vw' }}>
+                  <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                     $fontWeight="300"
@@ -539,7 +538,15 @@ const Career = () => {
                   >
                     Benefits
                   </Text>
-                  <HR style={{ alignSelf: 'start', margin: '1.5em 0' }} />
+                  <Text
+                   $fontSize={window.innerWidth > 1280 ? '20px' : '21px'}
+                   $fontWeight="300"
+                   $color="#CBCBCB"
+                   $align="start"
+                   style={{marginTop: '1.14vh'}}
+                  >
+                    <Trans i18nKey={'career.benefits.desc'} components={{ 1: <br /> }} />
+                  </Text>
                 </TextWrap>
                 <GridContentWrap style={{ gridTemplateColumns: '1fr 1fr', margin: '0', rowGap: '5vh' }}>
                   {benefits.map((item, index) => (

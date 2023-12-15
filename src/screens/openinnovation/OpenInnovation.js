@@ -15,6 +15,8 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import Video from '../../components/Video';
 
+import { t } from 'i18next'
+
 const OpenInnovation = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -126,7 +128,9 @@ const OpenInnovation = () => {
             <Image
               src={openinnovation_middle2}
               alt="openinnovation_middle2"
-              style={{ alignSelf: 'end', width: '80%', marginTop: '0' }}
+              width={window.innerWidth > 1280 ? 550 : 334}
+              height={window.innerWidth > 1280 ? 509 : 325}
+              style={{ alignSelf: 'end', marginTop: '0', paddingLeft: '7vw' }}
             />
             <TextWrap
               style={{

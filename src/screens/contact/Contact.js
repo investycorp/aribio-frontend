@@ -167,11 +167,6 @@ const Contact = () => {
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
 
         <Desktop>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
@@ -181,10 +176,10 @@ const Contact = () => {
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '2px solid #ffffff',
+                  alignSelf: 'center',
+                  width: '60px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
                   margin: '2rem 0',
                 }}
               ></div>
