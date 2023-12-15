@@ -94,9 +94,7 @@ const TextWrap = styled.div`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  @media screen and (max-width: 1280px) {
-    width: 60vw;
-  }
+
 `;
 
 const Text = styled.div`
@@ -340,7 +338,7 @@ const HeadItemWrap = styled.div`
   margin-bottom: 24px;
   padding: 40px 28px 40px 24px;
   background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
+  border-radius: 10px;
 `;
 
 

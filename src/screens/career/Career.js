@@ -36,6 +36,7 @@ import {
   FilterShadow,
   Button,
   RecruitmentItemWrap,
+  ImageBackground,
 } from './style';
 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
@@ -128,9 +129,13 @@ const Career = () => {
     {
       title: t('career.recruitment.subtitle1'),
       img: icon_recruitment_1,
-      desc: (
+      desc: window.innerWidth > 360 ? (
         <>
           <Trans i18nKey={'career.recruitment.desc1'} components={{ 1: <br /> }} />
+        </>
+      ) : (
+        <>
+          <Trans i18nKey={'career.recruitment_m.desc1'} components={{ 1: <br /> }} />
         </>
       ),
     },
@@ -295,7 +300,7 @@ const Career = () => {
       </MainImgWrap>
 
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>CAREER</HeadLine>
+        <HeadLine $className="midsize">CAREER</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -341,15 +346,15 @@ const Career = () => {
               </HomeComponentWrap>
               <HomeComponentWrap
                 style={{
-                  backgroundImage: `url(${career_middle})`,
-                  backgroundSize: 'cover',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'center',
-                  backgroundColor: '#121212',
                   padding: '8vh 7vw',
+                  marginBottom: '20vh',
+                  position: 'relative',
                   marginBottom: '20vh',
                 }}
               >
+                <ImageBackground
+                  image={career_middle}
+                />
                 <TextWrap>
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
@@ -489,20 +494,26 @@ const Career = () => {
                   {recruitmentProcess.map((item, index) => (
                     <RecruitmentItemWrap
                       key={`recruitmentProcess${index}`}
+                      style={{marginRight: recruitmentProcess.length === index + 1 ? '7vw' : '0'}}
                     >
                       <TextWrap style={{flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between'}}>
-                        <Image src={item.img} />
+                        <Image 
+                          style={{
+                            width: window.innerWidth > 1280 ? '84px' : '52px'
+                          }}
+                        
+                        src={item.img} />
                         <Text
                           $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                           $fontWeight="400"
                           $color="#00A6FF"
                           $align="start"
-                          style={{ width: 'fit-content', overflow: 'unset', marginLeft: index === 0 && '3px' }}
+                          style={{ width: 'fit-content', overflow: 'unset', marginLeft: index === 0 && '3px', paddingRight: 10 }}
                           >
                           {`0${index + 1}`}
                         </Text>
                       </TextWrap>
-                      <TextWrap style={{ alignItems: 'start', gap: '20px' }}>
+                      <TextWrap style={{ alignItems: 'start', gap: window.innerWidth > 1280 ? '20px' : '12px' }}>
                         <Text
                           $fontSize={window.innerWidth > 1280 ? '24px' : '15px'}
                           $fontWeight="300"
@@ -538,7 +549,7 @@ const Career = () => {
                     Benefits
                   </Text>
                   <Text
-                   $fontSize={window.innerWidth > 1280 ? '20px' : '21px'}
+                   $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                    $fontWeight="300"
                    $color="#CBCBCB"
                    $align="start"
@@ -677,7 +688,12 @@ const Career = () => {
                   style={{ gridTemplateColumns: '1fr 1fr', margin: '0', rowGap: '5vh', columnGap: '2em' }}
                 >
                   {joinus.map((item, index) => (
-                    <ContentBox key={`joinus${index}`} className="joinus" $src={item.img}>
+                    <ContentBox key={`joinus${index}`}
+                      style={{
+                        width: window.innerWidth > 1280 ? '794px' : '480px',
+                        height: window.innerWidth > 1280 ? '261px' : '155px',
+                      }}
+                    className="joinus" $src={item.img}>
                       <FilterShadow />
                       <Button
                         onClick={() => {
@@ -870,7 +886,7 @@ const Career = () => {
                     justifyContent: 'start',
                     alignItems: 'start',
                     width: '100%',
-                    gap: '3rem',
+                    gap: '20px',
                     flexwrap: 'nowrap',
                     paddingBottom: '5rem',
                   }}
@@ -880,7 +896,10 @@ const Career = () => {
                      key={`recruitmentProcess${index}`}
                     >
                      <TextWrap style={{flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between'}}>
-                       <Image src={item.img} />
+                       <Image style={{
+                        width: 52,
+                        height: 50
+                       }} src={item.img} />
                        <Text
                          $fontSize={'14px'}
                          $fontWeight="400"
@@ -903,10 +922,10 @@ const Career = () => {
                        </Text>
                        <Text
                          $fontSize={'16px'}
-                         $fontWeight="300"
+                         $fontWeight="200"
                          $color="#D6D6D6"
                          $align="start"
-                         style={{ width: 'auto', overflow: 'hidden' }}
+                         style={{ lineHeight: '22px', width: 'auto', overflow: 'hidden' }}
                        >
                          {item.desc}
                        </Text>
@@ -923,6 +942,10 @@ const Career = () => {
                   <HR $height="1px" style={{ alignSelf: 'start', margin: '1rem 0', width: '40px' }} />
                   <Text $fontSize="20px" $fontWeight="500" $color="#E5E5E5" $align="start">
                     Benefits
+                  </Text>
+                  <Text $fontSize="16px" $fontWeight="200" $color="#E5E5E5" $align="start" style={{marginTop:20}}>
+                    <Trans i18nKey={t('career.benefits.desc')} components={{ 1: <br /> }} />
+
                   </Text>
                 </TextWrap>
                 <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '80px' }}>

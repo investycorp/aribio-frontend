@@ -5,6 +5,7 @@ import sidebar from '../assets/sidebar.svg';
 import sidebar_short from '../assets/sidebar_short.svg';
 import whitedot from '../assets/whitedot.svg';
 import graydot from '../assets/graydot.svg';
+import reddot from '../../../../assets/images/reddot.svg';
 import { Desktop, Mobile } from '../../../../utils/MediaQuery';
 
 const HomeComponentWrap = styled.div`
@@ -299,7 +300,7 @@ const Tab1 = ({ listItems, index }) => {
               <GridBoxContentWrap id="description" key={tabName}>
                 {
                   <Image
-                    src={tabName === scrollTab ? whitedot : graydot}
+                    src={tabName === scrollTab ? reddot : whitedot}
                     $isActive={tabName === scrollTab ? true : false}
                     style={{
                       padding: window.innerWidth > 1280 ? '14px' : '7px',
@@ -355,7 +356,7 @@ const Tab1 = ({ listItems, index }) => {
                 }}
               >
                 <Image
-                  src={tabName === scrollTab ? whitedot : graydot}
+                  src={tabName === scrollTab ? reddot : whitedot}
                   $isActive={tabName === scrollTab ? true : false}
                   style={{
                     marginRight: '12px',

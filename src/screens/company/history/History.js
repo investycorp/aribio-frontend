@@ -100,7 +100,7 @@ const History = () => {
             <div
                 style={{
                   alignSelf: 'center',
-                  width: '60px',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',

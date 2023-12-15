@@ -109,14 +109,6 @@ const DetailPage = () => {
 
   return (
     <HomeComponentWrap id="irpr_detailpage" style={{ backgroundColor: '#fff' }}>
-      <ContainerGridLineWrap
-        className="grid_bg"
-        style={{ position: 'absolute', height: '100%', visibility: 'visible', opacity: '1', zIndex: '0' }}
-      >
-        <GridLineBox style={{ borderColor: 'rgba(177, 177, 177, 0.4)' }} />
-        <GridLineBox style={{ borderColor: 'rgba(177, 177, 177, 0.4)' }} />
-        <GridLineBox style={{ borderColor: 'rgba(177, 177, 177, 0.4)' }} />
-      </ContainerGridLineWrap>
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span

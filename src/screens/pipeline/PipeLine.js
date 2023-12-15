@@ -65,7 +65,7 @@ const PipeLine = () => {
           id: item.id,
           drugCandidate: item.drugCandidate,
           target: item.target,
-          modality: item.modality.replace('\\n', ' '),
+          modality: item.modality,
           indication: item.pipelineIndicationDtoList?.map((indication) => {
             return { id: indication.id, section: indication.indication, phase: indication.phase + 1 };
           }),
@@ -210,7 +210,7 @@ const PipeLine = () => {
               <div
                 style={{
                   alignSelf: 'center',
-                  width: '60px',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
@@ -248,7 +248,15 @@ const PipeLine = () => {
                     /> */}
                   </TableContentBox>
                   <TableContentBox>{item.target}</TableContentBox>
-                  <TableContentBox>{item.modality}</TableContentBox>
+                  <TableContentBox>{item.modality.split('\\n').map(text => {
+                    return (
+                      <>
+                        {text}
+                        <br/>
+                      </>
+                      );
+                    }
+                  )}</TableContentBox>
                   <TableContentBox className="indication" style={{ padding: '0' }}>
                     {item?.indication.map((indication_item, index) => (
                       <div key={'indication' + index}>

@@ -165,7 +165,7 @@ const Notice = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span>NOTICE
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>NOTICE</HeadLine>
+        <HeadLine $className="midsize">NOTICE</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -198,7 +198,7 @@ const Notice = () => {
                   <div
                 style={{
                   alignSelf: 'center',
-                  width: '60px',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',

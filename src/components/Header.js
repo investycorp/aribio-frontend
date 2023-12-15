@@ -51,7 +51,7 @@ const HeaderTop = styled.div`
   justify-content: center;
   z-index: 100;
   @media screen and (max-width: 1280px) {
-    height: 97px;
+    height: 74px;
   }
   @media screen and (max-width: 900px) {
     justify-content: space-between;
@@ -67,7 +67,7 @@ const BlurTop = styled.div`
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   @media screen and (max-width: 1280px) {
-    height: 97px;
+    height: 74px;
   }
 `;
 
@@ -129,6 +129,7 @@ const HeaderNavMenuTextWrap = styled.div`
   text-decoration: none;
   min-width: fit-content;
   padding-bottom: 5px;
+  /* top: 2px; */
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -180,7 +181,7 @@ const HeaderLangButton = styled.button`
   gap: 0.5rem;
   width: 122px;
   height: 52px;
-  gap: 0.5rem;
+
   &:hover {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
@@ -210,7 +211,7 @@ const HeaderBottom = styled.div`
   position: fixed;
   text-decoration: none;
   padding: 0 7vw;
-  top: 118px;
+  top: 116px;
   left: 0;
   display: flex;
   opacity: 0;
@@ -219,12 +220,12 @@ const HeaderBottom = styled.div`
   align-items: center;
   justify-content: stretch;
   background-color: transparent;
-  border-top: 2px solid #5d5d5d;
+  border-top: 2px solid rgba(93, 93, 93, 0.8);
   cursor: default;
   transition: opacity 0.5s ease-in-out;
   @media screen and (max-width: 1280px) {
-    top: 95px;
-    height: 72px;
+    top: 72px;
+    height: 56px;
   }
   @media screen and (max-width: 900px) {
     flex-direction: column;
@@ -271,7 +272,7 @@ const Header = () => {
       { title: 'CONTACT US', linkTo: 'contactus' },
     ],
     openinnovation: [
-      { title: 'Open Innovation', linkTo: 'openinnovation' },
+      { title: 'OPEN INNOVATION', linkTo: 'openinnovation' },
       { title: 'DIGITAL HEALTH', linkTo: 'digitalhealth' },
       { title: 'Memo:Re PROJECT', linkTo: 'memoreproject' },
     ],
@@ -519,7 +520,7 @@ const Header = () => {
                               setSubMenuOpen('');
                             }}
                           >
-                            <span style={{ fontSize: '18px', color: '#EFEFEF' }}>{subMenu.title.toUpperCase()}</span>
+                            <span style={{ fontSize: '18px', color: '#EFEFEF' }}>{subMenu.title}</span>
                           </Link>
                         </div>
                       ))}
@@ -530,6 +531,7 @@ const Header = () => {
           )}
         </HeaderContainer>
       </Mobile>
+      
       <Desktop>
         <>
           <HeaderContainer
@@ -603,7 +605,7 @@ const Header = () => {
                   >
                     <div
                       style={{
-                        paddingBottom: '0.6em',
+                        paddingBottom: 8,
                         borderBottom:
                           currentTab === menu.linkTo && currentTab !== currentMenu
                             ? '2px solid #ffffff'

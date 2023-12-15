@@ -145,7 +145,7 @@ const AiPlatform = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > OUR APPROACH > `}</span>AI PLATFORM
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>
+        <HeadLine $className="midsize">
           {t('aiplatform.headline1')} {window.innerWidth <= 900 && <br />}
           {t('aiplatform.headline2')}
         </HeadLine>
@@ -164,7 +164,10 @@ const AiPlatform = () => {
         <Desktop>
           <HomeComponentWrap>
             <TextWrap style={{ margin: '0', width: '100%' }}>
-              <Text $fontWeight="300" $color="#939598" style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}>
+              <Text $fontWeight="300" $color="#939598"
+                style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px', 
+                  marginBottom: window.innerWidth > 1280 ? '32px' : '20px'
+                }}>
                 {t('aiplatform.title')}
               </Text>
               <Text
@@ -178,7 +181,7 @@ const AiPlatform = () => {
               <div
                 style={{
                   alignSelf: 'center',
-                  width: '60px',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
@@ -300,10 +303,10 @@ const AiPlatform = () => {
           </HomeComponentWrap>
           <HomeComponentWrap>
             <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
-              <HR $height="2px" $color="#ffffff" />
+              <HR $height="2px" $color="#ffffff" style={{alignSelf: 'center'}}/>
               <Text
                 $fontWeight="400"
-                $align="start"
+                $align="center"
                 $color="#ffffff"
                 style={{ margin: '1.5em 0 0 0', fontSize: window.innerWidth > 1280 ? '34px' : '21px' }}
               >
@@ -312,7 +315,7 @@ const AiPlatform = () => {
               <Text
                 $fontWeight="100"
                 $color="#C9C9C9"
-                $align="start"
+                $align="center"
                 style={{ marginTop: '1.5em', width: '100%', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
               >
                 <Trans i18nKey="aiplatform.desc5" components={{ 1: <br /> }} />
@@ -448,6 +451,7 @@ const AiPlatform = () => {
             </TextWrap>
           </HomeComponentWrap>
         </Desktop>
+
         <Mobile>
           <div style={{ overflowX: 'hidden' }}>
             <HomeComponentWrap>
@@ -534,11 +538,11 @@ const AiPlatform = () => {
             </HomeComponentWrap>
             <HomeComponentWrap style={{}}>
               <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
-                <HR $height="1px" $color="#ffffff" $width="20px" />
+                <HR $height="1px" $color="#ffffff" $width="20px" style={{alignSelf: 'center'}} />
                 <Text
                   $fontSize="18px"
                   $fontWeight="600"
-                  $align="start"
+                  $align="center"
                   $color="#ffffff"
                   style={{ margin: '1.5em 0 0 0' }}
                 >
@@ -548,13 +552,19 @@ const AiPlatform = () => {
                   $fontSize="16px"
                   $fontWeight="300"
                   $color="#C9C9C9"
-                  $align="start"
+                  $align="center"
                   style={{ marginTop: '1.5em', width: '100%' }}
                 >
                   <Trans i18nKey="aiplatform_m.desc5" components={{ 1: <br /> }} />
                 </Text>
               </TextWrap>
-              <ButtonWrap>
+              <ButtonWrap
+                style={{
+                  width: '100%',
+                  justifyContent: 'start',
+                  
+                }}
+              >
                 {predictions.map((item, index) => (
                   <RoundButton
                     key={item + index}

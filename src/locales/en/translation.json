@@ -1,51 +1,60 @@
 {
   "home": {
     "aboutus": {
-      "1": "AriBio Co., Ltd. is a biotechnology company",
-      "2": "that aims to develop a meaningful therapies for",
-      "3": "neurodegenerative diseases through its",
-      "4": "innovative platform ARIDD™",
-      "5": "(AI-powered, Reverse",
-      "6": "engineered & Integrated Drug Development)",
-      "7": "and Open Innovation."
+      "1": "AriBio aims to develop a meaningful therapies",
+      "2": "for neurodegenerative diseases through its",
+      "3": "innovative platform ARIDD™ (AI-powered, Reverse",
+      "4": "engineered & Integrated Drug Development)",
+      "5": "and Open Innovation"
     },
     "ourapproach": {
-      "expansion_phase": "Expansion Phase",
-      "1": "Clinical development and Pipeline Extension",
-      "2": "Clinical, engineering and regulatory experts work integrally and seamlessly for fast clinical realization.",
-      "3": "We prioritize the clinical relevance of our robotic technologies and work diligently with our partners to maximize their value through innovative and persistent clinical research collaborations."
+      "title_1": "Our Approach",
+      "desc_1": "Merging Multi-Mechanism Drug Discovery with AI",
+      "title_2": "Pipeline",
+      "desc_2_1": "Our Path to Pioneering Treatments for",
+      "desc_2_2": "Neurodegenerative Diseases, Offering Innovative",
+      "desc_2_3": "Therapies for a Brighter Future",
+      "title_3": "Career",
+      "desc_3": "Join Us at the Forefront of Neurodegenerative Solutions"
     },
     "media_kit": {
       "title": "Media Kit",
-      "content": "Clinical development and Pipeline Extension"
+      "content": "Explore Our Content",
+      "viewall": "Media"
     },
     "notice": {
       "title": "Notice",
-      "content": "Clinical development and Pipeline Extension",
+      "content": "Company Updates and Announcements",
       "viewall": "View All Notice"
     }
   },
   "home_m": {
     "aboutus": {
-      "1": "AriBio Co., Ltd. is",
-      "2": "is a biotechnology <1 /> company that aims to develop",
-      "3": "a meaningful therapies for neurodegenerative diseases <1 /> through its innovative platform",
-      "4": "ARIDD™ (AI-powered, Reverse <1 /> engineered & Integrated <1 /> Drug Development)",
-      "5": "and Open Innovation."
+      "1": "AriBio aims to develop",
+      "2": "meaningful therapies for",
+      "3": "neurodegenerative diseases",
+      "4": "through its innovative",
+      "5": "platform ARIDD™ (AI-powered,",
+      "6": "Reverse engineered &",
+      "7": "Integrated Drug Development)",
+      "8": "and Open Innovation"
     },
     "ourapproach": {
-      "expansion_phase": "Expansion Phase",
-      "1": "Clinical development and Pipeline Extension",
-      "2": "Clinical, engineering and regulatory experts work integrally and …",
-      "3": " We prioritize the relevance of our robotic technologies…"
+      "title_1": "Our Approach",
+      "desc_1": "Merging Multi-Mechanism Drug Discovery with AI",
+      "title_2": "Pipeline",
+      "desc_2": "Our Path to Pioneering Treatments for Neurodegenerative …",
+      "title_3": "Career",
+      "desc_3": "Join Us at the Forefront of Neurodegenerative …"
     },
     "media_kit": {
       "title": "Media Kit",
-      "content": "Clinical development and Pipeline"
+      "content": "Explore Our Content",
+      "viewall": "Media"
     },
     "notice": {
       "title": "Notice",
-      "content": "Clinical development and Pipeline",
+      "content": "Company Updates and Announcements",
       "viewall": "View All Notice"
     }
   },
@@ -66,21 +75,21 @@
     "title": "CEO MESSAGE",
     "subtitle": "Meet Our CEO",
     "desc1": "AriBio’s mission is to improve the quality of human life by developing innovative drugs <1/> that can give hope to patients who suffer from incurable diseases across the globe.",
-    "message": "At AriBio, developing new treatments is like stargazing across the night sky, <1/> plotting our course through the vast unknown. <1/> Our team shares a common mission , steadily working towards our goal <1/>despite the cosmic uncertainties and challenges that may arise.",
+    "message": "“ At AriBio, developing new treatments is like stargazing across the night sky, <1/> plotting our course through the vast unknown. <1/> Our team shares a common mission , steadily working towards our goal <1/>despite the cosmic uncertainties and challenges that may arise.  ”",
     "message2": "AriBio Co., Ltd. CEO Jai Jun Choung",
     "desc2": " AriBio is at the forefront of innovative drug development <1/> for neurodegenerative diseases.",
     "desc3": "As the founder of AriBio, I have spent the past 35 years devoted to the research and development of new treatments for patients. With these experiences, I established AriBio in 2010 with the core purpose of developing meaningful therapies for neurodegenerative diseases. The loss of memory due to dementia is a process that denies a person’s dignity and life, impacting not only to the patient, but also the family members who care for them. Although it has been 110 years since the discovery of Alzheimer’s disease, pharmaceutical companies still face the highest failure rate in developing treatments.<1/><1/> Yet, AriBio is determined to tackle this challenge with a bold vision and unwavering determination. Over the past decade, we have developed an innovative pipeline that enables us to develop new drugs quickly and cost-effectively.<1/><1/>At AriBio, developing new treatments is like stargazing across the night sky, plotting our course through the vast unknown. Our team shares a common mission , steadily working towards our goal despite the cosmic uncertainties and challenges that may arise."
   },
 
   "ceomessage_m": {
-    "desc1": " AriBio’s mission is to improve <1/> the quality of human life by developing <1/> innovative drugs that can give hope <1/> to patients who suffer from <1/> incurable diseases across the globe. <1/>",
-    "message": "AriBio’s mission is<1/> to improve the quality of human <1/> life by developing innovative drugs <1/> that can give hope to patients <1/> who suffer from incurable diseases <1/> across the globe. <1/>",
+    "desc1": "AriBio’s mission is to improve <1/> the quality of human life by developing <1/> innovative drugs that can give hope <1/> to patients who suffer from <1/> incurable diseases across the globe. <1/>",
+    "message": "“ At AriBio, <1/> developing new treatments <1/> is like stargazing across the night sky, <1/> plotting our course through <1/> the vast unknown. <1/> Our team shares a common mission, <1/> steadily working towards our goal <1/> despite the cosmic uncertainties and <1/> challenges that may arise. ”",
     "desc2": "AriBio is at the forefront of innovative <1/> drug development for neurodegenerative diseases.",
     "desc3": "As the founder of AriBio, I have spent the <1/> past 35 years devoted to the research and <1/> development of new treatments for patients. <1/> With these experiences, I established AriBio <1/> in 2010 with the core purpose of developing <1/> meaningful therapies for neurodegenerative <1/> diseases. The loss of memory due to <1/> dementia is a process that denies a person’s <1/> dignity and life, impacting not only to the <1/> patient, but also the family members who <1/> care for them. Although it has been 110 years <1/> since the discovery of Alzheimer’s disease, <1/> pharmaceutical companies still face the <1/> highest failure rate in developing treatments. <1/> Yet, AriBio is determined to tackle this <1/> challenge with a bold vision and unwavering <1/> determination. <1/> Over the past decade, we have developed <1/> an innovative pipeline that enables us <1/> to develop new drugs quickly and <1/> cost-effectively. <1/> <1/> At AriBio, developing new treatments is like <1/> stargazing across the night sky, plotting our <1/> course through the vast unknown. <1/> Our team shares a common mission, <1/> steadily working towards our goal despite <1/> the cosmic uncertainties and challenges <1/> that may arise."
   },
   "ci": {
-    "headline": "CORPOPATE IDENTITY",
-    "title": "CORPOPATE IDENTITY",
+    "headline": "CORPORATE<1 />IDENTITY",
+    "title": "CORPORATE IDENTITY",
     "subtitle": "AriBio CI",
     "desc1": "We are dedicated to pioneering treatments neurodegenerative diseases,<1/> offering innovative therapies for a brighter future.",
     "desc2": "‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable diseases and become a biopharmaceutical leader of South Korea.",
@@ -88,21 +97,21 @@
     "bio": "Derived from the Greek word ‘bios’ meaning ‘life’"
   },
   "ci_m": {
-    "desc1": "  We are dedicated to pioneering <1/> treatments for neurodegenerative <1/> diseases, offering innovative <1/> therapies for a brighter future.",
-    "desc2": " ‘AriBio’ embodies our ambition to contribute to the world <1/> by developing therapeutics for incurable diseases <1/> and become a biopharmaceutical leader of South Korea.",
+    "desc1": " We are dedicated to pioneering <1/> treatments for neurodegenerative <1/> diseases, offering innovative <1/> therapies for a brighter future.",
+    "desc2": "‘AriBio’ embodies our ambition to contribute to the world <1/> by developing therapeutics for incurable diseases <1/> and become a biopharmaceutical leader of South Korea.",
     "ari": "Traditional Korean term for <1/> ‘Wide and Deep, Beauty, A Person with Wisdom’",
     "bio": "Derived from the Greek word ‘bios’ <1/> meaning ‘life’"
   },
   "polypharma": {
-    "headline": "POLY-PHARMACOLOGY",
+    "headline": "POLY- <1 /> PHARMACOLOGY",
     "title": "POLY-PHARMACOLOGY",
     "subtitle": "Merging Multi-Mechanism Drug Discovery with AI",
     "desc1": "Neurodegenerative diseases, such as Alzheimer’s, manifest from a confluence of genetic, environmental, <1/> and physiological factors. The limitations of traditional single-target drugs become evident in their struggle <1/> to achieve clinically meaningful clinical outcomes against these multifactorial diseases. <1/> <1/> Polypharmacology goes beyond traditional drug discovery by emphasizing drugs designed to engage <1/> multiple targets and mechanisms concurrently. This nuanced approach grasps the multifaceted nature of <1/> biological systems, paving the way for a more comprehensive therapeutic approach.",
     "desc2": "   At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies. <1/> With the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span multiple <1/> targets and mechanisms. By leveraging AI, we aim to achieve heightened drug efficacy and expand potential <1/> therapeutic indications, positioning AriBio as a leader in innovative treatments for neurodegenerative diseases. <1/> <1/> Join our pursuit to advance the future of drug discovery, where AI meets the sophistication of polypharmacology,<1/> and tackle the challenges posed by neurodegenerative disorders."
   },
   "polypharma_m": {
-    "desc1": " Neurodegenerative diseases, <1/> such as Alzheimer’s, manifest <1/> from a confluence of genetic, <1/> environmental, and physiological <1/> factors. The limitations of traditional <1/> single-target drugs become evident <1/> in their struggle to achieve clinically <1/> meaningful clinical outcomes against <1/> these multifactorial diseases. <1/> <1/> Polypharmacology goes beyond <1/> traditional drug discovery by <1/> emphasizing drugs designed to engage <1/> multiple targets and mechanisms <1/> concurrently. This nuanced approach <1/> grasps the multifaceted nature of <1/> biological systems, paving the way for <1/> a more comprehensive <1/> therapeutic approach.",
-    "desc2": " At AriBio, our commitment to <1/> polypharmacology is <1/> fortified by the power of advanced <1/> AI technologies. With the ARIDD™ platform, <1/> we delve into vast molecular databases, <1/> predicting interactions that span multiple <1/> targets and mechanisms. <1/> By leveraging AI, we aim to achieve <1/> heightened drug efficacy and <1/> expand potential therapeutic indications, <1/> positioning AriBio as a leader <1/> in innovative treatments <1/> for neurodegenerative diseases. <1/> <1/> Join our pursuit to advance the future of <1/> drug discovery, where AI meets <1/> the sophistication of polypharmacology, <1/> and tackle the challenges posed by <1/> neurodegenerative disorders. <1/>"
+    "desc1": "Neurodegenerative diseases, <1/> such as Alzheimer’s, manifest <1/> from a confluence of genetic, <1/> environmental, and physiological <1/> factors. The limitations of traditional <1/> single-target drugs become evident <1/> in their struggle to achieve clinically <1/> meaningful clinical outcomes against <1/> these multifactorial diseases. <1/> <1/> Polypharmacology goes beyond <1/> traditional drug discovery by <1/> emphasizing drugs designed to engage <1/> multiple targets and mechanisms <1/> concurrently. This nuanced approach <1/> grasps the multifaceted nature of <1/> biological systems, paving the way for <1/> a more comprehensive <1/> therapeutic approach.",
+    "desc2": "At AriBio, our commitment to <1/> polypharmacology is <1/> fortified by the power of advanced <1/> AI technologies. With the ARIDD™ platform, <1/> we delve into vast molecular databases, <1/> predicting interactions that span multiple <1/> targets and mechanisms. <1/> By leveraging AI, we aim to achieve <1/> heightened drug efficacy and <1/> expand potential therapeutic indications, <1/> positioning AriBio as a leader <1/> in innovative treatments <1/> for neurodegenerative diseases. <1/> <1/> Join our pursuit to advance the future of <1/> drug discovery, where AI meets <1/> the sophistication of polypharmacology, <1/> and tackle the challenges posed by <1/> neurodegenerative disorders. <1/>"
   },
   "aiplatform": {
     "headline1": "AI",
@@ -120,18 +129,18 @@
     "subtitle5": "Prediction Algorithms",
     "desc5": "The “Prediction Algorithms” consist of a range of advanced AI prediction models and simulation tools <1/> designed specifically for the fields of chemistry and biology. Each model and solution is carefully crafted to provide <1/> researchers with practical and direct applications, both on its own and in collaboration with the BRAIN platform.",
     "subtitle6": "Pathway Data",
-    "desc6": " Since its origin, the development and objectives of ARIS have always been closely aligned with <1/> AriBio’s polypharmacological approach. Hence, we emphasize harnessing contextual information <1/> when discovering novel polypharmacological drug candidates. <1/> When considering contextual information for polypharmacological drug discovery, pathway data is most critical. <1/> <1/> We extract this pathway data from various sources, leveraging two advanced Deep Learning techniques: <1/> Named Entity Recognition (NER) and Relation Extraction (RE). <1/> The execution flow and interplay of these methods are illustrated below:",
-    "desc6-2": " At the heart of polypharmacological drug discovery lies the pivotal step of target identification. <1/> This involves discerning which biological targets a drug should engage with, to address a specific disease. <1/> The inherent challenge stems from the intricate interdependencies within our body; no single component operates in isolation. <1/> A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of subsequent interactions that <1/> collectively contribute to disease treatment. Hence, pinpointing a viable drug target necessitates <1/> a profound comprehension of these protein interplays within the body - a knowledge rooted in pathway data."
+    "desc6": "Since its origin, the development and objectives of ARIS have always been closely aligned with <1/> AriBio’s polypharmacological approach. Hence, we emphasize harnessing contextual information <1/> when discovering novel polypharmacological drug candidates. <1/> When considering contextual information for polypharmacological drug discovery, pathway data is most critical. <1/> <1/> We extract this pathway data from various sources, leveraging two advanced Deep Learning techniques: <1/> Named Entity Recognition (NER) and Relation Extraction (RE). <1/> The execution flow and interplay of these methods are illustrated below:",
+    "desc6-2": "At the heart of polypharmacological drug discovery lies the pivotal step of target identification. <1/> This involves discerning which biological targets a drug should engage with, to address a specific disease. <1/> The inherent challenge stems from the intricate interdependencies within our body; no single component operates in isolation. <1/> A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of subsequent interactions that <1/> collectively contribute to disease treatment. Hence, pinpointing a viable drug target necessitates <1/> a profound comprehension of these protein interplays within the body - a knowledge rooted in pathway data."
   },
   "aiplatform_m": {
-    "subtitle": " AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
+    "subtitle": "AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
     "desc1": "ARIDD™ is <1/> a drug development platform <1/> that augments the discovery and <1/> development of <1/> polypharmacological drugs. <1/> To accelerate the development of drugs <1/> with multiple mechanisms of action, <1/> we’ve unveiled ARIS, our cutting-edge <1/> AI platform designed for dependable <1/> in-silico predictions and analyses.",
     "desc2": "Existing AI drug discovery tools often <1/> prioritize drug synthesis, intermolecular <1/> binding prediction, and ADMET processes. <1/> While crucial for single-mechanism drug <1/> exploration, polypharmacological discovery <1/> demands a nuanced approach. <1/>",
     "desc3": " ARIS is fundamentally structured <1/> around two concepts, <1/> “BRAIN” and its “Prediction Algorithms”.",
     "desc4": " BRAIN, short for <1/> <2> “The Bridge between AI and In Silico, <1/> In Vitro, and In Vivo”, </2> <1/> has two primary components: <1/> a Knowledge Graph (KG) <1/> and a Large Language Model (LLM). <1/> Together, they form a cohesive <2>Bridge</2>, <1/> seamlessly linking the KG and ARIS <1/> <2> Prediction Algorithms</2> to real-world <1/> applications across <2> In Silico, In Vitro, <1/> and In Vivo </2> domains.",
     "desc5": " The “Prediction Algorithms” consist of a <1/> range of advanced AI prediction models and <1/> simulation tools designed specifically for the <1/> fields of chemistry and biology. Each model <1/> and solution is carefully crafted to provide <1/> researchers with practical and direct <1/> applications, both on its own and in <1/> collaboration with the BRAIN platform.",
     "desc6": "Since its origin, <1/> the development and objectives of ARIS <1/> have always been closely aligned with <1/> AriBio’s polypharmacological approach. <1/> Hence, we emphasize harnessing <1/> contextual information when <1/> discovering novel polypharmacological <1/> drug candidates. <1/> When considering contextual information <1/> for polypharmacological drug discovery, <1/> pathway data is most critical.",
-    "desc6-2": " At the heart of polypharmacological drug <1/> discovery lies the pivotal step of target <1/> identification. This involves discerning <1/> which biological targets a drug <1/> should engage with, to address a specific <1/> disease. The inherent challenge stems <1/> from the intricate interdependencies <1/> within our body; no single component <1/> operates in isolation. <1/> A drug’s interaction with a singular protein <1/> isn’t the sole therapeutic agent; <1/> it’s the cascade of subsequent <1/> interactions that collectively contribute <1/> to disease treatment. Hence, pinpointing <1/> a viable drug target necessitates <1/> a profound comprehension of these <1/> protein interplays within the body — <1/> a knowledge rooted in pathway data. <1/>"
+    "desc6-2": " At the heart of polypharmacological drug <1/> discovery lies the pivotal step of target <1/> identification. This involves discerning <1/> which biological targets a drug <1/> should engage with, to address a specific <1/> disease. The inherent challenge stems <1/> from the intricate interdependencies <1/> within our body; no single component <1/> operates in isolation. <1/> A drug’s interaction with a singular protein <1/> isn’t the sole therapeutic agent; <1/> it’s the cascade of subsequent <1/> interactions that collectively contribute <1/> to disease treatment. Hence, pinpointing <1/> a viable drug target necessitates <1/> a profound comprehension of these <1/> protein interplays within the body - <1/> a knowledge rooted in pathway data. <1/>"
   },
 
   "publication": {
@@ -192,6 +201,17 @@
       "title": "Recruitment Process",
       "subtitle1": "Application Submission",
       "desc1": " Enthusiasm, positive attitude, sincerity, <1/> and social skills will be determined Successful <1/> applicants will be individually contacted.",
+      "subtitle2": "Primary Interview",
+      "desc2": "Panel interview format Practical skills <1/> and knowledge-based interview.",
+      "subtitle3": "In-depth Interview",
+      "desc3": "One-on-one format Personality <1/> based interview.",
+      "subtitle4": "Employment",
+      "desc4": "Announcement of successful applicants."
+    },
+    "recruitment_m": {
+      "title": "Recruitment Process",
+      "subtitle1": "Application Submission",
+      "desc1": " Enthusiasm, positive attitude, sincerity, <1/> and social skills will be determined <1/> Successful applicants will be individually contacted.",
       "subtitle2": "Primary Interview",
       "desc2": "Panel interview format Practical skills <1/> and knowledge-based interview.",
       "subtitle3": "In-depth Interview",

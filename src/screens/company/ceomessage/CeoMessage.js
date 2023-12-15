@@ -37,7 +37,7 @@ const CeoMessage = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > COMPANY > `}</span>CEO MESSAGE
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>
+        <HeadLine $className="midsize">
           CEO MESSAGE
         </HeadLine>
         <img
@@ -47,7 +47,7 @@ const CeoMessage = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -87,47 +87,28 @@ const CeoMessage = () => {
 
           <HomeComponentWrap
             style={{
-              height: window.innerWidth > 1280 ? '594px' : '382px',
-              background: 'linear-gradient(rgba(0, 111, 170, 0.6), rgba(0, 56, 85, 0.6)',
+              height: window.innerWidth > 1280 ? '460px' : '306px',
+              padding: 0,
+              background: 'linear-gradient(rgba(0, 111, 170, 0.6), rgba(0, 0, 0, 0.6)',
             }}
           >
             <TextWrap>
               <Text
-                $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
-                $fontWeight="200"
-                $color="#ffffff"
-                style={{
-                  fontFamily: 'Copperplate',
-                  width: '65%',
-                  textAlign: 'start',
-                  margin: '0',
-                  height: 'fit-content',
-                  lineHeight: '1',
-                }}
-              >
-                “
-              </Text>
-              <Text
                 $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
                 $fontWeight="400"
                 $color="#ffffff"
-                style={{ fontFamily: 'Corsiva Hebrew', fontStyle: 'italic' , padding: '0 20px', width: '70%', textAlign: 'center', margin: '0' }}
+                style={{ fontFamily: 'Corsiva Hebrew', fontStyle: 'italic' , padding: '0 20px', textAlign: 'center', margin: '0' }}
               >
                 <Trans i18nKey="ceomessage.message" components={{ 1: <br /> }} />
-              </Text>
-              <Text
-                $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
-                $fontWeight="200"
-                $color="#ffffff"
-                style={{ fontFamily: 'Copperplate', width: '65%', textAlign: 'end' }}
-              >
-                ”
               </Text>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                 $fontWeight="200"
                 $color="#D6D6D6"
-                style={{ width: '50%', textAlign: window.innerWidth > 1280 ? 'end' : 'center' }}
+                style={{ textAlign: 'end',
+                paddingRight: window.innerWidth > 1280 ? '342px' : '258px',
+                marginTop:  window.innerWidth > 1280 ? '63px' : '24px',
+                marginBottom: 0 }}
               >
                 {t('ceomessage.message2')}
               </Text>
@@ -155,7 +136,7 @@ const CeoMessage = () => {
               </Text>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
-                $fontWeight="400"
+                $fontWeight="300"
                 $color="#909090"
                 style={{
                   textAlign: 'start',
@@ -174,10 +155,10 @@ const CeoMessage = () => {
         <Mobile>
           <HomeComponentWrap>
             <TextWrap>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text style={{marginBottom: 0}} $fontSize="16px" $fontWeight="300" $color="#939598">
                 {t('ceomessage.title')}
               </Text>
-              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
+              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '12px 0 0 0' }}>
                 {t('ceomessage.subtitle')}
               </Text>
               <hr style={{ width: '20px', margin: '3em 0' }} />
@@ -188,48 +169,25 @@ const CeoMessage = () => {
           </HomeComponentWrap>
           <HomeComponentWrap
             style={{
-              background: 'linear-gradient(to bottom, rgba(0,111,170,0.5), rgba(0, 56, 85, 0.5))',
-              height: '257px',
+              background: 'linear-gradient(to bottom, rgba(0,111,170,0.5), rgba(0, 0, 0, 0.5))',
+              height: '290px',
               margin: '5em 0 7em 0',
             }}
           >
             <TextWrap>
               <Text
-                $fontSize="20px"
-                $fontWeight="200"
-                $color="#ffffff"
-                style={{
-                  width: '100%',
-                  textAlign: 'start',
-                  margin: '0',
-                  height: 'fit-content',
-                  lineHeight: '1',
-                  fontFamily: 'Copperplate',
-                }}
-              >
-                “
-              </Text>
-              <Text
                 $fontSize="16px"
                 $fontWeight="300"
                 $color="#ffffff"
-                style={{ padding: '0 20px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px' }}
+                style={{ fontFamily: 'Corsiva Hebrew', fontStyle: 'italic' , padding: '0 20px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px' }}
               >
                 <Trans i18nKey="ceomessage_m.message" components={{ 1: <br /> }} />
-              </Text>
-              <Text
-                $fontSize="20px"
-                $fontWeight="200"
-                $color="#ffffff"
-                style={{ width: '100%', textAlign: 'end', margin: '0', fontFamily: 'Copperplate' }}
-              >
-                ”
               </Text>
               <Text
                 $fontSize="14px"
                 $fontWeight="200"
                 $color="#D6D6D6"
-                style={{ width: '100%', textAlign: 'center', marginBottom: '0' }}
+                style={{ marginTop: '16px', width: '100%', textAlign: 'center', marginBottom: '0' }}
               >
                 {t('ceomessage.message2')}
               </Text>

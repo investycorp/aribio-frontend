@@ -164,7 +164,7 @@ const PressRelease = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span>PRESS RELEASE
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>PRESS{window.innerWidth <= 900 && <br />} RELEASE</HeadLine>
+        <HeadLine $className="midsize">PRESS{window.innerWidth <= 900 && <br />} RELEASE</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -197,7 +197,7 @@ const PressRelease = () => {
                   <div
                     style={{
                       alignSelf: 'center',
-                      width: '60px',
+                      width: window.innerWidth > 1280 ? '60px' : '40px',
                       height: '2px',
                       border: '1px solid #ffffff',
                       margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',

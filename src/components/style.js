@@ -146,18 +146,18 @@ const HeadLine = styled.div.attrs((props) => ({
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 200px;
+  font-size: 140px;
   font-weight: 500;
   overflow: hidden;
   height: fit-content;
-  margin-top: 220px;
+  // margin-top: 220px;
 
   @media screen and (max-width: 1280px) {
-    font-size: 140px;
-    margin-top: 97px;
+    font-size: 100px;
+    // margin-top: 97px;
   }
   @media screen and (max-width: 1100px) {
-    font-size: 110px;
+    font-size: 90px;
   }
   @media screen and (max-width: 900px) {
     font-size: 62px;
@@ -170,16 +170,14 @@ const HeadLine = styled.div.attrs((props) => ({
       font-size: 150px;
     }
     @media screen and (max-width: 1280px) {
-      font-size: 120px;
-    }
-    @media screen and (max-width: 1100px) {
       font-size: 100px;
     }
     @media screen and (max-width: 900px) {
       font-size: 62px;
     }
-    @media screen and (max-width: 600px) {
-      font-size: 46px;
+    @media screen and (max-width: 360px) {
+      font-size: 48px;
+      line-height: 60px;
     }
   }
 `;
@@ -321,6 +319,10 @@ const HR = styled.div`
   width: ${(props) => (props.$width ? props.$width : '60px')};
   height: ${(props) => (props.$height ? props.$height : '2px')};
   background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
+
+  @media screen and (max-width: 1280px){
+    width: 40px;
+  }
 `;
 
 export {

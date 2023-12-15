@@ -31,7 +31,7 @@ const PolyPharmacology = () => {
         />
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine className="midsize" style={{ fontSize: window.innerWidth < 901 && '40px' }}>
+        <HeadLine style={{ fontSize: window.innerWidth < 901 && '40px' }}>
           <Trans i18nKey="polypharma.headline" components={{ 1: <br /> }} />
         </HeadLine>
         <img
@@ -54,7 +54,11 @@ const PolyPharmacology = () => {
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
-            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
+            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598"
+             style={{
+              marginBottom: window.innerWidth > 1280 ? '32px' : '20px'
+            }}
+            >
               {t('polypharma.title')}
             </Text>
             <Text
@@ -68,7 +72,7 @@ const PolyPharmacology = () => {
             <div
                 style={{
                   alignSelf: 'center',
-                  width: '60px',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
