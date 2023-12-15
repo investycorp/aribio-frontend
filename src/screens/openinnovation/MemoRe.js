@@ -73,7 +73,7 @@ const MemoRe = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -95,21 +95,18 @@ const MemoRe = () => {
               <Text $color="#C9C9C9" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
                 Memo:Re PROJECT
               </Text>
-              <div
-                style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
-                }}
-              ></div>
               <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
                 Help Preserve Your Loved One’s Memories
               </Text>
-              <hr
-                style={{ width: '4em', border: '2px solid #ffffff', borderBottom: 'none', margin: '3.5rem 0 5rem 0' }}
-              />
+              <div
+                style={{
+                  alignSelf: 'center',
+                  width: '60px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
+              ></div>
               <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#D3D3D3">
                 We believe that life’s most precious gift is the memories we create, and it is essential to preserve
                 these memories,
@@ -306,15 +303,6 @@ const MemoRe = () => {
               >
                 MEMO:RE PROJECT
               </Text>
-              <div
-                style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '1px solid #ffffff',
-                  margin: '2rem 0 2rem 0',
-                }}
-              ></div>
               <Text $fontSize="23px" $fontWeight="400" style={{ width: '100%', margin: '0' }}>
                 Help Preserve Your
                 <br /> Loved One’s Memories

@@ -167,16 +167,11 @@ const Publications = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
         <Desktop>
           <HomeComponentWrap>
             <TextWrap style={{ margin: '0' }}>
@@ -184,13 +179,13 @@ const Publications = () => {
                 {t('publication.title')}
               </Text>
               <div
-                style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '4em',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
-                }}
+                  style={{
+                    alignSelf: 'center',
+                    width: '60px',
+                    height: '2px',
+                    border: '1px solid #ffffff',
+                    margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                  }}
               ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
@@ -332,7 +327,7 @@ const Publications = () => {
                     <div className="wrap" style={{ alignItems: 'stretch' }}>
                       <div style={{ padding: '1rem' }}>
                         <Image
-                          src={docthumbnail}
+                          src={doc.image}
                           alt="doc"
                           style={{
                             width: window.innerWidth > 1280 ? '170px' : '102px',
@@ -426,16 +421,16 @@ const Publications = () => {
         <Mobile>
           <HomeComponentWrap>
             <TextWrap style={{ margin: '0' }}>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{marginBottom: '0'}}>
                 {t('publication.title')}
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '4em',
-                  borderRight: '1px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: '20px',
+                  height: '1px',
+                  border: '1px solid #ffffff',
+                  margin: '28px 0',
                 }}
               ></div>
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
@@ -533,7 +528,7 @@ const Publications = () => {
                         ) : (
                           <DocType $color={'#012438'}>Pub</DocType>
                         )}
-                        <Image src={docthumbnail} alt="doc" style={{ width: '60px', height: '60px' }} />
+                        <Image src={doc.image} alt="doc" style={{ width: '60px', height: '60px' }} />
                       </div>
                       <div style={{ alignItems: 'start' }}>
                         <Text

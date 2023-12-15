@@ -619,7 +619,7 @@ const Home = () => {
                 </div>
                 <HomeComponentImageWrap
                   style={{ borderRadius: '8px' }}
-                  $src={home_ourapproach1}
+                  $src={home_ourapproach3}
                 ></HomeComponentImageWrap>
               </ComponentGridWrap>
             </HomeComponentWrap>

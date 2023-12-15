@@ -227,6 +227,10 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
       padding: 23px;
       border-radius: 10px;
     }
+
+    @media screen and (max-width: 900px) {
+      
+    }
   }
 `;
 const ContentBoxNameWrap = styled.div`
@@ -425,6 +429,11 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
+
+    @media screen and (max-width: 360px) {
+      padding: 24px 15px 24px 24px; 
+      min-height: 166px;
+    }
   `;
 
 export {

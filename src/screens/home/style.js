@@ -206,6 +206,10 @@ const HomeComponentImageWrap = styled.div`
   @media screen and (max-width: 900px) {
     width: 100%;
   }
+  @media screen and (max-width: 360px) {
+    width: 110px;
+    height: 110px;
+  }
 `;
 
 const ComponentTextWrap = styled.div`

@@ -111,7 +111,7 @@ const Video = ({ page, src }) => {
               position: 'absolute',
               right: '7vw',
               bottom: '5vw',
-              height: window.innerWidth > 1280 ? '60px' : '36px',
+              height: window.innerWidth > 1280 ? '24px' : '14px',
               opacity: shown ? '1' : '0',
             }}
           />

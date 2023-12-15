@@ -172,16 +172,11 @@ const PressRelease = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
 
         {detailPage ? (
           <>
@@ -201,17 +196,17 @@ const PressRelease = () => {
                   </Text>
                   <div
                     style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '8em',
-                      borderRight: '2px solid #ffffff',
-                      margin: '2rem 0',
+                      alignSelf: 'center',
+                      width: '60px',
+                      height: '2px',
+                      border: '1px solid #ffffff',
+                      margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                     }}
                   ></div>
                   <Text
                     $fontWeight="400"
                     $color="#ffffff"
-                    style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
+                    style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                   >
                     {t('press.subtitle')}
                   </Text>
@@ -390,23 +385,23 @@ const PressRelease = () => {
             <Mobile>
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap style={{ width: '70vw' }}>
-                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
+                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0',fontSize: '16px' }}>
                     {t('press.title')}
                   </Text>
                   <div
                     style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '60px',
-                      borderRight: '1px solid #ffffff',
-                      margin: '0',
+                      alignSelf: 'center',
+                      width: '20px',
+                      height: '1px',
+                      border: '1px solid #ffffff',
+                      margin: '28px 0',
                     }}
                   ></div>
                   <Text
                     $fontSize="23px"
                     $fontWeight="500"
                     $color="#ffffff"
-                    style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
+                    style={{ fontSize: '23px' }}
                   >
                     {t('press.subtitle')}
                   </Text>

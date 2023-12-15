@@ -11,7 +11,7 @@ const GoToTop = () => {
         <div
           style={{
             display: 'flex',
-            visibility: isShow ? 'visible' : 'hidden',
+            // visibility: isShow ? 'visible' : 'hidden',
             position: 'absolute',
             bottom: '28vh',
             right: window.innerWidth > 1280 ? '-40px' : '-25px',
@@ -25,7 +25,7 @@ const GoToTop = () => {
           }}
         >
           <img
-            style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '40px' : '25px' }}
+            style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '24px' : '14px' }}
             src={vertical_arrow}
             alt="vertical_arrow"
           />
@@ -48,7 +48,7 @@ const GoToTop = () => {
           }}
         >
           <img
-            style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '40px' : '28px' }}
+            style={{ cursor: 'pointer', width: '14px' }}
             src={vertical_arrow}
             alt="vertical_arrow"
           />

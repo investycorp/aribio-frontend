@@ -29,6 +29,10 @@ const FooterContainer = styled.div`
     gap: 2rem;
     padding: 3rem 7vw;
   }
+  @media screen and (max-width: 360px) {
+    gap: 20px;
+    padding: 3rem 18px;
+  }
 `;
 
 const FooterGridWrap = styled.div`
@@ -41,6 +45,9 @@ const FooterGridWrap = styled.div`
   justify-content: space-between;
   @media screen and (max-width: 900px) {
     gap: 2rem;
+  }
+  @media screen and (max-width: 360px) {
+    gap: 20px;
   }
 `;
 
@@ -280,6 +287,9 @@ const Footer = () => {
                 marginBottom: '1rem',
               }}
             >
+              <ContactBoxText $fontSize={"16px"} style={{marginBottom: '20px'}}>
+                {'T.' + companyInfo.tel?.replace('(Korea)', '') + 'F.'+  companyInfo.fax?.replace('(Korea)', '')}
+              </ContactBoxText>
               <ContactBoxTitle
                 style={{
                   width: '100%',

@@ -156,31 +156,17 @@ const AiPlatform = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg" style={{ zIndex: '0' }}>
-          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
         <Desktop>
           <HomeComponentWrap>
             <TextWrap style={{ margin: '0', width: '100%' }}>
               <Text $fontWeight="300" $color="#939598" style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}>
                 {t('aiplatform.title')}
               </Text>
-              <div
-                style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
-                }}
-              ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
@@ -189,11 +175,19 @@ const AiPlatform = () => {
               >
                 <Trans i18nKey="aiplatform.subtitle" components={{ 1: <br /> }} />
               </Text>
+              <div
+                style={{
+                  alignSelf: 'center',
+                  width: '60px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
+              ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="200"
                 $color="#E5E5E5"
-                style={{ margin: '2em 0' }}
               >
                 <Trans i18nKey="aiplatform.desc1" components={{ 1: <br /> }} />
               </Text>
@@ -458,16 +452,16 @@ const AiPlatform = () => {
           <div style={{ overflowX: 'hidden' }}>
             <HomeComponentWrap>
               <TextWrap style={{ margin: '0' }}>
-                <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+                <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{marginBottom: '0'}}>
                   {t('aiplatform.title')}
                 </Text>
                 <div
                   style={{
-                    width: '50%',
-                    alignSelf: 'flex-start',
-                    height: '60px',
-                    borderRight: '1px solid #ffffff',
-                    margin: '2rem 0',
+                    alignSelf: 'center',
+                    width: '20px',
+                    height: '1px',
+                    border: '1px solid #ffffff',
+                    margin: '28px 0',
                   }}
                 ></div>
                 <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ margin: '0', lineHeight: '1.2em' }}>

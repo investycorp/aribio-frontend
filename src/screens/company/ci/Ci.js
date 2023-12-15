@@ -82,7 +82,7 @@ const Ci = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -99,15 +99,6 @@ const Ci = () => {
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
                 {t('ci.title')}
               </Text>
-              <div
-                style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '4em',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
-                }}
-              ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
@@ -116,11 +107,19 @@ const Ci = () => {
               >
                 {t('ci.subtitle')}
               </Text>
+              <div
+                style={{
+                  alignSelf: 'center',
+                  width: '60px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
+            ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="200"
                 $color="#D3D3D3"
-                style={{ marginTop: '2em' }}
               >
                 <Trans i18nKey="ci.desc1" components={{ 1: <br /> }} />
                 {/* {t('ci.desc1')} */}
@@ -344,18 +343,18 @@ const Ci = () => {
         <Mobile>
           <HomeComponentWrap>
             <TextWrap>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0'}}>
                 {t('ci.title')}
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '1px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: '20px',
+                  height: '1px',
+                  border: '1px solid #ffffff',
+                  margin: '28px 0',
                 }}
-              />
+              ></div>
               <Text $fontSize="23px" $fontWeight="600" $color="#ffffff" style={{ margin: '0' }}>
                 {t('ci.subtitle')}
               </Text>
