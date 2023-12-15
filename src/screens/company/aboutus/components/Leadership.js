@@ -78,7 +78,7 @@ const Leadership = () => {
                 >
                 {ceoContents?.name}
               </Text>
-              <HR style={{alignSelf:'start', marginTop:  window.innerWidth > 1280 ? 75 : 29 }} />
+              <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{alignSelf:'start', marginTop: window.innerWidth > 1280 ? 75 : 29 }} />
             </TextWrap>
             <TextWrap
               style={{width: window.innerWidth > 1280 ? 480 : 360}}
@@ -90,12 +90,17 @@ const Leadership = () => {
                   margin: '0',
                   fontSize: window.innerWidth > 1280 ? '18px' : '10px',
                 }}
-              >
-                <ul style={{ listStyleType: 'disc' }}>
-                  {ceoContents?.contents?.split("\\n").map((item, index) => (
-                    <li key={index}>
-                        {item}
-                      </li>
+              > 
+                <ul>
+                {ceoContents?.contents?.split("\\n").map((item, index) => (
+                    <DescriptionItem key={index}
+                    style={{
+                      listStyle: 'disc',
+                      fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                    }}
+                    >
+                      {item}
+                    </DescriptionItem>
                   ))}
                 </ul>
               </Text>
@@ -107,10 +112,10 @@ const Leadership = () => {
             paddingLeft: '7vw'
           }}
          >
-          <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
+          <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
           <Text
             $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
-            $fontWeight="600"
+            $fontWeight="500"
             $color="#E5E5E5"
             $align="start"
             style={{marginBottom: window.innerWidth > 1280 ? 150 : 100}}
@@ -122,7 +127,7 @@ const Leadership = () => {
           {usContents?.map((item, index) => (
             <ContentBox key={index}>
               <Image
-                src={item.fileDto.fileUrl}
+                src={item?.fileDto?.fileUrl}
                 alt="leadershipphoto1"
                 width={window.innerWidth > 1280 ? 454 : 274}
                 height={window.innerWidth > 1280 ? 304 : 183}
@@ -137,14 +142,14 @@ const Leadership = () => {
                     fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                   }}
                 >
-                  {item.position}
+                  {item?.position}
                 </Text>
                 <Text
                   $fontWeight="700"
                   $align="start"
                   style={{ margin: window.innerWidth > 1280 ? '0.5rem 0 2.5rem 0' : '0.5rem 0 1.563rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
                 >
-                  {item.name}
+                  {item?.name}
                 </Text>
                 <Text
                   $align="start"
@@ -152,14 +157,20 @@ const Leadership = () => {
                   style={{
                     margin: '0',
                     fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                    paddingLeft: '1.125rem',
+                    paddingLeft: window.innerWidth > 1280 ? '1.125rem' : '0.45rem',
                   }}
                 >
-                  <ul style={{ listStyleType: 'disc' }}>
-                    {item.contents?.split("\\n").map((item, index) => (
-                      <li key={index}>
+                  <ul>
+                    {item?.contents?.split("\\n").map((item, index) => (
+                      <DescriptionItem 
+                      key={index}
+                      style={{
+                        listStyle: 'disc',
+                        fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                      }}
+                      >
                           {item}
-                        </li>
+                        </DescriptionItem>
                     ))}
                   </ul>
                 </Text>
@@ -174,7 +185,7 @@ const Leadership = () => {
               paddingLeft: '7vw'
             }}
           >
-            <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
+            <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
             <Text
               $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
               $fontWeight="600"
@@ -191,10 +202,14 @@ const Leadership = () => {
               <ContentBox key={index}
                 style={{marginBottom: '18.75vh'}}
               >
-                <ContentBoxNameWrap>
+                <ContentBoxNameWrap
+                  style={{
+                    paddingRight: window.innerWidth > 1280 ? '78px' : '60px'
+                  }}
+                >
                   <div style={{display: 'flex', flexDirection: 'row'}}>
 
-                    <HR style={{width: 2, height:  window.innerWidth > 1280 ? '5rem' : '3.25rem', marginRight: '2.0833vw'}}/>
+                    <HR style={{backgroundColor: '#B1B1B1', width: 2, height:  window.innerWidth > 1280 ? '5rem' : '3.25rem', marginRight: '2.0833vw'}}/>
                     <TextWrap>
                       <Text
                         $align="start"
@@ -204,14 +219,14 @@ const Leadership = () => {
                           fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                         }}
                         >
-                        {item.position}
+                        {item?.position}
                       </Text>
                       <Text
                         $fontWeight="700"
                         $align="start"
                         style={{ margin: '0.5rem 0 2.5rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
                         >
-                        {item.name}
+                        {item?.name}
                       </Text>
                     </TextWrap>
                   </div>
@@ -221,16 +236,24 @@ const Leadership = () => {
                     style={{
                       margin: '0',
                       fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                      paddingLeft:  window.innerWidth > 1280 ? '3.625rem' : '2.5rem',
+                      paddingLeft:  window.innerWidth > 1280 ? '3.625rem' : '2.25rem',
                     }}
                   >
+                    <ul style={{paddingLeft: '0.8rem'}}>
 
-                      {item.contents?.split("\\n").map((item, index) => (
-                         <DescriptionItem key={item + index}>{item}</DescriptionItem>
-                      
-                      
-                      ))}
-      
+                      {item?.contents?.split("\\n").map((item, index) => (
+                        <DescriptionItem key={item + index}
+                        
+                        style={{
+                          listStyle: 'disc',
+                          fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                        }}
+                        >
+                          {item}
+                        </DescriptionItem>
+
+                        ))}
+                      </ul>
                   </Text>
                 </ContentBoxNameWrap>
               </ContentBox>
@@ -247,7 +270,7 @@ const Leadership = () => {
           >
             <Image
               width={322}
-              height={200}
+              height={236}
               src={ceoContents?.fileDto?.fileUrl}
               alt="ceoProfilePicture"
               style={{
@@ -289,9 +312,19 @@ const Leadership = () => {
                   fontWeight: 300,
                 }}
               >
-                  {ceoContents?.contents?.split("\\n").map((item, index) => (
-                    <DescriptionItem key={item + index}>{item}</DescriptionItem>
-                  ))}
+                  <ul style={{paddingLeft: '0.8rem'}}>
+                    {ceoContents?.contents?.split("\\n").map((item, index) => (
+                      <DescriptionItem 
+                      key={index}
+                      style={{
+                        listStyle: 'disc',
+                        fontSize: '16px',
+                      }}
+                      >
+                          {item}
+                        </DescriptionItem>
+                    ))}
+                  </ul>
               </Text>
             </TextWrap>
          </TabContentWrap>
@@ -327,7 +360,7 @@ const Leadership = () => {
             >
               <ContentBox key={index}>
 
-                <Image src={item.fileDto.fileUrl} alt="leadershipphoto" style={{ width: 322, height: 200 }} />
+                <Image src={item?.fileDto.fileUrl} alt="leadershipphoto" style={{ width: 322, height: 200 }} />
                 <ContentBoxNameWrap>
                   <div style={{
                     width: '100%',
@@ -343,18 +376,18 @@ const Leadership = () => {
                       $fontSize="20px"
                       style={{ margin: '0', fontSize: '15px' }}
                       >
-                      {item.position}
+                      {item?.position}
                     </Text>
                     <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ margin: '0' }}>
-                      {item.name}
+                      {item?.name}
                     </Text>
                   </TextWrap>
-                  {item.isOpen ? (
+                  {item?.isOpen ? (
                     <Image
                       onClick={() => {
-                        const newTabContents = usContents.map((item, idx) => {
+                        const newTabContents = usContents?.map((item, idx) => {
                           if (idx === index) {
-                            return { ...item, isOpen: !item.isOpen };
+                            return { ...item, isOpen: !item?.isOpen };
                           }
                           return item;
                         });
@@ -369,7 +402,7 @@ const Leadership = () => {
                       onClick={() => {
                         const newTabContents = usContents.map((item, idx) => {
                           if (idx === index) {
-                            return { ...item, isOpen: !item.isOpen };
+                            return { ...item, isOpen: !item?.isOpen };
                           }
                           return item;
                         });
@@ -382,13 +415,22 @@ const Leadership = () => {
                   )}
                 </div>
                 </ContentBoxNameWrap>
-                <DescriptionWrap
-                  $isActive={item.isOpen}
-                >
-                   {item?.contents?.split('\\n')?.map((item, index) => (
-                    <DescriptionItem key={item + index}>{item}</DescriptionItem>
-                  ))}
-                </DescriptionWrap>
+                {item?.isOpen && (
+
+                  <ul style={{paddingLeft: '0.8rem'}}>
+                    {item?.contents?.split("\\n").map((item, index) => (
+                      <DescriptionItem 
+                      key={index}
+                      style={{
+                        listStyle: 'disc',
+                        fontSize: '16px',
+                      }}
+                      >
+                          {item}
+                        </DescriptionItem>
+                    ))}
+                </ul>
+                    )}
               </ContentBox>
             </div>
           ))}
@@ -439,18 +481,18 @@ const Leadership = () => {
                       $fontSize="20px"
                       style={{ margin: '0', fontSize: '15px' }}
                       >
-                      {item.position}
+                      {item?.position}
                     </Text>
                     <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ margin: '0' }}>
-                      {item.name}
+                      {item?.name}
                     </Text>
                   </TextWrap>
-                  {item.isOpen ? (
+                  {item?.isOpen ? (
                     <Image
                       onClick={() => {
-                        const newTabContents = headContents.map((item, idx) => {
+                        const newTabContents = headContents?.map((item, idx) => {
                           if (idx === index) {
-                            return { ...item, isOpen: !item.isOpen };
+                            return { ...item, isOpen: !item?.isOpen };
                           }
                           return item;
                         });
@@ -463,9 +505,9 @@ const Leadership = () => {
                   ) : (
                     <Image
                       onClick={() => {
-                        const newTabContents = headContents.map((item, idx) => {
+                        const newTabContents = headContents?.map((item, idx) => {
                           if (idx === index) {
-                            return { ...item, isOpen: !item.isOpen };
+                            return { ...item, isOpen: !item?.isOpen };
                           }
                           return item;
                         });
@@ -478,13 +520,22 @@ const Leadership = () => {
                   )}
                 </div>
                 </ContentBoxNameWrap>
-                <DescriptionWrap
-                  $isActive={item.isOpen}
-                >
-                   {item?.contents?.split('\\n')?.map((item, index) => (
-                    <DescriptionItem key={item + index}>{item}</DescriptionItem>
-                  ))}
-                </DescriptionWrap>
+                {item?.isOpen && (
+
+                  <ul style={{paddingLeft: '0.8rem'}}>
+                    {item?.contents?.split("\\n").map((item, index) => (
+                      <DescriptionItem 
+                      key={index}
+                      style={{
+                        listStyle: 'disc',
+                        fontSize: '16px',
+                      }}
+                      >
+                          {item}
+                        </DescriptionItem>
+                    ))}
+                </ul>
+                    )}
               </HeadItemWrap>
             </div>
           ))}

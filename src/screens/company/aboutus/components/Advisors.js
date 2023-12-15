@@ -68,7 +68,7 @@ const SchoolText = styled.div`
   line-height: 1.5em;
   @media screen and (max-width: 1280px) {
     font-size: 10px;
-    padding-right: 2.5rem;
+    padding-right: 5.8rem;
   }
 `;
 
@@ -81,10 +81,10 @@ const Advisors = () => {
     let itemList = [];
     data?.data?.dataList?.map((item, index) => {
       itemList.push({
-        id: item.id,
-        position: item.position,
-        name: item.name,
-        description: item.contents.split(`\\n`),
+        id: item?.id,
+        position: item?.position,
+        name: item?.name,
+        description: item?.contents.split(`\\n`),
       });
     });
     setTabContents(itemList);
@@ -96,7 +96,9 @@ const Advisors = () => {
       style={{ minHeight: 'fit-content', justifyContent: 'start', overflow: 'hidden', paddingTop: '0' }}
     >
       <Desktop>
-        <TabContentWrap>
+        <TabContentWrap style={{
+          marginBottom: window.innerWidth > 1280 ? '512px' : '344px'
+        }}>
           {tabContents?.map((item, index) => (
             <ContentBox key={index} style={{ height: '121px', justifyContent: 'center' }}>
               <ContentBoxNameWrap
@@ -108,7 +110,7 @@ const Advisors = () => {
                   $align="start"
                   style={{ margin: '0' }}
                 >
-                  {item.name}
+                  {item?.name}
                   <span
                     style={{
                       fontSize: window.innerWidth > 1280 ? '20px' : '12px',
@@ -116,7 +118,7 @@ const Advisors = () => {
                       fontWeight: '400',
                     }}
                   >
-                    {item.position}
+                    {item?.position}
                   </span>
                 </Text>
               </ContentBoxNameWrap>
@@ -128,7 +130,7 @@ const Advisors = () => {
                   borderWeight: window.innerWidth > 1280 ? '2px' : '1px',
                 }}
               />
-              <SchoolText>{item.description}</SchoolText>
+              <SchoolText>{item?.description}</SchoolText>
             </ContentBox>
           ))}
         </TabContentWrap>
@@ -142,7 +144,7 @@ const Advisors = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                padding: index % 2 === 0 ? '0 20% 0 0' : ' 0 0 0 33.3%',
+                padding: index % 2 === 0 ? '0 10px 0 0' : '0 0 0 87px',
               }}
               key={'tabContent' + index}
             >
@@ -167,12 +169,12 @@ const Advisors = () => {
                 >
                   <ContentBoxNameWrap style={{ width: 'fit-content' }}>
                     <Text $fontSize="18px" $fontWeight="700" $align="start" style={{ margin: '0', padding: '0' }}>
-                      {item.name}
-                      <span style={{ fontSize: '15px', fontWeight: '300', marginLeft: '1rem' }}>{item.position}</span>
+                      {item?.name}
+                      <span style={{ fontSize: '15px', fontWeight: '300', marginLeft: '1rem' }}>{item?.position}</span>
                     </Text>
                   </ContentBoxNameWrap>
 
-                  <SchoolText style={{ fontSize: '16px', fontWeight: '100' }}>{item.description}</SchoolText>
+                  <SchoolText style={{ fontSize: '16px', fontWeight: '100', paddingRight: '0' }}>{item?.description}</SchoolText>
                 </ContentBox>
                 {index % 2 === 1 && <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>}
               </div>

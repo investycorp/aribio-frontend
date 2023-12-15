@@ -160,7 +160,7 @@ const Video = ({ page, src, onLayout }) => {
                 position: 'absolute',
                 right: '7vw',
                 bottom: '7vh',
-                height: window.innerWidth > 1280 ? '60px' : '36px',
+                height: '14px',
               }}
             />
             <img

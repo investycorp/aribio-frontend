@@ -62,7 +62,7 @@ const MemoRe = () => {
       </Path>
 
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>
+        <HeadLine $className="midsize">
           Memo:Re
           <br /> PROJECT
         </HeadLine>
@@ -101,7 +101,7 @@ const MemoRe = () => {
               <div
                 style={{
                   alignSelf: 'center',
-                  width: '60px',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
@@ -299,9 +299,9 @@ const MemoRe = () => {
               <Text
                 $color="#C9C9C9"
                 $fontWeight="300"
-                style={{ fontSize: window.innerWidth > 1280 ? '26px' : '16px', margin: '0' }}
+                style={{ fontSize: window.innerWidth > 1280 ? '26px' : '16px', margin: '0 0 12px 0' }}
               >
-                MEMO:RE PROJECT
+                Memo:Re PROJECT
               </Text>
               <Text $fontSize="23px" $fontWeight="400" style={{ width: '100%', margin: '0' }}>
                 Help Preserve Your

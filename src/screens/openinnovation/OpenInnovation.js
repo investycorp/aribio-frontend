@@ -42,7 +42,7 @@ const OpenInnovation = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > `}</span>OPEN INNOVATION
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine style={{ fontSize: window.innerWidth < 901 && '55px' }}>
+        <HeadLine $className="midsize">
           OPEN <br /> INNOVATION
         </HeadLine>
         <img
@@ -57,11 +57,6 @@ const OpenInnovation = () => {
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
 
         <Desktop>
           <HomeComponentWrap
@@ -95,7 +90,7 @@ const OpenInnovation = () => {
               </Text>
               <hr
                 style={{
-                  width: '60px',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
                   borderTop: '2px solid #ffffff',
                   borderBottom: 'none',
                   margin: '3.5rem 0 5rem 0',
@@ -315,7 +310,7 @@ const OpenInnovation = () => {
             <Image
               src={openinnovation_middle2}
               alt="openinnovation_middle2"
-              style={{ width: '65vw', marginTop: '5em', alignSelf: 'start' }}
+              style={{ width: '65vw', marginTop: '5em', paddingLeft: '5vw', alignSelf: 'start' }}
             />
             <TextWrap
               style={{

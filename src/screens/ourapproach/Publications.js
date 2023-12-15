@@ -65,6 +65,11 @@ const Dot = styled.div`
   height: 1rem;
   background-color: ${(props) => props.$color};
   border-radius: 50%;
+
+  @media screen and (max-width: 360px) {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 const DocType = styled.span`
@@ -159,7 +164,7 @@ const Publications = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > OUR APPROACH > `}</span>PUBLICATIONS
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine className="midsize">{t('publication.headline')}</HeadLine>
+        <HeadLine $className="midsize">{t('publication.headline')}</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -181,7 +186,7 @@ const Publications = () => {
               <div
                   style={{
                     alignSelf: 'center',
-                    width: '60px',
+                    width: window.innerWidth > 1280 ? '60px' : '40px',
                     height: '2px',
                     border: '1px solid #ffffff',
                     margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
@@ -418,6 +423,7 @@ const Publications = () => {
             </GridComponentWrap>
           </HomeComponentWrap>
         </Desktop>
+
         <Mobile>
           <HomeComponentWrap>
             <TextWrap style={{ margin: '0' }}>
@@ -484,8 +490,9 @@ const Publications = () => {
                 }}
               >
                 <Dot $color="#004D76" />
-                <span style={{ marginRight: '1rem' }}>Publication</span>
-                <Dot $color="#760027" /> <span>Conference</span>
+                <span style={{ fontSize: '18px', marginRight: '1rem' }}>Publications</span>
+                <Dot $color="#760027" />
+                <span style={{ fontSize: '18px', marginRight: '1rem' }}>Presentations</span>
               </ComponentWrap>
               {filteredList.length > 0 ? (
                 filteredList.map((doc, index) => (

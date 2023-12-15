@@ -25,6 +25,7 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import openinnovation_digitalhealth_middle1 from './assets/openinnovation_digitalhealth_middle1.png';
 import openinnovation_digitalhealth_middle2 from './assets/openinnovation_digitalhealth_middle2.png';
+import openinnovation_digitalhealth_mobile_middle1 from './assets/openinnovation_digitalhealth_mobile_middle1.png';
 
 import arrow from '../../assets/images/arrow.svg';
 import Video from '../../components/Video';
@@ -145,7 +146,7 @@ const DigitalHealth = () => {
         {` DIGITAL HEALTH`}
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>DIGITAL HEALTH</HeadLine>
+        <HeadLine $className="midsize">DIGITAL HEALTH</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -177,7 +178,7 @@ const DigitalHealth = () => {
             <div
                 style={{
                   alignSelf: 'center',
-                  width: '60px',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
@@ -547,9 +548,9 @@ const DigitalHealth = () => {
         </HomeComponentWrap>
         <HomeComponentWrap style={{ justifyContent: 'start' }}>
           <ContentWrap style={{ padding: '0' }}>
-            <TextWrap style={{ width: 'fit-content', alignItems: 'start', margin: '0', gap: '0.5em' }}>
-              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{ margin: '0' }} />
-              <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0' }}>
+            <TextWrap style={{ width: '100%', alignItems: 'start', margin: '0', gap: '0.5em' }}>
+              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{ margin: '0', alignSelf: 'center' }} />
+              <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0', alignSelf: 'center' }}>
                 Our Approach
               </Text>
             </TextWrap>
@@ -564,7 +565,7 @@ const DigitalHealth = () => {
             >
               <Image
                 id="fadeIn"
-                src={process.env.PUBLIC_URL + '/assets/images/openinnovation_digital1.png'}
+                src={openinnovation_digitalhealth_mobile_middle1}
                 alt="openinnovation_mobile_middle1"
                 style={{ height: '80vh', width: 'auto', padding: '2em 0', filter: 'brightness(80%)' }}
               />
@@ -573,9 +574,9 @@ const DigitalHealth = () => {
         </HomeComponentWrap>
         <HomeComponentWrap style={{ justifyContent: 'start' }}>
           <ContentWrap style={{ padding: '0' }}>
-            <TextWrap style={{ width: 'max-content', alignItems: 'start', margin: '0', gap: '0.5em' }}>
-              <HR $color="#F8F8F8" $width="20px" $height="1px" />
-              <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0' }}>
+            <TextWrap style={{ width: '100%', alignItems: 'start', margin: '0', gap: '0.5em' }}>
+              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{alignSelf: 'center'}} />
+              <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0', alignSelf: 'center' }}>
                 Pipeline
               </Text>
             </TextWrap>
@@ -648,15 +649,15 @@ const DigitalHealth = () => {
         <HomeComponentWrap style={{ justifyContent: 'start' }}>
           <ContentWrap style={{ padding: '0', marginBottom: '6rem' }}>
             <TextWrap style={{ alignItems: 'start', margin: '0', gap: '0.5em', width: '100%' }}>
-              <HR $color="#F8F8F8" $width="20px" $height="1px" />
-              <Text $fontSize="20px" $fontWeight="500" $color="#E5E5E5" $align="start" style={{ margin: '0 0 2em 0' }}>
+              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{alignSelf: 'center'}} />
+              <Text $fontSize="20px" $fontWeight="500" $color="#E5E5E5" style={{ alignSelf: 'center', margin: '0 0 2em 0' }}>
                 Electroceutical - I
               </Text>
               <Text
                 $fontSize="16px"
                 $fontWeight="200"
                 $color="#D3D3D3"
-                $align="start"
+                $align="center"
                 style={{ margin: '0', lineHeight: '20px' }}
               >
                 Our product, MDAR3001, harnesses <br />
@@ -691,7 +692,7 @@ const DigitalHealth = () => {
               alt="openinnovation_mobile_middle3"
               style={{ width: '100%', marginTop: '2em', padding: '3em 0', borderTop: '1px solid #696969' }}
             />
-            <Text $align="start" $color="#D3D3D3" $fontSize="16px" $fontWeight="200" style-={{ lineHeight: '20px' }}>
+            <Text $align="center" $color="#D3D3D3" $fontSize="16px" $fontWeight="200" style-={{ lineHeight: '20px' }}>
               In a world where technology continually
               <br />
               evolves, our commitment remains

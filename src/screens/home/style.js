@@ -189,6 +189,11 @@ const ComponentGridWrap = styled.div`
     justify-content: start;
     align-items: center;
   }
+
+    @media screen and (max-width: 360px) {
+    padding: 0;
+    /* margin-bottom: 88px; */
+  }
 `;
 
 const HomeComponentImageWrap = styled.div`
@@ -218,7 +223,7 @@ const ComponentTextWrap = styled.div`
   justify-content: space-evenly;
   height: fit-content;
   width: 100%;
-  padding: 2rem 5rem;
+  padding: 2rem 2rem 2rem 5rem;
   gap: 2rem;
   justify-self: center;
   @media screen and (max-width: 900px) {

@@ -72,7 +72,7 @@ const Ci = () => {
         />
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine className="midsize" style={{ fontSize: window.innerWidth <= 900 && '56px' }}>
+        <HeadLine className="midsize">
           <Trans i18nKey="ci.headline" components={{ 1: <br /> }} />
         </HeadLine>
         <img
@@ -96,7 +96,11 @@ const Ci = () => {
         <Desktop>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap>
-              <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
+              <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598"
+                style={{
+                  marginBottom: window.innerWidth > 1280 ? '32px' : '20px'
+                }}
+              >
                 {t('ci.title')}
               </Text>
               <Text
@@ -110,7 +114,7 @@ const Ci = () => {
               <div
                 style={{
                   alignSelf: 'center',
-                  width: '60px',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
@@ -118,7 +122,7 @@ const Ci = () => {
             ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
-                $fontWeight="200"
+                $fontWeight="300"
                 $color="#D3D3D3"
               >
                 <Trans i18nKey="ci.desc1" components={{ 1: <br /> }} />
@@ -130,7 +134,7 @@ const Ci = () => {
             style={{
               height: window.innerWidth > 1280 ? '409px' : '275px',
               padding: '8vh 7vw',
-              backgroundColor: 'rgba(255,255,255,0.7)',
+              backgroundColor: 'rgba(255,255,255)',
             }}
           >
             <Image src={pngImg} alt="ci_logo" style={{ width: window.innerWidth > 1280 ? '532px' : '364px' }} />
@@ -340,6 +344,7 @@ const Ci = () => {
             </ContentBox>
           </HomeComponentWrap>
         </Desktop>
+
         <Mobile>
           <HomeComponentWrap>
             <TextWrap>
@@ -358,7 +363,7 @@ const Ci = () => {
               <Text $fontSize="23px" $fontWeight="600" $color="#ffffff" style={{ margin: '0' }}>
                 {t('ci.subtitle')}
               </Text>
-              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em' }}>
+              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '12px' }}>
                 <Trans i18nKey="ci_m.desc1" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
