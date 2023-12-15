@@ -41,6 +41,7 @@ const Home = () => {
   const [noticeList, setNoticeList] = useState([]);
   const [modalOpen, setModalOpen] = useState();
   const [modalData, setModalData] = useState();
+  const [videoHeight, setVideoHeight] = useState(0);
 
   useEffect(() => {
     if (data?.data?.success) {
@@ -96,6 +97,12 @@ const Home = () => {
     return () => {
       window.removeEventListener('scroll', () => {});
     };
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setVideoHeight(document.getElementById('video_container').offsetHeight);
+    }, 300);
   }, []);
 
   return (
@@ -464,7 +471,7 @@ const Home = () => {
           </Desktop>
           <Mobile>
             <HomeComponentWrap className="home home_1">
-              <MainImgTextWrap style={{ height: '100vh' }}></MainImgTextWrap>
+              <MainImgTextWrap style={{ height: videoHeight }}></MainImgTextWrap>
             </HomeComponentWrap>
             <HomeComponentWrap className="home home_2">
               <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
