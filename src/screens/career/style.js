@@ -185,9 +185,9 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
   }
 
   &.recruitmentProcess_rowscroll {
-    &:hover {
+    /* &:hover {
       background-color: rgba(255, 255, 255, 0.06);
-    }
+    } */
     &::-webkit-scrollbar {
       display: none;
     }
@@ -217,7 +217,7 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
         margin-bottom: 2em;
       }
       &:nth-child(even) {
-        margin-top: 2em;
+        /* margin-top: 2em; !!!*/
       }
     }
 
@@ -226,6 +226,10 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
       width: 90vw;
       padding: 23px;
       border-radius: 10px;
+    }
+
+    @media screen and (max-width: 900px) {
+      
     }
   }
 `;
@@ -414,6 +418,24 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
   }
 `;
 
+  const RecruitmentItemWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 28.7vw;
+    gap: 2em;
+    max-width: 442px;
+    min-height: 308px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+
+    @media screen and (max-width: 360px) {
+      padding: 24px 15px 24px 24px; 
+      min-height: 166px;
+    }
+  `;
+
 export {
   Container,
   MainImgWrap,
@@ -437,4 +459,5 @@ export {
   ShootingStar,
   FilterShadow,
   Button,
+  RecruitmentItemWrap,
 };

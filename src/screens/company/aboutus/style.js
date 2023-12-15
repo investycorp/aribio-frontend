@@ -87,7 +87,7 @@ const HomeComponentWrap = styled.div`
 `;
 
 const TextWrap = styled.div`
-  width: 50vw;
+  width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -161,12 +161,11 @@ const TabContentWrap = styled.div.attrs((props) => ({
 }))`
   width: 100%;
   height: fit-content;
-  display: grid;
-  grid-template-columns: 35.7vw 28.5vw 35.7vw;
-  grid-template-rows: 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: start;
-  align-items: left;
   background-color: transparent;
   margin-top: 3rem;
   padding-bottom: 10rem;
@@ -208,37 +207,14 @@ const ContentBox = styled.div`
   background-color: transparent;
   // border: 1px solid #ffffff;
   @media screen and (min-width: 901px) and (max-width: 1280px) {
-    &:nth-child(3n + 1) {
-      margin-bottom: 200px;
-    }
-    &:nth-child(3n + 2) {
-      margin-top: 900px;
-      margin-bottom: 200px;
-    }
-    &:nth-child(3n) {
-      margin-top: 200px;
-    }
+  
   }
   @media screen and (min-width: 1281px) {
-    &:nth-child(3n + 1) {
-      margin-bottom: 800px;
-    }
-    &:nth-child(3n + 2) {
-      margin-top: 1300px;
-      margin-bottom: 300px;
-    }
-    &:nth-child(3n) {
-      margin-top: 300px;
-    }
+  
   }
   @media screen and (max-width: 900px) {
     margin-bottom: 120px;
     gap: 0.8rem;
-    width: 65vw;
-    &:nth-child(odd) {
-      justify-content: center;
-      align-items: end;
-    }
   }
 `;
 const ContentBoxNameWrap = styled.div`
@@ -246,10 +222,8 @@ const ContentBoxNameWrap = styled.div`
   width: 100%;
   height: fit-content;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 0 0 7vw;
 `;
 
 const Image = styled.img.attrs((props) => ({
@@ -288,7 +262,16 @@ const DescriptionWrap = styled.ul`
     top: 0;
     left: 0;
   }
+  @media screen and (max-width: 360px) {
+    display: ${(props) => (props.$isActive ? 'flex' : 'none')};
+    transition: all 0.2s ease-in-out;
+    position: relative;
+     padding: 0 0 0 3.1vw;
+    top: 0;
+    left: 0;
+  }
 `;
+
 const DescriptionItem = styled.li`
   width: 100%;
   height: fit-content;
@@ -316,6 +299,51 @@ const DescriptionItem = styled.li`
   }
 `;
 
+const CeoBox = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9.5139vw;
+`;
+
+const MemberListWrap = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 7vw;
+  gap: 132px;
+`;
+
+const HeadListWrap = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 31.25vw 28.5vw 31.25vw;
+  grid-template-rows: 1fr;
+  justify-content: start;
+  align-items: left;
+  padding: 0 7vw;
+`;
+
+const HeadItemWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+  max-width: 442px;
+  min-height: 143px;
+  margin-bottom: 24px;
+  padding: 40px 28px 40px 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+`;
+
+
 export {
   Container,
   MainImgWrap,
@@ -334,4 +362,8 @@ export {
   Image,
   DescriptionWrap,
   DescriptionItem,
+  CeoBox,
+  MemberListWrap,
+  HeadListWrap,
+  HeadItemWrap,
 };

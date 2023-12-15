@@ -38,7 +38,7 @@ const CeoMessage = () => {
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine>
-          CEO <br /> MESSAGE
+          CEO MESSAGE
         </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
@@ -52,12 +52,6 @@ const CeoMessage = () => {
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
-
         <Desktop>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap>
@@ -117,7 +111,7 @@ const CeoMessage = () => {
                 $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
                 $fontWeight="400"
                 $color="#ffffff"
-                style={{ padding: '0 20px', width: '70%', textAlign: 'center', margin: '0' }}
+                style={{ fontFamily: 'Corsiva Hebrew', fontStyle: 'italic' , padding: '0 20px', width: '70%', textAlign: 'center', margin: '0' }}
               >
                 <Trans i18nKey="ceomessage.message" components={{ 1: <br /> }} />
               </Text>
@@ -142,7 +136,12 @@ const CeoMessage = () => {
           {/*  */}
           <HomeComponentWrap style={{ padding: '15vh 7vw', display: 'grid', gridTemplateColumns: '1fr 2fr' }}>
             <ContentBox style={{ alignItems: 'end' }}>
-              <Image src={ceophoto} alt="ceophoto" style={{ width: '125%' }} />
+              <Image
+                width={window.innerWidth > 1280 ? 550 : 335}
+                height={window.innerWidth > 1280 ? 503 : 334}
+                src={ceophoto}
+                alt="ceoPhoto"
+              />
             </ContentBox>
             <ContentBox style={{ padding: '0 0 0 6.5rem', gap: '3em' }}>
               <div style={{ width: '60px', height: '2px', backgroundColor: '#939598' }} />
@@ -238,9 +237,9 @@ const CeoMessage = () => {
           </HomeComponentWrap>
           <HomeComponentWrap style={{ display: 'grid', padding: '0' }}>
             <Image
-              src={process.env.PUBLIC_URL + '/assets/images/ceoimage_mobile.png'}
+              src={process.env.PUBLIC_URL + '/assets/images/ceophoto_mobile.png'}
               alt="ceophoto"
-              style={{ width: '95vw', maxWidth: '400px' }}
+              style={{ width: 324, height: 193, marginLeft: '5vw' }}
             />
 
             <ContentBox style={{ padding: '4rem 5vw 0 5vw', gap: '1rem', marginBottom: '10em' }}>

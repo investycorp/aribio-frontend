@@ -15,6 +15,8 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import Video from '../../components/Video';
 
+import { t } from 'i18next'
+
 const OpenInnovation = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -50,7 +52,7 @@ const OpenInnovation = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -82,7 +84,7 @@ const OpenInnovation = () => {
               src={openinnovation_middle1}
               alt="intro_bg"
             /> */}
-            <TextWrap style={{ width: '70vw', position: 'relative', backgroundColor: 'transparent' }}>
+            <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
               <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
                 OPEN INNOVATION
               </Text>
@@ -103,7 +105,7 @@ const OpenInnovation = () => {
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="300"
                 $color="#D3D3D3"
-                style={{ width: '50vw', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
+                style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
               >
                 Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and
                 <br />
@@ -126,7 +128,9 @@ const OpenInnovation = () => {
             <Image
               src={openinnovation_middle2}
               alt="openinnovation_middle2"
-              style={{ alignSelf: 'end', width: '80%', marginTop: '0' }}
+              width={window.innerWidth > 1280 ? 550 : 334}
+              height={window.innerWidth > 1280 ? 509 : 325}
+              style={{ alignSelf: 'end', marginTop: '0', paddingLeft: '7vw' }}
             />
             <TextWrap
               style={{

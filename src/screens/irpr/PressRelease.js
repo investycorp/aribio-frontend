@@ -29,6 +29,9 @@ import { Link, Outlet, useParams } from 'react-router-dom';
 
 import Video from '../../components/Video';
 
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
+
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
 import usePressReleaseList from '../../hooks/irpr/usePressReleaseList';
@@ -42,6 +45,7 @@ const PressRelease = () => {
   const [itemPerPage, setItemPerPage] = useState(6);
   const [currentItem, setCurrentItem] = useState({});
   const [searchValue, setSearchValue] = useState('');
+  const [searchTermShown, setSearchTermShown] = useState('');
   const [detailPage, setDetailPage] = useState(false);
 
   const [itemList, setItemList] = useState([]);
@@ -51,10 +55,11 @@ const PressRelease = () => {
   const [viewMoreOn, setViewMoreOn] = useState(true);
 
   useEffect(() => {
+    console.log('data', data);
     if (pageNumber === 1) {
       const items = [];
       if (data?.data) {
-        data?.data.data.noticeDtoList.map((item) => {
+        data?.data?.data?.noticeDtoList.map((item) => {
           items.push({
             id: item.id,
             date: item.day,
@@ -70,7 +75,7 @@ const PressRelease = () => {
     }
     if (pageNumber > 1) {
       if (data?.data?.success) {
-        data?.data.data.noticeDtoList.map((item) => {
+        data?.data?.data?.noticeDtoList.map((item) => {
           setFilteredList((prev) => [
             ...prev,
             {
@@ -136,6 +141,7 @@ const PressRelease = () => {
   const handleSearchClick = async (val) => {
     setPageNumber(1);
     refetch(1, language, val);
+    setSearchTermShown(val);
     // setViewMoreOn(true);
   };
 
@@ -166,16 +172,11 @@ const PressRelease = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
 
         {detailPage ? (
           <>
@@ -191,23 +192,23 @@ const PressRelease = () => {
                     $fontWeight="300"
                     $color="#939598"
                   >
-                    PRESS RELEASE
+                    {t('press.title')}
                   </Text>
                   <div
                     style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '8em',
-                      borderRight: '2px solid #ffffff',
-                      margin: '2rem 0',
+                      alignSelf: 'center',
+                      width: '60px',
+                      height: '2px',
+                      border: '1px solid #ffffff',
+                      margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                     }}
                   ></div>
                   <Text
                     $fontWeight="400"
                     $color="#ffffff"
-                    style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
+                    style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                   >
-                    Latest AriBio News
+                    {t('press.subtitle')}
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -223,7 +224,7 @@ const PressRelease = () => {
                     }}
                   >
                     <SearchInput
-                      placeholder="Please enter a search term."
+                      placeholder={t('press.placeholder')}
                       type="text"
                       value={searchValue}
                       onChange={(e) => {
@@ -338,7 +339,11 @@ const PressRelease = () => {
                   ) : (
                     <ComponentWrap style={{ gap: '2em', height: '50vh', justifyContent: 'center' }}>
                       <HR />
-                      <Text>There are no published posts registered.</Text>
+                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                        <Text>There are no published posts registered.</Text>
+                      ) : (
+                        <Text>No result found for '{searchTermShown}'</Text>
+                      )}
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
@@ -380,25 +385,25 @@ const PressRelease = () => {
             <Mobile>
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap style={{ width: '70vw' }}>
-                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
-                    PRESS RELEASE
+                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0',fontSize: '16px' }}>
+                    {t('press.title')}
                   </Text>
                   <div
                     style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '60px',
-                      borderRight: '1px solid #ffffff',
-                      margin: '0',
+                      alignSelf: 'center',
+                      width: '20px',
+                      height: '1px',
+                      border: '1px solid #ffffff',
+                      margin: '28px 0',
                     }}
                   ></div>
                   <Text
                     $fontSize="23px"
                     $fontWeight="500"
                     $color="#ffffff"
-                    style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
+                    style={{ fontSize: '23px' }}
                   >
-                    Latest AriBio News
+                    {t('press.subtitle')}
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -414,7 +419,7 @@ const PressRelease = () => {
                     }}
                   >
                     <SearchInput
-                      placeholder="Please enter a search term."
+                      placeholder={t('press.placeholder')}
                       type="text"
                       value={searchValue}
                       onChange={(e) => {
@@ -496,31 +501,36 @@ const PressRelease = () => {
                   ) : (
                     <ComponentWrap style={{ gap: '2em', height: '30vh', justifyContent: 'center' }}>
                       <HR style={{ width: '24px', height: '1px' }} />
-                      <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                        <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                      ) : (
+                        <Text style={{ fontSize: '16px' }}>No result found for '{searchTermShown}'</Text>
+                      )}
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
-                {pageNumber * itemPerPage <= filteredList.length && (
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      cursor: 'pointer',
-                    }}
-                    onClick={async () => {
-                      if (pageNumber * itemPerPage <= filteredList.length) {
-                        setPageNumber(pageNumber + 1);
-                      }
-                    }}
-                  >
-                    <Image style={{ zIndex: '-1', height: '24px' }} src={icon_more} alt="more" />
-                    <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
-                      View more
-                    </Text>
-                  </div>
-                )}
+                {viewMoreOn ||
+                  (pageNumber * itemPerPage <= filteredList.length && (
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        cursor: 'pointer',
+                      }}
+                      onClick={async () => {
+                        if (pageNumber * itemPerPage <= filteredList.length) {
+                          setPageNumber(pageNumber + 1);
+                        }
+                      }}
+                    >
+                      <Image style={{ zIndex: '-1', height: '24px' }} src={icon_more} alt="more" />
+                      <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
+                        View more
+                      </Text>
+                    </div>
+                  ))}
               </HomeComponentWrap>
             </Mobile>
           </>

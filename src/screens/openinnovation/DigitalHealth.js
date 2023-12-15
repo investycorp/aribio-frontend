@@ -30,6 +30,8 @@ import arrow from '../../assets/images/arrow.svg';
 import Video from '../../components/Video';
 import useLinkList from '../../hooks/useLink';
 
+import { t } from 'i18next'
+
 const DigitalHealth = () => {
   const navigate = useNavigate();
   const { data: linkData } = useLinkList();
@@ -151,7 +153,7 @@ const DigitalHealth = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -168,22 +170,19 @@ const DigitalHealth = () => {
             <Text $color="#939598" style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }} $fontWeight="300">
               DIGITAL HEALTH
             </Text>
-            <div
-              style={{
-                width: '50%',
-                alignSelf: 'flex-start',
-                height: '60px',
-                borderRight: '2px solid #ffffff',
-                margin: '2rem 0',
-              }}
-            ></div>
             <Text style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }} $fontWeight="500">
               Leveraging Digital Health Technologies
               <br /> for Early Dementia Detection and Intervention
             </Text>
-            <hr
-              style={{ width: '60px', borderTop: '2px solid #C9C9C9', borderBottom: 'none', margin: '3.5rem 0 5rem 0' }}
-            />
+            <div
+                style={{
+                  alignSelf: 'center',
+                  width: '60px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
+            ></div>
             <Text style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }} $fontWeight="300" $color="#C9C9C9">
               In today’s rapidly evolving world, it is necessary to turn to innovative digital health {<br />}
               technologies to address the most pressing healthcare challenge of our time – dementia.{' '}
@@ -240,10 +239,10 @@ const DigitalHealth = () => {
             </Text>
           </TextWrap>
         </HomeComponentWrap>
-        <HomeComponentWrap style={{ justifyContent: 'start' }}>
+        <HomeComponentWrap style={{ justifyContent: 'center' }}>
           <ContentWrap style={{ padding: '0' }}>
-            <TextWrap style={{ width: 'fit-content', alignItems: 'start', margin: '0', gap: '2em' }}>
-              <HR $color="#F8F8F8" />
+            <TextWrap style={{ width: '100%', alignItems: 'center', margin: '0', gap: '2em' }}>
+              <HR $color="#F8F8F8" style={{alignSelf: 'center'}} />
               <Text
                 style={{ fontSize: window.innerWidth > 1280 ? '34px' : '19px', margin: '0' }}
                 $fontWeight="500"
@@ -262,10 +261,10 @@ const DigitalHealth = () => {
             </div>
           </ContentWrap>
         </HomeComponentWrap>
-        <HomeComponentWrap style={{ justifyContent: 'start' }}>
+        <HomeComponentWrap style={{ justifyContent: 'center' }}>
           <ContentWrap style={{ padding: '0' }}>
-            <TextWrap style={{ width: 'fit-content', alignItems: 'start', margin: '0', gap: '2em' }}>
-              <HR $color="#F8F8F8" />
+            <TextWrap style={{ width: '100%', alignItems: 'center', margin: '0', gap: '2em' }}>
+              <HR $color="#F8F8F8"  style={{alignSelf: 'center'}} />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '19px'}
                 $fontWeight="500"
@@ -298,7 +297,7 @@ const DigitalHealth = () => {
 
                 <TableContentBox style={{ padding: '0' }}>
                   <ShootingStarWrap className="shooting_star_wrap">
-                    <hr style={{ width: '100%', border: '1px dotted', opacity: '0.4' }} />
+                    <hr style={{ width: '100%', border: '1px dotted', opacity: '0' }} />
                     <ShootingStar
                       className="shooting_star"
                       style={{
@@ -341,15 +340,15 @@ const DigitalHealth = () => {
             </Text>
           </ContentWrap>
         </HomeComponentWrap>
-        <HomeComponentWrap style={{ justifyContent: 'start' }}>
+        <HomeComponentWrap style={{ justifyContent: 'center' }}>
           <ContentWrap style={{ padding: '0', marginBottom: '14em' }}>
-            <TextWrap style={{ alignItems: 'start', margin: '0', gap: '2em', width: '80vw' }}>
+            <TextWrap style={{ alignItems: 'center', margin: '0', gap: '2em', width: '100%' }}>
               <HR $color="#F8F8F8" />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '19px'}
                 $fontWeight="600"
                 $color="#F4F4F4"
-                $align="start"
+                $align="center"
                 style={{ margin: '0' }}
               >
                 Electroceutical - I
@@ -358,7 +357,7 @@ const DigitalHealth = () => {
                 $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
                 $fontWeight="100"
                 $color="#C9C9C9"
-                $align="start"
+                $align="center"
                 style={{ margin: '0' }}
               >
                 Our product, MDAR3001, harnesses a proprietary sound source, designed to induce neuronal differentiation
@@ -378,7 +377,7 @@ const DigitalHealth = () => {
               />
             </div>
             <Text
-              $align="start"
+              $align="center"
               $color="#C9C9C9"
               $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
               $fontWeight="100"
@@ -408,7 +407,7 @@ const DigitalHealth = () => {
               $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
               $fontWeight="300"
               $color="#ffffff"
-              $align="start"
+              $align="center"
               $clickable={true}
               style={{
                 display: 'flex',
@@ -450,15 +449,6 @@ const DigitalHealth = () => {
             <Text $color="#939598" $fontSize="16px" $fontWeight="300">
               DIGITAL HEALTH
             </Text>
-            <div
-              style={{
-                width: '50%',
-                alignSelf: 'flex-start',
-                height: '60px',
-                borderRight: '1px solid #ffffff',
-                marginBottom: '3rem',
-              }}
-            ></div>
             <Text $fontSize="23px" $fontWeight="500" style={{ margin: '0', lineHeight: '26px' }}>
               Leveraging Digital Health
               <br />

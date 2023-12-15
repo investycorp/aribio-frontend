@@ -11,6 +11,11 @@ import icon_balancedLife from './assets/icon_balancedlife.svg';
 import icon_culture from './assets/icon_culture.svg';
 import icon_etc from './assets/icon_etc.svg';
 
+import icon_recruitment_1 from './assets/icon_recruitment_1.svg';
+import icon_recruitment_2 from './assets/icon_recruitment_2.svg';
+import icon_recruitment_3 from './assets/icon_recruitment_3.svg';
+import icon_recruitment_4 from './assets/icon_recruitment_4.svg';
+
 import arrow from '../../assets/images/arrow.svg';
 
 import {
@@ -30,12 +35,16 @@ import {
   ShootingStar,
   FilterShadow,
   Button,
+  RecruitmentItemWrap,
 } from './style';
 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
 import Video from '../../components/Video';
+
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 
 import useCareerList from '../../hooks/career/useCareerList';
 
@@ -47,158 +56,149 @@ const Career = () => {
 
   const [coreValues, setCoreValues] = useState([
     {
-      title: 'Patient-Centered',
+      title: t('career.corevalue.subtitle1'),
       desc: (
         <>
-          Our unwavering commitment is to the well-being of patients and their families.
-          <br /> Every project and decision revolves around this central principle.
+          <Trans i18nKey={'career.corevalue.desc1'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Collaborative Spirit',
+      title: t('career.corevalue.subtitle2'),
       desc: (
         <>
-          Harnessing the power of collective intelligence, we value teamwork and <br />
-          interdisciplinary collaboration, driving us forward and amplifying our impact.
+          <Trans i18nKey={'career.corevalue.desc2'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Integrity in Action',
+      title: t('career.corevalue.subtitle3'),
       desc: (
         <>
-          Upholding the highest ethical and scientific standards is paramount,
-          <br /> establishing trust in both our results and our relationships.
+          <Trans i18nKey={'career.corevalue.desc3'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Continuous Learning',
+      title: t('career.corevalue.subtitle4'),
       desc: (
         <>
-          We champion ongoing growth, adaptation, and education, <br />
-          to ensure we remain leaders in our field
+          <Trans i18nKey={'career.corevalue.desc4'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
       title: (
         <>
-          <span>Resilience &</span>
-          <br />
-          <span>Perseverance</span>
+          <span>
+            <Trans i18nKey={'career.corevalue.subtitle5'} components={{ 1: <br /> }} />
+          </span>
         </>
       ),
       desc: (
         <>
-          Faced with challenges, our resolve strengthens.
-          <br />
-          We believe every setback is a stepping stone to a major leap forward.
+          <Trans i18nKey={'career.corevalue.desc5'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
       title: (
         <>
-          <span>Transparent </span>
-          <br />
-          <span>Communication</span>
+          <span>
+            <Trans i18nKey={'career.corevalue.subtitle6'} components={{ 1: <br /> }} />
+          </span>
         </>
       ),
       desc: (
         <>
-          “We promote” open dialogue with our team, partners, and <br />
-          communities fosters mutual respect and understanding.
+          <Trans i18nKey={'career.corevalue.desc6'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Keep an Open Mind',
+      title: t('career.corevalue.subtitle7'),
       desc: (
         <>
-          We approach every challenge with curiosity, welcoming
-          <br /> fresh perspectives and ideas.
+          <Trans i18nKey={'career.corevalue.desc7'} components={{ 1: <br /> }} />
         </>
       ),
     },
   ]);
   const [recruitmentProcess, setRecruitmentProcess] = useState([
     {
-      title: 'Application Submission',
+      title: t('career.recruitment.subtitle1'),
+      img: icon_recruitment_1,
       desc: (
         <>
-          Enthusiasm, positive attitude, sincerity,
-          <br /> and social skills will be determined
-          <br /> Successful applicants will be
-          <br /> individually contacted.
+          <Trans i18nKey={'career.recruitment.desc1'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Primary Interview',
+      title: t('career.recruitment.subtitle2'),
+      img: icon_recruitment_2,
       desc: (
         <>
-          Panel interview format Practical skills <br />
-          and knowledge-based interview.
+          <Trans i18nKey={'career.recruitment.desc2'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'In-depth Interview',
+      title: t('career.recruitment.subtitle3'),
+      img: icon_recruitment_3,
       desc: (
         <>
-          One-on-one format Personality
-          <br /> based interview.
+          <Trans i18nKey={'career.recruitment.desc3'} components={{ 1: <br /> }} />
         </>
       ),
     },
     {
-      title: 'Employment',
-      desc: <>Announcement of successful applicants.</>,
+      title: t('career.recruitment.subtitle4'),
+      img: icon_recruitment_4,
+      desc: <>{t('career.recruitment.desc4')}</>,
     },
   ]);
 
   const [benefits, setBenefits] = useState([
     {
-      title: 'Work',
+      title: t('career.benefits.subtitle1'),
       img: icon_work,
       desc: [
-        'Five-day workweek',
-        'Unlimited access to beverages, coffee, and snacks',
-        'High processing laptops and monitors provided',
-        'Lunch provided',
+        t('career.benefits.desc1-1'),
+        t('career.benefits.desc1-2'),
+        t('career.benefits.desc1-3'),
+        t('career.benefits.desc1-4'),
       ],
     },
     {
-      title: 'Balanced Life',
+      title: t('career.benefits.subtitle2'),
       img: icon_balancedLife,
       desc: [
-        'Financial support for special occasions',
-        'Maternity leave, paternity leave',
-        'Stock options',
-        'Retirement benefits',
+        t('career.benefits.desc2-1'),
+        t('career.benefits.desc2-2'),
+        t('career.benefits.desc2-3'),
+        t('career.benefits.desc2-4'),
       ],
     },
     {
-      title: 'Culture',
+      title: t('career.benefits.subtitle3'),
       img: icon_culture,
       desc: [
-        'Annual workshops',
-        'Training and seminar fee supported',
-        'Literature purchase fee supported',
-        'In-house hobby clubs supported',
+        t('career.benefits.desc3-1'),
+        t('career.benefits.desc3-2'),
+        t('career.benefits.desc3-3'),
+        t('career.benefits.desc3-4'),
       ],
     },
     {
-      title: 'Etc',
+      title: t('career.benefits.subtitle4'),
       img: icon_etc,
       desc: [
-        'Holiday gifts provided',
-        'Birthday gifts provided',
-        'AriBio talent of the year award',
-        'Paid vacations / Paid public holidays',
-        'Pleasant working environment provided',
+        t('career.benefits.desc4-1'),
+        t('career.benefits.desc4-2'),
+        t('career.benefits.desc4-3'),
+        t('career.benefits.desc4-4'),
+        t('career.benefits.desc4-5'),
       ],
     },
   ]);
@@ -303,16 +303,11 @@ const Career = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
         {detailPage ? (
           // rendering detail page and detail page footer navigation
           <>
@@ -324,25 +319,23 @@ const Career = () => {
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap>
                   <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-                    CAREER
+                    {t('career.title')}
                   </Text>
-                  <div
+                  <hr
                     style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '4em',
-                      borderRight: '2px solid #ffffff',
-                      margin: '2rem 0',
+                      width: window.innerWidth > 1280 ? '60px' : '40px',
+                      margin: '5em 0',
+                      borderTop: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                      borderBottom: 'none',
                     }}
-                  ></div>
+                  />
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                     $fontWeight="500"
                     $color="#ffffff"
                     style={{ margin: '2rem 0 0 0' }}
                   >
-                    Join Us at the Forefront of
-                    <br /> Neurodegenerative Solutions
+                    <Trans i18nKey={'career.subtitle'} components={{ 1: <br /> }} />
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -379,12 +372,7 @@ const Career = () => {
                     $color="#ffffff"
                     style={{ padding: '0 20px', width: '80%', textAlign: 'center', margin: '0' }}
                   >
-                    Our dedicated team is set on discovering transformative treatments.
-                    <br />
-                    We invite innovative minds to join our mission.
-                    <br />
-                    Together, let’s usher in a new era of therapeutic breakthroughs for those in need.
-                    <br />
+                    <Trans i18nKey={'career.desc1'} components={{ 1: <br /> }} />
                   </Text>
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
@@ -453,6 +441,7 @@ const Career = () => {
                 </div>
               </HomeComponentWrap>
               <HomeComponentWrap style={{ padding: '5vh 0 5vh 7vw' }}>
+                <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                   $fontWeight="300"
@@ -468,7 +457,6 @@ const Career = () => {
                   }}
                 >
                   Recruitment Process
-                  <HR />
                 </Text>
                 <ContentBox
                   className="recruitmentProcess_rowscroll"
@@ -476,54 +464,45 @@ const Career = () => {
                     const container = document.querySelector('.recruitmentProcess_rowscroll');
                     const scrollAmount = e.deltaY;
                     if (
-                      (scrollAmount < 0 && container.scrollLeft === 0) || 
-                      (scrollAmount > 0 && container.scrollLeft === container.scrollWidth - container.clientWidth) 
+                      (scrollAmount < 0 && container.scrollLeft === 0) ||
+                      (scrollAmount > 0 && container.scrollLeft === container.scrollWidth - container.clientWidth)
                     ) {
                       window.scrollTo({
                         top: window.scrollY + scrollAmount,
                         behavior: 'auto', // You can use 'auto' instead of 'smooth' for instant scrolling
                       });
-                      
                     } else {
                       container.scrollLeft += scrollAmount;
                     }
-                    
                   }}
                   style={{
                     justifyContent: 'start',
                     alignItems: 'start',
                     overflowX: 'auto',
                     width: '100%',
-                    gap: '0',
+                    gap: '5.555vw',
                     flexwrap: 'nowrap',
                     marginBottom: '5em',
                     padding: '5rem 0',
                   }}
                 >
                   {recruitmentProcess.map((item, index) => (
-                    <TextWrap
-                      style={{
-                        flex: '0 0 28.7vw',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'start',
-                        alignItems: 'start',
-                        gap: '2em',
-                        width: '28.7vw',
-                        marginRight: index === recruitmentProcess.length - 1 && '15px',
-                      }}
+                    <RecruitmentItemWrap
                       key={`recruitmentProcess${index}`}
                     >
-                      <Text
-                        $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
-                        $fontWeight="400"
-                        $color="#00A6FF"
-                        $align="start"
-                        style={{ width: 'fit-content', overflow: 'unset', marginLeft: index === 0 && '3px' }}
-                      >
-                        {`0${index + 1}`}
-                      </Text>
-                      <TextWrap style={{ alignItems: 'start', gap: '2em', width: '85%' }}>
+                      <TextWrap style={{flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between'}}>
+                        <Image src={item.img} />
+                        <Text
+                          $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
+                          $fontWeight="400"
+                          $color="#00A6FF"
+                          $align="start"
+                          style={{ width: 'fit-content', overflow: 'unset', marginLeft: index === 0 && '3px' }}
+                          >
+                          {`0${index + 1}`}
+                        </Text>
+                      </TextWrap>
+                      <TextWrap style={{ alignItems: 'start', gap: '20px' }}>
                         <Text
                           $fontSize={window.innerWidth > 1280 ? '24px' : '15px'}
                           $fontWeight="300"
@@ -534,7 +513,7 @@ const Career = () => {
                           {item.title}
                         </Text>
                         <Text
-                          $fontSize={window.innerWidth > 1280 ? '20px' : '11px'}
+                          $fontSize={window.innerWidth > 1280 ? '18px' : '11px'}
                           $fontWeight="300"
                           $color="#C9C9C9"
                           $align="start"
@@ -543,12 +522,13 @@ const Career = () => {
                           {item.desc}
                         </Text>
                       </TextWrap>
-                    </TextWrap>
+                    </RecruitmentItemWrap>
                   ))}
                 </ContentBox>
               </HomeComponentWrap>
               <HomeComponentWrap id="benefits" style={{ flexDirection: 'row', alignItems: 'start' }}>
                 <TextWrap style={{ flex: '0 0 28.7vw', width: '28.7vw' }}>
+                  <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                     $fontWeight="300"
@@ -557,7 +537,15 @@ const Career = () => {
                   >
                     Benefits
                   </Text>
-                  <HR style={{ alignSelf: 'start', margin: '1.5em 0' }} />
+                  <Text
+                   $fontSize={window.innerWidth > 1280 ? '20px' : '21px'}
+                   $fontWeight="300"
+                   $color="#CBCBCB"
+                   $align="start"
+                   style={{marginTop: '1.14vh'}}
+                  >
+                    <Trans i18nKey={'career.benefits.desc'} components={{ 1: <br /> }} />
+                  </Text>
                 </TextWrap>
                 <GridContentWrap style={{ gridTemplateColumns: '1fr 1fr', margin: '0', rowGap: '5vh' }}>
                   {benefits.map((item, index) => (
@@ -627,7 +615,7 @@ const Career = () => {
                           navigate('/company/aboutus');
                         }}
                       >
-                        <span style={{ zIndex: '-1' }}>Meet Our Leadership</span>
+                        <span style={{ zIndex: '-1' }}>{t('career.buttons.meetourleadership')}</span>
                         <Image
                           src={arrow}
                           alt="arrow"
@@ -753,21 +741,18 @@ const Career = () => {
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap>
                   <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                    CAREER
+                    {t('career.title')}
                   </Text>
-                  <div
+                  <hr
                     style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '4em',
-                      borderRight: '1px solid #ffffff',
-                      margin: '2rem 0',
+                      width: window.innerWidth > 1280 ? '60px' : '40px',
+                      margin: '5em 0',
+                      borderTop: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                      borderBottom: 'none',
                     }}
-                  ></div>
+                  />
                   <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                    Join Us at the Forefront of
-                    <br />
-                    Neurodegenerative Solutions
+                    <Trans i18nKey={'career.subtitle'} components={{ 1: <br /> }} />
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -795,28 +780,9 @@ const Career = () => {
                     $fontSize="18px"
                     $fontWeight="400"
                     $color="#EFEFEF"
-                    style={{ padding: '0 18px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '24px' }}
+                    style={{ padding: '0 4px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '24px' }}
                   >
-                    At Aribio,
-                    <br />
-                    we’re at the cutting edge of tackling
-                    <br />
-                    neurodegenerative disorders.
-                    <br />
-                    Our dedicated team is set on
-                    <br />
-                    discovering transformative
-                    <br />
-                    treatments. We invite
-                    <br />
-                    innovative minds to join our mission.
-                    <br />
-                    Together, let’s usher in a new era
-                    <br />
-                    of therapeutic breakthroughs
-                    <br />
-                    for those in need.
-                    <br />
+                    <Trans i18nKey={'career_m.desc1'} components={{ 1: <br /> }} />
                   </Text>
                   <Text
                     $fontSize="20px"
@@ -879,6 +845,7 @@ const Career = () => {
               </div>
             </HomeComponentWrap> */}
               <HomeComponentWrap>
+                <HR $width="40px" $height="1px" style={{marginBottom: 12, alignSelf: 'start'}}/>
                 <Text
                   $fontSize="20px"
                   $fontWeight="500"
@@ -894,7 +861,6 @@ const Career = () => {
                   }}
                 >
                   Recruitment Process
-                  <HR $width="40px" $height="1px" />
                 </Text>
                 <ContentBox
                   className="recruitment_process"
@@ -910,46 +876,42 @@ const Career = () => {
                   }}
                 >
                   {recruitmentProcess.map((item, index) => (
-                    <TextWrap
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignItems: 'start',
-                        gap: '2rem',
-                        width: '100%',
-                      }}
-                      key={`recruitmentProcess${index}`}
+                     <RecruitmentItemWrap
+                     key={`recruitmentProcess${index}`}
                     >
-                      <Text
-                        $fontSize="16px"
-                        $fontWeight="500"
-                        $color="#00A6FF"
-                        $align="start"
-                        style={{ width: 'fit-content', overflow: 'hidden', paddingTop: '3px' }}
-                      >
-                        {`0${index + 1}`}
-                      </Text>
-                      <TextWrap style={{ alignItems: 'start', gap: '0.5rem', width: '85%' }}>
-                        <Text
-                          $fontSize="18px"
-                          $fontWeight="400"
-                          $color="#ffffff"
-                          $align="start"
-                          style={{ width: 'auto', overflow: 'hidden' }}
-                        >
-                          {item.title}
-                        </Text>
-                        <Text
-                          $fontSize="16px"
-                          $fontWeight="200"
-                          $color="#C9C9C9"
-                          $align="start"
-                          style={{ width: 'auto', overflow: 'hidden' }}
-                        >
-                          {item.desc}
-                        </Text>
-                      </TextWrap>
-                    </TextWrap>
+                     <TextWrap style={{flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between'}}>
+                       <Image src={item.img} />
+                       <Text
+                         $fontSize={'14px'}
+                         $fontWeight="400"
+                         $color="#00A6FF"
+                         $align="start"
+                         style={{ width: 'fit-content', overflow: 'unset', marginRight: '9px' }}
+                         >
+                         {`0${index + 1}`}
+                       </Text>
+                     </TextWrap>
+                     <TextWrap style={{ alignItems: 'start', gap: '12px' }}>
+                       <Text
+                         $fontSize={'18px'}
+                         $fontWeight="300"
+                         $color="#ffffff"
+                         $align="start"
+                         style={{ width: 'auto', overflow: 'hidden' }}
+                       >
+                         {item.title}
+                       </Text>
+                       <Text
+                         $fontSize={'16px'}
+                         $fontWeight="300"
+                         $color="#D6D6D6"
+                         $align="start"
+                         style={{ width: 'auto', overflow: 'hidden' }}
+                       >
+                         {item.desc}
+                       </Text>
+                     </TextWrap>
+                   </RecruitmentItemWrap>
                   ))}
                 </ContentBox>
               </HomeComponentWrap>
@@ -958,10 +920,10 @@ const Career = () => {
                 style={{ display: 'grid', gridTemplateColumns: '1fr', alignItems: 'start' }}
               >
                 <TextWrap style={{ width: 'fit-content', marginBottom: '3rem' }}>
+                  <HR $height="1px" style={{ alignSelf: 'start', margin: '1rem 0', width: '40px' }} />
                   <Text $fontSize="20px" $fontWeight="500" $color="#E5E5E5" $align="start">
                     Benefits
                   </Text>
-                  <HR $height="1px" style={{ alignSelf: 'start', margin: '1rem 0', width: '40px' }} />
                 </TextWrap>
                 <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '80px' }}>
                   {benefits.map((item, index) => (
@@ -1047,7 +1009,7 @@ const Career = () => {
                           navigate('/aboutus');
                         }}
                       >
-                        <span style={{ zIndex: '-1' }}>Meet Our Leadership</span>
+                        <span style={{ zIndex: '-1' }}>{t('career.buttons.meetourleadership')}</span>
                         <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                       </Text>
                       <Text

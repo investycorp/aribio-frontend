@@ -27,6 +27,8 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 import usePipelineList from '../../hooks/pipeline/usePipelineList';
 import Language from '../../atom/Language';
 import { useRecoilState } from 'recoil';
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
 
 import Video from '../../components/Video';
 
@@ -187,7 +189,7 @@ const PipeLine = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -203,29 +205,24 @@ const PipeLine = () => {
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap>
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-                PIPELINE
+                {t('pipeline.title')}
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '8em',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: '60px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                 }}
-              ></div>
+            ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
                 $color="#ffffff"
                 style={{ margin: '2rem 0 0 0', lineHeight: '1.5' }}
               >
-                Our Path to Pioneering Treatments for
-                <br />
-                Neurodegenerative Diseases,
-                <br />
-                Offering Innovative Therapies for a Brighter Future
-                <br />
+                <Trans i18nKey="pipeline.subtitle" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <TableWrap className="table">
@@ -238,16 +235,17 @@ const PipeLine = () => {
                 <TableRowWrap className="tr" key={'tableRow' + index}>
                   <TableContentBox style={{ fontWeight: '600' }}>
                     <span style={{ padding: '0.5em', cursor: 'pointer' }}>{item?.drugCandidate}</span>
-                    <img
+
+                    {/* <img
                       style={{ padding: '0.5em', cursor: 'pointer' }}
                       src={icon_open}
                       alt="modal_open"
                       onClick={() => {
                         // !!!!Add when pop content is ready!!!!
-                        // setIsModalOpen(true);
-                        // setModalItem({ ...item.modal, item: item?.drugCandidate });
+                        setIsModalOpen(true);
+                        setModalItem({ ...item.modal, item: item?.drugCandidate });
                       }}
-                    />
+                    /> */}
                   </TableContentBox>
                   <TableContentBox>{item.target}</TableContentBox>
                   <TableContentBox>{item.modality}</TableContentBox>
@@ -296,35 +294,25 @@ const PipeLine = () => {
         <Mobile>
           <HomeComponentWrap style={{ padding: '5vh 5vw', marginBottom: '10em' }}>
             <TextWrap>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                PIPELINE
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{marginBottom: '0'}}>
+                {t('pipeline.title')}
               </Text>
               <div
-                id="modalOff"
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '1px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: '20px',
+                  height: '1px',
+                  border: '1px solid #ffffff',
+                  margin: '28px 0',
                 }}
               ></div>
               <Text
                 $fontSize="23px"
                 $fontWeight="500"
                 $color="#ffffff"
-                style={{ margin: '2rem 0 0 0', lineHeight: '1.2em' }}
+                style={{ lineHeight: '1.2em' }}
               >
-                Our Path to Pioneering
-                <br />
-                Treatments for
-                <br />
-                Neurodegenerative Diseases,
-                <br />
-                Offering Innovative Therapies
-                <br />
-                for a Brighter Future
-                <br />
+                <Trans i18nKey="pipeline.subtitle_m" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <div style={{ width: '100%' }} id="fadeIn">
@@ -383,7 +371,7 @@ const PipeLine = () => {
                       <span style={{ fontSize: '16px', fontWeight: '500' }}>{selectedItem?.drugCandidate}</span>
                     </span>
 
-                    <img
+                    {/* <img
                       style={{ padding: '0', cursor: 'pointer', height: '24px' }}
                       src={icon_open}
                       alt="modal_open"
@@ -393,7 +381,7 @@ const PipeLine = () => {
                         setModalItem({ ...selectedItem?.modal, item: selectedItem?.drugCandidate });
                         setToggleOn(false);
                       }}
-                    />
+                    /> */}
                   </RowWrap>
                   <RowWrap style={{ padding: '0' }}>
                     <span style={{ width: '100%', padding: '0 0 0 2em', fontWeight: '200' }}>

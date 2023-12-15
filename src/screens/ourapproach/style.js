@@ -96,7 +96,7 @@ const HomeComponentWrap = styled.div`
 
 const TextWrap = styled.div.attrs((props) => ({ className: props.className }))`
   position: relative;
-  width: 50vw;
+  width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -436,12 +436,15 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
         width: 100%;
       }
     }
+    margin-bottom: 3rem;
+    /*!!!*/
 
     &:nth-child(even) {
+      /* margin-top: 3rem; */
       @media (max-width: 900px) {
         margin-top: 1rem;
       }
-      margin-top: 3rem;
+
       div.wrap {
       }
     }
