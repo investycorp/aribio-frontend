@@ -42,11 +42,11 @@ const VideoFrame = ({ src }) => {
       setVideoId('');
       if (src.includes('youtu')) {
         setVideoId(src?.split('watch?v=')[1]?.split('&')[0] || src?.split('=')[1]?.split('&')[0]);
-        console.log('video id:', src?.split('=')[1]?.split('&')[0]);
         videoRef?.current?.load();
       }
       //only works in <video> component
     }
+
     const handleClickStart = () => {
       if (video && video.paused) {
         video.play();
@@ -54,6 +54,7 @@ const VideoFrame = ({ src }) => {
         video.pause();
       }
     };
+
     video?.addEventListener('click', handleClickStart);
     video?.addEventListener('touchstart', handleClickStart);
     video?.addEventListener('loaded', () => {
@@ -76,8 +77,8 @@ const VideoFrame = ({ src }) => {
           src={
             videoId
               ? `https://www.youtube.com/embed/${videoId}?modestbranding=0&rel=0`
-              : src
-              ? `${src}?autostart=false`
+              : src?.url
+              ? `${src.url}?autostart=false`
               : language === 'ENG'
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false'
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4?autostart=false'

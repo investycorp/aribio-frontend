@@ -97,7 +97,7 @@ const CeoMessage = () => {
                 $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
                 $fontWeight="400"
                 $color="#ffffff"
-                style={{ fontFamily: 'Corsiva Hebrew', fontStyle: 'italic' , padding: '0 20px', textAlign: 'center', margin: '0' }}
+                style={{ padding: '0 20px', textAlign: 'center', margin: '0' }}
               >
                 <Trans i18nKey="ceomessage.message" components={{ 1: <br /> }} />
               </Text>
@@ -106,7 +106,7 @@ const CeoMessage = () => {
                 $fontWeight="200"
                 $color="#D6D6D6"
                 style={{ textAlign: 'end',
-                paddingRight: window.innerWidth > 1280 ? '342px' : '258px',
+                paddingRight: window.innerWidth > 1280 ? '430px' : '258px',
                 marginTop:  window.innerWidth > 1280 ? '63px' : '24px',
                 marginBottom: 0 }}
               >
@@ -179,7 +179,7 @@ const CeoMessage = () => {
                 $fontSize="16px"
                 $fontWeight="300"
                 $color="#ffffff"
-                style={{ fontFamily: 'Corsiva Hebrew', fontStyle: 'italic' , padding: '0 20px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px' }}
+                style={{padding: '0 20px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px' }}
               >
                 <Trans i18nKey="ceomessage_m.message" components={{ 1: <br /> }} />
               </Text>

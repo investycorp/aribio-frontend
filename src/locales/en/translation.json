@@ -107,7 +107,7 @@
     "title": "POLY-PHARMACOLOGY",
     "subtitle": "Merging Multi-Mechanism Drug Discovery with AI",
     "desc1": "Neurodegenerative diseases, such as Alzheimer’s, manifest from a confluence of genetic, environmental, <1/> and physiological factors. The limitations of traditional single-target drugs become evident in their struggle <1/> to achieve clinically meaningful clinical outcomes against these multifactorial diseases. <1/> <1/> Polypharmacology goes beyond traditional drug discovery by emphasizing drugs designed to engage <1/> multiple targets and mechanisms concurrently. This nuanced approach grasps the multifaceted nature of <1/> biological systems, paving the way for a more comprehensive therapeutic approach.",
-    "desc2": "   At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies. <1/> With the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span multiple <1/> targets and mechanisms. By leveraging AI, we aim to achieve heightened drug efficacy and expand potential <1/> therapeutic indications, positioning AriBio as a leader in innovative treatments for neurodegenerative diseases. <1/> <1/> Join our pursuit to advance the future of drug discovery, where AI meets the sophistication of polypharmacology,<1/> and tackle the challenges posed by neurodegenerative disorders."
+    "desc2": "At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies. <1/> With the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span multiple <1/> targets and mechanisms. By leveraging AI, we aim to achieve heightened drug efficacy and expand potential <1/> therapeutic indications, positioning AriBio as a leader in innovative treatments for neurodegenerative diseases. <1/> <1/> Join our pursuit to advance the future of drug discovery, where AI meets the sophistication of polypharmacology,<1/> and tackle the challenges posed by neurodegenerative disorders."
   },
   "polypharma_m": {
     "desc1": "Neurodegenerative diseases, <1/> such as Alzheimer’s, manifest <1/> from a confluence of genetic, <1/> environmental, and physiological <1/> factors. The limitations of traditional <1/> single-target drugs become evident <1/> in their struggle to achieve clinically <1/> meaningful clinical outcomes against <1/> these multifactorial diseases. <1/> <1/> Polypharmacology goes beyond <1/> traditional drug discovery by <1/> emphasizing drugs designed to engage <1/> multiple targets and mechanisms <1/> concurrently. This nuanced approach <1/> grasps the multifaceted nature of <1/> biological systems, paving the way for <1/> a more comprehensive <1/> therapeutic approach.",
@@ -282,23 +282,22 @@
     }
   },
   "innovation": {
-    "headline": "OPEN<1 />INNOVATION",
+    "headline": "OPEN <1 /> INNOVATION",
     "basic": {
       "title": "OPEN INNOVATION",
-      "subdesc1": "AriBio is dedicated to driving advancements",
-      "subdesc2": "in neurodegenerative diseases.",
-      "desc1": "Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and",
-      "desc2": "we're strengthened by our commitment to open innovation.",
-      "desc3": "We actively collaborate with innovative companies around the world,",
-      "desc4": "aiming to create impactful solutions for these challenging diseases.",
-      "approach": {
-        "desc1": "Our approach blends polypharmacological strategies",
-        "desc2": "with a belief in multi-modal management for these conditions.",
-        "desc3": "While pioneering work in this area has its challenges and risks,",
-        "desc4": "the urgent need for solutions in neurodegenerative diseases propels us forward.",
-        "desc5": "Alongside our partners, we utilize AI and digital tools to support patients",
-        "desc6": "and deepen our understanding of these disorders."
-      },
+      "subdesc": "AriBio is dedicated to driving advancements <1 /> in neurodegenerative diseases",
+      "desc": "Our foundation is the ARIDD™ platform, designed for multi-mechanism drugs, and <1 /> we're strengthened by our commitment to open innovation. <1 /> We actively collaborate with innovative companies around the world, <1 /> aiming to create impactful solutions for these challenging diseases.",
+      "approach": "Our approach blends polypharmacological strategies <1 /> with a belief in multi-modal management for these conditions. <1 /> While pioneering work in this area has its challenges and risks, <1 /> the urgent need for solutions in neurodegenerative diseases propels us forward. <1 /> Alongside our partners, we utilize AI and digital tools to support patients <1 /> and deepen our understanding of these disorders.",
+      "button": {
+        "digital": "Digital Health",
+        "memore": "Memo:Re Project"
+      }
+    },
+    "basic_m": {
+      "title": "OPEN INNOVATION",
+      "subdesc": "AriBio is dedicated to <1 /> driving advancements in <1 /> neurodegenerative diseases.",
+      "desc": "Our foundation is the ARIDD™ platform, <1 /> designed for multi-mechanism drugs, <1 /> and we’re strengthened by <1 /> our commitment to open innovation. <1 /> We actively collaborate with innovative <1 /> companies around the world, <1 /> aiming to create impactful solutions <1 /> for these challenging diseases.",
+      "approach": "Our approach blends polypharma <1 /> cological strategies with a belief in <1 /> multi-modal management for these <1 /> conditions. <1 /><1 /> While pioneering work in this area <1 /> has its challenges and risks, the <1 /> urgent need for solutions in <1 /> neurodegenerative diseases propels <1 /> us forward. Alongside our partners, <1 /> we utilize AI and digital tools to <1 /> support patients and deepen our <1 /> understanding of these disorders.",
       "button": {
         "digital": "Digital Health",
         "memore": "Memo:Re Project"
@@ -307,8 +306,83 @@
     "health": {
       "title": "DIGITAL HEALTH",
       "subtitle": "DIGITAL HEALTH",
-      "subdesc1": "Leveraging Digital Health Technologies",
-      "subdesc2": "for Early Dementia Detection and Intervention"
+      "subdesc": "Leveraging Digital Health Technologies <1 /> for Early Dementia Detection and Intervention",
+      "approach": {
+        "title": "Our Approach",
+        "desc": "In today’s rapidly evolving world, it is necessary to turn to innovative digital health <1 /> technologies to address the most pressing healthcare challenge of our time – dementia. <1 /> Our team is on a mission to leverage the power of these digital tools. <1 /> We aim to advance the early detection and intervention of dementia, <1 /> ultimately improving the lives of those affected by this devastating condition."
+      },
+      "challenge": {
+        "title": "Understanding the Challenge",
+        "desc": "Dementia is a complex and progressive neurological disorder <1 /> that affects millions of individuals worldwide. It not only robs people of their memories <1 /> and cognitive abilities but also places a significant burden <1 /> on their families and caregivers. Early detection and intervention are crucial to slowing down <1 /> the progression of the disease and enhancing the quality of life for those affected."
+      },
+      "power": {
+        "title": "The Power of Digital Health",
+        "desc": "In an age where smartphones, wearables, and smart home devices have become integral parts of our daily lives, <1 /> we have an incredible opportunity to harness the potential of these technologies for healthcare purposes. <1 /> By doing so, we can revolutionize the way we approach dementia care."
+      },
+      "pipeline": {
+        "title": "Pipeline",
+        "desc": "*Electroceutical - II & Digital Toolkit projects are confidential."
+      },
+      "electro": {
+        "title": "Electroceutical - I",
+        "desc1": "Our product, MDAR3001, harnesses a proprietary sound source, designed to induce neuronal differentiation <1 /> through tactile vibrations and auditory stimulation via bone conduction. <1 /> Additionally, targeted vibrations may enhance cerebral blood flow. Paired with familiar music, <1 /> this approach aims to boost memory and cognition by invoking autobiographical memory recall in patients.",
+        "desc2": "In a world where technology continually evolves, our commitment remains steadfast – to leverage digital health technologies <1 /> for the early detection and intervention of dementia. We strive to Our mission is to improve the quality of life for individuals affected by <1 /> dementia, and we believe that by working together, we can make a significant impact."
+      },
+      "button": {
+        "herizon": "Go to HERIZON"
+      }
+    },
+    "health_m": {
+      "title": "DIGITAL HEALTH",
+      "subtitle": "DIGITAL HEALTH",
+      "subdesc": "Leveraging Digital Health <1 /> Technologies for <1 /> Early Dementia Detection <1 /> and Intervention",
+      "approach": {
+        "title": "Our Approach",
+        "desc": "In today’s rapidly evolving world, <1 /> where technology continues <1 /> to reshape our lives, it’s only fitting <1 /> that we turn to innovative digital health  <1 /> technologies to address <1 /> one of the most pressing healthcare <1 /> challenges of our time – dementia. <1 /> Our dedicated digital health team is <1 /> on a mission to leverage the power <1 /> of these digital tools to advance <1 /> the early detection and intervention <1 /> of dementia, ultimately improving <1 /> the lives of those affected <1 /> by this devastating condition."
+      },
+      "challenge": {
+        "title": "Understanding the Challenge",
+        "desc": "Dementia is a complex and <1 /> progressive neurological disorder <1 /> that affects millions of <1 /> individuals worldwide. <1 /> It not only robs people of their <1 /> memories and cognitive abilities <1 /> but also places a significant burden <1 /> on their families and caregivers. <1 /> Early detection and intervention are <1 /> crucial to slowing down the <1 /> progression of the disease <1 /> and enhancing the quality of life <1 /> for those affected."
+      },
+      "power": {
+        "title": "The Power of Digital Health",
+        "desc": "In an age where smartphones, <1 /> wearables, and smart home devices <1 /> have become integral parts of <1 /> our daily lives, we have an incredible <1 /> opportunity to harness the <1 /> potential of these technologies <1 /> for healthcare purposes. <1 /> By doing so, we can revolutionize <1 /> the way we approach dementia care."
+      },
+      "pipeline": {
+        "title": "Pipeline",
+        "desc": "*Electroceutical - II & Digital Toolkit <1 /> projects are confidential."
+      },
+      "electro": {
+        "title": "Electroceutical - I",
+        "desc1": "Our product, MDAR3001, harnesses <1 /> proprietary sound source, designed to <1 /> induce neuronal differentiation through <1 /> tactile vibrations and auditory stimulation <1 /> via bone conduction. Additionally, targeted <1 /> vibrations may enhance cerebral blood flow. <1 /> Paired with familiar music, this approach <1 /> aims to boost memory and cognition by <1 /> invoking autobiographical memory recall <1 /> in patients.",
+        "desc2": "In a world where technology continually <1 /> evolves, our commitment remains <1 /> steadfast – to leverage digital health <1 /> technologies for the early detection and <1 /> intervention of dementia. <1 /> Our mission is to improve the quality of life <1 /> for individuals affected by dementia, <1 /> and we believe that by working together, <1 /> we can make a significant impact."
+      },
+      "button": {
+        "herizon": "Go to HERIZON"
+      }
+    },
+    "memore": {
+      "title": "Memo:Re PROJECT",
+      "basic": {
+        "subtitle": "Memo:Re PROJECT",
+        "desc": "Help Preserve Your Loved One’s Memories",
+        "subdesc1": "We believe that life’s most precious gift is the memories we create, and it is essential to preserve these memories, <1 /> especially for our aging family members who hold them dear. Memo:Re is more than just a social media platform; <1 /> it’s a digital sanctuary crafted specifically to safeguard these precious memories.",
+        "subdesc2": "Memo:Re isn’t just a digital tool; it’s a bridge. With its user-friendly design, <1 /> both parents and senior family members can effortlessly journey through their life stories, <1 /> cherishing each moment all over again. By facilitating these shared reminiscences, <1 /> we reinforce familial bonds and provide an emotional safety net. <1 /> Most importantly, through Memo:Re,we send a profound message to our elderly loved ones: <1 /> they are not journeying through memory alone. <1 /> We are right beside them, every step of the way. <1 /><1 /><1 /><1 /> But we don’t stop there. Grounded in the principles of Reminiscence Therapy, <1 /> Memo:Re is engineered to evoke and reinforce forgotten memories <1 /> through the sharing of photos, videos, and heartfelt messages. <1 /> Our unique Memo:Re scheduler ensures these memories resurface regularly, <1 /> offering comfort and a sense of belonging, and has been linked to a slower progression of memory loss."
+      },
+      "button": {
+        "en": "Go to Memo:Re (ENG)",
+        "kr": "Go to Memo:Re (KOR)",
+        "dl": "APP Download"
+      }
+    },
+    "memore_m": {
+      "title": "Memo:Re PROJECT",
+      "basic": {
+        "subtitle": "Memo:Re PROJECT",
+        "desc": "Help Preserve Your <1 /> Loved One’s Memories",
+        "subdesc1": "We believe that life’s most precious gift <1 /> is the memories we create, and it is <1 /> essential to preserve these memories, <1 /> especially for our aging family members <1 /> who hold them dear. <1 /> Memo:Re is more than just a social <1 /> media platform; it’s a digital sanctuary <1 /> crafted specifically to safeguard <1 /> these precious memories.",
+        "subdesc2": "Memo:Re isn’t just a digital tool; <1 /> it’s a bridge. With its <1 /> user-friendly design, both parents <1 /> and senior family members can <1 /> effortlessly journey through their <1 /> life stories, cherishing each moment <1 /> all over again. By facilitating <1 /> these shared reminiscences, <1 /> we reinforce familial bonds and provide <1 /> an emotional safety net. <1 /> Most importantly, through Memo:Re, <1 /> we send a profound message to <1 /> our elderly loved ones: <1 /> they are not journeying through <1 /> memory alone. We are right beside <1 /> them, every step of the way. <1 /><1 /> But we don’t stop there. <1 /> Grounded in the principles of <1 /> Reminiscence Therapy, Memo:Re is <1 /> engineered to evoke and reinforce <1 /> forgotten memories through the <1 /> sharing of photos, videos, <1 /> and heartfelt messages. <1 /> Our unique Memo:Re scheduler <1 /> ensures these memories resurface <1 /> regularly, offering comfort and a sense <1 /> of belonging, and has been linked to <1 /> a slower progression of memory loss."
+      }
     }
   }
 }

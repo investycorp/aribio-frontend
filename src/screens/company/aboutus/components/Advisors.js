@@ -38,8 +38,8 @@ const ContentBox = styled.div`
   justify-content: start;
   align-items: left;
   gap: 0.5em;
-  padding: 0 0 0 3em;
-  border-left: 2px solid #ffffff;
+  // padding: 0 0 0 3em;
+  // border-left: 2px solid #ffffff;
   background-color: transparent;
 
   @media screen and (min-width: 901px) and (max-width: 1280px) {
@@ -122,14 +122,14 @@ const Advisors = () => {
                   </span>
                 </Text>
               </ContentBoxNameWrap>
-              <hr
+              {/* <hr
                 style={{
                   width: window.innerWidth > 1280 ? '40px' : '25px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '1.5rem 0 1rem 0' : '1rem 0 0.5rem 0',
                   borderWeight: window.innerWidth > 1280 ? '2px' : '1px',
                 }}
-              />
+              /> */}
               <SchoolText>{item?.description}</SchoolText>
             </ContentBox>
           ))}

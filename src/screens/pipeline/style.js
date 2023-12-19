@@ -425,7 +425,7 @@ const ShootingStarWrap = styled.section`
   }
 `;
 
-const move = (start, phase, gap) => keyframes`
+const move = (start, phase, state, gap) => keyframes`
 0% {
     transform: translateX(0);
     -webkit-transform: translateX(0);
@@ -437,9 +437,9 @@ const move = (start, phase, gap) => keyframes`
     opacity: 1;
   }
   100% {
-    transform: ${`translateX(calc(${start} * ${phase} - ${gap}))`};
-    -webkit-transform: ${`translateX(calc(${start} * ${phase} - ${gap}))`};
-    -o-transform: ${`translateX(calc(${start} * ${phase} - ${gap}))`};
+    transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px))`};
+    -webkit-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${(phase - 1) * 2}px))`};
+    -o-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px))`};
     opacity: 1;
   }
 `;
@@ -472,38 +472,38 @@ const ShootingStar = styled.span.attrs((props) => ({
 
   &.animate {
     opacity: 1;
-    animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
+    animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    -webkit-animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
+    -webkit-animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
-    -o-animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
+    -o-animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     -o-animation-duration: 2s;
     -o-animation-iteration-count: 1;
     -o-animation-timing-function: linear;
     -o-animation-fill-mode: forwards;
-    -moz-animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
+    -moz-animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     -moz-animation-duration: 2s;
     -moz-animation-iteration-count: 1;
     -moz-animation-timing-function: linear;
     -moz-animation-fill-mode: forwards;
-    -ms-animation-name: ${(props) => move('8.1vw', props?.$phase, '50px')};
+    -ms-animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     -ms-animation-duration: 2s;
     -ms-animation-iteration-count: 1;
     -ms-animation-timing-function: linear;
     -ms-animation-fill-mode: forwards;
 
     @media screen and (max-width: 900px) {
-      -ms-animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
-      -moz-animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
-      -o-animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
-      -webkit-animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
-      animation-name: ${(props) => move('18vw', props?.$phase, '30px')};
+      -ms-animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
+      -moz-animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
+      -o-animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
+      -webkit-animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
+      animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
     }
   }
 

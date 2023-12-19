@@ -308,7 +308,7 @@ const CeoBox = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 9.5139vw;
+  // gap: 9.5139vw;
 `;
 
 const MemberListWrap = styled.div`

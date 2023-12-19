@@ -54,7 +54,7 @@ const Leadership = () => {
               alt="ceoProfilePicture"
             />
             <TextWrap
-              style={{width: window.innerWidth > 1280 ? 300 : 260}}
+              style={{width: window.innerWidth > 1280 ?  500 : 360}}
             >
               <Text
                 $align="start"
@@ -78,11 +78,7 @@ const Leadership = () => {
                 >
                 {ceoContents?.name}
               </Text>
-              <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{alignSelf:'start', marginTop: window.innerWidth > 1280 ? 75 : 29 }} />
-            </TextWrap>
-            <TextWrap
-              style={{width: window.innerWidth > 1280 ? 480 : 360}}
-            >
+              {/* <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{alignSelf:'start', marginTop: window.innerWidth > 1280 ? 75 : 29 }} /> */}
               <Text
                 $align="start"
                 $color="#F2F2F2"
@@ -209,7 +205,7 @@ const Leadership = () => {
                 >
                   <div style={{display: 'flex', flexDirection: 'row'}}>
 
-                    <HR style={{backgroundColor: '#B1B1B1', width: 2, height:  window.innerWidth > 1280 ? '5rem' : '3.25rem', marginRight: '2.0833vw'}}/>
+                    {/* <HR style={{backgroundColor: '#B1B1B1', width: 2, height:  window.innerWidth > 1280 ? '5rem' : '3.25rem', marginRight: '2.0833vw'}}/> */}
                     <TextWrap>
                       <Text
                         $align="start"
@@ -236,7 +232,7 @@ const Leadership = () => {
                     style={{
                       margin: '0',
                       fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                      paddingLeft:  window.innerWidth > 1280 ? '3.625rem' : '2.25rem',
+                      // paddingLeft:  window.innerWidth > 1280 ? '3.625rem' : '2.25rem',
                     }}
                   >
                     <ul style={{paddingLeft: '0.8rem'}}>

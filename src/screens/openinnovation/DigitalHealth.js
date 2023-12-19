@@ -32,9 +32,9 @@ import Video from '../../components/Video';
 import useLinkList from '../../hooks/useLink';
 
 import { t } from 'i18next'
+import { Trans } from 'react-i18next';
 
 const DigitalHealth = () => {
-  const navigate = useNavigate();
   const { data: linkData } = useLinkList();
   const [tableHeader, setTableHeader] = useState([
     'Focus',
@@ -66,12 +66,6 @@ const DigitalHealth = () => {
       phase: 2,
     },
   ]);
-
-  useEffect(() => {
-    if (linkData?.data.success) {
-      // console.log(linkData?.data.data.goToHorizon);
-    }
-  }, [linkData]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -143,10 +137,12 @@ const DigitalHealth = () => {
       <Path>
         <span style={{ opacity: '0.8' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
         {window.innerWidth <= 900 && <br />}
-        {` DIGITAL HEALTH`}
+        {t('innovation.health.subtitle')}
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine $className="midsize">DIGITAL HEALTH</HeadLine>
+        <HeadLine $className="midsize">
+          {t('innovation.health.title')} 
+        </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -169,11 +165,10 @@ const DigitalHealth = () => {
         >
           <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
             <Text $color="#939598" style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }} $fontWeight="300">
-              DIGITAL HEALTH
+              {t('innovation.health.subtitle')}
             </Text>
             <Text style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }} $fontWeight="500">
-              Leveraging Digital Health Technologies
-              <br /> for Early Dementia Detection and Intervention
+              <Trans i18nKey={'innovation.health.subdesc'} components={{ 1: <br /> }} />
             </Text>
             <div
                 style={{
@@ -185,14 +180,7 @@ const DigitalHealth = () => {
                 }}
             ></div>
             <Text style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }} $fontWeight="300" $color="#C9C9C9">
-              In today’s rapidly evolving world, it is necessary to turn to innovative digital health {<br />}
-              technologies to address the most pressing healthcare challenge of our time – dementia.{' '}
-              {/* {window.innerWidth > 1280 && } */}
-              {<br />}
-              Our team is on a mission to leverage the power of these digital tools.{<br />}
-              We aim to advance the early detection and intervention of dementia, {<br />}
-              ultimately improving the lives of those affected by this devastating condition.
-              {<br />}
+              <Trans i18nKey={'innovation.health.approach.desc'} components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '5em', gap: '2em' }}>
@@ -202,7 +190,7 @@ const DigitalHealth = () => {
               $color="#C9C9C9"
               style={{ margin: '0' }}
             >
-              Understanding the Challenge
+              {t('innovation.health.challenge.title')}
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -210,11 +198,7 @@ const DigitalHealth = () => {
               $color="#C9C9C9"
               style={{ margin: '0' }}
             >
-              Dementia is a complex and progressive neurological disorder <br />
-              that affects millions of individuals worldwide. It not only robs people of their memories <br />
-              and cognitive abilities but also places a significant burden <br />
-              on their families and caregivers. Early detection and intervention are crucial to slowing down <br />
-              the progression of the disease and enhancing the quality of life for those affected.
+              <Trans i18nKey={'innovation.health.challenge.desc'} components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '5em', gap: '2em' }}>
@@ -224,7 +208,7 @@ const DigitalHealth = () => {
               $color="#C9C9C9"
               style={{ margin: '0' }}
             >
-              The Power of Digital Health
+              {t('innovation.health.power.title')}
             </Text>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -232,11 +216,7 @@ const DigitalHealth = () => {
               $color="#C9C9C9"
               style={{ margin: '0' }}
             >
-              In an age where smartphones, wearables, and smart home devices have become integral parts of our daily
-              lives, <br />
-              we have an incredible opportunity to harness the potential of these technologies for healthcare purposes.
-              <br />
-              By doing so, we can revolutionize the way we approach dementia care.
+              <Trans i18nKey={'innovation.health.power.desc'} components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -249,7 +229,7 @@ const DigitalHealth = () => {
                 $fontWeight="500"
                 $color="#F4F4F4"
               >
-                Our Approach
+                {t('innovation.health.approach.title')}
               </Text>
             </TextWrap>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
@@ -337,7 +317,7 @@ const DigitalHealth = () => {
                 margin: '0',
               }}
             >
-              *Electroceutical - II & Digital Toolkit projects are confidential.
+              {t('innovation.health.pipeline.desc')}
             </Text>
           </ContentWrap>
         </HomeComponentWrap>
@@ -352,7 +332,7 @@ const DigitalHealth = () => {
                 $align="center"
                 style={{ margin: '0' }}
               >
-                Electroceutical - I
+                {t('innovation.health.electro.title')}
               </Text>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
@@ -361,12 +341,7 @@ const DigitalHealth = () => {
                 $align="center"
                 style={{ margin: '0' }}
               >
-                Our product, MDAR3001, harnesses a proprietary sound source, designed to induce neuronal differentiation
-                <br />
-                through tactile vibrations and auditory stimulation via bone conduction.
-                <br /> Additionally, targeted vibrations may enhance cerebral blood flow. Paired with familiar music,
-                <br />
-                this approach aims to boost memory and cognition by invoking autobiographical memory recall in patients.
+                <Trans i18nKey={'innovation.health.electro.desc1'} components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
@@ -384,15 +359,9 @@ const DigitalHealth = () => {
               $fontWeight="100"
               style={{ width: '80vw' }}
             >
-              In a world where technology continually evolves, our commitment remains steadfast – to leverage digital
-              health technologies <br />
-              for the early detection and intervention of dementia. We strive to Our mission is to improve the quality
-              of life for individuals affected by
-              <br />
-              dementia, and we believe that by working together, we can make a significant impact.
+              <Trans i18nKey={'innovation.health.electro.desc2'} components={{ 1: <br /> }} />
             </Text>
           </ContentWrap>
-
           <ContentWrap
             style={{
               display: 'flex',
@@ -424,7 +393,9 @@ const DigitalHealth = () => {
               }}
               onClick={() => window.open(linkData?.data?.data?.goToHorizon, '_blank')}
             >
-              <span style={{ zIndex: '-1' }}>Go to HERIZON</span>
+              <span style={{ zIndex: '-1' }}>
+                {t('innovation.health.button.herizon')}
+              </span>
               <Image
                 src={arrow}
                 alt="arrow"
@@ -438,6 +409,9 @@ const DigitalHealth = () => {
           </ContentWrap>
         </HomeComponentWrap>
       </Desktop>
+
+
+
       <Mobile>
         <HomeComponentWrap
           style={{
@@ -448,101 +422,33 @@ const DigitalHealth = () => {
         >
           <TextWrap style={{ position: 'relative', backgroundColor: 'transparent', width: '100%' }}>
             <Text $color="#939598" $fontSize="16px" $fontWeight="300">
-              DIGITAL HEALTH
+              {t('innovation.health_m.subtitle')}
             </Text>
             <Text $fontSize="23px" $fontWeight="500" style={{ margin: '0', lineHeight: '26px' }}>
-              Leveraging Digital Health
-              <br />
-              Technologies for
-              <br />
-              Early Dementia Detection
-              <br />
-              and Intervention
+              <Trans i18nKey={'innovation.health_m.subdesc'} components={{ 1: <br /> }} />
             </Text>
             <hr style={{ width: '20px', border: '1px solid #C9C9C9', margin: '2rem 0' }} />
+            <Text $fontSize="20px" $fontWeight="400" $color="#E6E6E6" style={{ margin: '0', marginBottom: '2em', lineHeight: '23px' }}>
+              {t('innovation.health_m.approach.title')}
+            </Text>
             <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '21px' }}>
-              In today’s rapidly evolving world,
-              <br />
-              where technology continues
-              <br />
-              to reshape our lives, it’s only fitting
-              <br />
-              that we turn to innovative digital health
-              <br />
-              technologies to address
-              <br />
-              one of the most pressing healthcare
-              <br />
-              challenges of our time – dementia.
-              <br />
-              Our dedicated digital health team is
-              <br />
-              on a mission to leverage the power
-              <br />
-              of these digital tools to advance
-              <br />
-              the early detection and intervention
-              <br />
-              of dementia, ultimately improving
-              <br />
-              the lives of those affected
-              <br />
-              by this devastating condition.
+              <Trans i18nKey={'innovation.health_m.approach.desc'} components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '3rem', gap: '2em', width: '100%' }}>
             <Text $fontSize="20px" $fontWeight="400" $color="#E6E6E6" style={{ margin: '0', lineHeight: '23px' }}>
-              Understanding the Challenge
+              {t('innovation.health_m.challenge.title')}
             </Text>
             <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0', lineHeight: '21px' }}>
-              Dementia is a complex and <br />
-              progressive neurological disorder
-              <br />
-              that affects millions of
-              <br />
-              individuals worldwide.
-              <br />
-              It not only robs people of their
-              <br />
-              memories and cognitive abilities
-              <br />
-              but also places a significant burden
-              <br />
-              on their families and caregivers.
-              <br />
-              Early detection and intervention are
-              <br />
-              crucial to slowing down the
-              <br />
-              progression of the disease
-              <br />
-              and enhancing the quality of life
-              <br />
-              for those affected.
+              <Trans i18nKey={'innovation.health_m.challenge.desc'} components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
           <TextWrap style={{ margin: '3rem', gap: '2em', width: '100%' }}>
             <Text $fontSize="20px" $fontWeight="400" $color="#E6E6E6" style={{ margin: '0' }}>
-              The Power of Digital Health
+              {t('innovation.health_m.power.title')}
             </Text>
             <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{ margin: '0', lineHeight: '21px' }}>
-              In an age where smartphones,
-              <br />
-              wearables, and smart home devices
-              <br />
-              have become integral parts of
-              <br />
-              our daily lives, we have an incredible
-              <br />
-              opportunity to harness the
-              <br />
-              potential of these technologies
-              <br />
-              for healthcare purposes.
-              <br />
-              By doing so, we can revolutionize
-              <br />
-              the way we approach dementia care.
+              <Trans i18nKey={'innovation.health_m.power.desc'} components={{ 1: <br /> }} />
             </Text>
           </TextWrap>
         </HomeComponentWrap>
@@ -551,7 +457,7 @@ const DigitalHealth = () => {
             <TextWrap style={{ width: '100%', alignItems: 'start', margin: '0', gap: '0.5em' }}>
               <HR $color="#F8F8F8" $width="20px" $height="1px" style={{ margin: '0', alignSelf: 'center' }} />
               <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0', alignSelf: 'center' }}>
-                Our Approach
+                {t('innovation.health_m.approach.title')}
               </Text>
             </TextWrap>
             <div
@@ -577,7 +483,7 @@ const DigitalHealth = () => {
             <TextWrap style={{ width: '100%', alignItems: 'start', margin: '0', gap: '0.5em' }}>
               <HR $color="#F8F8F8" $width="20px" $height="1px" style={{alignSelf: 'center'}} />
               <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0', alignSelf: 'center' }}>
-                Pipeline
+                {t('innovation.health_m.pipeline.title')}
               </Text>
             </TextWrap>
           </ContentWrap>
@@ -641,8 +547,7 @@ const DigitalHealth = () => {
                 lineHeight: '17px',
               }}
             >
-              *Electroceutical - II & Digital Toolkit
-              <br /> projects are confidential.
+              <Trans i18nKey={'innovation.health_m.pipeline.desc'} components={{ 1: <br /> }} />
             </Text>
           </ContentWrap>
         </HomeComponentWrap>
@@ -651,7 +556,7 @@ const DigitalHealth = () => {
             <TextWrap style={{ alignItems: 'start', margin: '0', gap: '0.5em', width: '100%' }}>
               <HR $color="#F8F8F8" $width="20px" $height="1px" style={{alignSelf: 'center'}} />
               <Text $fontSize="20px" $fontWeight="500" $color="#E5E5E5" style={{ alignSelf: 'center', margin: '0 0 2em 0' }}>
-                Electroceutical - I
+                {t('innovation.health_m.electro.title')}
               </Text>
               <Text
                 $fontSize="16px"
@@ -660,24 +565,7 @@ const DigitalHealth = () => {
                 $align="center"
                 style={{ margin: '0', lineHeight: '20px' }}
               >
-                Our product, MDAR3001, harnesses <br />
-                proprietary sound source, designed to
-                <br />
-                induce neuronal differentiation through
-                <br />
-                tactile vibrations and auditory stimulation
-                <br />
-                via bone conduction. Additionally, targeted
-                <br />
-                vibrations may enhance cerebral blood flow.
-                <br />
-                Paired with familiar music, this approach
-                <br />
-                aims to boost memory and cognition by
-                <br />
-                invoking autobiographical memory recall
-                <br />
-                in patients.
+                <Trans i18nKey={'innovation.health_m.electro.desc1'} components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <Image
@@ -693,26 +581,9 @@ const DigitalHealth = () => {
               style={{ width: '100%', marginTop: '2em', padding: '3em 0', borderTop: '1px solid #696969' }}
             />
             <Text $align="center" $color="#D3D3D3" $fontSize="16px" $fontWeight="200" style-={{ lineHeight: '20px' }}>
-              In a world where technology continually
-              <br />
-              evolves, our commitment remains
-              <br />
-              steadfast – to leverage digital health
-              <br />
-              technologies for the early detection and
-              <br />
-              intervention of dementia.
-              <br />
-              Our mission is to improve the quality of life
-              <br />
-              for individuals affected by dementia,
-              <br />
-              and we believe that by working together,
-              <br />
-              we can make a significant impact.
+              <Trans i18nKey={'innovation.health_m.electro.desc2'} components={{ 1: <br /> }} />
             </Text>
           </ContentWrap>
-
           <ContentWrap
             style={{
               display: 'flex',
@@ -744,7 +615,9 @@ const DigitalHealth = () => {
               }}
               onClick={() => window.open(linkData?.data?.data?.goToHorizon, '_blank')}
             >
-              <span style={{ zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>Go to HERIZON</span>
+              <span style={{ zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>
+                {t('innovation.health.button.herizon')}
+              </span>
               <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
             </Text>
           </ContentWrap>

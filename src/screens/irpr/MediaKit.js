@@ -17,9 +17,6 @@ import VideoFrame from '../../components/VideoFrame';
 import { t } from 'i18next';
 
 const MediaKit = () => {
-  // const { id } = useParams();
-  const [id, setId] = useState();
-  const navigate = useNavigate();
   const [language, setLanguage] = useRecoilState(Language);
   const { data, isLoading, refetch } = useMediaList(language);
   const [currentVideo, setCurrentVideo] = useState({ title: '', url: '' });
@@ -41,9 +38,9 @@ const MediaKit = () => {
 
   useEffect(() => {
     if (data?.data.success) {
-      console.log(data, data);
-      setItemsList([]);
       const item = data.data.data.mediaKitDtoList;
+      const representativeItem = data?.data?.data?.representativeMediaKitDto;
+
       item.map((content) => {
         setItemsList((prev) => [
           ...prev,
@@ -55,6 +52,8 @@ const MediaKit = () => {
           },
         ]);
       });
+      console.log('repre',representativeItem);
+     setCurrentVideo({title: representativeItem.title, url: representativeItem.url});
     }
   }, [data]);
 
