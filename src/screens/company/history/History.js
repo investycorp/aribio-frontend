@@ -21,7 +21,6 @@ const History = () => {
   const [tabNames, setTabNames] = useState([]);
   const [listItems, setListItems] = useState([]);
   const [currentTab, setCurrentTab] = useState(0);
-  const [currentScrollY, setCurrentScrollY] = useState(0);
   const { data, isLoading } = useHistoryList(language);
 
   useEffect(() => {
@@ -30,7 +29,6 @@ const History = () => {
   }, []);
 
   useEffect(() => {
-    console.log(currentTab);
     if (data?.data?.success) {
       const items = data.data.dataList;
       console.log(items);
@@ -38,16 +36,21 @@ const History = () => {
       setTabNames([]);
       setListItems([]);
       setTextItems([]);
-      items.map((item) => {
-        setTabNames((prev) => [...prev, `${item.startYear}-${item.endYear}`]);
-        setTextItems((prev) => [...prev, { title: item.title, subtitle: item.subtitle }]);
-        const contentList = [];
-        item?.userHistoryDtoList?.map((content) => {
-          contentList.push({ title: content.year.toString(), content: content.contents });
-        });
+    
+      const sortedItems = items.sort((a, b) => b.startYear - a.startYear);
 
-        setListItems((prev) => [...prev, contentList]);
-      });
+      const newTabNames = sortedItems.map(item => `${item.startYear}-${item.endYear}`);
+      const newTextItems = sortedItems.map(item => ({ title: item.title, subtitle: item.subtitle }));
+
+      const newListItems = sortedItems.map(item => 
+        item.userHistoryDtoList.map(content => ({
+          title: content.year.toString(),
+          content: content.contents
+        }))
+      );
+      setTabNames(newTabNames);
+      setTextItems(newTextItems);
+      setListItems(newListItems);
 
       setCurrentTab(0);
     }
