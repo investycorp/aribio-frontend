@@ -203,6 +203,9 @@ const ContentBox = styled.div`
   align-items: left;
   gap: 1rem;
   background-color: transparent;
+  flex-basis: calc(33.333% - 2rem);
+  max-width: calc(33.333% - 2rem);
+
   // border: 1px solid #ffffff;
   @media screen and (min-width: 901px) and (max-width: 1280px) {
   
@@ -215,6 +218,7 @@ const ContentBox = styled.div`
     gap: 0.8rem;
   }
 `;
+
 const ContentBoxNameWrap = styled.div`
   position: relative;
   width: 100%;
@@ -312,20 +316,21 @@ const MemberListWrap = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   padding: 0 7vw;
-  gap: 132px;
+  gap: 12rem 2rem;
 `;
 
 const HeadListWrap = styled.div`
   width: 100%;
   height: fit-content;
-  display: grid;
-  grid-template-columns: 31.25vw 28.5vw 31.25vw;
-  grid-template-rows: 1fr;
-  justify-content: start;
-  align-items: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   padding: 0 7vw;
+  gap: 2rem;
 `;
 
 const HeadItemWrap = styled.div`

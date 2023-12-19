@@ -124,61 +124,61 @@ const Leadership = () => {
           </Text>
          </TextWrap>
           <MemberListWrap>
-          {usContents?.map((item, index) => (
-            <ContentBox key={index}>
-              <Image
-                src={item?.fileDto?.fileUrl}
-                alt="leadershipphoto1"
-                width={window.innerWidth > 1280 ? 454 : 274}
-                height={window.innerWidth > 1280 ? 304 : 183}
-                style={{marginBottom: window.innerWidth > 1280 ? 106 : 24}}
-              />
-              <ContentBoxNameWrap>
-                <Text
-                  $align="start"
-                  $color="rgba(255,255,255,0.9)"
-                  style={{
-                    margin: '0',
-                    fontSize: window.innerWidth > 1280 ? '20px' : '12px',
-                  }}
-                >
-                  {item?.position}
-                </Text>
-                <Text
-                  $fontWeight="700"
-                  $align="start"
-                  style={{ margin: window.innerWidth > 1280 ? '0.5rem 0 2.5rem 0' : '0.5rem 0 1.563rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
-                >
-                  {item?.name}
-                </Text>
-                <Text
-                  $align="start"
-                  $color="#F2F2F2"
-                  style={{
-                    margin: '0',
-                    fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                    paddingLeft: window.innerWidth > 1280 ? '1.125rem' : '0.45rem',
-                  }}
-                >
-                  <ul>
-                    {item?.contents?.split("\\n").map((item, index) => (
-                      <DescriptionItem 
-                      key={index}
-                      style={{
-                        listStyle: 'disc',
-                        fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                      }}
-                      >
-                          {item}
-                        </DescriptionItem>
-                    ))}
-                  </ul>
-                </Text>
-              </ContentBoxNameWrap>
-            </ContentBox>
-          ))}
-                      
+            {usContents?.map((item, index) => (
+              <ContentBox key={index}>
+                <Image
+                  src={item?.fileDto?.fileUrl}
+                  alt="leadershipphoto1"
+                  width={window.innerWidth > 1280 ? 454 : 274}
+                  height={window.innerWidth > 1280 ? 304 : 183}
+                  style={{marginBottom: window.innerWidth > 1280 ? 106 : 24}}
+                />
+                <ContentBoxNameWrap>
+                  <Text
+                    $align="start"
+                    $color="rgba(255,255,255,0.9)"
+                    style={{
+                      margin: '0',
+                      fontSize: window.innerWidth > 1280 ? '20px' : '12px',
+                    }}
+                  >
+                    {item?.position}
+                  </Text>
+                  <Text
+                    $fontWeight="700"
+                    $align="start"
+                    style={{ margin: window.innerWidth > 1280 ? '0.5rem 0 2.5rem 0' : '0.5rem 0 1.563rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
+                  >
+                    {item?.name}
+                  </Text>
+                  <Text
+                    $align="start"
+                    $color="#F2F2F2"
+                    style={{
+                      margin: '0',
+                      fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                      paddingLeft: window.innerWidth > 1280 ? '1.125rem' : '0.45rem',
+                    }}
+                  >
+                    <ul>
+                      {item?.contents?.split("\\n").map((item, index) => (
+                        <DescriptionItem 
+                        key={index}
+                        style={{
+                          listStyle: 'disc',
+                          fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                        }}
+                        >
+                            {item}
+                          </DescriptionItem>
+                      ))}
+                    </ul>
+                  </Text>
+                </ContentBoxNameWrap>
+              </ContentBox>
+            ))}       
           </MemberListWrap>
+
           <TextWrap
             style={{
               marginTop:  window.innerWidth > 1280 ? 486 : 230,

@@ -46,11 +46,7 @@ const Ci = () => {
   }, []);
 
   const downloadCi = (type) => {
-    saveAs(type === 'png' ? `${pngImg}` : `${aiImg}`, `AriBio_CI.${type}`);
-    // const link = document.createElement('a');
-    // link.download = `AriBio_CI.${type}`;
-    // link.href = type === 'png' ? `${pngImg}` : `${aiImg}`;
-    // link.click();
+    saveAs(((type === 'png') ? `${pngImg}` : `${aiImg}`), `AriBio_CI.${type}`);
   };
 
   return (
