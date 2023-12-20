@@ -88,33 +88,73 @@ const CeoMessage = () => {
           <HomeComponentWrap
             style={{
               height: window.innerWidth > 1280 ? '460px' : '306px',
-              padding: 0,
+              padding: '0 20vw',
               background: 'linear-gradient(rgba(0, 111, 170, 0.6), rgba(0, 0, 0, 0.6)',
             }}
           >
             <TextWrap>
               <Text
-                $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
-                $fontWeight="400"
+                $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
+                $fontWeight="200"
                 $color="#ffffff"
-                style={{ padding: '0 20px', textAlign: 'center', margin: '0' }}
-              >
-                <Trans i18nKey="ceomessage.message" components={{ 1: <br /> }} />
+                style={{
+                  width: window.innerWidth > 1280 ? '60vw' : '55vw',
+                  height: '100%',
+                  fontFamily: 'Copperplate',
+                  textAlign: 'start',
+                  margin: '0',
+                  lineHeight: '1',
+                }}
+                >
+                “
               </Text>
+              <TextWrap
+               style={{
+                  flexDirection: 'row',
+                }}
+              >
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
+                  $fontWeight="400"
+                  $color="#ffffff"
+                  style={{ width: 'auto', textAlign: 'center', margin: '0' }}
+                  >
+                  <Trans i18nKey="ceomessage.message" components={{ 1: <br /> }} />
+                </Text>
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
+                  $fontWeight="200"
+                  $color="#ffffff"
+                  style={{
+                    fontFamily: 'Copperplate',
+                    width: 'auto',
+                    height: '100%',
+                    textAlign: 'end',
+                    margin: '0',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    paddingLeft: 32,
+                  }}
+                >
+                  ”
+                </Text>
+              </TextWrap>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                 $fontWeight="200"
                 $color="#D6D6D6"
-                style={{ textAlign: 'end',
-                paddingRight: window.innerWidth > 1280 ? '430px' : '258px',
-                marginTop:  window.innerWidth > 1280 ? '63px' : '24px',
-                marginBottom: 0 }}
+                style={{
+                  textAlign: 'end',
+                  marginTop: window.innerWidth > 1280 ? '63px' : '24px',
+                  marginBottom: 0,
+                  paddingRight: 80,
+                }}
               >
                 {t('ceomessage.message2')}
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          {/*  */}
           <HomeComponentWrap style={{ padding: '15vh 7vw', display: 'grid', gridTemplateColumns: '1fr 2fr' }}>
             <ContentBox style={{ alignItems: 'end' }}>
               <Image

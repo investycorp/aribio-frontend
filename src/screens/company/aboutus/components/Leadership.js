@@ -21,6 +21,7 @@ import useLeadershipList from '../../../../hooks/company/useLeadershipList';
 import Language from '../../../../atom/Language';
 import { useRecoilValue } from 'recoil';
 import { ContentWrap, HR } from '../../../../components/style';
+import { t } from 'i18next';
 
 const Leadership = () => {
   const [language] = useRecoilValue(Language);
@@ -48,58 +49,69 @@ const Leadership = () => {
             }}
           >
             <Image
-              width={window.innerWidth > 1280 ? 550 : 335}
-              height={window.innerWidth > 1280 ? 366 : 224}
+              width={window.innerWidth > 1280 ? 835 : 478}
+              height={window.innerWidth > 1280 ? 555 : 315}
               src={ceoContents?.fileDto?.fileUrl}
               alt="ceoProfilePicture"
             />
             <TextWrap
-              style={{width: window.innerWidth > 1280 ?  500 : 360}}
+              style={{
+                width: window.innerWidth > 1280 ? 835 : 478,
+                height: window.innerWidth > 1280 ? 555 : 315,
+              }}
             >
-              <Text
-                $align="start"
-                $color="#F2F2F2"
-                $fontWeight='500'
+              <TextWrap
                 style={{
-                  margin: '0',
-                  fontSize: window.innerWidth > 1280 ? '20px' : '11px',
+                  width: window.innerWidth > 1280 ?  500 : 280,
                 }}
               >
-                {ceoContents?.position}
-              </Text>
-              <Text
-                $align="start"
-                $color="#F2F2F2"
-                $fontWeight='700'
-                style={{
-                  margin: '0',
-                  fontSize: window.innerWidth > 1280 ? '36px' : '20px',
-                }}
+                <Text
+                  $align="start"
+                  $color="#F2F2F2"
+                  $fontWeight='500'
+                  style={{
+                    margin: '0',
+                    fontSize: window.innerWidth > 1280 ? '20px' : '11px',
+                  }}
                 >
-                {ceoContents?.name}
-              </Text>
-              {/* <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{alignSelf:'start', marginTop: window.innerWidth > 1280 ? 75 : 29 }} /> */}
-              <Text
-                $align="start"
-                $color="#F2F2F2"
-                style={{
-                  margin: '0',
-                  fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                }}
-              > 
-                <ul>
-                {ceoContents?.contents?.split("\\n").map((item, index) => (
-                    <DescriptionItem key={index}
-                    style={{
-                      listStyle: 'disc',
-                      fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                    }}
-                    >
-                      {item}
-                    </DescriptionItem>
-                  ))}
-                </ul>
-              </Text>
+                  {ceoContents?.position}
+                </Text>
+                <Text
+                  $align="start"
+                  $color="#F2F2F2"
+                  $fontWeight='700'
+                  style={{
+                    margin: '0',
+                    marginBottom: '2vh',
+                    fontSize: window.innerWidth > 1280 ? '36px' : '20px',
+                  }}
+                  >
+                  {ceoContents?.name}
+                </Text>
+                {/* <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{alignSelf:'start', marginTop: window.innerWidth > 1280 ? 75 : 29 }} /> */}
+                <Text
+                  $align="start"
+                  $color="#F2F2F2"
+                  style={{
+                    margin: '0',
+                    fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                  }}
+                > 
+                  <ul>
+                  {ceoContents?.contents?.split("\\n").map((item, index) => (
+                      <DescriptionItem key={index}
+                        style={{
+                          listStyle: 'disc',
+                          lineHeight: '2rem',
+                          fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                        }}
+                      >
+                        {item}
+                      </DescriptionItem>
+                    ))}
+                  </ul>
+                </Text>
+              </TextWrap>
             </TextWrap>
          </CeoBox>
          <TextWrap
@@ -116,17 +128,22 @@ const Leadership = () => {
             $align="start"
             style={{marginBottom: window.innerWidth > 1280 ? 150 : 100}}
           >
-            AriBio US Office
+            {t('home.aboutus.subtitle.us')}
           </Text>
          </TextWrap>
           <MemberListWrap>
             {usContents?.map((item, index) => (
-              <ContentBox key={index}>
+              <ContentBox
+                key={index}
+                style={{
+                  width: window.innerWidth > 1280 ? 454 : 274,
+                }}
+              >
                 <Image
                   src={item?.fileDto?.fileUrl}
                   alt="leadershipphoto1"
                   width={window.innerWidth > 1280 ? 454 : 274}
-                  height={window.innerWidth > 1280 ? 304 : 183}
+                  height="auto"
                   style={{marginBottom: window.innerWidth > 1280 ? 106 : 24}}
                 />
                 <ContentBoxNameWrap>
@@ -174,11 +191,9 @@ const Leadership = () => {
               </ContentBox>
             ))}       
           </MemberListWrap>
-
           <TextWrap
             style={{
-              marginTop:  window.innerWidth > 1280 ? 486 : 230,
-              paddingLeft: '7vw'
+              padding: '0 7vw'
             }}
           >
             <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
@@ -189,20 +204,20 @@ const Leadership = () => {
               $align="start"
               style={{marginBottom: 150}}
             >
-              AriBio Head Office
+              {t('home.aboutus.subtitle.head')}
             </Text>
           </TextWrap>
           <ContentWrap>
             <HeadListWrap>
             {headContents?.map((item, index) => (
-              <ContentBox key={index}
-                style={{marginBottom: '18.75vh'}}
+              <ContentBox
+                key={index}
+                style={{
+                  maxWidth: window.innerWidth > 1280 ? 425 : 250,
+                  marginBottom: '12.75vh'
+                }}
               >
-                <ContentBoxNameWrap
-                  style={{
-                    paddingRight: window.innerWidth > 1280 ? '78px' : '60px'
-                  }}
-                >
+                <ContentBoxNameWrap>
                   <div style={{display: 'flex', flexDirection: 'row'}}>
 
                     {/* <HR style={{backgroundColor: '#B1B1B1', width: 2, height:  window.innerWidth > 1280 ? '5rem' : '3.25rem', marginRight: '2.0833vw'}}/> */}
@@ -235,21 +250,18 @@ const Leadership = () => {
                       // paddingLeft:  window.innerWidth > 1280 ? '3.625rem' : '2.25rem',
                     }}
                   >
-                    <ul style={{paddingLeft: '0.8rem'}}>
-
+                    <ul style={{paddingLeft: '0.5rem'}}>
                       {item?.contents?.split("\\n").map((item, index) => (
-                        <DescriptionItem key={item + index}
-                        
-                        style={{
-                          listStyle: 'disc',
-                          fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                        }}
+                        <DescriptionItem key={item + index} 
+                          style={{
+                            listStyle: 'disc',
+                            fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                          }}
                         >
                           {item}
                         </DescriptionItem>
-
-                        ))}
-                      </ul>
+                      ))}
+                    </ul>
                   </Text>
                 </ContentBoxNameWrap>
               </ContentBox>
@@ -338,7 +350,7 @@ const Leadership = () => {
             $align="start"
             style={{marginBottom: 48}}
             >
-            AriBio US Office
+            {t('home.aboutus.subtitle.us')}
           </Text>
         </div>
         <TabContentWrap>
@@ -445,7 +457,7 @@ const Leadership = () => {
             $align="start"
             style={{marginBottom: 48}}
             >
-            AriBio Head Office
+            {t('home.aboutus.subtitle.head')}
           </Text>
         </div>
         <TabContentWrap>

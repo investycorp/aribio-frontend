@@ -16,11 +16,12 @@ const Container = styled.div`
       box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
     }
   }
+  z-index: 10;
 `;
 
-const SubPageButton = ({ title, linkTo, align }) => {
+const SubPageButton = ({ style, title, linkTo, align }) => {
   return (
-    <Container $align={align}>
+    <Container $align={align} style={style}>
       <Desktop>
         <Link
           to={linkTo}
