@@ -91,7 +91,7 @@ const TextWrap = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: transparent;
 
@@ -125,8 +125,11 @@ const Tab = styled.div`
   padding-bottom: 1rem;
   margin-bottom: 7em;
   z-index: 10;
-  @media screen and (max-width: 900px) {
-    gap: 1rem;
+  @media screen and (max-width: 1280px) {
+    gap: 80px;
+  }
+  @media screen and (max-width: 360px){
+    gap: 16px;
   }
 `;
 
@@ -203,9 +206,6 @@ const ContentBox = styled.div`
   align-items: left;
   gap: 1rem;
   background-color: transparent;
-  flex-basis: calc(33.333% - 2rem);
-  max-width: calc(33.333% - 2rem);
-
   // border: 1px solid #ffffff;
   @media screen and (min-width: 901px) and (max-width: 1280px) {
   
@@ -226,6 +226,7 @@ const ContentBoxNameWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0 0.5rem;
 `;
 
 const Image = styled.img.attrs((props) => ({
@@ -308,7 +309,7 @@ const CeoBox = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 9.5139vw;
+  // gap: 9.5139vw;
 `;
 
 const MemberListWrap = styled.div`
@@ -317,9 +318,10 @@ const MemberListWrap = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 0 7vw;
-  gap: 12rem 2rem;
+  gap: 12rem 8rem;
+  margin-bottom: 25vh;
 `;
 
 const HeadListWrap = styled.div`
@@ -328,9 +330,14 @@ const HeadListWrap = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  padding: 0 7vw;
-  gap: 2rem;
+  justify-content: space-between;
+  padding: 0 10vw;
+  gap: 4rem 0;
+
+  @media screen and (max-width: 1280px){
+    gap: 7vh 0;
+    padding: 0 12vw;
+  }
 `;
 
 const HeadItemWrap = styled.div`

@@ -93,16 +93,39 @@ const FilterShadow = styled.div`
 const HomeComponentWrap = styled.div`
   position: relative;
   width: 100%;
-  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
-  padding: 10vh 7vw;
   z-index: 10;
+  padding: 0 7vw;
+
   @media screen and (max-width: 900px) {
-    padding: 5vh 5vw;
+    padding: 0 5vw 10vh 5vw;
+  }
+`;
+
+
+const ImageBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(${props => props.image});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
   }
 `;
 
@@ -146,7 +169,6 @@ const HeadLineText = styled.div.attrs((props) => ({
   font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
   font-weight: medium;
   color: ${(props) => (props.$textColor ? props.$textColor : '#ffffff')};
-  margin-bottom: 1rem;
   text-align: center;
   line-height: 1.3em;
   color: #ffffff;
@@ -269,4 +291,5 @@ export {
   ComponentText,
   HomeVideoWrap,
   FilterShadow,
+  ImageBackground,
 };

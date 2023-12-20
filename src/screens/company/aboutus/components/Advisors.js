@@ -38,13 +38,13 @@ const ContentBox = styled.div`
   justify-content: start;
   align-items: left;
   gap: 0.5em;
-  padding: 0 0 0 3em;
-  border-left: 2px solid #ffffff;
+  // padding: 0 0 0 3em;
+  // border-left: 2px solid #ffffff;
   background-color: transparent;
 
   @media screen and (min-width: 901px) and (max-width: 1280px) {
     padding: 0 0 0 1.5rem;
-    border-left: 1px solid #ffffff;
+    // border-left: 1px solid #ffffff;
   }
   @media screen and (max-width: 900px) {
     width: 66.7%;
@@ -65,10 +65,27 @@ const SchoolText = styled.div`
   font-size: 18px;
   color: #e3e3e3;
   font-weight: 100;
-  line-height: 1.5em;
+  line-height: 2.5rem;
   @media screen and (max-width: 1280px) {
     font-size: 10px;
     padding-right: 5.8rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 1em;
+  }
+
+  ul li:before {
+    content: "- ";
+    position: absolute;
+    left: 0;
+    top: 0; // 필요에 따라 조절
   }
 `;
 
@@ -100,7 +117,7 @@ const Advisors = () => {
           marginBottom: window.innerWidth > 1280 ? '512px' : '344px'
         }}>
           {tabContents?.map((item, index) => (
-            <ContentBox key={index} style={{ height: '121px', justifyContent: 'center' }}>
+            <ContentBox key={index} style={{ minHeight: '135px', gap: '3rem' }}>
               <ContentBoxNameWrap
                 style={{ paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end' }}
               >
@@ -122,19 +139,32 @@ const Advisors = () => {
                   </span>
                 </Text>
               </ContentBoxNameWrap>
-              <hr
+              {/* <hr
                 style={{
                   width: window.innerWidth > 1280 ? '40px' : '25px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '1.5rem 0 1rem 0' : '1rem 0 0.5rem 0',
                   borderWeight: window.innerWidth > 1280 ? '2px' : '1px',
                 }}
-              />
-              <SchoolText>{item?.description}</SchoolText>
+              /> */}
+              <SchoolText>
+                <ul>
+                  {item?.description.slice('\\n').map(text => {
+                    return (
+                      <li>
+                        <span>{text}</span>
+                        <br/>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </SchoolText>
             </ContentBox>
           ))}
         </TabContentWrap>
       </Desktop>
+
+
       <Mobile>
         <TabContentWrap style={{ width: '90vw' }}>
           {tabContents?.map((item, index) => (

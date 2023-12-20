@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { useNavigate } from 'react-router';
 import detectOS from '../../utils/detectOS';
 
 import Header from '../../components/Header';
@@ -19,6 +18,7 @@ import useLinkList from '../../hooks/useLink';
 import Video from '../../components/Video';
 
 import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 
 const MemoRe = () => {
   const [language, setLanguage] = useRecoilState(Language);
@@ -58,13 +58,12 @@ const MemoRe = () => {
       <Path>
         <span style={{ opacity: '0.8' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
         {window.innerWidth <= 900 && <br />}
-        Memo:Re PROJECT
+        {t('innovation.memore.title')}
       </Path>
 
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine $className="midsize">
-          Memo:Re
-          <br /> PROJECT
+          {t('innovation.memore.title')}
         </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
@@ -93,10 +92,10 @@ const MemoRe = () => {
           >
             <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
               <Text $color="#C9C9C9" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
-                Memo:Re PROJECT
+                {t('innovation.memore.subtitle')}
               </Text>
               <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
-                Help Preserve Your Loved One’s Memories
+                {t('innovation.memore.desc')}
               </Text>
               <div
                 style={{
@@ -108,11 +107,7 @@ const MemoRe = () => {
                 }}
               ></div>
               <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#D3D3D3">
-                We believe that life’s most precious gift is the memories we create, and it is essential to preserve
-                these memories,
-                <br /> especially for our aging family members who hold them dear. Memo:Re is more than just a social
-                media platform;
-                <br /> it’s a digital sanctuary crafted specifically to safeguard these precious memories.
+                <Trans i18nKey={'innovation.memore.basic.subdesc1'} components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -143,24 +138,7 @@ const MemoRe = () => {
                 $fontWeight="300"
                 $align="center"
               >
-                Memo:Re isn’t just a digital tool; it’s a bridge. With its user-friendly design,
-                <br /> both parents and senior family members can effortlessly journey through their life stories,
-                <br /> cherishing each moment all over again. By facilitating these shared reminiscences, <br />
-                we reinforce familial bonds and provide an emotional safety net.
-                <br /> Most importantly, through Memo:Re,we send a profound message to our elderly loved ones:
-                <br /> they are not journeying through memory alone.
-                <br />
-                We are right beside them, every step of the way.
-                <br />
-                <br />
-                <br />
-                <br />
-                But we don’t stop there. Grounded in the principles of Reminiscence Therapy, <br />
-                Memo:Re is engineered to evoke and reinforce forgotten memories
-                <br /> through the sharing of photos, videos, and heartfelt messages.
-                <br /> Our unique Memo:Re scheduler ensures these memories resurface regularly,
-                <br /> offering comfort and a sense of belonging, and has been linked to a slower progression of memory
-                loss.
+                <Trans i18nKey={'innovation.memore.basic.subdesc2'} components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <ContentWrap
@@ -204,7 +182,9 @@ const MemoRe = () => {
                   }}
                   onClick={() => window.open(links.memoReEngLink, '_blank')}
                 >
-                  <span style={{ zIndex: '-1' }}>Go to Memo:Re (ENG)</span>
+                  <span style={{ zIndex: '-1' }}>
+                    {t('innovation.memore.button.en')}
+                  </span>
                   <Image
                     src={arrow}
                     alt="arrow"
@@ -235,7 +215,9 @@ const MemoRe = () => {
                   }}
                   onClick={() => window.open(links.memoReKorLink, '_blank')}
                 >
-                  <span style={{ zIndex: '-1' }}>Go to Memo:Re (KOR)</span>
+                  <span style={{ zIndex: '-1' }}>
+                    {t('innovation.memore.button.kr')}
+                  </span>
                   <Image
                     src={arrow}
                     alt="arrow"
@@ -274,7 +256,9 @@ const MemoRe = () => {
                     }
                   }}
                 >
-                  <span style={{ zIndex: '-1' }}>APP Download</span>
+                  <span style={{ zIndex: '-1' }}>
+                    {t('innovation.memore.button.dl')}
+                  </span>
                   <Image
                     src={arrow}
                     alt="arrow"
@@ -288,6 +272,7 @@ const MemoRe = () => {
             </ContentWrap>
           </HomeComponentWrap>
         </Desktop>
+
         <Mobile>
           <HomeComponentWrap
             style={{
@@ -301,30 +286,14 @@ const MemoRe = () => {
                 $fontWeight="300"
                 style={{ fontSize: window.innerWidth > 1280 ? '26px' : '16px', margin: '0 0 12px 0' }}
               >
-                Memo:Re PROJECT
+                {t('innovation.memore_m.subtitle')}
               </Text>
               <Text $fontSize="23px" $fontWeight="400" style={{ width: '100%', margin: '0' }}>
-                Help Preserve Your
-                <br /> Loved One’s Memories
+                <Trans i18nKey={'innovation.memore.basic.desc'} components={{ 1: <br /> }} />
               </Text>
               <hr style={{ width: '20px', borderTop: '1px solid #707070', margin: '2rem 0 2rem 0' }} />
               <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '21px' }}>
-                We believe that life’s most precious gift
-                <br />
-                is the memories we create, and it is
-                <br />
-                essential to preserve these memories,
-                <br />
-                especially for our aging family members <br />
-                who hold them dear.
-                <br />
-                Memo:Re is more than just a social
-                <br />
-                media platform; it’s a digital sanctuary
-                <br />
-                crafted specifically to safeguard
-                <br />
-                these precious memories.
+                <Trans i18nKey={'innovation.memore.basic.subdesc1'} components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -337,60 +306,7 @@ const MemoRe = () => {
             />
             <TextWrap style={{ margin: '5em 0', width: '100%' }}>
               <Text $color="#C9C9C9" $fontSize="18px" $fontWeight="300" $align="center" style={{ lineHeight: '21px' }}>
-                Memo:Re isn’t just a digital tool; <br />
-                it’s a bridge. With its
-                <br />
-                user-friendly design, both parents
-                <br />
-                and senior family members can
-                <br />
-                effortlessly journey through their
-                <br />
-                life stories, cherishing each moment
-                <br />
-                all over again. By facilitating
-                <br />
-                these shared reminiscences,
-                <br />
-                we reinforce familial bonds and provide
-                <br />
-                an emotional safety net.
-                <br />
-                Most importantly, through Memo:Re,
-                <br />
-                we send a profound message to
-                <br />
-                our elderly loved ones:
-                <br />
-                they are not journeying through
-                <br />
-                memory alone. We are right beside
-                <br />
-                them, every step of the way.
-                <br />
-                <br />
-                But we don’t stop there.
-                <br />
-                Grounded in the principles of
-                <br />
-                Reminiscence Therapy, Memo:Re is
-                <br />
-                engineered to evoke and reinforce
-                <br />
-                forgotten memories through the
-                <br />
-                sharing of photos, videos,
-                <br />
-                and heartfelt messages.
-                <br />
-                Our unique Memo:Re scheduler
-                <br />
-                ensures these memories resurface
-                <br />
-                regularly, offering comfort and a sense
-                <br />
-                of belonging, and has been linked to
-                <br />a slower progression of memory loss.
+                <Trans i18nKey={'innovation.memore.basic.subdesc2'} components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
             <ContentWrap
@@ -436,7 +352,9 @@ const MemoRe = () => {
                   }}
                   onClick={() => window.open(links.memoReEngLink, '_blank')}
                 >
-                  <span style={{ zIndex: '-1' }}>Go to Memo:Re (ENG)</span>
+                  <span style={{ zIndex: '-1' }}>
+                    {t('innovation.memore.button.en')}
+                  </span>
                   <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
                 <Text
@@ -459,7 +377,9 @@ const MemoRe = () => {
                   }}
                   onClick={() => window.open(links.memoReKorLink, '_blank')}
                 >
-                  <span style={{ zIndex: '-1' }}>Go to Memo:Re (KOR)</span>
+                  <span style={{ zIndex: '-1' }}>
+                    {t('innovation.memore.button.kr')}
+                  </span>
                   <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
                 <Text
@@ -491,7 +411,9 @@ const MemoRe = () => {
                     }
                   }}
                 >
-                  <span style={{ zIndex: '-1' }}>APP Download</span>
+                  <span style={{ zIndex: '-1' }}>
+                    {t('innovation.memore.button.dl')}
+                  </span>
                   <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
               </ContentWrap>

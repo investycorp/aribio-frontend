@@ -67,7 +67,7 @@ const PipeLine = () => {
           target: item.target,
           modality: item.modality,
           indication: item.pipelineIndicationDtoList?.map((indication) => {
-            return { id: indication.id, section: indication.indication, phase: indication.phase + 1 };
+            return { id: indication.id, section: indication.indication, phase: indication.phase + 1, state: indication.state + 1 };
           }),
           modal: {
             title: item.popUpTitle,
@@ -275,7 +275,7 @@ const PipeLine = () => {
                           <span>
                             <ShootingStarWrap className="shooting_star_wrap">
                               {/* <hr style={{ width: '100%', opacity: '0.4', border: 'dotted 1px' }} /> */}
-                              <ShootingStar className="shooting_star" $phase={indication_item?.phase} />
+                              <ShootingStar className="shooting_star" $phase={indication_item?.phase} $state={indication_item?.state} />
                             </ShootingStarWrap>
                           </span>
                           <span></span>
@@ -470,6 +470,7 @@ const PipeLine = () => {
                               width: '6px',
                             }}
                             $phase={indication?.phase}
+                            $state={indication?.state}
                           />
                         </ShootingStarWrap>
                       </span>

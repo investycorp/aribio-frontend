@@ -16,13 +16,16 @@ import { Desktop, Mobile } from '../../utils/MediaQuery';
 import Video from '../../components/Video';
 
 import { t } from 'i18next'
+import { Trans } from 'react-i18next';
 
 const OpenInnovation = () => {
   const navigate = useNavigate();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
+
   return (
     <Container className="container">
       <MainImgWrap>
@@ -39,11 +42,11 @@ const OpenInnovation = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.8' }}>{`HOME > `}</span>OPEN INNOVATION
+        <span style={{ opacity: '0.8' }}>{`HOME > ${t('innovation.basic.title')}`}</span>
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
         <HeadLine $className="midsize">
-          OPEN <br /> INNOVATION
+          <Trans i18nKey={'innovation.headline'} components={{ 1: <br /> }} />
         </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
@@ -81,12 +84,10 @@ const OpenInnovation = () => {
             /> */}
             <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
               <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
-                OPEN INNOVATION
+                {t('innovation.basic.title')}
               </Text>
               <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
-                AriBio is dedicated to driving advancements
-                <br />
-                in neurodegenerative diseases.
+                <Trans i18nKey={'innovation.basic.subdesc'} components={{ 1: <br /> }} />
               </Text>
               <hr
                 style={{
@@ -102,12 +103,7 @@ const OpenInnovation = () => {
                 $color="#D3D3D3"
                 style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
               >
-                Our foundation is the ARIDD platform, designed for multi-mechanism drugs, and
-                <br />
-                we’re strengthened by our commitment to open innovation.
-                <br />
-                We actively collaborate with innovative companies around the world, <br />
-                aiming to create impactful solutions for these challenging diseases.
+                <Trans i18nKey={'innovation.basic.desc'} components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -146,17 +142,7 @@ const OpenInnovation = () => {
                 style={{ marginBottom: '5rem', fontSize: window.innerWidth > 1280 ? '23px' : '14px' }}
               >
                 <HR style={{ marginBottom: '2em' }} />
-                Our approach blends polypharmacological strategies
-                <br /> with a belief in multi-modal management for these conditions.
-                <br />
-                <br />
-                While pioneering work in this area has its challenges and risks,
-                <br />
-                the urgent need for solutions in neurodegenerative diseases propels us forward.
-                <br />
-                Alongside our partners, we utilize AI and digital tools to support patients
-                <br />
-                and deepen our understanding of these disorders.
+                <Trans i18nKey={'innovation.basic.approach'} components={{ 1: <br /> }} />
               </Text>
               <ContentWrap
                 style={{
@@ -192,14 +178,13 @@ const OpenInnovation = () => {
                       lineHeight: window.innerWidth > 1280 ? '2.5em' : '3em',
                     }}
                   >
-                    Digital Health
+                    {t('innovation.basic.button.digital')}
                   </span>
                   <Image
                     src={arrow}
                     alt="arrow"
                     style={{
                       height: window.innerWidth > 1280 ? '14px' : '12px',
-
                       zIndex: '-1',
                     }}
                   />
@@ -230,14 +215,13 @@ const OpenInnovation = () => {
                       lineHeight: window.innerWidth > 1280 ? '2.5em' : '3em',
                     }}
                   >
-                    Memo:Re Project
+                    {t('innovation.basic.button.memore')}
                   </span>
                   <Image
                     src={arrow}
                     alt="arrow"
                     style={{
                       height: window.innerWidth > 1280 ? '14px' : '12px',
-
                       zIndex: '-1',
                     }}
                   />
@@ -246,6 +230,7 @@ const OpenInnovation = () => {
             </TextWrap>
           </HomeComponentWrap>
         </Desktop>
+
         <Mobile>
           {/* <Image
             style={{
@@ -269,32 +254,16 @@ const OpenInnovation = () => {
           >
             <TextWrap style={{ width: '100%', position: 'relative', backgroundColor: 'transparent' }}>
               <Text $color="#939598" $fontSize="16px" $fontWeight="300">
-                OPEN INNOVATION
+                {t('innovation.basic.title')}
               </Text>
               <Text $fontSize="23px" $fontWeight="500" style={{ lineHeight: '26px' }}>
-                AriBio is dedicated to
-                <br /> driving advancements in
-                <br /> neurodegenerative diseases.
+                <Trans i18nKey={'innovation.basic_m.subdesc'} components={{ 1: <br /> }} />
               </Text>
               <hr
                 style={{ width: '20px', borderTop: '1px solid #ffffff', borderBottom: 'none', margin: '0 0 2em 0' }}
               />
               <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ width: '100%', lineHeight: '21px' }}>
-                Our foundation is the ARIDD platform,
-                <br />
-                designed for multi-mechanism drugs,
-                <br />
-                and we’re strengthened by
-                <br />
-                our commitment to open innovation.
-                <br />
-                We actively collaborate with innovative
-                <br />
-                companies around the world,
-                <br />
-                aiming to create impactful solutions
-                <br />
-                for these challenging diseases.
+                <Trans i18nKey={'innovation.basic_m.desc'} components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -336,30 +305,7 @@ const OpenInnovation = () => {
                 }}
               >
                 <HR style={{ marginBottom: '2em', height: '1px', width: '20px' }} />
-                Our approach blends polypharma
-                <br />
-                cological strategies with a belief in
-                <br />
-                multi-modal management for these
-                <br />
-                conditions.
-                <br />
-                <br />
-                While pioneering work in this area
-                <br />
-                has its challenges and risks, the
-                <br />
-                urgent need for solutions in
-                <br />
-                neurodegenerative diseases propels
-                <br />
-                us forward. Alongside our partners,
-                <br />
-                we utilize AI and digital tools to
-                <br />
-                support patients and deepen our
-                <br />
-                understanding of these disorders.
+                <Trans i18nKey={'innovation.basic_m.approach'} components={{ 1: <br /> }} />
               </Text>
               <ContentWrap
                 style={{
@@ -389,7 +335,9 @@ const OpenInnovation = () => {
                   }}
                   onClick={() => navigate('/openinnovation/digitalhealth')}
                 >
-                  <span style={{ zIndex: '-1', fontSize: '16px' }}>Digital Health</span>
+                  <span style={{ zIndex: '-1', fontSize: '16px' }}>
+                    {t('innovation.basic_m.button.digital')}
+                  </span>
                   <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
                 <Text
@@ -410,7 +358,9 @@ const OpenInnovation = () => {
                   }}
                   onClick={() => navigate('/openinnovation/memoreproject')}
                 >
-                  <span style={{ zIndex: '-1', fontSize: '16px' }}>Memo:Re Project</span>
+                  <span style={{ zIndex: '-1', fontSize: '16px' }}>
+                    {t('innovation.basic_m.button.memore')}
+                  </span>
                   <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
                 </Text>
               </ContentWrap>
