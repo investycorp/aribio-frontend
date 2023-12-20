@@ -73,7 +73,7 @@ const History = () => {
         }
       />
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>HISTORY</HeadLine>
+        <HeadLine $className="midsize">HISTORY</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -159,7 +159,7 @@ const History = () => {
             </Text>
           </TextWrap>
         </HomeComponentWrap>
-        <Tab style={{ padding: '0 7vw' }}>
+        <Tab >
           {tabNames?.map((item, index) => (
             <TabItem
               key={index}
@@ -167,7 +167,7 @@ const History = () => {
               onClick={() => {
                 setCurrentTab(index);
               }}
-              style={{ lineHeight: '1.4em' }}
+              style={{ minWidth: 100, lineHeight: '1.4em', textAlign: 'center', justifyContent: 'center' }}
             >
               {item}
             </TabItem>

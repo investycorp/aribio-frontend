@@ -172,7 +172,7 @@ const DescriptionWrap = styled.ul`
   background-color: transparent;
   padding: 1.5em;
   transition: all 0.2s ease-in-out;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
   color: ${(props) => (props.$isActive ? '#ffffff' : 'rgba(203,203,203,0.5)')};
 
   ${DescriptionItem} {
@@ -180,6 +180,10 @@ const DescriptionWrap = styled.ul`
   }
   &:nth-child(1) {
     margin-top: 0;
+  }
+  @media screen and (max-width: 1280px) {
+    padding: 1em 1.5em;
+    gap: 1rem;
   }
   @media screen and (min-width: 901px) {
     &:last-child {
@@ -206,10 +210,9 @@ const Tab1 = ({ listItems, index }) => {
       if (window.innerWidth > 900) {
         const scrollY = document.getElementsByClassName('description-grid')[0];
         listItems.forEach((element) => {
-          if (
-            document.getElementsByClassName(element.title)[0]?.offsetTop - (scrollY.offsetHeight * 0.2) <
-            scrollY.scrollTop
-          ) {
+          const elementTop = document.getElementsByClassName(element.title)[0]?.offsetTop;
+          // 비율을 늘리거나, 빼는 값을 줄임
+          if (elementTop - (scrollY.offsetHeight * 0.05) < scrollY.scrollTop) {
             setScrollTab(element.title);
             setCurrentTab(element.title);
           }
@@ -228,7 +231,7 @@ const Tab1 = ({ listItems, index }) => {
         }
       }
     }
-  };
+  }
 
   useEffect(() => {console.log('ST', scrollTab, 'CT', currentTab);}, [currentTab, scrollTab])
 
@@ -339,7 +342,13 @@ const Tab1 = ({ listItems, index }) => {
               </GridBoxContentWrap>
             ))}
           </GridBox>
-          <GridBox className="description-grid" style={{ height: '70vh', overflowY: 'scroll' }}>
+          <GridBox
+            className="description-grid"
+            style={{
+              height: window.innerWidth > 1280 ? '62vh' : '60vh',
+              overflowY: 'scroll',
+            }}
+          >
             {listContents?.map((item, index) => (
               <DescriptionWrap
                 ref={refs[index]}

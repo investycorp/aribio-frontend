@@ -358,7 +358,7 @@ const Career = () => {
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
-                    $color="#ffffff"
+                    $color="#C3C3C3"
                     style={{
                       fontFamily: 'Copperplate',
                       width: window.innerWidth > 1280 ? '60vw' : '53vw',
@@ -381,7 +381,7 @@ const Career = () => {
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
-                    $color="#ffffff"
+                    $color="#C3C3C3"
                     style={{ fontFamily: 'Copperplate', width: window.innerWidth > 1280 ? '59vw' : '56vw', textAlign: 'end', margin: '0', lineHeight: '1' }}
                   >
                     ”
@@ -478,9 +478,15 @@ const Career = () => {
                 >
                   Core Values
                 </Text>
-                <div id="core_value" style={{ width: '100%', marginTop: '5em' }}>
+                <div id="core_value" style={{ width: '100%',  border: '1px solid #ababab', marginTop: '5em', borderRadius: 10 }}>
                   {coreValues.map((item, index) => (
-                    <GridContentWrap style={{ width: '100', border: '1px solid #ababab' }} key={index + 'box1'}>
+                    <GridContentWrap
+                      style={{
+                        width: '100',
+                        borderBottom: coreValues.length !== index + 1 ? '1px solid #ababab' : 'none'
+                      }}
+                      key={index + 'box1'}
+                    >
                       <ContentBox style={{ paddingLeft: '4vw' }}>
                         <ContentBoxNameWrap>
                           <Text
@@ -752,6 +758,9 @@ const Career = () => {
                 </GridContentWrap>
               </HomeComponentWrap>
             </Desktop>
+
+
+
             <Mobile>
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap>
@@ -782,12 +791,20 @@ const Career = () => {
                   marginBottom: '20vh',
                 }}
               >
-                <TextWrap style={{ width: '90vw' }}>
+                <TextWrap style={{ width: '90vw', position: 'relative' }}>
                   <Text
-                    $fontSize="20px"
+                    $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
-                    $color="#ffffff"
-                    style={{ width: '100%', textAlign: 'start', margin: '0', height: 'fit-content', lineHeight: '1' }}
+                    $color="#C3C3C3"
+                    style={{
+                      fontFamily: 'Copperplate',
+                      width: '86vw',
+                      position: 'absolute',
+                      textAlign: 'start',
+                      top: -5,
+                      height: 'fit-content',
+                      lineHeight: '1',
+                    }}
                   >
                     “
                   </Text>
@@ -800,10 +817,18 @@ const Career = () => {
                     <Trans i18nKey={'career_m.desc1'} components={{ 1: <br /> }} />
                   </Text>
                   <Text
-                    $fontSize="20px"
+                    $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
-                    $color="#ffffff"
-                    style={{ width: '100%', textAlign: 'end', margin: '0', lineHeight: '1' }}
+                    $color="#C3C3C3"
+                    style={{
+                      position: 'absolute',
+                      fontFamily: 'Copperplate',
+                      width: '81vw',
+                      textAlign: 'end',
+                      margin: 0,
+                      bottom: 0,
+                      lineHeight: '1',
+                    }}
                   >
                     ”
                   </Text>

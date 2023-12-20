@@ -92,10 +92,10 @@ const MemoRe = () => {
           >
             <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
               <Text $color="#C9C9C9" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
-                {t('innovation.memore.subtitle')}
+                {t('innovation.memore.basic.subtitle')}
               </Text>
               <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
-                {t('innovation.memore.desc')}
+                {t('innovation.memore.basic.desc')}
               </Text>
               <div
                 style={{
@@ -286,7 +286,7 @@ const MemoRe = () => {
                 $fontWeight="300"
                 style={{ fontSize: window.innerWidth > 1280 ? '26px' : '16px', margin: '0 0 12px 0' }}
               >
-                {t('innovation.memore_m.subtitle')}
+                {t('innovation.memore_m.basic.subtitle')}
               </Text>
               <Text $fontSize="23px" $fontWeight="400" style={{ width: '100%', margin: '0' }}>
                 <Trans i18nKey={'innovation.memore.basic.desc'} components={{ 1: <br /> }} />

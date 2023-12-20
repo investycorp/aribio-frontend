@@ -26,6 +26,7 @@ import {
   ComponentText,
   FilterShadow,
   ImageBackground,
+  MainImgWrap,
 } from './style';
 
 import useNoticeList from '../../hooks/irpr/useNoticeList';
@@ -34,6 +35,7 @@ import { useRecoilState } from 'recoil';
 import Video from '../../components/Video';
 import VideoFrame from '../../components/VideoFrame';
 import usePopup from '../../hooks/popup/usePopup';
+import { Image } from '../../components/style';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -127,7 +129,13 @@ const Home = () => {
         />
         {window.innerWidth > 900 && <SideSlider />}
 
-        {<Modal />}                                                       
+        {<Modal />}   
+
+      <MainImgWrap
+        style={{paddingBottom: 0}}
+      >
+        <Image src={home_desc_background} />
+      </MainImgWrap>                                                    
 
         <div style={{ margin: '0', padding: '0', position: 'relative' }}>
           <Desktop>
@@ -136,7 +144,6 @@ const Home = () => {
             </HomeComponentWrap>
             <HomeComponentWrap className="home home_2">
               <HomeAboutUsTextWrap style={{ height: '100vh', marginBottom: '5.5rem' }}>
-                <ImageBackground image={home_desc_background}/>
                 <HeadLineText id="target" $fontSize="48px">
                   <span
                     className="highlight1"
@@ -249,7 +256,7 @@ const Home = () => {
                       height: window.innerWidth > 1280 ? '200px' : '100px',
                       backgroundColor: '#B1B1B1',
                     }}
-                  ></div>
+                  />
                   <ComponentTextWrap style={{ padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem' }}>
                     <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '48px' : '30px', fontWeight: '500', marginBottom: 27 }}>
                       {t('home.ourapproach.title_1')}
@@ -285,7 +292,7 @@ const Home = () => {
                   }}
                 >
                   <ComponentTextWrap style={{}}>
-                    <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '60px' : '30px', fontWeight: '500', marginBottom: 27 }}>
+                    <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '48px' : '30px', fontWeight: '500', marginBottom: 27 }}>
                       {t('home.ourapproach.title_2')}
                     </ComponentText>
                     <ComponentText

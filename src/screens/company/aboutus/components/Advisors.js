@@ -66,10 +66,6 @@ const SchoolText = styled.div`
   color: #e3e3e3;
   font-weight: 100;
   line-height: 2.5rem;
-  @media screen and (max-width: 1280px) {
-    font-size: 10px;
-    padding-right: 5.8rem;
-  }
 
   ul {
     list-style-type: none;
@@ -82,11 +78,26 @@ const SchoolText = styled.div`
   }
 
   ul li:before {
-    content: "- ";
+    content: "  •  ";
     position: absolute;
     left: 0;
     top: 0; // 필요에 따라 조절
   }
+
+  @media screen and (max-width: 1280px) {
+    font-size: 10px;
+    padding-right: 5.8rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    line-height: 1.5em;
+
+    ul li {
+    padding-left: 0.75rem;
+  }
+  }
+
+
 `;
 
 const Advisors = () => {
@@ -174,7 +185,7 @@ const Advisors = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                padding: index % 2 === 0 ? '0 10px 0 0' : '0 0 0 87px',
+                padding: '0 10px 0 0',
               }}
               key={'tabContent' + index}
             >
@@ -183,17 +194,17 @@ const Advisors = () => {
                   width: '100%',
                   display: 'flex',
                   flexDirection: 'row',
-                  justifyContent: index % 2 === 0 ? 'flex-start' : 'space-between',
+                  justifyContent: 'flex-start',
                   alignItems: 'center',
                 }}
               >
-                {index % 2 === 0 && <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>}
+               <div style={{ width: '1px', height: '80px', backgroundColor: '#B1B1B1' }}/>
                 <ContentBox
                   style={{
                     width: 'fit-content',
                     border: 'none',
                     margin: '0',
-                    padding: index % 2 === 0 ? '0 0 0 1em' : '0 1em 0 0',
+                    padding: '0 0 0 1em',
                   }}
                   key={index}
                 >
@@ -204,9 +215,20 @@ const Advisors = () => {
                     </Text>
                   </ContentBoxNameWrap>
 
-                  <SchoolText style={{ fontSize: '16px', fontWeight: '100', paddingRight: '0' }}>{item?.description}</SchoolText>
+                  <SchoolText style={{ fontSize: '16px', fontWeight: '100', paddingRight: '0' }}>
+                    <ul>
+                    {item?.description.slice('\\n').map(text => {
+                      return (
+                        <li>
+                          <span>{text}</span>
+                          <br/>
+                        </li>
+                      );
+                    })}
+                    </ul>
+                  </SchoolText>
                 </ContentBox>
-                {index % 2 === 1 && <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>}
+                {/* {index % 2 === 1 && <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>} */}
               </div>
             </div>
           ))}

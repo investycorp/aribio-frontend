@@ -181,7 +181,7 @@ const PipeLine = () => {
       </Path>
 
       <HomeComponentWrap style={{ height: '100vh', width: '100vw' }}>
-        <HeadLine>PIPELINE</HeadLine>
+        <HeadLine $className="midsize">PIPELINE</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"

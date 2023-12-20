@@ -235,7 +235,7 @@ const Footer = () => {
                 alignItems: 'end',
                 justifyContent: 'space-evenly',
                 width: 'fit-content',
-                gap: '2vw',
+                gap: '5vw',
               }}
             >
               <AddressWrap>

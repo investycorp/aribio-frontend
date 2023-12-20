@@ -96,7 +96,7 @@ const CeoMessage = () => {
               <Text
                 $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                 $fontWeight="200"
-                $color="#ffffff"
+                $color="#C3C3C3"
                 style={{
                   width: window.innerWidth > 1280 ? '60vw' : '55vw',
                   height: '100%',
@@ -143,7 +143,7 @@ const CeoMessage = () => {
               <Text
                 $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                 $fontWeight="200"
-                $color="#D6D6D6"
+                $color="#C3C3C3"
                 style={{
                   textAlign: 'end',
                   marginTop: window.innerWidth > 1280 ? '63px' : '24px',
@@ -192,6 +192,9 @@ const CeoMessage = () => {
             </ContentBox>
           </HomeComponentWrap>
         </Desktop>
+
+
+
         <Mobile>
           <HomeComponentWrap>
             <TextWrap>
@@ -214,7 +217,23 @@ const CeoMessage = () => {
               margin: '5em 0 7em 0',
             }}
           >
-            <TextWrap>
+            <TextWrap style={{ width: '90vw', position: 'relative' }}>
+                <Text
+                  $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
+                  $fontWeight="200"
+                  $color="#C3C3C3"
+                  style={{
+                    fontFamily: 'Copperplate',
+                    width: '86vw',
+                    position: 'absolute',
+                    textAlign: 'start',
+                    top: -5,
+                    height: 'fit-content',
+                    lineHeight: '1',
+                  }}
+                >
+                      “
+                </Text>
               <Text
                 $fontSize="16px"
                 $fontWeight="300"
@@ -231,6 +250,22 @@ const CeoMessage = () => {
               >
                 {t('ceomessage.message2')}
               </Text>
+              <Text
+                $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
+                $fontWeight="200"
+                $color="#C3C3C3"
+                style={{
+                  position: 'absolute',
+                  fontFamily: 'Copperplate',
+                  width: '86vw',
+                  textAlign: 'end',
+                  margin: 0,
+                  bottom: 34,
+                  lineHeight: '1',
+                }}
+              >
+                ”
+              </Text>
             </TextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap style={{ display: 'grid', padding: '0' }}>
@@ -242,15 +277,15 @@ const CeoMessage = () => {
 
             <ContentBox style={{ padding: '4rem 5vw 0 5vw', gap: '1rem', marginBottom: '10em' }}>
               <div style={{ width: '20px', height: '1px', backgroundColor: '#939598', marginTop: '5em' }} />
+                <Text
+                  $fontSize="18px"
+                  $fontWeight="400"
+                  $color="#EAEAEA"
+                  style={{ textAlign: 'start', margin: '0', padding: '0 ' }}
+                >
+                  <Trans i18nKey="ceomessage_m.desc2" components={{ 1: <br /> }} />
+                </Text>
 
-              <Text
-                $fontSize="18px"
-                $fontWeight="400"
-                $color="#EAEAEA"
-                style={{ textAlign: 'start', margin: '0', padding: '0 ' }}
-              >
-                <Trans i18nKey="ceomessage_m.desc2" components={{ 1: <br /> }} />
-              </Text>
               <Text
                 $fontSize="16px"
                 $fontWeight="300"
