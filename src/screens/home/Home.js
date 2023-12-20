@@ -8,8 +8,6 @@ import home_ourapproach1 from './assets/home_ourapproach1.png';
 import home_ourapproach2 from './assets/home_ourapproach2.png';
 import home_ourapproach3 from './assets/home_ourapproach3.png';
 import home_notice1 from './assets/home_notice1.png';
-import home_desc_background from './assets/home_desc_background.png';
-
 import Modal from '../../components/Modal';
 
 import { useTranslation } from 'react-i18next';
@@ -25,7 +23,6 @@ import {
   ComponentTextWrap,
   ComponentText,
   FilterShadow,
-  ImageBackground,
 } from './style';
 
 import useNoticeList from '../../hooks/irpr/useNoticeList';
@@ -52,7 +49,7 @@ const Home = () => {
         if (index < 3) {
           return {
             id: item.id,
-            date: item.date.replaceAll('-', '.'),
+            date: `${item.year}.${item.month}.${item.day}`,
             mobileDate: `${item.month} ${item.day}, ${item.year}`,
             title: item.title,
             imageUrl: item.fileDto?.fileUrl ? item?.fileDto?.fileUrl : home_notice1,
@@ -131,12 +128,11 @@ const Home = () => {
 
         <div style={{ margin: '0', padding: '0', position: 'relative' }}>
           <Desktop>
-            <HomeComponentWrap style={{ height: '100vh' }} className="home home_1">
+            <HomeComponentWrap className="home home_1">
               <MainImgTextWrap style={{ height: '100vh' }}></MainImgTextWrap>
             </HomeComponentWrap>
             <HomeComponentWrap className="home home_2">
-              <HomeAboutUsTextWrap style={{ height: '100vh', marginBottom: '5.5rem' }}>
-                <ImageBackground image={home_desc_background}/>
+              <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
                 <HeadLineText id="target" $fontSize="48px">
                   <span
                     className="highlight1"
@@ -206,22 +202,15 @@ const Home = () => {
                    
                   <br />
                 </HeadLineText>
-                <SubPageButton 
-                 style={{
-                  position: 'absolute',
-                  bottom: '15vh',
-                }}
-                  title="About Us"
-                  linkTo="/company/aboutus"
-                />
               </HomeAboutUsTextWrap>
+              <SubPageButton title="About Us" linkTo="/company/aboutus" />
             </HomeComponentWrap>
             <HomeComponentWrap
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
                 gridTemplateRows: '1fr 1fr 1fr',
-                margin: '30vh 0 10vh 0',
+                marginBottom: '10vh',
               }}
               className="home home_3"
             >
@@ -394,7 +383,7 @@ const Home = () => {
             </HomeComponentWrap>
             <HomeComponentWrap
               className="home home_5"
-              style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '30vh 0' }}
+              style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '12vh 0 0 0' }}
             >
               <ComponentText
                 style={{ fontSize: window.innerWidth > 1280 ? '48px' : '36px', fontWeight: '500', alignSelf: 'start', marginBottom: 27 }}
@@ -461,7 +450,7 @@ const Home = () => {
                           color: '#D1D1D1',
                         }}
                       >
-                        {item.date.toString()}
+                        {item.date}
                       </p>
                       <p
                         style={{
@@ -480,14 +469,12 @@ const Home = () => {
               </div>
             </HomeComponentWrap>
           </Desktop>
-
-
           <Mobile>
             <HomeComponentWrap className="home home_1">
               <MainImgTextWrap style={{ height: videoHeight }}></MainImgTextWrap>
             </HomeComponentWrap>
             <HomeComponentWrap className="home home_2">
-              <HomeAboutUsTextWrap>
+              <HomeAboutUsTextWrap style={{ marginBottom: '5.5rem' }}>
                 <HeadLineText fontSize="23px" style={{ fontWeight: '400' }}>
                   <span
                     className="highlight1"
@@ -587,10 +574,7 @@ const Home = () => {
                   <br />
                 </HeadLineText>
               </HomeAboutUsTextWrap>
-              <SubPageButton
-                title="About Us"
-                linkTo="/company/aboutus"
-              />
+              <SubPageButton title="About Us" linkTo="/company/aboutus" />
               <img
                 id="hide2"
                 src={process.env.PUBLIC_URL + '/assets/icons/indicator2.svg'}

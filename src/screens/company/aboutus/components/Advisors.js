@@ -44,7 +44,7 @@ const ContentBox = styled.div`
 
   @media screen and (min-width: 901px) and (max-width: 1280px) {
     padding: 0 0 0 1.5rem;
-    // border-left: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
   }
   @media screen and (max-width: 900px) {
     width: 66.7%;
@@ -65,27 +65,10 @@ const SchoolText = styled.div`
   font-size: 18px;
   color: #e3e3e3;
   font-weight: 100;
-  line-height: 2.5rem;
+  line-height: 1.5em;
   @media screen and (max-width: 1280px) {
     font-size: 10px;
     padding-right: 5.8rem;
-  }
-
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-
-  ul li {
-    position: relative;
-    padding-left: 1em;
-  }
-
-  ul li:before {
-    content: "- ";
-    position: absolute;
-    left: 0;
-    top: 0; // 필요에 따라 조절
   }
 `;
 
@@ -117,7 +100,7 @@ const Advisors = () => {
           marginBottom: window.innerWidth > 1280 ? '512px' : '344px'
         }}>
           {tabContents?.map((item, index) => (
-            <ContentBox key={index} style={{ minHeight: '135px', gap: '3rem' }}>
+            <ContentBox key={index} style={{ height: '121px', justifyContent: 'center' }}>
               <ContentBoxNameWrap
                 style={{ paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end' }}
               >
@@ -147,24 +130,11 @@ const Advisors = () => {
                   borderWeight: window.innerWidth > 1280 ? '2px' : '1px',
                 }}
               /> */}
-              <SchoolText>
-                <ul>
-                  {item?.description.slice('\\n').map(text => {
-                    return (
-                      <li>
-                        <span>{text}</span>
-                        <br/>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </SchoolText>
+              <SchoolText>{item?.description}</SchoolText>
             </ContentBox>
           ))}
         </TabContentWrap>
       </Desktop>
-
-
       <Mobile>
         <TabContentWrap style={{ width: '90vw' }}>
           {tabContents?.map((item, index) => (

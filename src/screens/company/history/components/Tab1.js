@@ -1,17 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
-import sidebar from '../assets/history_sidebar.svg';
-import sidebar_short from '../assets/history_sidebar_short.svg';
-import whitedot from '../assets/history_dot_white.svg';
-import graydot from '../assets/history_dot_grey.svg';
-import reddot from '../assets/history_dot_red.svg';
-
-import m_sidebar from '../assets/sidebar.svg';
-import m_sidebar_short from '../assets/sidebar_short.svg';
-import m_whitedot from '../assets/whitedot.svg';
-import m_graydot from '../assets/graydot.svg';
-import m_reddot from '../../../../assets/images/reddot.svg';
-
+import { useRecoilState, useRecoilValue } from 'recoil';
+import sidebar from '../assets/sidebar.svg';
+import sidebar_short from '../assets/sidebar_short.svg';
+import whitedot from '../assets/whitedot.svg';
+import graydot from '../assets/graydot.svg';
+import reddot from '../../../../assets/images/reddot.svg';
 import { Desktop, Mobile } from '../../../../utils/MediaQuery';
 
 const HomeComponentWrap = styled.div`
@@ -73,7 +67,7 @@ const GridBox = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: left;
-  gap: 0.2rem;
+  gap: 2rem;
   background-color: transparent;
   position: relative;
   width: 100%;
@@ -91,7 +85,7 @@ const GridBox = styled.div`
 `;
 const GridBoxContentWrap = styled.div`
   width: 100%;
-  height: 5rem;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -99,7 +93,6 @@ const GridBoxContentWrap = styled.div`
   padding: 1rem;
   gap: 5em;
   @media screen and (max-width: 1280px) {
-    height: 3rem;
     gap: 2em;
   }
   @media screen and (max-width: 900px) {
@@ -111,29 +104,18 @@ const GridBoxContentWrap = styled.div`
     align-items: left;
     padding: 0;
   }
-  @media screen and (max-width: 360px) {
-    height: fit-content;
-  }
 `;
 
 const Image = styled.img`
-  width: 8px;
-  height: 8px;
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   z-index: 10;
   border-radius: 50%;
   border: ${(props) => (props.$isActive ? '2px solid #848484' : '2px solid transparent')};
   transition: border 0.3s ease-in-out;
 
   @media screen and (max-width: 1280px) {
-    border-width: 1px;
-    width: 6px;
-    height: 6px;
-  }
-
-  @media screen and (max-width: 360px) {
     border-width: 1px;
     width: 8px;
     height: 8px;
@@ -153,7 +135,6 @@ const DescriptionItem = styled.li`
     font-size: 1em;
     text-align: left;
   }
-
   @media screen and (max-width: 1280px) {
     font-size: 12px;
   }
@@ -172,7 +153,7 @@ const DescriptionWrap = styled.ul`
   background-color: transparent;
   padding: 1.5em;
   transition: all 0.2s ease-in-out;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
   color: ${(props) => (props.$isActive ? '#ffffff' : 'rgba(203,203,203,0.5)')};
 
   ${DescriptionItem} {
@@ -207,30 +188,26 @@ const Tab1 = ({ listItems, index }) => {
         const scrollY = document.getElementsByClassName('description-grid')[0];
         listItems.forEach((element) => {
           if (
-            document.getElementsByClassName(element.title)[0]?.offsetTop - (scrollY.offsetHeight * 0.2) <
+            document.getElementsByClassName(element.title)[0]?.offsetTop - scrollY.offsetHeight * 0.2 <
             scrollY.scrollTop
           ) {
             setScrollTab(element.title);
-            setCurrentTab(element.title);
           }
         });
       } else {
         //Mobile
-        
+
         for (let i = 0; i < listItems?.length; i++) {
           if (
             document.getElementsByClassName(listItems[i]?.title)[0]?.offsetTop + window.innerHeight * 1.2 <
             window.scrollY
           ) {
             setScrollTab(listItems[i].title);
-            setCurrentTab(listItems[i].title);
           }
         }
       }
     }
   };
-
-  useEffect(() => {console.log('ST', scrollTab, 'CT', currentTab);}, [currentTab, scrollTab])
 
   useEffect(() => {
     const scrollY = document.getElementsByClassName(currentTab)[0]?.offsetTop;
@@ -279,6 +256,11 @@ const Tab1 = ({ listItems, index }) => {
     };
   }, [listItems]);
 
+  useEffect(() => {
+    console.log('listContents', listContents);
+    console.log('tabNames', tabNames);
+  }, [listContents]);
+
   return (
     <>
       <Desktop>
@@ -290,11 +272,11 @@ const Tab1 = ({ listItems, index }) => {
                 alt="sidebar"
                 style={{
                   position: 'absolute',
-                  top: index === 0 ? (window.innerWidth > 1280 ? 0 : '-4px') : window.innerWidth > 1280 ? '-2rem' : '-4px',
-                  left: window.innerWidth > 1280 ? '-1.5px' : '-0.8px', 
+                  top: index === 0 ? '0' : window.innerWidth > 1280 ? '-6rem' : '-4.5rem',
+                  left: window.innerWidth > 1280 ? '-3px' : '-10px',
                   zIndex: '10',
-                  margin: index === 0 ? '0.18em 0.15em' : '-3em 0.15em 0.18em 0.15em',
-                  padding: window.innerWidth > 1280 ? '2.1rem 2rem' : '1.5rem',
+                  margin: index === 0 ? '0.18em 0.15em' : '0.10em',
+                  padding: '2.1rem 2rem',
                   height: '-webkit-fill-available',
                 }}
               />
@@ -304,8 +286,8 @@ const Tab1 = ({ listItems, index }) => {
                 alt="sidebar_short"
                 style={{
                   position: 'absolute',
-                  top: tabNames?.length > 3 ? '0' : window.innerWidth > 1280 ? '-2.9rem' : '-1.8rem',
-                  left: window.innerWidth > 1280 ? '32.3px' : '25px',
+                  top: index === 0 ? '0' : window.innerWidth > 1280 ? '-3.9rem' : '-2.3rem',
+                  left: window.innerWidth > 1280 ? '30.5px' : '23.2px',
                   zIndex: '10',
                   margin: '0',
                   padding: '0 0 2em 0',
@@ -318,8 +300,8 @@ const Tab1 = ({ listItems, index }) => {
               <GridBoxContentWrap id="description" key={tabName}>
                 {
                   <Image
-                    src={tabName === currentTab ? reddot : whitedot}
-                    $isActive={tabName === currentTab ? true : false}
+                    src={tabName === scrollTab ? reddot : whitedot}
+                    $isActive={tabName === scrollTab ? true : false}
                     style={{
                       padding: window.innerWidth > 1280 ? '14px' : '7px',
                       display: 'flex',
@@ -329,10 +311,11 @@ const Tab1 = ({ listItems, index }) => {
                   />
                 }
                 <Text
-                  $isActive={tabName === currentTab ? true : false}
+                  $isActive={tabName === scrollTab ? true : false}
                   onClick={() => {
                     setCurrentTab(tabName);
                   }}
+                  style={{ height: '3rem' }}
                 >
                   {tabName}
                 </Text>
@@ -345,7 +328,7 @@ const Tab1 = ({ listItems, index }) => {
                 ref={refs[index]}
                 className={tabNames[index]}
                 key={'desc' + index}
-                $isActive={tabNames.indexOf(currentTab) === index ? true : false}
+                $isActive={tabNames.indexOf(scrollTab) === index ? true : false}
               >
                 {item?.map((content, index) => (
                   <DescriptionItem key={index + content}>{content}</DescriptionItem>
@@ -355,8 +338,6 @@ const Tab1 = ({ listItems, index }) => {
           </GridBox>
         </HomeComponentWrap>
       </Desktop>
-
-
       <Mobile>
         <HomeComponentWrap className="description-grid">
           {tabNames?.map((tabName, index) => (
@@ -375,7 +356,7 @@ const Tab1 = ({ listItems, index }) => {
                 }}
               >
                 <Image
-                  src={tabName === scrollTab ? m_reddot : m_whitedot}
+                  src={tabName === scrollTab ? reddot : whitedot}
                   $isActive={tabName === scrollTab ? true : false}
                   style={{
                     marginRight: '12px',
@@ -397,12 +378,13 @@ const Tab1 = ({ listItems, index }) => {
                     borderRight: '2px dotted rgba(255, 255, 255, 0.5)',
                     margin: index === 0 ? '18px 0 0 0' : '0',
                   }}
-                />
+                ></div>
               </div>
               <GridBoxContentWrap key={tabName} style={{ alignItems: 'start' }}>
                 <Text $isActive={tabName === scrollTab ? true : false} style={{ lineHeight: '26px' }}>
                   {tabName}
                 </Text>
+
                 <DescriptionWrap
                   ref={refs[index]}
                   key={index}

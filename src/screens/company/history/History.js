@@ -108,7 +108,7 @@ const History = () => {
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                 }}
-            />
+            ></div>
             <Text
               $fontSize={window.innerWidth > 1280 ? '30px' : '14px'}
               $fontWeight="200"
@@ -134,8 +134,6 @@ const History = () => {
 
         <Tab1 listItems={listItems[currentTab]} index={currentTab} />
       </Desktop>
-
-
       <Mobile>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>

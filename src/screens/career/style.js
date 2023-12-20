@@ -153,10 +153,6 @@ const GridContentWrap = styled.div`
   align-items: left;
   background-color: transparent;
   padding: 2.5em 0;
-
-  @media screen and (max-width: 1280px){
-    padding: 1.5em 0;
-  }
 `;
 
 const Image = styled.img`

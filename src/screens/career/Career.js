@@ -349,6 +349,7 @@ const Career = () => {
                   padding: '8vh 7vw',
                   marginBottom: '20vh',
                   position: 'relative',
+                  marginBottom: '20vh',
                 }}
               >
                 <ImageBackground
@@ -361,7 +362,7 @@ const Career = () => {
                     $color="#ffffff"
                     style={{
                       fontFamily: 'Copperplate',
-                      width: window.innerWidth > 1280 ? '60vw' : '53vw',
+                      width: '70%',
                       textAlign: 'start',
                       margin: '0',
                       height: 'fit-content',
@@ -382,7 +383,7 @@ const Career = () => {
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
                     $color="#ffffff"
-                    style={{ fontFamily: 'Copperplate', width: window.innerWidth > 1280 ? '59vw' : '56vw', textAlign: 'end', margin: '0', lineHeight: '1' }}
+                    style={{ fontFamily: 'Copperplate', width: '70%', textAlign: 'end', margin: '0', lineHeight: '1' }}
                   >
                     ”
                   </Text>
@@ -481,7 +482,7 @@ const Career = () => {
                 <div id="core_value" style={{ width: '100%', marginTop: '5em' }}>
                   {coreValues.map((item, index) => (
                     <GridContentWrap style={{ width: '100', border: '1px solid #ababab' }} key={index + 'box1'}>
-                      <ContentBox style={{ paddingLeft: '4vw' }}>
+                      <ContentBox style={{ paddingLeft: '8vw' }}>
                         <ContentBoxNameWrap>
                           <Text
                             id="core_value"
@@ -489,7 +490,7 @@ const Career = () => {
                             $fontWeight="100"
                             $color="#A8A8A8"
                             $align="start"
-                            style={{ width: 'fit-content', marginRight: '6vw' }}
+                            style={{ width: 'fit-content' }}
                           >
                             0{index + 1}
                           </Text>
@@ -524,7 +525,7 @@ const Career = () => {
                   ))}
                 </div>
               </HomeComponentWrap>
-              <HomeComponentWrap style={{ padding: '15vh 0 5vh 7vw' }}>
+              <HomeComponentWrap style={{ padding: '5vh 0 5vh 7vw' }}>
                 <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
