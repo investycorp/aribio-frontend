@@ -42,6 +42,7 @@ const Modal = () => {
                   height: `${data.length}px`,
                   border: '2px solid #121212',
                   borderRadius: '5px',
+                  overflow: 'auto',
                 }}
                 key={data.id}
               >
@@ -58,7 +59,16 @@ const Modal = () => {
                     borderRadius: '5px',
                   }}
                 >
-                  <img src={data.fileDto.fileUrl} alt={data.title} style={{width: '100%', height: 'auto'}} />
+                  <img
+                    src={data.fileDto.fileUrl}
+                    alt={data.title}
+                    style={{width: '100%', height: 'auto'}}
+                    onClick={() => {
+                      setTimeout(() => {
+                        data?.link && window.open(`${data?.link}`, '_blank');
+                      }, 10);
+                    }}
+                  />
                   <p
                     style={{
                       display: 'flex',
@@ -107,6 +117,7 @@ const Modal = () => {
                   borderRadius: '5px',
                   border: '2px solid #989898',
                   backgroundColor: '#121212',
+                  overflow: 'auto',
                 }}
                 key={data.id}
               >
@@ -125,14 +136,22 @@ const Modal = () => {
                   <h2 style={{ backgroundColor: '#121212', color: '#989898', width: 'auto', padding: '5px 10px' }}>
                     {data.title}
                   </h2>
-                  <img src={data.fileDto.fileUrl} alt={data.title} style={{ width: '100%', height: '100%' }} />
+                  <img
+                    src={data.fileDto.fileUrl}
+                    alt={data.title}
+                    style={{ width: '100%', height: '100%' }}
+                    onClick={() => {
+                      setTimeout(() => {
+                        data?.link && window.open(`${data?.link}`, '_blank');
+                      }, 10);
+                    }}
+                  />
                   <p
                     style={{
                       display: 'flex',
                       flexDirection: 'row',
                       justifyContent: 'space-between',
                       width: '100%',
-
                       gap: '20px',
                     }}
                   >

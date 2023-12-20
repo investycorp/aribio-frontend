@@ -154,7 +154,7 @@ const Contact = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > CONTACT > `}</span>CONTACT US
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>CONTACT {window.innerWidth <= 900 && <br />}US</HeadLine>
+        <HeadLine $className="midsize">CONTACT {window.innerWidth <= 900 && <br />}US</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"

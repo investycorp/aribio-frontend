@@ -43,77 +43,80 @@ const Leadership = () => {
     >
       <Desktop>
         <TabContentWrap id="leadership">
-          <CeoBox
-            style={{
-              padding: window.innerWidth > 1280 ? '0 7vw 504px' : '0 7vw 255px'
-            }}
-          >
-            <Image
-              width={window.innerWidth > 1280 ? 835 : 478}
-              height={window.innerWidth > 1280 ? 555 : 315}
-              src={ceoContents?.fileDto?.fileUrl}
-              alt="ceoProfilePicture"
-            />
-            <TextWrap
+          {ceoContents && (
+            <CeoBox
               style={{
-                width: window.innerWidth > 1280 ? 835 : 478,
-                height: window.innerWidth > 1280 ? 555 : 315,
+                padding: window.innerWidth > 1280 ? '0 7vw 504px' : '0 7vw 255px'
               }}
             >
+              <Image
+                width={window.innerWidth > 1280 ? 835 : 478}
+                height={window.innerWidth > 1280 ? 555 : 315}
+                src={ceoContents?.fileDto?.fileUrl}
+                alt="ceoProfilePicture"
+              />
               <TextWrap
                 style={{
-                  width: window.innerWidth > 1280 ?  500 : 280,
+                  width: window.innerWidth > 1280 ? 835 : 478,
+                  height: window.innerWidth > 1280 ? 555 : 315,
                 }}
               >
-                <Text
-                  $align="start"
-                  $color="#F2F2F2"
-                  $fontWeight='500'
+                <TextWrap
                   style={{
-                    margin: '0',
-                    fontSize: window.innerWidth > 1280 ? '20px' : '11px',
+                    width: window.innerWidth > 1280 ?  500 : 280,
                   }}
                 >
-                  {ceoContents?.position}
-                </Text>
-                <Text
-                  $align="start"
-                  $color="#F2F2F2"
-                  $fontWeight='700'
-                  style={{
-                    margin: '0',
-                    marginBottom: '2vh',
-                    fontSize: window.innerWidth > 1280 ? '36px' : '20px',
-                  }}
+                  <Text
+                    $align="start"
+                    $color="#F2F2F2"
+                    $fontWeight='500'
+                    style={{
+                      margin: '0',
+                      fontSize: window.innerWidth > 1280 ? '20px' : '11px',
+                    }}
                   >
-                  {ceoContents?.name}
-                </Text>
-                {/* <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{alignSelf:'start', marginTop: window.innerWidth > 1280 ? 75 : 29 }} /> */}
-                <Text
-                  $align="start"
-                  $color="#F2F2F2"
-                  style={{
-                    margin: '0',
-                    fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                  }}
-                > 
-                  <ul>
-                  {ceoContents?.contents?.split("\\n").map((item, index) => (
-                      <DescriptionItem key={index}
-                        style={{
-                          listStyle: 'disc',
-                          lineHeight: '2rem',
-                          fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                        }}
-                      >
-                        {item}
-                      </DescriptionItem>
-                    ))}
-                  </ul>
-                </Text>
+                    {ceoContents?.position}
+                  </Text>
+                  <Text
+                    $align="start"
+                    $color="#F2F2F2"
+                    $fontWeight='700'
+                    style={{
+                      margin: '0',
+                      marginBottom: '2vh',
+                      fontSize: window.innerWidth > 1280 ? '36px' : '20px',
+                    }}
+                    >
+                    {ceoContents?.name}
+                  </Text>
+                  {/* <HR $width={window.innerWidth > 1280 ? '60px' : '24px'} style={{alignSelf:'start', marginTop: window.innerWidth > 1280 ? 75 : 29 }} /> */}
+                  <Text
+                    $align="start"
+                    $color="#F2F2F2"
+                    style={{
+                      margin: '0',
+                      paddingLeft: window.innerWidth > 1280 ? '1rem' : '0.5rem',
+                      fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                    }}
+                  > 
+                    <ul>
+                    {ceoContents?.contents?.split("\\n").map((item, index) => (
+                        <DescriptionItem key={index}
+                          style={{
+                            listStyle: 'disc',
+                            lineHeight: window.innerWidth > 1280 ? '2rem' : '1.25rem',
+                            fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                          }}
+                        >
+                          {item}
+                        </DescriptionItem>
+                      ))}
+                    </ul>
+                  </Text>
+                </TextWrap>
               </TextWrap>
-            </TextWrap>
-         </CeoBox>
+          </CeoBox>
+          )}
          <TextWrap
           style={{
             width: '100%',
@@ -131,6 +134,12 @@ const Leadership = () => {
             {t('home.aboutus.subtitle.us')}
           </Text>
          </TextWrap>
+         <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+         >
           <MemberListWrap>
             {usContents?.map((item, index) => (
               <ContentBox
@@ -191,6 +200,7 @@ const Leadership = () => {
               </ContentBox>
             ))}       
           </MemberListWrap>
+         </div>
           <TextWrap
             style={{
               padding: '0 7vw'
@@ -213,7 +223,7 @@ const Leadership = () => {
               <ContentBox
                 key={index}
                 style={{
-                  maxWidth: window.innerWidth > 1280 ? 425 : 250,
+                  width: window.innerWidth > 1280 ? 425 : 250,
                   marginBottom: '12.75vh'
                 }}
               >
@@ -271,6 +281,9 @@ const Leadership = () => {
           </ContentWrap>
         </TabContentWrap>
       </Desktop>
+
+
+
 
       <Mobile>
         <TabContentWrap

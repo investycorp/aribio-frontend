@@ -55,7 +55,7 @@ const AboutUs = () => {
         />
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>
+        <HeadLine $className="midsize">
           <Trans i18nKey="aboutus.headline" components={{ 1: <br /> }} />
         </HeadLine>
         <img
@@ -107,6 +107,8 @@ const AboutUs = () => {
           </Tab>
           {currentTab === 'Leadership' ? <Leadership /> : <Advisors />}
         </Desktop>
+
+        
         <Mobile>
           <HomeComponentWrap>
             <TextWrap style={{ width: '100%' }}>

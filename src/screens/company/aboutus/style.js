@@ -318,7 +318,7 @@ const MemberListWrap = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0 7vw;
   gap: 12rem 8rem;
   margin-bottom: 25vh;
@@ -330,12 +330,12 @@ const HeadListWrap = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 10vw;
-  gap: 4rem 0;
+  gap: 4rem 6rem;
 
   @media screen and (max-width: 1280px){
-    gap: 7vh 0;
+    gap: 7vh 5rem;
     padding: 0 12vw;
   }
 `;
