@@ -47,9 +47,10 @@ const Partner = () => {
         <Video
           page="partner"
           src={
-            window.innerWidth > 1280
-              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0900PB_VD.mp4'
-              : window.innerWidth > 900
+            // window.innerWidth > 1280
+            //   ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0900PB_VD.mp4'
+            //   : 
+              window.innerWidth > 900
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1800PB_VD.mp4'
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2700PB_VD.mp4'
           }

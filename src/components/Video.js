@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Container } from './style';
 import { Desktop, Mobile } from '../utils/MediaQuery';
+import ReactPlayer from 'react-player';
 
 const VideoContainer = styled(Container)`
   top: 0px;
@@ -31,17 +32,21 @@ const Video = ({ page, src, onLayout }) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [isSuspended, setIsSuspended] = useState(false);
+  const [isPlay, setIsPlay] = useState(false);
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
     console.log(page);
+    setIsPlay(true);
     const video = videoRef?.current;
     setLoading(true);
     window.addEventListener('scroll', () => {
       window.scrollY > 0 && setShown(true);
     });
+    
 
     const handleVideoEnd = () => {
+      console.log('video end')
       if (video) {
         video.currentTime = 15;
         video?.play();
@@ -114,6 +119,15 @@ const Video = ({ page, src, onLayout }) => {
         >
           <source src={src} type="video/mp4" />
         </StyledVideo>
+        {/* <ReactPlayer
+          url={src}
+          playing={isPlay}
+          loop={page !== 'home'}
+          muted={true}
+          width="100%"
+          height="100%"
+          style={{ }}
+        /> */}
         {page === 'home' && (
           <img
             id="header"

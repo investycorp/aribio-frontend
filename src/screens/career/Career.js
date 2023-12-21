@@ -413,7 +413,8 @@ const Career = () => {
                   {joinus.map((item, index) => (
                     <ContentBox key={`joinus${index}`}
                       style={{
-                        width: window.innerWidth > 1280 ? '794px' : '480px',
+                        // width: window.innerWidth > 1280 ? '794px' : '480px',
+                        width: "100%",
                         height: window.innerWidth > 1280 ? '261px' : '155px',
                       }}
                     className="joinus" $src={item.img}>
@@ -1040,6 +1041,7 @@ const Career = () => {
                   {recruitmentProcess.map((item, index) => (
                      <RecruitmentItemWrap
                      key={`recruitmentProcess${index}`}
+                     style={{width: '100%'}}
                     >
                      <TextWrap style={{flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between'}}>
                        <Image style={{

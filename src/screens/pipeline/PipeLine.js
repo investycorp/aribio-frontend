@@ -20,6 +20,7 @@ import {
   ContentBoxWrap,
   ContentBox,
   RowWrap,
+  Ball,
 } from './style';
 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
@@ -275,7 +276,9 @@ const PipeLine = () => {
                           <span>
                             <ShootingStarWrap className="shooting_star_wrap">
                               {/* <hr style={{ width: '100%', opacity: '0.4', border: 'dotted 1px' }} /> */}
-                              <ShootingStar className="shooting_star" $phase={indication_item?.phase} $state={indication_item?.state} />
+                              <ShootingStar className="shooting_star" $phase={indication_item?.phase} $state={indication_item?.state}>
+                                <Ball />
+                              </ShootingStar>
                             </ShootingStarWrap>
                           </span>
                           <span></span>
@@ -468,13 +471,11 @@ const PipeLine = () => {
                           <hr style={{ width: '100%', opacity: '0.4', border: '1px dotted' }} />
                           <ShootingStar
                             className="shooting_star animation_mobile"
-                            style={{
-                              height: '6px',
-                              width: '6px',
-                            }}
                             $phase={indication?.phase}
                             $state={indication?.state}
-                          />
+                          >
+                            <Ball />
+                          </ShootingStar>
                         </ShootingStarWrap>
                       </span>
                     </ContentBox>

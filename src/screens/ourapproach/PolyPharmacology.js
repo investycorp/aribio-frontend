@@ -24,7 +24,8 @@ const PolyPharmacology = () => {
           src={
             window.innerWidth > 1280
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0500PB_VD.mp4'
-              : window.innerWidth > 900
+              : 
+              window.innerWidth > 900
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1400PB_VD.mp4'
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2300PB_VD.mp4'
           }

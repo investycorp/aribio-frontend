@@ -231,14 +231,14 @@ const DetailPage = () => {
               display: 'grid',
               gridTemplateColumns: '1fr 1fr 1fr',
               columnGap: '0',
-              justifyContent: 'center',
-              alignItems: 'center',
+              justifyContent: 'end',
+              alignItems: 'end',
               width: '100%',
               height: 'fit-content',
             }}
           >
             {prevItem.id ? (
-              <div style={{ height: 'fit-content' }}>
+              <div style={{ height: 'auto' }}>
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
@@ -280,7 +280,7 @@ const DetailPage = () => {
               <div></div>
             )}
             {nextItem.id ? (
-              <div style={{ height: 'fit-content' }}>
+              <div style={{ height: 'auto' }}>
                 <Link
                   className="button"
                   style={{ textDecoration: 'none', cursor: 'pointer' }}
@@ -322,7 +322,7 @@ const DetailPage = () => {
             )}
             <div
               style={{
-                height: '100%',
+                height: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'end',

@@ -427,9 +427,9 @@ const ShootingStarWrap = styled.section`
 
 const move = (start, phase, state, gap) => keyframes`
     0% {
-      transform: translateX(0);
-      -webkit-transform: translateX(0);
-      -o-transform: translateX(0);
+      transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
 
       opacity: 1;
     }
@@ -437,18 +437,18 @@ const move = (start, phase, state, gap) => keyframes`
       opacity: 1;
     }
     100% {
-      transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px))`};
-      -webkit-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${(phase - 1) * 2}px))`};
-      -o-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px))`};
+      transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px - 100%))`};
+      -webkit-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${(phase - 1) * 2}px - 100%))`};
+      -o-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px - 100%))`};
       opacity: 1;
     }
 `;
 
 const mobileMove = (start, phase, state, gap) => keyframes`
   0% {
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
-    -o-transform: translateX(0);
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
 
     opacity: 1;
   }
@@ -456,9 +456,9 @@ const mobileMove = (start, phase, state, gap) => keyframes`
     opacity: 1;
   }
   100% {
-    transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 4 * 2}px))`};
-    -webkit-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${(phase - 1) * 4}px))`};
-    -o-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 4 * 2}px))`};
+    transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 4 * 2}px - 100%))`};
+    -webkit-transform: ${`translateX(calc(${start} * ${phase} -100% - 2vw * ${4 - state} - ${gap} - ${(phase - 1) * 4}px - 100%))`};
+    -o-transform: ${`translateX(calc(${start} * ${phase} -100% - 2vw * ${4 - state} - ${gap} - ${phase - 4 * 2}px))`};
     opacity: 1;
   }
 `;
@@ -470,24 +470,11 @@ const ShootingStar = styled.span.attrs((props) => ({
   position: absolute;
   top: calc(50%-4px);
   left: 0%;
-  width: 4px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 4px rgba(255, 255, 255, 0.1),
-    0 0 0 6px rgba(255, 255, 255, 0.1),
-    0 0 8px rgba(255, 255, 255, 0.1);
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
+  width: ${(props) => (props.$phase ? `calc(${props?.$phase}*7vw)` : `calc(7vw)`)};
+  height: 3px;
+  background: linear-gradient(270deg, #ffffff, transparent);
+  transform: translateX(-100%);
+
 
   &.animate {
     opacity: 1;
@@ -525,18 +512,23 @@ const ShootingStar = styled.span.attrs((props) => ({
       animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
     }
   }
+`;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props?.$phase}*8vw)` : `calc(10vw)`)};
-    height: 2px;
-    background: linear-gradient(270deg, #ffffff, transparent);
-    transform: translate(0, -50%);
-    -webkit-transform: translate(0, -50%);
-  }
+const Ball = styled.span.attrs((props) => ({
+  className: props.className,
+}))`
+  position: absolute;
+  top: -1.5px;
+  right: -1px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 1;
+  box-shadow:
+  0 0 0 4px rgba(255, 255, 255, 0.1),
+  0 0 0 10px rgba(255, 255, 255, 0.1),
+  0 0 15px rgba(255, 255, 255, 0.1);
 `;
 
 const ToggleButton = styled.div`
@@ -628,4 +620,5 @@ export {
   ContentBoxWrap,
   ContentBox,
   RowWrap,
+  Ball
 };

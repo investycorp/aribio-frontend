@@ -474,7 +474,7 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
       gap: 15px;
     }
 
-    @media screen and (max-width: 360px) {
+    @media screen and (max-width: 900px) {
       padding: 24px 15px 24px 24px; 
       max-width: 322px;
       max-height: 232px;
