@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import browser from 'browser-detect';
 import styled from 'styled-components';
 import sidebar from '../assets/history_sidebar.svg';
 import sidebar_short from '../assets/history_sidebar_short.svg';
@@ -197,6 +198,7 @@ const DescriptionWrap = styled.ul`
 `;
 
 const Tab1 = ({ listItems, index }) => {
+  const browserInfo = browser();
   const [tabNames, setTabNames] = useState([]);
 
   const refs = useRef(Array(tabNames.length).fill(React.createRef()));
@@ -287,7 +289,41 @@ const Tab1 = ({ listItems, index }) => {
       <Desktop>
         <HomeComponentWrap>
           <GridBox className="scrollbox">
-            {tabNames?.length > 3 ? (
+
+            {/* {browserInfo.name === "safari" && tabNames?.length > 3 && (
+              <img
+                src={sidebar}
+                alt="sidebar"
+                style={{
+                  position: 'absolute',
+                  top: index === 0 ? (window.innerWidth > 1280 ? "10px" : '-20px') : window.innerWidth > 1280 ? '-10px' : '-4px',
+                  left: window.innerWidth > 1280 ? '31px' : '-0.8px', 
+                  zIndex: '10',
+                  margin: index === 0 ? '0px 1.5px' : '-4em 0.15em 0.18em 0.15em',
+                  padding: window.innerWidth > 1280 ? '0px' : '1.5rem',
+                  height: index === 0 ? '13.5rem' : "105%",
+                }}
+              />
+            )} 
+            {browserInfo.name === "safari" && tabNames?.length <= 3 && (
+            
+              <img
+                src={sidebar_short}
+                alt="sidebar_short"
+                style={{
+                  position: 'absolute',
+                  top: tabNames?.length > 3 ? '0' : window.innerWidth > 1280 ? '-2.5rem' : '-1rem',
+                  left: window.innerWidth > 1280 ? '32.3px' : '25px',
+                  zIndex: '10',
+                  margin: '0',
+                  padding: '0 0 2em 0',
+                  height: '100%',
+                }}
+              />
+              
+            )} */}
+            
+            {browserInfo.name !== "safari" && tabNames?.length > 3 && (
               <img
                 src={sidebar}
                 alt="sidebar"
@@ -301,7 +337,8 @@ const Tab1 = ({ listItems, index }) => {
                   height: '-webkit-fill-available',
                 }}
               />
-            ) : (
+            )} 
+            {browserInfo.name !== "safari" && tabNames?.length <= 3 && (
               <img
                 src={sidebar_short}
                 alt="sidebar_short"

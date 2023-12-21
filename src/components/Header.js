@@ -96,7 +96,8 @@ const HeaderNavWrap = styled.div.attrs((props) => ({
   justify-content: space-between;
   height: 118px;
 
-  @media screen and (max-width: 1400px) {
+  @media screen and (max-width: 1600px) {
+    padding: 0 5em;
   }
 
   @media screen and (max-width: 1280px) {
