@@ -46,14 +46,21 @@ import Video from '../../components/Video';
 
 import { t } from 'i18next';
 import { Trans } from 'react-i18next';
+import { useRecoilState } from 'recoil';
 
 import useCareerList from '../../hooks/career/useCareerList';
+import useFooter from '../../hooks/footer/useFooter';
+import Language from '../../atom/Language';
+import useLinkList from '../../hooks/useLink';
 
 const Career = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, isLoading, refetch } = useCareerList();
   const [detailPage, setDetailPage] = useState(false);
+  const language = useRecoilState(Language);
+  const { data: linkData } = useLinkList(language);
+
 
   const [coreValues, setCoreValues] = useState([
     {
@@ -424,7 +431,9 @@ const Career = () => {
                             $fontWeight="300"
                             $color="#DDDDDD"
                             $align="start"
-                            style={{ marginBottom: '1.5em', zIndex: '-1', cursor: 'pointer' }}
+                            style={{ 
+                              wordBreak: 'break-all',
+                              marginBottom: '1.5em', zIndex: '-1', cursor: 'pointer' }}
                           >
                             <span style={{ margin: '0 0.15em 0 0' }}>·</span> {item.type}
                           </Text>
@@ -433,9 +442,12 @@ const Career = () => {
                             $fontWeight="100"
                             $color="#ffffff"
                             $align="start"
-                            style={{ marginBottom: '0.5em', zIndex: '-1', cursor: 'pointer' }}
+                            style={{ 
+                              wordBreak: 'break-all',
+                              marginBottom: '0.5em', zIndex: '-1', cursor: 'pointer' }}
                           >
-                            {item.location}-
+                            {item.location.slice(0, 60)}
+                            {item.location.length > 60 && '...'}-
                           </Text>
                           <div
                             style={{
@@ -447,13 +459,14 @@ const Career = () => {
                             }}
                           >
                             <Text
-                              style={{ zIndex: '-1', cursor: 'pointer' }}
+                              style={{ wordBreak: 'break-all', zIndex: '-1', cursor: 'pointer' }}
                               $fontSize={window.innerWidth > 1280 ? '24px' : '13px'}
                               $fontWeight="400"
                               $color="#E3E3E3"
                               $align="start"
                             >
-                              {item.title}
+                              {item.title.slice(0, 100)}
+                              {item.title.length > 100 && '...'}
                             </Text>
                             <Image
                               src={arrow}
@@ -751,7 +764,7 @@ const Career = () => {
                           cursor: 'pointer',
                         }}
                         onClick={() => {
-                          window.open('', '_blank');
+                          window.open(linkData?.data?.data?.careerLinkedIn, '_blank');
                         }}
                       >
                         <span style={{ zIndex: '-1' }}>Linked-In</span>
@@ -940,7 +953,8 @@ const Career = () => {
                                 $align="start"
                                 style={{ zIndex: '-1' }}
                               >
-                                {item.location}-
+                                {item?.location.slice(0, 25)}
+                                {item?.location.length > 25 && '..'}-
                               </Text>
                               <div
                                 style={{
@@ -967,8 +981,8 @@ const Career = () => {
                                     lineHeight: '1em',
                                   }}
                                 >
-                                  {item.title.slice(0, 30)}
-                                  {item.title.length > 30 && '..'}
+                                  {item?.title.slice(0, 25)}
+                                  {item?.title.length > 25 && '..'}
                                 </Text>
                                 <Image
                                   src={arrow}
@@ -1182,7 +1196,9 @@ const Career = () => {
                           paddingBottom: '0.7em',
                           borderBottom: '1px solid #ffffff',
                         }}
-                        // onClick={() => downloadCi('png')}
+                        onClick={() => {
+                          window.open(linkData?.data?.data?.careerLinkedIn, '_blank')
+                        }}
                       >
                         <span style={{ zIndex: '-1' }}>Linked In</span>
                         <Image src={arrow} alt="arrow" style={{ height: '10px', zIndex: '-1' }} />

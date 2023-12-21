@@ -356,9 +356,11 @@ const Publications = () => {
                             fontSize: window.innerWidth > 1280 ? '18px' : '11px',
                             alignItems: 'start',
                             color: '#CECECE',
+                            wordBreak: 'break-all',
                           }}
                         >
-                          {doc.journal}
+                          {doc.journal.slice(0, 58)}
+                          {doc.journal.length > 58 && '...'}
                         </Text>
                         <Text
                           className="text"
@@ -371,6 +373,7 @@ const Publications = () => {
                             fontSize: window.innerWidth > 1280 ? '24px' : '13px',
                             whiteSpace: 'pre-wrap',
                             alignItems: 'start',
+                            wordBreak: 'break-all',
                             paddingRight: window.innerWidth > 1280 ? '80px' : '100px',
                           }}
                         >
@@ -549,6 +552,7 @@ const Publications = () => {
                           $color="##CECECE"
                           $align="start"
                           style={{
+                            // wordBreak: 'break-all',
                             margin: '0.5rem 0',
                             fontSize: '14px',
                             fontWeight: '300',
@@ -565,6 +569,7 @@ const Publications = () => {
                           $fontWeight="400"
                           $color="#F0F0F0"
                           style={{
+                            wordBreak: 'break-all',
                             alignItems: 'start',
                             margin: '0.3rem 0 0.4rem 0',
                             textAlign: 'start',
