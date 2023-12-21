@@ -10,6 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   position: relative;
 `;

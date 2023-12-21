@@ -94,13 +94,14 @@ const HeaderNavWrap = styled.div.attrs((props) => ({
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 100vh;
+  height: 118px;
 
   @media screen and (max-width: 1400px) {
   }
 
   @media screen and (max-width: 1280px) {
     padding: ${(props) => (props.$offset ? `0 calc(2rem + ${props.$offset}px)` : '0 2rem')};
+    height: 74px;
   }
 
   @media screen and (max-width: 900px) {
