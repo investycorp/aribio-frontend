@@ -147,7 +147,7 @@ const HeadLine = styled.div.attrs((props) => ({
   align-items: center;
   text-align: center;
   font-size: 140px;
-  font-weight: 500;
+  font-weight: 400;
   overflow: hidden;
   height: fit-content;
   // margin-top: 220px;

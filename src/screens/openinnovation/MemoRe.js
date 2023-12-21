@@ -62,7 +62,7 @@ const MemoRe = () => {
       </Path>
 
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine $className="midsize">
+        <HeadLine $className="midsize" style={{ fontSize: window.innerWidth < 901 && '36px' }}>
           {t('innovation.memore.title')}
         </HeadLine>
         <img

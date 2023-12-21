@@ -364,7 +364,7 @@ const Ci = () => {
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{ backgroundColor: 'rgba(255,255,255,0.7)', height: '160px' }}>
+          <HomeComponentWrap style={{ backgroundColor: 'rgba(255,255,255)', height: '160px' }}>
             <Image src={ci_logo_png} alt="ci_logo" style={{ width: '108px' }} />
           </HomeComponentWrap>
           <HomeComponentWrap style={{ padding: '5vh 0', display: 'grid' }}>
@@ -451,8 +451,9 @@ const Ci = () => {
                   >
                     Bio:
                   </Text>
-                  <Trans i18nKey="ci_m.bio" components={{ 1: <br /> }} />
-                  <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start"></Text>
+                  <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
+                    <Trans i18nKey="ci_m.bio" components={{ 1: <br /> }} />
+                  </Text>
                 </div>
               </ContentWrap>
               <ContentWrap

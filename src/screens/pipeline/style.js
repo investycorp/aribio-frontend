@@ -426,7 +426,26 @@ const ShootingStarWrap = styled.section`
 `;
 
 const move = (start, phase, state, gap) => keyframes`
-0% {
+    0% {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -o-transform: translateX(0);
+
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px))`};
+      -webkit-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${(phase - 1) * 2}px))`};
+      -o-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px))`};
+      opacity: 1;
+    }
+`;
+
+const mobileMove = (start, phase, state, gap) => keyframes`
+  0% {
     transform: translateX(0);
     -webkit-transform: translateX(0);
     -o-transform: translateX(0);
@@ -437,9 +456,9 @@ const move = (start, phase, state, gap) => keyframes`
     opacity: 1;
   }
   100% {
-    transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px))`};
-    -webkit-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${(phase - 1) * 2}px))`};
-    -o-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 2 * 2}px))`};
+    transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 4 * 2}px))`};
+    -webkit-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${(phase - 1) * 4}px))`};
+    -o-transform: ${`translateX(calc(${start} * ${phase} - 2vw * ${4 - state} - ${gap} - ${phase - 4 * 2}px))`};
     opacity: 1;
   }
 `;
@@ -499,11 +518,11 @@ const ShootingStar = styled.span.attrs((props) => ({
     -ms-animation-fill-mode: forwards;
 
     @media screen and (max-width: 900px) {
-      -ms-animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
-      -moz-animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
-      -o-animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
-      -webkit-animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
-      animation-name: ${(props) => move('18vw', props?.$phase, props?.$state, '30px')};
+      -ms-animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
+      -moz-animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
+      -o-animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
+      -webkit-animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
+      animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
     }
   }
 

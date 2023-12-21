@@ -77,7 +77,6 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setContactInfo({ ...contactInfo, [name]: value });
-    console.log(contactInfo);
   };
 
   const handleEnter = (e) => {
@@ -93,34 +92,35 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    let isValid = await checkValidation();
-    if (isValid === true) {
-      const response = await mutate();
-      if (mutationSuccess) {
-        await setIsSuccess(true);
-        console.log('submitted');
-        await setIsError(false);
-        setContactInfo({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          affiliation: '',
-          message: '',
-        });
-        setTimeout(() => {
-          //to turn off success message
-          setIsSuccess(false);
-        }, 2000);
-      } else if (mutationError) {
-        setIsError(true);
-        console.log('error');
-      }
+    if (checkValidation() === true) {
+      mutate();
     } else {
       setIsError(true);
     }
   };
+
+  useEffect(() => {
+    if (mutationSuccess) {
+      console.log('submitted');
+      setIsSuccess(true);
+      setIsError(false);
+      setContactInfo({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        affiliation: '',
+        message: '',
+      });
+      setTimeout(() => {
+        //to turn off success message
+        setIsSuccess(false);
+      }, 2000);
+    } else if (mutationError) {
+      setIsError(true);
+      console.log('error');
+    }
+  }, [mutationSuccess, mutationError])
 
   const checkValidation = () => {
     if (

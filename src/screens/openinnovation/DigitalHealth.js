@@ -428,9 +428,6 @@ const DigitalHealth = () => {
               <Trans i18nKey={'innovation.health_m.subdesc'} components={{ 1: <br /> }} />
             </Text>
             <hr style={{ width: '20px', border: '1px solid #C9C9C9', margin: '2rem 0' }} />
-            <Text $fontSize="20px" $fontWeight="400" $color="#E6E6E6" style={{ margin: '0', marginBottom: '2em', lineHeight: '23px' }}>
-              {t('innovation.health_m.approach.title')}
-            </Text>
             <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '21px' }}>
               <Trans i18nKey={'innovation.health_m.approach.desc'} components={{ 1: <br /> }} />
             </Text>

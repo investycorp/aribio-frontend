@@ -37,25 +37,40 @@ const MediaKit = () => {
   }, []);
 
   useEffect(() => {
-    if (data?.data.success) {
-      const item = data.data.data.mediaKitDtoList;
+    setItemsList([]);
+
+    if (data?.data?.success) {
+      const item = data?.data?.data?.mediaKitDtoList;
       const representativeItem = data?.data?.data?.representativeMediaKitDto;
 
-      item.map((content) => {
+      if (representativeItem?.id) {
+        setItemsList([{
+          id: representativeItem?.id,
+          title: representativeItem?.title,
+          date: `${representativeItem?.month} ${representativeItem?.day}, ${representativeItem?.year}`,
+          link: representativeItem?.url,
+        }])
+      }
+
+      item?.map((content) => {
         setItemsList((prev) => [
           ...prev,
           {
-            id: content.id,
-            title: content.title,
-            date: `${content.month} ${content.day}, ${content.year}`,
-            link: content.url,
+            id: content?.id,
+            title: content?.title,
+            date: `${content?.month} ${content?.day}, ${content?.year}`,
+            link: content?.url,
           },
         ]);
       });
-      console.log('repre',representativeItem);
-     setCurrentVideo({title: representativeItem.title, url: representativeItem.url});
+
+      setCurrentVideo({title: representativeItem?.title, url: representativeItem?.url});
     }
   }, [data]);
+
+  useEffect(() => {
+    console.log('LISTS',itemsList);
+  }, [itemsList]);
 
   return (
     <Container className="container">
@@ -153,11 +168,11 @@ const MediaKit = () => {
                       alignItems: 'start',
                       padding: window.innerWidth > 1280 ? '0 2rem' : '0 1.5rem',
                       borderLeft: '2px solid #B1B1B1',
-                      height: window.innerWidth > 1280 ? '200px' : '121px',
+                      height: 'auto',
                       borderWidth: window.innerWidth > 1280 ? '2px' : '1px',
                     }}
                     onClick={() => {
-                      item?.id && setCurrentVideo({ id: item.id, title: item?.title, url: item?.link });
+                      item?.id && setCurrentVideo({ id: item?.id, title: item?.title, url: item?.link });
                       window.scrollTo(0, window.innerHeight * 1.2);
                     }}
                   >
@@ -171,8 +186,8 @@ const MediaKit = () => {
                         zIndex: '-1',
                       }}
                     >
-                      {item.title.slice(0, 20)}
-                      {item.title.length > 20 && '...'}
+                      {item.title.slice(0, 80)}
+                      {item.title.length > 80 && '...'}
                     </Text>
                     <HR
                       $width={window.innerWidth > 1280 ? '40px' : '25px'}
@@ -196,6 +211,8 @@ const MediaKit = () => {
               </ComponentWrap>
             </HomeComponentWrap>
           </Desktop>
+
+
           <Mobile>
             <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
               <TextWrap style={{ width: '70vw' }}>
@@ -210,7 +227,7 @@ const MediaKit = () => {
                       border: '1px solid #ffffff',
                       margin: '28px 0',
                     }}
-                ></div>
+                />
                 <Text $fontWeight="500" $color="#ffffff" style={{ fontSize: '23px' }}>
                   {t('media.subtitle')}
                 </Text>
@@ -218,9 +235,11 @@ const MediaKit = () => {
             </HomeComponentWrap>
 
             <HomeComponentWrap>
-              <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '0' }}>
-                <VideoFrame src={currentVideo.url} />
-              </ComponentWrap>
+              {currentVideo?.url && (
+                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '0' }}>
+                  <VideoFrame src={currentVideo?.url} />
+                </ComponentWrap>
+              )}
               <ComponentWrap
                 style={{
                   display: 'grid',
@@ -237,14 +256,15 @@ const MediaKit = () => {
                     key={item.title + index}
                     style={{
                       display: 'flex',
+                      width: '100%',
                       flexDirection: 'column',
                       justifyContent: 'start',
                       alignItems: 'start',
-                      padding: '1rem 1rem',
+                      padding: '0 1rem',
                       borderLeft: '1px solid #B1B1B1',
                     }}
                     onClick={() => {
-                      item?.id && setCurrentVideo({ id: item.id, title: item?.title, url: item?.link });
+                      item?.id && setCurrentVideo({ id: item?.id, title: item?.title, url: item?.link });
                       window.scrollTo(0, window.innerHeight * 1.2);
                     }}
                   >
@@ -254,12 +274,11 @@ const MediaKit = () => {
                       $color="#ffffff"
                       style={{ margin: '0 0 1rem 0', fontSize: '18px' }}
                     >
-                      {item.title.slice(0, 20)}
-                      {item.title.length > 20 && '...'}
+                      {item?.title}
                     </Text>
 
                     <Text $align="start" $fontWeight="300" style={{ margin: '0', fontSize: '16px', color: '#DBDBDB' }}>
-                      {item.date}
+                      {item?.date}
                     </Text>
                   </div>
                 ))}

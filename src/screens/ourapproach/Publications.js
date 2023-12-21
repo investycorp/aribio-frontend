@@ -164,7 +164,12 @@ const Publications = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > OUR APPROACH > `}</span>PUBLICATIONS
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine $className="midsize">{t('publication.headline')}</HeadLine>
+        <HeadLine
+          $className="midsize"
+          style={{
+            fontSize: window.innerWidth < 900 && 46,
+          }}
+        >{t('publication.headline')}</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"

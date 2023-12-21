@@ -167,7 +167,7 @@ const History = () => {
               onClick={() => {
                 setCurrentTab(index);
               }}
-              style={{ minWidth: 100, lineHeight: '1.4em', textAlign: 'center', justifyContent: 'center' }}
+              style={{ width: 'auto', lineHeight: '1.4em', textAlign: 'center', justifyContent: 'center' }}
             >
               {item}
             </TabItem>

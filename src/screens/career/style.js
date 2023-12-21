@@ -261,7 +261,7 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
 
      @media screen and (max-width: 360px) {
       height: 124px;
-      padding: 24px 20px 24px 24px;
+      padding: 24px 16px 24px 16px;
       border-radius: 10px;
     }
 

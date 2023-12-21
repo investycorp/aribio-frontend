@@ -256,6 +256,8 @@ const Footer = () => {
           </FooterGridWrap>
         </FooterContainer>
       </Desktop>
+
+
       <Mobile>
         <FooterContainer style={{borderWidth: 1}}>
           <FooterGridWrap style={{ padding: '0' }}>
@@ -279,9 +281,19 @@ const Footer = () => {
                 </ContactUsBox>
               </Link>
             </ContactUsWrap>
-                <ContactBoxText $fontSize={"16px"}>
-                  {'T.' + companyInfo.tel?.replace('(Korea)', '') +  'F.'+  companyInfo.fax?.replace('(Korea)', '')}
-                </ContactBoxText>
+            <ContactBox style={{
+              paddingTop: 0,
+              gap: '1.3em',
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+              <ContactBoxText $fontSize={"16px"}>
+                {'T.' + companyInfo.tel?.replace('(Korea)', '')}
+              </ContactBoxText>
+              <ContactBoxText>
+                {'F.'+  companyInfo.fax?.replace('(Korea)', '')}
+              </ContactBoxText>
+            </ContactBox>
           </FooterGridWrap>
           <div>
             <AddressWrap

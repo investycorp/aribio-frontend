@@ -94,7 +94,7 @@ const HeaderNavWrap = styled.div.attrs((props) => ({
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  height: 100vh;
 
   @media screen and (max-width: 1400px) {
   }
@@ -110,7 +110,7 @@ const HeaderNavWrap = styled.div.attrs((props) => ({
     justify-content: start;
     padding: 0 5vw;
     gap: 0;
-    height: 683px;
+    height: 100vh;
     max-height: calc(100vh - 97px);
     overflow-y: scroll;
     z-index: 100;
@@ -366,7 +366,7 @@ const Header = () => {
     <>
       <Mobile>
         <HeaderContainer
-          style={{ display: 'grid', width: '100vw' }}
+          style={{ display: 'grid', width: '100vw', }}
           tabIndex={1}
           onBlur={async () => {
             await new Promise((resolve) => setTimeout(resolve, 100));
