@@ -77,8 +77,8 @@ const VideoFrame = ({ src }) => {
           src={
             videoId
               ? `https://www.youtube.com/embed/${videoId}?modestbranding=0&rel=0`
-              : src?.url
-              ? `${src.url}?autostart=false`
+              : src
+              ? `${src}?autostart=false`
               : language === 'ENG'
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false'
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4?autostart=false'

@@ -138,7 +138,7 @@ const Advisors = () => {
                   $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
                   $fontWeight="600"
                   $align="start"
-                  style={{ margin: '0' }}
+                  style={{ margin: '0', wordBreak: 'break-all', }}
                 >
                   {item?.name}
                   <span
@@ -210,22 +210,22 @@ const Advisors = () => {
                   key={index}
                 >
                   <ContentBoxNameWrap style={{ width: 'fit-content' }}>
-                    <Text $fontSize="18px" $fontWeight="700" $align="start" style={{ margin: '0', padding: '0' }}>
+                    <Text $fontSize="18px" $fontWeight="700" $align="start" style={{ wordBreak: 'break-all', margin: '0', padding: '0' }}>
                       {item?.name}
                       <span style={{ fontSize: '15px', fontWeight: '300', marginLeft: '1rem' }}>{item?.position}</span>
                     </Text>
                   </ContentBoxNameWrap>
 
-                  <SchoolText style={{ fontSize: '16px', fontWeight: '100', paddingRight: '0' }}>
+                  <SchoolText style={{ wordBreak: 'break-all', fontSize: '16px', fontWeight: '100', paddingRight: '0' }}>
                     <ul>
-                    {item?.description.slice('\\n').map(text => {
-                      return (
-                        <li>
-                          <span>{text}</span>
-                          <br/>
-                        </li>
-                      );
-                    })}
+                      {item?.description.slice('\\n').map(text => {
+                        return (
+                          <li>
+                            <span>{text}</span>
+                            <br/>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </SchoolText>
                 </ContentBox>

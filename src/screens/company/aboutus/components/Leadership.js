@@ -71,6 +71,7 @@ const Leadership = () => {
                     $color="#F2F2F2"
                     $fontWeight='500'
                     style={{
+                      wordBreak: 'break-all',
                       margin: '0',
                       fontSize: window.innerWidth > 1280 ? '20px' : '11px',
                     }}
@@ -82,6 +83,7 @@ const Leadership = () => {
                     $color="#F2F2F2"
                     $fontWeight='700'
                     style={{
+                      wordBreak: 'break-all',
                       margin: '0',
                       marginBottom: '2vh',
                       fontSize: window.innerWidth > 1280 ? '36px' : '20px',
@@ -94,6 +96,7 @@ const Leadership = () => {
                     $align="start"
                     $color="#F2F2F2"
                     style={{
+                      wordBreak: 'break-all',
                       margin: '0',
                       paddingLeft: window.innerWidth > 1280 ? '1rem' : '0.5rem',
                       fontSize: window.innerWidth > 1280 ? '18px' : '10px',
@@ -157,6 +160,7 @@ const Leadership = () => {
                     $align="start"
                     $color="rgba(255,255,255,0.9)"
                     style={{
+                      wordBreak: 'break-all',
                       margin: '0',
                       fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                     }}
@@ -166,7 +170,9 @@ const Leadership = () => {
                   <Text
                     $fontWeight="700"
                     $align="start"
-                    style={{ margin: window.innerWidth > 1280 ? '0.5rem 0 2.5rem 0' : '0.5rem 0 1.563rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
+                    style={{
+                      wordBreak: 'break-all',
+                      margin: window.innerWidth > 1280 ? '0.5rem 0 2.5rem 0' : '0.5rem 0 1.563rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
                   >
                     {item?.name}
                   </Text>
@@ -175,6 +181,7 @@ const Leadership = () => {
                     $color="#F2F2F2"
                     style={{
                       margin: '0',
+                      wordBreak: 'break-all',
                       fontSize: window.innerWidth > 1280 ? '18px' : '10px',
                       paddingLeft: window.innerWidth > 1280 ? '1.125rem' : '0.45rem',
                     }}
@@ -185,6 +192,7 @@ const Leadership = () => {
                         key={index}
                         style={{
                           listStyle: 'disc',
+                          wordBreak: 'break-all',
                           fontSize: window.innerWidth > 1280 ? '18px' : '10px',
                         }}
                         >
@@ -236,6 +244,7 @@ const Leadership = () => {
                         $color="rgba(255, 255, 255, 0.9)"
                         style={{
                           margin: '0',
+                          wordBreak: 'break-all',
                           fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                         }}
                         >
@@ -244,7 +253,9 @@ const Leadership = () => {
                       <Text
                         $fontWeight="700"
                         $align="start"
-                        style={{ margin: '0.5rem 0 2.5rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
+                        style={{ 
+                          wordBreak: 'break-all',
+                          margin: '0.5rem 0 2.5rem 0', fontSize: window.innerWidth > 1280 ? '34px' : '20px' }}
                         >
                         {item?.name}
                       </Text>
@@ -394,11 +405,11 @@ const Leadership = () => {
                       $align="start"
                       $color="#F2F2F2"
                       $fontSize="20px"
-                      style={{ margin: '0', fontSize: '15px' }}
+                      style={{ margin: '0', fontSize: '15px', wordBreak: 'break-all', }}
                       >
                       {item?.position}
                     </Text>
-                    <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ margin: '0' }}>
+                    <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ wordBreak: 'break-all', margin: '0' }}>
                       {item?.name}
                     </Text>
                   </TextWrap>
@@ -442,12 +453,13 @@ const Leadership = () => {
                       <DescriptionItem 
                       key={index}
                       style={{
+                        wordBreak: 'break-all',
                         listStyle: 'disc',
                         fontSize: '16px',
                       }}
                       >
-                          {item}
-                        </DescriptionItem>
+                        {item}
+                      </DescriptionItem>
                     ))}
                 </ul>
                     )}
@@ -468,7 +480,7 @@ const Leadership = () => {
             $color="#E5E5E5"
             $align="start"
             style={{marginBottom: 48}}
-            >
+          >
             {t('home.aboutus.subtitle.head')}
           </Text>
         </div>
@@ -499,11 +511,11 @@ const Leadership = () => {
                       $align="start"
                       $color="#F2F2F2"
                       $fontSize="20px"
-                      style={{ margin: '0', fontSize: '15px' }}
+                      style={{ wordBreak: 'break-all', margin: '0', fontSize: '15px' }}
                       >
                       {item?.position}
                     </Text>
-                    <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ margin: '0' }}>
+                    <Text $fontSize="18px" $fontWeight="600" $align="start" style={{ wordBreak: 'break-all', margin: '0' }}>
                       {item?.name}
                     </Text>
                   </TextWrap>
@@ -547,6 +559,7 @@ const Leadership = () => {
                       <DescriptionItem 
                       key={index}
                       style={{
+                        wordBreak: 'break-all',
                         listStyle: 'disc',
                         fontSize: '16px',
                       }}

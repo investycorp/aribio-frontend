@@ -174,7 +174,7 @@ const DetailPage = () => {
           </Text>
           <Text
             style={{
-              width: '60%',
+              width: '70%',
               margin: '1em 0',
               padding: '0',
               textAlign: 'start',
@@ -182,6 +182,7 @@ const DetailPage = () => {
               color: '#141414',
               fontWeight: '400',
               whiteSpace: 'pre-line',
+              wordBreak: 'break-all',
             }}
           >
             {currentItem?.title}
@@ -200,6 +201,7 @@ const DetailPage = () => {
               fontWeight: '200',
               color: '#272727',
               whiteSpace: 'pre-line',
+              wordBreak: 'break-all',
             }}
           >
             {currentItem?.content}

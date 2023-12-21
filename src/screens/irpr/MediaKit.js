@@ -160,7 +160,7 @@ const MediaKit = () => {
               >
                 {itemsList.map((item, index) => (
                   <div
-                    key={item.title + index}
+                    key={item?.title + index}
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -186,8 +186,8 @@ const MediaKit = () => {
                         zIndex: '-1',
                       }}
                     >
-                      {item.title.slice(0, 80)}
-                      {item.title.length > 80 && '...'}
+                      {item?.title.slice(0, 80)}
+                      {item?.title.length > 80 && '...'}
                     </Text>
                     <HR
                       $width={window.innerWidth > 1280 ? '40px' : '25px'}
@@ -204,7 +204,7 @@ const MediaKit = () => {
                         zIndex: '-1',
                       }}
                     >
-                      {item.date}
+                      {item?.date}
                     </Text>
                   </div>
                 ))}
