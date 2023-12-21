@@ -322,6 +322,10 @@ const MemberListWrap = styled.div`
   padding: 0 7vw;
   gap: 12rem 8rem;
   margin-bottom: 25vh;
+
+  @media screen and (max-width: 1280px) {
+    margin-bottom: calc(30vh - 90px);
+  }
 `;
 
 const HeadListWrap = styled.div`
@@ -331,13 +335,9 @@ const HeadListWrap = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  padding: 0 10vw;
-  gap: 4rem 6rem;
+  gap: 4rem 8rem;
+  padding: 0 7vw;
 
-  @media screen and (max-width: 1280px){
-    gap: 7vh 5rem;
-    padding: 0 12vw;
-  }
 `;
 
 const HeadItemWrap = styled.div`

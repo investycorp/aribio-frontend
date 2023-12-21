@@ -45,7 +45,7 @@ const OpenInnovation = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > ${t('innovation.basic.title')}`}</span>
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine $className="midsize">
+        <HeadLine $className="midsize" style={{ fontSize: window.innerWidth < 901 && '36px' }}>
           <Trans i18nKey={'innovation.headline'} components={{ 1: <br /> }} />
         </HeadLine>
         <img
@@ -119,8 +119,8 @@ const OpenInnovation = () => {
             <Image
               src={openinnovation_middle2}
               alt="openinnovation_middle2"
-              width={window.innerWidth > 1280 ? 550 : 334}
-              height={window.innerWidth > 1280 ? 509 : 325}
+              width={window.innerWidth > 1280 ? 738 : 438}
+              height={window.innerWidth > 1280 ? 488 : 298}
               style={{ alignSelf: 'end', marginTop: '0', paddingLeft: '7vw' }}
             />
             <TextWrap
@@ -279,7 +279,7 @@ const OpenInnovation = () => {
             <Image
               src={openinnovation_middle2}
               alt="openinnovation_middle2"
-              style={{ width: '65vw', marginTop: '5em', paddingLeft: '5vw', alignSelf: 'start' }}
+              style={{ width: '323px', height: '171px' ,objectFit:'cover', marginTop: '5em', padding: '0 5vw', alignSelf: 'center' }}
             />
             <TextWrap
               style={{

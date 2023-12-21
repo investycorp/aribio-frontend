@@ -88,7 +88,7 @@ const Home = () => {
         if (
           elementToHide &&
           ((scrollPosition >= 0 && scrollPosition <= 0.3 * window.innerHeight) ||
-            (scrollPosition >= 0.8 * window.innerHeight && scrollPosition <= 1.3 * window.innerHeight))
+            (scrollPosition >= 1.0 * window.innerHeight && scrollPosition <= 1.6 * window.innerHeight))
         ) {
           elementToHide.style.display = 'flex';
           elementToHide2.style.opacity = '1';
@@ -134,7 +134,16 @@ const Home = () => {
       <MainImgWrap
         style={{paddingBottom: 0}}
       >
-        <Image src={home_desc_background} />
+         <Video
+          page="aboutus"
+          src={
+            window.innerWidth > 1280
+              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0400PB_VD.mp4'
+              : window.innerWidth > 900
+              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1300PB_VD.mp4'
+              : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2200PB_VD.mp4'
+          }
+        />
       </MainImgWrap>                                                    
 
         <div style={{ margin: '0', padding: '0', position: 'relative' }}>
@@ -315,7 +324,7 @@ const Home = () => {
                       height: window.innerWidth > 1280 ? '200px' : '100px',
                       backgroundColor: '#B1B1B1',
                     }}
-                  ></div>
+                  />
                 </div>
               </ComponentGridWrap>
               <ComponentGridWrap>
@@ -493,7 +502,12 @@ const Home = () => {
             <HomeComponentWrap className="home home_1">
               <MainImgTextWrap style={{ height: videoHeight }}></MainImgTextWrap>
             </HomeComponentWrap>
-            <HomeComponentWrap className="home home_2">
+            <HomeComponentWrap
+              className="home home_2"
+              style={{
+                height: '100vh',
+              }}
+            >
               <HomeAboutUsTextWrap>
                 <HeadLineText fontSize="23px" style={{ fontWeight: '400' }}>
                   <span
@@ -593,26 +607,40 @@ const Home = () => {
                   </span>
                   <br />
                 </HeadLineText>
+                <SubPageButton
+                  title="About Us"
+                  linkTo="/company/aboutus"
+                  style={{
+                    position: 'absolute',
+                    bottom: '25vh',
+                  }}
+                />
               </HomeAboutUsTextWrap>
-              <SubPageButton
-                title="About Us"
-                linkTo="/company/aboutus"
-              />
               <img
                 id="hide2"
                 src={process.env.PUBLIC_URL + '/assets/icons/indicator2.svg'}
                 alt="indocator2"
-                style={{ width: '121px', height: '16px', zIndex: '110', marginTop: '50px' }}
+                style={{
+                  width: '121px',
+                  height: '16px',
+                  zIndex: '110',
+                  position: 'absolute',
+                  bottom: '10vh',
+                }}
               />
             </HomeComponentWrap>
             <HomeComponentWrap
               style={{
                 display: 'grid',
                 justifyContent: 'stretch',
+                paddingTop: '10vh'
               }}
               className="home home_3"
             >
-              <SubPageButton  title="Our Approach" linkTo="/ourapproach/poly-pharmacology" />
+              <SubPageButton 
+                title="Our Approach"
+                linkTo="/ourapproach/poly-pharmacology"
+              />
               <ComponentGridWrap style={{marginBottom: '88px', marginTop: '80px'}}>
                 <div
                   style={{
@@ -637,7 +665,7 @@ const Home = () => {
                 <HomeComponentImageWrap
                   $src={home_ourapproach1}
                   style={{ borderRadius: '8px' }}
-                ></HomeComponentImageWrap>
+                />
               </ComponentGridWrap>
               <ComponentGridWrap style={{marginBottom: '88px'}}>
                 <HomeComponentImageWrap

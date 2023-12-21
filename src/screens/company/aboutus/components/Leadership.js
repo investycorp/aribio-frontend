@@ -134,11 +134,8 @@ const Leadership = () => {
             {t('home.aboutus.subtitle.us')}
           </Text>
          </TextWrap>
-         <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
+         <ContentWrap
+          style={{padding: 0}}
          >
           <MemberListWrap>
             {usContents?.map((item, index) => (
@@ -200,7 +197,7 @@ const Leadership = () => {
               </ContentBox>
             ))}       
           </MemberListWrap>
-         </div>
+         </ContentWrap>
           <TextWrap
             style={{
               padding: '0 7vw'
@@ -212,19 +209,21 @@ const Leadership = () => {
               $fontWeight="600"
               $color="#E5E5E5"
               $align="start"
-              style={{marginBottom: 150}}
+              style={{marginBottom: window.innerWidth > 1280 ? 150 : 120}}
             >
               {t('home.aboutus.subtitle.head')}
             </Text>
           </TextWrap>
-          <ContentWrap>
+          <ContentWrap
+            style={{padding: 0}}
+          >
             <HeadListWrap>
             {headContents?.map((item, index) => (
               <ContentBox
                 key={index}
                 style={{
-                  width: window.innerWidth > 1280 ? 425 : 250,
-                  marginBottom: '12.75vh'
+                  width: window.innerWidth > 1280 ? 454 : 274,
+                  marginBottom: window.innerWidth > 1280 ? '12.75vh' : '6vh'
                 }}
               >
                 <ContentBoxNameWrap>
@@ -260,7 +259,7 @@ const Leadership = () => {
                       // paddingLeft:  window.innerWidth > 1280 ? '3.625rem' : '2.25rem',
                     }}
                   >
-                    <ul style={{paddingLeft: '0.5rem'}}>
+                    <ul style={{paddingLeft: window.innerWidth > 1280 ? '1rem' : '0.5rem'}}>
                       {item?.contents?.split("\\n").map((item, index) => (
                         <DescriptionItem key={item + index} 
                           style={{
@@ -438,7 +437,7 @@ const Leadership = () => {
                 </ContentBoxNameWrap>
                 {item?.isOpen && (
 
-                  <ul style={{paddingLeft: '0.8rem'}}>
+                  <ul style={{paddingLeft: '1.4rem'}}>
                     {item?.contents?.split("\\n").map((item, index) => (
                       <DescriptionItem 
                       key={index}
@@ -543,7 +542,7 @@ const Leadership = () => {
                 </ContentBoxNameWrap>
                 {item?.isOpen && (
 
-                  <ul style={{paddingLeft: '0.8rem'}}>
+                  <ul style={{paddingLeft: '1.4rem'}}>
                     {item?.contents?.split("\\n").map((item, index) => (
                       <DescriptionItem 
                       key={index}

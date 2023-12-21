@@ -10,22 +10,22 @@ import { useRecoilValue } from 'recoil';
 const TabContentWrap = styled.div`
   width: 100%;
   height: fit-content;
-  display: grid;
-  grid-template-columns: 28.55vw 28.68vw 28.7vw;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: start;
-  align-items: left;
-  background-color: transparent;
-  row-gap: 10em;
-  @media screen and (max-width: 1280px) {
-    grid-template-columns: 28.6vw 28.65vw 28.7vw;
-  }
+  justify-content: flex-start;
+  gap: 10rem 8rem;
+  margin-top: 4vh;
+
   @media screen and (max-width: 900px) {
     grid-template-columns: 1fr;
     padding-bottom: 3rem;
     margin-top: 2rem;
     row-gap: 5rem;
+  }
+
+  @media screen and (max-width: 1280px) {
+    gap: 5rem 8rem;
   }
 `;
 
@@ -42,10 +42,6 @@ const ContentBox = styled.div`
   // border-left: 2px solid #ffffff;
   background-color: transparent;
 
-  @media screen and (min-width: 901px) and (max-width: 1280px) {
-    padding: 0 0 0 1.5rem;
-    // border-left: 1px solid #ffffff;
-  }
   @media screen and (max-width: 900px) {
     width: 66.7%;
     padding: 0 0 0 1.5rem;
@@ -65,7 +61,7 @@ const SchoolText = styled.div`
   font-size: 18px;
   color: #e3e3e3;
   font-weight: 100;
-  line-height: 2.5rem;
+  line-height: 32px;
 
   ul {
     list-style-type: none;
@@ -86,7 +82,7 @@ const SchoolText = styled.div`
 
   @media screen and (max-width: 1280px) {
     font-size: 10px;
-    padding-right: 5.8rem;
+    line-height: 18px;
   }
 
   @media screen and (max-width: 360px) {
@@ -125,10 +121,16 @@ const Advisors = () => {
     >
       <Desktop>
         <TabContentWrap style={{
-          marginBottom: window.innerWidth > 1280 ? '512px' : '344px'
+          marginBottom: window.innerWidth > 1280 ? '512px' : '344px',
         }}>
           {tabContents?.map((item, index) => (
-            <ContentBox key={index} style={{ minHeight: '135px', gap: '3rem' }}>
+            <ContentBox
+              key={index}
+              style={{
+                minHeight: '135px',
+                gap: window.innerWidth > 1280 ? '3rem' : '1rem',
+                width: window.innerWidth > 1280 ? 454 : 274,
+            }}>
               <ContentBoxNameWrap
                 style={{ paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end' }}
               >
@@ -198,13 +200,12 @@ const Advisors = () => {
                   alignItems: 'center',
                 }}
               >
-               <div style={{ width: '1px', height: '80px', backgroundColor: '#B1B1B1' }}/>
                 <ContentBox
                   style={{
                     width: 'fit-content',
                     border: 'none',
                     margin: '0',
-                    padding: '0 0 0 1em',
+                    padding: 0,
                   }}
                   key={index}
                 >

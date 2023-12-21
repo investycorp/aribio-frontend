@@ -299,6 +299,9 @@ const PipeLine = () => {
             />
           )}
         </Desktop>
+
+
+        
         <Mobile>
           <HomeComponentWrap style={{ padding: '5vh 5vw', marginBottom: '10em' }}>
             <TextWrap>
@@ -403,7 +406,7 @@ const PipeLine = () => {
                     <span style={{ width: '100%', padding: '0 0 0 2em', fontWeight: '200' }}>
                       <span style={{ marginRight: '1em', fontSize: '10px' }}>•</span>
                       <span style={{ fontSize: '16px', fontWeight: '300', width: '100%', padding: '0' }}>
-                        Mordality - {selectedItem?.modality}
+                        Mordality - {selectedItem?.modality.replace('\\n', ' ')}
                       </span>
                     </span>
                   </RowWrap>

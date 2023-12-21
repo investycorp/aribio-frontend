@@ -355,7 +355,7 @@ const Career = () => {
                   image={career_middle}
                 />
                 <TextWrap>
-                  <Text
+                  {/* <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
                     $color="#C3C3C3"
@@ -369,7 +369,7 @@ const Career = () => {
                     }}
                   >
                     “
-                  </Text>
+                  </Text> */}
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '28px' : '18px'}
                     $fontWeight="400"
@@ -378,14 +378,14 @@ const Career = () => {
                   >
                     <Trans i18nKey={'career.desc1'} components={{ 1: <br /> }} />
                   </Text>
-                  <Text
+                  {/* <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
                     $color="#C3C3C3"
                     style={{ fontFamily: 'Copperplate', width: window.innerWidth > 1280 ? '59vw' : '56vw', textAlign: 'end', margin: '0', lineHeight: '1' }}
                   >
                     ”
-                  </Text>
+                  </Text> */}
                 </TextWrap>
               </HomeComponentWrap>
               <HomeComponentWrap>
@@ -426,7 +426,7 @@ const Career = () => {
                             $align="start"
                             style={{ marginBottom: '1.5em', zIndex: '-1', cursor: 'pointer' }}
                           >
-                            <span style={{ margin: '0 1em 0 0' }}>·</span> {item.type}
+                            <span style={{ margin: '0 0.15em 0 0' }}>·</span> {item.type}
                           </Text>
                           <Text
                             $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
@@ -437,32 +437,43 @@ const Career = () => {
                           >
                             {item.location}-
                           </Text>
-                          <Text
-                            style={{ zIndex: '-1', cursor: 'pointer' }}
-                            $fontSize={window.innerWidth > 1280 ? '24px' : '13px'}
-                            $fontWeight="400"
-                            $color="#E3E3E3"
-                            $align="start"
+                          <div
+                            style={{
+                              display: 'flex',
+                              width: '100%',
+                              flexDirection: 'row',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                            }}
                           >
-                            {item.title}
-                          </Text>
+                            <Text
+                              style={{ zIndex: '-1', cursor: 'pointer' }}
+                              $fontSize={window.innerWidth > 1280 ? '24px' : '13px'}
+                              $fontWeight="400"
+                              $color="#E3E3E3"
+                              $align="start"
+                            >
+                              {item.title}
+                            </Text>
+                            <Image
+                              src={arrow}
+                              alt="arrow"
+                              style={{
+                                border: '1px solid #ffffff',
+                                borderRadius: '50%',
+                                zIndex: '1',
+                                cursor: 'pointer',
+                                height: window.innerWidth > 1280 ? '14px' : '12px',
+                                padding: window.innerWidth > 1280 ? '12px' : '8px',
+                              }}
+                              // onClick={() => {
+                              //   navigate(`${item.id}`);
+                              //   console.log(item.title);
+                              // }}
+                            />
+                          </div>
                         </TextWrap>
-                        <Image
-                          src={arrow}
-                          alt="arrow"
-                          style={{
-                            border: '1px solid #ffffff',
-                            borderRadius: '50%',
-                            zIndex: '1',
-                            cursor: 'pointer',
-                            height: window.innerWidth > 1280 ? '14px' : '12px',
-                            padding: window.innerWidth > 1280 ? '12px' : '8px',
-                          }}
-                          // onClick={() => {
-                          //   navigate(`${item.id}`);
-                          //   console.log(item.title);
-                          // }}
-                        />
+                      
                       </Button>
                     </ContentBox>
                   ))}
@@ -739,8 +750,9 @@ const Career = () => {
                           borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                           cursor: 'pointer',
                         }}
-                        // onClick={() => downloadCi('png')}
-                        //Linkedin page
+                        onClick={() => {
+                          window.open('', '_blank');
+                        }}
                       >
                         <span style={{ zIndex: '-1' }}>Linked-In</span>
                         <Image
@@ -792,7 +804,7 @@ const Career = () => {
                 }}
               >
                 <TextWrap style={{ width: '90vw', position: 'relative' }}>
-                  <Text
+                  {/* <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
                     $color="#C3C3C3"
@@ -807,7 +819,7 @@ const Career = () => {
                     }}
                   >
                     “
-                  </Text>
+                  </Text> */}
                   <Text
                     $fontSize="18px"
                     $fontWeight="400"
@@ -816,7 +828,7 @@ const Career = () => {
                   >
                     <Trans i18nKey={'career_m.desc1'} components={{ 1: <br /> }} />
                   </Text>
-                  <Text
+                  {/* <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                     $fontWeight="200"
                     $color="#C3C3C3"
@@ -831,7 +843,7 @@ const Career = () => {
                     }}
                   >
                     ”
-                  </Text>
+                  </Text> */}
                 </TextWrap>
               </HomeComponentWrap>
               {/* <HomeComponentWrap>
@@ -884,6 +896,102 @@ const Career = () => {
                 ))}
               </div>
             </HomeComponentWrap> */}
+               <HomeComponentWrap style={{ paddingBottom: '10em' }}>
+                <TextWrap style={{ marginBottom: '5em', zIndex: '10' }}>
+                  <HR style={{ alignSelf: 'start', margin: '1rem 0', width: '40px', height: '1px' }} />
+                  <Text $fontSize="20px" $fontWeight="600" $color="#E5E5E5" $align="start">
+                    Join Us!
+                  </Text>
+                </TextWrap>
+                <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '5vh', columnGap: '2em' }}>
+                  {joinus.length > 0 &&
+                    joinus?.map((item, index) => (
+                      <ContentBox key={`joinus${index}`} className="joinus" $src={item.img}>
+                        <FilterShadow />
+                        <Button
+                          onClick={() => {
+                            navigate(`${item.id}`);
+                          }}
+                          style={{ cursor: 'pointer', height: '124px' }}
+                        >
+                          <TextWrap
+                            style={{
+                              height: '124px',
+                              justifyContent: 'space-between',
+                              alignItems: 'start',
+                              padding: '1.5em 0 1.5em 0.2em',
+                            }}
+                          >
+                            <Text
+                              $fontWeight="400"
+                              $color="#DDDDDD"
+                              $align="start"
+                              style={{ zIndex: '-1', fontSize: '14px' }}
+                            >
+                              <span style={{ margin: '0 0.15em 0 0' }}>·</span> {item.type}
+                            </Text>
+                            <div
+                              style={{width: '100%'}}
+                            >
+                              <Text
+                                $fontSize="14px"
+                                $fontWeight="200"
+                                $color="#ffffff"
+                                $align="start"
+                                style={{ zIndex: '-1' }}
+                              >
+                                {item.location}-
+                              </Text>
+                              <div
+                                style={{
+                                  height: 'fit-content',
+                                  display: 'flex',
+                                  flexDirection: 'row',
+                                  alignItems: 'end',
+                                  justifyContent: 'space-between',
+                                  gap: '0.4em',
+                                  width: '100%',
+                                  marginTop: '0.2em',
+                                }}
+                              >
+                                <Text
+                                  $fontSize="18px"
+                                  $fontWeight="400"
+                                  $color="#E3E3E3"
+                                  $align="start"
+                                  style={{
+                                    zIndex: '-1',
+                                    whiteSpace: 'nowrap',
+                                    overflow: 'hidden',
+                                    width: '100%',
+                                    lineHeight: '1em',
+                                  }}
+                                >
+                                  {item.title.slice(0, 30)}
+                                  {item.title.length > 30 && '..'}
+                                </Text>
+                                <Image
+                                  src={arrow}
+                                  alt="arrow"
+                                  style={{
+                                    border: '1px solid #ffffff',
+                                    borderRadius: '50%',
+                                    width: '10px',
+                                    padding: '5px',
+                                    alignSelf: 'end',
+                                    margin: '0',
+                                    zIndex: '-1',
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          </TextWrap>
+                                                        
+                        </Button>
+                      </ContentBox>
+                    ))}
+                </GridContentWrap>
+              </HomeComponentWrap>
               <HomeComponentWrap>
                 <HR $width="40px" $height="1px" style={{marginBottom: 12, alignSelf: 'start'}}/>
                 <Text
@@ -1081,96 +1189,6 @@ const Career = () => {
                       </Text>
                     </ContentWrap>
                   </ContentBox>
-                </GridContentWrap>
-              </HomeComponentWrap>
-              <HomeComponentWrap style={{ paddingBottom: '10em' }}>
-                <TextWrap style={{ marginBottom: '5em', zIndex: '10' }}>
-                  <HR style={{ alignSelf: 'start', margin: '1rem 0', width: '40px', height: '1px' }} />
-                  <Text $fontSize="20px" $fontWeight="600" $color="#E5E5E5" $align="start">
-                    Join Us!
-                  </Text>
-                </TextWrap>
-                <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '5vh', columnGap: '2em' }}>
-                  {joinus.length > 0 &&
-                    joinus?.map((item, index) => (
-                      <ContentBox key={`joinus${index}`} className="joinus" $src={item.img}>
-                        <FilterShadow />
-                        <Button
-                          onClick={() => {
-                            navigate(`${item.id}`);
-                          }}
-                          style={{ cursor: 'pointer', height: '124px' }}
-                        >
-                          <TextWrap
-                            style={{
-                              height: '124px',
-                              justifyContent: 'space-between',
-                              alignItems: 'start',
-                              padding: '1.5em 0 1.5em 1em',
-                            }}
-                          >
-                            <Text
-                              $fontWeight="400"
-                              $color="#DDDDDD"
-                              $align="start"
-                              style={{ zIndex: '-1', fontSize: '14px' }}
-                            >
-                              <span style={{ margin: '0 0.5em 0 0' }}>·</span> {item.type}
-                            </Text>
-                            <Text
-                              $fontSize="15px"
-                              $fontWeight="200"
-                              $color="#ffffff"
-                              $align="start"
-                              style={{ zIndex: '-1' }}
-                            >
-                              {item.location}-
-                            </Text>
-                            <div
-                              style={{
-                                height: 'fit-content',
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'end',
-                                justifyContent: 'space-between',
-                                gap: '0.5em',
-                                width: '100%',
-                              }}
-                            >
-                              <Text
-                                $fontSize="18px"
-                                $fontWeight="400"
-                                $color="#E3E3E3"
-                                $align="start"
-                                style={{
-                                  zIndex: '-1',
-                                  whiteSpace: 'nowrap',
-                                  overflow: 'hidden',
-                                  width: '100%',
-                                  lineHeight: '1em',
-                                }}
-                              >
-                                {item.title.slice(0, 30)}
-                                {item.title.length > 30 && '..'}
-                              </Text>
-                              <Image
-                                src={arrow}
-                                alt="arrow"
-                                style={{
-                                  border: '1px solid #ffffff',
-                                  borderRadius: '50%',
-                                  width: '10px',
-                                  padding: '5px',
-                                  alignSelf: 'end',
-                                  margin: '0',
-                                  zIndex: '-1',
-                                }}
-                              />
-                            </div>
-                          </TextWrap>
-                        </Button>
-                      </ContentBox>
-                    ))}
                 </GridContentWrap>
               </HomeComponentWrap>
             </Mobile>

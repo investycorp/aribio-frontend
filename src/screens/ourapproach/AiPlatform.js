@@ -223,7 +223,7 @@ const AiPlatform = () => {
               style={{
                 objectFit: 'contain',
                 width: window.innerWidth > 1280 ? '60vw' : '68vw',
-
+                imageRendering: 'auto',
                 height: window.innerWidth > 1280 ? '80vh' : '80vh',
                 marginLeft: window.innerWidth > 1280 ? '13%' : '14%',
               }}
