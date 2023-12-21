@@ -97,6 +97,29 @@ const TextWrap = styled.div`
   z-index: 10;
 `;
 
+const ImageBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(${props => props.image});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+  }
+`;
+
 const Text = styled.div.attrs((props) => ({ className: props.className, id: props.id }))`
   width: ${(props) => (props.$width ? props.$width : '100%')};
   font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
@@ -129,7 +152,11 @@ const GridContentWrap = styled.div`
   justify-content: start;
   align-items: left;
   background-color: transparent;
-  margin-top: 5em;
+  padding: 2.5em 0;
+
+  @media screen and (max-width: 1280px){
+    padding: 1.5em 0;
+  }
 `;
 
 const Image = styled.img`
@@ -185,9 +212,9 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
   }
 
   &.recruitmentProcess_rowscroll {
-    &:hover {
+    /* &:hover {
       background-color: rgba(255, 255, 255, 0.06);
-    }
+    } */
     &::-webkit-scrollbar {
       display: none;
     }
@@ -227,6 +254,17 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
       padding: 23px;
       border-radius: 10px;
     }
+
+    @media screen and (max-width: 1280px) {
+      gap: 25px;
+    }
+
+     @media screen and (max-width: 360px) {
+      height: 124px;
+      padding: 24px 16px 24px 16px;
+      border-radius: 10px;
+    }
+
   }
 `;
 const ContentBoxNameWrap = styled.div`
@@ -414,6 +452,37 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
   }
 `;
 
+  const RecruitmentItemWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 28.7vw;
+    gap: 24px;
+    max-width: 442px;
+    padding: 40px 30px 40px 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+
+    @media screen and (max-width: 1920px) {
+      height: 308px;
+    }
+
+    @media screen and (max-width: 1280px) {
+      max-width: 278px;
+      height: 194px;
+      padding: 26px; 
+      gap: 15px;
+    }
+
+    @media screen and (max-width: 360px) {
+      padding: 24px 15px 24px 24px; 
+      max-width: 322px;
+      max-height: 232px;
+      width: 322px;
+      height: auto !important;
+    }
+  `;
+
 export {
   Container,
   MainImgWrap,
@@ -437,4 +506,6 @@ export {
   ShootingStar,
   FilterShadow,
   Button,
+  RecruitmentItemWrap,
+  ImageBackground,
 };

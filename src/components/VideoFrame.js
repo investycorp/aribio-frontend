@@ -42,11 +42,11 @@ const VideoFrame = ({ src }) => {
       setVideoId('');
       if (src.includes('youtu')) {
         setVideoId(src?.split('watch?v=')[1]?.split('&')[0] || src?.split('=')[1]?.split('&')[0]);
-        console.log('video id:', src?.split('=')[1]?.split('&')[0]);
         videoRef?.current?.load();
       }
       //only works in <video> component
     }
+
     const handleClickStart = () => {
       if (video && video.paused) {
         video.play();
@@ -54,6 +54,7 @@ const VideoFrame = ({ src }) => {
         video.pause();
       }
     };
+
     video?.addEventListener('click', handleClickStart);
     video?.addEventListener('touchstart', handleClickStart);
     video?.addEventListener('loaded', () => {

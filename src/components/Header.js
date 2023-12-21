@@ -21,7 +21,7 @@ const HeaderContainer = styled.div.attrs((props) => ({
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(26, 26, 26, 0.6);
+  background-color: transparent;
 
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ const HeaderContainer = styled.div.attrs((props) => ({
   z-index: 100;
   overflow: hidden;
   &:hover {
-    background-color: rgba(26, 26, 26, 0.6);
+    background-color: transparent;
   }
   @media screen and (max-width: 900px) {
     background-color: #121212;
@@ -44,14 +44,14 @@ const HeaderTop = styled.div`
   margin: 0;
   padding: 0 7vw;
   width: 100%;
-  height: 146px;
+  height: 118px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   z-index: 100;
   @media screen and (max-width: 1280px) {
-    height: 97px;
+    height: 74px;
   }
   @media screen and (max-width: 900px) {
     justify-content: space-between;
@@ -63,11 +63,11 @@ const BlurTop = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 144px;
+  height: 118px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   @media screen and (max-width: 1280px) {
-    height: 97px;
+    height: 74px;
   }
 `;
 
@@ -88,13 +88,13 @@ const HeaderNavWrap = styled.div.attrs((props) => ({
 }))`
   padding: 0;
   width: -webkit-fill-available;
-  padding: ${(props) => (props.$offset ? `0 calc(5em + ${props.$offset}px)` : '0 5em')};
+  padding: ${(props) => (props.$offset ? `0 calc(9.63em + ${props.$offset}px)` : '0 9.63em')};
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  height: 100vh;
 
   @media screen and (max-width: 1400px) {
   }
@@ -110,7 +110,7 @@ const HeaderNavWrap = styled.div.attrs((props) => ({
     justify-content: start;
     padding: 0 5vw;
     gap: 0;
-    height: 683px;
+    height: 100vh;
     max-height: calc(100vh - 97px);
     overflow-y: scroll;
     z-index: 100;
@@ -129,6 +129,7 @@ const HeaderNavMenuTextWrap = styled.div`
   text-decoration: none;
   min-width: fit-content;
   padding-bottom: 5px;
+  /* top: 2px; */
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -180,7 +181,7 @@ const HeaderLangButton = styled.button`
   gap: 0.5rem;
   width: 122px;
   height: 52px;
-  gap: 0.5rem;
+
   &:hover {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
@@ -206,11 +207,11 @@ const HeaderLangButton = styled.button`
 
 const HeaderBottom = styled.div`
   width: 100%;
-  height: 105px;
+  height: 88px;
   position: fixed;
   text-decoration: none;
   padding: 0 7vw;
-  top: 144px;
+  top: 116px;
   left: 0;
   display: flex;
   opacity: 0;
@@ -218,13 +219,13 @@ const HeaderBottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
-  background-color: rgba(26, 26, 26, 0.6);
-  border-top: 2px solid #5d5d5d;
+  background-color: transparent;
+  border-top: 2px solid rgba(93, 93, 93, 0.8);
   cursor: default;
   transition: opacity 0.5s ease-in-out;
   @media screen and (max-width: 1280px) {
-    top: 95px;
-    height: 72px;
+    top: 72px;
+    height: 56px;
   }
   @media screen and (max-width: 900px) {
     flex-direction: column;
@@ -271,9 +272,9 @@ const Header = () => {
       { title: 'CONTACT US', linkTo: 'contactus' },
     ],
     openinnovation: [
-      { title: 'Open Innovation', linkTo: 'openinnovation' },
-      { title: 'Digital Health', linkTo: 'digitalhealth' },
-      { title: 'MEMO:RE PROJECT', linkTo: 'memoreproject' },
+      { title: 'OPEN INNOVATION', linkTo: 'openinnovation' },
+      { title: 'DIGITAL HEALTH', linkTo: 'digitalhealth' },
+      { title: 'Memo:Re PROJECT', linkTo: 'memoreproject' },
     ],
     irpr: [
       { title: 'NOTICE', linkTo: 'notice/' },
@@ -365,7 +366,7 @@ const Header = () => {
     <>
       <Mobile>
         <HeaderContainer
-          style={{ display: 'grid', width: '100vw' }}
+          style={{ display: 'grid', width: '100vw', }}
           tabIndex={1}
           onBlur={async () => {
             await new Promise((resolve) => setTimeout(resolve, 100));
@@ -519,7 +520,7 @@ const Header = () => {
                               setSubMenuOpen('');
                             }}
                           >
-                            <span style={{ fontSize: '18px', color: '#EFEFEF' }}>{subMenu.title.toUpperCase()}</span>
+                            <span style={{ fontSize: '18px', color: '#EFEFEF' }}>{subMenu.title}</span>
                           </Link>
                         </div>
                       ))}
@@ -530,6 +531,7 @@ const Header = () => {
           )}
         </HeaderContainer>
       </Mobile>
+      
       <Desktop>
         <>
           <HeaderContainer
@@ -603,7 +605,7 @@ const Header = () => {
                   >
                     <div
                       style={{
-                        paddingBottom: '0.6em',
+                        paddingBottom: 8,
                         borderBottom:
                           currentTab === menu.linkTo && currentTab !== currentMenu
                             ? '2px solid #ffffff'
@@ -655,7 +657,7 @@ const Header = () => {
                             }
                           }}
                         >
-                          <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
+                          <HeaderNavMenuTextWrap>{menu.title}</HeaderNavMenuTextWrap>
                         </Link>
                       ))}
                     </HeaderNavWrap>

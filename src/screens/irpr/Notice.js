@@ -165,7 +165,7 @@ const Notice = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span>NOTICE
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>NOTICE</HeadLine>
+        <HeadLine $className="midsize">NOTICE</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -173,16 +173,11 @@ const Notice = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
         {detailPage ? (
           // rendering detail page and detail page footer navigation
           <>
@@ -201,18 +196,18 @@ const Notice = () => {
                     {t('notice.title')}
                   </Text>
                   <div
-                    style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '8em',
-                      borderRight: '2px solid #ffffff',
-                      margin: '2rem 0',
-                    }}
-                  ></div>
+                style={{
+                  alignSelf: 'center',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
+                ></div>
                   <Text
                     $fontWeight="500"
                     $color="#ffffff"
-                    style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
+                    style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                   >
                     {t('notice.subtitle')}
                   </Text>
@@ -225,7 +220,7 @@ const Notice = () => {
                       width: '33.3%',
                       flexDirection: 'row',
                       color: '#ffffff',
-                      borderBottom: window.innerwidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                      borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                       padding: '0',
                     }}
                   >
@@ -372,23 +367,23 @@ const Notice = () => {
             <Mobile>
               <HomeComponentWrap>
                 <TextWrap style={{ width: '90vw' }}>
-                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
+                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0', fontSize: '16px' }}>
                     {t('notice.title')}
                   </Text>
                   <div
                     style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '60px',
-                      borderRight: '1px solid #ffffff',
-                      margin: '0',
+                      alignSelf: 'center',
+                      width: '20px',
+                      height: '1px',
+                      border: '1px solid #ffffff',
+                      margin: '28px 0',
                     }}
                   ></div>
                   <Text
                     $fontSize="23px"
                     $fontWeight="500"
                     $color="#ffffff"
-                    style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
+                    style={{ fontSize: '23px' }}
                   >
                     <Trans i18nKey="notice.subtitle_m" components={{ 1: <br /> }} />
                   </Text>

@@ -127,10 +127,15 @@ const Tab = styled.div`
     gap: 1rem;
     margin-bottom: 2rem;
   }
+  @media screen and (max-width: 360px) {
+    overflow-x: scroll;
+    width: 100vw;
+    padding-left: 5vw;
+  }
 `;
 
 const TabItem = styled.div`
-  width: fit-content;
+  width: auto;
   height: fit-content;
   display: flex;
   justify-content: left;

@@ -65,6 +65,11 @@ const Dot = styled.div`
   height: 1rem;
   background-color: ${(props) => props.$color};
   border-radius: 50%;
+
+  @media screen and (max-width: 360px) {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 const DocType = styled.span`
@@ -159,7 +164,12 @@ const Publications = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > OUR APPROACH > `}</span>PUBLICATIONS
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine className="midsize">{t('publication.headline')}</HeadLine>
+        <HeadLine
+          $className="midsize"
+          style={{
+            fontSize: window.innerWidth < 900 && 46,
+          }}
+        >{t('publication.headline')}</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -167,16 +177,11 @@ const Publications = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox style={{ borderLeft: '2px solid rgba(177,177,177,0.2)' }} />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
         <Desktop>
           <HomeComponentWrap>
             <TextWrap style={{ margin: '0' }}>
@@ -184,13 +189,13 @@ const Publications = () => {
                 {t('publication.title')}
               </Text>
               <div
-                style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '4em',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
-                }}
+                  style={{
+                    alignSelf: 'center',
+                    width: window.innerWidth > 1280 ? '60px' : '40px',
+                    height: '2px',
+                    border: '1px solid #ffffff',
+                    margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                  }}
               ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
@@ -332,7 +337,7 @@ const Publications = () => {
                     <div className="wrap" style={{ alignItems: 'stretch' }}>
                       <div style={{ padding: '1rem' }}>
                         <Image
-                          src={docthumbnail}
+                          src={doc.image}
                           alt="doc"
                           style={{
                             width: window.innerWidth > 1280 ? '170px' : '102px',
@@ -351,9 +356,11 @@ const Publications = () => {
                             fontSize: window.innerWidth > 1280 ? '18px' : '11px',
                             alignItems: 'start',
                             color: '#CECECE',
+                            wordBreak: 'break-all',
                           }}
                         >
-                          {doc.journal}
+                          {doc.journal.slice(0, 58)}
+                          {doc.journal.length > 58 && '...'}
                         </Text>
                         <Text
                           className="text"
@@ -366,6 +373,7 @@ const Publications = () => {
                             fontSize: window.innerWidth > 1280 ? '24px' : '13px',
                             whiteSpace: 'pre-wrap',
                             alignItems: 'start',
+                            wordBreak: 'break-all',
                             paddingRight: window.innerWidth > 1280 ? '80px' : '100px',
                           }}
                         >
@@ -423,19 +431,20 @@ const Publications = () => {
             </GridComponentWrap>
           </HomeComponentWrap>
         </Desktop>
+
         <Mobile>
           <HomeComponentWrap>
             <TextWrap style={{ margin: '0' }}>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{marginBottom: '0'}}>
                 {t('publication.title')}
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '4em',
-                  borderRight: '1px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: '20px',
+                  height: '1px',
+                  border: '1px solid #ffffff',
+                  margin: '28px 0',
                 }}
               ></div>
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
@@ -489,8 +498,9 @@ const Publications = () => {
                 }}
               >
                 <Dot $color="#004D76" />
-                <span style={{ marginRight: '1rem' }}>Publication</span>
-                <Dot $color="#760027" /> <span>Conference</span>
+                <span style={{ fontSize: '18px', marginRight: '1rem' }}>Publications</span>
+                <Dot $color="#760027" />
+                <span style={{ fontSize: '18px', marginRight: '1rem' }}>Presentations</span>
               </ComponentWrap>
               {filteredList.length > 0 ? (
                 filteredList.map((doc, index) => (
@@ -533,7 +543,7 @@ const Publications = () => {
                         ) : (
                           <DocType $color={'#012438'}>Pub</DocType>
                         )}
-                        <Image src={docthumbnail} alt="doc" style={{ width: '60px', height: '60px' }} />
+                        <Image src={doc.image} alt="doc" style={{ width: '60px', height: '60px' }} />
                       </div>
                       <div style={{ alignItems: 'start' }}>
                         <Text
@@ -542,6 +552,7 @@ const Publications = () => {
                           $color="##CECECE"
                           $align="start"
                           style={{
+                            // wordBreak: 'break-all',
                             margin: '0.5rem 0',
                             fontSize: '14px',
                             fontWeight: '300',
@@ -558,6 +569,7 @@ const Publications = () => {
                           $fontWeight="400"
                           $color="#F0F0F0"
                           style={{
+                            wordBreak: 'break-all',
                             alignItems: 'start',
                             margin: '0.3rem 0 0.4rem 0',
                             textAlign: 'start',
