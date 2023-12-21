@@ -21,7 +21,6 @@ const History = () => {
   const [tabNames, setTabNames] = useState([]);
   const [listItems, setListItems] = useState([]);
   const [currentTab, setCurrentTab] = useState(0);
-  const [currentScrollY, setCurrentScrollY] = useState(0);
   const { data, isLoading } = useHistoryList(language);
 
   useEffect(() => {
@@ -30,7 +29,6 @@ const History = () => {
   }, []);
 
   useEffect(() => {
-    console.log(currentTab);
     if (data?.data?.success) {
       const items = data.data.dataList;
       console.log(items);
@@ -38,16 +36,21 @@ const History = () => {
       setTabNames([]);
       setListItems([]);
       setTextItems([]);
-      items.map((item) => {
-        setTabNames((prev) => [...prev, `${item.startYear}-${item.endYear}`]);
-        setTextItems((prev) => [...prev, { title: item.title, subtitle: item.subtitle }]);
-        const contentList = [];
-        item?.userHistoryDtoList?.map((content) => {
-          contentList.push({ title: content.year.toString(), content: content.contents });
-        });
+    
+      const sortedItems = items.sort((a, b) => b.startYear - a.startYear);
 
-        setListItems((prev) => [...prev, contentList]);
-      });
+      const newTabNames = sortedItems.map(item => `${item.startYear}-${item.endYear}`);
+      const newTextItems = sortedItems.map(item => ({ title: item.title, subtitle: item.subtitle }));
+
+      const newListItems = sortedItems.map(item => 
+        item.userHistoryDtoList.map(content => ({
+          title: content.year.toString(),
+          content: content.contents
+        }))
+      );
+      setTabNames(newTabNames);
+      setTextItems(newTextItems);
+      setListItems(newListItems);
 
       setCurrentTab(0);
     }
@@ -70,7 +73,7 @@ const History = () => {
         }
       />
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>HISTORY</HeadLine>
+        <HeadLine $className="midsize">HISTORY</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -78,7 +81,7 @@ const History = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -89,15 +92,6 @@ const History = () => {
             <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
               HISTORY
             </Text>
-            <div
-              style={{
-                width: '50%',
-                alignSelf: 'flex-start',
-                height: '60px',
-                borderRight: '2px solid #ffffff',
-                margin: '2rem 0',
-              }}
-            ></div>
             <Text
               $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
               $fontWeight="500"
@@ -106,11 +100,19 @@ const History = () => {
             >
               {textItems[currentTab]?.title}
             </Text>
+            <div
+                style={{
+                  alignSelf: 'center',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
+            />
             <Text
               $fontSize={window.innerWidth > 1280 ? '30px' : '14px'}
               $fontWeight="200"
               $color="#E5E5E5"
-              style={{ margin: '24px 0 0 0' }}
             >
               {textItems[currentTab]?.subtitle}
             </Text>
@@ -132,6 +134,8 @@ const History = () => {
 
         <Tab1 listItems={listItems[currentTab]} index={currentTab} />
       </Desktop>
+
+
       <Mobile>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
@@ -139,13 +143,13 @@ const History = () => {
               HISTORY
             </Text>
             <div
-              style={{
-                width: '50%',
-                alignSelf: 'flex-start',
-                height: '60px',
-                borderRight: '1px solid #ffffff',
-                margin: '20px 0',
-              }}
+                style={{
+                  alignSelf: 'center',
+                  width: '20px',
+                  height: '1px',
+                  border: '1px solid #ffffff',
+                  margin: '28px 0',
+                }}
             ></div>
             <Text $fontSize="23px" $color="#ffffff" style={{ margin: '0', fontWeight: '500' }}>
               {textItems[currentTab]?.title}
@@ -155,7 +159,7 @@ const History = () => {
             </Text>
           </TextWrap>
         </HomeComponentWrap>
-        <Tab style={{ padding: '0 7vw' }}>
+        <Tab >
           {tabNames?.map((item, index) => (
             <TabItem
               key={index}
@@ -163,7 +167,7 @@ const History = () => {
               onClick={() => {
                 setCurrentTab(index);
               }}
-              style={{ lineHeight: '1.4em' }}
+              style={{ width: 'auto', lineHeight: '1.4em', textAlign: 'center', justifyContent: 'center' }}
             >
               {item}
             </TabItem>

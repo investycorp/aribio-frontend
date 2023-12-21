@@ -31,7 +31,7 @@ const PolyPharmacology = () => {
         />
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine className="midsize" style={{ fontSize: window.innerWidth < 901 && '40px' }}>
+        <HeadLine style={{ fontSize: window.innerWidth < 901 && '40px' }}>
           <Trans i18nKey="polypharma.headline" components={{ 1: <br /> }} />
         </HeadLine>
         <img
@@ -41,7 +41,7 @@ const PolyPharmacology = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -54,18 +54,13 @@ const PolyPharmacology = () => {
       <Desktop>
         <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
           <TextWrap>
-            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
+            <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598"
+             style={{
+              marginBottom: window.innerWidth > 1280 ? '32px' : '20px'
+            }}
+            >
               {t('polypharma.title')}
             </Text>
-            <div
-              style={{
-                width: '50%',
-                alignSelf: 'flex-start',
-                height: '4em',
-                borderRight: '2px solid #ffffff',
-                margin: '2rem 0',
-              }}
-            ></div>
             <Text
               $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
               $fontWeight="500"
@@ -74,11 +69,19 @@ const PolyPharmacology = () => {
             >
               {t('polypharma.subtitle')}
             </Text>
+            <div
+                style={{
+                  alignSelf: 'center',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
+            ></div>
             <Text
               $fontSize={window.innerWidth > 1280 ? '23px' : '16px'}
               $fontWeight="200"
               $color="#E5E5E5"
-              style={{ marginTop: '4em' }}
             >
               <Trans i18nKey="polypharma.desc1" components={{ 1: <br /> }} />
             </Text>
@@ -109,16 +112,16 @@ const PolyPharmacology = () => {
         <div style={{ overflowX: 'hidden' }}>
           <HomeComponentWrap style={{ padding: '5vh 5vw' }}>
             <TextWrap style={{ margin: '0' }}>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ margin: '0' }}>
                 {t('polypharma.title')}
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '1px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: '20px',
+                  height: '1px',
+                  border: '1px solid #ffffff',
+                  margin: '28px 0',
                 }}
               ></div>
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>

@@ -46,11 +46,7 @@ const Ci = () => {
   }, []);
 
   const downloadCi = (type) => {
-    saveAs(type === 'png' ? `${pngImg}` : `${aiImg}`, `AriBio_CI.${type}`);
-    // const link = document.createElement('a');
-    // link.download = `AriBio_CI.${type}`;
-    // link.href = type === 'png' ? `${pngImg}` : `${aiImg}`;
-    // link.click();
+    saveAs(((type === 'png') ? `${pngImg}` : `${aiImg}`), `AriBio_CI.${type}`);
   };
 
   return (
@@ -72,7 +68,7 @@ const Ci = () => {
         />
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine className="midsize" style={{ fontSize: window.innerWidth <= 900 && '56px' }}>
+        <HeadLine className="midsize">
           <Trans i18nKey="ci.headline" components={{ 1: <br /> }} />
         </HeadLine>
         <img
@@ -82,7 +78,7 @@ const Ci = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -96,18 +92,13 @@ const Ci = () => {
         <Desktop>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap>
-              <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
+              <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598"
+                style={{
+                  marginBottom: window.innerWidth > 1280 ? '32px' : '20px'
+                }}
+              >
                 {t('ci.title')}
               </Text>
-              <div
-                style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '4em',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
-                }}
-              ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
@@ -116,11 +107,19 @@ const Ci = () => {
               >
                 {t('ci.subtitle')}
               </Text>
+              <div
+                style={{
+                  alignSelf: 'center',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
+            ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
-                $fontWeight="200"
+                $fontWeight="300"
                 $color="#D3D3D3"
-                style={{ marginTop: '2em' }}
               >
                 <Trans i18nKey="ci.desc1" components={{ 1: <br /> }} />
                 {/* {t('ci.desc1')} */}
@@ -131,7 +130,7 @@ const Ci = () => {
             style={{
               height: window.innerWidth > 1280 ? '409px' : '275px',
               padding: '8vh 7vw',
-              backgroundColor: 'rgba(255,255,255,0.7)',
+              backgroundColor: 'rgba(255,255,255)',
             }}
           >
             <Image src={pngImg} alt="ci_logo" style={{ width: window.innerWidth > 1280 ? '532px' : '364px' }} />
@@ -341,30 +340,31 @@ const Ci = () => {
             </ContentBox>
           </HomeComponentWrap>
         </Desktop>
+
         <Mobile>
           <HomeComponentWrap>
             <TextWrap>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0'}}>
                 {t('ci.title')}
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '1px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: '20px',
+                  height: '1px',
+                  border: '1px solid #ffffff',
+                  margin: '28px 0',
                 }}
-              />
+              ></div>
               <Text $fontSize="23px" $fontWeight="600" $color="#ffffff" style={{ margin: '0' }}>
                 {t('ci.subtitle')}
               </Text>
-              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '2em' }}>
+              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ marginTop: '12px' }}>
                 <Trans i18nKey="ci_m.desc1" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{ backgroundColor: 'rgba(255,255,255,0.7)', height: '160px' }}>
+          <HomeComponentWrap style={{ backgroundColor: 'rgba(255,255,255)', height: '160px' }}>
             <Image src={ci_logo_png} alt="ci_logo" style={{ width: '108px' }} />
           </HomeComponentWrap>
           <HomeComponentWrap style={{ padding: '5vh 0', display: 'grid' }}>
@@ -451,8 +451,9 @@ const Ci = () => {
                   >
                     Bio:
                   </Text>
-                  <Trans i18nKey="ci_m.bio" components={{ 1: <br /> }} />
-                  <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start"></Text>
+                  <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
+                    <Trans i18nKey="ci_m.bio" components={{ 1: <br /> }} />
+                  </Text>
                 </div>
               </ContentWrap>
               <ContentWrap

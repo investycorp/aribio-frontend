@@ -59,7 +59,7 @@ const Partner = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > CONTACT > `}</span>PARTNER
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>PARTNER</HeadLine>
+        <HeadLine $className="midsize">PARTNER</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -67,7 +67,7 @@ const Partner = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>

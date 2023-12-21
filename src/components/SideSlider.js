@@ -14,7 +14,7 @@ const SliderContainer = styled.div.attrs((props) => ({
   position: fixed;
   opacity: ${(props) => (props.$show ? '1' : '0')};
   top: 40vh;
-  left: 4vw;
+  left: 7vw;
   width: fit-content;
   height: auto;
   padding: 0;
@@ -29,7 +29,6 @@ const SliderContainer = styled.div.attrs((props) => ({
 
   @media screen and (max-width: 1280px) {
     top: 40vh;
-    left: 4vw;
     gap: 35px;
   }
   @media screen and (max-width: 900px) {

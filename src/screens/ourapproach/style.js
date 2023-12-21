@@ -247,16 +247,19 @@ const HR = styled.div`
   width: ${(props) => (props.$width ? props.$width : '60px')};
   height: ${(props) => (props.$height ? props.$height : '2px')};
   background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
+
+  @media screen and (max-width: 1280px) {
+    width: 40px;
+  }
 `;
 
 const ButtonWrap = styled.div`
-  padding-right: 20%;
-  width: 100%;
+  width: 80%;
   height: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   background-color: transparent;
   margin: 4rem 0;
@@ -321,6 +324,9 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
   padding: 4em 0 10vh 0;
   @media (max-width: 1500px) {
     padding: 0 0 10vh 0;
+  }
+  @media (max-width: 360px) {
+    margin: 0 0 24px 0;
   }
   &.pathwaydata_wrap_top {
     padding: 0;
@@ -485,6 +491,10 @@ const GridComponentWrap = styled.div.attrs((props) => ({ className: props.classN
       div.text {
         font-size: 18px;
       }
+    }
+
+     @media (max-width: 360px) {
+      margin-bottom: 0;
     }
   }
 `;

@@ -65,9 +65,9 @@ const PipeLine = () => {
           id: item.id,
           drugCandidate: item.drugCandidate,
           target: item.target,
-          modality: item.modality.replace('\\n', ' '),
+          modality: item.modality,
           indication: item.pipelineIndicationDtoList?.map((indication) => {
-            return { id: indication.id, section: indication.indication, phase: indication.phase + 1 };
+            return { id: indication.id, section: indication.indication, phase: indication.phase + 1, state: indication.state + 1 };
           }),
           modal: {
             title: item.popUpTitle,
@@ -181,7 +181,7 @@ const PipeLine = () => {
       </Path>
 
       <HomeComponentWrap style={{ height: '100vh', width: '100vw' }}>
-        <HeadLine>PIPELINE</HeadLine>
+        <HeadLine $className="midsize">PIPELINE</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -189,7 +189,7 @@ const PipeLine = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -209,13 +209,13 @@ const PipeLine = () => {
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '8em',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                 }}
-              ></div>
+            ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
@@ -248,7 +248,15 @@ const PipeLine = () => {
                     /> */}
                   </TableContentBox>
                   <TableContentBox>{item.target}</TableContentBox>
-                  <TableContentBox>{item.modality}</TableContentBox>
+                  <TableContentBox>{item.modality.split('\\n').map(text => {
+                    return (
+                      <>
+                        {text}
+                        <br/>
+                      </>
+                      );
+                    }
+                  )}</TableContentBox>
                   <TableContentBox className="indication" style={{ padding: '0' }}>
                     {item?.indication.map((indication_item, index) => (
                       <div key={'indication' + index}>
@@ -267,7 +275,7 @@ const PipeLine = () => {
                           <span>
                             <ShootingStarWrap className="shooting_star_wrap">
                               {/* <hr style={{ width: '100%', opacity: '0.4', border: 'dotted 1px' }} /> */}
-                              <ShootingStar className="shooting_star" $phase={indication_item?.phase} />
+                              <ShootingStar className="shooting_star" $phase={indication_item?.phase} $state={indication_item?.state} />
                             </ShootingStarWrap>
                           </span>
                           <span></span>
@@ -291,27 +299,29 @@ const PipeLine = () => {
             />
           )}
         </Desktop>
+
+
+        
         <Mobile>
           <HomeComponentWrap style={{ padding: '5vh 5vw', marginBottom: '10em' }}>
             <TextWrap>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{marginBottom: '0'}}>
                 {t('pipeline.title')}
               </Text>
               <div
-                id="modalOff"
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '1px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: '20px',
+                  height: '1px',
+                  border: '1px solid #ffffff',
+                  margin: '28px 0',
                 }}
               ></div>
               <Text
                 $fontSize="23px"
                 $fontWeight="500"
                 $color="#ffffff"
-                style={{ margin: '2rem 0 0 0', lineHeight: '1.2em' }}
+                style={{ lineHeight: '1.2em' }}
               >
                 <Trans i18nKey="pipeline.subtitle_m" components={{ 1: <br /> }} />
               </Text>
@@ -396,7 +406,7 @@ const PipeLine = () => {
                     <span style={{ width: '100%', padding: '0 0 0 2em', fontWeight: '200' }}>
                       <span style={{ marginRight: '1em', fontSize: '10px' }}>•</span>
                       <span style={{ fontSize: '16px', fontWeight: '300', width: '100%', padding: '0' }}>
-                        Mordality - {selectedItem?.modality}
+                        Mordality - {selectedItem?.modality.replace('\\n', ' ')}
                       </span>
                     </span>
                   </RowWrap>
@@ -463,6 +473,7 @@ const PipeLine = () => {
                               width: '6px',
                             }}
                             $phase={indication?.phase}
+                            $state={indication?.state}
                           />
                         </ShootingStarWrap>
                       </span>
