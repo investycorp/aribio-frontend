@@ -103,6 +103,7 @@ const Text = styled.div.attrs((props) => ({ className: props.className }))`
   line-height: 1.5em;
   text-align: ${(props) => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
+  word-break: break-all;
   &.prev,
   &.next {
     &:hover {

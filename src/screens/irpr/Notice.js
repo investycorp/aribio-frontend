@@ -30,6 +30,9 @@ import { Link, Outlet, useParams } from 'react-router-dom';
 import useNoticeList from '../../hooks/irpr/useNoticeList';
 import Video from '../../components/Video';
 
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
+
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
 
@@ -42,6 +45,7 @@ const Notice = () => {
   const [itemPerPage, setItemPerPage] = useState(6);
   const [currentItem, setCurrentItem] = useState({});
   const [searchValue, setSearchValue] = useState('');
+  const [searchTermShown, setSearchTermShown] = useState('');
   const [detailPage, setDetailPage] = useState(false);
 
   const [itemList, setItemList] = useState([]);
@@ -138,6 +142,7 @@ const Notice = () => {
   const handleSearchClick = async (val) => {
     setPageNumber(1);
     refetch(1, language, val);
+    setSearchTermShown(val);
     // setViewMoreOn(true);
   };
 
@@ -160,7 +165,7 @@ const Notice = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span>NOTICE
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>NOTICE</HeadLine>
+        <HeadLine $className="midsize">NOTICE</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -168,16 +173,11 @@ const Notice = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
         {detailPage ? (
           // rendering detail page and detail page footer navigation
           <>
@@ -193,23 +193,23 @@ const Notice = () => {
                     $fontWeight="300"
                     $color="#939598"
                   >
-                    NOTICE
+                    {t('notice.title')}
                   </Text>
                   <div
-                    style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '8em',
-                      borderRight: '2px solid #ffffff',
-                      margin: '2rem 0',
-                    }}
-                  ></div>
+                style={{
+                  alignSelf: 'center',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
+                ></div>
                   <Text
                     $fontWeight="500"
                     $color="#ffffff"
-                    style={{ margin: '2rem 0 0 0', fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
+                    style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
                   >
-                    Company Updates and Announcements
+                    {t('notice.subtitle')}
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -220,12 +220,12 @@ const Notice = () => {
                       width: '33.3%',
                       flexDirection: 'row',
                       color: '#ffffff',
-                      borderBottom: window.innerwidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                      borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                       padding: '0',
                     }}
                   >
                     <SearchInput
-                      placeholder="Please enter a search term."
+                      placeholder={t('notice.placeholder')}
                       type="text"
                       value={searchValue}
                       onChange={(e) => {
@@ -322,7 +322,11 @@ const Notice = () => {
                   ) : (
                     <ComponentWrap style={{ gap: '2em', height: '50vh', justifyContent: 'center' }}>
                       <HR />
-                      <Text>There are no published posts registered.</Text>
+                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                        <Text>There are no published posts registered.</Text>
+                      ) : (
+                        <Text>No result found for '{searchTermShown}'</Text>
+                      )}
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
@@ -363,26 +367,25 @@ const Notice = () => {
             <Mobile>
               <HomeComponentWrap>
                 <TextWrap style={{ width: '90vw' }}>
-                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ fontSize: '16px' }}>
-                    NOTICE
+                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0', fontSize: '16px' }}>
+                    {t('notice.title')}
                   </Text>
                   <div
                     style={{
-                      width: '50%',
-                      alignSelf: 'flex-start',
-                      height: '60px',
-                      borderRight: '1px solid #ffffff',
-                      margin: '0',
+                      alignSelf: 'center',
+                      width: '20px',
+                      height: '1px',
+                      border: '1px solid #ffffff',
+                      margin: '28px 0',
                     }}
                   ></div>
                   <Text
                     $fontSize="23px"
                     $fontWeight="500"
                     $color="#ffffff"
-                    style={{ margin: '2rem 0 0 0', fontSize: '23px' }}
+                    style={{ fontSize: '23px' }}
                   >
-                    Company Updates
-                    <br /> and Announcements
+                    <Trans i18nKey="notice.subtitle_m" components={{ 1: <br /> }} />
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
@@ -398,7 +401,7 @@ const Notice = () => {
                     }}
                   >
                     <SearchInput
-                      placeholder="Please enter a search term."
+                      placeholder={t('notice.placeholder')}
                       type="text"
                       value={searchValue}
                       onChange={(e) => {
@@ -480,7 +483,11 @@ const Notice = () => {
                   ) : (
                     <ComponentWrap style={{ gap: '2em', height: '30vh', justifyContent: 'center' }}>
                       <HR style={{ width: '24px', height: '1px' }} />
-                      <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                        <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                      ) : (
+                        <Text style={{ fontSize: '16px' }}>No result found for '{searchTermShown}'</Text>
+                      )}
                     </ComponentWrap>
                   )}
                 </ComponentWrap>

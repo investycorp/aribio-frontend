@@ -225,6 +225,10 @@ const HR = styled.div`
   width: ${(props) => (props.$width ? props.$width : '60px')};
   height: ${(props) => (props.$height ? props.$height : '2px')};
   background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
+
+  @media screen and (max-width: 1280px){
+    width: 40px;
+  }
 `;
 
 const FormWrap = styled.div`

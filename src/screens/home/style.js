@@ -93,21 +93,44 @@ const FilterShadow = styled.div`
 const HomeComponentWrap = styled.div`
   position: relative;
   width: 100%;
-  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
-  padding: 10vh 7vw;
   z-index: 10;
+  padding: 0 7vw;
+
   @media screen and (max-width: 900px) {
-    padding: 5vh 5vw;
+    padding: 0 5vw 10vh 5vw;
+  }
+`;
+
+
+const ImageBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(${props => props.image});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
   }
 `;
 
 const HomeAboutUsTextWrap = styled.div`
-  width: 80%;
+  width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -146,7 +169,6 @@ const HeadLineText = styled.div.attrs((props) => ({
   font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
   font-weight: medium;
   color: ${(props) => (props.$textColor ? props.$textColor : '#ffffff')};
-  margin-bottom: 1rem;
   text-align: center;
   line-height: 1.3em;
   color: #ffffff;
@@ -181,29 +203,39 @@ const ComponentGridWrap = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
-  padding: 3rem 0;
+  padding: 112px 0;
+
   @media screen and (max-width: 900px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: start;
     align-items: center;
   }
+
+    @media screen and (max-width: 360px) {
+    padding: 0;
+    /* margin-bottom: 88px; */
+  }
 `;
 
 const HomeComponentImageWrap = styled.div`
-  background-size: 28.7vw 28.7vw;
+  background-size: 28.75vw 28.29vh;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #121212;
   background-image: url(${(props) => props.$src});
   display: flex;
-  width: 28.7vw;
-  height: 28.7vw;
+  width: 28.75vw;
+  height: 28.29vh;
   justify-self: flex-end;
   border-radius: 20px;
   @media screen and (max-width: 900px) {
     width: 100%;
+  }
+  @media screen and (max-width: 360px) {
+    width: 110px;
+    height: 110px;
   }
 `;
 
@@ -213,7 +245,7 @@ const ComponentTextWrap = styled.div`
   justify-content: space-evenly;
   height: fit-content;
   width: 100%;
-  padding: 2rem 5rem;
+  padding: 2rem 2rem 2rem 5rem;
   gap: 2rem;
   justify-self: center;
   @media screen and (max-width: 900px) {
@@ -259,4 +291,5 @@ export {
   ComponentText,
   HomeVideoWrap,
   FilterShadow,
+  ImageBackground,
 };

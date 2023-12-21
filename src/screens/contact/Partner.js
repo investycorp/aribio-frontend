@@ -11,6 +11,8 @@ import Video from '../../components/Video';
 import useParnerList from '../../hooks/contact/usePartnerList';
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 
 const Partner = () => {
   const navigate = useNavigate();
@@ -57,7 +59,7 @@ const Partner = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > CONTACT > `}</span>PARTNER
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>PARTNER</HeadLine>
+        <HeadLine $className="midsize">PARTNER</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -65,7 +67,7 @@ const Partner = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
@@ -84,15 +86,16 @@ const Partner = () => {
                 $fontWeight="300"
                 style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}
               >
-                PARTNER
+                {t('partner.title')}
               </Text>
               <Text $fontSize="50px" $fontWeight="500" style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}>
-                Current Partnerships
+                {t('partner.subtitle')}
               </Text>
               <hr
                 style={{
                   width: window.innerWidth > 1280 ? '60px' : '36px',
-                  border: '2px solid #ffffff',
+                  borderTop: '2px solid #ffffff',
+                  borderBottom: 'none',
                   margin: '3.5rem 0 5rem 0',
                 }}
               />
@@ -102,12 +105,7 @@ const Partner = () => {
                 $color="#D3D3D3"
                 style={{ fontSize: window.innerWidth > 1280 ? '23px' : '13px' }}
               >
-                Aligned in our mission, we focus on addressing the challenges of neurodegeneration
-                <br />
-                with our collaborative network spanning academia, industry, and patient advocacy groups worldwide.
-                <br />
-                Our goal is to be a trusted partner to all.
-                <br />
+                <Trans i18nKey="partner.desc" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -180,28 +178,16 @@ const Partner = () => {
           <HomeComponentWrap style={{ padding: '10vh 5vw' }}>
             <TextWrap style={{ width: '100%' }}>
               <Text $color="#939598" $fontSize="16px" $fontWeight="300">
-                PARTNER
+                {t('partner.title')}
               </Text>
               <Text $fontSize="23px" $fontWeight="400">
-                Current Partnerships
+                {t('partner.subtitle')}
               </Text>
               <hr
                 style={{ width: '20px', borderTop: '1px solid #ffffff', borderBottom: 'none', margin: '0 0 2em 0' }}
               />
               <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '21px' }}>
-                Aligned in our mission,
-                <br />
-                we focus on addressing
-                <br />
-                the challenges of neurodegeneration
-                <br />
-                with our collaborative network spanning
-                <br />
-                academia, industry, and patient
-                <br />
-                advocacy groups worldwide.
-                <br />
-                Our goal is to be a trusted partner to all.
+                <Trans i18nKey="partner.desc_m" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>

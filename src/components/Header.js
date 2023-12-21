@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil';
 import Language from '../atom/Language';
 import WindowSize from '../atom/MediaQuery';
 import { Desktop, Mobile } from '../utils/MediaQuery';
+import useFooter from '../hooks/footer/useFooter';
 
 import lang_globe from '../assets/images/lang_globe.svg';
 import plus from '../assets/images/plus.svg';
@@ -13,11 +14,14 @@ import toggle from '../assets/images/toggle.svg';
 
 import i18n from '../locales/i18n';
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.div.attrs((props) => ({
+  $home: props.$home,
+}))`
+  opacity: ${(props) => (props.$home ? '0' : '1')};
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(26, 26, 26, 0.6);
+  background-color: transparent;
 
   display: flex;
   flex-direction: column;
@@ -27,10 +31,11 @@ const HeaderContainer = styled.div`
   z-index: 100;
   overflow: hidden;
   &:hover {
-    background-color: rgba(26, 26, 26, 0.6);
+    background-color: transparent;
   }
   @media screen and (max-width: 900px) {
     background-color: #121212;
+    opacity: 1;
   }
 `;
 
@@ -39,14 +44,14 @@ const HeaderTop = styled.div`
   margin: 0;
   padding: 0 7vw;
   width: 100%;
-  height: 146px;
+  height: 118px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   z-index: 100;
   @media screen and (max-width: 1280px) {
-    height: 97px;
+    height: 74px;
   }
   @media screen and (max-width: 900px) {
     justify-content: space-between;
@@ -58,11 +63,11 @@ const BlurTop = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 144px;
+  height: 118px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   @media screen and (max-width: 1280px) {
-    height: 97px;
+    height: 74px;
   }
 `;
 
@@ -78,22 +83,24 @@ const HeaderLogoWrap = styled.div`
   }
 `;
 
-const HeaderNavWrap = styled.div`
+const HeaderNavWrap = styled.div.attrs((props) => ({
+  $offset: props.$offset,
+}))`
   padding: 0;
   width: -webkit-fill-available;
-  padding: 0 5em;
+  padding: ${(props) => (props.$offset ? `0 calc(9.63em + ${props.$offset}px)` : '0 9.63em')};
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  height: 100vh;
 
   @media screen and (max-width: 1400px) {
   }
 
   @media screen and (max-width: 1280px) {
-    padding: 0 2rem;
+    padding: ${(props) => (props.$offset ? `0 calc(2rem + ${props.$offset}px)` : '0 2rem')};
   }
 
   @media screen and (max-width: 900px) {
@@ -103,7 +110,7 @@ const HeaderNavWrap = styled.div`
     justify-content: start;
     padding: 0 5vw;
     gap: 0;
-    height: 683px;
+    height: 100vh;
     max-height: calc(100vh - 97px);
     overflow-y: scroll;
     z-index: 100;
@@ -122,6 +129,7 @@ const HeaderNavMenuTextWrap = styled.div`
   text-decoration: none;
   min-width: fit-content;
   padding-bottom: 5px;
+  /* top: 2px; */
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -173,7 +181,7 @@ const HeaderLangButton = styled.button`
   gap: 0.5rem;
   width: 122px;
   height: 52px;
-  gap: 0.5rem;
+
   &:hover {
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
   }
@@ -199,11 +207,11 @@ const HeaderLangButton = styled.button`
 
 const HeaderBottom = styled.div`
   width: 100%;
-  height: 105px;
+  height: 88px;
   position: fixed;
   text-decoration: none;
   padding: 0 7vw;
-  top: 144px;
+  top: 116px;
   left: 0;
   display: flex;
   opacity: 0;
@@ -211,13 +219,13 @@ const HeaderBottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
-  background-color: rgba(26, 26, 26, 0.6);
-  border-top: 2px solid #5d5d5d;
+  background-color: transparent;
+  border-top: 2px solid rgba(93, 93, 93, 0.8);
   cursor: default;
   transition: opacity 0.5s ease-in-out;
   @media screen and (max-width: 1280px) {
-    top: 95px;
-    height: 72px;
+    top: 72px;
+    height: 56px;
   }
   @media screen and (max-width: 900px) {
     flex-direction: column;
@@ -264,9 +272,9 @@ const Header = () => {
       { title: 'CONTACT US', linkTo: 'contactus' },
     ],
     openinnovation: [
-      { title: 'Open Innovation', linkTo: 'openinnovation' },
-      { title: 'Digital Health', linkTo: 'digitalhealth' },
-      { title: 'MEMO:RE PROJECT', linkTo: 'memoreproject' },
+      { title: 'OPEN INNOVATION', linkTo: 'openinnovation' },
+      { title: 'DIGITAL HEALTH', linkTo: 'digitalhealth' },
+      { title: 'Memo:Re PROJECT', linkTo: 'memoreproject' },
     ],
     irpr: [
       { title: 'NOTICE', linkTo: 'notice/' },
@@ -282,15 +290,35 @@ const Header = () => {
   const [subMenuOpen, setSubMenuOpen] = useState('');
   const [scrollY, setScrollY] = useState(0);
   const [windowSize, setWindowSize] = useRecoilState(WindowSize);
+  const [language, setLanguage] = useRecoilState(Language);
+  const { data, isLoading } = useFooter(language);
+  const [logo, setLogo] = useState('');
+  const [offset, setOffset] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (data?.data?.success) {
+      setLogo(data?.data?.data?.fileDto?.fileUrl);
+    }
+  }, [data]);
+
+  useEffect(() => {
     setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
     setCurrentTab(location.pathname.split('/')[1]);
+    console.log(location.pathname);
   }, [document.getElementsByClassName('header-navwrap')[0]?.clientWidth, location.pathname]);
 
   useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 0 && header) {
+        header.style.opacity = '1';
+      } else {
+        // header.style.opacity = '0';
+      }
+    });
+
     window.addEventListener('resize', () => {
       setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
       setWindowSize(window.innerWidth);
@@ -299,6 +327,9 @@ const Header = () => {
       window.removeEventListener('resize', () => {
         setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
         setWindowSize(window.innerWidth);
+      });
+      window.removeEventListener('scroll', () => {
+        setScrollY(window.scrollY);
       });
     };
   }, []);
@@ -335,7 +366,7 @@ const Header = () => {
     <>
       <Mobile>
         <HeaderContainer
-          style={{ display: 'grid', width: '100vw' }}
+          style={{ display: 'grid', width: '100vw', }}
           tabIndex={1}
           onBlur={async () => {
             await new Promise((resolve) => setTimeout(resolve, 100));
@@ -353,7 +384,8 @@ const Header = () => {
               >
                 <img
                   style={{ cursor: 'pointer', width: '74px', paddingTop: '0.5em' }}
-                  src={process.env.PUBLIC_URL + '/assets/images/aribiologo_white.png'}
+                  // src={process.env.PUBLIC_URL + '/assets/images/aribiologo_white.png'}
+                  src={logo}
                   alt="logo"
                 />
               </Link>
@@ -488,7 +520,7 @@ const Header = () => {
                               setSubMenuOpen('');
                             }}
                           >
-                            <span style={{ fontSize: '18px', color: '#EFEFEF' }}>{subMenu.title.toUpperCase()}</span>
+                            <span style={{ fontSize: '18px', color: '#EFEFEF' }}>{subMenu.title}</span>
                           </Link>
                         </div>
                       ))}
@@ -499,19 +531,20 @@ const Header = () => {
           )}
         </HeaderContainer>
       </Mobile>
+      
       <Desktop>
         <>
           <HeaderContainer
             id="header"
+            $home={location.pathname === '/' ? true : false}
             onMouseLeave={() => {
               (fixedMenu === '' || !fixedMenu) && setCurrentMenu('');
             }}
             onBlur={() => {
-              console.log('blur');
               setTimeout(() => {
                 setCurrentMenu('');
                 setFixedMenu('');
-              }, 200);
+              }, 100);
             }}
             tabIndex={1}
           >
@@ -527,7 +560,7 @@ const Header = () => {
                 >
                   <img
                     style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '122px' : '82px' }}
-                    src={process.env.PUBLIC_URL + '/assets/images/aribiologo_white.png'}
+                    src={logo}
                     alt="logo"
                   />
                 </Link>
@@ -536,11 +569,17 @@ const Header = () => {
                 {menuList.map((menu, index) => (
                   <HeaderNavMenuTextWrap
                     key={menu.linkTo + index}
-                    onMouseOver={() => {
-                      (fixedMenu === '' || !fixedMenu) && setCurrentMenu(menu.linkTo);
+                    onMouseOver={(e) => {
+                      if (fixedMenu === '' || !fixedMenu) {
+                        setCurrentMenu(menu.linkTo);
+                        if (menu.linkTo === 'openinnovation') {
+                          setOffset(window.innerWidth - e.target.offsetLeft - e.target.offsetWidth);
+                        } else {
+                          setOffset(e.target.offsetLeft);
+                        }
+                      }
                     }}
-                    onClick={() => {
-                      //menu.linkTo === 'career' || menu.linkTo === 'openinnovation'
+                    onClick={(e) => {
                       if (menu.linkTo === 'pipeline' || menu.linkTo === 'career') {
                         if (menu.linkTo === 'career') navigate(`/${menu.linkTo}`);
                         if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
@@ -552,19 +591,27 @@ const Header = () => {
                         } else {
                           setFixedMenu(menu.linkTo);
                           setCurrentMenu(menu.linkTo);
+
+                          if (menu.linkTo === 'openinnovation') {
+                            setOffset(window.innerWidth - e.target.offsetLeft - e.target.offsetWidth);
+                          } else {
+                            setOffset(e.target.offsetLeft);
+                          }
                         }
                       }
                     }}
                     $isActive={menu.linkTo === currentMenu ? true : false}
+                    style={{ position: 'relative' }}
                   >
                     <div
                       style={{
-                        paddingBottom: '0.6em',
+                        paddingBottom: 8,
                         borderBottom:
                           currentTab === menu.linkTo && currentTab !== currentMenu
                             ? '2px solid #ffffff'
                             : '2px solid transparent',
                         zIndex: '-1',
+                        position: 'relative',
                       }}
                     >
                       <span>{menu.title.toUpperCase()}</span>
@@ -578,32 +625,43 @@ const Header = () => {
               <>
                 <HeaderBottom
                   className={`header-bottom ${currentMenu}`}
-                  // style={{ visibility: currentMenu !== '' ? 'visible' : 'hidden', opacity: currentMenu !== '' ? 1 : 0 }}
-                  style={{ visibility: 'visible', opacity: 1 }}
+                  style={{ visibility: 'visible', opacity: 1, padding: '0' }}
                 >
-                  <HeaderNavWrap
-                    style={{
-                      width: '100%',
-                      margin: '0 122px',
-                      justifyContent: 'start',
-                      gap: window.innerWidth > 1400 ? '105px' : window.innerWidth > 1280 ? '80px' : '50px',
-                    }}
-                  >
-                    {subMenu[currentMenu]?.map((menu) => (
-                      <Link
-                        to={`/${currentMenu}/${menu.linkTo}`}
-                        style={{ textDecoration: 'none' }}
-                        key={menu.linkTo}
-                        onClick={() => {
-                          if (menu.linkTo === location.pathname.split('/')[2]) {
-                            window.location.reload();
-                          }
-                        }}
-                      >
-                        <HeaderNavMenuTextWrap>{menu.title.toUpperCase()}</HeaderNavMenuTextWrap>
-                      </Link>
-                    ))}
-                  </HeaderNavWrap>
+                  <div style={{ position: 'relative', width: '100%', height: 'fit-content', display: 'flex' }}>
+                    <HeaderNavWrap
+                      id="header-navwrap"
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        width: 'fit-content',
+                        height: 'auto',
+                        // margin: '0 122px',
+                        margin: '0',
+                        padding: '0',
+                        justifyContent: currentMenu !== 'openinnovation' ? 'start' : 'end',
+                        gap: window.innerWidth > 1400 ? '105px' : window.innerWidth > 1280 ? '80px' : '50px',
+                        position: 'absolute',
+                        top: '-0.5em',
+                        left: currentMenu !== 'openinnovation' ? `${offset}px` : 'unset',
+                        right: currentMenu === 'openinnovation' ? `${offset}px` : 'unset',
+                      }}
+                    >
+                      {subMenu[currentMenu]?.map((menu) => (
+                        <Link
+                          to={`/${currentMenu}/${menu.linkTo}`}
+                          style={{ textDecoration: 'none' }}
+                          key={menu.linkTo}
+                          onClick={() => {
+                            if (menu.linkTo === location.pathname.split('/')[2]) {
+                              window.location.reload();
+                            }
+                          }}
+                        >
+                          <HeaderNavMenuTextWrap>{menu.title}</HeaderNavMenuTextWrap>
+                        </Link>
+                      ))}
+                    </HeaderNavWrap>
+                  </div>
                 </HeaderBottom>
               </>
             )}

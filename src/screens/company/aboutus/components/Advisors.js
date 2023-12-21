@@ -10,48 +10,38 @@ import { useRecoilValue } from 'recoil';
 const TabContentWrap = styled.div`
   width: 100%;
   height: fit-content;
-  display: grid;
-  grid-template-columns: 28.55vw 28.68vw 28.7vw;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: start;
-  align-items: left;
-  background-color: transparent;
-  row-gap: 5em;
-  @media screen and (max-width: 1280px) {
-    grid-template-columns: 28.6vw 28.65vw 28.7vw;
-  }
+  justify-content: flex-start;
+  gap: 10rem 8rem;
+  margin-top: 4vh;
+
   @media screen and (max-width: 900px) {
     grid-template-columns: 1fr;
     padding-bottom: 3rem;
     margin-top: 2rem;
     row-gap: 5rem;
   }
+
+  @media screen and (max-width: 1280px) {
+    gap: 5rem 8rem;
+  }
 `;
 
 const ContentBox = styled.div`
   display: flex;
   width: 100%;
+  max-width: 480px;
   height: fit-content;
   flex-direction: column;
   justify-content: start;
   align-items: left;
   gap: 0.5em;
-  padding: 0 0 0 3em;
-  margin: 3em 0;
-  border-left: 2px solid #ffffff;
+  // padding: 0 0 0 3em;
+  // border-left: 2px solid #ffffff;
   background-color: transparent;
-  &:nth-child(3n + 2) {
-    margin-top: 10vh;
-  }
 
-  @media screen and (min-width: 901px) and (max-width: 1280px) {
-    padding: 0 0 0 1.5rem;
-    border-left: 1px solid #ffffff;
-    &:nth-child(3n + 2) {
-      margin-top: 15vh;
-    }
-  }
   @media screen and (max-width: 900px) {
     width: 66.7%;
     padding: 0 0 0 1.5rem;
@@ -71,10 +61,39 @@ const SchoolText = styled.div`
   font-size: 18px;
   color: #e3e3e3;
   font-weight: 100;
-  line-height: 1.5em;
+  line-height: 32px;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 1em;
+  }
+
+  ul li:before {
+    content: "  •  ";
+    position: absolute;
+    left: 0;
+    top: 0; // 필요에 따라 조절
+  }
+
   @media screen and (max-width: 1280px) {
     font-size: 10px;
+    line-height: 18px;
   }
+
+  @media screen and (max-width: 360px) {
+    line-height: 1.5em;
+
+    ul li {
+    padding-left: 0.75rem;
+  }
+  }
+
+
 `;
 
 const Advisors = () => {
@@ -86,10 +105,10 @@ const Advisors = () => {
     let itemList = [];
     data?.data?.dataList?.map((item, index) => {
       itemList.push({
-        id: item.id,
-        position: item.position,
-        name: item.name,
-        description: item.contents.split(`\\n`),
+        id: item?.id,
+        position: item?.position,
+        name: item?.name,
+        description: item?.contents.split(`\\n`),
       });
     });
     setTabContents(itemList);
@@ -101,19 +120,27 @@ const Advisors = () => {
       style={{ minHeight: 'fit-content', justifyContent: 'start', overflow: 'hidden', paddingTop: '0' }}
     >
       <Desktop>
-        <TabContentWrap>
+        <TabContentWrap style={{
+          marginBottom: window.innerWidth > 1280 ? '512px' : '344px',
+        }}>
           {tabContents?.map((item, index) => (
-            <ContentBox key={index} style={{ height: '121px', justifyContent: 'center' }}>
+            <ContentBox
+              key={index}
+              style={{
+                minHeight: '135px',
+                gap: window.innerWidth > 1280 ? '3rem' : '1rem',
+                width: window.innerWidth > 1280 ? 454 : 274,
+            }}>
               <ContentBoxNameWrap
                 style={{ paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end' }}
               >
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '30px' : '20px'}
+                  $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
                   $fontWeight="600"
                   $align="start"
-                  style={{ margin: '0' }}
+                  style={{ margin: '0', wordBreak: 'break-all', }}
                 >
-                  {item.name}
+                  {item?.name}
                   <span
                     style={{
                       fontSize: window.innerWidth > 1280 ? '20px' : '12px',
@@ -121,23 +148,36 @@ const Advisors = () => {
                       fontWeight: '400',
                     }}
                   >
-                    {item.position}
+                    {item?.position}
                   </span>
                 </Text>
               </ContentBoxNameWrap>
-              <hr
+              {/* <hr
                 style={{
                   width: window.innerWidth > 1280 ? '40px' : '25px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '1.5rem 0 1rem 0' : '1rem 0 0.5rem 0',
                   borderWeight: window.innerWidth > 1280 ? '2px' : '1px',
                 }}
-              />
-              <SchoolText>{item.description}</SchoolText>
+              /> */}
+              <SchoolText>
+                <ul>
+                  {item?.description.slice('\\n').map(text => {
+                    return (
+                      <li>
+                        <span>{text}</span>
+                        <br/>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </SchoolText>
             </ContentBox>
           ))}
         </TabContentWrap>
       </Desktop>
+
+
       <Mobile>
         <TabContentWrap style={{ width: '90vw' }}>
           {tabContents?.map((item, index) => (
@@ -147,7 +187,7 @@ const Advisors = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                padding: index % 2 === 0 ? '0 20% 0 0' : ' 0 0 0 33.3%',
+                padding: '0 10px 0 0',
               }}
               key={'tabContent' + index}
             >
@@ -156,30 +196,40 @@ const Advisors = () => {
                   width: '100%',
                   display: 'flex',
                   flexDirection: 'row',
-                  justifyContent: index % 2 === 0 ? 'flex-start' : 'space-between',
+                  justifyContent: 'flex-start',
                   alignItems: 'center',
                 }}
               >
-                {index % 2 === 0 && <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>}
                 <ContentBox
                   style={{
                     width: 'fit-content',
                     border: 'none',
                     margin: '0',
-                    padding: index % 2 === 0 ? '0 0 0 1em' : '0 1em 0 0',
+                    padding: 0,
                   }}
                   key={index}
                 >
                   <ContentBoxNameWrap style={{ width: 'fit-content' }}>
-                    <Text $fontSize="18px" $fontWeight="700" $align="start" style={{ margin: '0', padding: '0' }}>
-                      {item.name}
-                      <span style={{ fontSize: '15px', fontWeight: '300', marginLeft: '1rem' }}>{item.position}</span>
+                    <Text $fontSize="18px" $fontWeight="700" $align="start" style={{ wordBreak: 'break-all', margin: '0', padding: '0' }}>
+                      {item?.name}
+                      <span style={{ fontSize: '15px', fontWeight: '300', marginLeft: '1rem' }}>{item?.position}</span>
                     </Text>
                   </ContentBoxNameWrap>
 
-                  <SchoolText style={{ fontSize: '16px', fontWeight: '100' }}>{item.description}</SchoolText>
+                  <SchoolText style={{ wordBreak: 'break-all', fontSize: '16px', fontWeight: '100', paddingRight: '0' }}>
+                    <ul>
+                      {item?.description.slice('\\n').map(text => {
+                        return (
+                          <li>
+                            <span>{text}</span>
+                            <br/>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </SchoolText>
                 </ContentBox>
-                {index % 2 === 1 && <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>}
+                {/* {index % 2 === 1 && <div style={{ width: '1px', height: '60px', backgroundColor: '#B1B1B1' }}></div>} */}
               </div>
             </div>
           ))}

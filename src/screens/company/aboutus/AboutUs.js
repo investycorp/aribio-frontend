@@ -55,7 +55,7 @@ const AboutUs = () => {
         />
       </MainImgWrap>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>
+        <HeadLine $className="midsize">
           <Trans i18nKey="aboutus.headline" components={{ 1: <br /> }} />
         </HeadLine>
         <img
@@ -65,16 +65,11 @@ const AboutUs = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
         <Desktop>
           <HomeComponentWrap>
             <TextWrap>
@@ -112,6 +107,8 @@ const AboutUs = () => {
           </Tab>
           {currentTab === 'Leadership' ? <Leadership /> : <Advisors />}
         </Desktop>
+
+        
         <Mobile>
           <HomeComponentWrap>
             <TextWrap style={{ width: '100%' }}>

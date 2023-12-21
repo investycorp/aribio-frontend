@@ -29,6 +29,8 @@ import useContact from '../../hooks/contact/useContact';
 import Language from '../../atom/Language';
 import { useRecoilValue } from 'recoil';
 import Video from '../../components/Video';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 
 const Contact = () => {
   const [language] = useRecoilValue(Language);
@@ -59,7 +61,7 @@ const Contact = () => {
       process.env.PUBLIC_URL + window.innerWidth > 1280
         ? '/assets/icons/submit/submit_1920.png'
         : window.innerWidth > 900
-        ? '/assets/icons/submit/submit_1280.pmg'
+        ? '/assets/icons/submit/submit_1280.png'
         : '/assets/icons/submit/submit_360.png',
     );
   }, []);
@@ -75,7 +77,6 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setContactInfo({ ...contactInfo, [name]: value });
-    console.log(contactInfo);
   };
 
   const handleEnter = (e) => {
@@ -91,34 +92,35 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    let isValid = await checkValidation();
-    if (isValid === true) {
-      const response = await mutate();
-      if (mutationSuccess) {
-        await setIsSuccess(true);
-        console.log('submitted');
-        await setIsError(false);
-        setContactInfo({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          affiliation: '',
-          message: '',
-        });
-        setTimeout(() => {
-          //to turn off success message
-          setIsSuccess(false);
-        }, 2000);
-      } else if (mutationError) {
-        setIsError(true);
-        console.log('error');
-      }
+    if (checkValidation() === true) {
+      mutate();
     } else {
       setIsError(true);
     }
   };
+
+  useEffect(() => {
+    if (mutationSuccess) {
+      console.log('submitted');
+      setIsSuccess(true);
+      setIsError(false);
+      setContactInfo({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        affiliation: '',
+        message: '',
+      });
+      setTimeout(() => {
+        //to turn off success message
+        setIsSuccess(false);
+      }, 2000);
+    } else if (mutationError) {
+      setIsError(true);
+      console.log('error');
+    }
+  }, [mutationSuccess, mutationError])
 
   const checkValidation = () => {
     if (
@@ -152,7 +154,7 @@ const Contact = () => {
         <span style={{ opacity: '0.8' }}>{`HOME > CONTACT > `}</span>CONTACT US
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine>CONTACT {window.innerWidth <= 900 && <br />}US</HeadLine>
+        <HeadLine $className="midsize">CONTACT {window.innerWidth <= 900 && <br />}US</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -160,39 +162,33 @@ const Contact = () => {
             position: 'absolute',
             right: '7vw',
             bottom: window.innerWidth > 900 ? '5vw' : '7vh',
-            height: window.innerWidth > 1280 ? '60px' : '36px',
+            height: window.innerWidth > 1280 ? '24px' : '14px',
           }}
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-        <ContainerGridLineWrap className="grid_bg">
-          <GridLineBox />
-          <GridLineBox />
-          <GridLineBox />
-        </ContainerGridLineWrap>
 
         <Desktop>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap style={{ width: '70vw' }}>
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
-                CONTACT US
+                {t('contact.title')}
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '60px',
-                  borderRight: '2px solid #ffffff',
-                  margin: '2rem 0',
+                  alignSelf: 'center',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                 }}
               ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
                 $color="#ffffff"
-                style={{ margin: '2rem 0 0 0' }}
               >
-                We Look Forward To Hearing From You
+                {t('contact.subtitle')}
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -204,20 +200,19 @@ const Contact = () => {
               $color="#E5E5E5"
               $align="start"
             >
-              We look forward <br />
-              to hearing from you.
+              <Trans i18nKey="contact.desc" components={{ 1: <br /> }} />
             </Text>
             <FormWrap>
               <ErrorBox id={isError ? 'warning' : ''} $isActive={isError}>
-                Sorry, there was an error submitting the form. Please try again.
+                {t('contact.error')}
               </ErrorBox>
               <SuccessBox id={isSuccess ? 'warning' : ''} $isActive={isSuccess}>
-                Form has been submitted successfully!
+                {t('contact.success')}
               </SuccessBox>
               <Form>
                 <FormInputRowWrap $isFilled={contactInfo.firstName !== ''}>
                   <Label htmlFor="firstName">
-                    First Name <span style={{ color: '#00A6FF' }}>* </span>
+                    {t('contact.firstname')} <span style={{ color: '#00A6FF' }}>* </span>
                   </Label>
                   <Input
                     type="text"
@@ -234,13 +229,13 @@ const Contact = () => {
                         alt="warning"
                         style={{ height: window.innerWidth > 1280 ? '20px' : '14px' }}
                       />
-                      This field is required.
+                      {t('contact.required')}
                     </RequiredField>
                   )}
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ marginLeft: '2rem' }} $isFilled={contactInfo.lastName !== ''}>
                   <Label htmlFor="lastName">
-                    Last Name <span style={{ color: '#00A6FF' }}>* </span>
+                    {t('contact.lastname')} <span style={{ color: '#00A6FF' }}>* </span>
                   </Label>
                   <Input
                     type="text"
@@ -257,13 +252,13 @@ const Contact = () => {
                         alt="warning"
                         style={{ height: window.innerWidth > 1280 ? '20px' : '14px' }}
                       />
-                      This field is required.
+                      {t('contact.required')}
                     </RequiredField>
                   )}
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.email !== ''}>
                   <Label htmlFor="email">
-                    Email <span style={{ color: '#00A6FF' }}>* </span>
+                    {t('contact.email')} <span style={{ color: '#00A6FF' }}>* </span>
                   </Label>
                   <Input
                     type="email"
@@ -280,12 +275,12 @@ const Contact = () => {
                         alt="warning"
                         style={{ height: window.innerWidth > 1280 ? '20px' : '14px' }}
                       />
-                      This field is required.
+                      {t('contact.required')}
                     </RequiredField>
                   )}
                 </FormInputRowWrap>
                 <FormInputRowWrap $isFilled={contactInfo.phone !== ''}>
-                  <Label htmlFor="phone">Phone</Label>
+                  <Label htmlFor="phone">{t('contact.phone')}</Label>
                   <Input
                     type="phone"
                     name="phone"
@@ -296,7 +291,7 @@ const Contact = () => {
                   />
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ marginLeft: '2rem' }} $isFilled={contactInfo.affiliation !== ''}>
-                  <Label htmlFor="affiliation">Affiliation</Label>
+                  <Label htmlFor="affiliation">{t('contact.affiliation')}</Label>
                   <Input
                     type="text"
                     name="affiliation"
@@ -308,7 +303,7 @@ const Contact = () => {
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.message !== ''}>
                   <Label className="message" htmlFor="message">
-                    Message <span style={{ color: '#00A6FF' }}>* </span>
+                    {t('contact.message')} <span style={{ color: '#00A6FF' }}>* </span>
                   </Label>
                   <Input
                     type="text"
@@ -325,7 +320,7 @@ const Contact = () => {
                         alt="warning"
                         style={{ height: window.innerWidth > 1280 ? '20px' : '14px' }}
                       />
-                      This field is required.
+                      {t('contact.required')}
                     </RequiredField>
                   )}
                 </FormInputRowWrap>
@@ -342,7 +337,7 @@ const Contact = () => {
                 >
                   <span>
                     <span style={{ color: '#00A6FF' }}>* </span>
-                    <span style={{ color: '#E5E5E5' }}>is a required field. </span>
+                    <span style={{ color: '#E5E5E5' }}>{t('contact.required2')} </span>
                   </span>
 
                   <Image
@@ -364,8 +359,8 @@ const Contact = () => {
                     onMouseOut={() =>
                       setSubmitSrc(
                         process.env.PUBLIC_URL + window.innerWidth > 1280
-                          ? '/assets/icons/submit/submit_1920.svg'
-                          : '/assets/icons/submit/submit_1280.svg',
+                          ? '/assets/icons/submit/submit_1920.png'
+                          : '/assets/icons/submit/submit_1280.png',
                       )
                     }
                   />
@@ -408,7 +403,7 @@ const Contact = () => {
               $color="#E5E5E5"
               $align="start"
             >
-              Locations
+              {t('contact.location.title')}
             </Text>
             <FormWrap style={{ gap: window.innerWidth > 1280 ? '40px' : '25px' }}>
               <RowWrap
@@ -424,7 +419,7 @@ const Contact = () => {
                 }}
               >
                 <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '12px', fontWeight: '400', zIndex: '-1' }}>
-                  San Diego, 92112, USA
+                  {t('contact.location.us')}
                 </span>
                 <Image
                   src={arrow}
@@ -450,7 +445,7 @@ const Contact = () => {
               >
                 <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '12px', fontWeight: '400', zIndex: '-1' }}>
                   {' '}
-                  Gyeonggi-do, Republic of Korea
+                  {t('contact.location.kr')}
                 </span>
                 <Image
                   src={arrow}
@@ -466,31 +461,29 @@ const Contact = () => {
           </HomeComponentWrap>
         </Desktop>
         <Mobile>
-          <HomeComponentWrap>
+          <HomeComponentWrap style={{marginBottom: '162px'}}>
             <TextWrap style={{ width: '80vw' }}>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598">
-                CONTACT US
+              <Text style={{marginBottom: '0'}} $fontSize="16px" $fontWeight="300" $color="#939598">
+                {t('contact.title')}
               </Text>
               <div
                 style={{
-                  width: '50%',
-                  alignSelf: 'flex-start',
-                  height: '8em',
-                  borderRight: '2px solid #ffffff',
-                  margin: '0 0',
+                  alignSelf: 'center',
+                  width: '20px',
+                  height: '1px',
+                  border: '1px solid #ffffff',
+                  margin: '28px 0',
                 }}
-              ></div>
-              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ margin: '2rem 0 0 0' }}>
-                We Look Forward <br />
-                To Hearing From You.
+            ></div>
+              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff">
+                <Trans i18nKey="contact.subtitle_m" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap>
-            <HR style={{ alignSelf: 'start', marginBottom: '1.5em' }} />
+            <HR style={{ alignSelf: 'start', width: '20px', marginBottom: '1.5em' }} />
             <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start">
-              We look forward <br />
-              to hearing from you.
+              <Trans i18nKey="contact.desc" components={{ 1: <br /> }} />
             </Text>
             <FormWrap style={{ paddingLeft: '0', paddingTop: '1rem', marginTop: '0' }}>
               <ErrorBox
@@ -506,9 +499,7 @@ const Contact = () => {
                 }}
                 $isActive={isError}
               >
-                Sorry,
-                <br /> there was an error submitting the form.
-                <br /> Please try again.
+                <Trans i18nKey="contact.error_m" components={{ 1: <br /> }} />
               </ErrorBox>
               <SuccessBox
                 id={isSuccess ? 'warning' : ''}
@@ -518,17 +509,18 @@ const Contact = () => {
                   left: '0',
                   top: '0',
                   width: '100%',
-                  margin: '1rem 0',
+                  margin: '1rem 0 2rem 0',
                   lineHeight: '22px',
                 }}
                 $isActive={isSuccess}
               >
-                Form has been submitted successfully!
+                {t('contact.success')}
               </SuccessBox>
               <Form>
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.firstName !== ''}>
                   <Label htmlFor="firstName">
-                    First Name <span style={{ color: '#00A6FF' }}>* </span>
+                    {t('contact.firstname')}
+                    <span style={{ color: '#00A6FF' }}>* </span>
                   </Label>
                   <Input
                     type="text"
@@ -545,13 +537,13 @@ const Contact = () => {
                         alt="warning"
                         style={{ height: 'auto' }}
                       />
-                      This field is required.
+                      {t('contact.required')}
                     </RequiredField>
                   )}
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.lastName !== ''}>
                   <Label htmlFor="lastName">
-                    Last Name <span style={{ color: '#00A6FF' }}>* </span>
+                    {t('contact.lastname')} <span style={{ color: '#00A6FF' }}>* </span>
                   </Label>
                   <Input
                     type="text"
@@ -568,13 +560,13 @@ const Contact = () => {
                         alt="warning"
                         style={{ height: 'auto' }}
                       />
-                      This field is required.
+                      {t('contact.required')}
                     </RequiredField>
                   )}
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.email !== ''}>
                   <Label htmlFor="email">
-                    Email <span style={{ color: '#00A6FF' }}>* </span>
+                    {t('contact.email')} <span style={{ color: '#00A6FF' }}>* </span>
                   </Label>
                   <Input
                     type="email"
@@ -596,7 +588,7 @@ const Contact = () => {
                   )}
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.phone !== ''}>
-                  <Label htmlFor="phone">Phone</Label>
+                  <Label htmlFor="phone">{t('contact.phone')}</Label>
                   <Input
                     type="phone"
                     name="phone"
@@ -607,7 +599,7 @@ const Contact = () => {
                   />
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.affiliation !== ''}>
-                  <Label htmlFor="affiliation">Affiliation</Label>
+                  <Label htmlFor="affiliation">{t('contact.affiliation')}</Label>
                   <Input
                     type="text"
                     name="affiliation"
@@ -619,7 +611,7 @@ const Contact = () => {
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.message !== ''}>
                   <Label className="message" htmlFor="message">
-                    Message <span style={{ color: '#00A6FF' }}>* </span>
+                    {t('contact.message')} <span style={{ color: '#00A6FF' }}>* </span>
                   </Label>
                   <Input
                     type="text"
@@ -636,7 +628,7 @@ const Contact = () => {
                         alt="warning"
                         style={{ height: 'auto' }}
                       />
-                      This field is required.
+                      {t('contact.required')}
                     </RequiredField>
                   )}
                 </FormInputRowWrap>
@@ -705,7 +697,7 @@ const Contact = () => {
           >
             <HR style={{ alignSelf: 'start', marginBottom: '0.5em', height: '1px', width: '20px' }} />
             <Text $fontSize="20px" $fontWeight="300" $color="#D3D3D3" $align="start">
-              Locations
+              {t('contact.location.title')}
             </Text>
             <FormWrap style={{ gap: '1em', paddingLeft: '0', marginTop: '2em', marginBottom: '10em' }}>
               <RowWrap
@@ -717,7 +709,7 @@ const Contact = () => {
                   );
                 }}
               >
-                <span style={{ fontSize: '16px', zIndex: '-1' }}>San Diego, 92112, USA</span>
+                <span style={{ fontSize: '16px', zIndex: '-1' }}>{t('contact.location.us')}</span>
                 <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1', height: '10px' }} />
               </RowWrap>
               <RowWrap
@@ -734,7 +726,7 @@ const Contact = () => {
                   );
                 }}
               >
-                <span style={{ fontSize: '16px', zIndex: '-1' }}>Gyeonggi-do, Republic of Korea</span>
+                <span style={{ fontSize: '16px', zIndex: '-1' }}>{t('contact.location.us')}</span>
                 <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1', height: '10px' }} />
               </RowWrap>
             </FormWrap>

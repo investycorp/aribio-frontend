@@ -109,14 +109,6 @@ const DetailPage = () => {
 
   return (
     <HomeComponentWrap id="irpr_detailpage" style={{ backgroundColor: '#fff' }}>
-      <ContainerGridLineWrap
-        className="grid_bg"
-        style={{ position: 'absolute', height: '100%', visibility: 'visible', opacity: '1', zIndex: '0' }}
-      >
-        <GridLineBox style={{ borderColor: 'rgba(177, 177, 177, 0.4)' }} />
-        <GridLineBox style={{ borderColor: 'rgba(177, 177, 177, 0.4)' }} />
-        <GridLineBox style={{ borderColor: 'rgba(177, 177, 177, 0.4)' }} />
-      </ContainerGridLineWrap>
       <Desktop>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
@@ -182,7 +174,7 @@ const DetailPage = () => {
           </Text>
           <Text
             style={{
-              width: '60%',
+              width: '70%',
               margin: '1em 0',
               padding: '0',
               textAlign: 'start',
@@ -190,6 +182,7 @@ const DetailPage = () => {
               color: '#141414',
               fontWeight: '400',
               whiteSpace: 'pre-line',
+              wordBreak: 'break-all',
             }}
           >
             {currentItem?.title}
@@ -208,6 +201,7 @@ const DetailPage = () => {
               fontWeight: '200',
               color: '#272727',
               whiteSpace: 'pre-line',
+              wordBreak: 'break-all',
             }}
           >
             {currentItem?.content}
