@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {Desktop, Mobile} from '../../utils/MediaQuery';
+import React, { useEffect, useState } from 'react';
+import browser from 'browser-detect';
+import { Desktop, Mobile } from '../../utils/MediaQuery';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SideSlider from '../../components/SideSlider';
@@ -38,7 +39,8 @@ import usePopup from '../../hooks/popup/usePopup';
 import {Image} from '../../components/style';
 
 const Home = () => {
-  const {t} = useTranslation();
+  const browserInfo = browser();
+  const { t } = useTranslation();
   const [language, setLanguage] = useRecoilState(Language);
   const [scrollY, setScrollY] = useState(0);
   const {data, isLoading, refetch} = useNoticeList('', language, 1);
@@ -684,14 +686,38 @@ const Home = () => {
             </HomeComponentWrap>
             <HomeComponentWrap
               className="home home_4"
-              style={{minHeight: 'fit-content', justifyContent: 'space-between', margin: '0'}}>
-              <VideoFrame
+              style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '0' }}
+            >
+              {browserInfo.name === 'safari' ? (
+                  <video
+                  playsInline
+                  autoPlay={false}
+                  controls={true}
+                  style={{
+                    borderRadius: '20px',
+                    width: window.innerWidth > 900 ? '86vw' : '90vw',
+                    height: window.innerWidth > 1280 ? '726px' : window.innerWidth > 900 ? '484px' : '50vw',
+                  }}
+                >
+                  <source
+                    src={
+                      // src
+                      "https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false"
+                    }
+                    type="video/mp4"
+                  />
+              </video>
+              ) : (
+                <VideoFrame
                 src={
                   language === 'ENG'
                     ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4'
                     : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4'
                 }
-              />
+                />
+              )}
+              
+            
               <ComponentText
                 style={{
                   fontSize: '20px',

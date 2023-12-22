@@ -16,7 +16,7 @@ const VideoFrameWrap = styled.div`
     height: 484px;
   }
   @media screen and (max-width: 900px) {
-    height: 202px;
+    height: 50vw;
   }
 
   iframe,
