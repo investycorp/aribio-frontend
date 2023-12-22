@@ -598,7 +598,7 @@ const Career = () => {
                     gap: '5.555vw',
                     flexwrap: 'nowrap',
                     marginBottom: '5em',
-                    padding: '5rem 0',
+                    padding: '5rem 7vw 5rem 0',
                   }}
                 >
                   {recruitmentProcess.map((item, index) => (

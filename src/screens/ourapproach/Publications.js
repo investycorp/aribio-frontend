@@ -456,19 +456,21 @@ const Publications = () => {
             >
               <ComponentWrap
                 style={{
+                  display: 'flex',
                   flexDirection: 'row',
                   color: '#ffffff',
                   marginTop: '4rem',
                   borderBottom: '1px solid #ffffff',
                   padding: '0',
-                  width: '322px',
+                  width: window.innerWidth > 400 ? "322px" : "90vw"
                 }}
               >
+                {/* <div style={{display: "flex", flexDirection: "row", width: window.innerWidth > 400 ? "322px" : "90vw"}}> */}
                 <SearchInput
                   placeholder={t('publication.search')}
                   type="text"
                   value={searchValue}
-                  style={{ fontSize: '18px', width: '322px' }}
+                  style={{ fontSize: '18px', width: window.innerWidth > 400 ?  '322px' : 'calc(90vw-24px)' }}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -486,6 +488,7 @@ const Publications = () => {
                   }}
                   alt="search"
                 />
+                {/* </div> */}
               </ComponentWrap>
               <ComponentWrap
                 style={{

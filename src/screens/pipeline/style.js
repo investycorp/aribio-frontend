@@ -520,7 +520,7 @@ const Ball = styled.span.attrs((props) => ({
   position: absolute;
   top: -1.5px;
   right: -1px;
-  width: 6px;
+  width: 4px;
   height: 6px;
   border-radius: 50%;
   background-color: #ffffff;

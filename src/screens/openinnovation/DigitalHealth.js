@@ -485,10 +485,10 @@ const DigitalHealth = () => {
               </Text>
             </TextWrap>
           </ContentWrap>
-          <div id="horizontal" style={{ overflowX: 'scroll', width: '100vw', paddingLeft: '5vw' }}>
+          <div id="horizontal" style={{overflowX: 'scroll', width: '100vw', }}>
             <TableWrap
               className="table"
-              style={{ width: 'fit-content', alignSelf: 'start', margin: '4em 5vw 0 0', padding: '0' }}
+              style={{boxSizing: "content-box", width: 'fit-content', alignSelf: 'start', margin: '4em 5vw 0 5vw', padding: '0' }}
             >
               <TableRowWrap className="th">
                 {tableHeader.map((item, index) => (
