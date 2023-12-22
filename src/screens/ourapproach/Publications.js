@@ -466,11 +466,7 @@ const Publications = () => {
                   marginTop: '4rem',
                   borderBottom: '1px solid #ffffff',
                   padding: '0',
-<<<<<<< HEAD
-                  width: '100%',
-=======
                   width: window.innerWidth > 400 ? "322px" : "90vw"
->>>>>>> gun-dev
                 }}
               >
                 {/* <div style={{display: "flex", flexDirection: "row", width: window.innerWidth > 400 ? "322px" : "90vw"}}> */}
@@ -478,11 +474,7 @@ const Publications = () => {
                   placeholder={t('publication.search')}
                   type="text"
                   value={searchValue}
-<<<<<<< HEAD
-                  style={{ fontSize: '18px', width: '100%' }}
-=======
                   style={{ fontSize: '18px', width: window.innerWidth > 400 ?  '322px' : 'calc(90vw-24px)' }}
->>>>>>> gun-dev
                   onChange={(e) => {
                     handleChange(e);
                   }}
