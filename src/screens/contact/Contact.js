@@ -120,7 +120,7 @@ const Contact = () => {
       setIsError(true);
       console.log('error');
     }
-  }, [mutationSuccess, mutationError])
+  }, [mutationSuccess, mutationError]);
 
   const checkValidation = () => {
     if (
@@ -144,8 +144,8 @@ const Contact = () => {
           src={
             // window.innerWidth > 1280
             //   ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0900PB_VD.mp4'
-            //   : 
-              window.innerWidth > 900
+            //   :
+            window.innerWidth > 900
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1800PB_VD.mp4'
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2700PB_VD.mp4'
           }
@@ -168,7 +168,6 @@ const Contact = () => {
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-
         <Desktop>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap style={{ width: '70vw' }}>
@@ -184,11 +183,7 @@ const Contact = () => {
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                 }}
               ></div>
-              <Text
-                $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-                $fontWeight="500"
-                $color="#ffffff"
-              >
+              <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500" $color="#ffffff">
                 {t('contact.subtitle')}
               </Text>
             </TextWrap>
@@ -283,7 +278,7 @@ const Contact = () => {
                 <FormInputRowWrap $isFilled={contactInfo.phone !== ''}>
                   <Label htmlFor="phone">{t('contact.phone')}</Label>
                   <Input
-                    type="phone"
+                    type="number"
                     name="phone"
                     autoComplete="off"
                     value={contactInfo.phone}
@@ -462,9 +457,9 @@ const Contact = () => {
           </HomeComponentWrap>
         </Desktop>
         <Mobile>
-          <HomeComponentWrap style={{marginBottom: '162px'}}>
+          <HomeComponentWrap style={{ marginBottom: '162px' }}>
             <TextWrap style={{ width: '80vw' }}>
-              <Text style={{marginBottom: '0'}} $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text style={{ marginBottom: '0' }} $fontSize="16px" $fontWeight="300" $color="#939598">
                 {t('contact.title')}
               </Text>
               <div
@@ -475,7 +470,7 @@ const Contact = () => {
                   border: '1px solid #ffffff',
                   margin: '28px 0',
                 }}
-            ></div>
+              ></div>
               <Text $fontSize="23px" $fontWeight="500" $color="#ffffff">
                 <Trans i18nKey="contact.subtitle_m" components={{ 1: <br /> }} />
               </Text>
@@ -495,8 +490,10 @@ const Contact = () => {
                   left: '0',
                   top: '0',
                   width: '100%',
+                  justifyContent: 'start',
                   margin: '1rem 0',
                   lineHeight: '22px',
+                  padding: '20px',
                 }}
                 $isActive={isError}
               >
@@ -591,7 +588,7 @@ const Contact = () => {
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.phone !== ''}>
                   <Label htmlFor="phone">{t('contact.phone')}</Label>
                   <Input
-                    type="phone"
+                    type="number"
                     name="phone"
                     autoComplete="off"
                     value={contactInfo.phone}
@@ -623,7 +620,7 @@ const Contact = () => {
                     onKeyDown={(e) => handleEnter(e)}
                   />
                   {isError && !contactInfo.message && (
-                    <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
+                    <RequiredField style={{ fontSize: '10px', fontWeight: '300' }}>
                       <img
                         src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
                         alt="warning"

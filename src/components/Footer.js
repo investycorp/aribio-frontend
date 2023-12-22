@@ -26,10 +26,6 @@ const FooterContainer = styled.div`
   z-index: 10;
   @media screen and (max-width: 900px) {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 3rem 7vw;
-  }
-  @media screen and (max-width: 360px) {
     gap: 20px;
     padding: 3rem 18px;
   }
@@ -44,9 +40,6 @@ const FooterGridWrap = styled.div`
   align-items: start;
   justify-content: space-between;
   @media screen and (max-width: 900px) {
-    gap: 2rem;
-  }
-  @media screen and (max-width: 360px) {
     gap: 20px;
   }
 `;
@@ -242,7 +235,9 @@ const Footer = () => {
                 <ContactBoxTitle>Head Office.</ContactBoxTitle>
                 <ContactBoxText>{companyInfo?.head?.address1 + companyInfo?.head?.address2}</ContactBoxText>
                 <ContactBoxText>{companyInfo?.head?.address3}</ContactBoxText>
-                <ContactBoxText>{'T.' + companyInfo.tel?.replace('(Korea)', '') + 'F.'+  companyInfo.fax?.replace('(Korea)', '')}</ContactBoxText>
+                <ContactBoxText>
+                  {'T.' + companyInfo.tel?.replace('(Korea)', '') + 'F.' + companyInfo.fax?.replace('(Korea)', '')}
+                </ContactBoxText>
               </AddressWrap>
               <AddressWrap>
                 <ContactBoxTitle>US Office.</ContactBoxTitle>
@@ -257,9 +252,8 @@ const Footer = () => {
         </FooterContainer>
       </Desktop>
 
-
       <Mobile>
-        <FooterContainer style={{borderWidth: 1}}>
+        <FooterContainer style={{ borderWidth: 1 }}>
           <FooterGridWrap style={{ padding: '0' }}>
             <Link style={{ textDecoration: 'none' }} to="/">
               <img src={logo} alt="logo" style={{ cursor: 'pointer', zIndex: '-1', width: '53px' }} />
@@ -281,18 +275,16 @@ const Footer = () => {
                 </ContactUsBox>
               </Link>
             </ContactUsWrap>
-            <ContactBox style={{
-              paddingTop: 0,
-              gap: '1.3em',
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-              <ContactBoxText $fontSize={"16px"}>
-                {'T.' + companyInfo.tel?.replace('(Korea)', '')}
-              </ContactBoxText>
-              <ContactBoxText>
-                {'F.'+  companyInfo.fax?.replace('(Korea)', '')}
-              </ContactBoxText>
+            <ContactBox
+              style={{
+                paddingTop: 0,
+                gap: '1.3em',
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}
+            >
+              <ContactBoxText $fontSize={'16px'}>{'T.' + companyInfo.tel?.replace('(Korea)', '')}</ContactBoxText>
+              <ContactBoxText>{'F.' + companyInfo.fax?.replace('(Korea)', '')}</ContactBoxText>
             </ContactBox>
           </FooterGridWrap>
           <div>
@@ -318,14 +310,17 @@ const Footer = () => {
                 }}
               >
                 <span style={{ fontSize: '16px' }}>Head Office.</span>
-                <img src={dropdown} alt="dropdown"
+                <img
+                  src={dropdown}
+                  alt="dropdown"
                   style={{
-                    transform: `rotate(${footerToggle === 'Head Office' ? '180deg' : '0deg'})`
-                }}  />
+                    transform: `rotate(${footerToggle === 'Head Office' ? '180deg' : '0deg'})`,
+                  }}
+                />
               </ContactBoxTitle>
               {footerToggle === 'Head Office' && (
                 <AddressWrap>
-                  <ContactBoxText style={{ paddingTop: '20px'}}>{companyInfo?.head?.address1}</ContactBoxText>
+                  <ContactBoxText style={{ paddingTop: '20px' }}>{companyInfo?.head?.address1}</ContactBoxText>
                   <ContactBoxText>{companyInfo?.head?.address2}</ContactBoxText>
                   <ContactBoxText>{companyInfo?.head?.address3}</ContactBoxText>
                 </AddressWrap>
@@ -352,13 +347,17 @@ const Footer = () => {
                 }}
               >
                 <span style={{ fontSize: '16px' }}>US Office.</span>
-                <img src={dropdown} alt="dropdown"  style={{
-                    transform: `rotate(${footerToggle === 'US Office' ? '180deg' : '0deg'})`
-                }} />
+                <img
+                  src={dropdown}
+                  alt="dropdown"
+                  style={{
+                    transform: `rotate(${footerToggle === 'US Office' ? '180deg' : '0deg'})`,
+                  }}
+                />
               </ContactBoxTitle>
               {footerToggle === 'US Office' && (
                 <AddressWrap>
-                  <ContactBoxText style={{ paddingTop: '20px'}}>{companyInfo?.us?.address1}</ContactBoxText>
+                  <ContactBoxText style={{ paddingTop: '20px' }}>{companyInfo?.us?.address1}</ContactBoxText>
                   <ContactBoxText>{companyInfo?.us?.address2}</ContactBoxText>
                   <ContactBoxText>{companyInfo?.us?.address3}</ContactBoxText>
                 </AddressWrap>

@@ -226,7 +226,7 @@ const HR = styled.div`
   height: ${(props) => (props.$height ? props.$height : '2px')};
   background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
 
-  @media screen and (max-width: 1280px){
+  @media screen and (max-width: 1280px) {
     width: 40px;
   }
 `;
@@ -279,20 +279,20 @@ const FormInputRowWrap = styled.div`
   ${(props) =>
     props.$isFilled &&
     `
-label {
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-size: 14px;
-      color: #707070;
-      transition: font-size 0.2s ease-in-out;
-      @media screen and (max-width: 1280px) {
-        font-size: 8px;
-      }
-      @media screen and (max-width: 900px) {
-        font-size: 14px;
-      }
-    }
+      label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 14px;
+            color: #707070;
+            transition: font-size 0.2s ease-in-out;
+            @media screen and (max-width: 1280px) {
+              font-size: 8px;
+            }
+            @media screen and (max-width: 900px) {
+              font-size: 8px;
+            }
+          }
   `}
   &:hover,
   &:focus-within {
@@ -311,8 +311,13 @@ label {
       }
     }
   }
+
   @media screen and (max-width: 1280px) {
     border-width: 1px;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-bottom: 4px;
   }
 `;
 

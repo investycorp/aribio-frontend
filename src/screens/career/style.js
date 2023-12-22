@@ -112,7 +112,7 @@ const ImageBackground = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(${props => props.image});
+    background-image: url(${(props) => props.image});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -154,7 +154,7 @@ const GridContentWrap = styled.div`
   background-color: transparent;
   padding: 2.5em 0;
 
-  @media screen and (max-width: 1280px){
+  @media screen and (max-width: 1280px) {
     padding: 1.5em 0;
   }
 `;
@@ -259,12 +259,11 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
       gap: 25px;
     }
 
-     @media screen and (max-width: 360px) {
+    @media screen and (max-width: 360px) {
       height: 124px;
       padding: 24px 16px 24px 16px;
       border-radius: 10px;
     }
-
   }
 `;
 const ContentBoxNameWrap = styled.div`
@@ -452,36 +451,35 @@ const ComponentWrap = styled.div.attrs((props) => ({ className: props.className 
   }
 `;
 
-  const RecruitmentItemWrap = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 0 0 28.7vw;
-    gap: 24px;
-    max-width: 442px;
-    padding: 40px 30px 40px 40px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+const RecruitmentItemWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 0 28.7vw;
+  gap: 24px;
+  max-width: 442px;
+  padding: 40px 30px 40px 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
 
-    @media screen and (max-width: 1920px) {
-      height: 308px;
-    }
+  @media screen and (max-width: 1920px) {
+    height: 308px;
+  }
 
-    @media screen and (max-width: 1280px) {
-      max-width: 278px;
-      height: 194px;
-      padding: 26px; 
-      gap: 15px;
-    }
+  @media screen and (max-width: 1280px) {
+    max-width: 278px;
+    height: 194px;
+    padding: 26px;
+    gap: 15px;
+  }
 
-    @media screen and (max-width: 900px) {
-      padding: 24px 15px 24px 24px; 
-      max-width: 322px;
-      max-height: 232px;
-      width: 322px;
-      height: auto !important;
-    }
-  `;
+  @media screen and (max-width: 900px) {
+    padding: 24px 15px 24px 24px;
+    width: auto !important;
+    max-width: 100%;
+    height: auto !important;
+  }
+`;
 
 export {
   Container,

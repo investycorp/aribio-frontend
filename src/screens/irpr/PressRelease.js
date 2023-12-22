@@ -177,7 +177,6 @@ const PressRelease = () => {
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-
         {detailPage ? (
           <>
             <Outlet context={['Press Release', currentItem]} />
@@ -382,10 +381,16 @@ const PressRelease = () => {
                 )}
               </HomeComponentWrap>
             </Desktop>
+
             <Mobile>
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
                 <TextWrap style={{ width: '70vw' }}>
-                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0',fontSize: '16px' }}>
+                  <Text
+                    $fontSize="16px"
+                    $fontWeight="300"
+                    $color="#939598"
+                    style={{ marginBottom: '0', fontSize: '16px' }}
+                  >
                     {t('press.title')}
                   </Text>
                   <div
@@ -397,12 +402,7 @@ const PressRelease = () => {
                       margin: '28px 0',
                     }}
                   ></div>
-                  <Text
-                    $fontSize="23px"
-                    $fontWeight="500"
-                    $color="#ffffff"
-                    style={{ fontSize: '23px' }}
-                  >
+                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ fontSize: '23px' }}>
                     {t('press.subtitle')}
                   </Text>
                 </TextWrap>
