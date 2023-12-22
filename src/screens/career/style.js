@@ -46,7 +46,7 @@ const MainImgWrap = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-color: #121212;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   z-index: 5;
 `;
 
@@ -112,7 +112,7 @@ const ImageBackground = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(${(props) => props.image});
+    background-image: url(${props => props.image});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -120,13 +120,13 @@ const ImageBackground = styled.div`
   }
 `;
 
-const Text = styled.div.attrs((props) => ({ className: props.className, id: props.id }))`
-  width: ${(props) => (props.$width ? props.$width : '100%')};
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
-  font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
-  color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
+const Text = styled.div.attrs(props => ({className: props.className, id: props.id}))`
+  width: ${props => (props.$width ? props.$width : '100%')};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '26px')};
+  font-weight: ${props => (props.$fontWeight ? props.$fontWeight : '300')};
+  color: ${props => (props.$color ? props.$color : ' #ffffff')};
   line-height: 1.5em;
-  text-align: ${(props) => (props.$align ? props.$align : 'center')};
+  text-align: ${props => (props.$align ? props.$align : 'center')};
   &.clickable {
     cursor: pointer;
     &:active {
@@ -178,7 +178,7 @@ const FilterShadow = styled.div`
   }
 `;
 
-const ContentBox = styled.div.attrs((props) => ({ className: props.className }))`
+const ContentBox = styled.div.attrs(props => ({className: props.className}))`
   position: relative;
   width: 100%;
   display: flex;
@@ -224,7 +224,7 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
   &.joinus {
     border-radius: 20px;
     background-color: #121212;
-    background-image: url(${(props) => props.$src});
+    background-image: url(${props => props.$src});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -259,7 +259,7 @@ const ContentBox = styled.div.attrs((props) => ({ className: props.className }))
       gap: 25px;
     }
 
-    @media screen and (max-width: 360px) {
+    @media screen and (max-width: 900px) {
       height: 124px;
       padding: 24px 16px 24px 16px;
       border-radius: 10px;
@@ -324,9 +324,9 @@ const DescriptionItem = styled.li`
 `;
 
 const HR = styled.div`
-  width: ${(props) => (props.$width ? props.$width : '60px')};
-  height: ${(props) => (props.$height ? props.$height : '2px')};
-  background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
+  width: ${props => (props.$width ? props.$width : '60px')};
+  height: ${props => (props.$height ? props.$height : '2px')};
+  background-color: ${props => (props.$color ? props.$color : '#ffffff')};
   @media screen and (max-width: 1280px) {
     width: 40px;
   }
@@ -418,7 +418,7 @@ const Button = styled.button`
   z-index: 10;
 `;
 
-const ComponentWrap = styled.div.attrs((props) => ({ className: props.className }))`
+const ComponentWrap = styled.div.attrs(props => ({className: props.className}))`
   width: 100%;
   height: 'fit-content';
   display: flex;

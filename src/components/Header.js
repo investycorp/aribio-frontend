@@ -699,6 +699,7 @@ const LangButton = () => {
     // }
     //add refetch
   };
+
   return (
     <>
       <Desktop>
@@ -758,7 +759,7 @@ const LangButton = () => {
               backgroundColor: '#fff',
               marginTop: '1px',
             }}
-          ></span>
+          />
           <span style={{ fontWeight: '400', paddingTop: '0.1em', zIndex: '-1' }}>{language}</span>
         </div>
       </Mobile>

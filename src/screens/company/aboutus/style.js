@@ -46,7 +46,7 @@ const MainImgWrap = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-color: #121212;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   z-index: 10;
 `;
 
@@ -98,11 +98,11 @@ const TextWrap = styled.div`
 
 const Text = styled.div`
   width: 100%;
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
-  font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
-  color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '26px')};
+  font-weight: ${props => (props.$fontWeight ? props.$fontWeight : '300')};
+  color: ${props => (props.$color ? props.$color : ' #ffffff')};
   line-height: 1.65em;
-  text-align: ${(props) => (props.$align ? props.$align : 'center')};
+  text-align: ${props => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
   @media screen and (max-width: 1280px) {
     font-size: 18px;
@@ -127,7 +127,7 @@ const Tab = styled.div`
   @media screen and (max-width: 1280px) {
     gap: 80px;
   }
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 900px) {
     gap: 16px;
   }
 `;
@@ -140,8 +140,8 @@ const TabItem = styled.div`
   align-items: center;
   font-size: 36px;
   font-weight: 400;
-  color: ${(props) => (props.$isActive ? '#ffffff' : 'rgba(255,255,255,0.5)')};
-  border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
+  color: ${props => (props.$isActive ? '#ffffff' : 'rgba(255,255,255,0.5)')};
+  border-bottom: ${props => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
   line-height: 1.8em;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -155,7 +155,7 @@ const TabItem = styled.div`
   }
 `;
 
-const TabContentWrap = styled.div.attrs((props) => ({
+const TabContentWrap = styled.div.attrs(props => ({
   className: props.className,
   id: props.id,
 }))`
@@ -226,7 +226,7 @@ const ContentBoxNameWrap = styled.div`
   padding: 0 0.5rem;
 `;
 
-const Image = styled.img.attrs((props) => ({
+const Image = styled.img.attrs(props => ({
   className: props.$className,
 }))`
   z-index: 10;
@@ -243,8 +243,8 @@ const DescriptionWrap = styled.ul`
   left: 0;
   height: fit-content;
   display: flex;
-  visibility: ${(props) => (props.$isActive ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.$isActive ? '1' : '0')};
+  visibility: ${props => (props.$isActive ? 'visible' : 'hidden')};
+  opacity: ${props => (props.$isActive ? '1' : '0')};
   flex-direction: column;
   justify-content: start;
   align-items: left;
@@ -256,14 +256,7 @@ const DescriptionWrap = styled.ul`
     top: 4rem;
   }
   @media screen and (max-width: 900px) {
-    display: ${(props) => (props.$isActive ? 'flex' : 'none')};
-    transition: all 0.2s ease-in-out;
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-  @media screen and (max-width: 360px) {
-    display: ${(props) => (props.$isActive ? 'flex' : 'none')};
+    display: ${props => (props.$isActive ? 'flex' : 'none')};
     transition: all 0.2s ease-in-out;
     position: relative;
     padding: 0 0 0 3.1vw;

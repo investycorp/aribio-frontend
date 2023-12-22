@@ -1,29 +1,27 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, HR } from './style';
+import {Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, HR} from './style';
 
-import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
-import { Desktop, Mobile } from '../../utils/MediaQuery';
+import {HeadLine, Path, MainImgWrap} from '../../components/style';
+import {Desktop, Mobile} from '../../utils/MediaQuery';
 import Video from '../../components/Video';
 
-import { Link, useNavigate, useParams } from 'react-router-dom';
 import Language from '../../atom/Language';
-import { useRecoilState } from 'recoil';
+import {useRecoilState} from 'recoil';
 import useMediaList from '../../hooks/irpr/useMediaList';
 import VideoFrame from '../../components/VideoFrame';
 
-import { t } from 'i18next';
+import {t} from 'i18next';
 
 const MediaKit = () => {
   const [language, setLanguage] = useRecoilState(Language);
-  const { data, isLoading, refetch } = useMediaList(language);
-  const [currentVideo, setCurrentVideo] = useState({ title: '', url: '' });
+  const {data, isLoading, refetch} = useMediaList(language);
+  const [currentVideo, setCurrentVideo] = useState({title: '', url: ''});
   const [itemsList, setItemsList] = useState([]);
 
   useEffect(() => {
-    console.log('language:', language);
     refetch(language);
   }, [language]);
 
@@ -44,16 +42,18 @@ const MediaKit = () => {
       const representativeItem = data?.data?.data?.representativeMediaKitDto;
 
       if (representativeItem?.id) {
-        setItemsList([{
-          id: representativeItem?.id,
-          title: representativeItem?.title,
-          date: `${representativeItem?.month} ${representativeItem?.day}, ${representativeItem?.year}`,
-          link: representativeItem?.url,
-        }])
+        setItemsList([
+          {
+            id: representativeItem?.id,
+            title: representativeItem?.title,
+            date: `${representativeItem?.month} ${representativeItem?.day}, ${representativeItem?.year}`,
+            link: representativeItem?.url,
+          },
+        ]);
       }
 
-      item?.map((content) => {
-        setItemsList((prev) => [
+      item?.map(content => {
+        setItemsList(prev => [
           ...prev,
           {
             id: content?.id,
@@ -69,7 +69,7 @@ const MediaKit = () => {
   }, [data]);
 
   useEffect(() => {
-    console.log('LISTS',itemsList);
+    console.log('LISTS', itemsList);
   }, [itemsList]);
 
   return (
@@ -88,10 +88,11 @@ const MediaKit = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span> MEDIA
+        <span style={{opacity: '0.8'}}>{`HOME > IR & PR > `}</span>
+        {t('media.title')}
       </Path>
-      <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine $className="midsize">MEDIA</HeadLine>
+      <HomeComponentWrap style={{height: '100vh'}}>
+        <HeadLine $className="midsize">{t('media.headline')}</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -103,16 +104,12 @@ const MediaKit = () => {
           }}
         />
       </HomeComponentWrap>
-      <div style={{ margin: '0', padding: '0', position: 'relative' }}>
+      <div style={{margin: '0', padding: '0', position: 'relative'}}>
         <>
           <Desktop>
-            <HomeComponentWrap style={{ padding: '15vh 7vw 5vh 7vw' }}>
-              <TextWrap style={{ width: '70vw' }}>
-                <Text
-                  style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}
-                  $fontWeight="300"
-                  $color="#939598"
-                >
+            <HomeComponentWrap style={{padding: '15vh 7vw 5vh 7vw'}}>
+              <TextWrap style={{width: '70vw'}}>
+                <Text style={{fontSize: window.innerWidth > 1280 ? '26px' : '18px'}} $fontWeight="300" $color="#939598">
                   {t('media.title')}
                 </Text>
                 <div
@@ -123,12 +120,8 @@ const MediaKit = () => {
                     border: '1px solid #ffffff',
                     margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                   }}
-                ></div>
-                <Text
-                  $fontWeight="500"
-                  $color="#ffffff"
-                  style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
-                >
+                />
+                <Text $fontWeight="500" $color="#ffffff" style={{fontSize: window.innerWidth > 1280 ? '50px' : '34px'}}>
                   {t('media.subtitle')}
                 </Text>
               </TextWrap>
@@ -142,8 +135,7 @@ const MediaKit = () => {
                   alignItems: 'center',
                   padding: '0',
                   borderRadius: '20px',
-                }}
-              >
+                }}>
                 <VideoFrame src={currentVideo.url} />
               </ComponentWrap>
               <ComponentWrap
@@ -156,8 +148,7 @@ const MediaKit = () => {
                   padding: '0',
                   margin: '10vh 0',
                   rowGap: '5rem',
-                }}
-              >
+                }}>
                 {itemsList.map((item, index) => (
                   <div
                     key={item?.title + index}
@@ -172,10 +163,9 @@ const MediaKit = () => {
                       borderWidth: window.innerWidth > 1280 ? '2px' : '1px',
                     }}
                     onClick={() => {
-                      item?.id && setCurrentVideo({ id: item?.id, title: item?.title, url: item?.link });
+                      item?.id && setCurrentVideo({id: item?.id, title: item?.title, url: item?.link});
                       window.scrollTo(0, window.innerHeight * 1.2);
-                    }}
-                  >
+                    }}>
                     <Text
                       $align="start"
                       $fontWeight="300"
@@ -184,15 +174,14 @@ const MediaKit = () => {
                         margin: '0 0 1rem 0',
                         fontSize: window.innerWidth > 1280 ? '24px' : '14px',
                         zIndex: '-1',
-                      }}
-                    >
+                      }}>
                       {item?.title.slice(0, 80)}
                       {item?.title.length > 80 && '...'}
                     </Text>
                     <HR
                       $width={window.innerWidth > 1280 ? '40px' : '25px'}
                       $height={window.innerWidth > 1280 ? '2px' : '1px'}
-                      style={{ marginTop: '1em' }}
+                      style={{marginTop: '1em'}}
                     />
                     <Text
                       $align="start"
@@ -202,8 +191,7 @@ const MediaKit = () => {
                         margin: '1rem 0 0 0',
                         fontSize: window.innerWidth > 1280 ? '18px' : '14px',
                         zIndex: '-1',
-                      }}
-                    >
+                      }}>
                       {item?.date}
                     </Text>
                   </div>
@@ -212,23 +200,22 @@ const MediaKit = () => {
             </HomeComponentWrap>
           </Desktop>
 
-
           <Mobile>
-            <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-              <TextWrap style={{ width: '70vw' }}>
-                <Text $fontWeight="300" $color="#939598" style={{ marginBottom: '0', fontSize: '16px' }}>
+            <HomeComponentWrap style={{padding: '15vh 7vw'}}>
+              <TextWrap style={{width: '70vw'}}>
+                <Text $fontWeight="300" $color="#939598" style={{marginBottom: '0', fontSize: '16px'}}>
                   {t('media.title')}
                 </Text>
                 <div
-                    style={{
-                      alignSelf: 'center',
-                      width: '20px',
-                      height: '1px',
-                      border: '1px solid #ffffff',
-                      margin: '28px 0',
-                    }}
+                  style={{
+                    alignSelf: 'center',
+                    width: '20px',
+                    height: '1px',
+                    border: '1px solid #ffffff',
+                    margin: '28px 0',
+                  }}
                 />
-                <Text $fontWeight="500" $color="#ffffff" style={{ fontSize: '23px' }}>
+                <Text $fontWeight="500" $color="#ffffff" style={{fontSize: '23px'}}>
                   {t('media.subtitle')}
                 </Text>
               </TextWrap>
@@ -236,7 +223,7 @@ const MediaKit = () => {
 
             <HomeComponentWrap>
               {currentVideo?.url && (
-                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'center', padding: '0' }}>
+                <ComponentWrap style={{justifyContent: 'center', alignItems: 'center', padding: '0'}}>
                   <VideoFrame src={currentVideo?.url} />
                 </ComponentWrap>
               )}
@@ -249,8 +236,7 @@ const MediaKit = () => {
                   padding: '0',
                   margin: '10vh 0',
                   gap: '2rem',
-                }}
-              >
+                }}>
                 {itemsList.map((item, index) => (
                   <div
                     key={item.title + index}
@@ -264,20 +250,18 @@ const MediaKit = () => {
                       borderLeft: '1px solid #B1B1B1',
                     }}
                     onClick={() => {
-                      item?.id && setCurrentVideo({ id: item?.id, title: item?.title, url: item?.link });
+                      item?.id && setCurrentVideo({id: item?.id, title: item?.title, url: item?.link});
                       window.scrollTo(0, window.innerHeight * 1.2);
-                    }}
-                  >
+                    }}>
                     <Text
                       $align="start"
                       $fontWeight="400"
                       $color="#ffffff"
-                      style={{ margin: '0 0 1rem 0', fontSize: '18px' }}
-                    >
+                      style={{margin: '0 0 1rem 0', fontSize: '18px'}}>
                       {item?.title}
                     </Text>
 
-                    <Text $align="start" $fontWeight="300" style={{ margin: '0', fontSize: '16px', color: '#DBDBDB' }}>
+                    <Text $align="start" $fontWeight="300" style={{margin: '0', fontSize: '16px', color: '#DBDBDB'}}>
                       {item?.date}
                     </Text>
                   </div>

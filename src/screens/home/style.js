@@ -14,7 +14,7 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const ContainerGridLineWrap = styled.div.attrs((props) => ({
+const ContainerGridLineWrap = styled.div.attrs(props => ({
   className: props.$className,
 }))`
   width: 100vw;
@@ -61,7 +61,7 @@ const MainImgWrap = styled.div`
   background-color: transparent;
   padding-bottom: 10vh;
   z-index: 0;
-  background-image: url(${(props) => (props.$src ? props.$src : '')});
+  background-image: url(${props => (props.$src ? props.$src : '')});
 `;
 
 const MainImgTextWrap = styled.div`
@@ -104,7 +104,6 @@ const HomeComponentWrap = styled.div`
     padding: 0 5vw 10vh 5vw;
   }
 `;
-
 
 const ImageBackground = styled.div`
   position: absolute;
@@ -162,13 +161,13 @@ const HeadLineTitle = styled.div`
   }
 `;
 
-const HeadLineText = styled.div.attrs((props) => ({
+const HeadLineText = styled.div.attrs(props => ({
   className: props.$className,
 }))`
   width: fit-content;
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '26px')};
   font-weight: medium;
-  color: ${(props) => (props.$textColor ? props.$textColor : '#ffffff')};
+  color: ${props => (props.$textColor ? props.$textColor : '#ffffff')};
   text-align: center;
   line-height: 1.3em;
   color: #ffffff;
@@ -212,7 +211,7 @@ const ComponentGridWrap = styled.div`
     align-items: center;
   }
 
-    @media screen and (max-width: 360px) {
+  @media screen and (max-width: 900px) {
     padding: 0;
     /* margin-bottom: 88px; */
   }
@@ -224,16 +223,13 @@ const HomeComponentImageWrap = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #121212;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   display: flex;
   width: 28.75vw;
   height: 28.29vh;
   justify-self: flex-end;
   border-radius: 20px;
   @media screen and (max-width: 900px) {
-    width: 100%;
-  }
-  @media screen and (max-width: 360px) {
     width: 110px;
     height: 110px;
   }
@@ -267,7 +263,7 @@ const HomeVideoWrap = styled.div`
   margin: 0;
   padding: 0;
   display: block;
-  background-image: ${(props) => props.$src};
+  background-image: ${props => props.$src};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

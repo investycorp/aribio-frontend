@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { HomeComponentWrap, Text } from '../style';
-import { Desktop, Mobile } from '../../../../utils/MediaQuery';
+import {HomeComponentWrap, Text} from '../style';
+import {Desktop, Mobile} from '../../../../utils/MediaQuery';
 
 import useAdvisorList from '../../../../hooks/company/useAdvisorList';
 import Language from '../../../../atom/Language';
-import { useRecoilValue } from 'recoil';
+import {useRecoilValue} from 'recoil';
 
 const TabContentWrap = styled.div`
   width: 100%;
@@ -74,7 +74,7 @@ const SchoolText = styled.div`
   }
 
   ul li:before {
-    content: "  •  ";
+    content: '  •  ';
     position: absolute;
     left: 0;
     top: 0; // 필요에 따라 조절
@@ -85,20 +85,18 @@ const SchoolText = styled.div`
     line-height: 18px;
   }
 
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 3900px) {
     line-height: 1.5em;
 
     ul li {
-    padding-left: 0.75rem;
+      padding-left: 0.75rem;
+    }
   }
-  }
-
-
 `;
 
 const Advisors = () => {
   const [language] = useRecoilValue(Language);
-  const { data, isLoading } = useAdvisorList(language);
+  const {data, isLoading} = useAdvisorList(language);
   const [tabContents, setTabContents] = useState([]);
 
   useEffect(() => {
@@ -116,13 +114,12 @@ const Advisors = () => {
   }, [data]);
 
   return (
-    <HomeComponentWrap
-      style={{ minHeight: 'fit-content', justifyContent: 'start', overflow: 'hidden', paddingTop: '0' }}
-    >
+    <HomeComponentWrap style={{minHeight: 'fit-content', justifyContent: 'start', overflow: 'hidden', paddingTop: '0'}}>
       <Desktop>
-        <TabContentWrap style={{
-          marginBottom: window.innerWidth > 1280 ? '512px' : '344px',
-        }}>
+        <TabContentWrap
+          style={{
+            marginBottom: window.innerWidth > 1280 ? '512px' : '344px',
+          }}>
           {tabContents?.map((item, index) => (
             <ContentBox
               key={index}
@@ -130,24 +127,21 @@ const Advisors = () => {
                 minHeight: '135px',
                 gap: window.innerWidth > 1280 ? '3rem' : '1rem',
                 width: window.innerWidth > 1280 ? 454 : 274,
-            }}>
+              }}>
               <ContentBoxNameWrap
-                style={{ paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end' }}
-              >
+                style={{paddingLeft: (index + 1) % 3 !== 1 && '0', justifyContent: 'start', alignItems: 'end'}}>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
                   $fontWeight="600"
                   $align="start"
-                  style={{ margin: '0', wordBreak: 'break-all', }}
-                >
+                  style={{margin: '0', wordBreak: 'break-all'}}>
                   {item?.name}
                   <span
                     style={{
                       fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                       marginLeft: window.innerWidth > 1280 ? '2rem' : '1rem',
                       fontWeight: '400',
-                    }}
-                  >
+                    }}>
                     {item?.position}
                   </span>
                 </Text>
@@ -166,7 +160,7 @@ const Advisors = () => {
                     return (
                       <li>
                         <span>{text}</span>
-                        <br/>
+                        <br />
                       </li>
                     );
                   })}
@@ -177,9 +171,8 @@ const Advisors = () => {
         </TabContentWrap>
       </Desktop>
 
-
       <Mobile>
-        <TabContentWrap style={{ width: '90vw' }}>
+        <TabContentWrap style={{width: '90vw'}}>
           {tabContents?.map((item, index) => (
             <div
               style={{
@@ -189,8 +182,7 @@ const Advisors = () => {
                 justifyContent: 'center',
                 padding: '0 10px 0 0',
               }}
-              key={'tabContent' + index}
-            >
+              key={'tabContent' + index}>
               <div
                 style={{
                   width: '100%',
@@ -198,8 +190,7 @@ const Advisors = () => {
                   flexDirection: 'row',
                   justifyContent: 'flex-start',
                   alignItems: 'center',
-                }}
-              >
+                }}>
                 <ContentBox
                   style={{
                     width: 'fit-content',
@@ -207,22 +198,25 @@ const Advisors = () => {
                     margin: '0',
                     padding: 0,
                   }}
-                  key={index}
-                >
-                  <ContentBoxNameWrap style={{ width: 'fit-content' }}>
-                    <Text $fontSize="18px" $fontWeight="700" $align="start" style={{ wordBreak: 'break-all', margin: '0', padding: '0' }}>
+                  key={index}>
+                  <ContentBoxNameWrap style={{width: 'fit-content'}}>
+                    <Text
+                      $fontSize="18px"
+                      $fontWeight="700"
+                      $align="start"
+                      style={{wordBreak: 'break-all', margin: '0', padding: '0'}}>
                       {item?.name}
-                      <span style={{ fontSize: '15px', fontWeight: '300', marginLeft: '1rem' }}>{item?.position}</span>
+                      <span style={{fontSize: '15px', fontWeight: '300', marginLeft: '1rem'}}>{item?.position}</span>
                     </Text>
                   </ContentBoxNameWrap>
 
-                  <SchoolText style={{ wordBreak: 'break-all', fontSize: '16px', fontWeight: '100', paddingRight: '0' }}>
+                  <SchoolText style={{wordBreak: 'break-all', fontSize: '16px', fontWeight: '100', paddingRight: '0'}}>
                     <ul>
                       {item?.description.slice('\\n').map(text => {
                         return (
                           <li>
                             <span>{text}</span>
-                            <br/>
+                            <br />
                           </li>
                         );
                       })}

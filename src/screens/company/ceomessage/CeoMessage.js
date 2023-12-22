@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
 import ceophoto from './assets/ceophoto.png';
 
-import { Container, HomeComponentWrap, TextWrap, Text, ContentBox, Image } from './style';
+import {Container, HomeComponentWrap, TextWrap, Text, ContentBox, Image} from './style';
 
-import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
-import { Desktop, Mobile } from '../../../utils/MediaQuery';
+import {HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox} from '../../../components/style';
+import {Desktop, Mobile} from '../../../utils/MediaQuery';
 import Video from '../../../components/Video';
-import { Trans } from 'react-i18next';
-import { t } from 'i18next';
+import {Trans} from 'react-i18next';
+import {t} from 'i18next';
 
 const CeoMessage = () => {
   useEffect(() => {
@@ -35,10 +35,11 @@ const CeoMessage = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.8' }}>{`HOME > COMPANY > `}</span>CEO MESSAGE
+        <span style={{opacity: '0.8'}}>{`HOME > COMPANY > `}</span>
+        {t('ceomessage.title')}
       </Path>
-      <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine $className="midsize">CEO MESSAGE</HeadLine>
+      <HomeComponentWrap style={{height: '100vh'}}>
+        <HeadLine $className="midsize">{t('ceomessage.headline')}</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -50,9 +51,9 @@ const CeoMessage = () => {
           }}
         />
       </HomeComponentWrap>
-      <div style={{ margin: '0', padding: '0', position: 'relative' }}>
+      <div style={{margin: '0', padding: '0', position: 'relative'}}>
         <Desktop>
-          <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+          <HomeComponentWrap style={{padding: '15vh 7vw'}}>
             <TextWrap>
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
                 {t('ceomessage.title')}
@@ -61,8 +62,7 @@ const CeoMessage = () => {
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
                 $color="#ffffff"
-                style={{ margin: '2rem 0 0 0' }}
-              >
+                style={{margin: '2rem 0 0 0'}}>
                 {t('ceomessage.subtitle')}
               </Text>
               <hr
@@ -77,9 +77,8 @@ const CeoMessage = () => {
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="200"
                 $color="#E5E5E5"
-                style={{ margin: '0' }}
-              >
-                <Trans i18nKey="ceomessage.desc1" components={{ 1: <br /> }} />
+                style={{margin: '0'}}>
+                <Trans i18nKey="ceomessage.desc1" components={{1: <br />}} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -89,8 +88,7 @@ const CeoMessage = () => {
               height: window.innerWidth > 1280 ? '460px' : '306px',
               padding: '0 20vw',
               background: 'linear-gradient(rgba(0, 111, 170, 0.6), rgba(0, 0, 0, 0.6)',
-            }}
-          >
+            }}>
             <TextWrap>
               {/* <Text
                 $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
@@ -110,15 +108,13 @@ const CeoMessage = () => {
               <TextWrap
                 style={{
                   flexDirection: 'row',
-                }}
-              >
+                }}>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
                   $fontWeight="300"
                   $color="#ffffff"
-                  style={{ width: 'auto', textAlign: 'center', margin: '0' }}
-                >
-                  <Trans i18nKey="ceomessage.message" components={{ 1: <br /> }} />
+                  style={{width: 'auto', textAlign: 'center', margin: '0'}}>
+                  <Trans i18nKey="ceomessage.message" components={{1: <br />}} />
                 </Text>
                 {/* <Text
                   $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
@@ -148,14 +144,13 @@ const CeoMessage = () => {
                   marginTop: window.innerWidth > 1280 ? '63px' : '24px',
                   marginBottom: 0,
                   paddingRight: 80,
-                }}
-              >
+                }}>
                 {t('ceomessage.message2')}
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{ padding: '15vh 7vw', display: 'grid', gridTemplateColumns: '1fr 2fr' }}>
-            <ContentBox style={{ alignItems: 'end' }}>
+          <HomeComponentWrap style={{padding: '15vh 7vw', display: 'grid', gridTemplateColumns: '1fr 2fr'}}>
+            <ContentBox style={{alignItems: 'end'}}>
               <Image
                 width={window.innerWidth > 1280 ? 550 : 335}
                 height={window.innerWidth > 1280 ? 503 : 334}
@@ -163,15 +158,14 @@ const CeoMessage = () => {
                 alt="ceoPhoto"
               />
             </ContentBox>
-            <ContentBox style={{ padding: '0 0 0 6.5rem', gap: '3em' }}>
-              <div style={{ width: '60px', height: '2px', backgroundColor: '#939598' }} />
+            <ContentBox style={{padding: '0 0 0 6.5rem', gap: '3em'}}>
+              <div style={{width: '60px', height: '2px', backgroundColor: '#939598'}} />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
                 $fontWeight="400"
                 $color="#FFFFFF"
-                style={{ textAlign: 'start', margin: '0', padding: '0', wordSpacing: '0.1rem' }}
-              >
-                <Trans i18nKey="ceomessage.desc2" components={{ 1: <br /> }} />
+                style={{textAlign: 'start', margin: '0', padding: '0', wordSpacing: '0.1rem'}}>
+                <Trans i18nKey="ceomessage.desc2" components={{1: <br />}} />
               </Text>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -184,9 +178,8 @@ const CeoMessage = () => {
                   lineHeight: '1.7',
                   // wordSpacing: '0.2rem',
                   // letterSpacing: '0.02rem',
-                }}
-              >
-                <Trans i18nKey="ceomessage.desc3" components={{ 1: <br /> }} />
+                }}>
+                <Trans i18nKey="ceomessage.desc3" components={{1: <br />}} />
               </Text>
             </ContentBox>
           </HomeComponentWrap>
@@ -195,15 +188,15 @@ const CeoMessage = () => {
         <Mobile>
           <HomeComponentWrap>
             <TextWrap>
-              <Text style={{ marginBottom: 0 }} $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text style={{marginBottom: 0}} $fontSize="16px" $fontWeight="300" $color="#939598">
                 {t('ceomessage.title')}
               </Text>
-              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '12px 0 0 0' }}>
+              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{margin: '12px 0 0 0'}}>
                 {t('ceomessage.subtitle')}
               </Text>
-              <hr style={{ width: '20px', margin: '3em 0' }} />
-              <Text $fontSize="18px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0' }}>
-                <Trans i18nKey="ceomessage_m.desc1" components={{ 1: <br /> }} />
+              <hr style={{width: '20px', margin: '3em 0'}} />
+              <Text $fontSize="18px" $fontWeight="300" $color="#E5E5E5" style={{margin: '0'}}>
+                <Trans i18nKey="ceomessage_m.desc1" components={{1: <br />}} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -212,9 +205,8 @@ const CeoMessage = () => {
               background: 'linear-gradient(to bottom, rgba(0,111,170,0.5), rgba(0, 0, 0, 0.5))',
               height: '290px',
               margin: '5em 0 7em 0',
-            }}
-          >
-            <TextWrap style={{ width: '90vw', position: 'relative' }}>
+            }}>
+            <TextWrap style={{width: '90vw', position: 'relative'}}>
               {/* <Text
                 $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                 $fontWeight="200"
@@ -235,16 +227,14 @@ const CeoMessage = () => {
                 $fontSize="16px"
                 $fontWeight="300"
                 $color="#ffffff"
-                style={{ padding: '0 20px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px' }}
-              >
-                <Trans i18nKey="ceomessage_m.message" components={{ 1: <br /> }} />
+                style={{padding: '0 20px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px'}}>
+                <Trans i18nKey="ceomessage_m.message" components={{1: <br />}} />
               </Text>
               <Text
                 $fontSize="14px"
                 $fontWeight="200"
                 $color="#D6D6D6"
-                style={{ marginTop: '16px', width: '100%', textAlign: 'center', marginBottom: '0' }}
-              >
+                style={{marginTop: '16px', width: '100%', textAlign: 'center', marginBottom: '0'}}>
                 {t('ceomessage.message2')}
               </Text>
               {/* <Text
@@ -265,31 +255,29 @@ const CeoMessage = () => {
               </Text> */}
             </TextWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{ display: 'grid', padding: '0' }}>
+          <HomeComponentWrap style={{display: 'grid', padding: '0'}}>
             <Image
               src={process.env.PUBLIC_URL + '/assets/images/ceophoto_mobile.png'}
               alt="ceophoto"
-              style={{ width: 324, height: 193, marginLeft: '5vw' }}
+              style={{width: 324, height: 193, marginLeft: '5vw'}}
             />
 
-            <ContentBox style={{ padding: '4rem 5vw 0 5vw', gap: '1rem', marginBottom: '10em' }}>
-              <div style={{ width: '20px', height: '1px', backgroundColor: '#939598', marginTop: '5em' }} />
+            <ContentBox style={{padding: '4rem 5vw 0 5vw', gap: '1rem', marginBottom: '10em'}}>
+              <div style={{width: '20px', height: '1px', backgroundColor: '#939598', marginTop: '5em'}} />
               <Text
                 $fontSize="18px"
                 $fontWeight="400"
                 $color="#FFFFFF"
-                style={{ textAlign: 'start', margin: '0', padding: '0 ' }}
-              >
-                <Trans i18nKey="ceomessage_m.desc2" components={{ 1: <br /> }} />
+                style={{textAlign: 'start', margin: '0', padding: '0 '}}>
+                <Trans i18nKey="ceomessage_m.desc2" components={{1: <br />}} />
               </Text>
 
               <Text
                 $fontSize="16px"
                 $fontWeight="300"
                 $color="#EAEAEA"
-                style={{ textAlign: 'start', margin: '0', padding: '0', lineHeight: '1.5' }}
-              >
-                <Trans i18nKey="ceomessage_m.desc3" components={{ 1: <br /> }} />
+                style={{textAlign: 'start', margin: '0', padding: '0', lineHeight: '1.5'}}>
+                <Trans i18nKey="ceomessage_m.desc3" components={{1: <br />}} />
               </Text>
             </ContentBox>
           </HomeComponentWrap>

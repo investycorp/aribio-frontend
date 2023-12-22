@@ -15,7 +15,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-const ContainerGridLineWrap = styled.div.attrs((props) => ({
+const ContainerGridLineWrap = styled.div.attrs(props => ({
   className: props.$className,
 }))`
   position: absolute;
@@ -77,7 +77,7 @@ const MainImgWrap = styled.div`
   background-color: transparent;
   padding-bottom: 10vh;
   z-index: 0;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   overflow: hidden;
 `;
 const Path = styled.div`
@@ -122,9 +122,9 @@ const HeadLineTitle = styled.div`
 const HeadLineText = styled.div`
   width: fit-content;
   height: fit-content;
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '26px')};
   font-weight: medium;
-  color: ${(props) => (props.$textColor ? props.$textColor : '#ffffff')};
+  color: ${props => (props.$textColor ? props.$textColor : '#ffffff')};
   margin-bottom: 1rem;
   text-align: center;
   line-height: 1.3em;
@@ -139,7 +139,7 @@ const HeadLineText = styled.div`
   overflow: hidden;
 `;
 
-const HeadLine = styled.div.attrs((props) => ({
+const HeadLine = styled.div.attrs(props => ({
   className: props.$className,
 }))`
   display: flex;
@@ -175,7 +175,7 @@ const HeadLine = styled.div.attrs((props) => ({
     @media screen and (max-width: 900px) {
       font-size: 62px;
     }
-    @media screen and (max-width: 360px) {
+    @media screen and (max-width: 600px) {
       font-size: 48px;
       line-height: 60px;
     }
@@ -213,13 +213,13 @@ const TextWrap = styled.div`
 
 const Text = styled.div`
   width: 100%;
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
-  font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
-  color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '26px')};
+  font-weight: ${props => (props.$fontWeight ? props.$fontWeight : '300')};
+  color: ${props => (props.$color ? props.$color : ' #ffffff')};
   line-height: 1.5em;
-  text-align: ${(props) => (props.$align ? props.$align : 'center')};
+  text-align: ${props => (props.$align ? props.$align : 'center')};
   &:hover {
-    cursor: ${(props) => (props.$clickable ? 'pointer' : 'default')};
+    cursor: ${props => (props.$clickable ? 'pointer' : 'default')};
   }
 `;
 
@@ -245,8 +245,8 @@ const TabItem = styled.div`
   align-items: center;
   font-size: 36px;
   font-weight: 400;
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#464646')};
-  border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
+  color: ${props => (props.$isActive ? '#ffffff' : '#464646')};
+  border-bottom: ${props => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
   line-height: 1.8em;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -302,7 +302,7 @@ const ColorBar = styled.div`
   padding: 2em;
   height: 140px;
   width: 80%;
-  background: ${(props) => `linear-gradient(to right, ${props.$color1}, ${props.$color2})`};
+  background: ${props => `linear-gradient(to right, ${props.$color1}, ${props.$color2})`};
   transition: all 0.2s ease-in-out;
   &:hover {
     margin-left: 7vw;
@@ -316,11 +316,11 @@ const Image = styled.img`
   z-index: 10;
 `;
 const HR = styled.div`
-  width: ${(props) => (props.$width ? props.$width : '60px')};
-  height: ${(props) => (props.$height ? props.$height : '2px')};
-  background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
+  width: ${props => (props.$width ? props.$width : '60px')};
+  height: ${props => (props.$height ? props.$height : '2px')};
+  background-color: ${props => (props.$color ? props.$color : '#ffffff')};
 
-  @media screen and (max-width: 1280px){
+  @media screen and (max-width: 1280px) {
     width: 40px;
   }
 `;

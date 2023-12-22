@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import vertical_arrow from './../../assets/images/vertical_arrow.svg';
@@ -23,21 +23,21 @@ import {
   HR,
 } from './style';
 
-import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
-import { Desktop, Mobile } from '../../utils/MediaQuery';
+import {HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap} from '../../components/style';
+import {Desktop, Mobile} from '../../utils/MediaQuery';
 
-import { Link, Outlet, useParams } from 'react-router-dom';
+import {Link, Outlet, useParams} from 'react-router-dom';
 import useNoticeList from '../../hooks/irpr/useNoticeList';
 import Video from '../../components/Video';
 
-import { Trans } from 'react-i18next';
-import { t } from 'i18next';
+import {Trans} from 'react-i18next';
+import {t} from 'i18next';
 
 import Language from '../../atom/Language';
-import { useRecoilValue } from 'recoil';
+import {useRecoilValue} from 'recoil';
 
 const Notice = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const [language] = useRecoilValue(Language);
 
   const [hoverItem, setHoverItem] = useState();
@@ -51,7 +51,7 @@ const Notice = () => {
   const [itemList, setItemList] = useState([]);
 
   const [filteredList, setFilteredList] = useState([]);
-  const { data, isLoading: loading, refetch } = useNoticeList(searchValue, language, pageNumber);
+  const {data, isLoading: loading, refetch} = useNoticeList(searchValue, language, pageNumber);
   const [isLoading, setIsLoading] = useState(loading);
   const [viewMoreOn, setViewMoreOn] = useState(true);
 
@@ -59,7 +59,7 @@ const Notice = () => {
     if (pageNumber === 1) {
       const items = [];
       if (data?.data) {
-        data?.data.data.noticeDtoList.map((item) => {
+        data?.data.data.noticeDtoList.map(item => {
           items.push({
             id: item.id,
             date: item.day,
@@ -75,8 +75,8 @@ const Notice = () => {
     }
     if (pageNumber > 1) {
       if (data?.data?.success) {
-        data?.data.data.noticeDtoList.map((item) => {
-          setFilteredList((prev) => [
+        data?.data.data.noticeDtoList.map(item => {
+          setFilteredList(prev => [
             ...prev,
             {
               id: item.id,
@@ -139,7 +139,7 @@ const Notice = () => {
     }
   }, [id]);
 
-  const handleSearchClick = async (val) => {
+  const handleSearchClick = async val => {
     setPageNumber(1);
     refetch(1, language, val);
     setSearchTermShown(val);
@@ -162,10 +162,11 @@ const Notice = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span>NOTICE
+        <span style={{opacity: '0.8'}}>{`HOME > IR & PR > `}</span>
+        {t('notice.title')}
       </Path>
-      <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine $className="midsize">NOTICE</HeadLine>
+      <HomeComponentWrap style={{height: '100vh'}}>
+        <HeadLine $className="midsize">{t('notice.headline')}</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -177,7 +178,7 @@ const Notice = () => {
           }}
         />
       </HomeComponentWrap>
-      <div style={{ margin: '0', padding: '0', position: 'relative' }}>
+      <div style={{margin: '0', padding: '0', position: 'relative'}}>
         {detailPage ? (
           // rendering detail page and detail page footer navigation
           <>
@@ -186,13 +187,12 @@ const Notice = () => {
         ) : (
           <>
             <Desktop>
-              <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-                <TextWrap style={{ width: '70vw' }}>
+              <HomeComponentWrap style={{padding: '15vh 7vw'}}>
+                <TextWrap style={{width: '70vw'}}>
                   <Text
-                    style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}
+                    style={{fontSize: window.innerWidth > 1280 ? '26px' : '18px'}}
                     $fontWeight="300"
-                    $color="#939598"
-                  >
+                    $color="#939598">
                     {t('notice.title')}
                   </Text>
                   <div
@@ -202,19 +202,17 @@ const Notice = () => {
                       height: '2px',
                       border: '1px solid #ffffff',
                       margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                    }}
-                  ></div>
+                    }}></div>
                   <Text
                     $fontWeight="500"
                     $color="#ffffff"
-                    style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
-                  >
+                    style={{fontSize: window.innerWidth > 1280 ? '50px' : '34px'}}>
                     {t('notice.subtitle')}
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
               <HomeComponentWrap>
-                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
+                <ComponentWrap style={{justifyContent: 'center', alignItems: 'end'}}>
                   <ComponentWrap
                     style={{
                       width: '33.3%',
@@ -222,17 +220,16 @@ const Notice = () => {
                       color: '#ffffff',
                       borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                       padding: '0',
-                    }}
-                  >
+                    }}>
                     <SearchInput
                       placeholder={t('notice.placeholder')}
                       type="text"
                       value={searchValue}
-                      onChange={(e) => {
+                      onChange={e => {
                         setSearchValue(e.target.value);
                       }}
                       autoFocus={true}
-                      onKeyDown={(e) => {
+                      onKeyDown={e => {
                         if (e.key === 'Enter') {
                           handleSearchClick(e.target.value);
                         }
@@ -242,23 +239,21 @@ const Notice = () => {
                     <Image
                       src={search}
                       alt="search"
-                      onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
-                      style={{ height: window.innerWidth > 1280 ? '24px' : '12px' }}
+                      onClick={e => handleSearchClick(e.target.previousSibling.value)}
+                      style={{height: window.innerWidth > 1280 ? '24px' : '12px'}}
                     />
                   </ComponentWrap>
                 </ComponentWrap>
                 <ComponentWrap
-                  style={{ justifyContent: 'center', alignItems: 'center', padding: '5em 0', rowGap: '1em' }}
-                >
+                  style={{justifyContent: 'center', alignItems: 'center', padding: '5em 0', rowGap: '1em'}}>
                   {filteredList.length > 0 ? (
                     filteredList.map((item, index) => {
                       if (index < pageNumber * itemPerPage) {
                         return (
                           <Link
-                            style={{ textDecoration: 'none', width: '100%' }}
+                            style={{textDecoration: 'none', width: '100%'}}
                             key={'noticeItem' + item.id}
-                            to={`/irpr/notice/${item.id}`}
-                          >
+                            to={`/irpr/notice/${item.id}`}>
                             <RowWrap
                               onMouseOver={() => {
                                 setHoverItem(item.id);
@@ -272,8 +267,7 @@ const Notice = () => {
                               onClick={() => {
                                 setDetailPage(true);
                                 setCurrentItem(item);
-                              }}
-                            >
+                              }}>
                               <DateWrap>
                                 <Text className="date">{item.date}</Text>
                                 <Text className="month year">
@@ -282,7 +276,7 @@ const Notice = () => {
                                   {item.year}
                                 </Text>
                               </DateWrap>
-                              <TitleWrap style={{ overflow: 'hidden' }}>
+                              <TitleWrap style={{overflow: 'hidden'}}>
                                 <div
                                   className="ticker_item"
                                   style={{
@@ -291,8 +285,7 @@ const Notice = () => {
                                     height: '100%',
                                     overflow: 'hidden',
                                     whiteSpace: 'nowrap',
-                                  }}
-                                >
+                                  }}>
                                   {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 60)}...
                                 </div>
                               </TitleWrap>
@@ -301,8 +294,7 @@ const Notice = () => {
                                   display: 'flex',
                                   justifyContent: 'end',
                                   padding: window.innerWidth > 1280 ? '1em 3em 1em 0' : '0',
-                                }}
-                              >
+                                }}>
                                 <Image
                                   style={{
                                     padding: window.innerWidth > 1280 ? '1em 2em' : '0.5em 2em',
@@ -320,12 +312,14 @@ const Notice = () => {
                       }
                     })
                   ) : (
-                    <ComponentWrap style={{ gap: '2em', height: '50vh', justifyContent: 'center' }}>
+                    <ComponentWrap style={{gap: '2em', height: '50vh', justifyContent: 'center'}}>
                       <HR />
                       {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
-                        <Text>There are no published posts registered.</Text>
+                        <Text>{t('notice.nothing')}</Text>
                       ) : (
-                        <Text>No result found for '{searchTermShown}'</Text>
+                        <Text>
+                          {t('notice.searchNothing')} '{searchTermShown}'
+                        </Text>
                       )}
                     </ComponentWrap>
                   )}
@@ -343,10 +337,9 @@ const Notice = () => {
                       if (pageNumber * itemPerPage <= filteredList.length) {
                         setPageNumber(pageNumber + 1);
                       }
-                    }}
-                  >
+                    }}>
                     <Image
-                      style={{ zIndex: '-1', height: window.innerWidth > 1280 ? '40px' : '24px' }}
+                      style={{zIndex: '-1', height: window.innerWidth > 1280 ? '40px' : '24px'}}
                       src={icon_more}
                       alt="more"
                     />
@@ -356,9 +349,8 @@ const Notice = () => {
                         width: 'fit-content',
                         margin: '0.5em',
                         fontSize: window.innerWidth > 1280 ? '26px' : '15px',
-                      }}
-                    >
-                      View more
+                      }}>
+                      {t('notice.more')}
                     </Text>
                   </div>
                 )}
@@ -366,13 +358,12 @@ const Notice = () => {
             </Desktop>
             <Mobile>
               <HomeComponentWrap>
-                <TextWrap style={{ width: '90vw' }}>
+                <TextWrap style={{width: '90vw'}}>
                   <Text
                     $fontSize="16px"
                     $fontWeight="300"
                     $color="#939598"
-                    style={{ marginBottom: '0', fontSize: '16px' }}
-                  >
+                    style={{marginBottom: '0', fontSize: '16px'}}>
                     {t('notice.title')}
                   </Text>
                   <div
@@ -382,15 +373,14 @@ const Notice = () => {
                       height: '1px',
                       border: '1px solid #ffffff',
                       margin: '28px 0',
-                    }}
-                  ></div>
-                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ fontSize: '23px' }}>
-                    <Trans i18nKey="notice.subtitle_m" components={{ 1: <br /> }} />
+                    }}></div>
+                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{fontSize: '23px'}}>
+                    <Trans i18nKey="notice.subtitle_m" components={{1: <br />}} />
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
               <HomeComponentWrap>
-                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
+                <ComponentWrap style={{justifyContent: 'center', alignItems: 'end'}}>
                   <ComponentWrap
                     style={{
                       width: '100%',
@@ -398,17 +388,16 @@ const Notice = () => {
                       color: '#ffffff',
                       borderBottom: '1px solid #ffffff',
                       padding: '0',
-                    }}
-                  >
+                    }}>
                     <SearchInput
                       placeholder={t('notice.placeholder')}
                       type="text"
                       value={searchValue}
-                      onChange={(e) => {
+                      onChange={e => {
                         setSearchValue(e.target.value);
                       }}
                       autoFocus={false}
-                      onKeyDown={(e) => {
+                      onKeyDown={e => {
                         if (e.key === 'Enter') {
                           handleSearchClick(e.target.value);
                         }
@@ -418,23 +407,21 @@ const Notice = () => {
                     <Image
                       src={search}
                       alt="search"
-                      onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
-                      style={{ height: '20px' }}
+                      onClick={e => handleSearchClick(e.target.previousSibling.value)}
+                      style={{height: window.innerWidth > 1280 ? '24px' : '12px'}}
                     />
                   </ComponentWrap>
                 </ComponentWrap>
                 <ComponentWrap
-                  style={{ justifyContent: 'center', alignItems: 'center', padding: '100px 0 4rem 0', gap: '18px' }}
-                >
+                  style={{justifyContent: 'center', alignItems: 'center', padding: '100px 0 4rem 0', gap: '18px'}}>
                   {filteredList.length > 0 ? (
                     filteredList.map((item, index) => {
                       if (index < pageNumber * itemPerPage) {
                         return (
                           <Link
-                            style={{ textDecoration: 'none', width: '100%' }}
+                            style={{textDecoration: 'none', width: '100%'}}
                             key={'noticeItem' + item.id}
-                            to={`/irpr/notice/${item.id}`}
-                          >
+                            to={`/irpr/notice/${item.id}`}>
                             <RowWrap
                               onMouseOver={() => {
                                 setHoverItem(item.id);
@@ -448,12 +435,11 @@ const Notice = () => {
                               onClick={() => {
                                 setDetailPage(true);
                                 setCurrentItem(item);
-                              }}
-                            >
+                              }}>
                               <DateWrap>
                                 <Text className="date">{`${item.month} ${item.date}, ${item.year}`}</Text>
                               </DateWrap>
-                              <TitleWrap style={{ overflow: 'hidden' }}>
+                              <TitleWrap style={{overflow: 'hidden'}}>
                                 <div
                                   className="ticker_item"
                                   style={{
@@ -464,13 +450,12 @@ const Notice = () => {
                                     whiteSpace: 'nowrap',
                                     marginRight: '1rem',
                                     fontSize: '18px',
-                                  }}
-                                >
+                                  }}>
                                   {item.title.slice(0, 25)}...
                                 </div>
 
                                 <Image
-                                  style={{ padding: '0', cursor: 'pointer', height: '20px' }}
+                                  style={{padding: '0', cursor: 'pointer', height: '20px'}}
                                   src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
                                   alt="icon_circlearrow_dark"
                                 />
@@ -481,12 +466,14 @@ const Notice = () => {
                       }
                     })
                   ) : (
-                    <ComponentWrap style={{ gap: '2em', height: '30vh', justifyContent: 'center' }}>
-                      <HR style={{ width: '24px', height: '1px' }} />
+                    <ComponentWrap style={{gap: '2em', height: '30vh', justifyContent: 'center'}}>
+                      <HR style={{width: '24px', height: '1px'}} />
                       {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
-                        <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                        <Text style={{fontSize: '16px'}}>{t('notice.nothing')}</Text>
                       ) : (
-                        <Text style={{ fontSize: '16px' }}>No result found for '{searchTermShown}'</Text>
+                        <Text style={{fontSize: '16px'}}>
+                          {t('notice.searchNothing')}'{searchTermShown}'
+                        </Text>
                       )}
                     </ComponentWrap>
                   )}
@@ -504,11 +491,10 @@ const Notice = () => {
                       if (pageNumber * itemPerPage <= filteredList.length) {
                         setPageNumber(pageNumber + 1);
                       }
-                    }}
-                  >
-                    <Image style={{ zIndex: '-1', height: '24px' }} src={icon_more} alt="more" />
-                    <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
-                      View more
+                    }}>
+                    <Image style={{zIndex: '-1', height: '24px'}} src={icon_more} alt="more" />
+                    <Text style={{zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px'}}>
+                      {t('notice.more')}
                     </Text>
                   </div>
                 )}

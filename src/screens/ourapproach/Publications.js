@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -6,15 +6,15 @@ import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 import docthumbnail from './assets/ourapproach_docthumbnail.png';
 import search from './assets/icon_search.svg';
 
-import { Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, GridComponentWrap, Image } from './style';
+import {Container, HomeComponentWrap, TextWrap, Text, ComponentWrap, GridComponentWrap, Image} from './style';
 
-import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
-import { Desktop, Mobile } from '../../utils/MediaQuery';
+import {HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap} from '../../components/style';
+import {Desktop, Mobile} from '../../utils/MediaQuery';
 import usePublicationList from '../../hooks/ourapproach/usePublication';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import Video from '../../components/Video';
-import { t } from 'i18next';
+import {t} from 'i18next';
 
 const SearchInput = styled.input`
   width: 100%;
@@ -66,10 +66,10 @@ export const NoResult = styled.div`
 const Dot = styled.div`
   width: 1rem;
   height: 1rem;
-  background-color: ${(props) => props.$color};
+  background-color: ${props => props.$color};
   border-radius: 50%;
 
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 900px) {
     width: 14px;
     height: 14px;
   }
@@ -78,7 +78,7 @@ const Dot = styled.div`
 const DocType = styled.span`
   width: 'fit-content';
   height: 'fit-content';
-  background-color: ${(props) => props.$color};
+  background-color: ${props => props.$color};
   border: 1px solid #646464;
   border-radius: 999px;
   padding: 0.25rem 0.75rem;
@@ -102,7 +102,7 @@ const DocType = styled.span`
 
 const Publications = () => {
   const navigate = useNavigate();
-  const { data, isLoading } = usePublicationList();
+  const {data, isLoading} = usePublicationList();
   const [searchValue, setSearchValue] = useState('');
   const [irDocs, setIrDocs] = useState([]);
   const [filteredList, setFilteredList] = useState(irDocs);
@@ -112,7 +112,7 @@ const Publications = () => {
     let itemList = [];
     if (data?.data?.success) {
       console.log(data.data.dataList);
-      data.data.dataList.map((item) => {
+      data.data.dataList.map(item => {
         itemList.push({
           id: item.id,
           // Unescape new line characters
@@ -134,13 +134,13 @@ const Publications = () => {
     document.querySelector('.container')?.scrollTo(0, 0);
   }, []);
 
-  const handleChange = async (e) => {
+  const handleChange = async e => {
     setSearchValue(e.target.value);
   };
 
-  const handleSearchClick = async (e) => {
+  const handleSearchClick = async e => {
     const filtered = await dataList.filter(
-      (doc) =>
+      doc =>
         doc.title?.toLowerCase()?.includes(searchValue?.toLowerCase()) ||
         doc.journal?.toLowerCase()?.includes(searchValue?.toLowerCase()),
     );
@@ -164,15 +164,14 @@ const Publications = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.8' }}>{`HOME > OUR APPROACH > `}</span>PUBLICATIONS
+        <span style={{opacity: '0.8'}}>{`HOME > OUR APPROACH > `}</span>PUBLICATIONS
       </Path>
-      <HomeComponentWrap style={{ height: '100vh' }}>
+      <HomeComponentWrap style={{height: '100vh'}}>
         <HeadLine
           $className="midsize"
           style={{
             fontSize: window.innerWidth < 900 && 46,
-          }}
-        >
+          }}>
           {t('publication.headline')}
         </HeadLine>
         <img
@@ -186,10 +185,10 @@ const Publications = () => {
           }}
         />
       </HomeComponentWrap>
-      <div style={{ margin: '0', padding: '0', position: 'relative' }}>
+      <div style={{margin: '0', padding: '0', position: 'relative'}}>
         <Desktop>
           <HomeComponentWrap>
-            <TextWrap style={{ margin: '0' }}>
+            <TextWrap style={{margin: '0'}}>
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
                 {t('publication.title')}
               </Text>
@@ -200,20 +199,17 @@ const Publications = () => {
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                }}
-              ></div>
+                }}></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
                 $color="#ffffff"
-                style={{ margin: '0' }}
-              >
+                style={{margin: '0'}}>
                 {t('publication.subtitle')}
               </Text>
             </TextWrap>
             <GridComponentWrap
-              style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: '3rem', minHeight: '50vh' }}
-            >
+              style={{display: 'grid', gridTemplateColumns: '1fr 1fr', columnGap: '3rem', minHeight: '50vh'}}>
               <ComponentWrap></ComponentWrap>
 
               <ComponentWrap
@@ -224,8 +220,7 @@ const Publications = () => {
                   justifyContent: 'end',
                   alignItems: 'center',
                   width: '100%',
-                }}
-              >
+                }}>
                 <div
                   style={{
                     display: 'flex',
@@ -238,29 +233,28 @@ const Publications = () => {
                     padding: '0',
                     justifyContents: 'center',
                     alignItems: 'center',
-                  }}
-                >
+                  }}>
                   <SearchInput
                     placeholder={t('publication.search')}
                     type="text"
                     value={searchValue}
-                    onChange={(e) => {
+                    onChange={e => {
                       handleChange(e);
                     }}
-                    onKeyDown={(e) => {
+                    onKeyDown={e => {
                       if (e.key === 'Enter') {
                         handleSearchClick(e);
                       }
                     }}
-                    style={{ opacity: searchValue ? '100%' : '50%' }}
+                    style={{opacity: searchValue ? '100%' : '50%'}}
                   />
                   <Image
                     src={search}
-                    onClick={(e) => {
+                    onClick={e => {
                       handleSearchClick(e);
                     }}
                     alt="search"
-                    style={{ height: window.innerWidth > 1280 ? '24px' : '12px' }}
+                    style={{height: window.innerWidth > 1280 ? '24px' : '12px'}}
                   />
                 </div>
               </ComponentWrap>
@@ -273,8 +267,7 @@ const Publications = () => {
                   gap: '1rem',
                   margin: '1rem',
                   padding: '60px 0 40px 0',
-                }}
-              >
+                }}>
                 <Dot
                   $color="#004D76"
                   style={{
@@ -287,8 +280,7 @@ const Publications = () => {
                     marginRight: '1rem',
                     fontSize: window.innerWidth > 1280 ? '20px' : '14px',
                     color: '#E6E6E6',
-                  }}
-                >
+                  }}>
                   Publication
                 </span>
                 <Dot
@@ -298,26 +290,24 @@ const Publications = () => {
                     height: window.innerWidth > 1280 ? '14px' : '10px',
                   }}
                 />{' '}
-                <span style={{ fontSize: window.innerWidth > 1280 ? '20px' : '14px', color: '#E6E6E6' }}>
+                <span style={{fontSize: window.innerWidth > 1280 ? '20px' : '14px', color: '#E6E6E6'}}>
                   Presentation
                 </span>
               </ComponentWrap>
-              <ComponentWrap style={{ padding: '60px 0' }}></ComponentWrap>
+              <ComponentWrap style={{padding: '60px 0'}}></ComponentWrap>
               {filteredList.length > 0 ? (
                 filteredList.map((doc, index) => (
                   <ComponentWrap
                     key={doc.title + index}
                     className="irdoc"
-                    style={{ justifyContent: 'center', alignItems: 'start', padding: '32px' }}
-                  >
+                    style={{justifyContent: 'center', alignItems: 'start', padding: '32px'}}>
                     <div
                       className="readmore"
                       onClick={() => {
                         setTimeout(() => {
                           doc.url && window.open(`${doc.url}`, '_blank');
                         }, 10);
-                      }}
-                    >
+                      }}>
                       <img
                         src={process.env.PUBLIC_URL + '/assets/icons/plus.svg'}
                         alt="read more"
@@ -333,13 +323,12 @@ const Publications = () => {
                           cursor: 'pointer',
                           zIndex: '-1',
                           fontSize: window.innerWidth > 1280 ? '26px' : '15px',
-                        }}
-                      >
+                        }}>
                         Read More
                       </span>
                     </div>
-                    <div className="wrap" style={{ alignItems: 'stretch' }}>
-                      <div style={{ padding: '1rem' }}>
+                    <div className="wrap" style={{alignItems: 'stretch'}}>
+                      <div style={{padding: '1rem'}}>
                         <Image
                           src={doc.image}
                           alt="doc"
@@ -361,8 +350,7 @@ const Publications = () => {
                             alignItems: 'start',
                             color: '#CECECE',
                             wordBreak: 'break-all',
-                          }}
-                        >
+                          }}>
                           {doc.journal.slice(0, 58)}
                           {doc.journal.length > 58 && '...'}
                         </Text>
@@ -379,8 +367,7 @@ const Publications = () => {
                             alignItems: 'start',
                             wordBreak: 'break-all',
                             paddingRight: window.innerWidth > 1280 ? '80px' : '100px',
-                          }}
-                        >
+                          }}>
                           {doc.title.slice(0, 85)}
                           {doc.title.length > 85 && '...'}
                         </Text>
@@ -396,8 +383,7 @@ const Publications = () => {
                             alignItems: 'center',
                             margin: '0.5rem 0',
                             fontSize: window.innerWidth > 1280 ? '18px' : '10px',
-                          }}
-                        >
+                          }}>
                           <span>{doc.date}</span>
                           {doc.type === 'CONFERENCE' ? (
                             <DocType
@@ -407,8 +393,7 @@ const Publications = () => {
                                 height: window.innerWidth > 1280 ? '36px' : '24px',
                                 padding: '0',
                                 fontSize: window.innerWidth > 1280 ? '18px' : '13px',
-                              }}
-                            >
+                              }}>
                               Presentation
                             </DocType>
                           ) : (
@@ -419,8 +404,7 @@ const Publications = () => {
                                 height: window.innerWidth > 1280 ? '36px' : '24px',
                                 padding: '0',
                                 fontSize: window.innerWidth > 1280 ? '18px' : '13px',
-                              }}
-                            >
+                              }}>
                               Publications
                             </DocType>
                           )}
@@ -438,8 +422,8 @@ const Publications = () => {
 
         <Mobile>
           <HomeComponentWrap>
-            <TextWrap style={{ margin: '0' }}>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0' }}>
+            <TextWrap style={{margin: '0'}}>
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{marginBottom: '0'}}>
                 {t('publication.title')}
               </Text>
               <div
@@ -449,15 +433,13 @@ const Publications = () => {
                   height: '1px',
                   border: '1px solid #ffffff',
                   margin: '28px 0',
-                }}
-              ></div>
-              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{ margin: '0' }}>
+                }}></div>
+              <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{margin: '0'}}>
                 {t('publication.subtitle')}
               </Text>
             </TextWrap>
             <GridComponentWrap
-              style={{ display: 'grid', gridTemplateColumns: '1fr', rowGap: '0', minHeight: '50vh', width: '90vw' }}
-            >
+              style={{display: 'grid', gridTemplateColumns: '1fr', rowGap: '0', minHeight: '50vh', width: '90vw'}}>
               <ComponentWrap
                 style={{
                   display: 'flex',
@@ -467,18 +449,17 @@ const Publications = () => {
                   borderBottom: '1px solid #ffffff',
                   padding: '0',
                   width: window.innerWidth > 400 ? '322px' : '90vw',
-                }}
-              >
+                }}>
                 {/* <div style={{display: "flex", flexDirection: "row", width: window.innerWidth > 400 ? "322px" : "90vw"}}> */}
                 <SearchInput
                   placeholder={t('publication.search')}
                   type="text"
                   value={searchValue}
-                  style={{ fontSize: '18px', width: window.innerWidth > 400 ? '322px' : 'calc(90vw-24px)' }}
-                  onChange={(e) => {
+                  style={{fontSize: '18px', width: window.innerWidth > 400 ? '322px' : 'calc(90vw-24px)'}}
+                  onChange={e => {
                     handleChange(e);
                   }}
-                  onKeyDown={(e) => {
+                  onKeyDown={e => {
                     if (e.key === 'Enter') {
                       handleSearchClick(e);
                     }
@@ -486,7 +467,7 @@ const Publications = () => {
                 />
                 <Image
                   src={search}
-                  onClick={(e) => {
+                  onClick={e => {
                     handleSearchClick(e);
                   }}
                   alt="search"
@@ -501,39 +482,35 @@ const Publications = () => {
                   padding: '0',
                   width: '100%',
                   gap: '1rem',
-                }}
-              >
+                }}>
                 <Dot $color="#004D76" />
-                <span style={{ fontSize: '18px', marginRight: '1rem' }}>Publications</span>
+                <span style={{fontSize: '18px', marginRight: '1rem'}}>Publications</span>
                 <Dot $color="#760027" />
-                <span style={{ fontSize: '18px', marginRight: '1rem' }}>Presentations</span>
+                <span style={{fontSize: '18px', marginRight: '1rem'}}>Presentations</span>
               </ComponentWrap>
               {filteredList.length > 0 ? (
                 filteredList.map((doc, index) => (
                   <ComponentWrap
                     key={doc.title + index}
                     className="irdoc"
-                    style={{ justifyContent: 'center', alignItems: 'start', padding: '1rem', borderRadius: '10px' }}
-                  >
+                    style={{justifyContent: 'center', alignItems: 'start', padding: '1rem', borderRadius: '10px'}}>
                     <div
                       className="readmore"
                       onClick={() => {
                         setTimeout(() => {
                           doc.url && window.open(`${doc.url}`, '_blank');
                         }, 10);
-                      }}
-                    >
+                      }}>
                       <img
                         src={process.env.PUBLIC_URL + '/assets/icons/plus.svg'}
                         alt="read more"
-                        style={{ cursor: 'pointer', zIndex: '-1' }}
+                        style={{cursor: 'pointer', zIndex: '-1'}}
                       />
-                      <span style={{ fontSize: '16px', cursor: 'pointer', zIndex: '-1' }}>Read More</span>
+                      <span style={{fontSize: '16px', cursor: 'pointer', zIndex: '-1'}}>Read More</span>
                     </div>
                     <div
                       className="wrap"
-                      style={{ alignItems: 'stretch', gridTemplateColumns: '25vw 50vw', overflow: 'hidden' }}
-                    >
+                      style={{alignItems: 'stretch', gridTemplateColumns: '25vw 50vw', overflow: 'hidden'}}>
                       <div
                         style={{
                           position: 'relative',
@@ -542,16 +519,15 @@ const Publications = () => {
                           justifyContent: 'center',
                           alignItems: 'center',
                           padding: '0',
-                        }}
-                      >
+                        }}>
                         {doc.type === 'CONFERENCE' ? (
                           <DocType $color={'#430016'}>Conf</DocType>
                         ) : (
                           <DocType $color={'#012438'}>Pub</DocType>
                         )}
-                        <Image src={doc.image} alt="doc" style={{ width: '60px', height: '60px' }} />
+                        <Image src={doc.image} alt="doc" style={{width: '60px', height: '60px'}} />
                       </div>
-                      <div style={{ alignItems: 'start' }}>
+                      <div style={{alignItems: 'start'}}>
                         <Text
                           className="text"
                           $fontWeight="300"
@@ -565,8 +541,7 @@ const Publications = () => {
                             alignItems: 'start',
                             textAlign: 'start',
                             whiteSpace: 'nowrap',
-                          }}
-                        >
+                          }}>
                           {doc.journal.slice(0, 25)}...
                         </Text>
                         <Text
@@ -581,8 +556,7 @@ const Publications = () => {
                             textAlign: 'start',
                             flexWrap: 'wrap',
                             lineHeight: '22px',
-                          }}
-                        >
+                          }}>
                           {doc.title.slice(0, 50)}
                           {doc.title.length > 50 && '...'}
                         </Text>
@@ -599,8 +573,7 @@ const Publications = () => {
                             margin: '0.5rem 0',
                             fontSize: '12px',
                             width: 'fit-content',
-                          }}
-                        >
+                          }}>
                           <span>{doc.date}</span>
                         </Text>
                       </div>

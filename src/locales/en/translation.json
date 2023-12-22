@@ -1,4 +1,17 @@
 {
+  "footer": {
+    "contact": "CONTACT US",
+    "policy": "Privacy Policy",
+    "copyright": "© 2023 by ARIBIO. All Rights Reserved.",
+    "address": {
+      "head": "Head Office.",
+      "us": "US Office."
+    }
+  },
+  "modal": {
+    "deny": "Don't show this again",
+    "close": "Close"
+  },
   "home": {
     "aboutus": {
       "1": "AriBio aims to develop a meaningful therapies",
@@ -22,7 +35,7 @@
       "desc_3": "Join Us at the Forefront of Neurodegenerative Solutions"
     },
     "media_kit": {
-      "title": "Media Kit",
+      "subtitle": "Media Kit",
       "content": "Explore Our Content",
       "viewall": "Media"
     },
@@ -91,14 +104,35 @@
     "desc2": "AriBio is at the forefront of innovative <1/> drug development for neurodegenerative diseases.",
     "desc3": "As the founder of AriBio, I have spent the <1/> past 35 years devoted to the research and <1/> development of new treatments for patients. <1/> With these experiences, I established AriBio <1/> in 2010 with the core purpose of developing <1/> meaningful therapies for neurodegenerative <1/> diseases. The loss of memory due to <1/> dementia is a process that denies a person’s <1/> dignity and life, impacting not only to the <1/> patient, but also the family members who <1/> care for them. Although it has been 110 years <1/> since the discovery of Alzheimer’s disease, <1/> pharmaceutical companies still face the <1/> highest failure rate in developing treatments. <1/> Yet, AriBio is determined to tackle this <1/> challenge with a bold vision and unwavering <1/> determination. <1/> Over the past decade, we have developed <1/> an innovative pipeline that enables us <1/> to develop new drugs quickly and <1/> cost-effectively. <1/> <1/> At AriBio, developing new treatments is like <1/> stargazing across the night sky, plotting our <1/> course through the vast unknown. <1/> Our team shares a common mission, <1/> steadily working towards our goal despite <1/> the cosmic uncertainties and challenges <1/> that may arise."
   },
+  "history": {
+    "headline": "HISTORY",
+    "title": "HISTORY"
+  },
   "ci": {
     "headline": "CORPORATE<1 />IDENTITY",
     "title": "CORPORATE IDENTITY",
     "subtitle": "AriBio CI",
+    "color": {
+      "blue": "AriBio Blue",
+      "pink": "AriBio Pink",
+      "gray": "AriBio Gray"
+    },
+    "content": {
+      "ari": {
+        "title": "Ari:",
+        "desc": "Traditional Korean term for ‘Wide and Deep, Beauty, A Person with Wisdom’"
+      },
+      "bio": {
+        "title": "Bio:",
+        "desc": "Derived from the Greek word ‘bios’ meaning ‘life’"
+      }
+    },
+    "dl": {
+      "ai": "AI download",
+      "png": "PNG download"
+    },
     "desc1": "We are dedicated to pioneering treatments neurodegenerative diseases,<1/> offering innovative therapies for a brighter future.",
-    "desc2": "‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable diseases and become a biopharmaceutical leader of South Korea.",
-    "ari": "Traditional Korean term for ‘Wide and Deep, Beauty, A Person with Wisdom’",
-    "bio": "Derived from the Greek word ‘bios’ meaning ‘life’"
+    "desc2": "‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable diseases and become a biopharmaceutical leader of South Korea."
   },
   "ci_m": {
     "desc1": " We are dedicated to pioneering <1/> treatments for neurodegenerative <1/> diseases, offering innovative <1/> therapies for a brighter future.",
@@ -166,7 +200,10 @@
     "title": "NOTICE",
     "subtitle": "Company Updates and Announcements",
     "subtitle_m": "Company Updates <1/> and Announcements",
-    "placeholder": "Please enter a search term."
+    "placeholder": "Please enter a search term.",
+    "nothing": "There are no published posts registered.",
+    "searchNothing": "No result found for",
+    "more": "View more"
   },
   "press": {
     "headline": "PRESS RELEASE",
@@ -184,6 +221,11 @@
     "title": "CAREER",
     "subtitle": "Join Us at the Forefront of <1/> Neurodegenerative Solutions",
     "desc1": "Our dedicated team is set on discovering transformative treatments. <1/> We invite innovative minds to join our mission. <1/> Together, let’s usher in a new era of therapeutic breakthroughs for those in need. <1/>",
+    "detail": {
+      "back": "Back",
+      "apply": "Apply for this job"
+    },
+    "join": "Join Us!",
     "corevalue": {
       "title": "Core Values",
       "subtitle1": "Patient-Centered",
@@ -249,7 +291,8 @@
       "desc4-5": "Pleasant working environment provided"
     },
     "buttons": {
-      "meetourleadership": "Meet Our Leadership"
+      "meetourleadership": "Meet Our Leadership",
+      "linked": "Linked-In"
     }
   },
   "career_m": {
@@ -260,10 +303,14 @@
     "title": "PARTNER",
     "subtitle": "Current Partnerships",
     "desc": "Aligned in our mission, we focus on addressing the challenges of neurodegeneration <1/> with our collaborative network spanning academia, industry, and patient advocacy groups worldwide. <1/> Our goal is to be a trusted partner to all.",
-    "desc_m": "Aligned in our mission, <1 /> we focus on addressing <1 /> the challenges of neurodegeneration <1 /> with our collaborative network spanning <1 /> academia, industry, and patient <1 /> advocacy groups worldwide. <1 /> Our goal is to be a trusted partner to all."
+    "desc_m": "Aligned in our mission, <1 /> we focus on addressing <1 /> the challenges of neurodegeneration <1 /> with our collaborative network spanning <1 /> academia, industry, and patient <1 /> advocacy groups worldwide. <1 /> Our goal is to be a trusted partner to all.",
+    "buttons": {
+      "contact": "CONTACT US"
+    }
   },
   "contact": {
-    "headline": "CONTACT",
+    "headline": "CONTACT US",
+    "headline_m": "CONTACT<1/>US",
     "title": "CONTACT US",
     "subtitle": "We Look Forward to Hearing From You",
     "desc": "We look forward <1/>to hearing from you.",
@@ -275,6 +322,7 @@
     "affiliation": "Affiliation",
     "message": "Message",
     "success": "Form has been submitted successfully!",
+    "emailError": "Please include @ in your email address.",
     "error": "Sorry, there was an error submitting the form. Please try again.",
     "error_m": "Sorry, <1 /> there was an error submitting the form. <1 /> Please try again.",
     "required": "this field is required",

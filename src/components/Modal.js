@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { Desktop, Mobile } from '../utils/MediaQuery';
-import { useRecoilState } from 'recoil';
+import {Desktop, Mobile} from '../utils/MediaQuery';
+import {useRecoilState} from 'recoil';
 import Language from '../atom/Language';
 import ModalClose from '../atom/ModalClose';
-
+import {t} from 'i18next';
 import usePopup from '../hooks/popup/usePopup';
 
 const ModalContainer = styled.div`
@@ -19,7 +19,7 @@ const Modal = () => {
   const [language, setLanguage] = useRecoilState(Language);
   const [modalClose, setModalClose] = useRecoilState(ModalClose);
   const [modalData, setModalData] = useState();
-  const { data: popupData } = usePopup(language);
+  const {data: popupData} = usePopup(language);
 
   useEffect(() => {
     popupData?.data?.dataList.length > 0 && setModalData(popupData?.data?.dataList);
@@ -29,7 +29,7 @@ const Modal = () => {
     <>
       <Desktop>
         {modalData?.map(
-          (data) =>
+          data =>
             localStorage.getItem('modal' + data.id) !== 'false' &&
             data?.language?.slice(0, 3) === language &&
             !modalClose?.includes(data.id) &&
@@ -44,9 +44,8 @@ const Modal = () => {
                   borderRadius: '5px',
                   overflow: 'auto',
                 }}
-                key={data.id}
-              >
-                <h2 style={{ backgroundColor: '#121212', color: '#989898', width: '100%', padding: '0 10px' }}>
+                key={data.id}>
+                <h2 style={{backgroundColor: '#121212', color: '#989898', width: '100%', padding: '0 10px'}}>
                   {data.title}
                 </h2>
                 <div
@@ -57,8 +56,7 @@ const Modal = () => {
                     height: '100%',
                     padding: '20px 10px 10px 10px',
                     borderRadius: '5px',
-                  }}
-                >
+                  }}>
                   <img
                     src={data.fileDto.fileUrl}
                     alt={data.title}
@@ -78,22 +76,19 @@ const Modal = () => {
                       width: '100%',
                       marginTop: '20px',
                       gap: '20px',
-                    }}
-                  >
+                    }}>
                     <button
                       onClick={() => {
                         window.localStorage.setItem('modal' + data.id, 'false');
                         setModalClose([...modalClose, data.id]);
                       }}
-                      style={{ borderRadius: '5px', border: '1px solid #121212', padding: '5px 10px' }}
-                    >
-                      Don't show this again
+                      style={{borderRadius: '5px', border: '1px solid #121212', padding: '5px 10px'}}>
+                      {t('modal.deny')}
                     </button>
                     <button
                       onClick={() => setModalClose([...modalClose, data.id])}
-                      style={{ borderRadius: '5px', border: '1px solid #121212', padding: '5px 10px' }}
-                    >
-                      Close
+                      style={{borderRadius: '5px', border: '1px solid #121212', padding: '5px 10px'}}>
+                      {t('modal.close')}
                     </button>
                   </p>
                 </div>
@@ -119,8 +114,7 @@ const Modal = () => {
                   backgroundColor: '#121212',
                   overflow: 'auto',
                 }}
-                key={data.id}
-              >
+                key={data.id}>
                 <div
                   style={{
                     display: 'flex',
@@ -131,15 +125,14 @@ const Modal = () => {
                     width: '100%',
                     height: '100%',
                     borderRadius: '5px',
-                  }}
-                >
-                  <h2 style={{ backgroundColor: '#121212', color: '#989898', width: 'auto', padding: '5px 10px' }}>
+                  }}>
+                  <h2 style={{backgroundColor: '#121212', color: '#989898', width: 'auto', padding: '5px 10px'}}>
                     {data.title}
                   </h2>
                   <img
                     src={data.fileDto.fileUrl}
                     alt={data.title}
-                    style={{ width: '100%', height: '100%' }}
+                    style={{width: '100%', height: '100%'}}
                     onClick={() => {
                       setTimeout(() => {
                         data?.link && window.open(`${data?.link}`, '_blank');
@@ -153,8 +146,7 @@ const Modal = () => {
                       justifyContent: 'space-between',
                       width: '100%',
                       gap: '20px',
-                    }}
-                  >
+                    }}>
                     <button
                       onClick={() => {
                         window.localStorage.setItem('modal' + data.id, 'false');
@@ -165,9 +157,8 @@ const Modal = () => {
                         borderRadius: '5px',
                         border: '1px solid #989898',
                         padding: '5px 10px',
-                      }}
-                    >
-                      Don't show this again
+                      }}>
+                      {t('modal.deny')}
                     </button>
                     <button
                       onClick={() => setModalClose([...modalClose, data.id])}
@@ -176,9 +167,8 @@ const Modal = () => {
                         borderRadius: '5px',
                         border: '1px solid #989898',
                         padding: '5px 10px',
-                      }}
-                    >
-                      Close
+                      }}>
+                      {t('modal.close')}
                     </button>
                   </p>
                 </div>

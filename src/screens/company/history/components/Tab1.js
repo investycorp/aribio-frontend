@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import browser from 'browser-detect';
 import styled from 'styled-components';
 import sidebar from '../assets/history_sidebar.svg';
@@ -13,7 +13,7 @@ import m_whitedot from '../assets/whitedot.svg';
 import m_graydot from '../assets/graydot.svg';
 import m_reddot from '../../../../assets/images/reddot.svg';
 
-import { Desktop, Mobile } from '../../../../utils/MediaQuery';
+import {Desktop, Mobile} from '../../../../utils/MediaQuery';
 
 const HomeComponentWrap = styled.div`
   position: relative;
@@ -36,14 +36,14 @@ const HomeComponentWrap = styled.div`
 
 const Text = styled.div`
   width: fit-content;
-  font-size: ${(props) => (props.$isActive ? '50px' : '24px')};
-  font-weight: ${(props) => (props.$isActive ? '500' : '300')};
-  color: ${(props) => (props.$isActive ? '#ffffff' : 'rgba(203,203,203,0.5)')};
-  line-height: ${(props) => (props.$isActive ? '3rem' : '2rem')};
+  font-size: ${props => (props.$isActive ? '50px' : '24px')};
+  font-weight: ${props => (props.$isActive ? '500' : '300')};
+  color: ${props => (props.$isActive ? '#ffffff' : 'rgba(203,203,203,0.5)')};
+  line-height: ${props => (props.$isActive ? '3rem' : '2rem')};
   display: flex;
   justify-content: center;
   align-items: start;
-  text-align: ${(props) => (props.$align ? props.$align : 'start')};
+  text-align: ${props => (props.$align ? props.$align : 'start')};
   transition: all 0.2s linear;
   cursor: pointer;
   &:hover {
@@ -52,7 +52,7 @@ const Text = styled.div`
     font-size: 50px;
   }
   @media screen and (max-width: 1280px) {
-    font-size: ${(props) => (props.$isActive ? '30px' : '14px')};
+    font-size: ${props => (props.$isActive ? '30px' : '14px')};
     &:hover {
       color: #ffffff;
       font-weight: 500;
@@ -125,7 +125,7 @@ const Image = styled.img`
   align-items: center;
   z-index: 10;
   border-radius: 50%;
-  border: ${(props) => (props.$isActive ? '2px solid #848484' : '2px solid transparent')};
+  border: ${props => (props.$isActive ? '2px solid #848484' : '2px solid transparent')};
   transition: border 0.3s ease-in-out;
 
   @media screen and (max-width: 1280px) {
@@ -134,7 +134,7 @@ const Image = styled.img`
     height: 6px;
   }
 
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 900px) {
     border-width: 1px;
     width: 8px;
     height: 8px;
@@ -174,7 +174,7 @@ const DescriptionWrap = styled.ul`
   padding: 1.5em;
   transition: all 0.2s ease-in-out;
   margin-bottom: 1em;
-  color: ${(props) => (props.$isActive ? '#ffffff' : 'rgba(203,203,203,0.5)')};
+  color: ${props => (props.$isActive ? '#ffffff' : 'rgba(203,203,203,0.5)')};
 
   ${DescriptionItem} {
     font-weight: 200;
@@ -197,7 +197,7 @@ const DescriptionWrap = styled.ul`
   }
 `;
 
-const Tab1 = ({ listItems, index }) => {
+const Tab1 = ({listItems, index}) => {
   const browserInfo = browser();
   const [tabNames, setTabNames] = useState([]);
 
@@ -211,7 +211,7 @@ const Tab1 = ({ listItems, index }) => {
       //Desktop
       if (window.innerWidth > 900) {
         const scrollY = document.getElementsByClassName('description-grid')[0];
-        listItems.forEach((element) => {
+        listItems.forEach(element => {
           const elementTop = document.getElementsByClassName(element.title)[0]?.offsetTop;
           // 비율을 늘리거나, 빼는 값을 줄임
           if (elementTop - scrollY.offsetHeight * 0.05 < scrollY.scrollTop) {
@@ -256,7 +256,7 @@ const Tab1 = ({ listItems, index }) => {
     if (listItems?.length > 0) {
       let tabNames = [];
       let listContents = [];
-      listItems?.map((item) => {
+      listItems?.map(item => {
         tabNames.push(item.title);
         listContents.push(item.content);
       });
@@ -305,8 +305,7 @@ const Tab1 = ({ listItems, index }) => {
                   left: window.innerWidth > 1280 ? '33px' : '25px',
                   top: window.innerWidth > 1280 ? '37px' : '20px',
                   height: window.innerWidth > 1280 ? '340px' : '205px',
-                }}
-              ></div>
+                }}></div>
             )}
             {browserInfo?.name === 'safari' && index !== 0 && tabNames?.length > 3 && (
               <img
@@ -374,7 +373,7 @@ const Tab1 = ({ listItems, index }) => {
               />
             )}
 
-            {tabNames?.map((tabName) => (
+            {tabNames?.map(tabName => (
               <GridBoxContentWrap id="description" key={tabName}>
                 {
                   <Image
@@ -392,8 +391,7 @@ const Tab1 = ({ listItems, index }) => {
                   $isActive={tabName === currentTab ? true : false}
                   onClick={() => {
                     setCurrentTab(tabName);
-                  }}
-                >
+                  }}>
                   {tabName}
                 </Text>
               </GridBoxContentWrap>
@@ -404,15 +402,13 @@ const Tab1 = ({ listItems, index }) => {
             style={{
               height: window.innerWidth > 1280 ? '62vh' : '60vh',
               overflowY: 'scroll',
-            }}
-          >
+            }}>
             {listContents?.map((item, index) => (
               <DescriptionWrap
                 ref={refs[index]}
                 className={tabNames[index]}
                 key={'desc' + index}
-                $isActive={tabNames.indexOf(currentTab) === index ? true : false}
-              >
+                $isActive={tabNames.indexOf(currentTab) === index ? true : false}>
                 {item?.map((content, index) => (
                   <DescriptionItem key={index + content}>{content}</DescriptionItem>
                 ))}
@@ -428,8 +424,7 @@ const Tab1 = ({ listItems, index }) => {
             <GridBox
               key={'tabnames' + index}
               className={`${tabNames[index]} mobile_gridbox`}
-              style={{ alignItems: 'stretch', position: 'relative' }}
-            >
+              style={{alignItems: 'stretch', position: 'relative'}}>
               <div
                 style={{
                   height: 'auto',
@@ -437,8 +432,7 @@ const Tab1 = ({ listItems, index }) => {
                   flexDirection: 'row',
                   alignItems: 'start',
                   justifyContent: 'start',
-                }}
-              >
+                }}>
                 <Image
                   src={tabName === scrollTab ? m_reddot : m_whitedot}
                   $isActive={tabName === scrollTab ? true : false}
@@ -464,15 +458,14 @@ const Tab1 = ({ listItems, index }) => {
                   }}
                 />
               </div>
-              <GridBoxContentWrap key={tabName} style={{ alignItems: 'start' }}>
-                <Text $isActive={tabName === scrollTab ? true : false} style={{ lineHeight: '26px' }}>
+              <GridBoxContentWrap key={tabName} style={{alignItems: 'start'}}>
+                <Text $isActive={tabName === scrollTab ? true : false} style={{lineHeight: '26px'}}>
                   {tabName}
                 </Text>
                 <DescriptionWrap
                   ref={refs[index]}
                   key={index}
-                  $isActive={tabNames.indexOf(scrollTab) === index ? true : false}
-                >
+                  $isActive={tabNames.indexOf(scrollTab) === index ? true : false}>
                   {listContents[index]?.map((content, index) => (
                     <DescriptionItem key={index + content}>{content}</DescriptionItem>
                   ))}

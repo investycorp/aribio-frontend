@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useOutletContext, useParams } from 'react-router-dom';
-import { HomeComponentWrap, Text, Image, ComponentWrap, HR, Button } from '../style';
-import { Desktop, Mobile } from '../../../utils/MediaQuery';
-import { useRecoilValue } from 'recoil';
+import React, {useEffect, useState} from 'react';
+import {Link, useNavigate, useOutletContext, useParams} from 'react-router-dom';
+import {HomeComponentWrap, Text, Image, ComponentWrap, HR, Button} from '../style';
+import {Desktop, Mobile} from '../../../utils/MediaQuery';
+import {useRecoilValue} from 'recoil';
 
 import useDetailContent from '../../../hooks/irpr/useDetailContent';
 import Language from '../../../atom/Language';
 
-import { ContainerGridLineWrap, GridLineBox } from '../../../components/style';
+import {ContainerGridLineWrap, GridLineBox} from '../../../components/style';
 
 const DetailPage = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const {id} = useParams();
   const [language] = useRecoilValue(Language);
   const outletContext = useOutletContext();
   const [page, setPage] = useState('');
   const [currentItem, setCurrentItem] = useState({});
   const [nextItem, setNextItem] = useState({});
   const [prevItem, setPrevItem] = useState({});
-  const { data, isLoading, refetch } = useDetailContent(outletContext[0]?.toLowerCase(), language, id);
+  const {data, isLoading, refetch} = useDetailContent(outletContext[0]?.toLowerCase(), language, id);
 
   useEffect(() => {
-    document.querySelector('.irpr_detailpage')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelector('.irpr_detailpage')?.scrollIntoView({behavior: 'smooth', block: 'start'});
     setPage(outletContext[0].replace(' ', ''));
   }, []);
 
   useEffect(() => {
-    const getHTMl = (content) => {
+    const getHTMl = content => {
       let regex = /<b>(.*?)<\/b>|([^<>]+)/g;
       let matches;
       let result = [];
@@ -39,7 +39,6 @@ const DetailPage = () => {
           result.push(`<span >${matches[2]}<br/><span>`);
         }
       }
-      console.log('result', result);
 
       return result;
     };
@@ -62,7 +61,7 @@ const DetailPage = () => {
         image: item.fileDto?.fileUrl,
 
         content: temp?.map((line, index) => (
-          <span key={'content line' + index} dangerouslySetInnerHTML={{ __html: line }}></span>
+          <span key={'content line' + index} dangerouslySetInnerHTML={{__html: line}}></span>
         )),
       });
       // outletContext[0].toLowerCase() === 'notice'
@@ -108,9 +107,9 @@ const DetailPage = () => {
   };
 
   return (
-    <HomeComponentWrap id="irpr_detailpage" style={{ backgroundColor: '#fff' }}>
+    <HomeComponentWrap id="irpr_detailpage" style={{backgroundColor: '#fff'}}>
       <Desktop>
-        <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
+        <ComponentWrap style={{justifyContent: 'center', alignItems: 'start'}}>
           <span
             style={{
               cursor: 'pointer',
@@ -121,10 +120,9 @@ const DetailPage = () => {
             }}
             onClick={() => {
               navigate(-1);
-            }}
-          >
+            }}>
             <Image
-              style={{ zIndex: '-1', height: window.innerWidth > 1280 ? '44px' : '28px' }}
+              style={{zIndex: '-1', height: window.innerWidth > 1280 ? '44px' : '28px'}}
               src={process.env.PUBLIC_URL + '/assets/icons/circle_arrow.svg'}
               alt="go back"
             />
@@ -136,13 +134,12 @@ const DetailPage = () => {
                 padding: '0',
                 zIndex: '-1',
                 color: '#414141',
-              }}
-            >
+              }}>
               Back
             </Text>
           </span>
         </ComponentWrap>
-        <ComponentWrap id="printableid" style={{ justifyContent: 'center', alignItems: 'start' }}>
+        <ComponentWrap id="printableid" style={{justifyContent: 'center', alignItems: 'start'}}>
           <Text
             style={{
               display: 'grid',
@@ -152,8 +149,7 @@ const DetailPage = () => {
               padding: '0',
               textAlign: 'start',
               lineHeight: '1em',
-            }}
-          >
+            }}>
             <span
               style={{
                 width: 'fit-content',
@@ -162,13 +158,10 @@ const DetailPage = () => {
                 borderRight: '1px solid #727272',
                 color: '#005684',
                 fontSize: window.innerWidth > 1280 ? '22px' : '12px',
-              }}
-            >
+              }}>
               {page}
             </span>
-            <span
-              style={{ margin: '0.5em 1em', color: '#727272', fontSize: window.innerWidth > 1280 ? '22px' : '12px' }}
-            >
+            <span style={{margin: '0.5em 1em', color: '#727272', fontSize: window.innerWidth > 1280 ? '22px' : '12px'}}>
               <span>{currentItem?.date}</span>
             </span>
           </Text>
@@ -183,14 +176,11 @@ const DetailPage = () => {
               fontWeight: '400',
               whiteSpace: 'pre-line',
               wordBreak: 'break-all',
-            }}
-          >
+            }}>
             {currentItem?.title}
           </Text>
-          <HR style={{ margin: '3em 0' }} $color="#B5B5B5" />
-          {currentItem.image && (
-            <Image src={currentItem?.image} alt="image" style={{ width: '50%', margin: '1rem 0' }} />
-          )}
+          <HR style={{margin: '3em 0'}} $color="#B5B5B5" />
+          {currentItem.image && <Image src={currentItem?.image} alt="image" style={{width: '50%', margin: '1rem 0'}} />}
           <Text
             style={{
               width: '90%',
@@ -202,8 +192,7 @@ const DetailPage = () => {
               color: '#272727',
               whiteSpace: 'pre-line',
               wordBreak: 'break-all',
-            }}
-          >
+            }}>
             {currentItem?.content}
           </Text>
         </ComponentWrap>
@@ -216,16 +205,14 @@ const DetailPage = () => {
             justifyContent: 'center',
             alignItems: 'end',
             hover: 'none',
-          }}
-        >
+          }}>
           <Button onClick={() => clickPrint()}>
-            <span style={{ padding: '0.1em 0.5em 0 0', zIndex: '-1' }}>Print</span>{' '}
-            <Image style={{ zIndex: '-1' }} src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'} alt="print" />
+            <span style={{padding: '0.1em 0.5em 0 0', zIndex: '-1'}}>Print</span>{' '}
+            <Image style={{zIndex: '-1'}} src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'} alt="print" />
           </Button>
         </div>
         <HomeComponentWrap
-          style={{ height: 'fit-content', padding: '3rem 0 0 0', borderTop: '1px solid #B5B5B5', marginTop: '3rem' }}
-        >
+          style={{height: 'fit-content', padding: '3rem 0 0 0', borderTop: '1px solid #B5B5B5', marginTop: '3rem'}}>
           <ComponentWrap
             style={{
               display: 'grid',
@@ -235,15 +222,13 @@ const DetailPage = () => {
               alignItems: 'end',
               width: '100%',
               height: 'fit-content',
-            }}
-          >
+            }}>
             {prevItem.id ? (
-              <div style={{ height: 'auto' }}>
+              <div style={{height: 'auto'}}>
                 <Link
                   className="button"
-                  style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  to={`/irpr/${page?.toLowerCase()}/${prevItem.id}`}
-                >
+                  style={{textDecoration: 'none', cursor: 'pointer'}}
+                  to={`/irpr/${page?.toLowerCase()}/${prevItem.id}`}>
                   <Text
                     style={{
                       margin: '3em 0 2em 0',
@@ -253,11 +238,10 @@ const DetailPage = () => {
                       fontWeight: '200',
                       color: '#909090',
                       cursor: 'pointer',
-                    }}
-                  >
+                    }}>
                     PREV
                   </Text>
-                  <HR $color="#909090" $width="3em" style={{ cursor: 'pointer' }} />
+                  <HR $color="#909090" $width="3em" style={{cursor: 'pointer'}} />
 
                   <Text
                     className="prev"
@@ -270,8 +254,7 @@ const DetailPage = () => {
                       fontWeight: '400',
                       color: '#141414',
                       cursor: 'pointer',
-                    }}
-                  >
+                    }}>
                     {prevItem?.title?.slice(0, 60)}...
                   </Text>
                 </Link>
@@ -280,12 +263,11 @@ const DetailPage = () => {
               <div></div>
             )}
             {nextItem.id ? (
-              <div style={{ height: 'auto' }}>
+              <div style={{height: 'auto'}}>
                 <Link
                   className="button"
-                  style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  to={`/irpr/${page?.toLowerCase()}/${nextItem.id}`}
-                >
+                  style={{textDecoration: 'none', cursor: 'pointer'}}
+                  to={`/irpr/${page?.toLowerCase()}/${nextItem.id}`}>
                   <Text
                     style={{
                       margin: '3em 0 2em 0',
@@ -295,11 +277,10 @@ const DetailPage = () => {
                       fontWeight: '200',
                       color: '#909090',
                       cursor: 'pointer',
-                    }}
-                  >
+                    }}>
                     NEXT
                   </Text>
-                  <HR $color="#909090" $width="3em" style={{ cursor: 'pointer' }} />
+                  <HR $color="#909090" $width="3em" style={{cursor: 'pointer'}} />
 
                   <Text
                     className="next"
@@ -311,8 +292,7 @@ const DetailPage = () => {
                       fontSize: window.innerWidth > 1280 ? '24px' : '13px',
                       fontWeight: '400',
                       color: '#141414',
-                    }}
-                  >
+                    }}>
                     {nextItem?.title?.slice(0, 60)}...
                   </Text>
                 </Link>
@@ -327,13 +307,11 @@ const DetailPage = () => {
                 flexDirection: 'column',
                 justifyContent: 'end',
                 alignItems: 'end',
-              }}
-            >
+              }}>
               <Link
                 className="button"
-                style={{ textDecoration: 'none' }}
-                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : '/irpr/notice'}
-              >
+                style={{textDecoration: 'none'}}
+                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : '/irpr/notice'}>
                 <Text
                   $fontSize="20px"
                   $fontWeight="400"
@@ -354,13 +332,12 @@ const DetailPage = () => {
                     color: '#212121',
                     cursor: 'pointer',
                     fontSize: window.innerWidth > 1280 ? '20px' : '13px',
-                  }}
-                >
-                  <span style={{ color: '#212121', zIndex: '-1' }}>View List</span>
+                  }}>
+                  <span style={{color: '#212121', zIndex: '-1'}}>View List</span>
                   <Image
                     src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'}
                     alt="arrow"
-                    style={{ width: '1.2rem', zIndex: '-1' }}
+                    style={{width: '1.2rem', zIndex: '-1'}}
                   />
                 </Text>
               </Link>
@@ -370,15 +347,14 @@ const DetailPage = () => {
       </Desktop>
 
       <Mobile>
-        <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
+        <ComponentWrap style={{justifyContent: 'center', alignItems: 'start'}}>
           <span
-            style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center' }}
+            style={{display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center'}}
             onClick={() => {
               navigate(-1);
-            }}
-          >
+            }}>
             <Image
-              style={{ zIndex: '-1', height: '20px' }}
+              style={{zIndex: '-1', height: '20px'}}
               src={process.env.PUBLIC_URL + '/assets/icons/circle_arrow.svg'}
               alt="go back"
             />
@@ -390,13 +366,12 @@ const DetailPage = () => {
                 zIndex: '-1',
                 fontSize: window.innerWidth > 1280 ? '18px' : '13px',
                 color: '#414141',
-              }}
-            >
+              }}>
               Back
             </Text>
           </span>
         </ComponentWrap>
-        <ComponentWrap id="printableid" style={{ justifyContent: 'center', alignItems: 'start' }}>
+        <ComponentWrap id="printableid" style={{justifyContent: 'center', alignItems: 'start'}}>
           <Text
             style={{
               display: 'grid',
@@ -407,8 +382,7 @@ const DetailPage = () => {
               textAlign: 'start',
               lineHeight: '1em',
               fontSize: '16px',
-            }}
-          >
+            }}>
             <span
               style={{
                 width: 'fit-content',
@@ -416,11 +390,10 @@ const DetailPage = () => {
                 margin: '0.5em 0',
                 borderRight: '1px solid #727272',
                 color: '#005684',
-              }}
-            >
+              }}>
               {page}
             </span>
-            <span style={{ margin: '0.5em 1em', color: '#727272' }}>
+            <span style={{margin: '0.5em 1em', color: '#727272'}}>
               <span>{currentItem?.date}</span>
             </span>
           </Text>
@@ -436,14 +409,11 @@ const DetailPage = () => {
               lineHeight: '25px',
               color: '#141414',
               whiteSpace: 'pre-line',
-            }}
-          >
+            }}>
             {currentItem?.title}
           </Text>
-          <HR style={{ margin: '1rem 0', width: '40px', height: '1px' }} $color="#B5B5B5" />
-          {currentItem.image && (
-            <Image src={currentItem?.image} alt="image" style={{ width: '50%', margin: '1rem 0' }} />
-          )}
+          <HR style={{margin: '1rem 0', width: '40px', height: '1px'}} $color="#B5B5B5" />
+          {currentItem.image && <Image src={currentItem?.image} alt="image" style={{width: '50%', margin: '1rem 0'}} />}
           <Text
             style={{
               width: '100%',
@@ -456,8 +426,7 @@ const DetailPage = () => {
               color: '#272727',
               whiteSpace: 'pre-line',
             }}
-            id="printableid"
-          >
+            id="printableid">
             {currentItem?.content}
           </Text>
         </ComponentWrap>
@@ -471,20 +440,18 @@ const DetailPage = () => {
             justifyContent: 'center',
             alignItems: 'end',
             hover: 'none',
-          }}
-        >
-          <Button style={{ width: '90px', height: '41px', padding: '0' }} onClick={() => clickPrint()}>
-            <span style={{ padding: '0 0.5em', zIndex: '-1', fontSize: '15px', fontWeight: '400' }}>Print</span>{' '}
+          }}>
+          <Button style={{width: '90px', height: '41px', padding: '0'}} onClick={() => clickPrint()}>
+            <span style={{padding: '0 0.5em', zIndex: '-1', fontSize: '15px', fontWeight: '400'}}>Print</span>{' '}
             <Image
-              style={{ zIndex: '-1', width: '9.4px' }}
+              style={{zIndex: '-1', width: '9.4px'}}
               src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'}
               alt="print"
             />
           </Button>
         </div>
         <HomeComponentWrap
-          style={{ padding: '0', borderTop: '1px solid #B5B5B5', marginTop: '2em', height: 'fit-content' }}
-        >
+          style={{padding: '0', borderTop: '1px solid #B5B5B5', marginTop: '2em', height: 'fit-content'}}>
           <ComponentWrap
             style={{
               display: 'grid',
@@ -492,15 +459,13 @@ const DetailPage = () => {
               columnGap: '2rem',
               justifyContent: 'center',
               alignItems: 'center',
-            }}
-          >
+            }}>
             {prevItem.id ? (
-              <div style={{ height: '200px' }}>
+              <div style={{height: '200px'}}>
                 <Link
                   className="button"
-                  style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  to={`/irpr/${page?.toLowerCase()}/${prevItem.id}`}
-                >
+                  style={{textDecoration: 'none', cursor: 'pointer'}}
+                  to={`/irpr/${page?.toLowerCase()}/${prevItem.id}`}>
                   <Text
                     style={{
                       margin: '3em 0 1em 0',
@@ -510,11 +475,10 @@ const DetailPage = () => {
                       fontWeight: '400',
                       color: '#909090',
                       cursor: 'pointer',
-                    }}
-                  >
+                    }}>
                     PREV
                   </Text>
-                  <HR $color="#909090" $width="35px" $height="1px" style={{ margin: '0', cursor: 'pointer' }} />
+                  <HR $color="#909090" $width="35px" $height="1px" style={{margin: '0', cursor: 'pointer'}} />
 
                   <Text
                     className="prev"
@@ -527,8 +491,7 @@ const DetailPage = () => {
                       fontWeight: '400',
                       color: 'rgba(75,75,75,1)',
                       cursor: 'pointer',
-                    }}
-                  >
+                    }}>
                     {prevItem?.title?.slice(0, 60)}...
                   </Text>
                 </Link>
@@ -537,12 +500,11 @@ const DetailPage = () => {
               <div></div>
             )}
             {nextItem.id ? (
-              <div style={{ height: '200px' }}>
+              <div style={{height: '200px'}}>
                 <Link
                   className="button"
-                  style={{ textDecoration: 'none', cursor: 'pointer' }}
-                  to={`/irpr/${page?.toLowerCase()}/${nextItem.id}`}
-                >
+                  style={{textDecoration: 'none', cursor: 'pointer'}}
+                  to={`/irpr/${page?.toLowerCase()}/${nextItem.id}`}>
                   <Text
                     style={{
                       margin: '3em 0 1em 0',
@@ -552,11 +514,10 @@ const DetailPage = () => {
                       fontWeight: '400',
                       color: '#909090',
                       cursor: 'pointer',
-                    }}
-                  >
+                    }}>
                     NEXT
                   </Text>
-                  <HR $color="#909090" $width="35px" $height="1px" style={{ margin: '0', cursor: 'pointer' }} />
+                  <HR $color="#909090" $width="35px" $height="1px" style={{margin: '0', cursor: 'pointer'}} />
 
                   <Text
                     className="next"
@@ -568,8 +529,7 @@ const DetailPage = () => {
                       fontSize: '16px',
                       fontWeight: '400',
                       color: 'rgba(75,75,75,1)',
-                    }}
-                  >
+                    }}>
                     {nextItem?.title?.slice(0, 60)}...
                   </Text>
                 </Link>
@@ -584,13 +544,11 @@ const DetailPage = () => {
                 flexDirection: 'column',
                 justifyContent: 'end',
                 alignItems: 'end',
-              }}
-            >
+              }}>
               <Link
                 className="button"
-                style={{ textDecoration: 'none' }}
-                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : '/irpr/notice'}
-              >
+                style={{textDecoration: 'none'}}
+                to={page?.toLowerCase().includes('press') ? '/irpr/pressrelease' : '/irpr/notice'}>
                 <Text
                   $fontSize="18px"
                   $fontWeight="300"
@@ -610,13 +568,12 @@ const DetailPage = () => {
                     color: '#212121',
                     cursor: 'pointer',
                     width: '213px',
-                  }}
-                >
-                  <span style={{ zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>View List</span>
+                  }}>
+                  <span style={{zIndex: '-1', fontSize: '16px', fontWeight: '400'}}>View List</span>
                   <Image
                     src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'}
                     alt="arrow"
-                    style={{ width: '12px', height: '12px', zIndex: '-1' }}
+                    style={{width: '12px', height: '12px', zIndex: '-1'}}
                   />
                 </Text>
               </Link>
