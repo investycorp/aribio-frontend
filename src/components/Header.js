@@ -50,6 +50,7 @@ const HeaderTop = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 100;
+  background-color: rgba(10, 10, 10, 0.5);
   @media screen and (max-width: 1280px) {
     height: 74px;
   }

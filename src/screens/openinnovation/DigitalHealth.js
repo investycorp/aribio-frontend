@@ -18,6 +18,7 @@ import {
   TableContentBox,
   ShootingStarWrap,
   ShootingStar,
+  Ball
 } from './style';
 
 import { HeadLine, Path, MainImgWrap } from '../../components/style';
@@ -282,11 +283,11 @@ const DigitalHealth = () => {
                     <ShootingStar
                       className="shooting_star"
                       style={{
-                        height: '6px',
-                        width: '6px',
                       }}
                       $phase={item.phase}
-                    />
+                    >
+                      <Ball className="ball" />
+                    </ShootingStar>
                   </ShootingStarWrap>
                 </TableContentBox>
               </TableRowWrap>
@@ -510,7 +511,9 @@ const DigitalHealth = () => {
                   <TableContentBox style={{ padding: 0 }}>
                     <ShootingStarWrap className="shooting_star_wrap">
                       <hr style={{ width: '100%', opacity: '0.4', border: '1px dotted' }} />
-                      <ShootingStar className="shooting_star" $phase={item.phase} />
+                      <ShootingStar className="shooting_star" $phase={item.phase}>
+                        <Ball className="ball" />
+                      </ShootingStar>
                     </ShootingStarWrap>
                   </TableContentBox>
                 </TableRowWrap>

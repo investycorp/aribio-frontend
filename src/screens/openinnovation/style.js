@@ -398,6 +398,22 @@ const ShootingStarWrap = styled.section`
   align-items: center;
 `;
 
+const move = (phase) => keyframes`
+  0% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(${phase ? `calc((${phase}*10.2vw) - 100%)` : `calc(10vw)`});
+    -webkit-transform: translateX(${phase ? `calc((${phase}*10.2vw) -100%)` : `calc(10vw)`});
+    opacity: 1;
+  }
+`;
+
 const ShootingStar = styled.span.attrs((props) => ({
   className: props.className,
 }))`
@@ -405,16 +421,11 @@ const ShootingStar = styled.span.attrs((props) => ({
   position: absolute;
   top: calc(50%-4px);
   left: 0%;
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 4px rgba(255, 255, 255, 0.1),
-    0 0 0 6px rgba(255, 255, 255, 0.1),
-    0 0 8px rgba(255, 255, 255, 0.1);
-  transform: translate(-50%, -50%);
-  transform: rotate(180deg);
+  width: ${(props) => (props.$phase ? `calc(${props.$phase}*10.4vw)` : `calc(10vw)`)};
+  height: 3px;
+  background: linear-gradient(270deg, #ffffff, transparent);
+  transform: translateX(-200%);
+
 
   &.animate {
     opacity: 1;
@@ -429,31 +440,23 @@ const ShootingStar = styled.span.attrs((props) => ({
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
   }
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props.$phase}*10.4vw + 140px)` : `calc(10vw)`)};
-    height: 2px;
-    background: linear-gradient(270deg, #ffffff, transparent);
-    transform: translate(0, -50%);
-  }
 `;
 
-const move = (phase) => keyframes`
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(${phase ? `calc(${phase}*10.2vw)` : `calc(10vw)`});
-    opacity: 1;
-  }
+const Ball = styled.span.attrs((props) => ({
+  className: props.className,
+}))`
+  position: absolute;
+  top: -1.5px;
+  right: -1px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 1;
+  box-shadow:
+  0 0 0 4px rgba(255, 255, 255, 0.1),
+  0 0 0 10px rgba(255, 255, 255, 0.1),
+  0 0 15px rgba(255, 255, 255, 0.1);
 `;
 
 export {
@@ -481,4 +484,5 @@ export {
   TableContentBox,
   ShootingStarWrap,
   ShootingStar,
+  Ball
 };

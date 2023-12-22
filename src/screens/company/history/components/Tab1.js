@@ -70,6 +70,7 @@ const Text = styled.div`
 `;
 
 const GridBox = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -243,6 +244,7 @@ const Tab1 = ({ listItems, index }) => {
   }, [currentTab]);
 
   useEffect(() => {
+    console.log(browserInfo.name)
     document.getElementsByClassName('description-grid')[0]?.addEventListener('scroll', handleScroll);
     return () => {
       document.getElementsByClassName('description-grid')[0]?.removeEventListener('scroll', handleScroll);
@@ -290,38 +292,59 @@ const Tab1 = ({ listItems, index }) => {
         <HomeComponentWrap>
           <GridBox className="scrollbox">
 
-            {/* {browserInfo.name === "safari" && tabNames?.length > 3 && (
+            {browserInfo?.name === "safari" && index === 0 && (
+
+              <div
+                style={{
+                  boxSizing: 'border-box',
+                  position: 'absolute',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  zIndex: '10',
+                  width: "2px",
+                  borderRight: '2px dotted rgba(255, 255, 255, 0.3)',
+                  left: window.innerWidth > 1280 ? '33px' : '25px',
+                  top: window.innerWidth > 1280 ? '37px' : '20px',
+                  height: window.innerWidth > 1280 ? "340px" : "205px",
+                }}
+              ></div>
+            )}
+            {browserInfo?.name === "safari" && index !== 0 && tabNames?.length > 3 && (
               <img
-                src={sidebar}
+                src={process.env.PUBLIC_URL + '/assets/images/history/indicator2.svg'}
                 alt="sidebar"
                 style={{
                   position: 'absolute',
-                  top: index === 0 ? (window.innerWidth > 1280 ? "10px" : '-20px') : window.innerWidth > 1280 ? '-10px' : '-4px',
-                  left: window.innerWidth > 1280 ? '31px' : '-0.8px', 
+                  boxSizing: 'border-box',
+                  top: window.innerWidth > 1280 ? '-68px' : '-40px',
+                  left: window.innerWidth > 1280 ? '28px' : '-0.8px', 
                   zIndex: '10',
-                  margin: index === 0 ? '0px 1.5px' : '-4em 0.15em 0.18em 0.15em',
-                  padding: window.innerWidth > 1280 ? '0px' : '1.5rem',
-                  height: index === 0 ? '13.5rem' : "105%",
+                  margin: index === 0 ? '0' : '0 0.15em 0 0.15em',
+                  padding: window.innerWidth > 1280 ? '20px 0px 20px 0px' : '0px 23px 60px 22px',
+                  height: window.innerWidth > 1280 ? "480px" : "350px",
                 }}
               />
-            )} 
-            {browserInfo.name === "safari" && tabNames?.length <= 3 && (
+            )}  
+            {browserInfo?.name === "safari" && tabNames?.length <= 3 && (
             
               <img
                 src={sidebar_short}
                 alt="sidebar_short"
                 style={{
+                  boxSizing: 'border-box',
                   position: 'absolute',
-                  top: tabNames?.length > 3 ? '0' : window.innerWidth > 1280 ? '-2.5rem' : '-1rem',
-                  left: window.innerWidth > 1280 ? '32.3px' : '25px',
+                  top: window.innerWidth > 1280 ? '-1.2rem' : '-0.3rem',
+                  left: window.innerWidth > 1280 ? '30px' : '22px',
                   zIndex: '10',
                   margin: '0',
-                  padding: '0 0 2em 0',
-                  height: '100%',
+                  padding: '0 1.5px 2.4em 1.5px',
+                  width: "10px",
+                  height: window.innerWidth > 1280 ? '190px' : '105px',
+
                 }}
               />
               
-            )} */}
+            )}
             
             {browserInfo.name !== "safari" && tabNames?.length > 3 && (
               <img
