@@ -52,7 +52,6 @@ const Modal = () => {
                   left: `${data.leftSide}px`,
                   width: `${data.width}px`,
                   height: `${data.length}px`,
-                  border: '2px solid #121212',
                   borderRadius: '5px',
                 }}
                 key={data.id}
@@ -133,9 +132,7 @@ const Modal = () => {
                   width: `${data.width}px`,
                   height: `${data.length}px`,
                   borderRadius: '5px',
-                  border: '2px solid #989898',
                   backgroundColor: '#121212',
-                  overflow: 'auto',
                 }}
                 key={data.id}
               >
@@ -151,9 +148,6 @@ const Modal = () => {
                     borderRadius: '5px',
                   }}
                 >
-                  <h2 style={{ backgroundColor: '#121212', color: '#989898', width: 'auto', padding: '5px 10px' }}>
-                    {data.title}
-                  </h2>
                   <img
                     src={data.fileDto.fileUrl}
                     alt={data.title}
@@ -171,6 +165,9 @@ const Modal = () => {
                       justifyContent: 'space-between',
                       width: '100%',
                       gap: '20px',
+                      position: 'absolute',
+                      // 추후 모바일 환경에서의 팝업 버튼 엘레먼트들 위치 확인 필요
+                      bottom: '-38px',
                     }}
                   >
                     <button
@@ -179,9 +176,9 @@ const Modal = () => {
                         setModalClose([...modalClose, data.id]);
                       }}
                       style={{
-                        color: '#989898',
+                        color: '#FFFFFF',
                         borderRadius: '5px',
-                        border: '1px solid #989898',
+                        border: '1px solid #FFFFFF',
                         padding: '5px 10px',
                       }}
                     >
@@ -190,9 +187,9 @@ const Modal = () => {
                     <button
                       onClick={() => setModalClose([...modalClose, data.id])}
                       style={{
-                        color: '#989898',
+                        color: '#FFFFFF',
                         borderRadius: '5px',
-                        border: '1px solid #989898',
+                        border: '1px solid #FFFFFF',
                         padding: '5px 10px',
                       }}
                     >
