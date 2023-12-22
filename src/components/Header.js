@@ -222,7 +222,7 @@ const HeaderBottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
-  background-color: transparent;
+  background-color: rgba(10, 10, 10, 0.5);
   border-top: 2px solid rgba(93, 93, 93, 0.8);
   cursor: default;
   transition: opacity 0.5s ease-in-out;
