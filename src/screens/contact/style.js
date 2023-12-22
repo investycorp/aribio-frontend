@@ -315,6 +315,10 @@ const FormInputRowWrap = styled.div`
   @media screen and (max-width: 1280px) {
     border-width: 1px;
   }
+
+  @media screen and (max-width: 900px) {
+    margin-bottom: 4px;
+  }
 `;
 
 const Input = styled.input`

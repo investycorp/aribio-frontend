@@ -490,8 +490,10 @@ const Contact = () => {
                   left: '0',
                   top: '0',
                   width: '100%',
+                  justifyContent: 'start',
                   margin: '1rem 0',
                   lineHeight: '22px',
+                  padding: '20px',
                 }}
                 $isActive={isError}
               >

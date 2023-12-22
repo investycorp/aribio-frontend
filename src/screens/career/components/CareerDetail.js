@@ -184,7 +184,7 @@ const CareerDetail = () => {
           }}
         >
           <Button
-            onClick={() => currentItem?.url && (window.location.href = `//${currentItem.url}`)}
+            onClick={() => window.open(currentItem?.url, '_blank')}
             style={{
               width: window.innerWidth > 1280 ? '260px' : '158px',
               justifyContent: 'space-between',
@@ -302,7 +302,7 @@ const CareerDetail = () => {
           }}
         >
           <Button
-            onClick={() => currentItem?.url && (window.location.href = `//${currentItem.url}`)}
+            onClick={() => window.open(currentItem?.url, '_blank')}
             style={{ width: '213px', borderBottom: '1px solid #707070', justifyContent: 'space-between' }}
           >
             <span style={{ color: '#212121', padding: '0.5rem 0', zIndex: '-1', fontSize: '16px', fontWeight: '400' }}>
