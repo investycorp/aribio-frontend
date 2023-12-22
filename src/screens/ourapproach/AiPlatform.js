@@ -302,7 +302,7 @@ const AiPlatform = () => {
             />
           </HomeComponentWrap>
           <HomeComponentWrap>
-            <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em' }}>
+            <TextWrap style={{ width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em', overflow: 'hidden' }}>
               <HR $height="2px" $color="#ffffff" style={{alignSelf: 'center'}}/>
               <Text
                 $fontWeight="400"
@@ -361,6 +361,7 @@ const AiPlatform = () => {
                     padding: window.innerWidth > 1280 ? '0 0 0 160px' : '0 0 0 96px',
                     width: '100%',
                     alignItems: 'start',
+                    height: "auto",
                   }}
                 >
                   <Text
@@ -369,7 +370,7 @@ const AiPlatform = () => {
                     $color="#ffffff"
                     style={{
                       width: 'fit-content',
-                      height: '-webkit-fill-available',
+                      height: 'auto',
                       display: 'flex',
                       flexDirection: 'row',
                       justifyContent: 'start',
