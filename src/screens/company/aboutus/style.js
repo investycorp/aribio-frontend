@@ -94,7 +94,6 @@ const TextWrap = styled.div`
   justify-content: flex-end;
   align-items: center;
   background-color: transparent;
-
 `;
 
 const Text = styled.div`
@@ -128,7 +127,7 @@ const Tab = styled.div`
   @media screen and (max-width: 1280px) {
     gap: 80px;
   }
-  @media screen and (max-width: 360px){
+  @media screen and (max-width: 360px) {
     gap: 16px;
   }
 `;
@@ -208,10 +207,8 @@ const ContentBox = styled.div`
   background-color: transparent;
   // border: 1px solid #ffffff;
   @media screen and (min-width: 901px) and (max-width: 1280px) {
-  
   }
   @media screen and (min-width: 1281px) {
-  
   }
   @media screen and (max-width: 900px) {
     margin-bottom: 120px;
@@ -269,7 +266,7 @@ const DescriptionWrap = styled.ul`
     display: ${(props) => (props.$isActive ? 'flex' : 'none')};
     transition: all 0.2s ease-in-out;
     position: relative;
-     padding: 0 0 0 3.1vw;
+    padding: 0 0 0 3.1vw;
     top: 0;
     left: 0;
   }
@@ -337,7 +334,6 @@ const HeadListWrap = styled.div`
   justify-content: flex-start;
   gap: 4rem 8rem;
   padding: 0 7vw;
-
 `;
 
 const HeadItemWrap = styled.div`
@@ -352,7 +348,6 @@ const HeadItemWrap = styled.div`
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
 `;
-
 
 export {
   Container,

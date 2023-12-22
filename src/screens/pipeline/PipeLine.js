@@ -68,7 +68,12 @@ const PipeLine = () => {
           target: item.target,
           modality: item.modality,
           indication: item.pipelineIndicationDtoList?.map((indication) => {
-            return { id: indication.id, section: indication.indication, phase: indication.phase + 1, state: indication.state + 1 };
+            return {
+              id: indication.id,
+              section: indication.indication,
+              phase: indication.phase + 1,
+              state: indication.state + 1,
+            };
           }),
           modal: {
             title: item.popUpTitle,
@@ -216,7 +221,7 @@ const PipeLine = () => {
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                 }}
-            ></div>
+              ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
@@ -249,15 +254,16 @@ const PipeLine = () => {
                     /> */}
                   </TableContentBox>
                   <TableContentBox>{item.target}</TableContentBox>
-                  <TableContentBox>{item.modality.split('\\n').map(text => {
-                    return (
-                      <>
-                        {text}
-                        <br/>
-                      </>
+                  <TableContentBox>
+                    {item.modality.split('\\n').map((text) => {
+                      return (
+                        <>
+                          {text}
+                          <br />
+                        </>
                       );
-                    }
-                  )}</TableContentBox>
+                    })}
+                  </TableContentBox>
                   <TableContentBox className="indication" style={{ padding: '0' }}>
                     {item?.indication.map((indication_item, index) => (
                       <div key={'indication' + index}>
@@ -276,7 +282,11 @@ const PipeLine = () => {
                           <span>
                             <ShootingStarWrap className="shooting_star_wrap">
                               {/* <hr style={{ width: '100%', opacity: '0.4', border: 'dotted 1px' }} /> */}
-                              <ShootingStar className="shooting_star" $phase={indication_item?.phase} $state={indication_item?.state}>
+                              <ShootingStar
+                                className="shooting_star"
+                                $phase={indication_item?.phase}
+                                $state={indication_item?.state}
+                              >
                                 <Ball />
                               </ShootingStar>
                             </ShootingStarWrap>
@@ -303,12 +313,10 @@ const PipeLine = () => {
           )}
         </Desktop>
 
-
-        
         <Mobile>
           <HomeComponentWrap style={{ padding: '5vh 5vw', marginBottom: '10em' }}>
             <TextWrap>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{marginBottom: '0'}}>
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0' }}>
                 {t('pipeline.title')}
               </Text>
               <div
@@ -320,12 +328,7 @@ const PipeLine = () => {
                   margin: '28px 0',
                 }}
               ></div>
-              <Text
-                $fontSize="23px"
-                $fontWeight="500"
-                $color="#ffffff"
-                style={{ lineHeight: '1.2em' }}
-              >
+              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ lineHeight: '1.2em' }}>
                 <Trans i18nKey="pipeline.subtitle_m" components={{ 1: <br /> }} />
               </Text>
             </TextWrap>
@@ -342,7 +345,7 @@ const PipeLine = () => {
                   onClick={() => {
                     setToggleOn(!toggleOn);
                   }}
-                  style={{}}
+                  toggle={toggleOn}
                 >
                   <span style={{ fontSize: '20px', fontWeight: '500', color: '#E8E8E8' }}>
                     {!firstRender && selectedItem?.drugCandidate ? selectedItem?.drugCandidate : 'Drug Candidate'}

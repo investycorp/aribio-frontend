@@ -196,14 +196,14 @@ const Notice = () => {
                     {t('notice.title')}
                   </Text>
                   <div
-                style={{
-                  alignSelf: 'center',
-                  width: window.innerWidth > 1280 ? '60px' : '40px',
-                  height: '2px',
-                  border: '1px solid #ffffff',
-                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                }}
-                ></div>
+                    style={{
+                      alignSelf: 'center',
+                      width: window.innerWidth > 1280 ? '60px' : '40px',
+                      height: '2px',
+                      border: '1px solid #ffffff',
+                      margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                    }}
+                  ></div>
                   <Text
                     $fontWeight="500"
                     $color="#ffffff"
@@ -367,7 +367,12 @@ const Notice = () => {
             <Mobile>
               <HomeComponentWrap>
                 <TextWrap style={{ width: '90vw' }}>
-                  <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0', fontSize: '16px' }}>
+                  <Text
+                    $fontSize="16px"
+                    $fontWeight="300"
+                    $color="#939598"
+                    style={{ marginBottom: '0', fontSize: '16px' }}
+                  >
                     {t('notice.title')}
                   </Text>
                   <div
@@ -379,12 +384,7 @@ const Notice = () => {
                       margin: '28px 0',
                     }}
                   ></div>
-                  <Text
-                    $fontSize="23px"
-                    $fontWeight="500"
-                    $color="#ffffff"
-                    style={{ fontSize: '23px' }}
-                  >
+                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ fontSize: '23px' }}>
                     <Trans i18nKey="notice.subtitle_m" components={{ 1: <br /> }} />
                   </Text>
                 </TextWrap>
@@ -419,7 +419,7 @@ const Notice = () => {
                       src={search}
                       alt="search"
                       onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
-                      style={{ height: window.innerWidth > 1280 ? '24px' : '12px' }}
+                      style={{ height: '20px' }}
                     />
                   </ComponentWrap>
                 </ComponentWrap>

@@ -40,10 +40,13 @@ const SearchInput = styled.input`
     @media screen and (max-width: 1280px) {
       font-size: 12px;
     }
+    @media screen and (max-width: 900px) {
+      font-size: 18px;
+    }
   }
 `;
 
-const NoResult = styled.div`
+export const NoResult = styled.div`
   grid-column: span 2;
   width: 100%;
   height: 20vh;
@@ -169,7 +172,9 @@ const Publications = () => {
           style={{
             fontSize: window.innerWidth < 900 && 46,
           }}
-        >{t('publication.headline')}</HeadLine>
+        >
+          {t('publication.headline')}
+        </HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -189,13 +194,13 @@ const Publications = () => {
                 {t('publication.title')}
               </Text>
               <div
-                  style={{
-                    alignSelf: 'center',
-                    width: window.innerWidth > 1280 ? '60px' : '40px',
-                    height: '2px',
-                    border: '1px solid #ffffff',
-                    margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                  }}
+                style={{
+                  alignSelf: 'center',
+                  width: window.innerWidth > 1280 ? '60px' : '40px',
+                  height: '2px',
+                  border: '1px solid #ffffff',
+                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+                }}
               ></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
@@ -247,7 +252,6 @@ const Publications = () => {
                         handleSearchClick(e);
                       }
                     }}
-                    autoFocus={true}
                     style={{ opacity: searchValue ? '100%' : '50%' }}
                   />
                   <Image
@@ -435,7 +439,7 @@ const Publications = () => {
         <Mobile>
           <HomeComponentWrap>
             <TextWrap style={{ margin: '0' }}>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{marginBottom: '0'}}>
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0' }}>
                 {t('publication.title')}
               </Text>
               <div
@@ -456,19 +460,21 @@ const Publications = () => {
             >
               <ComponentWrap
                 style={{
+                  display: 'flex',
                   flexDirection: 'row',
                   color: '#ffffff',
                   marginTop: '4rem',
                   borderBottom: '1px solid #ffffff',
                   padding: '0',
-                  width: '322px',
+                  width: window.innerWidth > 400 ? '322px' : '90vw',
                 }}
               >
+                {/* <div style={{display: "flex", flexDirection: "row", width: window.innerWidth > 400 ? "322px" : "90vw"}}> */}
                 <SearchInput
                   placeholder={t('publication.search')}
                   type="text"
                   value={searchValue}
-                  style={{ fontSize: '18px', width: '322px' }}
+                  style={{ fontSize: '18px', width: window.innerWidth > 400 ? '322px' : 'calc(90vw-24px)' }}
                   onChange={(e) => {
                     handleChange(e);
                   }}
@@ -477,7 +483,6 @@ const Publications = () => {
                       handleSearchClick(e);
                     }
                   }}
-                  autoFocus={true}
                 />
                 <Image
                   src={search}
@@ -486,6 +491,7 @@ const Publications = () => {
                   }}
                   alt="search"
                 />
+                {/* </div> */}
               </ComponentWrap>
               <ComponentWrap
                 style={{
