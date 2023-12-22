@@ -193,6 +193,94 @@ const Image = styled.img`
   z-index: 10;
 `;
 
+const SubmitArrowWrap = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: rgba(15, 21, 31, 0.8);
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 1280px) {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 47px;
+    height: 47px;
+    border-radius: 28.5px;
+  }
+`;
+
+const SubmitTextWrap = styled.div`
+  width: 127px;
+  height: 60px;
+  font-size: 20px;
+  font-weight: 500px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding-left: 20.3px;
+
+  @media screen and (max-width: 1280px) {
+    width: 77px;
+    height: 36px;
+    font-size: 10px;
+    padding-left: 16px;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 84px;
+    height: 47px;
+    font-size: 14px;
+    padding-left: 12px;
+  }
+`;
+
+const SubmitButton = styled.div`
+  width: 187px;
+  height: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 93.5px;
+  z-index: 10;
+  margin-top: 120px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: #ffffff;
+
+    ${SubmitArrowWrap} {
+      background-color: #076496;
+    }
+
+    ${SubmitTextWrap} {
+      color: #121212;
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    width: 113px;
+    height: 36px;
+    border-radius: 56.5px;
+    margin-top: 74px;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 131px;
+    height: 47px;
+    border-radius: 65.5px;
+    margin-top: 80px;
+  }
+`;
+
 const DescriptionWrap = styled.ul`
   position: absolute;
   top: 4em;
@@ -514,4 +602,7 @@ export {
   ErrorBox,
   SuccessBox,
   RequiredField,
+  SubmitButton,
+  SubmitArrowWrap,
+  SubmitTextWrap,
 };

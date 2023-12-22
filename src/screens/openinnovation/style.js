@@ -112,10 +112,6 @@ const Text = styled.div`
   line-height: 1.5em;
   text-align: ${(props) => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
-
-  &:active {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
 `;
 
 const Tab = styled.div`
@@ -426,7 +422,6 @@ const ShootingStar = styled.span.attrs((props) => ({
   background: linear-gradient(270deg, #ffffff, transparent);
   transform: translateX(-200%);
 
-
   &.animate {
     opacity: 1;
     animation-name: ${(props) => move(props.$phase)};
@@ -454,9 +449,16 @@ const Ball = styled.span.attrs((props) => ({
   background-color: #ffffff;
   opacity: 1;
   box-shadow:
-  0 0 0 4px rgba(255, 255, 255, 0.1),
-  0 0 0 10px rgba(255, 255, 255, 0.1),
-  0 0 15px rgba(255, 255, 255, 0.1);
+    0 0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 0 10px rgba(255, 255, 255, 0.1),
+    0 0 15px rgba(255, 255, 255, 0.1);
+
+  @media screen and (max-width: 900px) {
+    box-shadow:
+      0 0 0 2px rgba(255, 255, 255, 0.1),
+      0 0 0 4px rgba(255, 255, 255, 0.1),
+      0 0 6px rgba(255, 255, 255, 0.1);
+  }
 `;
 
 export {
@@ -484,5 +486,5 @@ export {
   TableContentBox,
   ShootingStarWrap,
   ShootingStar,
-  Ball
+  Ball,
 };
