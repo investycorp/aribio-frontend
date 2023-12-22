@@ -17,39 +17,32 @@ import MoveUp from '../../../atom/MoveUp';
 const AboutUs = () => {
   const [tabNames, setTabNames] = useState(['Leadership', 'Advisors']);
   const [currentTab, setCurrentTab] = useState('Leadership');
-  const [moveUp, setMoveUp] = useRecoilState(MoveUp);
+  // const [moveUp, setMoveUp] = useRecoilState(MoveUp);
   const leader = document.querySelectorAll('#leadership');
 
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
 
-    const leader = document.querySelectorAll('#leadership');
-
-    // 컴포넌트 마운트 시, moveUp 상태에 따라 클래스 적용
-    if (moveUp) {
-      leader[1]?.classList.add('moveup');
-    } else {
-      leader[1]?.classList.remove('moveup');
-    }
-
     const handleScroll = () => {
-      if (window.innerWidth > 900) {
-        if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.8) {
-          if (!moveUp) {
+        document.addEventListener('scroll', () => {
+          const leader = document.querySelectorAll('#leadership');
+          const advisor = document.querySelector('#advisor');
+
+          if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.7) {
             leader[1]?.classList.add('moveup');
-            setMoveUp(true);
+          } else {
+            leader[1]?.classList.remove('moveup');
           }
-        }
-      }
-    };
+        })
+      };
 
     document.addEventListener('scroll', handleScroll);
 
     return () => {
       document.removeEventListener('scroll', handleScroll);
     };
-  }, [moveUp, setMoveUp]);
+  }, []);
 
   return (
     <Container className="container">
