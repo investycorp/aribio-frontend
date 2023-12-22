@@ -6,35 +6,50 @@ import { Container, HomeComponentWrap, TextWrap, Text, Tab, TabItem } from './st
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../../components/style';
 import Leadership from './components/Leadership';
 import Advisors from './components/Advisors';
-
+import { useRecoilState } from 'recoil';
 import { Desktop, Mobile } from '../../../utils/MediaQuery';
 
 import Video from '../../../components/Video';
 import { Trans } from 'react-i18next';
 import { t } from 'i18next';
+import MoveUp from '../../../atom/MoveUp';
 
 const AboutUs = () => {
   const [tabNames, setTabNames] = useState(['Leadership', 'Advisors']);
   const [currentTab, setCurrentTab] = useState('Leadership');
+  const [moveUp, setMoveUp] = useRecoilState(MoveUp);
+  const leader = document.querySelectorAll('#leadership');
 
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
-    document.addEventListener('scroll', () => {
-      const leader = document.querySelectorAll('#leadership');
-      const advisor = document.querySelector('#advisor');
+
+    const leader = document.querySelectorAll('#leadership');
+
+    // 컴포넌트 마운트 시, moveUp 상태에 따라 클래스 적용
+    if (moveUp) {
+      leader[1]?.classList.add('moveup');
+    } else {
+      leader[1]?.classList.remove('moveup');
+    }
+
+    const handleScroll = () => {
       if (window.innerWidth > 900) {
-        if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.7) {
-          leader[1]?.classList.add('moveup');
-        } else {
-          leader[1]?.classList.remove('moveup');
+        if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.8) {
+          if (!moveUp) {
+            leader[1]?.classList.add('moveup');
+            setMoveUp(true);
+          }
         }
       }
-    });
-    return () => {
-      document.removeEventListener('scroll', () => {});
     };
-  }, []);
+
+    document.addEventListener('scroll', handleScroll);
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [moveUp, setMoveUp]);
 
   return (
     <Container className="container">
@@ -48,8 +63,8 @@ const AboutUs = () => {
           src={
             // window.innerWidth > 1280
             //   ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0400PB_VD.mp4'
-            //   : 
-              window.innerWidth > 900
+            //   :
+            window.innerWidth > 900
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1300PB_VD.mp4'
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2200PB_VD.mp4'
           }
@@ -109,7 +124,6 @@ const AboutUs = () => {
           {currentTab === 'Leadership' ? <Leadership /> : <Advisors />}
         </Desktop>
 
-        
         <Mobile>
           <HomeComponentWrap>
             <TextWrap style={{ width: '100%' }}>
