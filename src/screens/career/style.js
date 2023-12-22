@@ -351,7 +351,6 @@ const ShootingStarWrap = styled.section`
 
 const ShootingStar = styled.span`
   position: absolute;
-  top: 50%;
   left: 0%;
   width: 8px;
   height: 8px;
@@ -368,7 +367,7 @@ const ShootingStar = styled.span`
   &:before {
     content: '';
     position: absolute;
-    top: 25%;
+    top: 30%;
     right: 0;
     width: calc(10vw);
     height: 2px;

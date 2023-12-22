@@ -245,6 +245,7 @@ const SubmitButton = styled.div`
   width: 187px;
   height: 60px;
   border: 2px solid rgba(255, 255, 255, 0.6);
+  border-left: 0;
   border-radius: 93.5px;
   z-index: 10;
   margin-top: 120px;
