@@ -489,17 +489,18 @@ const DigitalHealth = () => {
               </Text>
             </TextWrap>
           </ContentWrap>
-          <div id="horizontal" style={{ overflowX: 'scroll', width: '100vw' }}>
+          <div id="horizontal" style={{overflowX: 'scroll', width: '100vw', }}>
+            <div style={{
+              
+              display: 'flex',
+              width: 'fit-content',
+              padding: '0 0 0 5vw',
+            }}>
             <TableWrap
               className="table"
-              style={{
-                boxSizing: 'content-box',
-                width: 'fit-content',
-                alignSelf: 'start',
-                margin: '4em 5vw 0 5vw',
-                padding: '0',
-              }}
+              style={{width: 'fit-content', alignSelf: 'start', margin: '4em 5vw 0 0', padding: '0' }}
             >
+              
               <TableRowWrap className="th">
                 {tableHeader.map((item, index) => (
                   <TableContentBox key={index} style={{ fontSize: '16px', fontWeight: '300', color: '#CECECE' }}>
@@ -529,6 +530,7 @@ const DigitalHealth = () => {
                 </TableRowWrap>
               ))}
             </TableWrap>
+            </div>
           </div>
           <ContentWrap
             style={{
