@@ -52,6 +52,7 @@ import useCareerList from '../../hooks/career/useCareerList';
 import useFooter from '../../hooks/footer/useFooter';
 import Language from '../../atom/Language';
 import useLinkList from '../../hooks/useLink';
+import { NoResult } from '../ourapproach/Publications';
 
 const Career = () => {
   const { id } = useParams();
@@ -60,7 +61,6 @@ const Career = () => {
   const [detailPage, setDetailPage] = useState(false);
   const language = useRecoilState(Language);
   const { data: linkData } = useLinkList(language);
-
 
   const [coreValues, setCoreValues] = useState([
     {
@@ -136,15 +136,16 @@ const Career = () => {
     {
       title: t('career.recruitment.subtitle1'),
       img: icon_recruitment_1,
-      desc: window.innerWidth > 360 ? (
-        <>
-          <Trans i18nKey={'career.recruitment.desc1'} components={{ 1: <br /> }} />
-        </>
-      ) : (
-        <>
-          <Trans i18nKey={'career.recruitment_m.desc1'} components={{ 1: <br /> }} />
-        </>
-      ),
+      desc:
+        window.innerWidth > 360 ? (
+          <>
+            <Trans i18nKey={'career.recruitment.desc1'} components={{ 1: <br /> }} />
+          </>
+        ) : (
+          <>
+            <Trans i18nKey={'career.recruitment_m.desc1'} components={{ 1: <br /> }} />
+          </>
+        ),
     },
     {
       title: t('career.recruitment.subtitle2'),
@@ -358,9 +359,7 @@ const Career = () => {
                   position: 'relative',
                 }}
               >
-                <ImageBackground
-                  image={career_middle}
-                />
+                <ImageBackground image={career_middle} />
                 <TextWrap>
                   {/* <Text
                     $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
@@ -410,87 +409,101 @@ const Career = () => {
                 <GridContentWrap
                   style={{ gridTemplateColumns: '1fr 1fr', margin: '0', rowGap: '5vh', columnGap: '2em' }}
                 >
-                  {joinus.map((item, index) => (
-                    <ContentBox key={`joinus${index}`}
-                      style={{
-                        // width: window.innerWidth > 1280 ? '794px' : '480px',
-                        width: "100%",
-                        height: window.innerWidth > 1280 ? '261px' : '155px',
-                      }}
-                    className="joinus" $src={item.img}>
-                      <FilterShadow />
-                      <Button
-                        onClick={() => {
-                          navigate(`${item.id}`);
-                          console.log(item.title);
-                        }}
-                        style={{ padding: '4em 3em', cursor: 'pointer', zIndex: '1' }}
-                      >
-                        <TextWrap style={{ cursor: 'pointer', zIndex: '-1' }}>
-                          <Text
-                            $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
-                            $fontWeight="300"
-                            $color="#DDDDDD"
-                            $align="start"
-                            style={{ 
-                              wordBreak: 'break-all',
-                              marginBottom: '1.5em', zIndex: '-1', cursor: 'pointer' }}
-                          >
-                            <span style={{ margin: '0 0.15em 0 0' }}>·</span> {item.type}
-                          </Text>
-                          <Text
-                            $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
-                            $fontWeight="100"
-                            $color="#ffffff"
-                            $align="start"
-                            style={{ 
-                              wordBreak: 'break-all',
-                              marginBottom: '0.5em', zIndex: '-1', cursor: 'pointer' }}
-                          >
-                            {item.location.slice(0, 60)}
-                            {item.location.length > 60 && '...'}-
-                          </Text>
-                          <div
-                            style={{
-                              display: 'flex',
-                              width: '100%',
-                              flexDirection: 'row',
-                              alignItems: 'center',
-                              justifyContent: 'space-between',
+                  {joinus.length > 0 ? (
+                    <>
+                      {joinus.map((item, index) => (
+                        <ContentBox
+                          key={`joinus${index}`}
+                          style={{
+                            // width: window.innerWidth > 1280 ? '794px' : '480px',
+                            width: '100%',
+                            height: window.innerWidth > 1280 ? '261px' : '155px',
+                          }}
+                          className="joinus"
+                          $src={item.img}
+                        >
+                          <FilterShadow />
+                          <Button
+                            onClick={() => {
+                              navigate(`${item.id}`);
+                              console.log(item.title);
                             }}
+                            style={{ padding: '4em 3em', cursor: 'pointer', zIndex: '1' }}
                           >
-                            <Text
-                              style={{ wordBreak: 'break-all', zIndex: '-1', cursor: 'pointer' }}
-                              $fontSize={window.innerWidth > 1280 ? '24px' : '13px'}
-                              $fontWeight="400"
-                              $color="#E3E3E3"
-                              $align="start"
-                            >
-                              {item.title.slice(0, 100)}
-                              {item.title.length > 100 && '...'}
-                            </Text>
-                            <Image
-                              src={arrow}
-                              alt="arrow"
-                              style={{
-                                border: '1px solid #ffffff',
-                                borderRadius: '50%',
-                                zIndex: '1',
-                                cursor: 'pointer',
-                                height: window.innerWidth > 1280 ? '14px' : '12px',
-                                padding: window.innerWidth > 1280 ? '12px' : '8px',
-                              }}
-                              // onClick={() => {
-                              //   navigate(`${item.id}`);
-                              //   console.log(item.title);
-                              // }}
-                            />
-                          </div>
-                        </TextWrap>
-                      
-                      </Button>
-                    </ContentBox>
-                  ))}
+                            <TextWrap style={{ cursor: 'pointer', zIndex: '-1' }}>
+                              <Text
+                                $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
+                                $fontWeight="300"
+                                $color="#DDDDDD"
+                                $align="start"
+                                style={{
+                                  wordBreak: 'break-all',
+                                  marginBottom: '1.5em',
+                                  zIndex: '-1',
+                                  cursor: 'pointer',
+                                }}
+                              >
+                                <span style={{ margin: '0 0.15em 0 0' }}>·</span> {item.type}
+                              </Text>
+                              <Text
+                                $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
+                                $fontWeight="100"
+                                $color="#ffffff"
+                                $align="start"
+                                style={{
+                                  wordBreak: 'break-all',
+                                  marginBottom: '0.5em',
+                                  zIndex: '-1',
+                                  cursor: 'pointer',
+                                }}
+                              >
+                                {item.location.slice(0, 60)}
+                                {item.location.length > 60 && '...'}-
+                              </Text>
+                              <div
+                                style={{
+                                  display: 'flex',
+                                  width: '100%',
+                                  flexDirection: 'row',
+                                  alignItems: 'center',
+                                  justifyContent: 'space-between',
+                                }}
+                              >
+                                <Text
+                                  style={{ wordBreak: 'break-all', zIndex: '-1', cursor: 'pointer' }}
+                                  $fontSize={window.innerWidth > 1280 ? '24px' : '13px'}
+                                  $fontWeight="400"
+                                  $color="#E3E3E3"
+                                  $align="start"
+                                >
+                                  {item.title.slice(0, 100)}
+                                  {item.title.length > 100 && '...'}
+                                </Text>
+                                <Image
+                                  src={arrow}
+                                  alt="arrow"
+                                  style={{
+                                    border: '1px solid #ffffff',
+                                    borderRadius: '50%',
+                                    zIndex: '1',
+                                    cursor: 'pointer',
+                                    height: window.innerWidth > 1280 ? '14px' : '12px',
+                                    padding: window.innerWidth > 1280 ? '12px' : '8px',
+                                  }}
+                                  // onClick={() => {
+                                  //   navigate(`${item.id}`);
+                                  //   console.log(item.title);
+                                  // }}
+                                />
+                              </div>
+                            </TextWrap>
+                          </Button>
+                        </ContentBox>
+                      ))}
+                    </>
+                  ) : (
+                    <NoResult>Currently, there is no job posting.</NoResult>
+                  )}
                 </GridContentWrap>
               </HomeComponentWrap>
               <HomeComponentWrap>
@@ -503,12 +516,15 @@ const Career = () => {
                 >
                   Core Values
                 </Text>
-                <div id="core_value" style={{ width: '100%',  border: '1px solid #ababab', marginTop: '5em', borderRadius: 10 }}>
+                <div
+                  id="core_value"
+                  style={{ width: '100%', border: '1px solid #ababab', marginTop: '5em', borderRadius: 10 }}
+                >
                   {coreValues.map((item, index) => (
                     <GridContentWrap
                       style={{
                         width: '100',
-                        borderBottom: coreValues.length !== index + 1 ? '1px solid #ababab' : 'none'
+                        borderBottom: coreValues.length !== index + 1 ? '1px solid #ababab' : 'none',
                       }}
                       key={index + 'box1'}
                     >
@@ -598,28 +614,33 @@ const Career = () => {
                     gap: '5.555vw',
                     flexwrap: 'nowrap',
                     marginBottom: '5em',
-                    padding: '5rem 0',
+                    padding: '5rem 7vw 5rem 0',
                   }}
                 >
                   {recruitmentProcess.map((item, index) => (
                     <RecruitmentItemWrap
                       key={`recruitmentProcess${index}`}
-                      style={{marginRight: recruitmentProcess.length === index + 1 ? '7vw' : '0'}}
+                      style={{ marginRight: recruitmentProcess.length === index + 1 ? '7vw' : '0' }}
                     >
-                      <TextWrap style={{flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between'}}>
-                        <Image 
+                      <TextWrap style={{ flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between' }}>
+                        <Image
                           style={{
-                            width: window.innerWidth > 1280 ? '84px' : '52px'
+                            width: window.innerWidth > 1280 ? '84px' : '52px',
                           }}
-                        
-                        src={item.img} />
+                          src={item.img}
+                        />
                         <Text
                           $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                           $fontWeight="400"
                           $color="#00A6FF"
                           $align="start"
-                          style={{ width: 'fit-content', overflow: 'unset', marginLeft: index === 0 && '3px', paddingRight: 10 }}
-                          >
+                          style={{
+                            width: 'fit-content',
+                            overflow: 'unset',
+                            marginLeft: index === 0 && '3px',
+                            paddingRight: 10,
+                          }}
+                        >
                           {`0${index + 1}`}
                         </Text>
                       </TextWrap>
@@ -659,11 +680,11 @@ const Career = () => {
                     Benefits
                   </Text>
                   <Text
-                   $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
-                   $fontWeight="300"
-                   $color="#CBCBCB"
-                   $align="start"
-                   style={{marginTop: '1.14vh'}}
+                    $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
+                    $fontWeight="300"
+                    $color="#CBCBCB"
+                    $align="start"
+                    style={{ marginTop: '1.14vh' }}
                   >
                     <Trans i18nKey={'career.benefits.desc'} components={{ 1: <br /> }} />
                   </Text>
@@ -784,8 +805,6 @@ const Career = () => {
                 </GridContentWrap>
               </HomeComponentWrap>
             </Desktop>
-
-
 
             <Mobile>
               <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
@@ -910,7 +929,7 @@ const Career = () => {
                 ))}
               </div>
             </HomeComponentWrap> */}
-               <HomeComponentWrap style={{ paddingBottom: '10em' }}>
+              <HomeComponentWrap style={{ paddingBottom: '10em' }}>
                 <TextWrap style={{ marginBottom: '5em', zIndex: '10' }}>
                   <HR style={{ alignSelf: 'start', margin: '1rem 0', width: '40px', height: '1px' }} />
                   <Text $fontSize="20px" $fontWeight="600" $color="#E5E5E5" $align="start">
@@ -918,6 +937,7 @@ const Career = () => {
                   </Text>
                 </TextWrap>
                 <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '5vh', columnGap: '2em' }}>
+                  {joinus.length === 0 && <NoResult>Currently, there is no job posting.</NoResult>}
                   {joinus.length > 0 &&
                     joinus?.map((item, index) => (
                       <ContentBox key={`joinus${index}`} className="joinus" $src={item.img}>
@@ -944,9 +964,7 @@ const Career = () => {
                             >
                               <span style={{ margin: '0 0.15em 0 0' }}>·</span> {item.type}
                             </Text>
-                            <div
-                              style={{width: '100%'}}
-                            >
+                            <div style={{ width: '100%' }}>
                               <Text
                                 $fontSize="14px"
                                 $fontWeight="200"
@@ -1001,14 +1019,13 @@ const Career = () => {
                               </div>
                             </div>
                           </TextWrap>
-                                                        
                         </Button>
                       </ContentBox>
                     ))}
                 </GridContentWrap>
               </HomeComponentWrap>
               <HomeComponentWrap>
-                <HR $width="40px" $height="1px" style={{marginBottom: 12, alignSelf: 'start'}}/>
+                <HR $width="40px" $height="1px" style={{ marginBottom: 12, alignSelf: 'start' }} />
                 <Text
                   $fontSize="20px"
                   $fontWeight="500"
@@ -1039,46 +1056,46 @@ const Career = () => {
                   }}
                 >
                   {recruitmentProcess.map((item, index) => (
-                     <RecruitmentItemWrap
-                     key={`recruitmentProcess${index}`}
-                     style={{width: '100%'}}
-                    >
-                     <TextWrap style={{flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between'}}>
-                       <Image style={{
-                        width: 52,
-                        height: 50
-                       }} src={item.img} />
-                       <Text
-                         $fontSize={'14px'}
-                         $fontWeight="400"
-                         $color="#00A6FF"
-                         $align="start"
-                         style={{ width: 'fit-content', overflow: 'unset', marginRight: '9px' }}
-                         >
-                         {`0${index + 1}`}
-                       </Text>
-                     </TextWrap>
-                     <TextWrap style={{ alignItems: 'start', gap: '12px' }}>
-                       <Text
-                         $fontSize={'18px'}
-                         $fontWeight="300"
-                         $color="#ffffff"
-                         $align="start"
-                         style={{ width: 'auto', overflow: 'hidden' }}
-                       >
-                         {item.title}
-                       </Text>
-                       <Text
-                         $fontSize={'16px'}
-                         $fontWeight="200"
-                         $color="#D6D6D6"
-                         $align="start"
-                         style={{ lineHeight: '22px', width: 'auto', overflow: 'hidden' }}
-                       >
-                         {item.desc}
-                       </Text>
-                     </TextWrap>
-                   </RecruitmentItemWrap>
+                    <RecruitmentItemWrap key={`recruitmentProcess${index}`} style={{ width: '100%' }}>
+                      <TextWrap style={{ flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between' }}>
+                        <Image
+                          style={{
+                            width: 52,
+                            height: 50,
+                          }}
+                          src={item.img}
+                        />
+                        <Text
+                          $fontSize={'14px'}
+                          $fontWeight="400"
+                          $color="#00A6FF"
+                          $align="start"
+                          style={{ width: 'fit-content', overflow: 'unset', marginRight: '9px' }}
+                        >
+                          {`0${index + 1}`}
+                        </Text>
+                      </TextWrap>
+                      <TextWrap style={{ alignItems: 'start', gap: '12px' }}>
+                        <Text
+                          $fontSize={'18px'}
+                          $fontWeight="300"
+                          $color="#ffffff"
+                          $align="start"
+                          style={{ width: 'auto', overflow: 'hidden' }}
+                        >
+                          {item.title}
+                        </Text>
+                        <Text
+                          $fontSize={'16px'}
+                          $fontWeight="200"
+                          $color="#D6D6D6"
+                          $align="start"
+                          style={{ lineHeight: '22px', width: 'auto', overflow: 'hidden' }}
+                        >
+                          {item.desc}
+                        </Text>
+                      </TextWrap>
+                    </RecruitmentItemWrap>
                   ))}
                 </ContentBox>
               </HomeComponentWrap>
@@ -1091,9 +1108,8 @@ const Career = () => {
                   <Text $fontSize="20px" $fontWeight="500" $color="#E5E5E5" $align="start">
                     Benefits
                   </Text>
-                  <Text $fontSize="16px" $fontWeight="200" $color="#E5E5E5" $align="start" style={{marginTop:20}}>
+                  <Text $fontSize="16px" $fontWeight="200" $color="#E5E5E5" $align="start" style={{ marginTop: 20 }}>
                     <Trans i18nKey={t('career.benefits.desc')} components={{ 1: <br /> }} />
-
                   </Text>
                 </TextWrap>
                 <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '80px' }}>
@@ -1199,7 +1215,7 @@ const Career = () => {
                           borderBottom: '1px solid #ffffff',
                         }}
                         onClick={() => {
-                          window.open(linkData?.data?.data?.careerLinkedIn, '_blank')
+                          window.open(linkData?.data?.data?.careerLinkedIn, '_blank');
                         }}
                       >
                         <span style={{ zIndex: '-1' }}>Linked In</span>

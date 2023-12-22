@@ -112,10 +112,6 @@ const Text = styled.div`
   line-height: 1.5em;
   text-align: ${(props) => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
-
-  &:active {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
 `;
 
 const Tab = styled.div`
@@ -198,13 +194,7 @@ const TableWrap = styled.div.attrs((props) => ({
   padding: 0;
   background-color: transparent;
   border: 1px solid #efefef;
-  &.table {
-    &:focus,
-    &:active {
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-  }
+
   @media screen and (max-width: 1280px) {
     margin: 5em 0 0 0;
   }
@@ -275,31 +265,10 @@ const TableContentBox = styled.div.attrs((props) => ({
     }
   }
 
-  &.indication {
+  &.div {
     display: grid;
-    grid-template-columns: 1fr;
-    background-color: transparent;
-    padding: 0;
-    div {
-      display: grid;
-      grid-template-columns: 17vw 40vw;
-      width: 100%;
-      height: 100%;
-      div.section {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-right: 2px solid rgba(177, 177, 177, 0.3);
-        border-bottom: 2px solid rgba(177, 177, 177, 0.3);
-        padding: 1em 1em;
-
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
+    grid-template-columns: 8vw 8vw 8vw 8vw 8vw;
+    height: auto;
   }
 
   &:last-child {
@@ -389,13 +358,29 @@ const HR = styled.div`
 `;
 
 const ShootingStarWrap = styled.section`
-  position: relative;
+  position: absolute;
   width: 100%;
   height: fit-content;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const move = (phase) => keyframes`
+  0% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(${phase ? `calc((${phase}*10.2vw) - 100%)` : `calc(10vw)`});
+    -webkit-transform: translateX(${phase ? `calc((${phase}*10.2vw) -100%)` : `calc(10vw)`});
+    opacity: 1;
+  }
 `;
 
 const ShootingStar = styled.span.attrs((props) => ({
@@ -405,16 +390,10 @@ const ShootingStar = styled.span.attrs((props) => ({
   position: absolute;
   top: calc(50%-4px);
   left: 0%;
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 4px rgba(255, 255, 255, 0.1),
-    0 0 0 6px rgba(255, 255, 255, 0.1),
-    0 0 8px rgba(255, 255, 255, 0.1);
-  transform: translate(-50%, -50%);
-  transform: rotate(180deg);
+  width: ${(props) => (props.$phase ? `calc(${props.$phase}*10.4vw)` : `calc(10vw)`)};
+  height: 3px;
+  background: linear-gradient(270deg, #ffffff, transparent);
+  transform: translateX(-200%);
 
   &.animate {
     opacity: 1;
@@ -429,30 +408,29 @@ const ShootingStar = styled.span.attrs((props) => ({
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
   }
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: ${(props) => (props.$phase ? `calc(${props.$phase}*10.4vw + 140px)` : `calc(10vw)`)};
-    height: 2px;
-    background: linear-gradient(270deg, #ffffff, transparent);
-    transform: translate(0, -50%);
-  }
 `;
 
-const move = (phase) => keyframes`
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(${phase ? `calc(${phase}*10.2vw)` : `calc(10vw)`});
-    opacity: 1;
+const Ball = styled.span.attrs((props) => ({
+  className: props.className,
+}))`
+  position: absolute;
+  top: -1.5px;
+  right: -1px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 1;
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 0 10px rgba(255, 255, 255, 0.1),
+    0 0 15px rgba(255, 255, 255, 0.1);
+
+  @media screen and (max-width: 900px) {
+    box-shadow:
+      0 0 0 2px rgba(255, 255, 255, 0.1),
+      0 0 0 4px rgba(255, 255, 255, 0.1),
+      0 0 6px rgba(255, 255, 255, 0.1);
   }
 `;
 
@@ -481,4 +459,5 @@ export {
   TableContentBox,
   ShootingStarWrap,
   ShootingStar,
+  Ball,
 };

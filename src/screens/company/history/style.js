@@ -126,8 +126,6 @@ const Tab = styled.div`
   @media screen and (max-width: 900px) {
     gap: 1rem;
     margin-bottom: 2rem;
-  }
-  @media screen and (max-width: 360px) {
     overflow-x: scroll;
     width: 100vw;
     padding-left: 5vw;

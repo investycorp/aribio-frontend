@@ -21,6 +21,9 @@ import {
   ErrorBox,
   SuccessBox,
   RequiredField,
+  SubmitButton,
+  SubmitArrowWrap,
+  SubmitTextWrap,
 } from './style';
 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
@@ -44,7 +47,6 @@ const Contact = () => {
   });
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [submitSrc, setSubmitSrc] = useState();
   const [emailError, setEmailError] = useState('This field is required.');
   const {
     mutate,
@@ -57,13 +59,6 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
-    setSubmitSrc(
-      process.env.PUBLIC_URL + window.innerWidth > 1280
-        ? '/assets/icons/submit/submit_1920.png'
-        : window.innerWidth > 900
-        ? '/assets/icons/submit/submit_1280.png'
-        : '/assets/icons/submit/submit_360.png',
-    );
   }, []);
 
   useEffect(() => {
@@ -120,7 +115,7 @@ const Contact = () => {
       setIsError(true);
       console.log('error');
     }
-  }, [mutationSuccess, mutationError])
+  }, [mutationSuccess, mutationError]);
 
   const checkValidation = () => {
     if (
@@ -144,8 +139,8 @@ const Contact = () => {
           src={
             // window.innerWidth > 1280
             //   ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0900PB_VD.mp4'
-            //   : 
-              window.innerWidth > 900
+            //   :
+            window.innerWidth > 900
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1800PB_VD.mp4'
               : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2700PB_VD.mp4'
           }
@@ -168,7 +163,6 @@ const Contact = () => {
         />
       </HomeComponentWrap>
       <div style={{ margin: '0', padding: '0', position: 'relative' }}>
-
         <Desktop>
           <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
             <TextWrap style={{ width: '70vw' }}>
@@ -184,11 +178,7 @@ const Contact = () => {
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                 }}
               ></div>
-              <Text
-                $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-                $fontWeight="500"
-                $color="#ffffff"
-              >
+              <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500" $color="#ffffff">
                 {t('contact.subtitle')}
               </Text>
             </TextWrap>
@@ -283,7 +273,7 @@ const Contact = () => {
                 <FormInputRowWrap $isFilled={contactInfo.phone !== ''}>
                   <Label htmlFor="phone">{t('contact.phone')}</Label>
                   <Input
-                    type="phone"
+                    type="number"
                     name="phone"
                     autoComplete="off"
                     value={contactInfo.phone}
@@ -341,55 +331,18 @@ const Contact = () => {
                     <span style={{ color: '#E5E5E5' }}>{t('contact.required2')} </span>
                   </span>
 
-                  <Image
-                    src={submitSrc}
-                    alt="submit"
-                    style={{
-                      cursor: 'pointer',
-                      marginTop: window.innerWidth > 1280 ? '120px' : '74px',
-                      width: window.innerWidth > 1280 ? '187px' : '113px',
-                    }}
-                    onClick={(e) => handleSubmit(e)}
-                    onMouseOver={() =>
-                      setSubmitSrc(
-                        process.env.PUBLIC_URL + window.innerWidth > 1280
-                          ? '/assets/icons/submit/submit_1920_a.png'
-                          : '/assets/icons/submit/submit_1280_a.png',
-                      )
-                    }
-                    onMouseOut={() =>
-                      setSubmitSrc(
-                        process.env.PUBLIC_URL + window.innerWidth > 1280
-                          ? '/assets/icons/submit/submit_1920.png'
-                          : '/assets/icons/submit/submit_1280.png',
-                      )
-                    }
-                  />
-
-                  {/* <Button
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'start',
-                      alignItems: 'center',
-                      gap: '1.3em',
-                      fontSize: window.innerWidth > 1280 ? '20px' : '10px',
-                    }}
-                    onClick={(e) => handleSubmit(e)}
-                  >
-                    <Image
-                      src={arrow}
-                      alt="arrow"
-                      style={{
-                        border: '2px solid #ffffff',
-                        borderRadius: '50%',
-                        padding: window.innerWidth > 1280 ? '20px' : '11px',
-                        cursor: 'pointer',
-                        backgroundColor: '#121212',
-                        height: window.innerWidth > 1280 ? '14px' : '9px',
-                      }}
-                    />
-                    SUBMIT
-                  </Button> */}
+                  <SubmitButton onClick={(e) => handleSubmit(e)}>
+                    <SubmitArrowWrap>
+                      <Image
+                        src={arrow}
+                        alt="location_arrow"
+                        style={{
+                          height: window.innerWidth > 1280 ? '20px' : '12px',
+                        }}
+                      />
+                    </SubmitArrowWrap>
+                    <SubmitTextWrap>SUBMIT</SubmitTextWrap>
+                  </SubmitButton>
                 </FormInputRowWrap>
               </Form>
             </FormWrap>
@@ -462,9 +415,9 @@ const Contact = () => {
           </HomeComponentWrap>
         </Desktop>
         <Mobile>
-          <HomeComponentWrap style={{marginBottom: '162px'}}>
+          <HomeComponentWrap style={{ marginBottom: '162px' }}>
             <TextWrap style={{ width: '80vw' }}>
-              <Text style={{marginBottom: '0'}} $fontSize="16px" $fontWeight="300" $color="#939598">
+              <Text style={{ marginBottom: '0' }} $fontSize="16px" $fontWeight="300" $color="#939598">
                 {t('contact.title')}
               </Text>
               <div
@@ -475,7 +428,7 @@ const Contact = () => {
                   border: '1px solid #ffffff',
                   margin: '28px 0',
                 }}
-            ></div>
+              ></div>
               <Text $fontSize="23px" $fontWeight="500" $color="#ffffff">
                 <Trans i18nKey="contact.subtitle_m" components={{ 1: <br /> }} />
               </Text>
@@ -495,8 +448,10 @@ const Contact = () => {
                   left: '0',
                   top: '0',
                   width: '100%',
+                  justifyContent: 'start',
                   margin: '1rem 0',
                   lineHeight: '22px',
+                  padding: '20px',
                 }}
                 $isActive={isError}
               >
@@ -591,7 +546,7 @@ const Contact = () => {
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.phone !== ''}>
                   <Label htmlFor="phone">{t('contact.phone')}</Label>
                   <Input
-                    type="phone"
+                    type="number"
                     name="phone"
                     autoComplete="off"
                     value={contactInfo.phone}
@@ -623,7 +578,7 @@ const Contact = () => {
                     onKeyDown={(e) => handleEnter(e)}
                   />
                   {isError && !contactInfo.message && (
-                    <RequiredField style={{ fontSize: '16px', fontWeight: '300' }}>
+                    <RequiredField style={{ fontSize: '10px', fontWeight: '300' }}>
                       <img
                         src={process.env.PUBLIC_URL + '/assets/icons/exclamation.svg'}
                         alt="warning"
@@ -647,48 +602,19 @@ const Contact = () => {
                     <span style={{ color: '#00A6FF' }}>* </span>
                     <span style={{ fontSize: '14px', fontWeight: '200', color: '#E5E5E5' }}>is a required field. </span>
                   </span>
-                  <Image
-                    src={submitSrc}
-                    alt="submit"
-                    style={{
-                      cursor: 'pointer',
-                      marginTop: '80px',
-                      width: '131px',
-                    }}
-                    onClick={(e) => handleSubmit(e)}
-                    onMouseOver={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360_a.png')}
-                    onMouseOut={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360.png')}
-                  />
-                  {/* <Button
-                    className={isSuccess ? 'submit' : ''}
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'start',
-                      alignItems: 'center',
 
-                      fontSize: '14px',
-                      width: '131px',
-                      height: '47px',
-                      borderWidth: '1px',
-                      padding: '0',
-                    }}
-                    onClick={(e) => handleSubmit(e)}
-                  >
-                    <Image
-                      src={arrow}
-                      alt="arrow"
-                      style={{
-                        border: '1px solid #ffffff',
-                        borderRadius: '50%',
-                        padding: '11.5px',
-                        zIndex: '1',
-                        height: '20px',
-
-                        marginRight: '1em',
-                      }}
-                    />
-                    SUBMIT
-                  </Button> */}
+                  <SubmitButton onClick={(e) => handleSubmit(e)}>
+                    <SubmitArrowWrap>
+                      <Image
+                        src={arrow}
+                        alt="location_arrow"
+                        style={{
+                          height: window.innerWidth > 1280 ? '20px' : '12px',
+                        }}
+                      />
+                    </SubmitArrowWrap>
+                    <SubmitTextWrap>SUBMIT</SubmitTextWrap>
+                  </SubmitButton>
                 </FormInputRowWrap>
               </Form>
             </FormWrap>

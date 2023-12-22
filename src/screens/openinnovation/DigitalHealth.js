@@ -18,6 +18,7 @@ import {
   TableContentBox,
   ShootingStarWrap,
   ShootingStar,
+  Ball,
 } from './style';
 
 import { HeadLine, Path, MainImgWrap } from '../../components/style';
@@ -31,7 +32,7 @@ import arrow from '../../assets/images/arrow.svg';
 import Video from '../../components/Video';
 import useLinkList from '../../hooks/useLink';
 
-import { t } from 'i18next'
+import { t } from 'i18next';
 import { Trans } from 'react-i18next';
 
 const DigitalHealth = () => {
@@ -140,9 +141,7 @@ const DigitalHealth = () => {
         {t('innovation.health.subtitle')}
       </Path>
       <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine $className="midsize">
-          {t('innovation.health.title')} 
-        </HeadLine>
+        <HeadLine $className="midsize">{t('innovation.health.title')}</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -171,13 +170,13 @@ const DigitalHealth = () => {
               <Trans i18nKey={'innovation.health.subdesc'} components={{ 1: <br /> }} />
             </Text>
             <div
-                style={{
-                  alignSelf: 'center',
-                  width: window.innerWidth > 1280 ? '60px' : '40px',
-                  height: '2px',
-                  border: '1px solid #ffffff',
-                  margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                }}
+              style={{
+                alignSelf: 'center',
+                width: window.innerWidth > 1280 ? '60px' : '40px',
+                height: '2px',
+                border: '1px solid #ffffff',
+                margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
+              }}
             ></div>
             <Text style={{ fontSize: window.innerWidth > 1280 ? '23px' : '14px' }} $fontWeight="300" $color="#C9C9C9">
               <Trans i18nKey={'innovation.health.approach.desc'} components={{ 1: <br /> }} />
@@ -223,7 +222,7 @@ const DigitalHealth = () => {
         <HomeComponentWrap style={{ justifyContent: 'center' }}>
           <ContentWrap style={{ padding: '0' }}>
             <TextWrap style={{ width: '100%', alignItems: 'center', margin: '0', gap: '2em' }}>
-              <HR $color="#F8F8F8" style={{alignSelf: 'center'}} />
+              <HR $color="#F8F8F8" style={{ alignSelf: 'center' }} />
               <Text
                 style={{ fontSize: window.innerWidth > 1280 ? '34px' : '19px', margin: '0' }}
                 $fontWeight="500"
@@ -245,7 +244,7 @@ const DigitalHealth = () => {
         <HomeComponentWrap style={{ justifyContent: 'center' }}>
           <ContentWrap style={{ padding: '0' }}>
             <TextWrap style={{ width: '100%', alignItems: 'center', margin: '0', gap: '2em' }}>
-              <HR $color="#F8F8F8"  style={{alignSelf: 'center'}} />
+              <HR $color="#F8F8F8" style={{ alignSelf: 'center' }} />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '19px'}
                 $fontWeight="500"
@@ -276,17 +275,27 @@ const DigitalHealth = () => {
                   {item.region}
                 </TableContentBox>
 
-                <TableContentBox style={{ padding: '0' }}>
+                <TableContentBox style={{ padding: '0', flexDirection: 'row' }}>
+                  <TableContentBox
+                    style={{ height: '100%', fontSize: window.innerWidth > 1280 ? '24px' : '13px', fontWeight: '300' }}
+                  />
+                  <TableContentBox
+                    style={{ height: '100%', fontSize: window.innerWidth > 1280 ? '24px' : '13px', fontWeight: '300' }}
+                  />
+                  <TableContentBox
+                    style={{ height: '100%', fontSize: window.innerWidth > 1280 ? '24px' : '13px', fontWeight: '300' }}
+                  />
+                  <TableContentBox
+                    style={{ height: '100%', fontSize: window.innerWidth > 1280 ? '24px' : '13px', fontWeight: '300' }}
+                  />
+                  <TableContentBox
+                    style={{ height: '100%', fontSize: window.innerWidth > 1280 ? '24px' : '13px', fontWeight: '300' }}
+                  />
                   <ShootingStarWrap className="shooting_star_wrap">
                     <hr style={{ width: '100%', border: '1px dotted', opacity: '0' }} />
-                    <ShootingStar
-                      className="shooting_star"
-                      style={{
-                        height: '6px',
-                        width: '6px',
-                      }}
-                      $phase={item.phase}
-                    />
+                    <ShootingStar className="shooting_star" style={{}} $phase={item.phase}>
+                      <Ball className="ball" />
+                    </ShootingStar>
                   </ShootingStarWrap>
                 </TableContentBox>
               </TableRowWrap>
@@ -393,9 +402,7 @@ const DigitalHealth = () => {
               }}
               onClick={() => window.open(linkData?.data?.data?.goToHorizon, '_blank')}
             >
-              <span style={{ zIndex: '-1' }}>
-                {t('innovation.health.button.herizon')}
-              </span>
+              <span style={{ zIndex: '-1' }}>{t('innovation.health.button.herizon')}</span>
               <Image
                 src={arrow}
                 alt="arrow"
@@ -409,8 +416,6 @@ const DigitalHealth = () => {
           </ContentWrap>
         </HomeComponentWrap>
       </Desktop>
-
-
 
       <Mobile>
         <HomeComponentWrap
@@ -478,17 +483,24 @@ const DigitalHealth = () => {
         <HomeComponentWrap style={{ justifyContent: 'start' }}>
           <ContentWrap style={{ padding: '0' }}>
             <TextWrap style={{ width: '100%', alignItems: 'start', margin: '0', gap: '0.5em' }}>
-              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{alignSelf: 'center'}} />
+              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{ alignSelf: 'center' }} />
               <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" style={{ margin: '0', alignSelf: 'center' }}>
                 {t('innovation.health_m.pipeline.title')}
               </Text>
             </TextWrap>
           </ContentWrap>
-          <div id="horizontal" style={{ overflowX: 'scroll', width: '100vw', paddingLeft: '5vw' }}>
+          <div id="horizontal" style={{overflowX: 'scroll', width: '100vw', }}>
+            <div style={{
+              
+              display: 'flex',
+              width: 'fit-content',
+              padding: '0 0 0 5vw',
+            }}>
             <TableWrap
               className="table"
-              style={{ width: 'fit-content', alignSelf: 'start', margin: '4em 5vw 0 0', padding: '0' }}
+              style={{width: 'fit-content', alignSelf: 'start', margin: '4em 5vw 0 0', padding: '0' }}
             >
+              
               <TableRowWrap className="th">
                 {tableHeader.map((item, index) => (
                   <TableContentBox key={index} style={{ fontSize: '16px', fontWeight: '300', color: '#CECECE' }}>
@@ -510,12 +522,15 @@ const DigitalHealth = () => {
                   <TableContentBox style={{ padding: 0 }}>
                     <ShootingStarWrap className="shooting_star_wrap">
                       <hr style={{ width: '100%', opacity: '0.4', border: '1px dotted' }} />
-                      <ShootingStar className="shooting_star" $phase={item.phase} />
+                      <ShootingStar className="shooting_star" $phase={item.phase}>
+                        <Ball className="ball" />
+                      </ShootingStar>
                     </ShootingStarWrap>
                   </TableContentBox>
                 </TableRowWrap>
               ))}
             </TableWrap>
+            </div>
           </div>
           <ContentWrap
             style={{
@@ -551,8 +566,13 @@ const DigitalHealth = () => {
         <HomeComponentWrap style={{ justifyContent: 'start' }}>
           <ContentWrap style={{ padding: '0', marginBottom: '6rem' }}>
             <TextWrap style={{ alignItems: 'start', margin: '0', gap: '0.5em', width: '100%' }}>
-              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{alignSelf: 'center'}} />
-              <Text $fontSize="20px" $fontWeight="500" $color="#E5E5E5" style={{ alignSelf: 'center', margin: '0 0 2em 0' }}>
+              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{ alignSelf: 'center' }} />
+              <Text
+                $fontSize="20px"
+                $fontWeight="500"
+                $color="#E5E5E5"
+                style={{ alignSelf: 'center', margin: '0 0 2em 0' }}
+              >
                 {t('innovation.health_m.electro.title')}
               </Text>
               <Text
