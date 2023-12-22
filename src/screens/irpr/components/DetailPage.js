@@ -224,7 +224,7 @@ const DetailPage = () => {
           </Button>
         </div>
         <HomeComponentWrap
-          style={{ height: 'fit-content', padding: '3rem 0 0 0', borderTop: '2px solid #B5B5B5', marginTop: '3rem' }}
+          style={{ height: 'fit-content', padding: '3rem 0 0 0', borderTop: '1px solid #B5B5B5', marginTop: '3rem' }}
         >
           <ComponentWrap
             style={{
@@ -368,6 +368,7 @@ const DetailPage = () => {
           </ComponentWrap>
         </HomeComponentWrap>
       </Desktop>
+
       <Mobile>
         <ComponentWrap style={{ justifyContent: 'center', alignItems: 'start' }}>
           <span
