@@ -11,7 +11,6 @@ const ModalContainer = styled.div`
   position: fixed;
 
   z-index: 100;
-  overflow: hidden;
   background-color: white;
 `;
 
@@ -23,7 +22,20 @@ const Modal = () => {
 
   useEffect(() => {
     popupData?.data?.dataList.length > 0 && setModalData(popupData?.data?.dataList);
+    console
+      .log
+      // getMeta(popupData?.data?.dataList[0].fileDto, (err, img) => {
+      //   console.log(img.naturalWidth, img.naturalHeight);
+      // }),
+      ();
   }, [popupData, language]);
+
+  // const getMeta = (url, cb) => {
+  //   const img = new Image();
+  //   img.onload = () => cb(null, img);
+  //   img.onerror = (err) => cb(err);
+  //   img.src = url;
+  // };
 
   return (
     <>
@@ -42,27 +54,21 @@ const Modal = () => {
                   height: `${data.length}px`,
                   border: '2px solid #121212',
                   borderRadius: '5px',
-                  overflow: 'auto',
                 }}
                 key={data.id}
               >
-                <h2 style={{ backgroundColor: '#121212', color: '#989898', width: '100%', padding: '0 10px' }}>
-                  {data.title}
-                </h2>
                 <div
                   style={{
                     display: 'block',
-
                     width: '100%',
                     height: '100%',
-                    padding: '20px 10px 10px 10px',
                     borderRadius: '5px',
                   }}
                 >
                   <img
                     src={data.fileDto.fileUrl}
                     alt={data.title}
-                    style={{width: '100%', height: 'auto'}}
+                    style={{ width: '100%', height: 'auto' }}
                     onClick={() => {
                       setTimeout(() => {
                         data?.link && window.open(`${data?.link}`, '_blank');
@@ -74,7 +80,8 @@ const Modal = () => {
                       display: 'flex',
                       flexDirection: 'row',
                       justifyContent: 'space-between',
-
+                      position: 'absolute',
+                      bottom: '-38px',
                       width: '100%',
                       marginTop: '20px',
                       gap: '20px',
@@ -85,13 +92,23 @@ const Modal = () => {
                         window.localStorage.setItem('modal' + data.id, 'false');
                         setModalClose([...modalClose, data.id]);
                       }}
-                      style={{ borderRadius: '5px', border: '1px solid #121212', padding: '5px 10px' }}
+                      style={{
+                        borderRadius: '5px',
+                        border: '1px solid #FFFFFF',
+                        padding: '5px 10px',
+                        color: '#FFFFFF',
+                      }}
                     >
                       Don't show this again
                     </button>
                     <button
                       onClick={() => setModalClose([...modalClose, data.id])}
-                      style={{ borderRadius: '5px', border: '1px solid #121212', padding: '5px 10px' }}
+                      style={{
+                        borderRadius: '5px',
+                        border: '1px solid #FFFFFF',
+                        padding: '5px 10px',
+                        color: '#FFFFFF',
+                      }}
                     >
                       Close
                     </button>
@@ -101,6 +118,7 @@ const Modal = () => {
             ),
         )}
       </Desktop>
+
       <Mobile>
         {modalData?.map(
           (data, index) =>
