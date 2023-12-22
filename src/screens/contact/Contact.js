@@ -279,6 +279,7 @@ const Contact = () => {
                     value={contactInfo.phone}
                     onChange={(e) => handleChange(e)}
                     onKeyDown={(e) => handleEnter(e)}
+                    onWheel={(e) => e.target.blur()}
                   />
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ marginLeft: '2rem' }} $isFilled={contactInfo.affiliation !== ''}>
@@ -552,6 +553,7 @@ const Contact = () => {
                     value={contactInfo.phone}
                     onChange={(e) => handleChange(e)}
                     onKeyDown={(e) => handleEnter(e)}
+                    onWheel={(e) => e.target.blur()}
                   />
                 </FormInputRowWrap>
                 <FormInputRowWrap style={{ gridColumnEnd: '2 span' }} $isFilled={contactInfo.affiliation !== ''}>
@@ -653,7 +655,7 @@ const Contact = () => {
                   );
                 }}
               >
-                <span style={{ fontSize: '16px', zIndex: '-1' }}>{t('contact.location.us')}</span>
+                <span style={{ fontSize: '16px', zIndex: '-1' }}>{t('contact.location.kr')}</span>
                 <Image src={arrow} alt="location_arrow" style={{ zIndex: '-1', height: '10px' }} />
               </RowWrap>
             </FormWrap>
