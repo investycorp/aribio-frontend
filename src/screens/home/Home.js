@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Desktop, Mobile } from '../../utils/MediaQuery';
+import React, {useEffect, useState} from 'react';
+import {Desktop, Mobile} from '../../utils/MediaQuery';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SideSlider from '../../components/SideSlider';
@@ -12,7 +12,7 @@ import home_desc_background from './assets/home_desc_background.png';
 
 import Modal from '../../components/Modal';
 
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 import {
   Container,
@@ -31,18 +31,18 @@ import {
 
 import useNoticeList from '../../hooks/irpr/useNoticeList';
 import Language from '../../atom/Language';
-import { useRecoilState } from 'recoil';
+import {useRecoilState} from 'recoil';
 import Video from '../../components/Video';
 import VideoFrame from '../../components/VideoFrame';
 import usePopup from '../../hooks/popup/usePopup';
-import { Image } from '../../components/style';
+import {Image} from '../../components/style';
 
 const Home = () => {
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const [language, setLanguage] = useRecoilState(Language);
   const [scrollY, setScrollY] = useState(0);
-  const { data, isLoading, refetch } = useNoticeList('', language, 1);
-  const { data: popupData } = usePopup(language);
+  const {data, isLoading, refetch} = useNoticeList('', language, 1);
+  const {data: popupData} = usePopup(language);
   const [noticeList, setNoticeList] = useState([]);
   const [modalOpen, setModalOpen] = useState();
   const [modalData, setModalData] = useState();
@@ -118,10 +118,9 @@ const Home = () => {
         <Video
           page="home"
           src={
-            // window.innerWidth > 1280
-            //   ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0100PB_VD.mp4'
-            //   : 
-              window.innerWidth > 900
+            window.innerWidth > 1280
+              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0100PB_VD.mp4'
+              : window.innerWidth > 900
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
               : window.innerWidth > window.innerHeight
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
@@ -130,31 +129,28 @@ const Home = () => {
         />
         {window.innerWidth > 900 && <SideSlider />}
 
-        {<Modal />}   
+        {<Modal />}
 
-      <MainImgWrap
-        style={{paddingBottom: 0}}
-      >
-         <Video
-          page="aboutus"
-          src={
-            // window.innerWidth > 1280
-            //   ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0400PB_VD.mp4'
-            //   : 
-              window.innerWidth > 900
-              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1300PB_VD.mp4'
-              : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2200PB_VD.mp4'
-          }
-        />
-      </MainImgWrap>                                                    
+        <MainImgWrap style={{paddingBottom: 0}}>
+          <Video
+            page="aboutus"
+            src={
+              window.innerWidth > 1280
+                ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0400PB_VD.mp4'
+                : window.innerWidth > 900
+                ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1300PB_VD.mp4'
+                : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2200PB_VD.mp4'
+            }
+          />
+        </MainImgWrap>
 
-        <div style={{ margin: '0', padding: '0', position: 'relative' }}>
+        <div style={{margin: '0', padding: '0', position: 'relative'}}>
           <Desktop>
-            <HomeComponentWrap style={{ height: '100vh' }} className="home home_1">
-              <MainImgTextWrap style={{ height: '100vh' }}></MainImgTextWrap>
+            <HomeComponentWrap style={{height: '100vh'}} className="home home_1">
+              <MainImgTextWrap style={{height: '100vh'}}></MainImgTextWrap>
             </HomeComponentWrap>
             <HomeComponentWrap className="home home_2">
-              <HomeAboutUsTextWrap style={{ height: '100vh', marginBottom: '5.5rem' }}>
+              <HomeAboutUsTextWrap style={{height: '100vh', marginBottom: '5.5rem'}}>
                 <HeadLineText id="target" $fontSize="48px">
                   <span
                     className="highlight1"
@@ -164,8 +160,7 @@ const Home = () => {
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
                       fontWeight: '400',
-                    }}
-                  >
+                    }}>
                     {t('home.aboutus.1')}
                   </span>
                   <br />
@@ -177,8 +172,7 @@ const Home = () => {
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
                       fontWeight: '400',
-                    }}
-                  >
+                    }}>
                     {t('home.aboutus.2')}
                   </span>
                   <br />
@@ -190,22 +184,20 @@ const Home = () => {
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
                       fontWeight: '400',
-                    }}
-                  >
+                    }}>
                     {t('home.aboutus.3')}
                   </span>
-                  
+
                   <br />
                   <span
                     className="highlight4"
                     style={{
                       color:
-                      document.querySelector('.highlight4')?.getBoundingClientRect().top < window.innerHeight / 1.5
-                      ? '#ffffff'
-                      : 'rgba(255, 255, 255, 0.5)',
+                        document.querySelector('.highlight4')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                          ? '#ffffff'
+                          : 'rgba(255, 255, 255, 0.5)',
                       fontWeight: '400',
-                    }}
-                    >
+                    }}>
                     {t('home.aboutus.4')}
                   </span>
                   <br />
@@ -213,22 +205,21 @@ const Home = () => {
                     className="highlight4"
                     style={{
                       color:
-                      document.querySelector('.highlight4')?.getBoundingClientRect().top < window.innerHeight / 1.5
-                      ? '#ffffff'
-                      : 'rgba(255, 255, 255, 0.5)',
+                        document.querySelector('.highlight4')?.getBoundingClientRect().top < window.innerHeight / 1.5
+                          ? '#ffffff'
+                          : 'rgba(255, 255, 255, 0.5)',
                       fontWeight: '400',
-                    }}
-                    >
+                    }}>
                     {t('home.aboutus.5')}
                   </span>
-                   
+
                   <br />
                 </HeadLineText>
-                <SubPageButton 
-                 style={{
-                  position: 'absolute',
-                  bottom: '15vh',
-                }}
+                <SubPageButton
+                  style={{
+                    position: 'absolute',
+                    bottom: '15vh',
+                  }}
                   title="About Us"
                   linkTo="/company/aboutus"
                 />
@@ -241,14 +232,12 @@ const Home = () => {
                 gridTemplateRows: '1fr 1fr 1fr',
                 margin: '30vh 0 10vh 0',
               }}
-              className="home home_3"
-            >
+              className="home home_3">
               <ComponentGridWrap
                 style={{
                   position: 'relative',
-                }}
-              >
-                <div style={{ position: 'absolute', top: '0', left: '0' }}>
+                }}>
+                <div style={{position: 'absolute', top: '0', left: '0'}}>
                   <SubPageButton title="Our Approach" linkTo="/ourapproach/poly-pharmacology" align="flex-start" />
                 </div>
                 <div
@@ -259,8 +248,7 @@ const Home = () => {
                     alignItems: 'center',
                     width: '100%',
                     height: '100%',
-                  }}
-                >
+                  }}>
                   <div
                     style={{
                       width: '2px',
@@ -268,8 +256,13 @@ const Home = () => {
                       backgroundColor: '#B1B1B1',
                     }}
                   />
-                  <ComponentTextWrap style={{ padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem' }}>
-                    <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '48px' : '30px', fontWeight: '500', marginBottom: 27 }}>
+                  <ComponentTextWrap style={{padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem'}}>
+                    <ComponentText
+                      style={{
+                        fontSize: window.innerWidth > 1280 ? '48px' : '30px',
+                        fontWeight: '500',
+                        marginBottom: 27,
+                      }}>
                       {t('home.ourapproach.title_1')}
                     </ComponentText>
                     <ComponentText
@@ -277,15 +270,14 @@ const Home = () => {
                         fontSize: window.innerWidth > 1280 ? '28px' : '14px',
                         fontWeight: '300',
                         color: '#AFAFAF',
-                      }}
-                    >
+                      }}>
                       {t('home.ourapproach.desc_1')}
                     </ComponentText>
                   </ComponentTextWrap>
                 </div>
               </ComponentGridWrap>
 
-              <ComponentGridWrap style={{ alignItems: 'flex-end' }}>
+              <ComponentGridWrap style={{alignItems: 'flex-end'}}>
                 <HomeComponentImageWrap $src={home_ourapproach1}></HomeComponentImageWrap>
               </ComponentGridWrap>
               <ComponentGridWrap>
@@ -300,10 +292,14 @@ const Home = () => {
                     alignItems: 'center',
                     width: '100%',
                     height: '100%',
-                  }}
-                >
+                  }}>
                   <ComponentTextWrap style={{}}>
-                    <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '48px' : '30px', fontWeight: '500', marginBottom: 27 }}>
+                    <ComponentText
+                      style={{
+                        fontSize: window.innerWidth > 1280 ? '48px' : '30px',
+                        fontWeight: '500',
+                        marginBottom: 27,
+                      }}>
                       {t('home.ourapproach.title_2')}
                     </ComponentText>
                     <ComponentText
@@ -311,12 +307,11 @@ const Home = () => {
                         fontSize: window.innerWidth > 1280 ? '28px' : '14px',
                         fontWeight: '300',
                         color: '#AFAFAF',
-                      }}
-                    >
+                      }}>
                       {t('home.ourapproach.desc_2_1')}
-                      <br/>
+                      <br />
                       {t('home.ourapproach.desc_2_2')}
-                      <br/>
+                      <br />
                       {t('home.ourapproach.desc_2_3')}
                     </ComponentText>
                   </ComponentTextWrap>
@@ -338,17 +333,20 @@ const Home = () => {
                     alignItems: 'center',
                     width: '100%',
                     height: '100%',
-                  }}
-                >
+                  }}>
                   <div
                     style={{
                       width: '2px',
                       height: window.innerWidth > 1280 ? '200px' : '100px',
                       backgroundColor: '#B1B1B1',
-                    }}
-                  ></div>
+                    }}></div>
                   <ComponentTextWrap style={{}}>
-                    <ComponentText style={{ fontSize: window.innerWidth > 1280 ? '48px' : '30px', fontWeight: '500', marginBottom: 27 }}>
+                    <ComponentText
+                      style={{
+                        fontSize: window.innerWidth > 1280 ? '48px' : '30px',
+                        fontWeight: '500',
+                        marginBottom: 27,
+                      }}>
                       {t('home.ourapproach.title_3')}
                     </ComponentText>
                     <ComponentText
@@ -356,14 +354,13 @@ const Home = () => {
                         fontSize: window.innerWidth > 1280 ? '28px' : '14px',
                         fontWeight: '300',
                         color: '#AFAFAF',
-                      }}
-                    >
+                      }}>
                       {t('home.ourapproach.desc_3')}
                     </ComponentText>
                   </ComponentTextWrap>
                 </div>
               </ComponentGridWrap>
-              <ComponentGridWrap style={{ alignItems: 'flex-end' }}>
+              <ComponentGridWrap style={{alignItems: 'flex-end'}}>
                 <HomeComponentImageWrap $src={home_ourapproach3}></HomeComponentImageWrap>
               </ComponentGridWrap>
             </HomeComponentWrap>
@@ -373,8 +370,7 @@ const Home = () => {
                 minHeight: 'fit-content',
                 justifyContent: 'space-between',
                 margin: '0',
-              }}
-            >
+              }}>
               <VideoFrame
                 src={
                   language === 'ENG'
@@ -388,9 +384,8 @@ const Home = () => {
                   fontWeight: '500',
                   alignSelf: 'start',
                   marginTop: '3em',
-                  marginBottom: 27
-                }}
-              >
+                  marginBottom: 27,
+                }}>
                 {t('home.media_kit.title')}
               </ComponentText>
               <div
@@ -400,11 +395,9 @@ const Home = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   width: '100%',
-                }}
-              >
+                }}>
                 <ComponentText
-                  style={{ fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF' }}
-                >
+                  style={{fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF'}}>
                   {t('home.media_kit.content')}
                 </ComponentText>
                 <SubPageButton linkTo="/irpr/mediakit" title={t('home.media_kit.viewall')} />
@@ -412,11 +405,14 @@ const Home = () => {
             </HomeComponentWrap>
             <HomeComponentWrap
               className="home home_5"
-              style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '30vh 0' }}
-            >
+              style={{minHeight: 'fit-content', justifyContent: 'space-between', margin: '30vh 0'}}>
               <ComponentText
-                style={{ fontSize: window.innerWidth > 1280 ? '48px' : '36px', fontWeight: '500', alignSelf: 'start', marginBottom: 27 }}
-              >
+                style={{
+                  fontSize: window.innerWidth > 1280 ? '48px' : '36px',
+                  fontWeight: '500',
+                  alignSelf: 'start',
+                  marginBottom: 27,
+                }}>
                 {t('home.notice.title')}
               </ComponentText>
               <div
@@ -426,11 +422,9 @@ const Home = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   width: '100%',
-                }}
-              >
+                }}>
                 <ComponentText
-                  style={{ fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF' }}
-                >
+                  style={{fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF'}}>
                   {t('home.notice.content')}
                 </ComponentText>
                 <SubPageButton linkTo="/irpr/notice" title={t('home.notice.viewall')} />
@@ -445,16 +439,14 @@ const Home = () => {
                   height: '28.7vw',
                   columnGap: '0',
                   rowGap: '1rem',
-                }}
-              >
+                }}>
                 {noticeList?.map((item, index) => (
                   <ComponentGridWrap
                     key={index}
                     style={{
                       gridRow: index === 0 ? '1/3' : 'auto',
                       padding: '0',
-                    }}
-                  >
+                    }}>
                     <HomeComponentImageWrap
                       $src={item.imageUrl}
                       style={{
@@ -468,8 +460,7 @@ const Home = () => {
                         marginLeft: index === 0 ? '0' : '1rem',
                         fontWeight: '300',
                         position: 'relative',
-                      }}
-                    >
+                      }}>
                       <FilterShadow />
                       <p
                         style={{
@@ -477,8 +468,7 @@ const Home = () => {
                           fontWeight: '300',
                           fontSize: window.innerWidth > 1280 ? '22px' : '12px',
                           color: '#D1D1D1',
-                        }}
-                      >
+                        }}>
                         {item.date.toString()}
                       </p>
                       <p
@@ -488,8 +478,7 @@ const Home = () => {
                           fontSize: window.innerWidth > 1280 ? '26px' : '15px',
                           color: '#E5E5E5',
                           lineHeight: '1.3em',
-                        }}
-                      >
+                        }}>
                         {item.title.slice(0, 70) + '...'}
                       </p>
                     </HomeComponentImageWrap>
@@ -499,19 +488,17 @@ const Home = () => {
             </HomeComponentWrap>
           </Desktop>
 
-
           <Mobile>
             <HomeComponentWrap className="home home_1">
-              <MainImgTextWrap style={{ height: videoHeight }}></MainImgTextWrap>
+              <MainImgTextWrap style={{height: videoHeight}}></MainImgTextWrap>
             </HomeComponentWrap>
             <HomeComponentWrap
               className="home home_2"
               style={{
                 height: '100vh',
-              }}
-            >
+              }}>
               <HomeAboutUsTextWrap>
-                <HeadLineText fontSize="23px" style={{ fontWeight: '400' }}>
+                <HeadLineText fontSize="23px" style={{fontWeight: '400'}}>
                   <span
                     className="highlight1"
                     style={{
@@ -519,8 +506,7 @@ const Home = () => {
                         document.querySelector('.highlight1')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
-                    }}
-                  >
+                    }}>
                     {t('home_m.aboutus.1')}
                   </span>
                   <br />
@@ -531,8 +517,7 @@ const Home = () => {
                         document.querySelector('.highlight2')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
-                    }}
-                  >
+                    }}>
                     {t('home_m.aboutus.2')}
                   </span>
                   <br />
@@ -543,9 +528,8 @@ const Home = () => {
                         document.querySelector('.highlight3')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
-                    }}
-                  >
-                     {t('home_m.aboutus.3')}
+                    }}>
+                    {t('home_m.aboutus.3')}
                   </span>
                   <br />
                   <span
@@ -555,9 +539,8 @@ const Home = () => {
                         document.querySelector('.highlight4')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
-                    }}
-                  >
-                     {t('home_m.aboutus.4')}
+                    }}>
+                    {t('home_m.aboutus.4')}
                   </span>
                   <br />
                   <span
@@ -567,9 +550,8 @@ const Home = () => {
                         document.querySelector('.highlight5')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
-                    }}
-                  >
-                     {t('home_m.aboutus.5')}
+                    }}>
+                    {t('home_m.aboutus.5')}
                   </span>
                   <br />
                   <span
@@ -579,9 +561,8 @@ const Home = () => {
                         document.querySelector('.highlight6')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
-                    }}
-                  >
-                     {t('home_m.aboutus.6')}
+                    }}>
+                    {t('home_m.aboutus.6')}
                   </span>
                   <br />
                   <span
@@ -591,9 +572,8 @@ const Home = () => {
                         document.querySelector('.highlight7')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
-                    }}
-                  >
-                     {t('home_m.aboutus.7')}
+                    }}>
+                    {t('home_m.aboutus.7')}
                   </span>
                   <br />
                   <span
@@ -603,9 +583,8 @@ const Home = () => {
                         document.querySelector('.highlight8')?.getBoundingClientRect().top < window.innerHeight / 1.5
                           ? '#ffffff'
                           : 'rgba(255, 255, 255, 0.5)',
-                    }}
-                  >
-                     {t('home_m.aboutus.8')}
+                    }}>
+                    {t('home_m.aboutus.8')}
                   </span>
                   <br />
                 </HeadLineText>
@@ -635,14 +614,10 @@ const Home = () => {
               style={{
                 display: 'grid',
                 justifyContent: 'stretch',
-                paddingTop: '10vh'
+                paddingTop: '10vh',
               }}
-              className="home home_3"
-            >
-              <SubPageButton 
-                title="Our Approach"
-                linkTo="/ourapproach/poly-pharmacology"
-              />
+              className="home home_3">
+              <SubPageButton title="Our Approach" linkTo="/ourapproach/poly-pharmacology" />
               <ComponentGridWrap style={{marginBottom: '88px', marginTop: '80px'}}>
                 <div
                   style={{
@@ -651,23 +626,16 @@ const Home = () => {
                     justifyContent: 'stretch',
                     alignItems: 'center',
                     gridColumn: '1/3',
-
-                  }}
-                >
-                  <div style={{ width: '1px', height: '48px', backgroundColor: '#B1B1B1' }}></div>
-                    <ComponentTextWrap>
-                      <ComponentText style={{ fontWeight: '500' }}>
-                        {t('home_m.ourapproach.title_1')}
-                      </ComponentText>
-                      <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>
-                        {t('home_m.ourapproach.desc_1')}
-                      </ComponentText>
-                    </ComponentTextWrap>
-                  </div>
-                <HomeComponentImageWrap
-                  $src={home_ourapproach1}
-                  style={{ borderRadius: '8px' }}
-                />
+                  }}>
+                  <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
+                  <ComponentTextWrap>
+                    <ComponentText style={{fontWeight: '500'}}>{t('home_m.ourapproach.title_1')}</ComponentText>
+                    <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
+                      {t('home_m.ourapproach.desc_1')}
+                    </ComponentText>
+                  </ComponentTextWrap>
+                </div>
+                <HomeComponentImageWrap $src={home_ourapproach1} style={{borderRadius: '8px'}} />
               </ComponentGridWrap>
               <ComponentGridWrap style={{marginBottom: '88px'}}>
                 <HomeComponentImageWrap
@@ -684,18 +652,14 @@ const Home = () => {
                     justifyContent: 'stretch',
                     alignItems: 'center',
                     gridColumn: '2/4',
-                  }}
-                >
+                  }}>
                   <ComponentTextWrap style={{}}>
-                    <ComponentText style={{ fontWeight: '500' }}>
-                      {' '}
-                      {t('home_m.ourapproach.title_2')}
-                    </ComponentText>
-                    <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>
+                    <ComponentText style={{fontWeight: '500'}}> {t('home_m.ourapproach.title_2')}</ComponentText>
+                    <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
                       {t('home_m.ourapproach.desc_2')}
                     </ComponentText>
                   </ComponentTextWrap>
-                  <div style={{ width: '1px', height: '48px', backgroundColor: '#B1B1B1' }}></div>
+                  <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
                 </div>
               </ComponentGridWrap>
               <ComponentGridWrap style={{marginBottom: '88px'}}>
@@ -706,29 +670,21 @@ const Home = () => {
                     justifyContent: 'stretch',
                     alignItems: 'center',
                     gridColumn: '1/3',
-                  }}
-                >
-                  <div style={{ width: '1px', height: '48px', backgroundColor: '#B1B1B1' }}></div>
+                  }}>
+                  <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
                   <ComponentTextWrap style={{}}>
-                    <ComponentText style={{ fontWeight: '500' }}>
-                      {' '}
-                      {t('home_m.ourapproach.title_3')}
-                    </ComponentText>
-                    <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF' }}>
+                    <ComponentText style={{fontWeight: '500'}}> {t('home_m.ourapproach.title_3')}</ComponentText>
+                    <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
                       {t('home_m.ourapproach.desc_3')}
                     </ComponentText>
                   </ComponentTextWrap>
                 </div>
-                <HomeComponentImageWrap
-                  style={{ borderRadius: '8px' }}
-                  $src={home_ourapproach3}
-                ></HomeComponentImageWrap>
+                <HomeComponentImageWrap style={{borderRadius: '8px'}} $src={home_ourapproach3}></HomeComponentImageWrap>
               </ComponentGridWrap>
             </HomeComponentWrap>
             <HomeComponentWrap
               className="home home_4"
-              style={{ minHeight: 'fit-content', justifyContent: 'space-between', margin: '0' }}
-            >
+              style={{minHeight: 'fit-content', justifyContent: 'space-between', margin: '0'}}>
               <VideoFrame
                 src={
                   language === 'ENG'
@@ -743,8 +699,7 @@ const Home = () => {
                   alignSelf: 'start',
                   padding: '0.5rem 0',
                   marginTop: '38px',
-                }}
-              >
+                }}>
                 {t('home_m.media_kit.title')}
               </ComponentText>
 
@@ -755,13 +710,11 @@ const Home = () => {
                   color: '#AFAFAF',
                   alignSelf: 'start',
                   padding: '0.5rem 0',
-                }}
-              >
+                }}>
                 {t('home_m.media_kit.content')}
               </ComponentText>
               <div
-                style={{ width: '100%', marginTop: '4rem', display: 'flex', alignItems: 'end', justifyContent: 'end' }}
-              >
+                style={{width: '100%', marginTop: '4rem', display: 'flex', alignItems: 'end', justifyContent: 'end'}}>
                 <SubPageButton linkTo="/irpr/mediakit" title="Media" />
               </div>
             </HomeComponentWrap>
@@ -775,20 +728,18 @@ const Home = () => {
                 paddingBottom: '8em',
                 margin: '10vh 0 0 0',
                 gap: '2rem',
-              }}
-            >
+              }}>
               <div
                 style={{
                   display: 'grid',
                   alignItems: 'start',
                   justifyContent: 'start',
                   width: '100%',
-                }}
-              >
-                <ComponentText style={{ fontSize: '20px', fontWeight: '500', alignSelf: 'start', padding: '0.5em 0' }}>
+                }}>
+                <ComponentText style={{fontSize: '20px', fontWeight: '500', alignSelf: 'start', padding: '0.5em 0'}}>
                   {t('home_m.notice.title')}
                 </ComponentText>
-                <ComponentText style={{ fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0.5em 0' }}>
+                <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0.5em 0'}}>
                   {t('home_m.notice.content')}
                 </ComponentText>
               </div>
@@ -801,8 +752,7 @@ const Home = () => {
                     gridTemplateColumns: '1fr',
                     width: '90vw',
                     height: '92px',
-                  }}
-                >
+                  }}>
                   <HomeComponentImageWrap
                     $src={item.imageUrl}
                     style={{
@@ -816,17 +766,16 @@ const Home = () => {
                       fontWeight: '300',
                       position: 'relative',
                       borderRadius: '10px',
-                    }}
-                  >
+                    }}>
                     <FilterShadow />
-                    <p style={{ position: 'relative', fontSize: '15px', color: '#D1D1D1' }}>{item.mobileDate}</p>
-                    <p style={{ position: 'relative', fontSize: '16px', color: '#E5E5E5', lineHeight: '20px' }}>
+                    <p style={{position: 'relative', fontSize: '15px', color: '#D1D1D1'}}>{item.mobileDate}</p>
+                    <p style={{position: 'relative', fontSize: '16px', color: '#E5E5E5', lineHeight: '20px'}}>
                       {item.title.slice(0, 60)}...
                     </p>
                   </HomeComponentImageWrap>
                 </ComponentGridWrap>
               ))}
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'end', marginTop: '5rem' }}>
+              <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'end', marginTop: '5rem'}}>
                 <SubPageButton linkTo="/irpr/notice" title={t('home_m.notice.viewall')} />
               </div>
             </HomeComponentWrap>
