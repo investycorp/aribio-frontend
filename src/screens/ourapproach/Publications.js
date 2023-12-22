@@ -46,7 +46,7 @@ const SearchInput = styled.input`
   }
 `;
 
-const NoResult = styled.div`
+export const NoResult = styled.div`
   grid-column: span 2;
   width: 100%;
   height: 20vh;
@@ -466,7 +466,7 @@ const Publications = () => {
                   marginTop: '4rem',
                   borderBottom: '1px solid #ffffff',
                   padding: '0',
-                  width: window.innerWidth > 400 ? "322px" : "90vw"
+                  width: window.innerWidth > 400 ? '322px' : '90vw',
                 }}
               >
                 {/* <div style={{display: "flex", flexDirection: "row", width: window.innerWidth > 400 ? "322px" : "90vw"}}> */}
@@ -474,7 +474,7 @@ const Publications = () => {
                   placeholder={t('publication.search')}
                   type="text"
                   value={searchValue}
-                  style={{ fontSize: '18px', width: window.innerWidth > 400 ?  '322px' : 'calc(90vw-24px)' }}
+                  style={{ fontSize: '18px', width: window.innerWidth > 400 ? '322px' : 'calc(90vw-24px)' }}
                   onChange={(e) => {
                     handleChange(e);
                   }}

@@ -52,6 +52,7 @@ import useCareerList from '../../hooks/career/useCareerList';
 import useFooter from '../../hooks/footer/useFooter';
 import Language from '../../atom/Language';
 import useLinkList from '../../hooks/useLink';
+import { NoResult } from '../ourapproach/Publications';
 
 const Career = () => {
   const { id } = useParams();
@@ -408,95 +409,101 @@ const Career = () => {
                 <GridContentWrap
                   style={{ gridTemplateColumns: '1fr 1fr', margin: '0', rowGap: '5vh', columnGap: '2em' }}
                 >
-                  {joinus.map((item, index) => (
-                    <ContentBox
-                      key={`joinus${index}`}
-                      style={{
-                        // width: window.innerWidth > 1280 ? '794px' : '480px',
-                        width: '100%',
-                        height: window.innerWidth > 1280 ? '261px' : '155px',
-                      }}
-                      className="joinus"
-                      $src={item.img}
-                    >
-                      <FilterShadow />
-                      <Button
-                        onClick={() => {
-                          navigate(`${item.id}`);
-                          console.log(item.title);
-                        }}
-                        style={{ padding: '4em 3em', cursor: 'pointer', zIndex: '1' }}
-                      >
-                        <TextWrap style={{ cursor: 'pointer', zIndex: '-1' }}>
-                          <Text
-                            $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
-                            $fontWeight="300"
-                            $color="#DDDDDD"
-                            $align="start"
-                            style={{
-                              wordBreak: 'break-all',
-                              marginBottom: '1.5em',
-                              zIndex: '-1',
-                              cursor: 'pointer',
+                  {joinus.length > 0 ? (
+                    <>
+                      {joinus.map((item, index) => (
+                        <ContentBox
+                          key={`joinus${index}`}
+                          style={{
+                            // width: window.innerWidth > 1280 ? '794px' : '480px',
+                            width: '100%',
+                            height: window.innerWidth > 1280 ? '261px' : '155px',
+                          }}
+                          className="joinus"
+                          $src={item.img}
+                        >
+                          <FilterShadow />
+                          <Button
+                            onClick={() => {
+                              navigate(`${item.id}`);
+                              console.log(item.title);
                             }}
+                            style={{ padding: '4em 3em', cursor: 'pointer', zIndex: '1' }}
                           >
-                            <span style={{ margin: '0 0.15em 0 0' }}>·</span> {item.type}
-                          </Text>
-                          <Text
-                            $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
-                            $fontWeight="100"
-                            $color="#ffffff"
-                            $align="start"
-                            style={{
-                              wordBreak: 'break-all',
-                              marginBottom: '0.5em',
-                              zIndex: '-1',
-                              cursor: 'pointer',
-                            }}
-                          >
-                            {item.location.slice(0, 60)}
-                            {item.location.length > 60 && '...'}-
-                          </Text>
-                          <div
-                            style={{
-                              display: 'flex',
-                              width: '100%',
-                              flexDirection: 'row',
-                              alignItems: 'center',
-                              justifyContent: 'space-between',
-                            }}
-                          >
-                            <Text
-                              style={{ wordBreak: 'break-all', zIndex: '-1', cursor: 'pointer' }}
-                              $fontSize={window.innerWidth > 1280 ? '24px' : '13px'}
-                              $fontWeight="400"
-                              $color="#E3E3E3"
-                              $align="start"
-                            >
-                              {item.title.slice(0, 100)}
-                              {item.title.length > 100 && '...'}
-                            </Text>
-                            <Image
-                              src={arrow}
-                              alt="arrow"
-                              style={{
-                                border: '1px solid #ffffff',
-                                borderRadius: '50%',
-                                zIndex: '1',
-                                cursor: 'pointer',
-                                height: window.innerWidth > 1280 ? '14px' : '12px',
-                                padding: window.innerWidth > 1280 ? '12px' : '8px',
-                              }}
-                              // onClick={() => {
-                              //   navigate(`${item.id}`);
-                              //   console.log(item.title);
-                              // }}
-                            />
-                          </div>
-                        </TextWrap>
-                      </Button>
-                    </ContentBox>
-                  ))}
+                            <TextWrap style={{ cursor: 'pointer', zIndex: '-1' }}>
+                              <Text
+                                $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
+                                $fontWeight="300"
+                                $color="#DDDDDD"
+                                $align="start"
+                                style={{
+                                  wordBreak: 'break-all',
+                                  marginBottom: '1.5em',
+                                  zIndex: '-1',
+                                  cursor: 'pointer',
+                                }}
+                              >
+                                <span style={{ margin: '0 0.15em 0 0' }}>·</span> {item.type}
+                              </Text>
+                              <Text
+                                $fontSize={window.innerWidth > 1280 ? '18px' : '10px'}
+                                $fontWeight="100"
+                                $color="#ffffff"
+                                $align="start"
+                                style={{
+                                  wordBreak: 'break-all',
+                                  marginBottom: '0.5em',
+                                  zIndex: '-1',
+                                  cursor: 'pointer',
+                                }}
+                              >
+                                {item.location.slice(0, 60)}
+                                {item.location.length > 60 && '...'}-
+                              </Text>
+                              <div
+                                style={{
+                                  display: 'flex',
+                                  width: '100%',
+                                  flexDirection: 'row',
+                                  alignItems: 'center',
+                                  justifyContent: 'space-between',
+                                }}
+                              >
+                                <Text
+                                  style={{ wordBreak: 'break-all', zIndex: '-1', cursor: 'pointer' }}
+                                  $fontSize={window.innerWidth > 1280 ? '24px' : '13px'}
+                                  $fontWeight="400"
+                                  $color="#E3E3E3"
+                                  $align="start"
+                                >
+                                  {item.title.slice(0, 100)}
+                                  {item.title.length > 100 && '...'}
+                                </Text>
+                                <Image
+                                  src={arrow}
+                                  alt="arrow"
+                                  style={{
+                                    border: '1px solid #ffffff',
+                                    borderRadius: '50%',
+                                    zIndex: '1',
+                                    cursor: 'pointer',
+                                    height: window.innerWidth > 1280 ? '14px' : '12px',
+                                    padding: window.innerWidth > 1280 ? '12px' : '8px',
+                                  }}
+                                  // onClick={() => {
+                                  //   navigate(`${item.id}`);
+                                  //   console.log(item.title);
+                                  // }}
+                                />
+                              </div>
+                            </TextWrap>
+                          </Button>
+                        </ContentBox>
+                      ))}
+                    </>
+                  ) : (
+                    <NoResult>Currently, there is no job posting.</NoResult>
+                  )}
                 </GridContentWrap>
               </HomeComponentWrap>
               <HomeComponentWrap>
@@ -930,6 +937,7 @@ const Career = () => {
                   </Text>
                 </TextWrap>
                 <GridContentWrap style={{ gridTemplateColumns: '1fr', margin: '0', rowGap: '5vh', columnGap: '2em' }}>
+                  {joinus.length === 0 && <NoResult>Currently, there is no job posting.</NoResult>}
                   {joinus.length > 0 &&
                     joinus?.map((item, index) => (
                       <ContentBox key={`joinus${index}`} className="joinus" $src={item.img}>
