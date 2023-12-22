@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import React, {useEffect, useState} from 'react';
-import {Desktop, Mobile} from '../../utils/MediaQuery';
-=======
 import React, { useEffect, useState } from 'react';
 import browser from 'browser-detect';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
->>>>>>> gun-dev
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import SideSlider from '../../components/SideSlider';
@@ -44,12 +39,8 @@ import usePopup from '../../hooks/popup/usePopup';
 import {Image} from '../../components/style';
 
 const Home = () => {
-<<<<<<< HEAD
-  const {t} = useTranslation();
-=======
   const browserInfo = browser();
   const { t } = useTranslation();
->>>>>>> gun-dev
   const [language, setLanguage] = useRecoilState(Language);
   const [scrollY, setScrollY] = useState(0);
   const {data, isLoading, refetch} = useNoticeList('', language, 1);
