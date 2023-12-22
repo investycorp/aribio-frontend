@@ -430,6 +430,18 @@ const Input = styled.input`
   @media screen and (max-width: 900px) {
     font-size: 18px;
   }
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
 `;
 
 const Label = styled.label`
