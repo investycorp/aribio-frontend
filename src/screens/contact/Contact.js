@@ -21,6 +21,9 @@ import {
   ErrorBox,
   SuccessBox,
   RequiredField,
+  SubmitButton,
+  SubmitArrowWrap,
+  SubmitTextWrap,
 } from './style';
 
 import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
@@ -44,7 +47,6 @@ const Contact = () => {
   });
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [submitSrc, setSubmitSrc] = useState();
   const [emailError, setEmailError] = useState('This field is required.');
   const {
     mutate,
@@ -57,13 +59,6 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
-    setSubmitSrc(
-      process.env.PUBLIC_URL + window.innerWidth > 1280
-        ? '/assets/icons/submit/submit_1920.png'
-        : window.innerWidth > 900
-        ? '/assets/icons/submit/submit_1280.png'
-        : '/assets/icons/submit/submit_360.png',
-    );
   }, []);
 
   useEffect(() => {
@@ -336,55 +331,18 @@ const Contact = () => {
                     <span style={{ color: '#E5E5E5' }}>{t('contact.required2')} </span>
                   </span>
 
-                  <Image
-                    src={submitSrc}
-                    alt="submit"
-                    style={{
-                      cursor: 'pointer',
-                      marginTop: window.innerWidth > 1280 ? '120px' : '74px',
-                      width: window.innerWidth > 1280 ? '187px' : '113px',
-                    }}
-                    onClick={(e) => handleSubmit(e)}
-                    onMouseOver={() =>
-                      setSubmitSrc(
-                        process.env.PUBLIC_URL + window.innerWidth > 1280
-                          ? '/assets/icons/submit/submit_1920_a.png'
-                          : '/assets/icons/submit/submit_1280_a.png',
-                      )
-                    }
-                    onMouseOut={() =>
-                      setSubmitSrc(
-                        process.env.PUBLIC_URL + window.innerWidth > 1280
-                          ? '/assets/icons/submit/submit_1920.png'
-                          : '/assets/icons/submit/submit_1280.png',
-                      )
-                    }
-                  />
-
-                  {/* <Button
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'start',
-                      alignItems: 'center',
-                      gap: '1.3em',
-                      fontSize: window.innerWidth > 1280 ? '20px' : '10px',
-                    }}
-                    onClick={(e) => handleSubmit(e)}
-                  >
-                    <Image
-                      src={arrow}
-                      alt="arrow"
-                      style={{
-                        border: '2px solid #ffffff',
-                        borderRadius: '50%',
-                        padding: window.innerWidth > 1280 ? '20px' : '11px',
-                        cursor: 'pointer',
-                        backgroundColor: '#121212',
-                        height: window.innerWidth > 1280 ? '14px' : '9px',
-                      }}
-                    />
-                    SUBMIT
-                  </Button> */}
+                  <SubmitButton onClick={(e) => handleSubmit(e)}>
+                    <SubmitArrowWrap>
+                      <Image
+                        src={arrow}
+                        alt="location_arrow"
+                        style={{
+                          height: window.innerWidth > 1280 ? '20px' : '12px',
+                        }}
+                      />
+                    </SubmitArrowWrap>
+                    <SubmitTextWrap>SUBMIT</SubmitTextWrap>
+                  </SubmitButton>
                 </FormInputRowWrap>
               </Form>
             </FormWrap>
@@ -644,48 +602,19 @@ const Contact = () => {
                     <span style={{ color: '#00A6FF' }}>* </span>
                     <span style={{ fontSize: '14px', fontWeight: '200', color: '#E5E5E5' }}>is a required field. </span>
                   </span>
-                  <Image
-                    src={submitSrc}
-                    alt="submit"
-                    style={{
-                      cursor: 'pointer',
-                      marginTop: '80px',
-                      width: '131px',
-                    }}
-                    onClick={(e) => handleSubmit(e)}
-                    onMouseOver={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360_a.png')}
-                    onMouseOut={() => setSubmitSrc(process.env.PUBLIC_URL + '/assets/icons/submit/submit_360.png')}
-                  />
-                  {/* <Button
-                    className={isSuccess ? 'submit' : ''}
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'start',
-                      alignItems: 'center',
 
-                      fontSize: '14px',
-                      width: '131px',
-                      height: '47px',
-                      borderWidth: '1px',
-                      padding: '0',
-                    }}
-                    onClick={(e) => handleSubmit(e)}
-                  >
-                    <Image
-                      src={arrow}
-                      alt="arrow"
-                      style={{
-                        border: '1px solid #ffffff',
-                        borderRadius: '50%',
-                        padding: '11.5px',
-                        zIndex: '1',
-                        height: '20px',
-
-                        marginRight: '1em',
-                      }}
-                    />
-                    SUBMIT
-                  </Button> */}
+                  <SubmitButton onClick={(e) => handleSubmit(e)}>
+                    <SubmitArrowWrap>
+                      <Image
+                        src={arrow}
+                        alt="location_arrow"
+                        style={{
+                          height: window.innerWidth > 1280 ? '20px' : '12px',
+                        }}
+                      />
+                    </SubmitArrowWrap>
+                    <SubmitTextWrap>SUBMIT</SubmitTextWrap>
+                  </SubmitButton>
                 </FormInputRowWrap>
               </Form>
             </FormWrap>

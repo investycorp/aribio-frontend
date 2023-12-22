@@ -533,12 +533,12 @@ const Ball = styled.span.attrs((props) => ({
   opacity: 1;
   box-shadow:
     0 0 0 4px rgba(255, 255, 255, 0.1),
-    0 0 0 10px rgba(255, 255, 255, 0.1),
-    0 0 15px rgba(255, 255, 255, 0.1);
+    0 0 0 8px rgba(255, 255, 255, 0.1),
+    0 0 12px rgba(255, 255, 255, 0.1);
 
   @media screen and (max-width: 900px) {
     box-shadow:
-      0 0 0 2px rgba(255, 255, 255, 0.1),
+      0 0 0 1.5px rgba(255, 255, 255, 0.1),
       0 0 0 3px rgba(255, 255, 255, 0.1),
       0 0 5px rgba(255, 255, 255, 0.1);
   }
@@ -551,8 +551,7 @@ const ToggleButton = styled.div`
   align-items: center;
   width: 100%;
   height: 40px;
-  background-color: transparent;
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 0.7rem 0.5rem 1.2rem;
   margin: 0;
   border: 1px solid #707070;
   border-radius: 10rem;
@@ -561,6 +560,9 @@ const ToggleButton = styled.div`
   color: #e8e8e8;
   position: relative;
   margin-top: 5rem;
+  background-color: ${(props) => (props.toggle ? 'rgba(177, 177, 177, 0.3)' : 'transparent')};
+  backdrop-filter: ${(props) => (props.toggle ? 'blur(10px);' : 'none')};
+  -webkit-backdrop-filter: ${(props) => (props.toggle ? 'blur(10px);' : 'none')};
 `;
 const ToggleListWrap = styled.div`
   position: absolute;
@@ -574,7 +576,6 @@ const ToggleListWrap = styled.div`
   height: fit-content;
   max-height: 50vw;
   overflow-y: scroll;
-  background-color: rgba(177, 177, 177, 0.3);
   padding: 0.5rem 0;
   margin: 0;
   border: 1px solid #fff;
@@ -582,6 +583,7 @@ const ToggleListWrap = styled.div`
   font-size: 18px;
   font-weight: 300;
   color: #ffffff;
+  background-color: rgba(177, 177, 177, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   gap: 0.5rem;

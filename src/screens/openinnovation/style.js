@@ -112,10 +112,6 @@ const Text = styled.div`
   line-height: 1.5em;
   text-align: ${(props) => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
-
-  &:active {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
 `;
 
 const Tab = styled.div`
@@ -198,13 +194,7 @@ const TableWrap = styled.div.attrs((props) => ({
   padding: 0;
   background-color: transparent;
   border: 1px solid #efefef;
-  &.table {
-    &:focus,
-    &:active {
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-  }
+
   @media screen and (max-width: 1280px) {
     margin: 5em 0 0 0;
   }
@@ -275,31 +265,10 @@ const TableContentBox = styled.div.attrs((props) => ({
     }
   }
 
-  &.indication {
+  &.div {
     display: grid;
-    grid-template-columns: 1fr;
-    background-color: transparent;
-    padding: 0;
-    div {
-      display: grid;
-      grid-template-columns: 17vw 40vw;
-      width: 100%;
-      height: 100%;
-      div.section {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-right: 2px solid rgba(177, 177, 177, 0.3);
-        border-bottom: 2px solid rgba(177, 177, 177, 0.3);
-        padding: 1em 1em;
-
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
+    grid-template-columns: 8vw 8vw 8vw 8vw 8vw;
+    height: auto;
   }
 
   &:last-child {
@@ -389,7 +358,7 @@ const HR = styled.div`
 `;
 
 const ShootingStarWrap = styled.section`
-  position: relative;
+  position: absolute;
   width: 100%;
   height: fit-content;
   overflow: hidden;
@@ -426,7 +395,6 @@ const ShootingStar = styled.span.attrs((props) => ({
   background: linear-gradient(270deg, #ffffff, transparent);
   transform: translateX(-200%);
 
-
   &.animate {
     opacity: 1;
     animation-name: ${(props) => move(props.$phase)};
@@ -454,9 +422,16 @@ const Ball = styled.span.attrs((props) => ({
   background-color: #ffffff;
   opacity: 1;
   box-shadow:
-  0 0 0 4px rgba(255, 255, 255, 0.1),
-  0 0 0 10px rgba(255, 255, 255, 0.1),
-  0 0 15px rgba(255, 255, 255, 0.1);
+    0 0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 0 10px rgba(255, 255, 255, 0.1),
+    0 0 15px rgba(255, 255, 255, 0.1);
+
+  @media screen and (max-width: 900px) {
+    box-shadow:
+      0 0 0 2px rgba(255, 255, 255, 0.1),
+      0 0 0 4px rgba(255, 255, 255, 0.1),
+      0 0 6px rgba(255, 255, 255, 0.1);
+  }
 `;
 
 export {
@@ -484,5 +459,5 @@ export {
   TableContentBox,
   ShootingStarWrap,
   ShootingStar,
-  Ball
+  Ball,
 };
