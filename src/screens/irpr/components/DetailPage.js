@@ -3,6 +3,7 @@ import {Link, useNavigate, useOutletContext, useParams} from 'react-router-dom';
 import {HomeComponentWrap, Text, Image, ComponentWrap, HR, Button} from '../style';
 import {Desktop, Mobile} from '../../../utils/MediaQuery';
 import {useRecoilValue} from 'recoil';
+import browser from 'browser-detect';
 
 import useDetailContent from '../../../hooks/irpr/useDetailContent';
 import Language from '../../../atom/Language';
@@ -19,6 +20,7 @@ const DetailPage = () => {
   const [nextItem, setNextItem] = useState({});
   const [prevItem, setPrevItem] = useState({});
   const {data, isLoading, refetch} = useDetailContent(outletContext[0]?.toLowerCase(), language, id);
+  const browserInfo = browser();
 
   useEffect(() => {
     document.querySelector('.irpr_detailpage')?.scrollIntoView({behavior: 'smooth', block: 'start'});
@@ -97,13 +99,49 @@ const DetailPage = () => {
   }, [id]);
 
   const clickPrint = () => {
-    const printContents = document.getElementById('printableid').innerHTML;
-    console.log(printContents.replace('style="', 'style="color: #000000 !important;'));
-    const originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-    window.location.reload();
+    if (browserInfo.name === 'safari') {
+      const printContents = document.getElementById('printableid').innerHTML;
+      const blob = new Blob([printContents], {type: 'text/html'});
+      const objectURL = URL.createObjectURL(blob);
+
+      const printWindow = window.open(objectURL);
+      if (printWindow) {
+        printWindow.onload = function () {
+          printWindow.print();
+          URL.revokeObjectURL(objectURL);
+        };
+      }
+    } else {
+      const printContents = document.getElementById('printableid').innerHTML;
+
+      // 새로운 iframe을 생성
+      let printFrame = document.createElement('iframe');
+      printFrame.style.visibility = 'hidden';
+      printFrame.style.position = 'fixed';
+      printFrame.style.right = '0';
+      printFrame.style.bottom = '0';
+
+      // iframe을 body에 추가
+      document.body.appendChild(printFrame);
+
+      // iframe의 document에 내용을 쓴다.
+      let printDocument = printFrame.contentWindow.document;
+      printDocument.open();
+      printDocument.write('<html><head><title>Print</title></head><body>');
+      printDocument.write(printContents);
+      printDocument.write('</body></html>');
+      printDocument.close();
+
+      // 스타일을 변경
+      printDocument.body.style.color = '#000000';
+
+      // 프린트가 준비됐을 때 실행
+      printFrame.contentWindow.onload = function () {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+        document.body.removeChild(printFrame); // 프린트가 끝난 후 iframe을 제거
+      };
+    }
   };
 
   return (

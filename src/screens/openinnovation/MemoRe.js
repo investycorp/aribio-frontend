@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
+import React, {useEffect, useState} from 'react';
+import {useRecoilState} from 'recoil';
 import detectOS from '../../utils/detectOS';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import vertical_arrow from '../../assets/images/vertical_arrow.svg';
 
-import { Container, HomeComponentWrap, TextWrap, Text, Image, HR, ContentWrap } from './style';
+import {Container, HomeComponentWrap, TextWrap, Text, Image, HR, ContentWrap} from './style';
 
-import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
-import { Desktop, Mobile } from '../../utils/MediaQuery';
+import {HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap} from '../../components/style';
+import {Desktop, Mobile} from '../../utils/MediaQuery';
 
 import arrow from '../../assets/images/arrow.svg';
 
@@ -17,12 +17,12 @@ import Language from '../../atom/Language';
 import useLinkList from '../../hooks/useLink';
 import Video from '../../components/Video';
 
-import { t } from 'i18next';
-import { Trans } from 'react-i18next';
+import {t} from 'i18next';
+import {Trans} from 'react-i18next';
 
 const MemoRe = () => {
   const [language, setLanguage] = useRecoilState(Language);
-  const { data, isLoading, refetch } = useLinkList(language);
+  const {data, isLoading, refetch} = useLinkList(language);
   const [links, setLinks] = useState({});
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,13 +56,13 @@ const MemoRe = () => {
 
       <Header />
       <Path>
-        <span style={{ opacity: '0.8' }}>{`HOME  >  OPEN INNOVATION  > `}</span>
+        <span style={{opacity: '0.8'}}>{`HOME  >  OPEN INNOVATION  > `}</span>
         {window.innerWidth <= 900 && <br />}
         {t('innovation.memore.title')}
       </Path>
 
-      <HomeComponentWrap style={{ height: '100vh' }}>
-        <HeadLine $className="midsize" style={{ fontSize: window.innerWidth < 901 && '36px' }}>
+      <HomeComponentWrap style={{height: '100vh'}}>
+        <HeadLine $className="midsize" style={{fontSize: window.innerWidth < 901 && '36px'}}>
           {t('innovation.memore.title')}
         </HeadLine>
         <img
@@ -76,7 +76,7 @@ const MemoRe = () => {
           }}
         />
       </HomeComponentWrap>
-      <div style={{ margin: '0', padding: '0', position: 'relative' }}>
+      <div style={{margin: '0', padding: '0', position: 'relative'}}>
         <ContainerGridLineWrap className="grid_bg">
           <GridLineBox />
           <GridLineBox />
@@ -88,9 +88,8 @@ const MemoRe = () => {
             style={{
               backgroundColor: 'transparent',
               overflow: 'hidden',
-            }}
-          >
-            <TextWrap style={{ position: 'relative', backgroundColor: 'transparent' }}>
+            }}>
+            <TextWrap style={{position: 'relative', backgroundColor: 'transparent'}}>
               <Text $color="#C9C9C9" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
                 {t('innovation.memore.basic.subtitle')}
               </Text>
@@ -104,14 +103,13 @@ const MemoRe = () => {
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                }}
-              ></div>
+                }}></div>
               <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#D3D3D3">
-                <Trans i18nKey={'innovation.memore.basic.subdesc1'} components={{ 1: <br /> }} />
+                <Trans i18nKey={'innovation.memore.basic.subdesc1'} components={{1: <br />}} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{ paddingTop: '0' }}>
+          <HomeComponentWrap style={{paddingTop: '0'}}>
             <Image
               id="fadeIn"
               src={
@@ -131,14 +129,13 @@ const MemoRe = () => {
             {/* <video id="fadeIn" autoPlay muted loop playsInline style={{ width: '50vw' }}>
               <source src="https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2100PB_VD.mp4" type="video/mp4" />
             </video> */}
-            <TextWrap style={{ margin: '10em 0' }}>
+            <TextWrap style={{margin: '10em 0'}}>
               <Text
                 $color="#C9C9C9"
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="300"
-                $align="center"
-              >
-                <Trans i18nKey={'innovation.memore.basic.subdesc2'} components={{ 1: <br /> }} />
+                $align="center">
+                <Trans i18nKey={'innovation.memore.basic.subdesc2'} components={{1: <br />}} />
               </Text>
             </TextWrap>
             <ContentWrap
@@ -150,8 +147,7 @@ const MemoRe = () => {
                 alignItems: 'end',
                 padding: '0',
                 gap: '0',
-              }}
-            >
+              }}>
               <ContentWrap
                 style={{
                   width: '33.3%',
@@ -160,8 +156,7 @@ const MemoRe = () => {
                   padding: '0',
                   columnGap: '2em',
                   rowGap: '4em',
-                }}
-              >
+                }}>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                   $fontWeight="300"
@@ -180,11 +175,8 @@ const MemoRe = () => {
                     margin: '0',
                     cursor: 'pointer',
                   }}
-                  onClick={() => window.open(links.memoReEngLink, '_blank')}
-                >
-                  <span style={{ zIndex: '-1' }}>
-                    {t('innovation.memore.button.en')}
-                  </span>
+                  onClick={() => window.open(links.memoReEngLink, '_blank')}>
+                  <span style={{zIndex: '-1'}}>{t('innovation.memore.button.en')}</span>
                   <Image
                     src={arrow}
                     alt="arrow"
@@ -213,11 +205,8 @@ const MemoRe = () => {
                     margin: '0',
                     cursor: 'pointer',
                   }}
-                  onClick={() => window.open(links.memoReKorLink, '_blank')}
-                >
-                  <span style={{ zIndex: '-1' }}>
-                    {t('innovation.memore.button.kr')}
-                  </span>
+                  onClick={() => window.open(links.memoReKorLink, '_blank')}>
+                  <span style={{zIndex: '-1'}}>{t('innovation.memore.button.kr')}</span>
                   <Image
                     src={arrow}
                     alt="arrow"
@@ -254,11 +243,8 @@ const MemoRe = () => {
                     } else {
                       alert('Only Android and iOS are available.');
                     }
-                  }}
-                >
-                  <span style={{ zIndex: '-1' }}>
-                    {t('innovation.memore.button.dl')}
-                  </span>
+                  }}>
+                  <span style={{zIndex: '-1'}}>{t('innovation.memore.button.dl')}</span>
                   <Image
                     src={arrow}
                     alt="arrow"
@@ -278,22 +264,20 @@ const MemoRe = () => {
             style={{
               backgroundColor: 'transparent',
               overflow: 'hidden',
-            }}
-          >
-            <TextWrap style={{ position: 'relative', backgroundColor: 'transparent', width: '100%' }}>
+            }}>
+            <TextWrap style={{position: 'relative', backgroundColor: 'transparent', width: '100%'}}>
               <Text
                 $color="#C9C9C9"
                 $fontWeight="300"
-                style={{ fontSize: window.innerWidth > 1280 ? '26px' : '16px', margin: '0 0 12px 0' }}
-              >
+                style={{fontSize: window.innerWidth > 1280 ? '26px' : '16px', margin: '0 0 12px 0'}}>
                 {t('innovation.memore_m.basic.subtitle')}
               </Text>
-              <Text $fontSize="23px" $fontWeight="400" style={{ width: '100%', margin: '0' }}>
-                <Trans i18nKey={'innovation.memore.basic.desc'} components={{ 1: <br /> }} />
+              <Text $fontSize="23px" $fontWeight="400" style={{width: '100%', margin: '0'}}>
+                <Trans i18nKey={'innovation.memore.basic.desc'} components={{1: <br />}} />
               </Text>
-              <hr style={{ width: '20px', borderTop: '1px solid #707070', margin: '2rem 0 2rem 0' }} />
-              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{ lineHeight: '21px' }}>
-                <Trans i18nKey={'innovation.memore.basic.subdesc1'} components={{ 1: <br /> }} />
+              <hr style={{width: '20px', borderTop: '1px solid #707070', margin: '2rem 0 2rem 0'}} />
+              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{lineHeight: '21px'}}>
+                <Trans i18nKey={'innovation.memore.basic.subdesc1'} components={{1: <br />}} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -302,11 +286,11 @@ const MemoRe = () => {
               id="fadeIn"
               src={process.env.PUBLIC_URL + '/assets/interaction/360/AB4200IT_VD.png'}
               alt="memore_mobile_middle1"
-              style={{ width: '100%', marginTop: '0em' }}
+              style={{width: '100%', marginTop: '0em'}}
             />
-            <TextWrap style={{ margin: '5em 0', width: '100%' }}>
-              <Text $color="#C9C9C9" $fontSize="18px" $fontWeight="300" $align="center" style={{ lineHeight: '21px' }}>
-                <Trans i18nKey={'innovation.memore.basic.subdesc2'} components={{ 1: <br /> }} />
+            <TextWrap style={{margin: '5em 0', width: '100%'}}>
+              <Text $color="#C9C9C9" $fontSize="18px" $fontWeight="300" $align="center" style={{lineHeight: '21px'}}>
+                <Trans i18nKey={'innovation.memore.basic.subdesc2'} components={{1: <br />}} />
               </Text>
             </TextWrap>
             <ContentWrap
@@ -318,8 +302,7 @@ const MemoRe = () => {
                 alignItems: 'end',
                 padding: '0 0 10em 0',
                 gap: '0',
-              }}
-            >
+              }}>
               <ContentWrap
                 style={{
                   display: 'flex',
@@ -330,8 +313,7 @@ const MemoRe = () => {
                   paddingLeft: '33%',
                   justifyContent: 'center',
                   alignItems: 'end',
-                }}
-              >
+                }}>
                 <Text
                   $fontSize="16px"
                   $fontWeight="400"
@@ -350,12 +332,9 @@ const MemoRe = () => {
                     gap: '1em',
                     margin: '0',
                   }}
-                  onClick={() => window.open(links.memoReEngLink, '_blank')}
-                >
-                  <span style={{ zIndex: '-1' }}>
-                    {t('innovation.memore.button.en')}
-                  </span>
-                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
+                  onClick={() => window.open(links.memoReEngLink, '_blank')}>
+                  <span style={{zIndex: '-1'}}>{t('innovation.memore.button.en')}</span>
+                  <Image src={arrow} alt="arrow" style={{width: '10px', zIndex: '-1'}} />
                 </Text>
                 <Text
                   $fontSize="16px"
@@ -370,17 +349,13 @@ const MemoRe = () => {
                     justifyContent: 'space-between',
                     width: '213px',
                     height: '2.5em',
-
                     borderBottom: '1px solid #ffffff',
                     gap: '1em',
                     margin: '0',
                   }}
-                  onClick={() => window.open(links.memoReKorLink, '_blank')}
-                >
-                  <span style={{ zIndex: '-1' }}>
-                    {t('innovation.memore.button.kr')}
-                  </span>
-                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
+                  onClick={() => window.open(links.memoReKorLink, '_blank')}>
+                  <span style={{zIndex: '-1'}}>{t('innovation.memore.button.kr')}</span>
+                  <Image src={arrow} alt="arrow" style={{width: '10px', zIndex: '-1'}} />
                 </Text>
                 <Text
                   $fontSize="16px"
@@ -409,12 +384,9 @@ const MemoRe = () => {
                     } else {
                       alert('Only Android and iOS are available.');
                     }
-                  }}
-                >
-                  <span style={{ zIndex: '-1' }}>
-                    {t('innovation.memore.button.dl')}
-                  </span>
-                  <Image src={arrow} alt="arrow" style={{ width: '10px', zIndex: '-1' }} />
+                  }}>
+                  <span style={{zIndex: '-1'}}>{t('innovation.memore.button.dl')}</span>
+                  <Image src={arrow} alt="arrow" style={{width: '10px', zIndex: '-1'}} />
                 </Text>
               </ContentWrap>
             </ContentWrap>

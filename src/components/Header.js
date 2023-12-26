@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {useRecoilState} from 'recoil';
 import Language from '../atom/Language';
 import WindowSize from '../atom/MediaQuery';
-import { Desktop, Mobile } from '../utils/MediaQuery';
+import {Desktop, Mobile} from '../utils/MediaQuery';
 import useFooter from '../hooks/footer/useFooter';
 
 import lang_globe from '../assets/images/lang_globe.svg';
@@ -14,10 +14,10 @@ import toggle from '../assets/images/toggle.svg';
 
 import i18n from '../locales/i18n';
 
-const HeaderContainer = styled.div.attrs((props) => ({
+const HeaderContainer = styled.div.attrs(props => ({
   $home: props.$home,
 }))`
-  opacity: ${(props) => (props.$home ? '0' : '1')};
+  opacity: ${props => (props.$home ? '0' : '1')};
   position: fixed;
   top: 0;
   width: 100%;
@@ -84,12 +84,12 @@ const HeaderLogoWrap = styled.div`
   }
 `;
 
-const HeaderNavWrap = styled.div.attrs((props) => ({
+const HeaderNavWrap = styled.div.attrs(props => ({
   $offset: props.$offset,
 }))`
   padding: 0;
   width: -webkit-fill-available;
-  padding: ${(props) => (props.$offset ? `0 calc(9.63em + ${props.$offset}px)` : '0 9.63em')};
+  padding: ${props => (props.$offset ? `0 calc(9.63em + ${props.$offset}px)` : '0 9.63em')};
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -102,7 +102,7 @@ const HeaderNavWrap = styled.div.attrs((props) => ({
   }
 
   @media screen and (max-width: 1280px) {
-    padding: ${(props) => (props.$offset ? `0 calc(2rem + ${props.$offset}px)` : '0 2rem')};
+    padding: ${props => (props.$offset ? `0 calc(2rem + ${props.$offset}px)` : '0 2rem')};
     height: 74px;
   }
 
@@ -136,7 +136,7 @@ const HeaderNavMenuTextWrap = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
+  border-bottom: ${props => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
   transition: all 0.3s ease-in-out;
   &:hover,
   &:active {
@@ -248,41 +248,41 @@ const Image = styled.img`
 
 const Header = () => {
   const [menuList, setMenuList] = useState([
-    { title: 'Company', linkTo: 'company' },
-    { title: 'Our Approach', linkTo: 'ourapproach' },
-    { title: 'Pipeline', linkTo: 'pipeline' },
-    { title: 'IR & PR', linkTo: 'irpr' },
-    { title: 'Career', linkTo: 'career' },
-    { title: 'Contact', linkTo: 'contact' },
-    { title: 'Open Innovation', linkTo: 'openinnovation' },
+    {title: 'Company', linkTo: 'company'},
+    {title: 'Our Approach', linkTo: 'ourapproach'},
+    {title: 'Pipeline', linkTo: 'pipeline'},
+    {title: 'IR & PR', linkTo: 'irpr'},
+    {title: 'Career', linkTo: 'career'},
+    {title: 'Contact', linkTo: 'contact'},
+    {title: 'Open Innovation', linkTo: 'openinnovation'},
   ]);
   const [subMenu, setSubMenu] = useState({
     company: [
-      { title: 'ABOUT US', linkTo: 'aboutus' },
-      { title: 'HISTORY', linkTo: 'history' },
-      { title: 'CEO MESSAGE', linkTo: 'ceomessage' },
-      { title: 'CORPORATE IDENTITY', linkTo: 'ci' },
+      {title: 'ABOUT US', linkTo: 'aboutus'},
+      {title: 'HISTORY', linkTo: 'history'},
+      {title: 'CEO MESSAGE', linkTo: 'ceomessage'},
+      {title: 'CORPORATE IDENTITY', linkTo: 'ci'},
     ],
     ourapproach: [
-      { title: 'POLY-PHARMACOLOGY', linkTo: 'poly-pharmacology' },
-      { title: 'AI PLATFORM', linkTo: 'aiplatform' },
-      { title: 'PUBLICATION', linkTo: 'publications' },
+      {title: 'POLY-PHARMACOLOGY', linkTo: 'poly-pharmacology'},
+      {title: 'AI PLATFORM', linkTo: 'aiplatform'},
+      {title: 'PUBLICATION', linkTo: 'publications'},
     ],
-    pipeline: [{ title: 'PIPELINE', linkTo: 'pipeline' }],
-    career: [{ title: 'CAREER', linkTo: 'career' }],
+    pipeline: [{title: 'PIPELINE', linkTo: 'pipeline'}],
+    career: [{title: 'CAREER', linkTo: 'career'}],
     contact: [
-      { title: 'PARTNER', linkTo: 'partner' },
-      { title: 'CONTACT US', linkTo: 'contactus' },
+      {title: 'PARTNER', linkTo: 'partner'},
+      {title: 'CONTACT US', linkTo: 'contactus'},
     ],
     openinnovation: [
-      { title: 'OPEN INNOVATION', linkTo: 'openinnovation' },
-      { title: 'DIGITAL HEALTH', linkTo: 'digitalhealth' },
-      { title: 'Memo:Re PROJECT', linkTo: 'memoreproject' },
+      {title: 'OPEN INNOVATION', linkTo: 'openinnovation'},
+      {title: 'DIGITAL HEALTH', linkTo: 'digitalhealth'},
+      {title: 'Memo:Re PROJECT', linkTo: 'memoreproject'},
     ],
     irpr: [
-      { title: 'NOTICE', linkTo: 'notice/' },
-      { title: 'PRESS RELEASE', linkTo: 'pressrelease/' },
-      { title: 'MEDIA', linkTo: 'mediakit' },
+      {title: 'NOTICE', linkTo: 'notice/'},
+      {title: 'PRESS RELEASE', linkTo: 'pressrelease/'},
+      {title: 'MEDIA', linkTo: 'mediakit'},
     ],
   });
   const [fixedMenu, setFixedMenu] = useState('');
@@ -294,7 +294,7 @@ const Header = () => {
   const [scrollY, setScrollY] = useState(0);
   const [windowSize, setWindowSize] = useRecoilState(WindowSize);
   const [language, setLanguage] = useRecoilState(Language);
-  const { data, isLoading } = useFooter(language);
+  const {data, isLoading} = useFooter(language);
   const [logo, setLogo] = useState('');
   const [offset, setOffset] = useState(0);
   const location = useLocation();
@@ -309,7 +309,6 @@ const Header = () => {
   useEffect(() => {
     setNavBarWidth(document.getElementsByClassName('header-navwrap')[0]?.clientWidth);
     setCurrentTab(location.pathname.split('/')[1]);
-    console.log(location.pathname);
   }, [document.getElementsByClassName('header-navwrap')[0]?.clientWidth, location.pathname]);
 
   useEffect(() => {
@@ -369,24 +368,22 @@ const Header = () => {
     <>
       <Mobile>
         <HeaderContainer
-          style={{ display: 'grid', width: '100vw', }}
+          style={{display: 'grid', width: '100vw'}}
           tabIndex={1}
           onBlur={async () => {
-            await new Promise((resolve) => setTimeout(resolve, 100));
+            await new Promise(resolve => setTimeout(resolve, 100));
             setIsToggleOpen(false);
             setSubMenuOpen('');
-          }}
-        >
-          <HeaderTop style={{ backgroundColor: '#121212' }}>
+          }}>
+          <HeaderTop style={{backgroundColor: '#121212'}}>
             <HeaderLogoWrap>
               <Link
                 to="/"
                 onClick={() => {
                   if (location.pathname === '/') window.location.reload();
-                }}
-              >
+                }}>
                 <img
-                  style={{ cursor: 'pointer', width: '74px', paddingTop: '0.5em' }}
+                  style={{cursor: 'pointer', width: '74px', paddingTop: '0.5em'}}
                   // src={process.env.PUBLIC_URL + '/assets/images/aribiologo_white.png'}
                   src={logo}
                   alt="logo"
@@ -401,21 +398,20 @@ const Header = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 gap: '1em',
-              }}
-            >
+              }}>
               {<LangButton />}
               {!isToggleOpen ? (
                 <Image
                   src={toggle}
                   alt="toggle_menu"
-                  style={{ margin: '1.5em 0', height: '24px', width: '24px' }}
+                  style={{margin: '1.5em 0', height: '24px', width: '24px'}}
                   onClick={() => setIsToggleOpen(!isToggleOpen)}
                 />
               ) : (
                 <Image
                   src={process.env.PUBLIC_URL + '/assets/icons/closeMenu.svg'}
                   alt="toggle_close"
-                  style={{ margin: '1.5em 0', height: '24px', width: '24px' }}
+                  style={{margin: '1.5em 0', height: '24px', width: '24px'}}
                   onClick={() => setIsToggleOpen(!isToggleOpen)}
                 />
               )}
@@ -426,8 +422,7 @@ const Header = () => {
             <HeaderNavWrap
               className="header-navwrap"
               $isSmall={window.innerHeight < 780}
-              style={{ backgroundColor: '#121212' }}
-            >
+              style={{backgroundColor: '#121212'}}>
               {menuList.map((menu, index) => (
                 <HeaderNavMenuTextWrap
                   key={menu.linkTo + index}
@@ -437,8 +432,7 @@ const Header = () => {
                       else window.location.reload();
                     }
                   }}
-                  $isActive={menu.linkTo === currentMenu ? true : false}
-                >
+                  $isActive={menu.linkTo === currentMenu ? true : false}>
                   <div
                     style={{
                       height: '56px',
@@ -448,17 +442,16 @@ const Header = () => {
                     }}
                     onClick={() => {
                       subMenuOpen === menu.linkTo ? setSubMenuOpen('') : setSubMenuOpen(menu.linkTo);
-                    }}
-                  >
-                    <span style={{ fontSize: '20px', fontWeight: '300', color: '#BFBFBF', zIndex: '-1' }}>
+                    }}>
+                    <span style={{fontSize: '20px', fontWeight: '300', color: '#BFBFBF', zIndex: '-1'}}>
                       {menu.title.toUpperCase()}
                     </span>
                     {menu.linkTo !== 'career' && menu.linkTo !== 'pipeline' && subMenuOpen === menu.linkTo ? (
-                      <Image style={{ zIndex: '-1', height: '18px', width: '18px' }} src={minus} alt="minus" />
+                      <Image style={{zIndex: '-1', height: '18px', width: '18px'}} src={minus} alt="minus" />
                     ) : (
                       menu.linkTo !== 'career' &&
                       menu.linkTo !== 'pipeline' && (
-                        <Image style={{ zIndex: '-1', height: '18px', width: '18px' }} src={plus} alt="open" />
+                        <Image style={{zIndex: '-1', height: '18px', width: '18px'}} src={plus} alt="open" />
                       )
                     )}
                   </div>
@@ -473,12 +466,11 @@ const Header = () => {
                         menu.linkTo !== 'career' && menu.linkTo !== 'pipeline' && subMenuOpen === menu.linkTo
                           ? '14px 0'
                           : '0',
-                    }}
-                  >
+                    }}>
                     {menu.linkTo !== 'career' &&
                       menu.linkTo !== 'pipeline' &&
                       subMenuOpen === menu.linkTo &&
-                      subMenu[menu.linkTo]?.map((subMenu) => (
+                      subMenu[menu.linkTo]?.map(subMenu => (
                         <div
                           style={{
                             textDecoration: 'none',
@@ -489,8 +481,7 @@ const Header = () => {
                             alignItems: 'center',
                             width: '90vw',
                           }}
-                          key={'submenu' + subMenu.linkTo}
-                        >
+                          key={'submenu' + subMenu.linkTo}>
                           <Link
                             to={
                               menu.linkTo === 'pipeline' || menu.linkTo === 'career'
@@ -521,9 +512,8 @@ const Header = () => {
                               }
                               setIsToggleOpen(false);
                               setSubMenuOpen('');
-                            }}
-                          >
-                            <span style={{ fontSize: '18px', color: '#EFEFEF' }}>{subMenu.title}</span>
+                            }}>
+                            <span style={{fontSize: '18px', color: '#EFEFEF'}}>{subMenu.title}</span>
                           </Link>
                         </div>
                       ))}
@@ -534,7 +524,7 @@ const Header = () => {
           )}
         </HeaderContainer>
       </Mobile>
-      
+
       <Desktop>
         <>
           <HeaderContainer
@@ -549,8 +539,7 @@ const Header = () => {
                 setFixedMenu('');
               }, 100);
             }}
-            tabIndex={1}
-          >
+            tabIndex={1}>
             <BlurTop />
             <HeaderTop>
               <HeaderLogoWrap>
@@ -559,10 +548,9 @@ const Header = () => {
                   onClick={() => {
                     if (location.pathname === '/') window.location.reload();
                   }}
-                  style={{ width: '122px' }}
-                >
+                  style={{width: '122px'}}>
                   <img
-                    style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '122px' : '82px' }}
+                    style={{cursor: 'pointer', width: window.innerWidth > 1280 ? '122px' : '82px'}}
                     src={logo}
                     alt="logo"
                   />
@@ -572,7 +560,7 @@ const Header = () => {
                 {menuList.map((menu, index) => (
                   <HeaderNavMenuTextWrap
                     key={menu.linkTo + index}
-                    onMouseOver={(e) => {
+                    onMouseOver={e => {
                       if (fixedMenu === '' || !fixedMenu) {
                         setCurrentMenu(menu.linkTo);
                         if (menu.linkTo === 'openinnovation') {
@@ -582,7 +570,7 @@ const Header = () => {
                         }
                       }
                     }}
-                    onClick={(e) => {
+                    onClick={e => {
                       if (menu.linkTo === 'pipeline' || menu.linkTo === 'career') {
                         if (menu.linkTo === 'career') navigate(`/${menu.linkTo}`);
                         if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
@@ -604,8 +592,7 @@ const Header = () => {
                       }
                     }}
                     $isActive={menu.linkTo === currentMenu ? true : false}
-                    style={{ position: 'relative' }}
-                  >
+                    style={{position: 'relative'}}>
                     <div
                       style={{
                         paddingBottom: 8,
@@ -615,8 +602,7 @@ const Header = () => {
                             : '2px solid transparent',
                         zIndex: '-1',
                         position: 'relative',
-                      }}
-                    >
+                      }}>
                       <span>{menu.title.toUpperCase()}</span>
                     </div>
                   </HeaderNavMenuTextWrap>
@@ -628,9 +614,8 @@ const Header = () => {
               <>
                 <HeaderBottom
                   className={`header-bottom ${currentMenu}`}
-                  style={{ visibility: 'visible', opacity: 1, padding: '0' }}
-                >
-                  <div style={{ position: 'relative', width: '100%', height: 'fit-content', display: 'flex' }}>
+                  style={{visibility: 'visible', opacity: 1, padding: '0'}}>
+                  <div style={{position: 'relative', width: '100%', height: 'fit-content', display: 'flex'}}>
                     <HeaderNavWrap
                       id="header-navwrap"
                       style={{
@@ -647,19 +632,17 @@ const Header = () => {
                         top: '-0.5em',
                         left: currentMenu !== 'openinnovation' ? `${offset}px` : 'unset',
                         right: currentMenu === 'openinnovation' ? `${offset}px` : 'unset',
-                      }}
-                    >
-                      {subMenu[currentMenu]?.map((menu) => (
+                      }}>
+                      {subMenu[currentMenu]?.map(menu => (
                         <Link
                           to={`/${currentMenu}/${menu.linkTo}`}
-                          style={{ textDecoration: 'none' }}
+                          style={{textDecoration: 'none'}}
                           key={menu.linkTo}
                           onClick={() => {
                             if (menu.linkTo === location.pathname.split('/')[2]) {
                               window.location.reload();
                             }
-                          }}
-                        >
+                          }}>
                           <HeaderNavMenuTextWrap>{menu.title}</HeaderNavMenuTextWrap>
                         </Link>
                       ))}
@@ -711,9 +694,8 @@ const LangButton = () => {
             justifyContent: 'center',
             alignItems: 'end',
             marginBottom: window.innerWidth > 1280 ? '12px' : '2px',
-          }}
-        >
-          <HeaderLangButton style={{ cursor: 'pointer' }} onClick={handleClick}>
+          }}>
+          <HeaderLangButton style={{cursor: 'pointer'}} onClick={handleClick}>
             <img
               style={{
                 height: window.innerWidth > 1400 ? '20px' : window.innerWidth > 1280 ? '15px' : '13px',
@@ -728,8 +710,7 @@ const LangButton = () => {
                 fontSize: window.innerWidth > 1400 ? '18px' : window.innerWidth > 1280 ? '15px' : '11px',
                 zIndex: '-1',
                 cursor: 'pointer',
-              }}
-            >
+              }}>
               {language}
             </div>
           </HeaderLangButton>
@@ -746,8 +727,7 @@ const LangButton = () => {
             justifyContent: 'center',
             alignItems: 'center',
             gap: '0.5rem',
-          }}
-        >
+          }}>
           <span
             style={{
               height: '4px',
@@ -760,10 +740,10 @@ const LangButton = () => {
               marginTop: '1px',
             }}
           />
-          <span style={{ fontWeight: '400', paddingTop: '0.1em', zIndex: '-1' }}>{language}</span>
+          <span style={{fontWeight: '400', paddingTop: '0.1em', zIndex: '-1'}}>{language}</span>
         </div>
       </Mobile>
     </>
   );
 };
-export { LangButton };
+export {LangButton};

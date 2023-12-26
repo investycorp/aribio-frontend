@@ -17,7 +17,7 @@ import MoveUp from '../../../atom/MoveUp';
 const AboutUs = () => {
   const [tabNames, setTabNames] = useState(['Leadership', 'Advisors']);
   const [currentTab, setCurrentTab] = useState('Leadership');
-  // const [moveUp, setMoveUp] = useRecoilState(MoveUp);
+  const [moveUp, setMoveUp] = useRecoilState(MoveUp);
   const leader = document.querySelectorAll('#leadership');
 
   useEffect(() => {
@@ -29,8 +29,9 @@ const AboutUs = () => {
         const leader = document.querySelectorAll('#leadership');
         const advisor = document.querySelector('#advisor');
 
-        if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.7) {
+        if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.9) {
           leader[1]?.classList.add('moveup');
+          setMoveUp(true);
         } else {
           leader[1]?.classList.remove('moveup');
         }
@@ -43,6 +44,13 @@ const AboutUs = () => {
       document.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const leaders = document.querySelectorAll('#leadership');
+    if (moveUp && currentTab === 'Leadership') {
+      leaders[1]?.classList?.add('moveup');
+    }
+  }, [currentTab]);
 
   return (
     <Container className="container">
@@ -108,13 +116,16 @@ const AboutUs = () => {
                 $isActive={currentTab === item ? true : false}
                 onClick={() => {
                   setCurrentTab(item);
-                  console.log(item);
                 }}>
                 {item}
               </TabItem>
             ))}
           </Tab>
-          {currentTab === 'Leadership' ? <Leadership /> : <Advisors />}
+          {currentTab === 'Leadership' ? (
+            <Leadership tabShow={currentTab === 'Leadership'} />
+          ) : (
+            <Advisors tabShow={currentTab === 'Advisors'} />
+          )}
         </Desktop>
 
         <Mobile>

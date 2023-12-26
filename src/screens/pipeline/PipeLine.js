@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import icon_open from './assets/icon_open.svg';
@@ -23,19 +23,19 @@ import {
   Ball,
 } from './style';
 
-import { HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox } from '../../components/style';
-import { Desktop, Mobile } from '../../utils/MediaQuery';
+import {HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox} from '../../components/style';
+import {Desktop, Mobile} from '../../utils/MediaQuery';
 import usePipelineList from '../../hooks/pipeline/usePipelineList';
 import Language from '../../atom/Language';
-import { useRecoilState } from 'recoil';
-import { Trans } from 'react-i18next';
-import { t } from 'i18next';
+import {useRecoilState} from 'recoil';
+import {t} from 'i18next';
+import {Trans} from 'react-i18next';
 
 import Video from '../../components/Video';
 
 const PipeLine = () => {
   const [lan] = useRecoilState(Language);
-  const { data: list, isLoading } = usePipelineList(lan);
+  const {data: list, isLoading} = usePipelineList(lan);
   const [selectedItem, setSelectedItem] = useState(); //mobile
   const [toggleOn, setToggleOn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,31 +43,28 @@ const PipeLine = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [firstRender, setFirstRender] = useState(true);
   const [tableHeader, setTableHeader] = useState([
-    <span>
-      Drug <br />
-      Candidate
-    </span>,
-    'Target',
-    'Modality',
-    'Indication',
-    'IND-Enabling',
-    'Phase 1',
-    'Phase 2',
-    'Phase 3',
-    'Approval',
+    t('pipeline.table.header.1'),
+    t('pipeline.table.header.2'),
+    t('pipeline.table.header.3'),
+    t('pipeline.table.header.4'),
+    t('pipeline.table.header.5'),
+    t('pipeline.table.header.6'),
+    t('pipeline.table.header.7'),
+    t('pipeline.table.header.8'),
+    t('pipeline.table.header.9'),
   ]);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const itemList = [];
     if (list) {
-      list.data.dataList.map((item) => {
+      list.data.dataList.map(item => {
         itemList.push({
           id: item.id,
           drugCandidate: item.drugCandidate,
           target: item.target,
           modality: item.modality,
-          indication: item.pipelineIndicationDtoList?.map((indication) => {
+          indication: item.pipelineIndicationDtoList?.map(indication => {
             return {
               id: indication.id,
               section: indication.indication,
@@ -99,8 +96,8 @@ const PipeLine = () => {
         fadeIn?.classList.remove('fadeIn');
       }
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
           //add animation class if intersecting
           const squares = entry.target.querySelectorAll('.shooting_star');
           if (entry.isIntersecting) {
@@ -143,7 +140,7 @@ const PipeLine = () => {
     }
   }, [toggleOn]);
 
-  const handleBlur = (e) => {
+  const handleBlur = e => {
     if (!e.currentTarget.contains(e.relatedTarget)) {
       setToggleOn(false);
     }
@@ -182,12 +179,12 @@ const PipeLine = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.8' }}>{`HOME > `}</span>
-        PIPELINE
+        <span style={{opacity: '0.8'}}>{`HOME > `}</span>
+        {t('pipeline.title')}
       </Path>
 
-      <HomeComponentWrap style={{ height: '100vh', width: '100vw' }}>
-        <HeadLine $className="midsize">PIPELINE</HeadLine>
+      <HomeComponentWrap style={{height: '100vh', width: '100vw'}}>
+        <HeadLine $className="midsize">{t('pipeline.headline')}</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
           alt="home"
@@ -200,7 +197,7 @@ const PipeLine = () => {
         />
       </HomeComponentWrap>
 
-      <div style={{ margin: '0', padding: '0', position: 'relative' }}>
+      <div style={{margin: '0', padding: '0', position: 'relative'}}>
         {/* <ContainerGridLineWrap className="grid_bg">
           <GridLineBox />
           <GridLineBox />
@@ -208,7 +205,7 @@ const PipeLine = () => {
         </ContainerGridLineWrap> */}
 
         <Desktop>
-          <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
+          <HomeComponentWrap style={{padding: '15vh 7vw'}}>
             <TextWrap>
               <Text $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300" $color="#939598">
                 {t('pipeline.title')}
@@ -220,27 +217,34 @@ const PipeLine = () => {
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                }}
-              ></div>
+                }}></div>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
                 $fontWeight="500"
                 $color="#ffffff"
-                style={{ margin: '2rem 0 0 0', lineHeight: '1.5' }}
-              >
-                <Trans i18nKey="pipeline.subtitle" components={{ 1: <br /> }} />
+                style={{margin: '2rem 0 0 0', lineHeight: '1.5'}}>
+                <Trans i18nKey="pipeline.subtitle" components={{1: <br />}} />
               </Text>
             </TextWrap>
             <TableWrap className="table">
               <TableRowWrap className="th">
                 {tableHeader?.map((item, index) => (
-                  <TableContentBox key={index}>{item}</TableContentBox>
+                  <TableContentBox key={index}>
+                    {item.split('\\n').map(line => {
+                      return (
+                        <>
+                          {line}
+                          <br />
+                        </>
+                      );
+                    })}
+                  </TableContentBox>
                 ))}
               </TableRowWrap>
               {data?.map((item, index) => (
                 <TableRowWrap className="tr" key={'tableRow' + index}>
-                  <TableContentBox style={{ fontWeight: '600' }}>
-                    <span style={{ padding: '0.5em', cursor: 'pointer' }}>{item?.drugCandidate}</span>
+                  <TableContentBox style={{fontWeight: '600'}}>
+                    <span style={{padding: '0.5em', cursor: 'pointer'}}>{item?.drugCandidate}</span>
 
                     {/* <img
                       style={{ padding: '0.5em', cursor: 'pointer' }}
@@ -255,7 +259,7 @@ const PipeLine = () => {
                   </TableContentBox>
                   <TableContentBox>{item.target}</TableContentBox>
                   <TableContentBox>
-                    {item.modality.split('\\n').map((text) => {
+                    {item.modality.split('\\n').map(text => {
                       return (
                         <>
                           {text}
@@ -264,29 +268,26 @@ const PipeLine = () => {
                       );
                     })}
                   </TableContentBox>
-                  <TableContentBox className="indication" style={{ padding: '0' }}>
+                  <TableContentBox className="indication" style={{padding: '0'}}>
                     {item?.indication.map((indication_item, index) => (
                       <div key={'indication' + index}>
                         <div
                           className="section"
                           key={indication_item?.section + index}
-                          style={{ borderBottom: item?.indication.length - 1 === index && 'none' }}
-                        >
+                          style={{borderBottom: item?.indication.length - 1 === index && 'none'}}>
                           {indication_item?.section}
                         </div>
                         <div
                           className="phase"
                           key={'phase' + index}
-                          style={{ borderBottom: item?.indication.length - 1 === index && 'none' }}
-                        >
+                          style={{borderBottom: item?.indication.length - 1 === index && 'none'}}>
                           <span>
                             <ShootingStarWrap className="shooting_star_wrap">
                               {/* <hr style={{ width: '100%', opacity: '0.4', border: 'dotted 1px' }} /> */}
                               <ShootingStar
                                 className="shooting_star"
                                 $phase={indication_item?.phase}
-                                $state={indication_item?.state}
-                              >
+                                $state={indication_item?.state}>
                                 <Ball />
                               </ShootingStar>
                             </ShootingStarWrap>
@@ -314,9 +315,9 @@ const PipeLine = () => {
         </Desktop>
 
         <Mobile>
-          <HomeComponentWrap style={{ padding: '5vh 5vw', marginBottom: '10em' }}>
+          <HomeComponentWrap style={{padding: '5vh 5vw', marginBottom: '10em'}}>
             <TextWrap>
-              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{ marginBottom: '0' }}>
+              <Text $fontSize="16px" $fontWeight="300" $color="#939598" style={{marginBottom: '0'}}>
                 {t('pipeline.title')}
               </Text>
               <div
@@ -326,54 +327,52 @@ const PipeLine = () => {
                   height: '1px',
                   border: '1px solid #ffffff',
                   margin: '28px 0',
-                }}
-              ></div>
-              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ lineHeight: '1.2em' }}>
-                <Trans i18nKey="pipeline.subtitle_m" components={{ 1: <br /> }} />
+                }}></div>
+              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{lineHeight: '1.2em'}}>
+                <Trans i18nKey="pipeline.subtitle_m" components={{1: <br />}} />
               </Text>
             </TextWrap>
-            <div style={{ width: '100%' }} id="fadeIn">
+            <div style={{width: '100%'}} id="fadeIn">
               <div
-                onBlur={(e) => {
+                onBlur={e => {
                   console.log('blur');
                   handleBlur(e);
                 }}
                 tabIndex={1}
-                style={{ width: '100%', position: 'relative' }}
-              >
+                style={{width: '100%', position: 'relative'}}>
                 <ToggleButton
                   onClick={() => {
                     setToggleOn(!toggleOn);
                   }}
-                  toggle={toggleOn}
-                >
-                  <span style={{ fontSize: '20px', fontWeight: '500', color: '#E8E8E8' }}>
+                  toggle={toggleOn}>
+                  <span style={{fontSize: '20px', fontWeight: '500', color: '#E8E8E8'}}>
                     {!firstRender && selectedItem?.drugCandidate ? selectedItem?.drugCandidate : 'Drug Candidate'}
                   </span>
-                  <img
-                    src={icon_opentoggle}
-                    alt="open_toggle"
-                    style={{ transform: toggleOn ? 'rotate(180deg)' : '' }}
-                  />
+                  <img src={icon_opentoggle} alt="open_toggle" style={{transform: toggleOn ? 'rotate(180deg)' : ''}} />
                 </ToggleButton>
 
                 <ToggleListWrap $toggleOn={toggleOn}>
                   {data?.map((item, index) => (
                     <ToggleList
                       key={'toggle' + item?.drugCandidate + index}
-                      style={{ fontSize: '18px' }}
+                      style={{fontSize: '18px'}}
                       onClick={async () => {
                         await setSelectedItem(item);
                         setFirstRender(false);
                         setToggleOn(false);
+
                         window.scrollTo(
                           0,
                           document.getElementById('toggleWrap')
                             ? document.getElementById('toggleWrap').scrollIntoView()
                             : window.innerHeight * 1.3,
                         );
-                      }}
-                    >
+
+                        const squares = document.querySelectorAll('.shooting_star');
+                        for (const square of squares) {
+                          square?.classList.add('animate');
+                        }
+                      }}>
                       {item?.drugCandidate}
                     </ToggleList>
                   ))}
@@ -381,11 +380,11 @@ const PipeLine = () => {
               </div>
 
               <ContentBoxWrap>
-                <ContentBox style={{ padding: '28px 0.5em', borderBottom: '1px solid #fff', gap: '18px' }}>
-                  <RowWrap style={{ padding: '0 0 0 1em' }}>
+                <ContentBox style={{padding: '28px 0.5em', borderBottom: '1px solid #fff', gap: '18px'}}>
+                  <RowWrap style={{padding: '0 0 0 1em'}}>
                     <span>
-                      <span style={{ marginRight: '1em' }}>•</span>
-                      <span style={{ fontSize: '16px', fontWeight: '500' }}>{selectedItem?.drugCandidate}</span>
+                      <span style={{marginRight: '1em'}}>•</span>
+                      <span style={{fontSize: '16px', fontWeight: '500'}}>{selectedItem?.drugCandidate}</span>
                     </span>
 
                     {/* <img
@@ -400,26 +399,26 @@ const PipeLine = () => {
                       }}
                     /> */}
                   </RowWrap>
-                  <RowWrap style={{ padding: '0' }}>
-                    <span style={{ width: '100%', padding: '0 0 0 2em', fontWeight: '200' }}>
-                      <span style={{ marginRight: '1em', fontSize: '10px' }}>•</span>
-                      <span style={{ fontSize: '16px', fontWeight: '300', padding: '0' }}>
-                        Taget - {selectedItem?.target}
+                  <RowWrap style={{padding: '0'}}>
+                    <span style={{width: '100%', padding: '0 0 0 2em', fontWeight: '200'}}>
+                      <span style={{marginRight: '1em', fontSize: '10px'}}>•</span>
+                      <span style={{fontSize: '16px', fontWeight: '300', padding: '0'}}>
+                        {t('pipeline.table_m.row.target')} - {selectedItem?.target}
                       </span>
                     </span>
                   </RowWrap>
-                  <RowWrap style={{ padding: '0' }}>
-                    <span style={{ width: '100%', padding: '0 0 0 2em', fontWeight: '200' }}>
-                      <span style={{ marginRight: '1em', fontSize: '10px' }}>•</span>
-                      <span style={{ fontSize: '16px', fontWeight: '300', width: '100%', padding: '0' }}>
-                        Mordality - {selectedItem?.modality.replace('\\n', ' ')}
+                  <RowWrap style={{padding: '0'}}>
+                    <span style={{width: '100%', padding: '0 0 0 2em', fontWeight: '200'}}>
+                      <span style={{marginRight: '1em', fontSize: '10px'}}>•</span>
+                      <span style={{fontSize: '16px', fontWeight: '300', width: '100%', padding: '0'}}>
+                        {t('pipeline.table_m.row.modality')} - {selectedItem?.modality.replace('\\n', ' ')}
                       </span>
                     </span>
                   </RowWrap>
                 </ContentBox>
-                <ContentBox className="table" style={{ padding: '1rem 0', gap: '1.5rem' }}>
-                  <RowWrap style={{ backgroundColor: 'rgba(177,177,177,0.2)', padding: '0.5rem 1rem' }}>
-                    Indication
+                <ContentBox className="table" style={{padding: '1rem 0', gap: '1.5rem'}}>
+                  <RowWrap style={{backgroundColor: 'rgba(177,177,177,0.2)', padding: '0.5rem 1rem'}}>
+                    {t('pipeline.table_m.indication')}
                   </RowWrap>
                   <ContentBox
                     className="gridline"
@@ -430,53 +429,48 @@ const PipeLine = () => {
                       margin: '0 0 60px 0',
                       fontSize: '13px',
                       fontWeight: '300',
-                    }}
-                  >
+                    }}>
                     <RowWrap>
                       <hr />
                       <span>
-                        IND- <br />
-                        Enabling
+                        <Trans i18nKey={'pipeline.table_m.scale.1'} components={{1: <br />}} />
                       </span>
                     </RowWrap>
                     <RowWrap>
                       <hr />
                       <span>
-                        Phase <br />1
+                        <Trans i18nKey={'pipeline.table_m.scale.2'} components={{1: <br />}} />
                       </span>
                     </RowWrap>
                     <RowWrap>
                       <hr />
                       <span>
-                        Phase
-                        <br />2
+                        <Trans i18nKey={'pipeline.table_m.scale.3'} components={{1: <br />}} />
                       </span>
                     </RowWrap>
                     <RowWrap>
                       <hr />
                       <span>
-                        Phase <br />3
+                        <Trans i18nKey={'pipeline.table_m.scale.4'} components={{1: <br />}} />
                       </span>
                     </RowWrap>
                     <RowWrap>
                       <hr />
-                      <span>Approval</span>
+                      <span>{t('pipeline.table_m.scale.5')}</span>
                     </RowWrap>
                   </ContentBox>
                   {selectedItem?.indication?.map((indication, index) => (
                     <ContentBox
                       key={'mobile_indication' + index}
-                      style={{ padding: '0', fontWeight: '100', gap: '0.5rem', alignItems: 'stretch' }}
-                    >
+                      style={{padding: '0', fontWeight: '100', gap: '0.5rem', alignItems: 'stretch'}}>
                       <span>{indication?.section}</span>
-                      <span style={{ width: '100%' }}>
+                      <span style={{width: '100%'}}>
                         <ShootingStarWrap className="shooting_star_wrap">
-                          <hr style={{ width: '100%', opacity: '0.4', border: '1px dotted' }} />
+                          <hr style={{width: '100%', opacity: '0.4', border: '1px dotted'}} />
                           <ShootingStar
                             className="shooting_star animation_mobile"
                             $phase={indication?.phase}
-                            $state={indication?.state}
-                          >
+                            $state={indication?.state}>
                             <Ball />
                           </ShootingStar>
                         </ShootingStarWrap>

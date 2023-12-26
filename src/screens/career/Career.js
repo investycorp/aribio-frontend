@@ -1144,7 +1144,7 @@ const Career = () => {
                           borderBottom: '1px solid #ffffff',
                         }}
                         onClick={() => {
-                          navigate('/aboutus');
+                          navigate('/company/aboutus');
                         }}>
                         <span style={{zIndex: '-1'}}>{t('career.buttons.meetourleadership')}</span>
                         <Image src={arrow} alt="arrow" style={{width: '10px', zIndex: '-1'}} />

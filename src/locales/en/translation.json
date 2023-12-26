@@ -163,20 +163,82 @@
     "subtitle3": "ARIS (AI-based Reliable In-Silico)",
     "desc3": "ARIS is fundamentally structured around two concepts, <1/> “BRAIN” and its “Prediction Algorithms”.",
     "subtitle4": "BRAIN",
-    "desc4": "BRAIN, short for  <2> “The Bridge between AI and In Silico, In Vitro, and In Vivo”, </2> <1/> has two primary components: a Knowledge Graph (KG) and a Large Language Model (LLM). <1/> Together, they form a cohesive <2>Bridge</2>, seamlessly linking the KG and ARIS  <2>Prediction Algorithms</2> <1/> to real-world applications across  <2>In Silico, In Vitro, and In Vivo</span> domains.",
+    "desc4": "BRAIN, short for <2> “The Bridge between AI and In Silico, In Vitro, and In Vivo”, </2> <1/> has two primary components: a Knowledge Graph (KG) and a Large Language Model (LLM). <1/> Together, they form a cohesive <2>Bridge</2>, seamlessly linking the KG and ARIS  <2>Prediction Algorithms</2> <1/> to real-world applications across  <2>In Silico, In Vitro, and In Vivo</span> domains.",
     "subtitle5": "Prediction Algorithms",
     "desc5": "The “Prediction Algorithms” consist of a range of advanced AI prediction models and simulation tools <1/> designed specifically for the fields of chemistry and biology. Each model and solution is carefully crafted to provide <1/> researchers with practical and direct applications, both on its own and in collaboration with the BRAIN platform.",
     "subtitle6": "Pathway Data",
     "desc6": "Since its origin, the development and objectives of ARIS have always been closely aligned with <1/> AriBio’s polypharmacological approach. Hence, we emphasize harnessing contextual information <1/> when discovering novel polypharmacological drug candidates. <1/> When considering contextual information for polypharmacological drug discovery, pathway data is most critical. <1/> <1/> We extract this pathway data from various sources, leveraging two advanced Deep Learning techniques: <1/> Named Entity Recognition (NER) and Relation Extraction (RE). <1/> The execution flow and interplay of these methods are illustrated below:",
-    "desc6-2": "At the heart of polypharmacological drug discovery lies the pivotal step of target identification. <1/> This involves discerning which biological targets a drug should engage with, to address a specific disease. <1/> The inherent challenge stems from the intricate interdependencies within our body; no single component operates in isolation. <1/> A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of subsequent interactions that <1/> collectively contribute to disease treatment. Hence, pinpointing a viable drug target necessitates <1/> a profound comprehension of these protein interplays within the body - a knowledge rooted in pathway data."
+    "desc6-2": "At the heart of polypharmacological drug discovery lies the pivotal step of target identification. <1/> This involves discerning which biological targets a drug should engage with, to address a specific disease. <1/> The inherent challenge stems from the intricate interdependencies within our body; no single component operates in isolation. <1/> A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of subsequent interactions that <1/> collectively contribute to disease treatment. Hence, pinpointing a viable drug target necessitates <1/> a profound comprehension of these protein interplays within the body - a knowledge rooted in pathway data.",
+    "predictions": {
+      "docking": {
+        "title": "Docking",
+        "content": {
+          "desc1": "Type : High Throughput, \\n Structure-based (Ligand-Protein).",
+          "desc2": "Technology : Machine Learning.",
+          "desc3": "Accuracy : \\n Correlation coefficient of 0.616.",
+          "desc4": "Completion Time : Approximately 10 seconds per Ligand-Protein complex."
+        }
+      },
+      "ic50": {
+        "title": "IC50 predictor",
+        "content": {
+          "desc1": "Description : \\n A Machine Learning framework tailored to model a target protein’s IC50 activity. <br /> This model predicts the IC50 value for a specific Ligand-Protein complex, <br /> utilizing the Ligand’s chemical structure. It is instrumental in validating or estimating the potential <br /> of an interaction between a ligand and a target protein."
+        }
+      },
+      "blinding": {
+        "title": "Blinding Affinity \\n Prediction",
+        "content": {
+          "desc1": "Type : Low Throughput, Structure-based (Ligand-Protein).",
+          "desc2": "Technology : Deep Learning (3D Convolutional Neural Networks).",
+          "desc3": "Accuracy : \\n Correlation coefficient of 0.827.",
+          "desc4": "Completion Time : Approximately 10 minutes per Ligand-Protein complex."
+        }
+      },
+      "drugsim": {
+        "title": "DrugSim",
+        "content": {
+          "desc1": "Description : \\n A Drug Similarity Search module, which, when provided with an input molecule, <br /> seeks similar drugs based not only on their chemical structures but also considering their comprehensive <br /> metadata within DrugBank, encompassing MOA, targets, drug-drug interactions, and more."
+        }
+      },
+      "ligand": {
+        "title": "Ligand Hunter",
+        "content": {
+          "desc1": "Description : \\n Efficiently identifies ligands that exhibit binding to a specified protein."
+        }
+      },
+      "bbb": {
+        "title": "BBB Predictor",
+        "content": {
+          "desc1": "Description : \\n Offers Blood Brain Barrier (BBB) permeability predictions, leveraging a plethora of metrics."
+        }
+      },
+      "target": {
+        "title": "Target Hunter",
+        "content": {
+          "desc1": "Description : \\n Determines potential targets that exhibit binding to a particular ligand."
+        }
+      },
+      "arinet": {
+        "title": "ARI-Net",
+        "content": {
+          "desc1": "Description : \\n This tool predicts disease-gene associations through random walks executed on our Knowledge Graph. <br /> It is pivotal for “Pathway Prediction”, implying its ability to forecast novel associations between genes and <br /> diseases within our knowledge graph. A foundational module for target identification in ARIS."
+        }
+      },
+      "admet": {
+        "title": "ADMET Toxicity",
+        "content": {
+          "desc1": "Description : \\n Proffers predictions on how a specific compound might be metabolized and processed within the human body."
+        }
+      }
+    }
   },
   "aiplatform_m": {
     "subtitle": "AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
     "desc1": "ARIDD™ is <1/> a drug development platform <1/> that augments the discovery and <1/> development of <1/> polypharmacological drugs. <1/> To accelerate the development of drugs <1/> with multiple mechanisms of action, <1/> we’ve unveiled ARIS, our cutting-edge <1/> AI platform designed for dependable <1/> in-silico predictions and analyses.",
     "desc2": "Existing AI drug discovery tools often <1/> prioritize drug synthesis, intermolecular <1/> binding prediction, and ADMET processes. <1/> While crucial for single-mechanism drug <1/> exploration, polypharmacological discovery <1/> demands a nuanced approach. <1/>",
-    "desc3": " ARIS is fundamentally structured <1/> around two concepts, <1/> “BRAIN” and its “Prediction Algorithms”.",
-    "desc4": " BRAIN, short for <1/> <2> “The Bridge between AI and In Silico, <1/> In Vitro, and In Vivo”, </2> <1/> has two primary components: <1/> a Knowledge Graph (KG) <1/> and a Large Language Model (LLM). <1/> Together, they form a cohesive <2>Bridge</2>, <1/> seamlessly linking the KG and ARIS <1/> <2> Prediction Algorithms</2> to real-world <1/> applications across <2> In Silico, In Vitro, <1/> and In Vivo </2> domains.",
-    "desc5": " The “Prediction Algorithms” consist of a <1/> range of advanced AI prediction models and <1/> simulation tools designed specifically for the <1/> fields of chemistry and biology. Each model <1/> and solution is carefully crafted to provide <1/> researchers with practical and direct <1/> applications, both on its own and in <1/> collaboration with the BRAIN platform.",
+    "desc3": "ARIS is fundamentally structured <1/> around two concepts, <1/> “BRAIN” and its “Prediction Algorithms”.",
+    "desc4": "BRAIN, short for <1/> <2> “The Bridge between AI and In Silico, <1/> In Vitro, and In Vivo”, </2> <1/> has two primary components: <1/> a Knowledge Graph (KG) <1/> and a Large Language Model (LLM). <1/> Together, they form a cohesive <2>Bridge</2>, <1/> seamlessly linking the KG and ARIS <1/> <2> Prediction Algorithms</2> to real-world <1/> applications across <2> In Silico, In Vitro, <1/> and In Vivo </2> domains.",
+    "desc5": "The “Prediction Algorithms” consist of a <1/> range of advanced AI prediction models and <1/> simulation tools designed specifically for the <1/> fields of chemistry and biology. Each model <1/> and solution is carefully crafted to provide <1/> researchers with practical and direct <1/> applications, both on its own and in <1/> collaboration with the BRAIN platform.",
     "desc6": "Since its origin, <1/> the development and objectives of ARIS <1/> have always been closely aligned with <1/> AriBio’s polypharmacological approach. <1/> Hence, we emphasize harnessing <1/> contextual information when <1/> discovering novel polypharmacological <1/> drug candidates. <1/> When considering contextual information <1/> for polypharmacological drug discovery, <1/> pathway data is most critical.",
     "desc6-2": " At the heart of polypharmacological drug <1/> discovery lies the pivotal step of target <1/> identification. This involves discerning <1/> which biological targets a drug <1/> should engage with, to address a specific <1/> disease. The inherent challenge stems <1/> from the intricate interdependencies <1/> within our body; no single component <1/> operates in isolation. <1/> A drug’s interaction with a singular protein <1/> isn’t the sole therapeutic agent; <1/> it’s the cascade of subsequent <1/> interactions that collectively contribute <1/> to disease treatment. Hence, pinpointing <1/> a viable drug target necessitates <1/> a profound comprehension of these <1/> protein interplays within the body - <1/> a knowledge rooted in pathway data. <1/>"
   },
@@ -186,14 +248,51 @@
     "title": "PUBLICATIONS",
     "subtitle": "Explore Our Research",
     "search": "Please enter a search term.",
-    "noresult": "No result"
+    "noresult": "No result found for",
+    "type": {
+      "publications": {
+        "full": "publications",
+        "shorten": "Pub"
+      },
+      "presentations": {
+        "full": "Presentations",
+        "shorten": "Conf"
+      }
+    }
   },
 
   "pipeline": {
     "headline": "PIPELINE",
     "title": "PIPELINE",
     "subtitle": "Our Path to Pioneering Treatments for <1/> Neurodegenerative Diseases, <1/> Offering Innovative Therapies for a Brighter Future <1/>",
-    "subtitle_m": "Our Path to Pioneering <1/> Treatments for <1/> Neurodegenerative Diseases, <1/> Offering Innovative Therapies <1/> for a Brighter Future <1/>"
+    "subtitle_m": "Our Path to Pioneering <1/> Treatments for <1/> Neurodegenerative Diseases, <1/> Offering Innovative Therapies <1/> for a Brighter Future <1/>",
+    "table": {
+      "header": {
+        "1": "Drug \\n Candidate",
+        "2": "Target",
+        "3": "Modality",
+        "4": "Indication",
+        "5": "IND-Enabling",
+        "6": "Phase 1",
+        "7": "Phase 2",
+        "8": "Phase 3",
+        "9": "Approval"
+      }
+    },
+    "table_m": {
+      "row": {
+        "target": "Target",
+        "modality": "Modality"
+      },
+      "indication": "Indication",
+      "scale": {
+        "1": "IND- <1/> Enabling",
+        "2": "Phase <1/> 1",
+        "3": "Phase <1/> 2",
+        "4": "Phase <1/> 3",
+        "5": "Approval"
+      }
+    }
   },
   "notice": {
     "headline": "NOTICE",
@@ -209,7 +308,10 @@
     "headline": "PRESS RELEASE",
     "title": "PRESS RELEASE",
     "subtitle": "Latest AriBio News",
-    "placeholder": "Please enter a search term."
+    "placeholder": "Please enter a search term.",
+    "nothing": "There are no published posts registered.",
+    "searchNothing": "No result found for",
+    "more": "View more"
   },
   "media": {
     "headline": "MEDIA",
@@ -359,6 +461,18 @@
       "title": "DIGITAL HEALTH",
       "subtitle": "DIGITAL HEALTH",
       "subdesc": "Leveraging Digital Health Technologies <1 /> for Early Dementia Detection and Intervention",
+      "table": {
+        "header": {
+          "focus": "Focus",
+          "indication": "Indication",
+          "region": "Region",
+          "discovery": "Discovery",
+          "preclinical": "Preclinical",
+          "e_clinical": "Early Clinical",
+          "p_clinical": "Pivotal Clinical",
+          "market": "In market"
+        }
+      },
       "approach": {
         "title": "Our Approach",
         "desc": "In today’s rapidly evolving world, it is necessary to turn to innovative digital health <1 /> technologies to address the most pressing healthcare challenge of our time – dementia. <1 /> Our team is on a mission to leverage the power of these digital tools. <1 /> We aim to advance the early detection and intervention of dementia, <1 /> ultimately improving the lives of those affected by this devastating condition."

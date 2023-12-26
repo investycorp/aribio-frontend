@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -22,22 +22,22 @@ import {
   HR,
 } from './style';
 
-import { HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap } from '../../components/style';
-import { Desktop, Mobile } from '../../utils/MediaQuery';
+import {HeadLine, Path, ContainerGridLineWrap, GridLineBox, MainImgWrap} from '../../components/style';
+import {Desktop, Mobile} from '../../utils/MediaQuery';
 
-import { Link, Outlet, useParams } from 'react-router-dom';
+import {Link, Outlet, useParams} from 'react-router-dom';
 
 import Video from '../../components/Video';
 
-import { Trans } from 'react-i18next';
-import { t } from 'i18next';
+import {Trans} from 'react-i18next';
+import {t} from 'i18next';
 
 import Language from '../../atom/Language';
-import { useRecoilValue } from 'recoil';
+import {useRecoilValue} from 'recoil';
 import usePressReleaseList from '../../hooks/irpr/usePressReleaseList';
 
 const PressRelease = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const [language] = useRecoilValue(Language);
 
   const [hoverItem, setHoverItem] = useState();
@@ -50,7 +50,7 @@ const PressRelease = () => {
 
   const [itemList, setItemList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
-  const { data, isLoading: loading, refetch } = usePressReleaseList(searchValue, language, pageNumber);
+  const {data, isLoading: loading, refetch} = usePressReleaseList(searchValue, language, pageNumber);
   const [isLoading, setIsLoading] = useState(loading);
   const [viewMoreOn, setViewMoreOn] = useState(true);
 
@@ -59,7 +59,7 @@ const PressRelease = () => {
     if (pageNumber === 1) {
       const items = [];
       if (data?.data) {
-        data?.data?.data?.noticeDtoList.map((item) => {
+        data?.data?.data?.noticeDtoList.map(item => {
           items.push({
             id: item.id,
             date: item.day,
@@ -75,8 +75,8 @@ const PressRelease = () => {
     }
     if (pageNumber > 1) {
       if (data?.data?.success) {
-        data?.data?.data?.noticeDtoList.map((item) => {
-          setFilteredList((prev) => [
+        data?.data?.data?.noticeDtoList.map(item => {
+          setFilteredList(prev => [
             ...prev,
             {
               id: item.id,
@@ -138,7 +138,7 @@ const PressRelease = () => {
     }
   }, [id]);
 
-  const handleSearchClick = async (val) => {
+  const handleSearchClick = async val => {
     setPageNumber(1);
     refetch(1, language, val);
     setSearchTermShown(val);
@@ -161,9 +161,9 @@ const PressRelease = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{ opacity: '0.8' }}>{`HOME > IR & PR > `}</span>PRESS RELEASE
+        <span style={{opacity: '0.8'}}>{`HOME > IR & PR > `}</span>PRESS RELEASE
       </Path>
-      <HomeComponentWrap style={{ height: '100vh' }}>
+      <HomeComponentWrap style={{height: '100vh'}}>
         <HeadLine $className="midsize">PRESS{window.innerWidth <= 900 && <br />} RELEASE</HeadLine>
         <img
           src={process.env.PUBLIC_URL + '/assets/icons/scroll-button.svg'}
@@ -176,7 +176,7 @@ const PressRelease = () => {
           }}
         />
       </HomeComponentWrap>
-      <div style={{ margin: '0', padding: '0', position: 'relative' }}>
+      <div style={{margin: '0', padding: '0', position: 'relative'}}>
         {detailPage ? (
           <>
             <Outlet context={['Press Release', currentItem]} />
@@ -184,13 +184,12 @@ const PressRelease = () => {
         ) : (
           <>
             <Desktop>
-              <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-                <TextWrap style={{ width: '70vw' }}>
+              <HomeComponentWrap style={{padding: '15vh 7vw'}}>
+                <TextWrap style={{width: '70vw'}}>
                   <Text
-                    style={{ fontSize: window.innerWidth > 1280 ? '26px' : '18px' }}
+                    style={{fontSize: window.innerWidth > 1280 ? '26px' : '18px'}}
                     $fontWeight="300"
-                    $color="#939598"
-                  >
+                    $color="#939598">
                     {t('press.title')}
                   </Text>
                   <div
@@ -200,19 +199,17 @@ const PressRelease = () => {
                       height: '2px',
                       border: '1px solid #ffffff',
                       margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                    }}
-                  ></div>
+                    }}></div>
                   <Text
                     $fontWeight="400"
                     $color="#ffffff"
-                    style={{ fontSize: window.innerWidth > 1280 ? '50px' : '34px' }}
-                  >
+                    style={{fontSize: window.innerWidth > 1280 ? '50px' : '34px'}}>
                     {t('press.subtitle')}
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
               <HomeComponentWrap>
-                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
+                <ComponentWrap style={{justifyContent: 'center', alignItems: 'end'}}>
                   <ComponentWrap
                     style={{
                       width: '33.3%',
@@ -220,17 +217,16 @@ const PressRelease = () => {
                       color: '#ffffff',
                       borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                       padding: '0',
-                    }}
-                  >
+                    }}>
                     <SearchInput
                       placeholder={t('press.placeholder')}
                       type="text"
                       value={searchValue}
-                      onChange={(e) => {
+                      onChange={e => {
                         setSearchValue(e.target.value);
                       }}
                       autoFocus={true}
-                      onKeyDown={(e) => {
+                      onKeyDown={e => {
                         if (e.key === 'Enter') {
                           handleSearchClick(e.target.value);
                         }
@@ -240,8 +236,8 @@ const PressRelease = () => {
                     <Image
                       src={search}
                       alt="search"
-                      onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
-                      style={{ height: window.innerWidth > 1280 ? '24px' : '12px' }}
+                      onClick={e => handleSearchClick(e.target.previousSibling.value)}
+                      style={{height: window.innerWidth > 1280 ? '24px' : '12px'}}
                     />
                   </ComponentWrap>
                 </ComponentWrap>
@@ -251,8 +247,7 @@ const PressRelease = () => {
                     alignItems: 'center',
                     padding: '5em 0',
                     gap: window.innerWidth > 1280 ? '28px' : '17px',
-                  }}
-                >
+                  }}>
                   {filteredList.length > 0 ? (
                     filteredList.map((item, index) => {
                       if (index < pageNumber * itemPerPage) {
@@ -263,8 +258,7 @@ const PressRelease = () => {
                               width: '100%',
                             }}
                             key={'prItem' + item.id}
-                            to={`/irpr/pressrelease/${item.id}`}
-                          >
+                            to={`/irpr/pressrelease/${item.id}`}>
                             <RowWrap
                               onMouseOver={() => {
                                 setHoverItem(item.id);
@@ -278,27 +272,24 @@ const PressRelease = () => {
                               onClick={() => {
                                 setDetailPage(true);
                                 setCurrentItem(item);
-                              }}
-                            >
+                              }}>
                               <DateWrap>
                                 <Text
                                   className="date"
                                   $fontSize="500"
-                                  style={{ fontSize: window.innerWidth > 1280 ? '28px' : '17px' }}
-                                >
+                                  style={{fontSize: window.innerWidth > 1280 ? '28px' : '17px'}}>
                                   {item.date}
                                 </Text>
                                 <Text
                                   className="month year"
                                   $fontSize="300"
-                                  style={{ fontSize: window.innerWidth > 1280 ? '22px' : '13px' }}
-                                >
+                                  style={{fontSize: window.innerWidth > 1280 ? '22px' : '13px'}}>
                                   {item.month}
                                   {`\t`}
                                   {item.year}
                                 </Text>
                               </DateWrap>
-                              <TitleWrap style={{ overflow: 'hidden' }}>
+                              <TitleWrap style={{overflow: 'hidden'}}>
                                 <div
                                   className="ticker_item"
                                   style={{
@@ -307,8 +298,7 @@ const PressRelease = () => {
                                     height: '100%',
                                     overflow: 'hidden',
                                     whiteSpace: 'nowrap',
-                                  }}
-                                >
+                                  }}>
                                   {window.innerWidth > 1500 ? item.title.slice(0, 50) : item.title.slice(0, 50)}...
                                 </div>
                               </TitleWrap>
@@ -317,8 +307,7 @@ const PressRelease = () => {
                                   display: 'flex',
                                   justifyContent: 'end',
                                   padding: window.innerWidth > 1280 ? '1em 3em 1em 0' : '0',
-                                }}
-                              >
+                                }}>
                                 <Image
                                   style={{
                                     padding: window.innerWidth > 1280 ? '1em 2em' : '0.5em 2em',
@@ -336,12 +325,14 @@ const PressRelease = () => {
                       }
                     })
                   ) : (
-                    <ComponentWrap style={{ gap: '2em', height: '50vh', justifyContent: 'center' }}>
+                    <ComponentWrap style={{gap: '2em', height: '50vh', justifyContent: 'center'}}>
                       <HR />
                       {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
-                        <Text>There are no published posts registered.</Text>
+                        <Text>{t('press.nothing')}</Text>
                       ) : (
-                        <Text>No result found for '{searchTermShown}'</Text>
+                        <Text>
+                          {t('press.searchNothing')} '{searchTermShown}'
+                        </Text>
                       )}
                     </ComponentWrap>
                   )}
@@ -360,10 +351,9 @@ const PressRelease = () => {
                         setPageNumber(pageNumber + 1);
                         console.log('view more', pageNumber);
                       }
-                    }}
-                  >
+                    }}>
                     <Image
-                      style={{ zIndex: '-1', height: window.innerWidth > 1280 ? '40px' : '24px' }}
+                      style={{zIndex: '-1', height: window.innerWidth > 1280 ? '40px' : '24px'}}
                       src={icon_more}
                       alt="more"
                     />
@@ -373,9 +363,8 @@ const PressRelease = () => {
                         width: 'fit-content',
                         margin: '0.5em',
                         fontSize: window.innerWidth > 1280 ? '26px' : '15px',
-                      }}
-                    >
-                      View more
+                      }}>
+                      {t('press.more')}
                     </Text>
                   </div>
                 )}
@@ -383,14 +372,13 @@ const PressRelease = () => {
             </Desktop>
 
             <Mobile>
-              <HomeComponentWrap style={{ padding: '15vh 7vw' }}>
-                <TextWrap style={{ width: '70vw' }}>
+              <HomeComponentWrap style={{padding: '15vh 7vw'}}>
+                <TextWrap style={{width: '70vw'}}>
                   <Text
                     $fontSize="16px"
                     $fontWeight="300"
                     $color="#939598"
-                    style={{ marginBottom: '0', fontSize: '16px' }}
-                  >
+                    style={{marginBottom: '0', fontSize: '16px'}}>
                     {t('press.title')}
                   </Text>
                   <div
@@ -400,15 +388,14 @@ const PressRelease = () => {
                       height: '1px',
                       border: '1px solid #ffffff',
                       margin: '28px 0',
-                    }}
-                  ></div>
-                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{ fontSize: '23px' }}>
+                    }}></div>
+                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{fontSize: '23px'}}>
                     {t('press.subtitle')}
                   </Text>
                 </TextWrap>
               </HomeComponentWrap>
               <HomeComponentWrap>
-                <ComponentWrap style={{ justifyContent: 'center', alignItems: 'end' }}>
+                <ComponentWrap style={{justifyContent: 'center', alignItems: 'end'}}>
                   <ComponentWrap
                     style={{
                       width: '100%',
@@ -416,17 +403,16 @@ const PressRelease = () => {
                       color: '#ffffff',
                       borderBottom: '1px solid #ffffff',
                       padding: '0',
-                    }}
-                  >
+                    }}>
                     <SearchInput
                       placeholder={t('press.placeholder')}
                       type="text"
                       value={searchValue}
-                      onChange={(e) => {
+                      onChange={e => {
                         setSearchValue(e.target.value);
                       }}
                       autoFocus={false}
-                      onKeyDown={(e) => {
+                      onKeyDown={e => {
                         if (e.key === 'Enter') {
                           handleSearchClick(e.target.value);
                         }
@@ -436,23 +422,21 @@ const PressRelease = () => {
                     <Image
                       src={search}
                       alt="search"
-                      onClick={(e) => handleSearchClick(e.target.previousSibling.value)}
-                      style={{ height: '20px' }}
+                      onClick={e => handleSearchClick(e.target.previousSibling.value)}
+                      style={{height: '20px'}}
                     />
                   </ComponentWrap>
                 </ComponentWrap>
                 <ComponentWrap
-                  style={{ justifyContent: 'center', alignItems: 'center', padding: '100px 0 4rem 0', gap: '16px' }}
-                >
+                  style={{justifyContent: 'center', alignItems: 'center', padding: '100px 0 4rem 0', gap: '16px'}}>
                   {filteredList.length > 0 ? (
                     filteredList.map((item, index) => {
                       if (index < pageNumber * itemPerPage) {
                         return (
                           <Link
-                            style={{ textDecoration: 'none', width: '100%' }}
+                            style={{textDecoration: 'none', width: '100%'}}
                             key={'noticeItem' + item.id}
-                            to={`/irpr/pressrelease/${item.id}`}
-                          >
+                            to={`/irpr/pressrelease/${item.id}`}>
                             <RowWrap
                               onMouseOver={() => {
                                 setHoverItem(item.id);
@@ -466,12 +450,11 @@ const PressRelease = () => {
                               onClick={() => {
                                 setDetailPage(true);
                                 setCurrentItem(item);
-                              }}
-                            >
+                              }}>
                               <DateWrap>
                                 <Text className="date">{`${item.month} ${item.date}, ${item.year}`}</Text>
                               </DateWrap>
-                              <TitleWrap style={{ overflow: 'hidden' }}>
+                              <TitleWrap style={{overflow: 'hidden'}}>
                                 <div
                                   className="ticker_item"
                                   style={{
@@ -482,13 +465,12 @@ const PressRelease = () => {
                                     whiteSpace: 'nowrap',
                                     marginRight: '1rem',
                                     fontSize: '18px',
-                                  }}
-                                >
+                                  }}>
                                   {item.title.slice(0, 25)}...
                                 </div>
 
                                 <Image
-                                  style={{ padding: '0', cursor: 'pointer', height: '20px' }}
+                                  style={{padding: '0', cursor: 'pointer', height: '20px'}}
                                   src={hoverItem === item.id ? icon_circlearrow_white : icon_circlearrow_dark}
                                   alt="icon_circlearrow_dark"
                                 />
@@ -499,12 +481,14 @@ const PressRelease = () => {
                       }
                     })
                   ) : (
-                    <ComponentWrap style={{ gap: '2em', height: '30vh', justifyContent: 'center' }}>
-                      <HR style={{ width: '24px', height: '1px' }} />
+                    <ComponentWrap style={{gap: '2em', height: '30vh', justifyContent: 'center'}}>
+                      <HR style={{width: '24px', height: '1px'}} />
                       {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
-                        <Text style={{ fontSize: '16px' }}>There are no published posts registered.</Text>
+                        <Text style={{fontSize: '16px'}}>{t('pres.nothing')}</Text>
                       ) : (
-                        <Text style={{ fontSize: '16px' }}>No result found for '{searchTermShown}'</Text>
+                        <Text style={{fontSize: '16px'}}>
+                          {t('press.searchNothing')} '{searchTermShown}'
+                        </Text>
                       )}
                     </ComponentWrap>
                   )}
@@ -523,11 +507,10 @@ const PressRelease = () => {
                         if (pageNumber * itemPerPage <= filteredList.length) {
                           setPageNumber(pageNumber + 1);
                         }
-                      }}
-                    >
-                      <Image style={{ zIndex: '-1', height: '24px' }} src={icon_more} alt="more" />
-                      <Text style={{ zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px' }}>
-                        View more
+                      }}>
+                      <Image style={{zIndex: '-1', height: '24px'}} src={icon_more} alt="more" />
+                      <Text style={{zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px'}}>
+                        {t('press.more')}
                       </Text>
                     </div>
                   ))}

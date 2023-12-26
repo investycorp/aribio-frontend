@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
@@ -47,7 +47,7 @@ const MainImgWrap = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-color: #121212;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   z-index: 10;
 `;
 
@@ -82,7 +82,7 @@ const HomeComponentWrap = styled.div`
   background-color: transparent;
   padding: 10vh 7vw;
   z-index: 10;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -106,11 +106,11 @@ const TextWrap = styled.div`
 
 const Text = styled.div`
   width: 100%;
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
-  font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
-  color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '26px')};
+  font-weight: ${props => (props.$fontWeight ? props.$fontWeight : '300')};
+  color: ${props => (props.$color ? props.$color : ' #ffffff')};
   line-height: 1.5em;
-  text-align: ${(props) => (props.$align ? props.$align : 'center')};
+  text-align: ${props => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
 `;
 
@@ -137,8 +137,8 @@ const TabItem = styled.div`
   align-items: center;
   font-size: 36px;
   font-weight: 400;
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#464646')};
-  border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
+  color: ${props => (props.$isActive ? '#ffffff' : '#464646')};
+  border-bottom: ${props => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
   line-height: 1.8em;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -183,7 +183,7 @@ const ContentBox = styled.div`
   }
 `;
 
-const TableWrap = styled.div.attrs((props) => ({
+const TableWrap = styled.div.attrs(props => ({
   className: props.className,
 }))`
   width: 100%;
@@ -200,7 +200,7 @@ const TableWrap = styled.div.attrs((props) => ({
   }
 `;
 
-const TableRowWrap = styled.div.attrs((props) => ({
+const TableRowWrap = styled.div.attrs(props => ({
   className: props.className,
 }))`
   position: relative;
@@ -233,7 +233,7 @@ const TableRowWrap = styled.div.attrs((props) => ({
   }
 `;
 
-const TableContentBox = styled.div.attrs((props) => ({
+const TableContentBox = styled.div.attrs(props => ({
   className: props.className,
 }))`
   position: relative;
@@ -295,7 +295,7 @@ const ContentBoxNameWrap = styled.div`
   padding: 0 0 0 7vw;
 `;
 
-const Image = styled.img.attrs((props) => ({
+const Image = styled.img.attrs(props => ({
   className: props.className,
   id: props.id,
 }))`
@@ -326,8 +326,8 @@ const DescriptionWrap = styled.ul`
   left: 0;
   height: fit-content;
   display: flex;
-  visibility: ${(props) => (props.$isActive ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.$isActive ? '1' : '0')};
+  visibility: ${props => (props.$isActive ? 'visible' : 'hidden')};
+  opacity: ${props => (props.$isActive ? '1' : '0')};
   flex-direction: column;
   justify-content: start;
   align-items: left;
@@ -348,9 +348,9 @@ const DescriptionItem = styled.li`
   list-style-position: outside;
 `;
 const HR = styled.div`
-  width: ${(props) => (props.$width ? props.$width : '60px')};
-  height: ${(props) => (props.$height ? props.$height : '2px')};
-  background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
+  width: ${props => (props.$width ? props.$width : '60px')};
+  height: ${props => (props.$height ? props.$height : '2px')};
+  background-color: ${props => (props.$color ? props.$color : '#ffffff')};
 
   @media screen and (max-width: 1280px) {
     width: 40px;
@@ -367,7 +367,7 @@ const ShootingStarWrap = styled.section`
   align-items: center;
 `;
 
-const move = (phase) => keyframes`
+const move = (phase, state) => keyframes`
   0% {
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
@@ -377,32 +377,34 @@ const move = (phase) => keyframes`
     opacity: 1;
   }
   100% {
-    transform: translateX(${phase ? `calc((${phase}*10.2vw) - 100%)` : `calc(10vw)`});
-    -webkit-transform: translateX(${phase ? `calc((${phase}*10.2vw) -100%)` : `calc(10vw)`});
+    transform: translateX(${phase ? `calc((${phase} * 10.2vw) - (${4 - state} * 2.5vw ) - 100%)` : `calc(10vw)`});
+    -webkit-transform: translateX(${
+      phase ? `calc((${phase} * 10.2vw) - (${4 - state} * 2.5vw ) - 100%)` : `calc(10vw)`
+    });
     opacity: 1;
   }
 `;
 
-const ShootingStar = styled.span.attrs((props) => ({
+const ShootingStar = styled.span.attrs(props => ({
   className: props.className,
 }))`
   opacity: 0;
   position: absolute;
-  top: calc(50%-4px);
+  top: calc(50% - 4px);
   left: 0%;
-  width: ${(props) => (props.$phase ? `calc(${props.$phase}*10.4vw)` : `calc(10vw)`)};
+  width: ${props => (props.$phase ? `calc(${props.$phase} * 10.4vw - ${4 - props.$state} * 2.5vw)` : `calc(10vw)`)};
   height: 3px;
   background: linear-gradient(270deg, #ffffff, transparent);
   transform: translateX(-200%);
 
   &.animate {
     opacity: 1;
-    animation-name: ${(props) => move(props.$phase)};
+    animation-name: ${props => move(props.$phase, props.$state)};
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    -webkit-animation-name: ${(props) => move(props.$phase)};
+    -webkit-animation-name: ${props => move(props.$phase, props.$state)};
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
@@ -410,7 +412,7 @@ const ShootingStar = styled.span.attrs((props) => ({
   }
 `;
 
-const Ball = styled.span.attrs((props) => ({
+const Ball = styled.span.attrs(props => ({
   className: props.className,
 }))`
   position: absolute;

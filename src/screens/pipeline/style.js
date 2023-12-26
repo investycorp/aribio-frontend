@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
@@ -50,7 +50,7 @@ const MainImgWrap = styled.div`
   background-color: transparent;
   padding-bottom: 10vh;
   z-index: 10;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   overflow: hidden;
 `;
 
@@ -73,7 +73,8 @@ const HeadLine = styled.div`
   font-size: 200px;
   font-weight: 500;
 `;
-const HomeComponentWrap = styled.div.attrs((props) => ({
+
+const HomeComponentWrap = styled.div.attrs(props => ({
   className: props.className,
   id: props.id,
 }))`
@@ -113,11 +114,11 @@ const TextWrap = styled.div`
 
 const Text = styled.div`
   width: 100%;
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
-  font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
-  color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '26px')};
+  font-weight: ${props => (props.$fontWeight ? props.$fontWeight : '300')};
+  color: ${props => (props.$color ? props.$color : ' #ffffff')};
   line-height: 1.5em;
-  text-align: ${(props) => (props.$align ? props.$align : 'center')};
+  text-align: ${props => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
 `;
 
@@ -143,8 +144,8 @@ const TabItem = styled.div`
   align-items: center;
   font-size: 36px;
   font-weight: 400;
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#464646')};
-  border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
+  color: ${props => (props.$isActive ? '#ffffff' : '#464646')};
+  border-bottom: ${props => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
   line-height: 1.8em;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -166,7 +167,7 @@ const TableWrap = styled.div`
   border: 1px solid #efefef;
 `;
 
-const TableRowWrap = styled.div.attrs((props) => ({
+const TableRowWrap = styled.div.attrs(props => ({
   className: props.className,
 }))`
   position: relative;
@@ -196,7 +197,7 @@ const TableRowWrap = styled.div.attrs((props) => ({
   }
 `;
 
-const TableContentBox = styled.div.attrs((props) => ({
+const TableContentBox = styled.div.attrs(props => ({
   className: props.className,
 }))`
   position: relative;
@@ -290,7 +291,7 @@ const TableContentBox = styled.div.attrs((props) => ({
   }
 `;
 
-const ContentBoxWrap = styled.div.attrs((props) => ({
+const ContentBoxWrap = styled.div.attrs(props => ({
   className: props.className,
   id: props.id,
 }))`
@@ -325,9 +326,10 @@ const RowWrap = styled.div`
   color: #e8e8e8;
   gap: 0.5rem;
   width: 100%;
+  line-height: 16px;
 `;
 
-const ContentBox = styled.div.attrs((props) => ({
+const ContentBox = styled.div.attrs(props => ({
   className: props.className,
 }))`
   display: flex;
@@ -388,8 +390,8 @@ const DescriptionWrap = styled.ul`
   left: 0;
   height: fit-content;
   display: flex;
-  visibility: ${(props) => (props.$isActive ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.$isActive ? '1' : '0')};
+  visibility: ${props => (props.$isActive ? 'visible' : 'hidden')};
+  opacity: ${props => (props.$isActive ? '1' : '0')};
   flex-direction: column;
   justify-content: start;
   align-items: left;
@@ -469,41 +471,41 @@ const mobileMove = (start, phase, state, gap) => keyframes`
   }
 `;
 
-const ShootingStar = styled.span.attrs((props) => ({
+const ShootingStar = styled.span.attrs(props => ({
   className: props.className,
 }))`
   opacity: 0;
   position: absolute;
   top: calc(50% - 4px);
   left: 0%;
-  width: ${(props) => (props.$phase ? `calc(${props?.$phase}*7vw)` : `calc(7vw)`)};
+  width: ${props => (props.$phase ? `calc(${props?.$phase}*7vw)` : `calc(7vw)`)};
   height: 3px;
   background: linear-gradient(270deg, #ffffff, transparent);
   transform: translateX(-100%);
 
   &.animate {
     opacity: 1;
-    animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
+    animation-name: ${props => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
-    -webkit-animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
+    -webkit-animation-name: ${props => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     -webkit-animation-duration: 2s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
-    -o-animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
+    -o-animation-name: ${props => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     -o-animation-duration: 2s;
     -o-animation-iteration-count: 1;
     -o-animation-timing-function: linear;
     -o-animation-fill-mode: forwards;
-    -moz-animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
+    -moz-animation-name: ${props => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     -moz-animation-duration: 2s;
     -moz-animation-iteration-count: 1;
     -moz-animation-timing-function: linear;
     -moz-animation-fill-mode: forwards;
-    -ms-animation-name: ${(props) => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
+    -ms-animation-name: ${props => move('8.1vw', props?.$phase, props?.$state, '0.3vw')};
     -ms-animation-duration: 2s;
     -ms-animation-iteration-count: 1;
     -ms-animation-timing-function: linear;
@@ -511,16 +513,16 @@ const ShootingStar = styled.span.attrs((props) => ({
 
     @media screen and (max-width: 900px) {
       top: calc(50% - 2px);
-      -ms-animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
-      -moz-animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
-      -o-animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
-      -webkit-animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
-      animation-name: ${(props) => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
+      -ms-animation-name: ${props => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
+      -moz-animation-name: ${props => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
+      -o-animation-name: ${props => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
+      -webkit-animation-name: ${props => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
+      animation-name: ${props => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
     }
   }
 `;
 
-const Ball = styled.span.attrs((props) => ({
+const Ball = styled.span.attrs(props => ({
   className: props.className,
 }))`
   position: absolute;
@@ -560,14 +562,14 @@ const ToggleButton = styled.div`
   color: #e8e8e8;
   position: relative;
   margin-top: 5rem;
-  background-color: ${(props) => (props.toggle ? 'rgba(177, 177, 177, 0.3)' : 'transparent')};
-  backdrop-filter: ${(props) => (props.toggle ? 'blur(10px);' : 'none')};
-  -webkit-backdrop-filter: ${(props) => (props.toggle ? 'blur(10px);' : 'none')};
+  background-color: ${props => (props.toggle ? 'rgba(177, 177, 177, 0.3)' : 'transparent')};
+  backdrop-filter: ${props => (props.toggle ? 'blur(10px);' : 'none')};
+  -webkit-backdrop-filter: ${props => (props.toggle ? 'blur(10px);' : 'none')};
 `;
 const ToggleListWrap = styled.div`
   position: absolute;
-  opacity: ${(props) => (props.$toggleOn ? 1 : 0)};
-  display: ${(props) => (props.$toggleOn ? 'grid' : 'none')};
+  opacity: ${props => (props.$toggleOn ? 1 : 0)};
+  display: ${props => (props.$toggleOn ? 'grid' : 'none')};
   top: 55px;
   left: 50%;
   transform: translateX(-50%);

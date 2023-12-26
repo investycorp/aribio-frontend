@@ -289,7 +289,7 @@ const Publications = () => {
                     width: window.innerWidth > 1280 ? '14px' : '10px',
                     height: window.innerWidth > 1280 ? '14px' : '10px',
                   }}
-                />{' '}
+                />
                 <span style={{fontSize: window.innerWidth > 1280 ? '20px' : '14px', color: '#E6E6E6'}}>
                   Presentation
                 </span>
@@ -394,7 +394,7 @@ const Publications = () => {
                                 padding: '0',
                                 fontSize: window.innerWidth > 1280 ? '18px' : '13px',
                               }}>
-                              Presentation
+                              {t('publication.type.presentations.full')}
                             </DocType>
                           ) : (
                             <DocType
@@ -405,7 +405,7 @@ const Publications = () => {
                                 padding: '0',
                                 fontSize: window.innerWidth > 1280 ? '18px' : '13px',
                               }}>
-                              Publications
+                              {t('publication.type.publications.full')}
                             </DocType>
                           )}
                         </Text>
@@ -414,7 +414,9 @@ const Publications = () => {
                   </ComponentWrap>
                 ))
               ) : (
-                <NoResult>{t('publication.noresult')}</NoResult>
+                <NoResult>
+                  {t('publication.noresult')} '{searchValue}'
+                </NoResult>
               )}
             </GridComponentWrap>
           </HomeComponentWrap>
@@ -484,9 +486,9 @@ const Publications = () => {
                   gap: '1rem',
                 }}>
                 <Dot $color="#004D76" />
-                <span style={{fontSize: '18px', marginRight: '1rem'}}>Publications</span>
+                <span style={{fontSize: '18px', marginRight: '1rem'}}>{t('publication.type.publications.full')}</span>
                 <Dot $color="#760027" />
-                <span style={{fontSize: '18px', marginRight: '1rem'}}>Presentations</span>
+                <span style={{fontSize: '18px', marginRight: '1rem'}}>{t('publication.type.presentations.full')}</span>
               </ComponentWrap>
               {filteredList.length > 0 ? (
                 filteredList.map((doc, index) => (
@@ -521,9 +523,9 @@ const Publications = () => {
                           padding: '0',
                         }}>
                         {doc.type === 'CONFERENCE' ? (
-                          <DocType $color={'#430016'}>Conf</DocType>
+                          <DocType $color={'#430016'}>{t('publication.type.presentations.shorten')}</DocType>
                         ) : (
-                          <DocType $color={'#012438'}>Pub</DocType>
+                          <DocType $color={'#012438'}>{t('publication.type.publications.shorten')}</DocType>
                         )}
                         <Image src={doc.image} alt="doc" style={{width: '60px', height: '60px'}} />
                       </div>
@@ -557,8 +559,8 @@ const Publications = () => {
                             flexWrap: 'wrap',
                             lineHeight: '22px',
                           }}>
-                          {doc.title.slice(0, 50)}
-                          {doc.title.length > 50 && '...'}
+                          {doc.title.slice(0, 65)}
+                          {doc.title.length > 65 && '...'}
                         </Text>
                         <Text
                           className="text"
@@ -581,7 +583,11 @@ const Publications = () => {
                   </ComponentWrap>
                 ))
               ) : (
-                <NoResult>{t('publication.noresult')}</NoResult>
+                <ComponentWrap>
+                  <NoResult>
+                    {t('publication.noresult')} '{searchValue}'
+                  </NoResult>
+                </ComponentWrap>
               )}
             </GridComponentWrap>
           </HomeComponentWrap>

@@ -39,7 +39,12 @@ const Leadership = () => {
   return (
     <HomeComponentWrap
       id="leadership"
-      style={{width: '100vw', padding: '0', justifyContent: 'start', overflow: 'hidden'}}>
+      style={{
+        width: '100vw',
+        padding: '0',
+        justifyContent: 'start',
+        overflow: 'hidden',
+      }}>
       <Desktop>
         <TabContentWrap id="leadership">
           {ceoContents && (

@@ -110,11 +110,16 @@ const Advisors = () => {
       });
     });
     setTabContents(itemList);
-    console.log(data);
   }, [data]);
 
   return (
-    <HomeComponentWrap style={{minHeight: 'fit-content', justifyContent: 'start', overflow: 'hidden', paddingTop: '0'}}>
+    <HomeComponentWrap
+      style={{
+        minHeight: 'fit-content',
+        justifyContent: 'start',
+        overflow: 'hidden',
+        paddingTop: '0',
+      }}>
       <Desktop>
         <TabContentWrap
           style={{
@@ -156,9 +161,9 @@ const Advisors = () => {
               /> */}
               <SchoolText>
                 <ul>
-                  {item?.description.slice('\\n').map(text => {
+                  {item?.description.slice('\\n').map((text, index) => {
                     return (
-                      <li>
+                      <li key={text + index}>
                         <span>{text}</span>
                         <br />
                       </li>

@@ -9,6 +9,8 @@ import home_ourapproach1 from './assets/home_ourapproach1.png';
 import home_ourapproach2 from './assets/home_ourapproach2.png';
 import home_ourapproach3 from './assets/home_ourapproach3.png';
 import home_notice1 from './assets/home_notice1.png';
+import home_notice2 from './assets/home_notice2.png';
+import home_notice3 from './assets/home_notice3.png';
 import home_desc_background from './assets/home_desc_background.png';
 
 import Modal from '../../components/Modal';
@@ -49,6 +51,8 @@ const Home = () => {
   const [modalData, setModalData] = useState();
   const [videoHeight, setVideoHeight] = useState(0);
 
+  const images = [home_notice1, home_notice2, home_notice3];
+
   useEffect(() => {
     if (data?.data?.success) {
       const list = data.data.data.noticeDtoList.map((item, index) => {
@@ -58,7 +62,8 @@ const Home = () => {
             date: item.date.replaceAll('-', '.'),
             mobileDate: `${item.month} ${item.day}, ${item.year}`,
             title: item.title,
-            imageUrl: item.fileDto?.fileUrl ? item?.fileDto?.fileUrl : home_notice1,
+            //imageUrl: item.fileDto?.fileUrl ? item?.fileDto?.fileUrl : home_notice1,
+            imageUrl: images[index],
           };
         }
       });

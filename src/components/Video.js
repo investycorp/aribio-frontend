@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styled from 'styled-components';
 
-import { Container } from './style';
-import { Desktop, Mobile } from '../utils/MediaQuery';
+import {Container} from './style';
+import {Desktop, Mobile} from '../utils/MediaQuery';
 import ReactPlayer from 'react-player';
 
 const VideoContainer = styled(Container)`
@@ -28,7 +28,7 @@ const StyledVideo = styled.video`
   object-fit: cover;
 `;
 
-const Video = ({ page, src, onLayout }) => {
+const Video = ({page, src, onLayout}) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [isSuspended, setIsSuspended] = useState(false);
@@ -36,17 +36,14 @@ const Video = ({ page, src, onLayout }) => {
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    console.log(page);
     setIsPlay(true);
     const video = videoRef?.current;
     setLoading(true);
     window.addEventListener('scroll', () => {
       window.scrollY > 0 && setShown(true);
     });
-    
 
     const handleVideoEnd = () => {
-      console.log('video end')
       if (video) {
         video.currentTime = 15;
         video?.play();
@@ -89,9 +86,7 @@ const Video = ({ page, src, onLayout }) => {
 
       video.removeEventListener('suspend', () => {});
 
-      video?.removeEventListener('loadeddata', () => {
-        console.log('unloaded');
-      });
+      video?.removeEventListener('loadeddata', () => {});
     };
   }, [page]);
 
@@ -102,8 +97,7 @@ const Video = ({ page, src, onLayout }) => {
         position: page === 'home' ? 'absolute' : 'fixed',
         opacity: ['home', 'notice', 'pressrelease', 'mediakit'].includes(page) ? '1' : '0.5',
         // paddingTop: page !== 'home' ? '0' : window.innerWidth > 1280 ? '240px' : '97px',
-      }}
-    >
+      }}>
       <Desktop>
         <StyledVideo
           ref={videoRef}
@@ -115,8 +109,7 @@ const Video = ({ page, src, onLayout }) => {
           preload="metadata"
           style={{
             objectFit: page === 'home' && window.innerWidth < 1100 ? 'contain' : 'cover',
-          }}
-        >
+          }}>
           <source src={src} type="video/mp4" />
         </StyledVideo>
         {/* <ReactPlayer
@@ -153,8 +146,7 @@ const Video = ({ page, src, onLayout }) => {
             muted
             loop={page !== 'home'}
             controls={false}
-            preload="metadata"
-          >
+            preload="metadata">
             <source src={src} type="video/mp4" />
           </StyledVideo>
           // ) : (
@@ -181,7 +173,7 @@ const Video = ({ page, src, onLayout }) => {
               id="hide"
               src={process.env.PUBLIC_URL + '/assets/icons/indicator.svg'}
               alt="indocator1"
-              style={{ width: '121px', height: '16px', zIndex: '110', position: 'absolute', bottom: '7vh' }}
+              style={{width: '121px', height: '16px', zIndex: '110', position: 'absolute', bottom: '7vh'}}
             />
           </>
         )}
