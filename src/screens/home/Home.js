@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import browser from 'browser-detect';
 import {Desktop, Mobile} from '../../utils/MediaQuery';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -34,8 +35,10 @@ import {useRecoilState} from 'recoil';
 import Video from '../../components/Video';
 import VideoFrame from '../../components/VideoFrame';
 import usePopup from '../../hooks/popup/usePopup';
+import {Image} from '../../components/style';
 
 const Home = () => {
+  const browserInfo = browser();
   const {t} = useTranslation();
   const [language, setLanguage] = useRecoilState(Language);
   const [scrollY, setScrollY] = useState(0);
@@ -115,10 +118,9 @@ const Home = () => {
         <Video
           page="home"
           src={
-            // window.innerWidth > 1280
-            //   ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0100PB_VD.mp4'
-            //   :
-            window.innerWidth > 900
+            window.innerWidth > 1280
+              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0100PB_VD.mp4'
+              : window.innerWidth > 900
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
               : window.innerWidth > window.innerHeight
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
@@ -133,10 +135,9 @@ const Home = () => {
           <Video
             page="aboutus"
             src={
-              // window.innerWidth > 1280
-              //   ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0400PB_VD.mp4'
-              //   :
-              window.innerWidth > 900
+              window.innerWidth > 1280
+                ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0400PB_VD.mp4'
+                : window.innerWidth > 900
                 ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB1300PB_VD.mp4'
                 : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2200PB_VD.mp4'
             }
@@ -684,13 +685,34 @@ const Home = () => {
             <HomeComponentWrap
               className="home home_4"
               style={{minHeight: 'fit-content', justifyContent: 'space-between', margin: '0'}}>
-              <VideoFrame
-                src={
-                  language === 'ENG'
-                    ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4'
-                    : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4'
-                }
-              />
+              {browserInfo.name === 'safari' ? (
+                <video
+                  playsInline
+                  autoPlay={false}
+                  controls={true}
+                  style={{
+                    borderRadius: '20px',
+                    width: window.innerWidth > 900 ? '86vw' : '90vw',
+                    height: window.innerWidth > 1280 ? '726px' : window.innerWidth > 900 ? '484px' : '50vw',
+                  }}>
+                  <source
+                    src={
+                      // src
+                      'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false'
+                    }
+                    type="video/mp4"
+                  />
+                </video>
+              ) : (
+                <VideoFrame
+                  src={
+                    language === 'ENG'
+                      ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4'
+                      : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4'
+                  }
+                />
+              )}
+
               <ComponentText
                 style={{
                   fontSize: '20px',
