@@ -285,11 +285,11 @@ const Leadership = () => {
       <Mobile>
         <TabContentWrap style={{padding: '0 19px', marginBottom: 160}}>
           <Image
-            width={322}
-            height={236}
             src={ceoContents?.fileDto?.fileUrl}
             alt="ceoProfilePicture"
             style={{
+              width: '90vw',
+              height: 'auto',
               marginBottom: 45,
             }}
           />
@@ -368,7 +368,7 @@ const Leadership = () => {
               }}
               key={'tabcontent' + index}>
               <ContentBox key={index}>
-                <Image src={item?.fileDto.fileUrl} alt="leadershipphoto" style={{width: 322, height: 200}} />
+                <Image src={item?.fileDto.fileUrl} alt="leadershipphoto" style={{width: '90vw', height: 'auto'}} />
                 <ContentBoxNameWrap>
                   <div
                     style={{

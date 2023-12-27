@@ -404,12 +404,7 @@ const Notice = () => {
                       }}
                     />
 
-                    <Image
-                      src={search}
-                      alt="search"
-                      onClick={e => handleSearchClick(e.target.previousSibling.value)}
-                      style={{height: window.innerWidth > 1280 ? '24px' : '12px'}}
-                    />
+                    <Image src={search} alt="search" onClick={e => handleSearchClick(e.target.previousSibling.value)} />
                   </ComponentWrap>
                 </ComponentWrap>
                 <ComponentWrap

@@ -35,7 +35,7 @@
       "desc_3": "Join Us at the Forefront of Neurodegenerative Solutions"
     },
     "media_kit": {
-      "subtitle": "Media Kit",
+      "title": "Media Kit",
       "content": "Explore Our Content",
       "viewall": "Media"
     },
@@ -227,7 +227,7 @@
       "admet": {
         "title": "ADMET Toxicity",
         "content": {
-          "desc1": "Description : \\n Proffers predictions on how a specific compound might be metabolized and processed within the human body."
+          "desc1": "Description : \\n Proffers predictions on how a specific compound might be metabolized and <br /> processed within the human body."
         }
       }
     }

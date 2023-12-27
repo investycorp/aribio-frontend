@@ -255,11 +255,13 @@ const CeoMessage = () => {
             </TextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap style={{display: 'grid', padding: '0'}}>
-            <Image
-              src={process.env.PUBLIC_URL + '/assets/images/ceophoto_mobile.png'}
-              alt="ceophoto"
-              style={{width: 324, height: 193, marginLeft: '5vw'}}
-            />
+            <ContentBox style={{padding: '0 5vw'}}>
+              <Image
+                src={process.env.PUBLIC_URL + '/assets/images/ceophoto_mobile.png'}
+                alt="ceophoto"
+                style={{width: '100%', height: 'auto'}}
+              />
+            </ContentBox>
 
             <ContentBox style={{padding: '4rem 5vw 0 5vw', gap: '1rem', marginBottom: '10em'}}>
               <div style={{width: '20px', height: '1px', backgroundColor: '#939598', marginTop: '5em'}} />

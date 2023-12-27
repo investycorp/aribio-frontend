@@ -111,7 +111,6 @@ const Publications = () => {
   useEffect(() => {
     let itemList = [];
     if (data?.data?.success) {
-      console.log(data.data.dataList);
       data.data.dataList.map(item => {
         itemList.push({
           id: item.id,

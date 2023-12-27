@@ -33,7 +33,6 @@ const History = () => {
   useEffect(() => {
     if (data?.data?.success) {
       const items = data.data.dataList;
-      console.log(items);
 
       setTabNames([]);
       setListItems([]);

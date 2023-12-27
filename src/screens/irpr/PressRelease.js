@@ -419,12 +419,7 @@ const PressRelease = () => {
                       }}
                     />
 
-                    <Image
-                      src={search}
-                      alt="search"
-                      onClick={e => handleSearchClick(e.target.previousSibling.value)}
-                      style={{height: '20px'}}
-                    />
+                    <Image src={search} alt="search" onClick={e => handleSearchClick(e.target.previousSibling.value)} />
                   </ComponentWrap>
                 </ComponentWrap>
                 <ComponentWrap

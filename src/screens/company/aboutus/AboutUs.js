@@ -150,7 +150,6 @@ const AboutUs = () => {
                 style={{fontSize: '20px', borderWidth: '1px'}}
                 onClick={() => {
                   setCurrentTab(item);
-                  console.log(item);
                 }}>
                 {item}
               </TabItem>

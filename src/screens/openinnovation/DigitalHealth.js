@@ -576,7 +576,7 @@ const DigitalHealth = () => {
               alt="openinnovation_mobile_middle3"
               style={{width: '100%', marginTop: '2em', padding: '3em 0', borderTop: '1px solid #696969'}}
             />
-            <Text $align="center" $color="#D3D3D3" $fontSize="16px" $fontWeight="200" style-={{lineHeight: '20px'}}>
+            <Text $align="center" $color="#D3D3D3" $fontSize="16px" $fontWeight="200" style={{lineHeight: '20px'}}>
               <Trans i18nKey={'innovation.health_m.electro.desc2'} components={{1: <br />}} />
             </Text>
           </ContentWrap>

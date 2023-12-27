@@ -273,11 +273,11 @@ const MemoRe = () => {
                 {t('innovation.memore_m.basic.subtitle')}
               </Text>
               <Text $fontSize="23px" $fontWeight="400" style={{width: '100%', margin: '0'}}>
-                <Trans i18nKey={'innovation.memore.basic.desc'} components={{1: <br />}} />
+                <Trans i18nKey={'innovation.memore_m.basic.desc'} components={{1: <br />}} />
               </Text>
               <hr style={{width: '20px', borderTop: '1px solid #707070', margin: '2rem 0 2rem 0'}} />
               <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{lineHeight: '21px'}}>
-                <Trans i18nKey={'innovation.memore.basic.subdesc1'} components={{1: <br />}} />
+                <Trans i18nKey={'innovation.memore_m.basic.subdesc1'} components={{1: <br />}} />
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -290,7 +290,7 @@ const MemoRe = () => {
             />
             <TextWrap style={{margin: '5em 0', width: '100%'}}>
               <Text $color="#C9C9C9" $fontSize="18px" $fontWeight="300" $align="center" style={{lineHeight: '21px'}}>
-                <Trans i18nKey={'innovation.memore.basic.subdesc2'} components={{1: <br />}} />
+                <Trans i18nKey={'innovation.memore_m.basic.subdesc2'} components={{1: <br />}} />
               </Text>
             </TextWrap>
             <ContentWrap

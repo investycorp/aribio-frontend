@@ -217,9 +217,9 @@ const Advisors = () => {
 
                   <SchoolText style={{wordBreak: 'break-all', fontSize: '16px', fontWeight: '100', paddingRight: '0'}}>
                     <ul>
-                      {item?.description.slice('\\n').map(text => {
+                      {item?.description.slice('\\n').map((text, index) => {
                         return (
-                          <li>
+                          <li key={text + index}>
                             <span>{text}</span>
                             <br />
                           </li>

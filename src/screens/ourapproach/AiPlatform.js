@@ -357,7 +357,6 @@ const AiPlatform = () => {
                         ) : (
                           <>
                             {line.split('<br />').map((subLine, subLineIndex) => {
-                              console.log(subLine);
                               return (
                                 <React.Fragment key={subLineIndex}>
                                   {subLine}
