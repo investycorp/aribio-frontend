@@ -374,7 +374,6 @@ const AiPlatform = () => {
               </ComponentWrap>
             </ComponentWrap>
           </HomeComponentWrap>
-
           <HomeComponentWrap>
             <TextWrap style={{marginBottom: '10em', width: '100%'}}>
               <HR $height="2px" $color="#ffffff" />
@@ -406,7 +405,6 @@ const AiPlatform = () => {
                 transition: 'opacity 0.5s ease-in-out',
               }}
             />
-
             <TextWrap style={{width: '80vw', marginTop: '10em'}}>
               <Text
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -462,6 +460,11 @@ const AiPlatform = () => {
                 alt="ai_middle1"
                 style={{width: '90vw', marginLeft: '0'}}
               />
+              <TextWrap style={{width: 'fit-content', marginTop: '5em', marginBottom: '5em'}}>
+                <Text $fontSize="16px" $fontWeight="300" $color="#D3D3D3" style={{margin: '2em 0 0 0'}}>
+                  <Trans i18nKey="aiplatform_m.desc2-1" components={{1: <br />}} />
+                </Text>
+              </TextWrap>
               <TextWrap style={{width: 'fit-content', marginTop: '5em', marginBottom: '5em'}}>
                 <HR $height="1px" $color="#ffffff" style={{width: '20px'}} />
                 <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{margin: '2em 0 0 0'}}>
@@ -604,7 +607,7 @@ const AiPlatform = () => {
                 id="fadeIn"
                 src={process.env.PUBLIC_URL + '/assets/interaction/360/AB3600IT_VD.png'}
                 alt="pathwaydata"
-                style={{height: '80vh'}}
+                style={{width: '100%', height: 'auto'}}
               />
 
               <TextWrap style={{width: '86vw', marginTop: '4em'}}>

@@ -340,7 +340,7 @@ const Ci = () => {
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{backgroundColor: 'rgba(255,255,255)', height: '160px'}}>
+          <HomeComponentWrap style={{margin: '10vh 0', backgroundColor: 'rgba(255,255,255)', height: '160px'}}>
             <Image src={ci_logo_png} alt="ci_logo" style={{width: '108px'}} />
           </HomeComponentWrap>
           <HomeComponentWrap style={{padding: '5vh 0', display: 'grid'}}>

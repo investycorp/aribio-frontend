@@ -62,7 +62,7 @@
       "title_2": "Pipeline",
       "desc_2": "Our Path to Pioneering Treatments for Neurodegenerative …",
       "title_3": "Career",
-      "desc_3": "Join Us at the Forefront of Neurodegenerative …"
+      "desc_3": "Join Us at the Forefront of Neurodegenerative Solutions"
     },
     "media_kit": {
       "title": "Media Kit",
@@ -235,7 +235,8 @@
   "aiplatform_m": {
     "subtitle": "AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
     "desc1": "ARIDD™ is <1/> a drug development platform <1/> that augments the discovery and <1/> development of <1/> polypharmacological drugs. <1/> To accelerate the development of drugs <1/> with multiple mechanisms of action, <1/> we’ve unveiled ARIS, our cutting-edge <1/> AI platform designed for dependable <1/> in-silico predictions and analyses.",
-    "desc2": "Existing AI drug discovery tools often <1/> prioritize drug synthesis, intermolecular <1/> binding prediction, and ADMET processes. <1/> While crucial for single-mechanism drug <1/> exploration, polypharmacological discovery <1/> demands a nuanced approach. <1/>",
+    "desc2": "Existing AI drug discovery tools often prioritize <1 /> drug synthesis, intermolecular binding <1/> prediction, and ADMET processes. <1/> While crucial for single-mechanism drug <1/> exploration, polypharmacological discovery <1/> demands a nuanced approach.",
+    "desc2-1": "Polypharmacology requires a deep <1/> understanding of interactions among drugs, <1/> proteins, cells, and diseases, alongside <1/> the ability to predict and identify novel <1/> biological relationships. <1/> To address this complexity, <1/> AriBio’s Platform Research Center <1/> has developed ARIS: <1/> a proprietary AI platform optimized for <1/> predicting these multifaceted biological <1/> interrelationships, thus advancing our drug <1/> discovery initiatives.",
     "desc3": "ARIS is fundamentally structured <1/> around two concepts, <1/> “BRAIN” and its “Prediction Algorithms”.",
     "desc4": "BRAIN, short for <1/> <2> “The Bridge between AI and In Silico, <1/> In Vitro, and In Vivo”, </2> <1/> has two primary components: <1/> a Knowledge Graph (KG) <1/> and a Large Language Model (LLM). <1/> Together, they form a cohesive <2>Bridge</2>, <1/> seamlessly linking the KG and ARIS <1/> <2> Prediction Algorithms</2> to real-world <1/> applications across <2> In Silico, In Vitro, <1/> and In Vivo </2> domains.",
     "desc5": "The “Prediction Algorithms” consist of a <1/> range of advanced AI prediction models and <1/> simulation tools designed specifically for the <1/> fields of chemistry and biology. Each model <1/> and solution is carefully crafted to provide <1/> researchers with practical and direct <1/> applications, both on its own and in <1/> collaboration with the BRAIN platform.",

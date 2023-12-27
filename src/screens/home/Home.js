@@ -647,6 +647,7 @@ const Home = () => {
                   style={{
                     gridColumn: '1/1',
                     borderRadius: '8px',
+                    justifySelf: 'flex-start',
                   }}
                   $src={home_ourapproach2}
                 />
@@ -659,8 +660,12 @@ const Home = () => {
                     gridColumn: '2/4',
                   }}>
                   <ComponentTextWrap style={{}}>
-                    <ComponentText style={{fontWeight: '500'}}> {t('home_m.ourapproach.title_2')}</ComponentText>
-                    <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
+                    <ComponentText style={{fontWeight: '500', padding: '0 0.5rem 0 0rem'}}>
+                      {' '}
+                      {t('home_m.ourapproach.title_2')}
+                    </ComponentText>
+                    <ComponentText
+                      style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0 0.5rem 0 0rem'}}>
                       {t('home_m.ourapproach.desc_2')}
                     </ComponentText>
                   </ComponentTextWrap>
@@ -678,7 +683,7 @@ const Home = () => {
                   }}>
                   <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
                   <ComponentTextWrap style={{}}>
-                    <ComponentText style={{fontWeight: '500'}}> {t('home_m.ourapproach.title_3')}</ComponentText>
+                    <ComponentText style={{fontWeight: '500'}}>{t('home_m.ourapproach.title_3')}</ComponentText>
                     <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
                       {t('home_m.ourapproach.desc_3')}
                     </ComponentText>

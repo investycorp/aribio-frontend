@@ -458,13 +458,16 @@ const Tab1 = ({listItems, index}) => {
                   }}
                 />
               </div>
-              <GridBoxContentWrap key={tabName} style={{alignItems: 'start'}}>
+              <GridBoxContentWrap key={tabName} style={{alignItems: 'start', flexDirection: 'column', padding: 0}}>
                 <Text $isActive={tabName === scrollTab ? true : false} style={{lineHeight: '26px'}}>
                   {tabName}
                 </Text>
                 <DescriptionWrap
                   ref={refs[index]}
                   key={index}
+                  style={{
+                    padding: '0 0 1.5rem 2vw',
+                  }}
                   $isActive={tabNames.indexOf(scrollTab) === index ? true : false}>
                   {listContents[index]?.map((content, index) => (
                     <DescriptionItem key={index + content}>{content}</DescriptionItem>
