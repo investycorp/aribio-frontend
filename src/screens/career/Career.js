@@ -784,13 +784,13 @@ const Career = () => {
                   </Text>
                   <hr
                     style={{
-                      width: window.innerWidth > 1280 ? '60px' : '40px',
-                      margin: '5em 0',
+                      width: '20px',
+                      margin: '28px 0',
                       borderTop: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
                       borderBottom: 'none',
                     }}
                   />
-                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{margin: '2rem 0 0 0'}}>
+                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff">
                     <Trans i18nKey={'career.subtitle'} components={{1: <br />}} />
                   </Text>
                 </TextWrap>

@@ -103,6 +103,7 @@ const PolyPharmacology = () => {
           </Text>
         </HomeComponentWrap>
       </Desktop>
+
       <Mobile>
         <div style={{overflowX: 'hidden'}}>
           <HomeComponentWrap style={{padding: '5vh 5vw'}}>
@@ -117,7 +118,8 @@ const PolyPharmacology = () => {
                   height: '1px',
                   border: '1px solid #ffffff',
                   margin: '28px 0',
-                }}></div>
+                }}
+              />
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{margin: '0'}}>
                 {t('polypharma.subtitle')}
               </Text>
