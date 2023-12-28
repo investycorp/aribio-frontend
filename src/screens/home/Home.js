@@ -8,9 +8,9 @@ import SubPageButton from '../../components/buttons/SubPageButton';
 import home_ourapproach1 from './assets/home_ourapproach1.png';
 import home_ourapproach2 from './assets/home_ourapproach2.png';
 import home_ourapproach3 from './assets/home_ourapproach3.png';
-import home_notice1 from './assets/home_notice1.png';
-import home_notice2 from './assets/home_notice2.png';
-import home_notice3 from './assets/home_notice3.png';
+import home_press1 from './assets/home_notice1.png';
+import home_press2 from './assets/home_notice2.png';
+import home_press3 from './assets/home_notice3.png';
 import home_desc_background from './assets/home_desc_background.png';
 
 import Modal from '../../components/Modal';
@@ -31,54 +31,59 @@ import {
   MainImgWrap,
 } from './style';
 
-import useNoticeList from '../../hooks/irpr/useNoticeList';
 import Language from '../../atom/Language';
 import {useRecoilState} from 'recoil';
 import Video from '../../components/Video';
 import VideoFrame from '../../components/VideoFrame';
 import usePopup from '../../hooks/popup/usePopup';
-import {Image} from '../../components/style';
+import arrow from '../../assets/images/arrow.svg';
+import { useNavigate } from 'react-router-dom';
+import usePressHomeList from '../../hooks/home/usePressHomeList';
 
 const Home = () => {
   const browserInfo = browser();
   const {t} = useTranslation();
+  const navigate = useNavigate();
   const [language, setLanguage] = useRecoilState(Language);
   const [scrollY, setScrollY] = useState(0);
-  const {data, isLoading, refetch} = useNoticeList('', language, 1);
-  const {data: popupData} = usePopup(language);
-  const [noticeList, setNoticeList] = useState([]);
+  const {data: pressData, refetch: pressDataRefetch} = usePressHomeList(language);
+  const {data: popupData, refetch: popupDataRefetch} = usePopup(language);
+  const [pressList, setPressList] = useState([]);
   const [modalOpen, setModalOpen] = useState();
   const [modalData, setModalData] = useState();
   const [videoHeight, setVideoHeight] = useState(0);
 
-  const images = [home_notice1, home_notice2, home_notice3];
+  const pressImages = [home_press1, home_press2, home_press3];
 
   useEffect(() => {
-    if (data?.data?.success) {
-      const list = data.data.data.noticeDtoList.map((item, index) => {
+    if (pressData?.data?.success) {
+      const list = pressData?.data.dataList.map((item, index) => {
         if (index < 3) {
           return {
             id: item.id,
             date: item.date.replaceAll('-', '.'),
             mobileDate: `${item.month} ${item.day}, ${item.year}`,
             title: item.title,
-            //imageUrl: item.fileDto?.fileUrl ? item?.fileDto?.fileUrl : home_notice1,
-            imageUrl: images[index],
+            imageUrl: pressImages[index],
           };
         }
       });
-      setNoticeList(list.slice(0, 3));
+      setPressList(list);
     }
+  }, [pressData]);
+
+  useEffect(() => {
     if (popupData?.data?.success) {
       if (popupData?.data?.dataList.length > 0) {
         setModalOpen(true);
         setModalData(popupData.data.dataList);
       }
     }
-  }, [data]);
+  }, [popupData]);
 
   useEffect(() => {
-    refetch();
+    pressDataRefetch();
+    popupDataRefetch();
   }, [language]);
 
   useEffect(() => {
@@ -242,9 +247,6 @@ const Home = () => {
                 style={{
                   position: 'relative',
                 }}>
-                <div style={{position: 'absolute', top: '0', left: '0'}}>
-                  <SubPageButton title="Our Approach" linkTo="/ourapproach/poly-pharmacology" align="flex-start" />
-                </div>
                 <div
                   style={{
                     display: 'flex',
@@ -253,23 +255,47 @@ const Home = () => {
                     alignItems: 'center',
                     width: '100%',
                     height: '100%',
-                  }}>
+                  }}
+                >
                   <div
                     style={{
                       width: '2px',
                       height: window.innerWidth > 1280 ? '200px' : '100px',
                       backgroundColor: '#B1B1B1',
+                      cursor: 'pointer',
                     }}
                   />
-                  <ComponentTextWrap style={{padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem'}}>
-                    <ComponentText
+                  <ComponentTextWrap style={{padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem', marginBottom: 27}}>
+                    <div 
                       style={{
-                        fontSize: window.innerWidth > 1280 ? '48px' : '30px',
-                        fontWeight: '500',
-                        marginBottom: 27,
-                      }}>
-                      {t('home.ourapproach.title_1')}
-                    </ComponentText>
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 32,
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => { navigate('/ourapproach/poly-pharmacology') }}  
+                    >
+                      <ComponentText
+                        style={{
+                          fontSize: window.innerWidth > 1280 ? '48px' : '30px',
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                        }}>
+                        {t('home.ourapproach.title_1')}
+                      </ComponentText>
+                      <img
+                        src={arrow}
+                        alt="arrow"
+                        style={{
+                          zIndex: '-1',
+                          border: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                          borderRadius: '50%',
+                          height: window.innerWidth > 1280 ? '20px' : '12px',
+                          padding: window.innerWidth > 1280 ? '12px' : '8px',
+                        }}
+                      />
+                    </div>
                     <ComponentText
                       style={{
                         fontSize: window.innerWidth > 1280 ? '28px' : '14px',
@@ -281,7 +307,6 @@ const Home = () => {
                   </ComponentTextWrap>
                 </div>
               </ComponentGridWrap>
-
               <ComponentGridWrap style={{alignItems: 'flex-end'}}>
                 <HomeComponentImageWrap $src={home_ourapproach1}></HomeComponentImageWrap>
               </ComponentGridWrap>
@@ -298,15 +323,37 @@ const Home = () => {
                     width: '100%',
                     height: '100%',
                   }}>
-                  <ComponentTextWrap style={{}}>
-                    <ComponentText
+                  <ComponentTextWrap>
+                  <div 
                       style={{
-                        fontSize: window.innerWidth > 1280 ? '48px' : '30px',
-                        fontWeight: '500',
-                        marginBottom: 27,
-                      }}>
-                      {t('home.ourapproach.title_2')}
-                    </ComponentText>
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 32,
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => { navigate('/pipeline') }}  
+                    >
+                      <ComponentText
+                        style={{
+                          fontSize: window.innerWidth > 1280 ? '48px' : '30px',
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                        }}>
+                        {t('home.ourapproach.title_2')}
+                      </ComponentText>
+                      <img
+                        src={arrow}
+                        alt="arrow"
+                        style={{
+                          zIndex: '-1',
+                          border: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                          borderRadius: '50%',
+                          height: window.innerWidth > 1280 ? '20px' : '12px',
+                          padding: window.innerWidth > 1280 ? '12px' : '8px',
+                        }}
+                        />
+                    </div>
                     <ComponentText
                       style={{
                         fontSize: window.innerWidth > 1280 ? '28px' : '14px',
@@ -344,16 +391,38 @@ const Home = () => {
                       width: '2px',
                       height: window.innerWidth > 1280 ? '200px' : '100px',
                       backgroundColor: '#B1B1B1',
-                    }}></div>
-                  <ComponentTextWrap style={{}}>
-                    <ComponentText
+                    }}/>
+                  <ComponentTextWrap>
+                  <div 
                       style={{
-                        fontSize: window.innerWidth > 1280 ? '48px' : '30px',
-                        fontWeight: '500',
-                        marginBottom: 27,
-                      }}>
-                      {t('home.ourapproach.title_3')}
-                    </ComponentText>
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 32,
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => { navigate('/career') }}  
+                    >
+                      <ComponentText
+                        style={{
+                          fontSize: window.innerWidth > 1280 ? '48px' : '30px',
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                        }}>
+                        {t('home.ourapproach.title_3')}
+                      </ComponentText>
+                      <img
+                        src={arrow}
+                        alt="arrow"
+                        style={{
+                          zIndex: '-1',
+                          border: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                          borderRadius: '50%',
+                          height: window.innerWidth > 1280 ? '20px' : '12px',
+                          padding: window.innerWidth > 1280 ? '12px' : '8px',
+                        }}
+                        />
+                    </div>
                     <ComponentText
                       style={{
                         fontSize: window.innerWidth > 1280 ? '28px' : '14px',
@@ -418,7 +487,7 @@ const Home = () => {
                   alignSelf: 'start',
                   marginBottom: 27,
                 }}>
-                {t('home.notice.title')}
+                {t('home.press.title')}
               </ComponentText>
               <div
                 style={{
@@ -430,9 +499,9 @@ const Home = () => {
                 }}>
                 <ComponentText
                   style={{fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF'}}>
-                  {t('home.notice.content')}
+                  {t('home.press.content')}
                 </ComponentText>
-                <SubPageButton linkTo="/irpr/notice" title={t('home.notice.viewall')} />
+                <SubPageButton linkTo="/irpr/pressrelease" title={t('home.press.viewall')} />
               </div>
               <div
                 style={{
@@ -445,7 +514,7 @@ const Home = () => {
                   columnGap: '0',
                   rowGap: '1rem',
                 }}>
-                {noticeList?.map((item, index) => (
+                {pressList?.map((item, index) => (
                   <ComponentGridWrap
                     key={index}
                     style={{
@@ -634,7 +703,36 @@ const Home = () => {
                   }}>
                   <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
                   <ComponentTextWrap>
-                    <ComponentText style={{fontWeight: '500'}}>{t('home_m.ourapproach.title_1')}</ComponentText>
+                  <div 
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 8,
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => { navigate('/ourapproach/poly-pharmacology') }}  
+                    >
+                      <ComponentText
+                        style={{
+                          fontSize: 20,
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                        }}>
+                        {t('home_m.ourapproach.title_1')}
+                      </ComponentText>
+                      <img
+                        src={arrow}
+                        alt="arrow"
+                        style={{
+                          zIndex: '-1',
+                          border: '1px solid #ffffff',
+                          borderRadius: '50%',
+                          height: 12,
+                          padding: 4,
+                        }}
+                        />
+                    </div>
                     <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
                       {t('home_m.ourapproach.desc_1')}
                     </ComponentText>
@@ -659,11 +757,37 @@ const Home = () => {
                     alignItems: 'center',
                     gridColumn: '2/4',
                   }}>
-                  <ComponentTextWrap style={{}}>
-                    <ComponentText style={{fontWeight: '500', padding: '0 0.5rem 0 0rem'}}>
-                      {' '}
-                      {t('home_m.ourapproach.title_2')}
-                    </ComponentText>
+                  <ComponentTextWrap>
+                  <div 
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 8,
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => { navigate('/pipeline') }}  
+                    >
+                      <ComponentText
+                        style={{
+                          fontSize: 20,
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                        }}>
+                        {t('home_m.ourapproach.title_2')}
+                      </ComponentText>
+                      <img
+                        src={arrow}
+                        alt="arrow"
+                        style={{
+                          zIndex: '-1',
+                          border: '1px solid #ffffff',
+                          borderRadius: '50%',
+                          height: 12,
+                          padding: 4,
+                        }}
+                        />
+                    </div>
                     <ComponentText
                       style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0 0.5rem 0 0rem'}}>
                       {t('home_m.ourapproach.desc_2')}
@@ -682,8 +806,37 @@ const Home = () => {
                     gridColumn: '1/3',
                   }}>
                   <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
-                  <ComponentTextWrap style={{}}>
-                    <ComponentText style={{fontWeight: '500'}}>{t('home_m.ourapproach.title_3')}</ComponentText>
+                  <ComponentTextWrap>
+                  <div 
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 8,
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => { navigate('/career') }}  
+                    >
+                      <ComponentText
+                        style={{
+                          fontSize: 20,
+                          fontWeight: '500',
+                          cursor: 'pointer',
+                        }}>
+                        {t('home_m.ourapproach.title_3')}
+                      </ComponentText>
+                      <img
+                        src={arrow}
+                        alt="arrow"
+                        style={{
+                          zIndex: '-1',
+                          border: '1px solid #ffffff',
+                          borderRadius: '50%',
+                          height: 12,
+                          padding: 4,
+                        }}
+                        />
+                    </div>
                     <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
                       {t('home_m.ourapproach.desc_3')}
                     </ComponentText>
@@ -749,7 +902,6 @@ const Home = () => {
                 <SubPageButton linkTo="/irpr/mediakit" title="Media" />
               </div>
             </HomeComponentWrap>
-
             <HomeComponentWrap
               className="home home_5"
               style={{
@@ -768,14 +920,14 @@ const Home = () => {
                   width: '100%',
                 }}>
                 <ComponentText style={{fontSize: '20px', fontWeight: '500', alignSelf: 'start', padding: '0.5em 0'}}>
-                  {t('home_m.notice.title')}
+                  {t('home_m.press.title')}
                 </ComponentText>
                 <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0.5em 0'}}>
-                  {t('home_m.notice.content')}
+                  {t('home_m.press.content')}
                 </ComponentText>
               </div>
 
-              {noticeList?.map((item, index) => (
+              {pressList?.map((item, index) => (
                 <ComponentGridWrap
                   key={index}
                   style={{
@@ -807,7 +959,7 @@ const Home = () => {
                 </ComponentGridWrap>
               ))}
               <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'end', marginTop: '5rem'}}>
-                <SubPageButton linkTo="/irpr/notice" title={t('home_m.notice.viewall')} />
+                <SubPageButton linkTo="/irpr/pressRelease" title={t('home_m.press.viewall')} />
               </div>
             </HomeComponentWrap>
           </Mobile>

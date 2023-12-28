@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import arrow from '../../assets/images/arrow.svg';
 import { Desktop, Mobile } from '../../utils/MediaQuery';
 
@@ -51,7 +51,7 @@ const SubPageButton = ({ style, title, linkTo, align }) => {
               zIndex: '-1',
               border: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
               borderRadius: '50%',
-              height: window.innerWidth > 1280 ? '14px' : '12px',
+              height: window.innerWidth > 1280 ? '20px' : '12px',
               padding: window.innerWidth > 1280 ? '12px' : '8px',
             }}
           />

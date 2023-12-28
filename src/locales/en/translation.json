@@ -39,10 +39,10 @@
       "content": "Explore Our Content",
       "viewall": "Media"
     },
-    "notice": {
-      "title": "Notice",
-      "content": "Company Updates and Announcements",
-      "viewall": "View All Notice"
+    "press": {
+      "title": "Press Release",
+      "content": "Latest AriBio News",
+      "viewall": "View All Press Release"
     }
   },
   "home_m": {
@@ -69,10 +69,10 @@
       "content": "Explore Our Content",
       "viewall": "Media"
     },
-    "notice": {
-      "title": "Notice",
-      "content": "Company Updates and Announcements",
-      "viewall": "View All Notice"
+    "press": {
+      "title": "Press Release",
+      "content": "Latest AriBio News",
+      "viewall": "View All Press Release"
     }
   },
   "aboutus": {
