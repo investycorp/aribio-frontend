@@ -30,7 +30,7 @@ import openinnovation_digitalhealth_mobile_middle1 from './assets/openinnovation
 
 import arrow from '../../assets/images/arrow.svg';
 import Video from '../../components/Video';
-import useLinkList from '../../hooks/useLink';
+import useLinkList from '../../hooks/link/useLink';
 
 import {t} from 'i18next';
 import {Trans} from 'react-i18next';

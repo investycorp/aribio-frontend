@@ -51,7 +51,7 @@ import {useRecoilState} from 'recoil';
 import useCareerList from '../../hooks/career/useCareerList';
 import useFooter from '../../hooks/footer/useFooter';
 import Language from '../../atom/Language';
-import useLinkList from '../../hooks/useLink';
+import useLinkList from '../../hooks/link/useLink';
 import {NoResult} from '../ourapproach/Publications';
 
 const Career = () => {

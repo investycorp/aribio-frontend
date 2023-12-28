@@ -14,7 +14,7 @@ import {Desktop, Mobile} from '../../utils/MediaQuery';
 import arrow from '../../assets/images/arrow.svg';
 
 import Language from '../../atom/Language';
-import useLinkList from '../../hooks/useLink';
+import useLinkList from '../../hooks/link/useLink';
 import Video from '../../components/Video';
 
 import {t} from 'i18next';

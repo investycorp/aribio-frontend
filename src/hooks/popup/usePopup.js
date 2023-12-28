@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useQuery, useQueryClient } from 'react-query';
+import axiosInstance from '../axiosInstance';
 
 const usePopup = (lan) => {
   const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
@@ -7,7 +7,7 @@ const usePopup = (lan) => {
   const { data, isLoading, refetch } = useQuery(
     'popupInfo',
     () =>
-      axios.get(`https://api.aribio.boundary.team/user/main/pop-up`, {
+      axiosInstance.get(`/user/main/pop-up`, {
         params: { language: language },
       }),
     {

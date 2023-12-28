@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useQuery, useQueryClient } from 'react-query';
+import axiosInstance from '../axiosInstance';
 
 const usePressReleaseList = (keyWord, lan, pageNumber) => {
   const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
@@ -7,7 +7,7 @@ const usePressReleaseList = (keyWord, lan, pageNumber) => {
   const { data, isLoading, refetch } = useQuery(
     'pressreleaseList',
     () =>
-      axios.get(`https://api.aribio.boundary.team/user/press-release`, {
+      axiosInstance.get(`/user/press-release`, {
         params: { keyword: keyWord, language: language, pageNo: pageNumber },
       }),
     {

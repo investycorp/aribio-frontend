@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useQuery, useQueryClient } from 'react-query';
+import axiosInstance from '../axiosInstance';
 
 const useCi = (lan) => {
   const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
@@ -7,7 +7,7 @@ const useCi = (lan) => {
   const { data, isLoading } = useQuery(
     'ci',
     () =>
-      axios.get(`https://api.aribio.boundary.team/user/ci`, {
+      axiosInstance.get(`/user/ci`, {
         params: { language: language },
       }),
     {

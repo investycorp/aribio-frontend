@@ -1,25 +1,24 @@
-import axios from 'axios';
 import { useMutation, useQueryClient } from 'react-query';
 import Language from '../../atom/Language';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
+import axiosInstance from '../axiosInstance';
 
 const useContact = (contactData) => {
-  const [language, setLanguage] = useRecoilState(Language);
+  const language = useRecoilValue(Language);
   const queryClient = useQueryClient();
   const variable = {
     ...contactData,
-    language: 'ENGLISH',
+    language: language === 'ENG' ? 'ENGLISH' : 'KOREAN',
   };
 
   const postContactData = async () => {
-    const { data } = await axios.post(`https://api.aribio.boundary.team/user/contact-us`, variable);
+    const { data } = await axiosInstance.post(`https://api.aribio.boundary.team/user/contact-us`, variable);
     return data;
   };
 
   const { mutate, data, isSuccess, isError, isLoading } = useMutation(postContactData, {
     onSuccess: () => {
       queryClient.invalidateQueries('contact');
-      console.log('success:', data);
     },
   });
 

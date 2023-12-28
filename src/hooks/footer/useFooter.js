@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useQuery, useQueryClient } from 'react-query';
+import axiosInstance from '../axiosInstance';
 
 const useFooter = (lan) => {
   const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
@@ -7,7 +7,7 @@ const useFooter = (lan) => {
   const { data, isLoading, refetch } = useQuery(
     'footerInfo',
     () =>
-      axios.get(`https://api.aribio.boundary.team/user/company-information`, {
+      axiosInstance.get(`/user/company-information`, {
         params: { language: language },
       }),
     {

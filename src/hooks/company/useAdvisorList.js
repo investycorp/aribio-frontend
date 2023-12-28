@@ -1,5 +1,5 @@
-import axios from 'axios';
 import {useQuery, useQueryClient} from 'react-query';
+import axiosInstance from '../axiosInstance';
 
 const useAdvisorList = lan => {
   const language = lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
@@ -7,7 +7,7 @@ const useAdvisorList = lan => {
   const {data, isLoading} = useQuery(
     'advisorList',
     () =>
-      axios.get(`https://api.aribio.boundary.team/user/about-us/advisor`, {
+      axiosInstance.get(`/user/about-us/advisor`, {
         params: {language: language},
       }),
     {

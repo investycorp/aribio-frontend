@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useQuery, useQueryClient } from 'react-query';
+import axiosInstance from '../axiosInstance';
 
 const useCareerList = (lan) => {
   const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
@@ -7,7 +7,7 @@ const useCareerList = (lan) => {
   const { data, isLoading, refetch } = useQuery(
     'careerList',
     () =>
-      axios.get(`https://api.aribio.boundary.team/user/career/join-us`, {
+      axiosInstance.get(`/user/career/join-us`, {
         params: { language: language },
       }),
     {
