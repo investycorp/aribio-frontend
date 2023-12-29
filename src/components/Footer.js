@@ -70,6 +70,7 @@ const ContactBoxText = styled.div`
   width: fit-content;
   font-size: 18px;
   font-weight: medium;
+  line-height: 1.5rem;
   color: #b1b1b1;
   margin-bottom: 20px;
   @media screen and (max-width: 1280px) {
@@ -120,11 +121,16 @@ const ContactUsBox = styled.div`
 
 const AddressWrap = styled.div`
   width: fit-content;
+  max-width: 20vw;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
+
+  @media screen and (max-width: 900px){
+      max-width: 100vw;
+  }
 `;
 
 const Footer = () => {

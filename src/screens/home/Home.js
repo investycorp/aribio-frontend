@@ -506,13 +506,13 @@ const Home = () => {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '1fr 2fr',
+                  gridTemplateColumns: pressList.length > 1 ? '1fr 2fr' : '1fr 1fr',
                   gridTemplateRows: '1fr 1fr',
                   margin: '10vh',
                   width: '100%',
-                  height: '28.7vw',
+                  height: pressList.length > 2 ? '28.7vw' : '277px',
                   columnGap: '0',
-                  rowGap: '1rem',
+                  rowGap: pressList?.length > 2 ? '1rem' : 0,
                 }}>
                 {pressList?.map((item, index) => (
                   <ComponentGridWrap
@@ -520,7 +520,12 @@ const Home = () => {
                     style={{
                       gridRow: index === 0 ? '1/3' : 'auto',
                       padding: '0',
-                    }}>
+                      minHeight: window.innerWidth > 1280 ? '277px' : '162px',
+                      width: pressList?.length === 1 ? '86vw' : 'auto',
+                      height: pressList?.length < 3 ? window.innerWidth > 1280 ? '277px' : '162px' : 'auto'
+                    }}
+                    onClick={() => navigate(`/irpr/pressrelease/${item?.id}`)}
+                    >
                     <HomeComponentImageWrap
                       $src={item.imageUrl}
                       style={{
@@ -535,13 +540,14 @@ const Home = () => {
                         fontWeight: '300',
                         position: 'relative',
                       }}>
-                      <FilterShadow />
+                      <FilterShadow style={{ cursor: 'pointer',}} />
                       <p
                         style={{
                           position: 'relative',
                           fontWeight: '300',
                           fontSize: window.innerWidth > 1280 ? '22px' : '12px',
                           color: '#D1D1D1',
+                          cursor: 'pointer',
                         }}>
                         {item.date.toString()}
                       </p>
@@ -552,6 +558,8 @@ const Home = () => {
                           fontSize: window.innerWidth > 1280 ? '26px' : '15px',
                           color: '#E5E5E5',
                           lineHeight: '1.3em',
+                          wordBreak: 'break-all',
+                          cursor: 'pointer',
                         }}>
                         {item.title.slice(0, 70) + '...'}
                       </p>
@@ -691,7 +699,6 @@ const Home = () => {
                 paddingTop: '10vh',
               }}
               className="home home_3">
-              <SubPageButton title="Our Approach" linkTo="/ourapproach/poly-pharmacology" />
               <ComponentGridWrap style={{marginBottom: '88px', marginTop: '80px'}}>
                 <div
                   style={{
@@ -789,7 +796,7 @@ const Home = () => {
                         />
                     </div>
                     <ComponentText
-                      style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0 0.5rem 0 0rem'}}>
+                      style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0 0.5rem 0 1rem'}}>
                       {t('home_m.ourapproach.desc_2')}
                     </ComponentText>
                   </ComponentTextWrap>
@@ -910,7 +917,6 @@ const Home = () => {
                 justifyContent: 'space-between',
                 paddingBottom: '8em',
                 margin: '10vh 0 0 0',
-                gap: '2rem',
               }}>
               <div
                 style={{
@@ -919,14 +925,13 @@ const Home = () => {
                   justifyContent: 'start',
                   width: '100%',
                 }}>
-                <ComponentText style={{fontSize: '20px', fontWeight: '500', alignSelf: 'start', padding: '0.5em 0'}}>
+                <ComponentText style={{fontSize: '20px', fontWeight: '500', alignSelf: 'start', padding: 0, margin: '0 0 0.5rem 0'}}>
                   {t('home_m.press.title')}
                 </ComponentText>
-                <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0.5em 0'}}>
+                <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: 0, margin: '0 0 2rem 0'}}>
                   {t('home_m.press.content')}
                 </ComponentText>
               </div>
-
               {pressList?.map((item, index) => (
                 <ComponentGridWrap
                   key={index}
@@ -935,25 +940,30 @@ const Home = () => {
                     gridTemplateColumns: '1fr',
                     width: '90vw',
                     height: '92px',
+                    maxHeight: '92px',
+                    marginBottom: '12px',
                   }}>
                   <HomeComponentImageWrap
-                    $src={item.imageUrl}
+                    $src={item?.imageUrl}
                     style={{
                       width: '100%',
                       height: '100%',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'flex-end',
-                      gap: '0.5rem',
                       padding: '1rem',
+                      lineHeight: '20px',
                       fontWeight: '300',
                       position: 'relative',
                       borderRadius: '10px',
+                      overflowY: 'hidden',
                     }}>
                     <FilterShadow />
-                    <p style={{position: 'relative', fontSize: '15px', color: '#D1D1D1'}}>{item.mobileDate}</p>
-                    <p style={{position: 'relative', fontSize: '16px', color: '#E5E5E5', lineHeight: '20px'}}>
-                      {item.title.slice(0, 60)}...
+                    <p style={{position: 'relative', fontSize: '15px', color: '#D1D1D1'}}>{item?.mobileDate}</p>
+                    <p style={{position: 'relative', fontSize: '16px', color: '#E5E5E5', lineHeight: '20px', wordBreak:'break-all'}}>
+                      {language === 'ENG' ? item?.title?.slice(0, 60) : item?.title?.slice(0, 35)}
+                      {(language === 'ENG' && item?.title?.length > 60) && <span>...</span>}
+                      {(language === 'KOR' &&  item?.title?.length > 35) && <span>...</span>}
                     </p>
                   </HomeComponentImageWrap>
                 </ComponentGridWrap>

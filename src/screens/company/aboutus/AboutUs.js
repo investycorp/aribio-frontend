@@ -18,7 +18,6 @@ const AboutUs = () => {
   const [tabNames, setTabNames] = useState(['Leadership', 'Advisors']);
   const [currentTab, setCurrentTab] = useState('Leadership');
   const [moveUp, setMoveUp] = useRecoilState(MoveUp);
-  const leader = document.querySelectorAll('#leadership');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,7 +26,6 @@ const AboutUs = () => {
     const handleScroll = () => {
       document.addEventListener('scroll', () => {
         const leader = document.querySelectorAll('#leadership');
-        const advisor = document.querySelector('#advisor');
 
         if (leader[0]?.getBoundingClientRect().y < window.innerHeight * 0.9) {
           leader[1]?.classList.add('moveup');

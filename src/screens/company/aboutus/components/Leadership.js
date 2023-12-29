@@ -8,7 +8,6 @@ import {
   ContentBox,
   ContentBoxNameWrap,
   Image,
-  DescriptionWrap,
   DescriptionItem,
   CeoBox,
   MemberListWrap,
@@ -53,19 +52,19 @@ const Leadership = () => {
                 padding: window.innerWidth > 1280 ? '0 7vw 504px' : '0 7vw 255px',
               }}>
               <Image
-                width={window.innerWidth > 1280 ? 835 : 478}
-                height={window.innerWidth > 1280 ? 555 : 315}
+                width={window.innerWidth > 1280 ? '835px' : '478px'}
+                height={window.innerWidth > 1280 ? '555px' : '315px'}
                 src={ceoContents?.fileDto?.fileUrl}
                 alt="ceoProfilePicture"
               />
               <TextWrap
                 style={{
-                  width: window.innerWidth > 1280 ? 835 : 478,
-                  height: window.innerWidth > 1280 ? 555 : 315,
+                  width: window.innerWidth > 1280 ? '835px' : '478px',
+                  height: window.innerWidth > 1280 ? '555px' : '315px',
                 }}>
                 <TextWrap
                   style={{
-                    width: window.innerWidth > 1280 ? 500 : 280,
+                    width: window.innerWidth > 1280 ? '500px' : '280px',
                   }}>
                   <Text
                     $align="start"
@@ -132,7 +131,7 @@ const Leadership = () => {
               $fontWeight="500"
               $color="#E5E5E5"
               $align="start"
-              style={{marginBottom: window.innerWidth > 1280 ? 150 : 100}}>
+              style={{marginBottom: window.innerWidth > 1280 ? '150px' : '100px'}}>
               {t('home.aboutus.subtitle.us')}
             </Text>
           </TextWrap>
@@ -142,14 +141,14 @@ const Leadership = () => {
                 <ContentBox
                   key={index}
                   style={{
-                    width: window.innerWidth > 1280 ? 454 : 274,
+                    width: window.innerWidth > 1280 ? '454px' : '274px',
                   }}>
                   <Image
                     src={item?.fileDto?.fileUrl}
                     alt="leadershipphoto1"
-                    width={window.innerWidth > 1280 ? 454 : 274}
+                    width={window.innerWidth > 1280 ? '454px' : '274px'}
                     height="auto"
-                    style={{marginBottom: window.innerWidth > 1280 ? 106 : 24}}
+                    style={{marginBottom: window.innerWidth > 1280 ? '106px' : '24px'}}
                     $align="start"
                   />
                   <ContentBoxNameWrap>
@@ -214,7 +213,7 @@ const Leadership = () => {
               $fontWeight="600"
               $color="#E5E5E5"
               $align="start"
-              style={{marginBottom: window.innerWidth > 1280 ? 150 : 120}}>
+              style={{marginBottom: window.innerWidth > 1280 ? '150px' : '120px'}}>
               {t('home.aboutus.subtitle.head')}
             </Text>
           </TextWrap>
@@ -224,7 +223,7 @@ const Leadership = () => {
                 <ContentBox
                   key={index}
                   style={{
-                    width: window.innerWidth > 1280 ? 454 : 274,
+                    width: window.innerWidth > 1280 ? '454px' : '274px',
                     marginBottom: window.innerWidth > 1280 ? '12.75vh' : '6vh',
                   }}>
                   <ContentBoxNameWrap>
@@ -257,7 +256,7 @@ const Leadership = () => {
                       $align="start"
                       $color="#F2F2F2"
                       style={{
-                        margin: '0',
+                        margin: 0,
                         fontSize: window.innerWidth > 1280 ? '18px' : '10px',
                         // paddingLeft:  window.innerWidth > 1280 ? '3.625rem' : '2.25rem',
                       }}>
@@ -283,14 +282,14 @@ const Leadership = () => {
       </Desktop>
 
       <Mobile>
-        <TabContentWrap style={{padding: '0 19px', marginBottom: 160}}>
+        <TabContentWrap style={{padding: '0 19px', marginBottom: '160px'}}>
           <Image
             src={ceoContents?.fileDto?.fileUrl}
             alt="ceoProfilePicture"
             style={{
               width: '90vw',
               height: 'auto',
-              marginBottom: 45,
+              marginBottom: '45px',
             }}
           />
           <TextWrap style={{width: '100%'}}>
@@ -300,7 +299,7 @@ const Leadership = () => {
               $fontWeight="500"
               style={{
                 margin: '0',
-                fontSize: 15,
+                fontSize: '15ox',
               }}>
               {ceoContents?.position}
             </Text>
@@ -310,8 +309,8 @@ const Leadership = () => {
               $fontWeight="700"
               style={{
                 margin: '0',
-                marginBottom: 16,
-                fontSize: 18,
+                marginBottom: '16px',
+                fontSize: '18px',
               }}>
               {ceoContents?.name}
             </Text>
@@ -322,7 +321,7 @@ const Leadership = () => {
               $color="#F2F2F2"
               style={{
                 margin: '0',
-                fontSize: 16,
+                fontSize: '16px',
                 fontWeight: 300,
               }}>
               <ul style={{paddingLeft: '0.8rem'}}>
@@ -343,7 +342,7 @@ const Leadership = () => {
         <div
           style={{
             alignSelf: 'start',
-            paddingLeft: 19,
+            paddingLeft: '19px',
           }}>
           <HR $width="40px" style={{alignSelf: 'start', marginBottom: '1.5em'}} />
           <Text
@@ -351,7 +350,7 @@ const Leadership = () => {
             $fontWeight="600"
             $color="#E5E5E5"
             $align="start"
-            style={{marginBottom: 48}}>
+            style={{marginBottom: '48px'}}>
             {t('home.aboutus.subtitle.us')}
           </Text>
         </div>
@@ -488,14 +487,14 @@ const Leadership = () => {
                         $align="start"
                         $color="#F2F2F2"
                         $fontSize="20px"
-                        style={{wordBreak: 'break-all', margin: '0', fontSize: '15px'}}>
+                        style={{wordBreak: 'break-all', margin: 0, fontSize: '15px'}}>
                         {item?.position}
                       </Text>
                       <Text
                         $fontSize="18px"
                         $fontWeight="600"
                         $align="start"
-                        style={{wordBreak: 'break-all', margin: '0'}}>
+                        style={{wordBreak: 'break-all', margin: 0}}>
                         {item?.name}
                       </Text>
                     </TextWrap>

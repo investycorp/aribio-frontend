@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-import vertical_arrow from '../../../assets/images/vertical_arrow.svg';
 import ceophoto from './assets/ceophoto.png';
 
 import {Container, HomeComponentWrap, TextWrap, Text, ContentBox, Image} from './style';
-
-import {HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox} from '../../../components/style';
+import {HeadLine, Path, MainImgWrap} from '../../../components/style';
 import {Desktop, Mobile} from '../../../utils/MediaQuery';
 import Video from '../../../components/Video';
 import {Trans} from 'react-i18next';
@@ -81,7 +79,6 @@ const CeoMessage = () => {
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-
           <HomeComponentWrap
             style={{
               height: window.innerWidth > 1280 ? '460px' : '306px',
