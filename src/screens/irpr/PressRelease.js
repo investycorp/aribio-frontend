@@ -372,8 +372,8 @@ const PressRelease = () => {
             </Desktop>
 
             <Mobile>
-              <HomeComponentWrap style={{padding: '15vh 7vw'}}>
-                <TextWrap style={{width: '70vw'}}>
+              <HomeComponentWrap style={{padding: '15vh 0'}}>
+                <TextWrap style={{width: '100vw'}}>
                   <Text
                     $fontSize="16px"
                     $fontWeight="300"
@@ -388,8 +388,9 @@ const PressRelease = () => {
                       height: '1px',
                       border: '1px solid #ffffff',
                       margin: '28px 0',
-                    }}></div>
-                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{fontSize: '23px'}}>
+                    }}
+                  />
+                  <Text $fontWeight="500" $color="#ffffff" style={{fontSize: language !== 'KOR' ? '23px' : '21px'}}>
                     {t('press.subtitle')}
                   </Text>
                 </TextWrap>

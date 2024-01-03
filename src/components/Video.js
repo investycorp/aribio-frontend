@@ -12,7 +12,7 @@ const VideoContainer = styled(Container)`
   height: auto;
   min-height: 100vh;
   min-height: -webkit-fill-available;
-  background-color: #121212;
+  background-color: #000000;
   z-index: 10;
   overflow: hidden;
   transition: all 0.5s ease-in-out;

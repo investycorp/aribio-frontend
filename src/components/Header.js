@@ -34,7 +34,7 @@ const Header = () => {
       {title: t('header.subMenu.company.history'), linkTo: 'history'},
       {title: t('header.subMenu.company.ceomessage'), linkTo: 'ceomessage'},
       {title: t('header.subMenu.company.ci'), linkTo: 'ci'},
-      language === 'KOR' ? {title: '윤리경영', linkTo: 'moral'} : {},
+      // language === 'KOR' ? {title: '윤리경영', linkTo: 'moral'} : {},
     ],
     ourapproach: [
       {title: t('header.subMenu.ourapproach.pp'), linkTo: 'poly-pharmacology'},

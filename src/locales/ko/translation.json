@@ -1,9 +1,9 @@
 {
   "header": {
     "menu": {
-      "company": "회사",
-      "ourapproach": "목표",
-      "pipeline": "파이프라인",
+      "company": "Company",
+      "ourapproach": "Our Approach",
+      "pipeline": "Pipeline",
       "irpr": "IR & PR",
       "career": "Career",
       "contact": "Contact",
@@ -90,14 +90,13 @@
   },
   "home_m": {
     "aboutus": {
-      "1": "AriBio aims to develop",
-      "2": "meaningful therapies for",
-      "3": "neurodegenerative diseases",
-      "4": "through its innovative",
-      "5": "platform ARIDD™ (AI-powered,",
-      "6": "Reverse engineered &",
-      "7": "Integrated Drug Development)",
-      "8": "and Open Innovation"
+      "1": "아리바이오는 혁신적인 플랫폼",
+      "2": "ARIDD™ (AI-powered,",
+      "3": "Reverse engineered &",
+      "4": "Integrated Drug Development)와",
+      "5": "오픈 이노베이션을 통해",
+      "6": "신경퇴행성 질환치료제를",
+      "7": "개발하는 것을 목표로 하고 있습니다."
     },
     "ourapproach": {
       "title_1": "Our Approach",
@@ -356,7 +355,7 @@
     "headline": "NOTICE",
     "title": "NOTICE",
     "subtitle": "투명한 경영 정보를 공유합니다.",
-    "subtitle_m": "Company Updates <1/> and Announcements",
+    "subtitle_m": "투명한 경영 정보를 공유합니다.",
     "placeholder": "Please enter a search term.",
     "nothing": "There are no published posts registered.",
     "searchNothing": "No result found for",

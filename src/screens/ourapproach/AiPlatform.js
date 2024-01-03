@@ -24,8 +24,11 @@ import {Desktop, Mobile} from '../../utils/MediaQuery';
 import Video from '../../components/Video';
 import {Trans} from 'react-i18next';
 import {t} from 'i18next';
+import Language from '../../atom/Language';
+import {useRecoilValue} from 'recoil';
 
 const AiPlatform = () => {
+  const language = useRecoilValue(Language);
   const [activeButton, setActiveButton] = useState(0);
   const [predictions, setPredictions] = useState([
     {
@@ -154,7 +157,11 @@ const AiPlatform = () => {
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                 }}></div>
-              <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="200" $color="#E5E5E5">
+              <Text
+                $language={language}
+                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+                $fontWeight="200"
+                $color="#C9C9C9">
                 <Trans i18nKey="aiplatform.desc1" components={{1: <br />}} />
               </Text>
             </TextWrap>
@@ -170,9 +177,10 @@ const AiPlatform = () => {
                 {t('aiplatform.subtitle2')}
               </Text>
               <Text
+                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="200"
-                $color="#ffffff"
+                $color="#C9C9C9"
                 style={{marginTop: '2em', width: '100%'}}>
                 <Trans i18nKey="aiplatform.desc2" components={{1: <br />}} />
               </Text>
@@ -191,9 +199,10 @@ const AiPlatform = () => {
             />
             <TextWrap style={{width: '100%', marginTop: '10rem'}}>
               <Text
+                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="200"
-                $color="#ffffff"
+                $color="#C9C9C9"
                 style={{marginTop: '2em', width: '100%'}}>
                 <Trans i18nKey="aiplatform.desc2-1" components={{1: <br />}} />
               </Text>
@@ -208,6 +217,7 @@ const AiPlatform = () => {
                 {t('aiplatform.subtitle3')}
               </Text>
               <Text
+                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="100"
                 $color="#C9C9C9"
@@ -240,13 +250,20 @@ const AiPlatform = () => {
                 {t('aiplatform.subtitle4')}
               </Text>
               <Text
+                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="100"
                 $color="#C9C9C9"
                 style={{marginTop: '2em', width: '100%'}}>
                 <Trans
                   i18nKey="aiplatform.desc4"
-                  components={{1: <br />, 2: <span style={{color: '#ffffff', fontWeight: '300'}}></span>}}
+                  components={{
+                    1: <br />,
+                    2: (
+                      <span
+                        style={language === 'KOR' ? {fontWeight: '200'} : {color: '#ffffff', fontWeight: '300'}}></span>
+                    ),
+                  }}
                 />
               </Text>
             </TextWrap>
@@ -275,7 +292,8 @@ const AiPlatform = () => {
                 {t('aiplatform.subtitle5')}
               </Text>
               <Text
-                $fontWeight="100"
+                $language={language}
+                $fontWeight="200"
                 $color="#C9C9C9"
                 $align="center"
                 style={{marginTop: '1.5em', width: '100%', fontSize: window.innerWidth > 1280 ? '23px' : '14px'}}>
@@ -347,7 +365,14 @@ const AiPlatform = () => {
                 </TextWrap>
                 <DescriptionWrap style={{padding: window.innerWidth > 1280 ? '0 160px 0 0' : '0 96px 0 0'}}>
                   {predictions[activeButton].content.map((item, index) => (
-                    <DescriptionItem key={index} style={{width: '100%', fontSize: '20px', fontWeight: '300'}}>
+                    <DescriptionItem
+                      key={index}
+                      style={{
+                        width: '100%',
+                        fontSize: window.innerHeight > 1280 ? '20px' : '12px',
+                        fontWeight: '300',
+                        lineHeight: language === 'KOR' ? '1.8em' : '1.5em',
+                      }}>
                       {item.split('\\n').map((line, lineIndex) => {
                         const lineContent = line.includes('Description : ') ? (
                           <>
@@ -379,6 +404,7 @@ const AiPlatform = () => {
             <TextWrap style={{marginBottom: '10em', width: '100%'}}>
               <HR $height="2px" $color="#ffffff" />
               <Text
+                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
                 $fontWeight="400"
                 $color="#ffffff"
@@ -406,8 +432,9 @@ const AiPlatform = () => {
                 transition: 'opacity 0.5s ease-in-out',
               }}
             />
-            <TextWrap style={{width: '80vw', marginTop: '10em'}}>
+            <TextWrap style={{width: '85vw', marginTop: '10em'}}>
               <Text
+                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="100"
                 $color="#C9C9C9"
@@ -436,7 +463,12 @@ const AiPlatform = () => {
                 <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{margin: '0', lineHeight: '1.2em'}}>
                   <Trans i18nKey="aiplatform.subtitle" components={{1: <br />}} />
                 </Text>
-                <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{margin: '2em 0', lineHeight: '21px'}}>
+                <Text
+                  $language={language}
+                  $fontSize="18px"
+                  $fontWeight="200"
+                  $color="#E5E5E5"
+                  style={{margin: '2em 0', lineHeight: '21px'}}>
                   <Trans i18nKey="aiplatform_m.desc1" components={{1: <br />}} />
                 </Text>
               </TextWrap>
@@ -471,7 +503,7 @@ const AiPlatform = () => {
                 <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{margin: '2em 0 0 0'}}>
                   {t('aiplatform.subtitle3')}
                 </Text>
-                <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{marginTop: '2em', width: '80vw'}}>
+                <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{marginTop: '2em', width: '85vw'}}>
                   <Trans i18nKey="aiplatform_m.desc3" components={{1: <br />}} />
                 </Text>
               </TextWrap>
@@ -486,7 +518,7 @@ const AiPlatform = () => {
                 <Text $fontSize="18px" $fontWeight="400" $color="#ffffff" style={{margin: '2em 0 0 0'}}>
                   {t('aiplatform.subtitle4')}
                 </Text>
-                <Text $fontSize="16px" $fontWeight="200" $color="#C9C9C9" style={{marginTop: '2em', width: '80vw'}}>
+                <Text $fontSize="16px" $fontWeight="200" $color="#C9C9C9" style={{marginTop: '2em', width: '100vw'}}>
                   <Trans
                     i18nKey="aiplatform_m.desc4"
                     components={{1: <br />, 2: <span style={{color: '#ffffff', fontWeight: '400'}}></span>}}
@@ -500,7 +532,7 @@ const AiPlatform = () => {
                 style={{width: '90%'}}
               />
             </HomeComponentWrap>
-            <HomeComponentWrap style={{}}>
+            <HomeComponentWrap>
               <TextWrap style={{width: '100%', alignItems: 'start', justifyContent: 'center', marginBottom: '2em'}}>
                 <HR $height="1px" $color="#ffffff" $width="20px" style={{alignSelf: 'center'}} />
                 <Text
@@ -555,7 +587,7 @@ const AiPlatform = () => {
                     style={{
                       margin: '0',
                       padding: '0 0 1rem 0',
-                      width: '100%',
+                      width: '100vw',
                       height: 'fit-content',
                       alignItems: 'start',
                       justifyContent: 'start',
@@ -575,7 +607,9 @@ const AiPlatform = () => {
                   </TextWrap>
                   <DescriptionWrap style={{padding: '0', margin: '0', height: 'fit-content'}}>
                     {predictions[activeButton].content.map((item, index) => (
-                      <DescriptionItem key={item + index} style={{fontSize: '16px', fontWeight: '200'}}>
+                      <DescriptionItem
+                        key={item + index}
+                        style={{fontSize: language !== 'KOR' ? '16px' : '15px', fontWeight: '200'}}>
                         {item.split('\\n').map(line => (
                           <span key={'prediction' + line}>
                             {line.includes('Description') ? (
@@ -594,13 +628,17 @@ const AiPlatform = () => {
                 </ComponentWrap>
               </ComponentWrap>
             </HomeComponentWrap>
-            <HomeComponentWrap>
+            <HomeComponentWrap style={{padding: 0}}>
               <TextWrap style={{marginBottom: '5em'}}>
                 <HR $height="1px" $color="#ffffff" $width="20px" />
                 <Text $fontSize="18px" $fontWeight="600" $color="#ffffff" style={{margin: '2em 0 0 0'}}>
                   {t('aiplatform.subtitle6')}
                 </Text>
-                <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{marginTop: '2em'}}>
+                <Text
+                  $fontSize={language !== 'KOR' ? '16px' : '15.5px'}
+                  $fontWeight="300"
+                  $color="#C9C9C9"
+                  style={{marginTop: '2em'}}>
                   <Trans i18nKey="aiplatform_m.desc6" components={{1: <br />}} />
                 </Text>
               </TextWrap>
@@ -612,7 +650,11 @@ const AiPlatform = () => {
               />
 
               <TextWrap style={{width: '86vw', marginTop: '4em'}}>
-                <Text $fontSize="16px" $fontWeight="300" $color="#C9C9C9" style={{marginTop: '2em'}}>
+                <Text
+                  $fontSize={language !== 'KOR' ? '16px' : '15.3px'}
+                  $fontWeight="300"
+                  $color="#C9C9C9"
+                  style={{marginTop: '2em'}}>
                   <Trans i18nKey="aiplatform_m.desc6-2" components={{1: <br />}} />
                 </Text>
               </TextWrap>

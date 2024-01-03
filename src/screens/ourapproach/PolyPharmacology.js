@@ -8,8 +8,11 @@ import {Desktop, Mobile} from '../../utils/MediaQuery';
 import Video from '../../components/Video';
 import {Trans} from 'react-i18next';
 import {t} from 'i18next';
+import Language from '../../atom/Language';
+import {useRecoilValue} from 'recoil';
 
 const PolyPharmacology = () => {
+  const language = useRecoilValue(Language);
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container').scrollTo(0, 0);
@@ -50,7 +53,6 @@ const PolyPharmacology = () => {
         {window.innerWidth <= 900 && <br />}
         {t('polypharma.title')}
       </Path>
-
       <Desktop>
         <HomeComponentWrap style={{padding: '15vh 7vw'}}>
           <TextWrap>
@@ -77,12 +79,16 @@ const PolyPharmacology = () => {
                 height: '2px',
                 border: '1px solid #ffffff',
                 margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-              }}></div>
-            <Text $fontSize={window.innerWidth > 1280 ? '23px' : '16px'} $fontWeight="200" $color="#E5E5E5">
+              }}
+            />
+            <Text
+              $language={language}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '16px'}
+              $fontWeight="300"
+              $color="#E5E5E5">
               <Trans i18nKey="polypharma.desc1" components={{1: <br />}} />
             </Text>
           </TextWrap>
-
           <Image
             id="fadeIn"
             src={
@@ -95,8 +101,9 @@ const PolyPharmacology = () => {
           />
           <HR $height="2px" $color="#9A9A9A" />
           <Text
+            $language={language}
             $fontSize={window.innerWidth > 1280 ? '20px' : '16px'}
-            $fontWeight="200"
+            $fontWeight="300"
             $color="#ffffff"
             style={{marginTop: '4em', width: '80vw'}}>
             <Trans i18nKey="polypharma.desc2" components={{1: <br />}} />
@@ -123,7 +130,12 @@ const PolyPharmacology = () => {
               <Text $fontSize="23px" $fontWeight="400" $color="#ffffff" style={{margin: '0'}}>
                 {t('polypharma.subtitle')}
               </Text>
-              <Text $fontSize="18px" $fontWeight="200" $color="#E5E5E5" style={{marginTop: '2em', lineHeight: '21px'}}>
+              <Text
+                $language={language}
+                $fontSize="18px"
+                $fontWeight="200"
+                $color="#E5E5E5"
+                style={{marginTop: '2em', lineHeight: '21px'}}>
                 <Trans i18nKey="polypharma_m.desc1" components={{1: <br />}} />
               </Text>
             </TextWrap>
@@ -134,12 +146,13 @@ const PolyPharmacology = () => {
               alt="polypharm_middle"
               style={{margin: '5vh 0', width: '90%', opacity: '1'}}
             />
-            <HR $height="1px" $width="20px" $color="#9A9A9A" />
+            <HR $height="1px" style={{width: '20px'}} $color="#9A9A9A" />
             <Text
+              $language={language}
               $fontSize="16px"
               $fontWeight="300"
               $color="#D3D3D3"
-              style={{marginTop: '2em', width: '90vw', lineHeight: '1.2em'}}>
+              style={{marginTop: '2em', marginBottom: '20vh', width: '90vw', lineHeight: '1.2em'}}>
               <Trans i18nKey="polypharma_m.desc2" components={{1: <br />}} />
             </Text>
           </HomeComponentWrap>

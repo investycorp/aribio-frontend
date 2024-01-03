@@ -201,8 +201,8 @@ const MediaKit = () => {
           </Desktop>
 
           <Mobile>
-            <HomeComponentWrap style={{padding: '15vh 7vw'}}>
-              <TextWrap style={{width: '70vw'}}>
+            <HomeComponentWrap style={{padding: '15vh 0'}}>
+              <TextWrap style={{width: '100vw'}}>
                 <Text $fontWeight="300" $color="#939598" style={{marginBottom: '0', fontSize: '16px'}}>
                   {t('media.title')}
                 </Text>
@@ -215,12 +215,11 @@ const MediaKit = () => {
                     margin: '28px 0',
                   }}
                 />
-                <Text $fontWeight="500" $color="#ffffff" style={{fontSize: '23px'}}>
+                <Text $fontWeight="500" $color="#ffffff" style={{fontSize: language !== 'KOR' ? '23px' : '20px'}}>
                   {t('media.subtitle')}
                 </Text>
               </TextWrap>
             </HomeComponentWrap>
-
             <HomeComponentWrap>
               {currentVideo?.url && (
                 <ComponentWrap style={{justifyContent: 'center', alignItems: 'center', padding: '0'}}>

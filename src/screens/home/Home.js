@@ -271,8 +271,7 @@ const Home = () => {
                       cursor: 'pointer',
                     }}
                   />
-                  <ComponentTextWrap
-                    style={{padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem', marginBottom: 27}}>
+                  <ComponentTextWrap style={{padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem'}}>
                     <div
                       style={{
                         display: 'flex',
@@ -406,7 +405,7 @@ const Home = () => {
                       backgroundColor: '#B1B1B1',
                     }}
                   />
-                  <ComponentTextWrap>
+                  <ComponentTextWrap style={{padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem'}}>
                     <div
                       style={{
                         display: 'flex',
@@ -440,7 +439,14 @@ const Home = () => {
                     </div>
                     <ComponentText
                       style={{
-                        fontSize: window.innerWidth > 1280 ? (language !== 'KOR' ? '28px' : '24px') : '14px',
+                        fontSize:
+                          window.innerWidth > 1280
+                            ? language !== 'KOR'
+                              ? '28px'
+                              : '24px'
+                            : language !== 'KOR'
+                            ? '16px'
+                            : '14px',
                         fontWeight: '300',
                         color: '#AFAFAF',
                       }}>
@@ -487,7 +493,14 @@ const Home = () => {
                 }}>
                 <ComponentText
                   style={{
-                    fontSize: window.innerWidth > 1280 ? (language !== 'KOR' ? '28px' : '24px') : '16px',
+                    fontSize:
+                      window.innerWidth > 1280
+                        ? language !== 'KOR'
+                          ? '28px'
+                          : '24px'
+                        : language !== 'KOR'
+                        ? '16px'
+                        : '14px',
                     fontWeight: '300',
                     color: '#AFAFAF',
                   }}>
@@ -518,7 +531,14 @@ const Home = () => {
                 }}>
                 <ComponentText
                   style={{
-                    fontSize: window.innerWidth > 1280 ? (language !== 'KOR' ? '28px' : '24px') : '16px',
+                    fontSize:
+                      window.innerWidth > 1280
+                        ? language !== 'KOR'
+                          ? '28px'
+                          : '24px'
+                        : language !== 'KOR'
+                        ? '16px'
+                        : '14px',
                     fontWeight: '300',
                     color: '#AFAFAF',
                   }}>
@@ -602,7 +622,7 @@ const Home = () => {
                 height: '100vh',
               }}>
               <HomeAboutUsTextWrap>
-                <HeadLineText fontSize="23px" style={{fontWeight: '400'}}>
+                <HeadLineText style={{fontWeight: '400', fontSize: language !== 'KOR' ? '23px' : '20px'}}>
                   <span
                     className="highlight1"
                     style={{
@@ -679,18 +699,23 @@ const Home = () => {
                     }}>
                     {t('home_m.aboutus.7')}
                   </span>
-                  <br />
-                  <span
-                    className="highlight8"
-                    style={{
-                      color:
-                        document.querySelector('.highlight8')?.getBoundingClientRect().top < window.innerHeight / 1.5
-                          ? '#ffffff'
-                          : 'rgba(255, 255, 255, 0.5)',
-                    }}>
-                    {t('home_m.aboutus.8')}
-                  </span>
-                  <br />
+                  {language !== 'KOR' && (
+                    <>
+                      <br />
+                      <span
+                        className="highlight8"
+                        style={{
+                          color:
+                            document.querySelector('.highlight8')?.getBoundingClientRect().top <
+                            window.innerHeight / 1.5
+                              ? '#ffffff'
+                              : 'rgba(255, 255, 255, 0.5)',
+                        }}>
+                        {t('home_m.aboutus.8')}
+                      </span>
+                      <br />
+                    </>
+                  )}
                 </HeadLineText>
                 <SubPageButton
                   title="About Us"
@@ -763,7 +788,8 @@ const Home = () => {
                         }}
                       />
                     </div>
-                    <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
+                    <ComponentText
+                      style={{fontSize: language !== 'KOR' ? '18px' : '16px', fontWeight: '300', color: '#AFAFAF'}}>
                       {t('home_m.ourapproach.desc_1')}
                     </ComponentText>
                   </ComponentTextWrap>
@@ -820,7 +846,12 @@ const Home = () => {
                       />
                     </div>
                     <ComponentText
-                      style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0 0.5rem 0 1rem'}}>
+                      style={{
+                        fontSize: language !== 'KOR' ? '18px' : '16px',
+                        fontWeight: '300',
+                        color: '#AFAFAF',
+                        padding: '0 0.5rem 0 1rem',
+                      }}>
                       {t('home_m.ourapproach.desc_2')}
                     </ComponentText>
                   </ComponentTextWrap>
@@ -869,7 +900,8 @@ const Home = () => {
                         }}
                       />
                     </div>
-                    <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
+                    <ComponentText
+                      style={{fontSize: language !== 'KOR' ? '18px' : '16px', fontWeight: '300', color: '#AFAFAF'}}>
                       {t('home_m.ourapproach.desc_3')}
                     </ComponentText>
                   </ComponentTextWrap>
@@ -907,7 +939,6 @@ const Home = () => {
                   }
                 />
               )}
-
               <ComponentText
                 style={{
                   fontSize: '20px',
@@ -921,7 +952,7 @@ const Home = () => {
 
               <ComponentText
                 style={{
-                  fontSize: '18px',
+                  fontSize: language !== 'KOR' ? '18px' : '16px',
                   fontWeight: '300',
                   color: '#AFAFAF',
                   alignSelf: 'start',
@@ -955,7 +986,13 @@ const Home = () => {
                   {t('home_m.press.title')}
                 </ComponentText>
                 <ComponentText
-                  style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: 0, margin: '0 0 2rem 0'}}>
+                  style={{
+                    fontSize: language !== 'KOR' ? '18px' : '16px',
+                    fontWeight: '300',
+                    color: '#AFAFAF',
+                    padding: 0,
+                    margin: '0 0 2rem 0',
+                  }}>
                   {t('home_m.press.content')}
                 </ComponentText>
               </div>

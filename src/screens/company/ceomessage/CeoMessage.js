@@ -146,14 +146,14 @@ const CeoMessage = () => {
                 </Text> */}
               </TextWrap>
               <Text
-                $fontSize={window.innerWidth > 1280 ? (language !== 'KOR' ? '20px' : '18px') : '12px'}
+                $fontSize={window.innerWidth > 1280 ? (language !== 'KOR' ? '20px' : '18px') : '13px'}
                 $fontWeight="200"
                 $color="#ffffff"
                 style={{
                   textAlign: 'end',
                   marginTop: window.innerWidth > 1280 ? '63px' : '24px',
                   marginBottom: 0,
-                  paddingRight: 80,
+                  paddingRight: window.innerWidth > 1280 ? '17vw' : '10.4vw',
                 }}>
                 {t('ceomessage.message2')}
               </Text>
@@ -175,7 +175,7 @@ const CeoMessage = () => {
                 $fontWeight="400"
                 $color="#FFFFFF"
                 style={{
-                  lineHeight: language !== 'KOR' ? '1.5em' : '1.8em',
+                  lineHeight: '1.5em',
                   textAlign: 'start',
                   margin: '0',
                   padding: '0',
@@ -191,7 +191,7 @@ const CeoMessage = () => {
                   textAlign: 'start',
                   margin: '0',
                   padding: '0 0 0 0',
-                  lineHeight: language !== 'KOR' ? '1.7em' : '2em',
+                  lineHeight: '1.7em',
                   // wordSpacing: '0.2rem',
                   // letterSpacing: '0.02rem',
                 }}>
@@ -243,7 +243,12 @@ const CeoMessage = () => {
                 $fontSize="16px"
                 $fontWeight="300"
                 $color="#ffffff"
-                style={{width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px'}}>
+                style={{
+                  width: '100%',
+                  textAlign: 'center',
+                  margin: '0',
+                  lineHeight: language !== 'KOR' ? '20px' : '24px',
+                }}>
                 <Trans i18nKey="ceomessage_m.message" components={{1: <br />}} />
               </Text>
               <Text
@@ -283,7 +288,7 @@ const CeoMessage = () => {
             <ContentBox style={{padding: '4rem 5vw 0 5vw', gap: '1rem', marginBottom: '10em'}}>
               <div style={{width: '20px', height: '1px', backgroundColor: '#939598', marginTop: '5em'}} />
               <Text
-                $fontSize="18px"
+                $fontSize={language !== 'KOR' ? '18px' : '16px'}
                 $fontWeight="400"
                 $color="#FFFFFF"
                 style={{textAlign: 'start', margin: '0', padding: '0 '}}>
@@ -291,7 +296,7 @@ const CeoMessage = () => {
               </Text>
 
               <Text
-                $fontSize="16px"
+                $fontSize={language !== 'KOR' ? '16px' : '14px'}
                 $fontWeight="300"
                 $color="#EAEAEA"
                 style={{textAlign: 'start', margin: '0', padding: '0', lineHeight: '1.5'}}>

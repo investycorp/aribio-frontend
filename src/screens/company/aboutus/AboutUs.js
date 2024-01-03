@@ -144,7 +144,11 @@ const AboutUs = () => {
                 {t('aboutus.subtitle')}
               </Text>
               <hr style={{width: '20px', border: '1px solid #ffffff', margin: '0 0 2rem 0'}} />
-              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{lineHeight: '20px', fontSize: '18px'}}>
+              <Text
+                $fontSize="18px"
+                $fontWeight="300"
+                $color="#D3D3D3"
+                style={{lineHeight: '20px', fontSize: language !== 'KOR' ? '18px' : '16px'}}>
                 <Trans i18nKey="aboutus_m.desc" components={{1: <br />}} />
               </Text>
             </TextWrap>
