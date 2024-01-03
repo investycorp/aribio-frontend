@@ -236,10 +236,6 @@ const Tab1 = ({listItems, index}) => {
   };
 
   useEffect(() => {
-    console.log('ST', scrollTab, 'CT', currentTab);
-  }, [currentTab, scrollTab]);
-
-  useEffect(() => {
     const scrollY = document.getElementsByClassName(currentTab)[0]?.offsetTop;
     document.getElementsByClassName('description-grid')[0]?.scrollTo(0, scrollY, 'smooth');
   }, [currentTab]);

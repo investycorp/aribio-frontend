@@ -1,8 +1,8 @@
-import React, { Children, useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { RecoilRoot, useRecoilState } from 'recoil';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import React, {Children, useEffect, useState} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {ThemeProvider} from 'styled-components';
+import {RecoilRoot, useRecoilState} from 'recoil';
+import {QueryClient, QueryClientProvider} from 'react-query';
 
 import theme from './themes/theme';
 import GlobalStyle from './components/GlobalStyle';
@@ -12,6 +12,7 @@ import History from './screens/company/history/History';
 import Career from './screens/career/Career';
 import CeoMessage from './screens/company/ceomessage/CeoMessage';
 import Ci from './screens/company/ci/Ci';
+import Moral from './screens/company/moral/Moral';
 import PolyPharmacology from './screens/ourapproach/PolyPharmacology';
 import AiPlatform from './screens/ourapproach/AiPlatform';
 import Publications from './screens/ourapproach/Publications';
@@ -31,7 +32,7 @@ import CareerDetail from './screens/career/components/CareerDetail';
 const queryClient = new QueryClient();
 
 function App() {
-  document.addEventListener('contextmenu', (event) => {
+  document.addEventListener('contextmenu', event => {
     event.preventDefault();
   });
 
@@ -76,6 +77,7 @@ function App() {
               <Route path="/company/history" element={<History />} />
               <Route path="/company/ceomessage" element={<CeoMessage />} />
               <Route path="/company/ci" element={<Ci />} />
+              <Route path="/company/moral" element={<Moral />} />
               <Route path="/ourapproach/poly-pharmacology" element={<PolyPharmacology />} />
               <Route path="/ourapproach/aiplatform" element={<AiPlatform />} />
               <Route path="/ourapproach/publications" element={<Publications />} />

@@ -1,4 +1,48 @@
 {
+  "header": {
+    "menu": {
+      "company": "Company",
+      "ourapproach": "Our Approach",
+      "pipeline": "Pipeline",
+      "irpr": "IR & PR",
+      "career": "Career",
+      "contact": "Contact",
+      "innovation": "Open Innovation"
+    },
+    "subMenu": {
+      "company": {
+        "aboutus": "ABOUT US",
+        "history": "HISTORY",
+        "ceomessage": "CEO MESSAGE",
+        "ci": "CORPORATE IDENTITY"
+      },
+      "ourapproach": {
+        "pp": "POLY-PHARMACOLOGY",
+        "ai": "AI PLATFORM",
+        "publication": "PUBLICATION"
+      },
+      "pipeline": {
+        "pipeline": "PIPELINE"
+      },
+      "career": {
+        "career": "CAREER"
+      },
+      "contact": {
+        "partner": "PARTNER",
+        "contactus": "CONTACT US"
+      },
+      "openinnovation": {
+        "openinnovation": "OPEN INNOVATION",
+        "health": "DIGITAL HEALTH",
+        "memore": "Memo:Re PROJECT"
+      },
+      "irpr": {
+        "notice": "NOTICE",
+        "press": "PRESS RELEASE",
+        "media": "MEDIA"
+      }
+    }
+  },
   "footer": {
     "contact": "CONTACT US",
     "policy": "Privacy Policy",
@@ -112,33 +156,47 @@
     "headline": "CORPORATE<1 />IDENTITY",
     "title": "CORPORATE IDENTITY",
     "subtitle": "AriBio CI",
+    "desc1": "We are dedicated to pioneering treatments neurodegenerative diseases,<1/> offering innovative therapies for a brighter future.",
     "color": {
       "blue": "AriBio Blue",
       "pink": "AriBio Pink",
       "gray": "AriBio Gray"
     },
     "content": {
-      "ari": {
-        "title": "Ari:",
-        "desc": "Traditional Korean term for ‘Wide and Deep, Beauty, A Person with Wisdom’"
-      },
-      "bio": {
-        "title": "Bio:",
-        "desc": "Derived from the Greek word ‘bios’ meaning ‘life’"
+      "01": "‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable diseases and become a biopharmaceutical leader of South Korea.",
+      "02": {
+        "ari": {
+          "title": "Ari:",
+          "desc": "Traditional Korean term for ‘Wide and Deep, Beauty, A Person with Wisdom’"
+        },
+        "bio": {
+          "title": "Bio:",
+          "desc": "Derived from the Greek word ‘bios’ meaning ‘life’"
+        }
       }
     },
     "dl": {
       "ai": "AI download",
       "png": "PNG download"
-    },
-    "desc1": "We are dedicated to pioneering treatments neurodegenerative diseases,<1/> offering innovative therapies for a brighter future.",
-    "desc2": "‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable diseases and become a biopharmaceutical leader of South Korea."
+    }
   },
   "ci_m": {
     "desc1": " We are dedicated to pioneering <1/> treatments for neurodegenerative <1/> diseases, offering innovative <1/> therapies for a brighter future.",
-    "desc2": "‘AriBio’ embodies our ambition to contribute to the world <1/> by developing therapeutics for incurable diseases <1/> and become a biopharmaceutical leader of South Korea.",
-    "ari": "Traditional Korean term for <1/> ‘Wide and Deep, Beauty, A Person with Wisdom’",
-    "bio": "Derived from the Greek word ‘bios’ <1/> meaning ‘life’"
+    "content": {
+      "01": "‘AriBio’ embodies our ambition to contribute to the world <1/> by developing therapeutics for incurable diseases <1/> and become a biopharmaceutical leader of South Korea.",
+      "02": {
+        "ari": {
+          "desc": "Traditional Korean term for <1/> ‘Wide and Deep, Beauty, A Person with Wisdom’"
+        },
+        "bio": {
+          "desc": "Derived from the Greek word ‘bios’ <1/> meaning ‘life’"
+        }
+      }
+    }
+  },
+  "moral": {
+    "headline": "MORAL<1 />MANAGEMENT",
+    "title": "MORAL MANAGEMENT"
   },
   "polypharma": {
     "headline": "POLY- <1 /> PHARMACOLOGY",
@@ -240,7 +298,7 @@
     "desc3": "ARIS is fundamentally structured <1/> around two concepts, <1/> “BRAIN” and its “Prediction Algorithms”.",
     "desc4": "BRAIN, short for <1/> <2> “The Bridge between AI and In Silico, <1/> In Vitro, and In Vivo”, </2> <1/> has two primary components: <1/> a Knowledge Graph (KG) <1/> and a Large Language Model (LLM). <1/> Together, they form a cohesive <2>Bridge</2>, <1/> seamlessly linking the KG and ARIS <1/> <2> Prediction Algorithms</2> to real-world <1/> applications across <2> In Silico, In Vitro, <1/> and In Vivo </2> domains.",
     "desc5": "The “Prediction Algorithms” consist of a <1/> range of advanced AI prediction models and <1/> simulation tools designed specifically for the <1/> fields of chemistry and biology. Each model <1/> and solution is carefully crafted to provide <1/> researchers with practical and direct <1/> applications, both on its own and in <1/> collaboration with the BRAIN platform.",
-    "desc6": "Since its origin, <1/> the development and objectives of ARIS <1/> have always been closely aligned with <1/> AriBio’s polypharmacological approach. <1/> Hence, we emphasize harnessing <1/> contextual information when <1/> discovering novel polypharmacological <1/> drug candidates. <1/> When considering contextual information <1/> for polypharmacological drug discovery, <1/> pathway data is most critical.",
+    "desc6": "Since its origin, <1/> the development and objectives of ARIS <1/> have always been closely aligned with <1/> AriBio’s polypharmacological approach. <1/> Hence, we emphasize harnessing <1/> contextual information when <1/> discovering novel polypharmacological <1/> drug candidates. <1/> When considering contextual information <1/> for polypharmacological drug discovery, <1/> pathway data is most critical. <1/> <1/> We extract this pathway data from <1/> various sources, leveraging two advanced <1/> Deep Learning techniques: <1/> Named Entity Recognition (NER) and <1/> Relation Extraction (RE). <1/> The execution flow and interplay of these <1/> methods are illustrated below:",
     "desc6-2": " At the heart of polypharmacological drug <1/> discovery lies the pivotal step of target <1/> identification. This involves discerning <1/> which biological targets a drug <1/> should engage with, to address a specific <1/> disease. The inherent challenge stems <1/> from the intricate interdependencies <1/> within our body; no single component <1/> operates in isolation. <1/> A drug’s interaction with a singular protein <1/> isn’t the sole therapeutic agent; <1/> it’s the cascade of subsequent <1/> interactions that collectively contribute <1/> to disease treatment. Hence, pinpointing <1/> a viable drug target necessitates <1/> a profound comprehension of these <1/> protein interplays within the body - <1/> a knowledge rooted in pathway data. <1/>"
   },
 

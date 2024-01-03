@@ -13,8 +13,11 @@ import Video from '../../../components/Video';
 import {Trans} from 'react-i18next';
 import {t} from 'i18next';
 import MoveUp from '../../../atom/MoveUp';
+import Language from '../../../atom/Language';
+import {useRecoilValue} from 'recoil';
 
 const AboutUs = () => {
+  const language = useRecoilValue(Language);
   const [tabNames, setTabNames] = useState(['Leadership', 'Advisors']);
   const [currentTab, setCurrentTab] = useState('Leadership');
   const [moveUp, setMoveUp] = useRecoilState(MoveUp);
@@ -101,7 +104,13 @@ const AboutUs = () => {
                   margin: '2.5rem 0 4rem 0',
                 }}
               />
-              <Text $fontWeight="300" $color="#D3D3D3" style={{fontSize: window.innerWidth > 1280 ? '23px' : '14px'}}>
+              <Text
+                $fontWeight="300"
+                $color="#D3D3D3"
+                style={{
+                  fontSize: window.innerWidth > 1280 ? (language !== 'KOR' ? '23px' : '21px') : '14px',
+                  lineHeight: language !== 'KOR' ? '1.65em' : '1.85em',
+                }}>
                 <Trans i18nKey="aboutus.desc" components={{1: <br />}} />
               </Text>
             </TextWrap>

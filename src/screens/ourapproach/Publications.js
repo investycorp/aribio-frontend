@@ -104,6 +104,7 @@ const Publications = () => {
   const navigate = useNavigate();
   const {data, isLoading} = usePublicationList();
   const [searchValue, setSearchValue] = useState('');
+  const [searchTermShown, setSearchTermShown] = useState('');
   const [irDocs, setIrDocs] = useState([]);
   const [filteredList, setFilteredList] = useState(irDocs);
   const [dataList, setDataList] = useState([]);
@@ -143,7 +144,7 @@ const Publications = () => {
         doc.title?.toLowerCase()?.includes(searchValue?.toLowerCase()) ||
         doc.journal?.toLowerCase()?.includes(searchValue?.toLowerCase()),
     );
-
+    setSearchTermShown(searchValue);
     setFilteredList(filtered);
   };
 
@@ -413,9 +414,15 @@ const Publications = () => {
                   </ComponentWrap>
                 ))
               ) : (
-                <NoResult>
-                  {t('publication.noresult')} '{searchValue}'
-                </NoResult>
+                <ComponentWrap style={{gap: '2em', height: '50vh', justifyContent: 'center'}}>
+                  {filteredList.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                    <Text>{t('press.nothing')}</Text>
+                  ) : (
+                    <Text>
+                      {t('press.searchNothing')} '{searchTermShown}'
+                    </Text>
+                  )}
+                </ComponentWrap>
               )}
             </GridComponentWrap>
           </HomeComponentWrap>
@@ -583,10 +590,14 @@ const Publications = () => {
                   </ComponentWrap>
                 ))
               ) : (
-                <ComponentWrap>
-                  <NoResult>
-                    {t('publication.noresult')} '{searchValue}'
-                  </NoResult>
+                <ComponentWrap style={{gap: '1em', height: '50vh', justifyContent: 'center'}}>
+                  {filteredList.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                    <Text>{t('press.nothing')}</Text>
+                  ) : (
+                    <Text>
+                      {t('press.searchNothing')} '{searchTermShown}'
+                    </Text>
+                  )}
                 </ComponentWrap>
               )}
             </GridComponentWrap>

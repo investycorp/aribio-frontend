@@ -314,7 +314,7 @@ const Notice = () => {
                   ) : (
                     <ComponentWrap style={{gap: '2em', height: '50vh', justifyContent: 'center'}}>
                       <HR />
-                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                      {filteredList.length < 1 && (!searchTermShown || searchTermShown === '') ? (
                         <Text>{t('notice.nothing')}</Text>
                       ) : (
                         <Text>
@@ -356,6 +356,7 @@ const Notice = () => {
                 )}
               </HomeComponentWrap>
             </Desktop>
+
             <Mobile>
               <HomeComponentWrap>
                 <TextWrap style={{width: '90vw'}}>
@@ -463,7 +464,7 @@ const Notice = () => {
                   ) : (
                     <ComponentWrap style={{gap: '2em', height: '30vh', justifyContent: 'center'}}>
                       <HR style={{width: '24px', height: '1px'}} />
-                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                      {filteredList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
                         <Text style={{fontSize: '16px'}}>{t('notice.nothing')}</Text>
                       ) : (
                         <Text style={{fontSize: '16px'}}>

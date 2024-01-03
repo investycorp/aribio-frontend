@@ -37,7 +37,7 @@ import Video from '../../components/Video';
 import VideoFrame from '../../components/VideoFrame';
 import usePopup from '../../hooks/popup/usePopup';
 import arrow from '../../assets/images/arrow.svg';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import usePressHomeList from '../../hooks/home/usePressHomeList';
 
 const Home = () => {
@@ -124,19 +124,24 @@ const Home = () => {
     <>
       <Container className="container">
         <Header />
-
-        <Video
-          page="home"
-          src={
-            window.innerWidth > 1280
-              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0100PB_VD.mp4'
-              : window.innerWidth > 900
-              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
-              : window.innerWidth > window.innerHeight
-              ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
-              : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0300PB_VD.mp4'
-          }
-        />
+        <div
+          style={{
+            backgroundColor: '#000000',
+          }}>
+          <Video
+            page="home"
+            videoWidth={'auto'}
+            src={
+              window.innerWidth > 1280
+                ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0100PB_VD.mp4'
+                : window.innerWidth > 900
+                ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
+                : window.innerWidth > window.innerHeight
+                ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0200PB_VD.mp4'
+                : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0300PB_VD.mp4'
+            }
+          />
+        </div>
         {window.innerWidth > 900 && <SideSlider />}
 
         {<Modal />}
@@ -161,7 +166,10 @@ const Home = () => {
             </HomeComponentWrap>
             <HomeComponentWrap className="home home_2">
               <HomeAboutUsTextWrap style={{height: '100vh', marginBottom: '5.5rem'}}>
-                <HeadLineText id="target" $fontSize="48px">
+                <HeadLineText
+                  id="target"
+                  $fontSize="48px"
+                  style={{lineHeight: language !== 'KOR' ? '1.45em' : '1.3em'}}>
                   <span
                     className="highlight1"
                     style={{
@@ -197,7 +205,6 @@ const Home = () => {
                     }}>
                     {t('home.aboutus.3')}
                   </span>
-
                   <br />
                   <span
                     className="highlight4"
@@ -255,8 +262,7 @@ const Home = () => {
                     alignItems: 'center',
                     width: '100%',
                     height: '100%',
-                  }}
-                >
+                  }}>
                   <div
                     style={{
                       width: '2px',
@@ -265,8 +271,9 @@ const Home = () => {
                       cursor: 'pointer',
                     }}
                   />
-                  <ComponentTextWrap style={{padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem', marginBottom: 27}}>
-                    <div 
+                  <ComponentTextWrap
+                    style={{padding: window.innerWidth > 1280 ? '2rem 5rem' : '1rem 3rem', marginBottom: 27}}>
+                    <div
                       style={{
                         display: 'flex',
                         flexDirection: 'row',
@@ -274,8 +281,9 @@ const Home = () => {
                         gap: 32,
                         cursor: 'pointer',
                       }}
-                      onClick={() => { navigate('/ourapproach/poly-pharmacology') }}  
-                    >
+                      onClick={() => {
+                        navigate('/ourapproach/poly-pharmacology');
+                      }}>
                       <ComponentText
                         style={{
                           fontSize: window.innerWidth > 1280 ? '48px' : '30px',
@@ -298,7 +306,7 @@ const Home = () => {
                     </div>
                     <ComponentText
                       style={{
-                        fontSize: window.innerWidth > 1280 ? '28px' : '14px',
+                        fontSize: window.innerWidth > 1280 ? (language !== 'KOR' ? '28px' : '24px') : '14px',
                         fontWeight: '300',
                         color: '#AFAFAF',
                       }}>
@@ -324,7 +332,7 @@ const Home = () => {
                     height: '100%',
                   }}>
                   <ComponentTextWrap>
-                  <div 
+                    <div
                       style={{
                         display: 'flex',
                         flexDirection: 'row',
@@ -332,8 +340,9 @@ const Home = () => {
                         gap: 32,
                         cursor: 'pointer',
                       }}
-                      onClick={() => { navigate('/pipeline') }}  
-                    >
+                      onClick={() => {
+                        navigate('/pipeline');
+                      }}>
                       <ComponentText
                         style={{
                           fontSize: window.innerWidth > 1280 ? '48px' : '30px',
@@ -352,19 +361,23 @@ const Home = () => {
                           height: window.innerWidth > 1280 ? '20px' : '12px',
                           padding: window.innerWidth > 1280 ? '12px' : '8px',
                         }}
-                        />
+                      />
                     </div>
                     <ComponentText
                       style={{
-                        fontSize: window.innerWidth > 1280 ? '28px' : '14px',
+                        fontSize: window.innerWidth > 1280 ? (language !== 'KOR' ? '28px' : '24px') : '14px',
                         fontWeight: '300',
                         color: '#AFAFAF',
                       }}>
                       {t('home.ourapproach.desc_2_1')}
                       <br />
                       {t('home.ourapproach.desc_2_2')}
-                      <br />
-                      {t('home.ourapproach.desc_2_3')}
+                      {language !== 'KOR' && (
+                        <>
+                          <br />
+                          {t('home.ourapproach.desc_2_3')}
+                        </>
+                      )}
                     </ComponentText>
                   </ComponentTextWrap>
                   <div
@@ -391,9 +404,10 @@ const Home = () => {
                       width: '2px',
                       height: window.innerWidth > 1280 ? '200px' : '100px',
                       backgroundColor: '#B1B1B1',
-                    }}/>
+                    }}
+                  />
                   <ComponentTextWrap>
-                  <div 
+                    <div
                       style={{
                         display: 'flex',
                         flexDirection: 'row',
@@ -401,8 +415,9 @@ const Home = () => {
                         gap: 32,
                         cursor: 'pointer',
                       }}
-                      onClick={() => { navigate('/career') }}  
-                    >
+                      onClick={() => {
+                        navigate('/career');
+                      }}>
                       <ComponentText
                         style={{
                           fontSize: window.innerWidth > 1280 ? '48px' : '30px',
@@ -421,11 +436,11 @@ const Home = () => {
                           height: window.innerWidth > 1280 ? '20px' : '12px',
                           padding: window.innerWidth > 1280 ? '12px' : '8px',
                         }}
-                        />
+                      />
                     </div>
                     <ComponentText
                       style={{
-                        fontSize: window.innerWidth > 1280 ? '28px' : '14px',
+                        fontSize: window.innerWidth > 1280 ? (language !== 'KOR' ? '28px' : '24px') : '14px',
                         fontWeight: '300',
                         color: '#AFAFAF',
                       }}>
@@ -435,7 +450,7 @@ const Home = () => {
                 </div>
               </ComponentGridWrap>
               <ComponentGridWrap style={{alignItems: 'flex-end'}}>
-                <HomeComponentImageWrap $src={home_ourapproach3}></HomeComponentImageWrap>
+                <HomeComponentImageWrap $src={home_ourapproach3} />
               </ComponentGridWrap>
             </HomeComponentWrap>
             <HomeComponentWrap
@@ -471,7 +486,11 @@ const Home = () => {
                   width: '100%',
                 }}>
                 <ComponentText
-                  style={{fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF'}}>
+                  style={{
+                    fontSize: window.innerWidth > 1280 ? (language !== 'KOR' ? '28px' : '24px') : '16px',
+                    fontWeight: '300',
+                    color: '#AFAFAF',
+                  }}>
                   {t('home.media_kit.content')}
                 </ComponentText>
                 <SubPageButton linkTo="/irpr/mediakit" title={t('home.media_kit.viewall')} />
@@ -498,7 +517,11 @@ const Home = () => {
                   width: '100%',
                 }}>
                 <ComponentText
-                  style={{fontSize: window.innerWidth > 1280 ? '28px' : '16px', fontWeight: '300', color: '#AFAFAF'}}>
+                  style={{
+                    fontSize: window.innerWidth > 1280 ? (language !== 'KOR' ? '28px' : '24px') : '16px',
+                    fontWeight: '300',
+                    color: '#AFAFAF',
+                  }}>
                   {t('home.press.content')}
                 </ComponentText>
                 <SubPageButton linkTo="/irpr/pressrelease" title={t('home.press.viewall')} />
@@ -522,10 +545,9 @@ const Home = () => {
                       padding: '0',
                       minHeight: window.innerWidth > 1280 ? '277px' : '162px',
                       width: pressList?.length === 1 ? '86vw' : 'auto',
-                      height: pressList?.length < 3 ? window.innerWidth > 1280 ? '277px' : '162px' : 'auto'
+                      height: pressList?.length < 3 ? (window.innerWidth > 1280 ? '277px' : '162px') : 'auto',
                     }}
-                    onClick={() => navigate(`/irpr/pressrelease/${item?.id}`)}
-                    >
+                    onClick={() => navigate(`/irpr/pressrelease/${item?.id}`)}>
                     <HomeComponentImageWrap
                       $src={item.imageUrl}
                       style={{
@@ -540,7 +562,7 @@ const Home = () => {
                         fontWeight: '300',
                         position: 'relative',
                       }}>
-                      <FilterShadow style={{ cursor: 'pointer',}} />
+                      <FilterShadow style={{cursor: 'pointer'}} />
                       <p
                         style={{
                           position: 'relative',
@@ -572,7 +594,7 @@ const Home = () => {
 
           <Mobile>
             <HomeComponentWrap className="home home_1">
-              <MainImgTextWrap style={{height: videoHeight}}></MainImgTextWrap>
+              <MainImgTextWrap style={{height: videoHeight}} />
             </HomeComponentWrap>
             <HomeComponentWrap
               className="home home_2"
@@ -710,7 +732,7 @@ const Home = () => {
                   }}>
                   <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
                   <ComponentTextWrap>
-                  <div 
+                    <div
                       style={{
                         display: 'flex',
                         flexDirection: 'row',
@@ -718,8 +740,9 @@ const Home = () => {
                         gap: 8,
                         cursor: 'pointer',
                       }}
-                      onClick={() => { navigate('/ourapproach/poly-pharmacology') }}  
-                    >
+                      onClick={() => {
+                        navigate('/ourapproach/poly-pharmacology');
+                      }}>
                       <ComponentText
                         style={{
                           fontSize: 20,
@@ -738,7 +761,7 @@ const Home = () => {
                           height: 12,
                           padding: 4,
                         }}
-                        />
+                      />
                     </div>
                     <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
                       {t('home_m.ourapproach.desc_1')}
@@ -765,7 +788,7 @@ const Home = () => {
                     gridColumn: '2/4',
                   }}>
                   <ComponentTextWrap>
-                  <div 
+                    <div
                       style={{
                         display: 'flex',
                         flexDirection: 'row',
@@ -773,8 +796,9 @@ const Home = () => {
                         gap: 8,
                         cursor: 'pointer',
                       }}
-                      onClick={() => { navigate('/pipeline') }}  
-                    >
+                      onClick={() => {
+                        navigate('/pipeline');
+                      }}>
                       <ComponentText
                         style={{
                           fontSize: 20,
@@ -793,7 +817,7 @@ const Home = () => {
                           height: 12,
                           padding: 4,
                         }}
-                        />
+                      />
                     </div>
                     <ComponentText
                       style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: '0 0.5rem 0 1rem'}}>
@@ -814,7 +838,7 @@ const Home = () => {
                   }}>
                   <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
                   <ComponentTextWrap>
-                  <div 
+                    <div
                       style={{
                         display: 'flex',
                         flexDirection: 'row',
@@ -822,8 +846,9 @@ const Home = () => {
                         gap: 8,
                         cursor: 'pointer',
                       }}
-                      onClick={() => { navigate('/career') }}  
-                    >
+                      onClick={() => {
+                        navigate('/career');
+                      }}>
                       <ComponentText
                         style={{
                           fontSize: 20,
@@ -842,7 +867,7 @@ const Home = () => {
                           height: 12,
                           padding: 4,
                         }}
-                        />
+                      />
                     </div>
                     <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF'}}>
                       {t('home_m.ourapproach.desc_3')}
@@ -925,10 +950,12 @@ const Home = () => {
                   justifyContent: 'start',
                   width: '100%',
                 }}>
-                <ComponentText style={{fontSize: '20px', fontWeight: '500', alignSelf: 'start', padding: 0, margin: '0 0 0.5rem 0'}}>
+                <ComponentText
+                  style={{fontSize: '20px', fontWeight: '500', alignSelf: 'start', padding: 0, margin: '0 0 0.5rem 0'}}>
                   {t('home_m.press.title')}
                 </ComponentText>
-                <ComponentText style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: 0, margin: '0 0 2rem 0'}}>
+                <ComponentText
+                  style={{fontSize: '18px', fontWeight: '300', color: '#AFAFAF', padding: 0, margin: '0 0 2rem 0'}}>
                   {t('home_m.press.content')}
                 </ComponentText>
               </div>
@@ -960,10 +987,17 @@ const Home = () => {
                     }}>
                     <FilterShadow />
                     <p style={{position: 'relative', fontSize: '15px', color: '#D1D1D1'}}>{item?.mobileDate}</p>
-                    <p style={{position: 'relative', fontSize: '16px', color: '#E5E5E5', lineHeight: '20px', wordBreak:'break-all'}}>
+                    <p
+                      style={{
+                        position: 'relative',
+                        fontSize: '16px',
+                        color: '#E5E5E5',
+                        lineHeight: '20px',
+                        wordBreak: 'break-all',
+                      }}>
                       {language === 'ENG' ? item?.title?.slice(0, 60) : item?.title?.slice(0, 35)}
-                      {(language === 'ENG' && item?.title?.length > 60) && <span>...</span>}
-                      {(language === 'KOR' &&  item?.title?.length > 35) && <span>...</span>}
+                      {language === 'ENG' && item?.title?.length > 60 && <span>...</span>}
+                      {language === 'KOR' && item?.title?.length > 35 && <span>...</span>}
                     </p>
                   </HomeComponentImageWrap>
                 </ComponentGridWrap>

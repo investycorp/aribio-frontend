@@ -28,7 +28,7 @@ const StyledVideo = styled.video`
   object-fit: cover;
 `;
 
-const Video = ({page, src, onLayout}) => {
+const Video = ({page, src, onLayout, videoWidth}) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [isSuspended, setIsSuspended] = useState(false);
@@ -108,6 +108,7 @@ const Video = ({page, src, onLayout}) => {
           controls={false}
           preload="metadata"
           style={{
+            width: videoWidth,
             objectFit: page === 'home' && window.innerWidth < 1100 ? 'contain' : 'cover',
           }}>
           <source src={src} type="video/mp4" />

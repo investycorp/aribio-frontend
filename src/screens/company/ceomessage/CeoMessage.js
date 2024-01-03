@@ -9,8 +9,11 @@ import {Desktop, Mobile} from '../../../utils/MediaQuery';
 import Video from '../../../components/Video';
 import {Trans} from 'react-i18next';
 import {t} from 'i18next';
+import Language from '../../../atom/Language';
+import {useRecoilValue} from 'recoil';
 
 const CeoMessage = () => {
+  const language = useRecoilValue(Language);
   useEffect(() => {
     window.scrollTo(0, 0);
     document.querySelector('.container')?.scrollTo(0, 0);
@@ -18,9 +21,15 @@ const CeoMessage = () => {
 
   return (
     <Container className="container">
-      <MainImgWrap>
+      <MainImgWrap
+        style={{
+          backgroundColor: 'black',
+        }}>
         <Video
           page="ceomessage"
+          style={{
+            width: 'auto',
+          }}
           src={
             window.innerWidth > 1280
               ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB0400PB_VD.mp4'
@@ -106,10 +115,15 @@ const CeoMessage = () => {
                   flexDirection: 'row',
                 }}>
                 <Text
-                  $fontSize={window.innerWidth > 1280 ? '30px' : '18px'}
+                  $fontSize={window.innerWidth > 1280 ? '30px ' : '18px'}
                   $fontWeight="300"
                   $color="#ffffff"
-                  style={{width: 'auto', textAlign: 'center', margin: '0'}}>
+                  style={{
+                    width: 'auto',
+                    textAlign: 'center',
+                    margin: '0',
+                    lineHeight: language !== 'KOR' ? '1.5em' : '1.8em',
+                  }}>
                   <Trans i18nKey="ceomessage.message" components={{1: <br />}} />
                 </Text>
                 {/* <Text
@@ -132,7 +146,7 @@ const CeoMessage = () => {
                 </Text> */}
               </TextWrap>
               <Text
-                $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
+                $fontSize={window.innerWidth > 1280 ? (language !== 'KOR' ? '20px' : '18px') : '12px'}
                 $fontWeight="200"
                 $color="#ffffff"
                 style={{
@@ -157,21 +171,27 @@ const CeoMessage = () => {
             <ContentBox style={{padding: '0 0 0 6.5rem', gap: '3em'}}>
               <div style={{width: '60px', height: '2px', backgroundColor: '#939598'}} />
               <Text
-                $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
+                $fontSize={window.innerWidth > 1280 ? (language !== 'KOR' ? '32px' : '30px') : '21px'}
                 $fontWeight="400"
                 $color="#FFFFFF"
-                style={{textAlign: 'start', margin: '0', padding: '0', wordSpacing: '0.1rem'}}>
+                style={{
+                  lineHeight: language !== 'KOR' ? '1.5em' : '1.8em',
+                  textAlign: 'start',
+                  margin: '0',
+                  padding: '0',
+                  wordSpacing: '0.1rem',
+                }}>
                 <Trans i18nKey="ceomessage.desc2" components={{1: <br />}} />
               </Text>
               <Text
-                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+                $fontSize={window.innerWidth > 1280 ? (language !== 'KOR' ? '23px' : '20px') : '14px'}
                 $fontWeight="300"
                 $color="#EAEAEA"
                 style={{
                   textAlign: 'start',
                   margin: '0',
                   padding: '0 0 0 0',
-                  lineHeight: '1.7',
+                  lineHeight: language !== 'KOR' ? '1.7em' : '2em',
                   // wordSpacing: '0.2rem',
                   // letterSpacing: '0.02rem',
                 }}>
@@ -223,7 +243,7 @@ const CeoMessage = () => {
                 $fontSize="16px"
                 $fontWeight="300"
                 $color="#ffffff"
-                style={{padding: '0 20px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px'}}>
+                style={{width: '100%', textAlign: 'center', margin: '0', lineHeight: '20px'}}>
                 <Trans i18nKey="ceomessage_m.message" components={{1: <br />}} />
               </Text>
               <Text

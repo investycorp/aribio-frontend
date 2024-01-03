@@ -1,4 +1,48 @@
 {
+  "header": {
+    "menu": {
+      "company": "회사",
+      "ourapproach": "목표",
+      "pipeline": "파이프라인",
+      "irpr": "IR & PR",
+      "career": "Career",
+      "contact": "Contact",
+      "innovation": "Open Innovation"
+    },
+    "subMenu": {
+      "company": {
+        "aboutus": "ABOUT US",
+        "history": "HISTORY",
+        "ceomessage": "CEO MESSAGE",
+        "ci": "CORPORATE IDENTITY"
+      },
+      "ourapproach": {
+        "pp": "POLY-PHARMACOLOGY",
+        "ai": "AI PLATFORM",
+        "publication": "PUBLICATION"
+      },
+      "pipeline": {
+        "pipeline": "PIPELINE"
+      },
+      "career": {
+        "career": "CAREER"
+      },
+      "contact": {
+        "partner": "PARTNER",
+        "contactus": "CONTACT US"
+      },
+      "openinnovation": {
+        "openinnovation": "OPEN INNOVATION",
+        "health": "DIGITAL HEALTH",
+        "memore": "Memo:Re PROJECT"
+      },
+      "irpr": {
+        "notice": "NOTICE",
+        "press": "PRESS RELEASE",
+        "media": "MEDIA"
+      }
+    }
+  },
   "footer": {
     "contact": "CONTACT US",
     "policy": "Privacy Policy",
@@ -14,11 +58,11 @@
   },
   "home": {
     "aboutus": {
-      "1": "AriBio aims to develop a meaningful therapies",
-      "2": "for neurodegenerative diseases through its",
-      "3": "innovative platform ARIDD™ (AI-powered, Reverse",
-      "4": "engineered & Integrated Drug Development)",
-      "5": "and Open Innovation",
+      "1": "아리바이오는 혁신적인 플랫폼 ARIDD™",
+      "2": "(Al-powered, Reverse engineered &",
+      "3": "Integrated Drug Development)와",
+      "4": "오픈 이노베이션을 통해 신경퇴행성 질환치료제를",
+      "5": "개발하는 것을 목표로 하고 있습니다.",
       "subtitle": {
         "us": "AriBio US Office",
         "head": "AriBio Head Office"
@@ -26,23 +70,22 @@
     },
     "ourapproach": {
       "title_1": "Our Approach",
-      "desc_1": "Merging Multi-Mechanism Drug Discovery with AI",
+      "desc_1": "다중기전 신약 개발과 AI(인공지능)의 결합",
       "title_2": "Pipeline",
-      "desc_2_1": "Our Path to Pioneering Treatments for",
-      "desc_2_2": "Neurodegenerative Diseases, Offering Innovative",
-      "desc_2_3": "Therapies for a Brighter Future",
+      "desc_2_1": "신경퇴행성질환의 치료법을 개발하고 더 밝은 미래를 위한",
+      "desc_2_2": "혁신적인 치료법을 제공합니다.",
       "title_3": "Career",
-      "desc_3": "Join Us at the Forefront of Neurodegenerative Solutions"
+      "desc_3": "신경퇴행성 질환치료제 개발의 꿈을 함께할 인재를 기다립니다."
     },
     "media_kit": {
       "title": "Media Kit",
-      "content": "Explore Our Content",
+      "content": "아리바이오의 소식을 전해드립니다.",
       "viewall": "Media"
     },
-    "notice": {
-      "title": "Notice",
-      "content": "Company Updates and Announcements",
-      "viewall": "View All Notice"
+    "press": {
+      "title": "Press Release",
+      "content": "투명한 경영 정보를 공유합니다.",
+      "viewall": "View All Press Release"
     }
   },
   "home_m": {
@@ -58,51 +101,51 @@
     },
     "ourapproach": {
       "title_1": "Our Approach",
-      "desc_1": "Merging Multi-Mechanism Drug Discovery with AI",
+      "desc_1": "다중기전 신약 개발과 AI(인공지능)의 결합",
       "title_2": "Pipeline",
-      "desc_2": "Our Path to Pioneering Treatments for Neurodegenerative …",
+      "desc_2": "신경퇴행성질환의 치료법을 개발하고 더 밝은 미래를 위한 혁신적인 치료법을 제공 …",
       "title_3": "Career",
-      "desc_3": "Join Us at the Forefront of Neurodegenerative Solutions"
+      "desc_3": "신경퇴행성 질환치료제 개발의 꿈을 함께할 인재를 기다립니다."
     },
     "media_kit": {
       "title": "Media Kit",
-      "content": "Explore Our Content",
+      "content": "아리바이오의 소식을 전해드립니다.",
       "viewall": "Media"
     },
-    "notice": {
-      "title": "Notice",
-      "content": "Company Updates and Announcements",
-      "viewall": "View All Notice"
+    "press": {
+      "title": "Press Release",
+      "content": "투명한 경영 정보를 공유합니다.",
+      "viewall": "View All Press Release"
     }
   },
   "aboutus": {
     "headline": "ABOUT US",
     "title": "ABOUT US",
     "subtitle": "Company Overview",
-    "desc": "AriBio Co., Ltd. is a biotechnology leader focused on creating impactful therapies <1/> for neurodegenerative diseases. Through our groundbreaking ARIDD™ platform <1/> (AI-powered, Reverse engineered & Integrated Drug Development) <1/> and a commitment to Open Innovation, we are poised to make significant strides in the field. <1/> <1/> We are dedicated to pioneering treatments for neurodegenerative diseases, <1/> offering innovative therapies for a brighter future <1/> <1/> Meet our dedicated leadership team of experts in science, <1/> technology, pharmaceuticals, and regulatory fields. <1/>"
+    "desc": "아리바이오는 퇴행성 뇌질환 치료제 개발을 주력으로 하는 <1 /> 신약개발 바이오 기업으로 혁신적인 인공지능 플랫폼 ARIDD™ <1 /> (Al-powered, Reverse engineered & Integrated Drug Development)와 <1 /> 오픈 이노베이션을 통해 퇴행성 뇌질환 치료제를 개발하는 것을 목표로 하고 있습니다. <1 /> <1 /> 아리바이오는 퇴행성 뇌질환을 치료하는 혁신적인 신약을 개발하여 더 밝은 미래를 열어갑니다. <1 /> 과학, 기술, 제약 및 규제 분야의 리더와 전문가로 <1 /> 구성된 연구진이 최선을 다하고 있습니다."
   },
   "aboutus_m": {
     "headline": "ABOUT US",
     "title": "ABOUT US",
     "subtitle": "Company Overview",
-    "desc": " AriBio Co., Ltd. <1/> is a biotechnology leader focused on <1/> creating impactful therapies for <1/> neurodegenerative diseases. <1/> Through our groundbreaking <1/> ARIDD™ platform (AI-powered, <1/> Reverse engineered & Integrated <1/> Drug Development) and a <1/> commitment to Open Innovation, <1/> we’re poised to make significant <1/> strides in the field. <1/> <1/> Our mission is clear: <1/> develop innovative therapies <1/> for neurodegenerative diseases. <1/> <1/> Meet our dedicated leadership team, <1/> of experts in science, technology, <1/> pharmaceuticals, and regulatory fields. <1/>"
+    "desc": "아리바이오는 퇴행성 뇌질환 치료제 개발을 <1 /> 주력으로 하는 신약개발 바이오 기업으로 <1 /> 혁신적인 인공지능 플랫폼 ARIDD™ <1 /> (Al-powered, Reverse engineered & <1 /> Integrated Drug Development)와 <1 /> 오픈 이노베이션을 통해 퇴행성 뇌질환 치료제를 <1 /> 개발하는 것을 목표로 하고 있습니다. <1 /> <1 /> 아리바이오는 퇴행성 뇌질환을 치료하는 <1 /> 혁신적인 신약을 개발하여 더 밝은 미래를 <1 /> 열어갑니다.  과학, 기술, 제약 및 규제 분야의 <1 /> 리더와 전문가로 구성된 연구진이 <1 /> 최선을 다하고 있습니다."
   },
   "ceomessage": {
     "headline": "CEO MESSAGE",
     "title": "CEO MESSAGE",
     "subtitle": "Meet Our CEO",
     "desc1": "AriBio’s mission is to improve the quality of human life by developing innovative drugs <1/> that can give hope to patients who suffer from incurable diseases across the globe.",
-    "message": "At AriBio, developing new treatments is like stargazing across the night sky, <1/> plotting our course through the vast unknown. <1/> Our team shares a common mission , steadily working towards our goal <1/>despite the cosmic uncertainties and challenges that may arise.",
-    "message2": "AriBio Co., Ltd. CEO Jai Jun Choung",
-    "desc2": " AriBio is at the forefront of innovative drug development <1/> for neurodegenerative diseases.",
-    "desc3": "As the founder of AriBio, I have spent the past 35 years devoted to the research and development of new treatments for patients. With these experiences, I established AriBio in 2010 with the core purpose of developing meaningful therapies for neurodegenerative diseases. The loss of memory due to dementia is a process that denies a person’s dignity and life, impacting not only to the patient, but also the family members who care for them. Although it has been 110 years since the discovery of Alzheimer’s disease, pharmaceutical companies still face the highest failure rate in developing treatments.<1/><1/> Yet, AriBio is determined to tackle this challenge with a bold vision and unwavering determination. Over the past decade, we have developed an innovative pipeline that enables us to develop new drugs quickly and cost-effectively.<1/><1/>At AriBio, developing new treatments is like stargazing across the night sky, plotting our course through the vast unknown. Our team shares a common mission , steadily working towards our goal despite the cosmic uncertainties and challenges that may arise."
+    "message": "신약을 개발하는 일은 <1 /> 밤하늘의 별을 바라보며 광활한 미지의 세계로 나아가는 것과 같습니다. <1 /> 아리바이오의 모든 임직원과 전문가 그룹은 <1 /> 소명의식과 사명감으로 목적지를 향해 굳건히 나아갈 것을 약속드립니다.",
+    "message2": "주식회사 아리바이오 대표이사 정재준",
+    "desc2": "주식회사 아리바이오는 퇴행성 뇌질환을 치료하기 위한 <1 /> 혁신적인 의약품 개발에 앞장서고 있습니다.",
+    "desc3": "저는 아리바이오의 창업자로서 지난 35년간 신약 연구개발에 전념해 왔습니다. <1 /> 이러한 경험을 바탕으로 2010년 퇴행성 뇌질환의 의미 있는 치료제 개발을 위해 아리바이오를 설립하였습니다. <1 /> 치매로 인해 기억을 잃어간다는 것은 한 사람의 존엄성과 인생이 부정되는 과정으로 환자 뿐 아니라 <1 /> 곁에서 돌보는 가족들의 희생과 고통도 큽니다. <1 /> 알츠하이머병이 발견된 지 110년이라는 세월이 흘렀지만 거대한 인프라와 자금력을 보유한 <1 /> 글로벌 제약사조차 치료제 개발에 가장 높은 실패율을 보이고 있습니다. <1 /> <1 /> 누구도 성공하지 못한 분야이기에 우리는 더 큰 목표와 굳은 마음으로 도전하고 있습니다. <1 /> 지난 10여년간 아리바이오는 빠르고 경제적으로 신약개발을 추진할 수 있는 통합신약개발 시스템을 자체 개발하였고, <1 /> 혁신적인 파이프라인을 개발해 왔습니다. <1 /> <1 /> 신약을 개발하는 일은 밤하늘의 별을 바라보며 광활한 미지의 세계로 나아가는 것과 같습니다. <1 /> 아리바이오의 모든 임직원과 전문가 그룹은 소명의식과 사명감으로 <1 /> 목적지를 향해 굳건히 나아갈 것을 약속드립니다."
   },
 
   "ceomessage_m": {
-    "desc1": "AriBio’s mission is to improve <1/> the quality of human life by developing <1/> innovative drugs that can give hope <1/> to patients who suffer from <1/> incurable diseases across the globe. <1/>",
-    "message": "At AriBio, <1/> developing new treatments <1/> is like stargazing across the night sky, <1/> plotting our course through <1/> the vast unknown. <1/> Our team shares a common mission, <1/> steadily working towards our goal <1/> despite the cosmic uncertainties and <1/> challenges that may arise.",
-    "desc2": "AriBio is at the forefront of innovative <1/> drug development for neurodegenerative diseases.",
-    "desc3": "As the founder of AriBio, I have spent the <1/> past 35 years devoted to the research and <1/> development of new treatments for patients. <1/> With these experiences, I established AriBio <1/> in 2010 with the core purpose of developing <1/> meaningful therapies for neurodegenerative <1/> diseases. The loss of memory due to <1/> dementia is a process that denies a person’s <1/> dignity and life, impacting not only to the <1/> patient, but also the family members who <1/> care for them. Although it has been 110 years <1/> since the discovery of Alzheimer’s disease, <1/> pharmaceutical companies still face the <1/> highest failure rate in developing treatments. <1/> Yet, AriBio is determined to tackle this <1/> challenge with a bold vision and unwavering <1/> determination. <1/> Over the past decade, we have developed <1/> an innovative pipeline that enables us <1/> to develop new drugs quickly and <1/> cost-effectively. <1/> <1/> At AriBio, developing new treatments is like <1/> stargazing across the night sky, plotting our <1/> course through the vast unknown. <1/> Our team shares a common mission, <1/> steadily working towards our goal despite <1/> the cosmic uncertainties and challenges <1/> that may arise."
+    "desc1": "AriBio’s mission is to improve <1/> the quality of human life by developing <1/> innovative drugs that can give hope <1/> to patients who suffer from <1/> incurable diseases across the globe.",
+    "message": "신약을 개발하는 일은 <1 /> 밤하늘의 별을 바라보며 광활한 미지의 <1 /> 세계로 나아가는 것과 같습니다. <1 /> 아리바이오의 모든 임직원과 전문가 그룹은 <1 /> 소명의식과 사명감으로 목적지를 향해 <1 /> 굳건히 나아갈 것을 약속드립니다.",
+    "desc2": "주식회사 아리바이오는 퇴행성 뇌질환을 <1 /> 치료하기 위한 혁신적인 의약품 개발에 <1 /> 앞장서고 있습니다.",
+    "desc3": "저는 아리바이오의 창업자로서 지난 35년간 <1 /> 신약 연구개발에 전념해 왔습니다. <1 /> 이러한 경험을 바탕으로 2010년 퇴행성 뇌질환의 <1 /> 의미 있는 치료제 개발을 위해 아리바이오를 <1 /> 설립하였습니다. <1 /> 치매로 인해 기억을 잃어간다는 것은 한 사람의 <1 /> 존엄성과 인생이 부정되는 과정으로 환자 뿐 아니라 <1 /> 곁에서 돌보는 가족들의 희생과 고통도 큽니다. <1 /> 알츠하이머병이 발견된 지 110년이라는 세월이 <1 /> 흘렀지만 거대한 인프라와 자금력을 보유한 <1 /> 글로벌 제약사조차 치료제 개발에 가장 높은 <1 /> 실패율을 보이고 있습니다. <1 /> <1 /> 누구도 성공하지 못한 분야이기에 우리는 <1 /> 더 큰 목표와 굳은 마음으로 도전하고 있습니다. <1 /> 지난 10여년간 아리바이오는 빠르고 경제적으로 <1 /> 신약개발을 추진할 수 있는 통합신약개발 시스템을 <1 /> 자체 개발하였고, <1 /> 혁신적인 파이프라인을 개발해 왔습니다. <1 /> <1 /> 신약을 개발하는 일은 밤하늘의 별을 바라보며 <1 /> 광활한 미지의 세계로 나아가는 것과 같습니다. <1 /> 아리바이오의 모든 임직원과 전문가 그룹은 <1 /> 소명의식과 사명감으로 목적지를 향해 <1 /> 굳건히 나아갈 것을 약속드립니다."
   },
   "history": {
     "headline": "HISTORY",
@@ -112,63 +155,77 @@
     "headline": "CORPORATE<1 />IDENTITY",
     "title": "CORPORATE IDENTITY",
     "subtitle": "AriBio CI",
+    "desc1": "아리바이오는 퇴행성 뇌질환을 치료하는 혁신적인 신약을 <1 /> 개발하여 더 밝은 미래를 열어갑니다.",
     "color": {
       "blue": "AriBio Blue",
       "pink": "AriBio Pink",
       "gray": "AriBio Gray"
     },
     "content": {
-      "ari": {
-        "title": "Ari:",
-        "desc": "Traditional Korean term for ‘Wide and Deep, Beauty, A Person with Wisdom’"
-      },
-      "bio": {
-        "title": "Bio:",
-        "desc": "Derived from the Greek word ‘bios’ meaning ‘life’"
+      "01": "‘아리바이오’는 난치병 치료제를 개발하여, 세상에 공헌하고 <1 /> 대한민국을 대표하는 신약개발 선도기업이 되겠다는 포부를 담고 있습니다.",
+      "02": {
+        "ari": {
+          "title": "Ari(아리):",
+          "desc": "깊고 넓음, 아름다움, 지혜를 얻은 사람을 의미하는 순 우리말"
+        },
+        "bio": {
+          "title": "Bio(바이오):",
+          "desc": "그리스어 ‘비오스’에서 유래된 생명에 관한 모든 것"
+        }
       }
     },
     "dl": {
       "ai": "AI download",
       "png": "PNG download"
-    },
-    "desc1": "We are dedicated to pioneering treatments neurodegenerative diseases,<1/> offering innovative therapies for a brighter future.",
-    "desc2": "‘AriBio’ embodies our ambition to contribute to the world by developing therapeutics for incurable diseases and become a biopharmaceutical leader of South Korea."
+    }
   },
   "ci_m": {
-    "desc1": " We are dedicated to pioneering <1/> treatments for neurodegenerative <1/> diseases, offering innovative <1/> therapies for a brighter future.",
-    "desc2": "‘AriBio’ embodies our ambition to contribute to the world <1/> by developing therapeutics for incurable diseases <1/> and become a biopharmaceutical leader of South Korea.",
-    "ari": "Traditional Korean term for <1/> ‘Wide and Deep, Beauty, A Person with Wisdom’",
-    "bio": "Derived from the Greek word ‘bios’ <1/> meaning ‘life’"
+    "desc1": "아리바이오는 퇴행성 뇌질환을 <1 /> 치료하는 혁신적인 신약을 <1 /> 개발하여 더 밝은 미래를 열어갑니다.",
+    "content": {
+      "01": "‘아리바이오’는 난치병 치료제를 개발하여, <1 /> 세상에 공헌하고 대한민국을 대표하는 신약개발 <1 /> 선도기업이 되겠다는 포부를 담고 있습니다.",
+      "02": {
+        "ari": {
+          "desc": "깊고 넓음, 아름다움, 지혜를 얻은 <1 /> 사람을 의미하는 순 우리말"
+        },
+        "bio": {
+          "desc": "그리스어 ‘비오스’에서 유래된 <1 /> 생명에 관한 모든 것"
+        }
+      }
+    }
+  },
+  "moral": {
+    "headline": "MORAL<1 />MANAGEMENT",
+    "title": "MORAL MANAGEMENT"
   },
   "polypharma": {
     "headline": "POLY- <1 /> PHARMACOLOGY",
     "title": "POLY-PHARMACOLOGY",
     "subtitle": "Merging Multi-Mechanism Drug Discovery with AI",
-    "desc1": "Neurodegenerative diseases, such as Alzheimer’s, manifest from a confluence of genetic, environmental, <1/> and physiological factors. The limitations of traditional single-target drugs become evident in their struggle <1/> to achieve clinically meaningful clinical outcomes against these multifactorial diseases. <1/> <1/> Polypharmacology goes beyond traditional drug discovery by emphasizing drugs designed to engage <1/> multiple targets and mechanisms concurrently. This nuanced approach grasps the multifaceted nature of <1/> biological systems, paving the way for a more comprehensive therapeutic approach.",
-    "desc2": "At AriBio, our commitment to polypharmacology is fortified by the power of advanced AI technologies. <1/> With the ARIDD™ platform, we delve into vast molecular databases, predicting interactions that span multiple <1/> targets and mechanisms. By leveraging AI, we aim to achieve heightened drug efficacy and expand potential <1/> therapeutic indications, positioning AriBio as a leader in innovative treatments for neurodegenerative diseases. <1/> <1/> Join our pursuit to advance the future of drug discovery, where AI meets the sophistication of polypharmacology,<1/> and tackle the challenges posed by neurodegenerative disorders."
+    "desc1": "알츠하이머병과 같은 퇴행성 뇌질환은 유전적, 환경적, 생리적 요인이 복합적으로 작용하여 나타납니다. <1 /> 단일기전 약물의 한계는 이러한 다양한 요인에 의해 발생하는 퇴행성 뇌질환의 의미 있는 <1 /> 임상 결과를 달성하지 못하면서 그 한계가 분명해졌습니다. <1 /> <1 /> 다중기전은 복합적인 발병 원인들을 동시에 공략할 수 있는 메커니즘으로써 <1 /> 전통적인 신약 개발 방식을 넘어섭니다. 이 개발방식은 생물학적 시스템의 다양한 특성을 파악하여 <1 /> 보다 포괄적인 치료 접근성의 기반을 마련합니다.",
+    "desc2": "아리바이오의 다중기전 신약개발은 혁신적인 AI(인공지능) 플랫폼 ARIDD™로 <1 /> 방대한 데이터베이스를 분석하여 여러 표적과 메커니즘에 걸친 상호작용을 예측합니다. <1 /> Al을 활용하여 약물 효능을 높이고 잠재적 적응증을 확대하여 <1 /> 퇴행성 뇌질환의 혁신적인 신약개발 분야의 리더로 자리매김하는 것을 목표로 합니다 <1 /> <1 /> 다중기전의 정교함을 AI가 보완하여 신약개발의 미래를 발전시키고, <1 /> 퇴행성 뇌질환을 극복하기 위해 노력하고 있습니다."
   },
   "polypharma_m": {
-    "desc1": "Neurodegenerative diseases, <1/> such as Alzheimer’s, manifest <1/> from a confluence of genetic, <1/> environmental, and physiological <1/> factors. The limitations of traditional <1/> single-target drugs become evident <1/> in their struggle to achieve clinically <1/> meaningful clinical outcomes against <1/> these multifactorial diseases. <1/> <1/> Polypharmacology goes beyond <1/> traditional drug discovery by <1/> emphasizing drugs designed to engage <1/> multiple targets and mechanisms <1/> concurrently. This nuanced approach <1/> grasps the multifaceted nature of <1/> biological systems, paving the way for <1/> a more comprehensive <1/> therapeutic approach.",
-    "desc2": "At AriBio, our commitment to <1/> polypharmacology is <1/> fortified by the power of advanced <1/> AI technologies. With the ARIDD™ platform, <1/> we delve into vast molecular databases, <1/> predicting interactions that span multiple <1/> targets and mechanisms. <1/> By leveraging AI, we aim to achieve <1/> heightened drug efficacy and <1/> expand potential therapeutic indications, <1/> positioning AriBio as a leader <1/> in innovative treatments <1/> for neurodegenerative diseases. <1/> <1/> Join our pursuit to advance the future of <1/> drug discovery, where AI meets <1/> the sophistication of polypharmacology, <1/> and tackle the challenges posed by <1/> neurodegenerative disorders. <1/>"
+    "desc1": "알츠하이머병과 같은 퇴행성 뇌질환은 <1 /> 유전적, 환경적, 생리적 요인이 복합적으로 <1 /> 작용하여 나타납니다. <1 /> 단일기전 약물의 한계는 이러한 다양한 요인에 <1 /> 의해 발생하는 퇴행성 뇌질환의 의미 있는 <1 /> 임상 결과를 달성하지 못하면서 <1 /> 그 한계가 분명해졌습니다. <1 /> <1 /> 다중기전은 복합적인 발병 원인들을 <1 /> 동시에 공략할 수 있는 메커니즘으로써 <1 /> 전통적인 신약 개발 방식을 넘어섭니다. <1 /> 이 개발방식은 생물학적 시스템의 <1 /> 다양한 특성을 파악하여 보다 <1 /> 포괄적인 치료 접근성의 기반을 마련합니다.",
+    "desc2": "아리바이오의 다중기전 신약개발은 <1 /> 혁신적인 AI(인공지능) 플랫폼 ARIDD™로 <1 /> 방대한 데이터베이스를 분석하여 여러 표적과 <1 /> 메커니즘에 걸친 상호작용을 예측합니다. <1 /> Al을 활용하여 약물 효능을 높이고 <1 /> 잠재적 적응증을 확대하여 퇴행성 뇌질환의 <1 /> 혁신적인 신약개발 분야의 리더로 <1 /> 자리매김하는 것을 목표로 합니다 <1 /> <1 /> 다중기전의 정교함을 AI가 보완하여 <1 /> 신약개발의 미래를 발전시키고, <1 /> 퇴행성 뇌질환을 극복하기 위해 노력하고 있습니다."
   },
   "aiplatform": {
     "headline1": "AI",
     "headline2": "PLATFORM",
     "title": "AI PLATFORM",
     "subtitle": "AI-powered, Reverse engineered &<1/> Integrated Drug Development",
-    "desc1": "ARIDD™ is a drug development platform that augments the discovery and <1/> development of polypharmacological drugs. To accelerate the development of drugs with <1/> multiple mechanisms of action, we’ve unveiled ARIS, our cutting-edge <1/> AI platform designed for dependable in-silico predictions and analyses.",
+    "desc1": "ARIDD™는 다중기전 약물 개발에 최적화된 신약개발 플랫폼입니다. <1 /> 다양한 작용기전을 가진 다중기전 약물 개발을 가속화하기 위해 안정적인 In-Silico 예측과 분석을 위해 <1 /> 개발된 AI를 탑재한 ARIS를 공개하였습니다",
     "subtitle2": "ARIS Structure",
-    "desc2": " Existing AI drug discovery tools often prioritize drug synthesis, intermolecular binding prediction, <1/> and ADMET processes. While crucial for single-mechanism drug exploration, polypharmacological discovery <1/> demands a nuanced approach.",
-    "desc2-1": "Polypharmacology requires a deep understanding of interactions among drugs, <1/> proteins, cells, and diseases, alongside the ability to predict and identify novel biological relationships. <1/> To address this complexity, AriBio’s Platform Research Center has developed ARIS: <1/> a proprietary AI platform optimized for predicting these multifaceted biological interrelationships, <1/> thus advancing our drug discovery initiatives.",
+    "desc2": "기존의 의약품 개발용 Al는 약물 합성, 분자간 결합 예측, ADMET 프로세스에 우선순위를 두는 경우가 많습니다. <1 /> 이러한 방식은 단일기전 약물 탐색에는 중요하지만, 다약물학적 발견에는 미묘한 접근 방식이 필요합니다.",
+    "desc2-1": "다중기전은 약물, 단백질, 세포, 질병 간의 상호작용에 대한 깊은 이해와 함께 <1 /> 새로운 생물학적 관계를 예측하고 식별할 수 있는 능력이 필요합니다. <1 /> 이러한 복잡성을 해결하기 위해 아리바이오의 플랫폼 연구소는 다양한 생물학적 상호관계를 예측하는 데 <1 /> 최적화된 독자적 Al 플랫폼인 ARIS를 개발하여 신약 개발 이니셔티브를 발전시켰습니다.",
     "subtitle3": "ARIS (AI-based Reliable In-Silico)",
-    "desc3": "ARIS is fundamentally structured around two concepts, <1/> “BRAIN” and its “Prediction Algorithms”.",
+    "desc3": "ARIS는 기본적으로 “BRAIN”과 “예측 알고리즘”, <1 /> 두 가지 개념을 중심으로 구성되어 있습니다.",
     "subtitle4": "BRAIN",
-    "desc4": "BRAIN, short for <2> “The Bridge between AI and In Silico, In Vitro, and In Vivo”, </2> <1/> has two primary components: a Knowledge Graph (KG) and a Large Language Model (LLM). <1/> Together, they form a cohesive <2>Bridge</2>, seamlessly linking the KG and ARIS  <2>Prediction Algorithms</2> <1/> to real-world applications across  <2>In Silico, In Vitro, and In Vivo</span> domains.",
+    "desc4": "BRAIN은 AI, In-silico, In-vitro, In-vivo를 연결하는 사이의 다리의 줄임 말인 BRAIN은 <1 /> 지식그래프(Knowledge Graph, KG)와 대규모 언어 모델(Large Language Model, LLM)이라는 <1 /> 두 가지 주요 구성 요소로 이루어져 있습니다. 이 두가지가 결합하여 응집력 있는 브릿지를 형성하고, <1 /> KG와 ARIS 예측 알고리즘을 In-silico, In-Vitro, In-vivo 영역에 원활하게 연결합니다.",
     "subtitle5": "Prediction Algorithms",
-    "desc5": "The “Prediction Algorithms” consist of a range of advanced AI prediction models and simulation tools <1/> designed specifically for the fields of chemistry and biology. Each model and solution is carefully crafted to provide <1/> researchers with practical and direct applications, both on its own and in collaboration with the BRAIN platform.",
+    "desc5": "“예측 알고리즘”은 화학 및 생물학 분야를 위해 특별히 설계된 다양한 인공지능 예측 모델과 <1 /> 시뮬레이션 도구로 구성되어 있습니다. 각 모델 별 솔루션은 연구자들이 독립적이거나 또는 BRAIN 플랫폼과의 협업으로 <1 /> 실용적이고 직접적인 응용을 할 수 있도록 개발되었습니다.",
     "subtitle6": "Pathway Data",
-    "desc6": "Since its origin, the development and objectives of ARIS have always been closely aligned with <1/> AriBio’s polypharmacological approach. Hence, we emphasize harnessing contextual information <1/> when discovering novel polypharmacological drug candidates. <1/> When considering contextual information for polypharmacological drug discovery, pathway data is most critical. <1/> <1/> We extract this pathway data from various sources, leveraging two advanced Deep Learning techniques: <1/> Named Entity Recognition (NER) and Relation Extraction (RE). <1/> The execution flow and interplay of these methods are illustrated below:",
-    "desc6-2": "At the heart of polypharmacological drug discovery lies the pivotal step of target identification. <1/> This involves discerning which biological targets a drug should engage with, to address a specific disease. <1/> The inherent challenge stems from the intricate interdependencies within our body; no single component operates in isolation. <1/> A drug’s interaction with a singular protein isn’t the sole therapeutic agent; it’s the cascade of subsequent interactions that <1/> collectively contribute to disease treatment. Hence, pinpointing a viable drug target necessitates <1/> a profound comprehension of these protein interplays within the body - a knowledge rooted in pathway data.",
+    "desc6": "ARIS의 첫 개발 목표는 아리바이오의 다중기전 접근 방식과 밀접하게 연관되어 있습니다. <1 /> 새로운 다중기전 후보물질을 발굴할 때 맥락 정보를 활용하는 것이 중요합니다. <1 /> 다중기전 후보물질 발견을 위한 맥락 정보를 고려할 때 경로 데이터가 가장 중요합니다. <1 /> <1 /> 우리는 이러한 경로 데이터를 다양한 소스에서 추출하며, <1 /> 명명된 엔터티 인식(NER) 및 관계 추출(RE)라는 두 가지 고급 딥 러닝 기술을 활용합니다. <1 /> 이러한 방법들의 실행 흐름과 상호 작용은 아래에 설명되어 있습니다:",
+    "desc6-2": "다중기전 약물 발견의 핵심은 타겟 식별이라는 중심 단계에 있습니다. <1 /> 이 때, 특정 질병을 해결하기 위해 약물이 어떤 생물학적 표적과 작용해야 하는지 파악하는 것이 포함됩니다. <1 /> 내재된 문제는 신체 내부의 복잡한 상호 의존성에서 비롯되며, 단일 구성 요소는 독립적으로 작동하지 않습니다. <1 /> 약물이 단일 단백질과 상호작용하는 것만이 유일한 치료 요소가 아니며, 일련의 후속 작용을 통해 질병 치료에 종합적으로 기여합니다. <1 /> 따라서 실행 가능한 약물 표적을 정확히 찾아내려면 신체 내에서 이러한 단백질의 상호 작용을 <1 /> 깊이 있게 이해해야 하며, 이를 위해서는 경로 데이터에 기반한 지식이 필요합니다.",
     "predictions": {
       "docking": {
         "title": "Docking",
@@ -182,7 +239,7 @@
       "ic50": {
         "title": "IC50 predictor",
         "content": {
-          "desc1": "Description : \\n A Machine Learning framework tailored to model a target protein’s IC50 activity. <br /> This model predicts the IC50 value for a specific Ligand-Protein complex, <br /> utilizing the Ligand’s chemical structure. It is instrumental in validating or estimating the potential <br /> of an interaction between a ligand and a target protein."
+          "desc1": "Description : \\n 표적 단백질의 IC50 활성을 모델링하도록 맞춤형으로 개발된 머신 러닝 프레임워크입니다. <br /> 이 모델은 특정 리간드-단백질 복합체에 대한 IC50 값을 예측하는데, 리간드의 화학 구조를 활용합니다. <br /> 이 모델은 리간드와 표적 단백질 간의 상호작용 가능성을 검증하거나 추정하는 데 유용합니다."
         }
       },
       "blinding": {
@@ -197,50 +254,51 @@
       "drugsim": {
         "title": "DrugSim",
         "content": {
-          "desc1": "Description : \\n A Drug Similarity Search module, which, when provided with an input molecule, <br /> seeks similar drugs based not only on their chemical structures but also considering their comprehensive <br /> metadata within DrugBank, encompassing MOA, targets, drug-drug interactions, and more."
+          "desc1": "Description : \\n 약물 유사성 검색 모듈은 입력 분자를 제공하면 화학 구조 뿐만 아니라 MOA, 표적, 약물-약물 상호작용 등을 <br /> 포괄하는 DrugBank 내의 포괄적인 메타데이터를 고려하여 유사한 약물을 찾습니다."
         }
       },
       "ligand": {
         "title": "Ligand Hunter",
         "content": {
-          "desc1": "Description : \\n Efficiently identifies ligands that exhibit binding to a specified protein."
+          "desc1": "Description : \\n 특정 단백질에 결합하는 리간드를 효율적으로 식별합니다."
         }
       },
       "bbb": {
         "title": "BBB Predictor",
         "content": {
-          "desc1": "Description : \\n Offers Blood Brain Barrier (BBB) permeability predictions, leveraging a plethora of metrics."
+          "desc1": "Description : \\n 다양한 지표를 활용하여 뇌혈관장벽(BBB) 투과성 예측 기능을 제공합니다."
         }
       },
       "target": {
         "title": "Target Hunter",
         "content": {
-          "desc1": "Description : \\n Determines potential targets that exhibit binding to a particular ligand."
+          "desc1": "Description : \\n 특정 리간드에 결합하는 잠재적 표적을 결정합니다."
         }
       },
       "arinet": {
         "title": "ARI-Net",
         "content": {
-          "desc1": "Description : \\n This tool predicts disease-gene associations through random walks executed on our Knowledge Graph. <br /> It is pivotal for “Pathway Prediction”, implying its ability to forecast novel associations between genes and <br /> diseases within our knowledge graph. A foundational module for target identification in ARIS."
+          "desc1": "Description : \\n 이 도구는 지식 그래프에서 실행되는 랜덤 워크를 통해 질병과 유전자의 연관성을 예측합니다. <br /> 이는 지식 그래프 내에서 유전자와 질병 간의 새로운 연관성을 예측하는 능력을 의미하는 <br /> ‘경로 예측’의 중추적인 역할을 합니다. ARIS의 표적 식별을 위한 기본 모듈입니다."
         }
       },
       "admet": {
         "title": "ADMET Toxicity",
         "content": {
-          "desc1": "Description : \\n Proffers predictions on how a specific compound might be metabolized and <br /> processed within the human body."
+          "desc1": "Description : \\n 특정 화합물이 인체 내에서 어떻게 대사되고 처리될지에 대한 예측을 제공합니다."
         }
       }
     }
   },
   "aiplatform_m": {
     "subtitle": "AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
-    "desc1": "ARIDD™ is <1/> a drug development platform <1/> that augments the discovery and <1/> development of <1/> polypharmacological drugs. <1/> To accelerate the development of drugs <1/> with multiple mechanisms of action, <1/> we’ve unveiled ARIS, our cutting-edge <1/> AI platform designed for dependable <1/> in-silico predictions and analyses.",
-    "desc2": "Existing AI drug discovery tools often <1/> prioritize drug synthesis, intermolecular <1/> binding prediction, and ADMET processes. <1/> While crucial for single-mechanism drug <1/> exploration, polypharmacological discovery <1/> demands a nuanced approach. <1/>",
-    "desc3": "ARIS is fundamentally structured <1/> around two concepts, <1/> “BRAIN” and its “Prediction Algorithms”.",
-    "desc4": "BRAIN, short for <1/> <2> “The Bridge between AI and In Silico, <1/> In Vitro, and In Vivo”, </2> <1/> has two primary components: <1/> a Knowledge Graph (KG) <1/> and a Large Language Model (LLM). <1/> Together, they form a cohesive <2>Bridge</2>, <1/> seamlessly linking the KG and ARIS <1/> <2> Prediction Algorithms</2> to real-world <1/> applications across <2> In Silico, In Vitro, <1/> and In Vivo </2> domains.",
-    "desc5": "The “Prediction Algorithms” consist of a <1/> range of advanced AI prediction models and <1/> simulation tools designed specifically for the <1/> fields of chemistry and biology. Each model <1/> and solution is carefully crafted to provide <1/> researchers with practical and direct <1/> applications, both on its own and in <1/> collaboration with the BRAIN platform.",
-    "desc6": "Since its origin, <1/> the development and objectives of ARIS <1/> have always been closely aligned with <1/> AriBio’s polypharmacological approach. <1/> Hence, we emphasize harnessing <1/> contextual information when <1/> discovering novel polypharmacological <1/> drug candidates. <1/> When considering contextual information <1/> for polypharmacological drug discovery, <1/> pathway data is most critical.",
-    "desc6-2": " At the heart of polypharmacological drug <1/> discovery lies the pivotal step of target <1/> identification. This involves discerning <1/> which biological targets a drug <1/> should engage with, to address a specific <1/> disease. The inherent challenge stems <1/> from the intricate interdependencies <1/> within our body; no single component <1/> operates in isolation. <1/> A drug’s interaction with a singular protein <1/> isn’t the sole therapeutic agent; <1/> it’s the cascade of subsequent <1/> interactions that collectively contribute <1/> to disease treatment. Hence, pinpointing <1/> a viable drug target necessitates <1/> a profound comprehension of these <1/> protein interplays within the body - <1/> a knowledge rooted in pathway data. <1/>"
+    "desc1": "ARIDD™는 <1/> 다중기전 약물 개발에 최적화된 <1/> 신약개발 플랫폼입니다. <1/> 다양한 작용기전을 가진 다중기전 약물 개발을 <1/> 가속화하기 위해 안정적인 In-Silico 예측과 <1/> 분석을 위해 개발된 AI를 탑재한 <1/> ARIS를 공개하였습니다.",
+    "desc2": "기존의 의약품 개발용 Al는 약물 합성, 분자간 결합 <1/> 예측, ADMET 프로세스에 우선순위를 두는 <1/> 경우가 많습니다. 이러한 방식은 <1/> 단일기전 약물 탐색에는 중요하지만, <1/> 다약물학적 발견에는 미묘한 접근 방식이 <1/> 필요합니다.",
+    "desc2-1": "다중기전은 약물, 단백질, 세포, 질병 간의 <1/> 상호작용에 대한 깊은 이해와 함께 <1/> 새로운 생물학적 관계를 예측하고 <1/> 식별할 수 있는 능력이 필요합니다. <1/> 이러한 복잡성을 해결하기 위해 아리바이오의 <1/> 플랫폼 연구소는 다양한 생물학적 상호관계를 <1/> 예측하는 데 최적화된 독자적 Al 플랫폼인 <1/> ARIS를 개발하여 신약 개발 <1/> 이니셔티브를 발전시켰습니다.",
+    "desc3": "ARIS는 기본적으로 “BRAIN”과 “예측 알고리즘”, <1/> 두 가지 개념을 중심으로 구성되어 있습니다.",
+    "desc4": "BRAIN은 <1/> AI, In-silico, In-vitro, In-vivo를 연결하는 <1/> 사이의 다리의 줄임 말인 BRAIN은 <1/> 지식그래프(Knowledge Graph, KG)와 <1/> 대규모 언어 모델(Large Language Model, LLM) <1/> 이라는 두 가지 주요 구성 요소로 이루어져 있습니다. <1/> 이 두가지가 결합하여 응집력 있는 브릿지를 형성하고, <1/> KG와 ARIS 예측 알고리즘을 In-silico, In-Vitro, <1/> In-vivo 영역에 원활하게 연결합니다.",
+    "desc5": "“예측 알고리즘”은 화학 및 생물학 분야를 위해 <1/> 특별히 설계된 다양한 인공지능 예측 모델과 <1/> 시뮬레이션 도구로 구성되어 있습니다. <1/> 각 모델 별 솔루션은 연구자들이 독립적이거나 <1/> 또는 BRAIN 플랫폼과의 협업으로 <1/> 실용적이고 직접적인 응용을 <1/> 할 수 있도록 개발되었습니다.",
+    "desc6": "ARIS의 첫 개발 목표는 아리바이오의 다중기전 <1/> 접근 방식과 밀접하게 연관되어 있습니다. <1/> 새로운 다중기전 후보물질을 발굴할 때 <1/> 맥락 정보를 활용하는 것이 중요합니다. <1/> 다중기전 후보물질 발견을 위한 맥락 정보를 <1/> 고려할 때 경로 데이터가 가장 중요합니다. <1/> 우리는 이러한 경로 데이터를 다양한 소스에서 <1/> 추출하며, 명명된 엔터티 인식(NER) 및 관계 추출(RE) <1/> 라는 두 가지 고급 딥 러닝 기술을 활용합니다. <1/> 이러한 방법들의 실행 흐름과 상호 작용은 <1/> 아래에 설명되어 있습니다:",
+    "desc6-2": "다중기전 약물 발견의 핵심은 타겟 식별이라는 <1/> 중심 단계에 있습니다. 이 때, 특정 질병을 <1/> 해결하기 위해 약물이 어떤 생물학적 표적과 <1/> 작용해야 하는지 파악하는 것이 포함됩니다. <1/> 내재된 문제는 신체 내부의 복잡한 상호 의존성에서 <1/> 비롯되며, 단일 구성 요소는 독립적으로 <1/> 작동하지 않습니다. <1/> 약물이 단일 단백질과 상호작용하는 것만이 <1/> 유일한 치료 요소가 아니며, 일련의 후속 작용을 통해 <1/> 질병 치료에 종합적으로 기여합니다. <1/> 따라서 실행 가능한 약물 표적을 정확히 찾아내려면 <1/> 신체 내에서 이러한 단백질의 상호 작용을 <1/> 깊이 있게 이해해야 하며, 이를 위해서는 <1/> 경로 데이터에 기반한 지식이 필요합니다."
   },
 
   "publication": {
@@ -297,7 +355,7 @@
   "notice": {
     "headline": "NOTICE",
     "title": "NOTICE",
-    "subtitle": "Company Updates and Announcements",
+    "subtitle": "투명한 경영 정보를 공유합니다.",
     "subtitle_m": "Company Updates <1/> and Announcements",
     "placeholder": "Please enter a search term.",
     "nothing": "There are no published posts registered.",
@@ -307,7 +365,7 @@
   "press": {
     "headline": "PRESS RELEASE",
     "title": "PRESS RELEASE",
-    "subtitle": "Latest AriBio News",
+    "subtitle": "아리바이오의 소식을 전해드립니다.",
     "placeholder": "Please enter a search term.",
     "nothing": "There are no published posts registered.",
     "searchNothing": "No result found for",
@@ -316,7 +374,7 @@
   "media": {
     "headline": "MEDIA",
     "title": "MEDIA",
-    "subtitle": "Explore Our Content"
+    "subtitle": "아리바이오의 소식을 전해드립니다."
   },
   "career": {
     "headline": "CAREER",

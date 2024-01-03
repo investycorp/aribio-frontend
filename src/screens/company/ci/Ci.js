@@ -24,8 +24,11 @@ import useCi from '../../../hooks/company/useCi';
 import Video from '../../../components/Video';
 import {Trans} from 'react-i18next';
 import {t} from 'i18next';
+import Language from '../../../atom/Language';
+import {useRecoilValue} from 'recoil';
 
 const Ci = () => {
+  const language = useRecoilValue(Language);
   const {data, isLoading} = useCi();
   const [pngImg, setPngImg] = useState();
   const [aiImg, setAiImg] = useState();
@@ -118,9 +121,12 @@ const Ci = () => {
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                 }}
               />
-              <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#D3D3D3">
+              <Text
+                language={language}
+                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+                $fontWeight="300"
+                $color="#D3D3D3">
                 <Trans i18nKey="ci.desc1" components={{1: <br />}} />
-                {/* {t('ci.desc1')} */}
               </Text>
             </TextWrap>
           </HomeComponentWrap>
@@ -132,7 +138,7 @@ const Ci = () => {
             }}>
             <Image src={pngImg} alt="ci_logo" style={{width: window.innerWidth > 1280 ? '532px' : '364px'}} />
           </HomeComponentWrap>
-          <HomeComponentWrap style={{padding: '25vh 0', display: 'grid', gridTemplateColumns: '64.33vw 35.67vw'}}>
+          <HomeComponentWrap style={{padding: '25vh 0', display: 'grid', gridTemplateColumns: '61.33vw 38.67vw'}}>
             <ContentBox style={{position: 'relative', paddingTop: '1em'}}>
               <ColorBar $color1="#04324B" $color2="#076496">
                 <ColorBarTextWrap>
@@ -142,7 +148,7 @@ const Ci = () => {
                     $fontWeight="300"
                     $color="#F2F2F2"
                     $align="start">
-                    AriBio Blue
+                    {t('ci.color.blue')}
                   </Text>
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '14px' : '9px'}
@@ -156,13 +162,12 @@ const Ci = () => {
               <ColorBar $color1="#661832" $color2="#CB3063">
                 <ColorBarTextWrap>
                   <HR $width="20px" $color="#C4C4C4" $height="1px" style={{marginBottom: '0.5em'}} />
-
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '18px' : '11px'}
                     $fontWeight="300"
                     $color="#F2F2F2"
                     $align="start">
-                    AriBio Pink
+                    {t('ci.color.pink')}
                   </Text>
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '14px' : '9px'}
@@ -176,13 +181,12 @@ const Ci = () => {
               <ColorBar $color1="#4A4B4C" $color2="#939598">
                 <ColorBarTextWrap>
                   <HR $width="20px" $color="#C4C4C4" $height="1px" style={{marginBottom: '0.5em'}} />
-
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '18px' : '11px'}
                     $fontWeight="300"
                     $color="#F2F2F2"
                     $align="start">
-                    AriBio Gray
+                    {t('ci.color.gray')}
                   </Text>
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '14px' : '9px'}
@@ -195,8 +199,9 @@ const Ci = () => {
                 </ColorBarTextWrap>
               </ColorBar>
             </ContentBox>
+            *
             <ContentBox style={{padding: '0 7vw 0 0', gap: '1.5rem'}}>
-              <ContentWrap>
+              <ContentWrap style={{padding: 0}}>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '26px' : '17px'}
                   $fontWeight="100"
@@ -210,10 +215,10 @@ const Ci = () => {
                   $fontWeight="300"
                   $color="#D5D5D5"
                   $align="start">
-                  {t('ci.desc2')}
+                  <Trans i18nKey={'ci.content.01'} components={{1: <br />}} />
                 </Text>
               </ContentWrap>
-              <ContentWrap style={{marginBottom: '8em'}}>
+              <ContentWrap style={{marginBottom: '8em', padding: 0}}>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '26px' : '17px'}
                   $fontWeight="100"
@@ -227,15 +232,15 @@ const Ci = () => {
                     $fontWeight="300"
                     $color="#D5D5D5"
                     $align="start"
-                    style={{width: 'fit-content'}}>
-                    {t('ci.content.ari.title')}
+                    style={{width: 'fit-content', minWidth: language === 'KOR' ? '4vw' : 'auto'}}>
+                    {t('ci.content.02.ari.title')}
                   </Text>
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
                     $fontWeight="300"
                     $color="#D5D5D5"
                     $align="start">
-                    {t('ci.content.ari.desc')}
+                    {t('ci.content.02.ari.desc')}
                   </Text>
                 </div>
                 <div
@@ -246,19 +251,20 @@ const Ci = () => {
                     gap: '0.5em',
                   }}>
                   <Text
+                    language={language}
                     $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
                     $fontWeight="300"
                     $color="#D5D5D5"
                     $align="start"
-                    style={{width: 'fit-content'}}>
-                    {t('ci.content.bio.title')}
+                    style={{width: 'fit-content', minWidth: language === 'KOR' ? '5.3vw' : 'auto'}}>
+                    {t('ci.content.02.bio.title')}
                   </Text>
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '20px' : '14px'}
                     $fontWeight="300"
                     $color="#D5D5D5"
                     $align="start">
-                    {t('ci.content.bio.desc')}
+                    {t('ci.content.02.bio.desc')}
                   </Text>
                 </div>
               </ContentWrap>
@@ -387,7 +393,7 @@ const Ci = () => {
                   01
                 </Text>
                 <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                  <Trans i18nKey="ci_m.desc2" components={{1: <br />}} />
+                  <Trans i18nKey="ci_m.content.01.desc" components={{1: <br />}} />
                 </Text>
               </ContentWrap>
               <ContentWrap style={{width: '80%'}}>
@@ -407,10 +413,10 @@ const Ci = () => {
                     $color="#D5D5D5"
                     $align="start"
                     style={{width: 'fit-content'}}>
-                    {t('ci.content.ari.title')}
+                    {t('ci.content.02.ari.title')}
                   </Text>
                   <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                    <Trans i18nKey="ci_m.ari" components={{1: <br />}} />
+                    <Trans i18nKey="ci_m.content.02.ari.desc" components={{1: <br />}} />
                   </Text>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'start', gap: '0.5em'}}>
@@ -420,10 +426,10 @@ const Ci = () => {
                     $color="#D5D5D5"
                     $align="start"
                     style={{width: 'fit-content'}}>
-                    {t('ci.content.bio.title')}
+                    {t('ci.content.02.bio.title')}
                   </Text>
                   <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start">
-                    <Trans i18nKey="ci_m.bio" components={{1: <br />}} />
+                    <Trans i18nKey="ci_m.content.02.bio.desc" components={{1: <br />}} />
                   </Text>
                 </div>
               </ContentWrap>

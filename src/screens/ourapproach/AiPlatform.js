@@ -107,7 +107,8 @@ const AiPlatform = () => {
       </MainImgWrap>
       <Header />
       <Path>
-        <span style={{opacity: '0.8'}}>{`HOME > OUR APPROACH > `}</span>AI PLATFORM
+        <span style={{opacity: '0.8'}}>{`HOME > OUR APPROACH > `}</span>
+        {t('aiplatform.title')}
       </Path>
       <HomeComponentWrap style={{height: '100vh'}}>
         <HeadLine $className="midsize">

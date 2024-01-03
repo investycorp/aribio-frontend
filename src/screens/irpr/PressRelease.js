@@ -327,7 +327,7 @@ const PressRelease = () => {
                   ) : (
                     <ComponentWrap style={{gap: '2em', height: '50vh', justifyContent: 'center'}}>
                       <HR />
-                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                      {filteredList.length < 1 && (!searchTermShown || searchTermShown === '') ? (
                         <Text>{t('press.nothing')}</Text>
                       ) : (
                         <Text>
@@ -478,7 +478,7 @@ const PressRelease = () => {
                   ) : (
                     <ComponentWrap style={{gap: '2em', height: '30vh', justifyContent: 'center'}}>
                       <HR style={{width: '24px', height: '1px'}} />
-                      {data?.data.data.noticeDtoList?.length < 1 && (!searchTermShown || searchTermShown === '') ? (
+                      {filteredList.length < 1 && (!searchTermShown || searchTermShown === '') ? (
                         <Text style={{fontSize: '16px'}}>{t('pres.nothing')}</Text>
                       ) : (
                         <Text style={{fontSize: '16px'}}>
