@@ -68,10 +68,6 @@ const MediaKit = () => {
     }
   }, [data]);
 
-  useEffect(() => {
-    console.log('LISTS', itemsList);
-  }, [itemsList]);
-
   return (
     <Container className="container">
       <MainImgWrap>

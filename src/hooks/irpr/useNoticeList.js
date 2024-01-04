@@ -8,8 +8,8 @@ const fetchNoticeList = (keyWord, language, pageNumber) => {
   });
 };
 
-const useNoticeList = () => {
-  return useLanguageQuery('noticeList', fetchNoticeList);
+const useNoticeList = (keyWord, language, pageNumber) => {
+  return useLanguageQuery('noticeList', fetchNoticeList, [keyWord, language, pageNumber]);
 };
 
 export default useNoticeList;

@@ -39,6 +39,7 @@ import usePopup from '../../hooks/popup/usePopup';
 import arrow from '../../assets/images/arrow.svg';
 import {useNavigate} from 'react-router-dom';
 import usePressHomeList from '../../hooks/home/usePressHomeList';
+import useVideoHomeList from '../../hooks/home/useVideoHome';
 
 const Home = () => {
   const browserInfo = browser();
@@ -47,6 +48,7 @@ const Home = () => {
   const [language, setLanguage] = useRecoilState(Language);
   const [scrollY, setScrollY] = useState(0);
   const {data: pressData, refetch: pressDataRefetch} = usePressHomeList(language);
+  const {data: videoData, refetch: videoDataRefetch} = useVideoHomeList(language);
   const {data: popupData, refetch: popupDataRefetch} = usePopup(language);
   const [pressList, setPressList] = useState([]);
   const [modalOpen, setModalOpen] = useState();
@@ -466,13 +468,7 @@ const Home = () => {
                 justifyContent: 'space-between',
                 margin: '0',
               }}>
-              <VideoFrame
-                src={
-                  language === 'ENG'
-                    ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4'
-                    : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4'
-                }
-              />
+              {videoData?.data?.data?.url && <VideoFrame src={videoData?.data?.data?.url} />}
               <ComponentText
                 style={{
                   fontSize: window.innerWidth > 1280 ? '48px' : '36px',
@@ -922,22 +918,10 @@ const Home = () => {
                     width: window.innerWidth > 900 ? '86vw' : '90vw',
                     height: window.innerWidth > 1280 ? '726px' : window.innerWidth > 900 ? '484px' : '50vw',
                   }}>
-                  <source
-                    src={
-                      // src
-                      'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false'
-                    }
-                    type="video/mp4"
-                  />
+                  <source src={videoData?.data?.data?.url} type="video/mp4" />
                 </video>
               ) : (
-                <VideoFrame
-                  src={
-                    language === 'ENG'
-                      ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4'
-                      : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4'
-                  }
-                />
+                <VideoFrame src={videoData?.data?.data?.url} />
               )}
               <ComponentText
                 style={{

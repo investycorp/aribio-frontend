@@ -8,8 +8,8 @@ const fetchPressReleaseList = (keyWord, language, pageNumber) => {
   });
 };
 
-const usePressReleaseList = lan => {
-  return useLanguageQuery('mediaList', fetchPressReleaseList);
+const usePressReleaseList = (keyWord, language, pageNumber) => {
+  return useLanguageQuery('mediaList', fetchPressReleaseList, [keyWord, language, pageNumber]);
 };
 
 export default usePressReleaseList;

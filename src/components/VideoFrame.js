@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useRecoilState } from 'recoil';
+import React, {useState, useEffect, useRef} from 'react';
+import {useRecoilState} from 'recoil';
 import styled from 'styled-components';
 import Language from '../atom/Language';
 
@@ -30,8 +30,7 @@ const VideoFrameWrap = styled.div`
   }
 `;
 
-const VideoFrame = ({ src }) => {
-  const [language, setLanguage] = useRecoilState(Language);
+const VideoFrame = ({src}) => {
   const [videoId, setVideoId] = useState('');
   const videoRef = useRef();
 
@@ -47,7 +46,7 @@ const VideoFrame = ({ src }) => {
     }
 
     const handleClickStart = () => {
-      if(window.innerWidth < 900) {
+      if (window.innerWidth < 900) {
         if (video && video.paused) {
           video.play();
         } else if (video && !video.paused) {
@@ -72,28 +71,21 @@ const VideoFrame = ({ src }) => {
     <>
       {!src?.includes('iwinv') ? (
         <VideoFrameWrap id="focus">
-        <iframe
-          width="853"
-          height="480"
-          src={
-            videoId && videoId !== '' ?
-            `https://www.youtube.com/embed/${videoId}?modestbranding=0&rel=0`
-            : `${src}?autostart=false`
-            // videoId
-            //   ? `https://www.youtube.com/embed/${videoId}?modestbranding=0&rel=0`
-            //   : src
-            //   ? `${src}?autostart=false`
-            //   : language === 'ENG'
-            //   ? 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false'
-            //   : 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR1001_script.mp4?autostart=false'
-          }
-          allow=" clipboard-write; encrypted-media;  picture-in-picture"
-          allowFullScreen
-          title="AriBio Media"
-        />
-      </VideoFrameWrap>
-      ):(
-        <div style={{ position: 'relative', borderRadius: '20px' }}>
+          <iframe
+            width="853"
+            height="480"
+            src={
+              videoId && videoId !== ''
+                ? `https://www.youtube.com/embed/${videoId}?modestbranding=0&rel=0`
+                : `${src}?autostart=false`
+            }
+            allow=" clipboard-write; encrypted-media;  picture-in-picture"
+            allowFullScreen
+            title="AriBio Media"
+          />
+        </VideoFrameWrap>
+      ) : (
+        <div style={{position: 'relative', borderRadius: '20px'}}>
           <video
             ref={videoRef}
             playsInline
@@ -103,12 +95,11 @@ const VideoFrame = ({ src }) => {
               borderRadius: '20px',
               width: window.innerWidth > 900 ? '86vw' : '90vw',
               height: window.innerWidth > 1280 ? '726px' : window.innerWidth > 900 ? '484px' : '202px',
-            }}
-          >
+            }}>
             <source
               src={
                 // src
-                "https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false"
+                'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false'
               }
               type="video/mp4"
             />

@@ -38,7 +38,7 @@ import {useRecoilValue} from 'recoil';
 
 const Notice = () => {
   const {id} = useParams();
-  const [language] = useRecoilValue(Language);
+  const language = useRecoilValue(Language);
 
   const [hoverItem, setHoverItem] = useState();
   const [pageNumber, setPageNumber] = useState(1);
@@ -56,10 +56,11 @@ const Notice = () => {
   const [viewMoreOn, setViewMoreOn] = useState(true);
 
   useEffect(() => {
+    console.log(data);
     if (pageNumber === 1) {
       const items = [];
       if (data?.data) {
-        data?.data.data.noticeDtoList.map(item => {
+        data?.data?.data?.noticeDtoList?.map(item => {
           items.push({
             id: item.id,
             date: item.day,
@@ -75,7 +76,7 @@ const Notice = () => {
     }
     if (pageNumber > 1) {
       if (data?.data?.success) {
-        data?.data.data.noticeDtoList.map(item => {
+        data?.data?.data?.noticeDtoList?.map(item => {
           setFilteredList(prev => [
             ...prev,
             {

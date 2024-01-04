@@ -38,13 +38,13 @@ import usePressReleaseList from '../../hooks/irpr/usePressReleaseList';
 
 const PressRelease = () => {
   const {id} = useParams();
-  const [language] = useRecoilValue(Language);
+  const language = useRecoilValue(Language);
 
   const [hoverItem, setHoverItem] = useState();
+  const [searchValue, setSearchValue] = useState('');
   const [pageNumber, setPageNumber] = useState(1);
   const [itemPerPage, setItemPerPage] = useState(6);
   const [currentItem, setCurrentItem] = useState({});
-  const [searchValue, setSearchValue] = useState('');
   const [searchTermShown, setSearchTermShown] = useState('');
   const [detailPage, setDetailPage] = useState(false);
 
@@ -480,7 +480,7 @@ const PressRelease = () => {
                     <ComponentWrap style={{gap: '2em', height: '30vh', justifyContent: 'center'}}>
                       <HR style={{width: '24px', height: '1px'}} />
                       {filteredList.length < 1 && (!searchTermShown || searchTermShown === '') ? (
-                        <Text style={{fontSize: '16px'}}>{t('pres.nothing')}</Text>
+                        <Text style={{fontSize: '16px'}}>{t('press.nothing')}</Text>
                       ) : (
                         <Text style={{fontSize: '16px'}}>
                           {t('press.searchNothing')} '{searchTermShown}'
