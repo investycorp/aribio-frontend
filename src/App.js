@@ -28,6 +28,7 @@ import MemoRe from './screens/openinnovation/MemoRe';
 import Partner from './screens/contact/Partner';
 import MediaKit from './screens/irpr/MediaKit';
 import CareerDetail from './screens/career/components/CareerDetail';
+import NotFound from './screens/basic/NotFound';
 
 const queryClient = new QueryClient();
 
@@ -99,7 +100,7 @@ function App() {
               <Route path="/openinnovation/openinnovation" element={<OpenInnovation />} />
               <Route path="/openinnovation/digitalhealth" element={<DigitalHealth />} />
               <Route path="/openinnovation/memoreproject" element={<MemoRe />} />
-              <Route path="*" element={<Home />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </QueryClientProvider>
