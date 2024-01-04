@@ -32,16 +32,37 @@ const VideoFrameWrap = styled.div`
 
 const VideoFrame = ({src}) => {
   const [videoId, setVideoId] = useState('');
+  const [isValidSrc, setIsValidSrc] = useState(true);
   const videoRef = useRef();
+
+  // src 체크 로직
+  const checkValidSrc = src => {
+    if (!src) return false;
+
+    try {
+      const url = new URL(src);
+      if (url.protocol !== 'http:' && url.protocol !== 'https:') return false;
+      if (url.host.includes('youtube.com') || url.host.includes('youtu.be')) {
+        // 추가적인 YouTube URL 검증 로직
+        return true;
+      }
+      // 기타 다른 도메인에 대한 검증 로직
+    } catch (e) {
+      return false;
+    }
+
+    return true;
+  };
 
   useEffect(() => {
     const video = videoRef.current;
 
     if (src) {
       setVideoId('');
-      if (src.includes('youtu')) {
+      const isValid = checkValidSrc(src);
+      setIsValidSrc(isValid);
+      if (isValid) {
         setVideoId(src?.split('watch?v=')[1]?.split('&')[0] || src?.split('=')[1]?.split('&')[0]);
-        videoRef?.current?.load();
       }
     }
 
@@ -66,6 +87,10 @@ const VideoFrame = ({src}) => {
       video?.removeEventListener('loaded', () => {});
     };
   }, [src]);
+
+  if (!isValidSrc) {
+    return <VideoFrameWrap style={{backgroundColor: 'black'}} />;
+  }
 
   return (
     <>
