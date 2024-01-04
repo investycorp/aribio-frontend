@@ -1006,7 +1006,8 @@ const Home = () => {
                     height: '92px',
                     maxHeight: '92px',
                     marginBottom: '12px',
-                  }}>
+                  }}
+                  onClick={() => navigate(`/irpr/pressrelease/${item?.id}`)}>
                   <HomeComponentImageWrap
                     $src={item?.imageUrl}
                     style={{
