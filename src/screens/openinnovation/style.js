@@ -385,13 +385,31 @@ const move = (phase, state) => keyframes`
   }
 `;
 
+const moveMobile = (phase, state) => keyframes`
+  0% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(${phase ? `calc((${phase} * 135px) - (${4 - state} * 33.75px ) - 100%)` : `calc(135px)`});
+    -webkit-transform: translateX(${
+      phase ? `calc((${phase} * 135px) - (${4 - state} *  33.75px ) - 100%)` : `calc(135px)`
+    });
+    opacity: 1;
+  }
+`;
+
 const ShootingStar = styled.span.attrs(props => ({
   className: props.className,
 }))`
   opacity: 0;
   position: absolute;
   top: calc(50% - 4px);
-  left: 0%;
+  left: 0;
   width: ${props => (props.$phase ? `calc(${props.$phase} * 10.4vw - ${4 - props.$state} * 2.5vw)` : `calc(10vw)`)};
   height: 3px;
   background: linear-gradient(270deg, #ffffff, transparent);
@@ -409,6 +427,16 @@ const ShootingStar = styled.span.attrs(props => ({
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
     -webkit-animation-fill-mode: forwards;
+
+    @media screen and (max-width: 900px) {
+      animation-name: ${props => moveMobile(props.$phase, props.$state)};
+      -webkit-animation-name: ${props => moveMobile(props.$phase, props.$state)};
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    top: calc(50% - 0.5px);
+    width: ${props => (props.$phase ? `calc(${props.$phase} * 135px - ${4 - props.$state} * 33.75px)` : `135px`)};
   }
 `;
 

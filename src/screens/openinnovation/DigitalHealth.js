@@ -505,7 +505,7 @@ const DigitalHealth = () => {
                     <TableContentBox style={{padding: 0}}>
                       <ShootingStarWrap className="shooting_star_wrap">
                         <hr style={{width: '100%', opacity: '0.4', border: '1px dotted'}} />
-                        <ShootingStar className="shooting_star" $phase={item.phase}>
+                        <ShootingStar className="shooting_star" $phase={item.phase} $state={item.state}>
                           <Ball className="ball" />
                         </ShootingStar>
                       </ShootingStarWrap>

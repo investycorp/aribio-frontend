@@ -43,10 +43,10 @@ const VideoFrame = ({src}) => {
       const url = new URL(src);
       if (url.protocol !== 'http:' && url.protocol !== 'https:') return false;
       if (url.host.includes('youtube.com') || url.host.includes('youtu.be')) {
-        // 추가적인 YouTube URL 검증 로직
+        // 추가적인 YouTube URL 검증 로직이 필요할 경우 추가해주세요.
         return true;
       }
-      // 기타 다른 도메인에 대한 검증 로직
+      // 기타 다른 도메인에 대한 검증 로직이 필요할 경우 추가해주세요.
     } catch (e) {
       return false;
     }
