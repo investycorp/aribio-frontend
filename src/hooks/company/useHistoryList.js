@@ -1,21 +1,13 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useHistoryList = (lan) => {
-  const language = lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery(
-    'historyList',
-    () =>
-      axiosInstance.get(`/user/history`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('historyList'),
-    },
-  );
+const fetchHistoryList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/history`, {params: {language: langParam}});
+};
 
-  return { data, isLoading };
+const useHistoryList = () => {
+  return useLanguageQuery('historyList', fetchHistoryList);
 };
 
 export default useHistoryList;

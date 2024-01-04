@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const usePublicationList = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery(
-    'publicationList',
-    () =>
-      axiosInstance.get(`/user/publication`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('publicationList'),
-    },
-  );
+const fetchPublicationList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/publication`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading };
+const usePublicationList = lan => {
+  return useLanguageQuery('publicationList', fetchPublicationList);
 };
 
 export default usePublicationList;

@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useNoticeList = (keyWord, lan, pageNumber) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading, refetch } = useQuery(
-    'noticeList',
-    () =>
-      axiosInstance.get(`/user/notice`, {
-        params: { keyword: keyWord, language: language, pageNo: pageNumber },
-      }),
-    {
-      initialData: queryClient.getQueryData('noticeList'),
-    },
-  );
+const fetchNoticeList = (keyWord, language, pageNumber) => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/notice`, {
+    params: {keyword: keyWord, language: langParam, pageNo: pageNumber},
+  });
+};
 
-  return { data, isLoading, refetch };
+const useNoticeList = () => {
+  return useLanguageQuery('noticeList', fetchNoticeList);
 };
 
 export default useNoticeList;

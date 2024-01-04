@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const usePressReleaseList = (keyWord, lan, pageNumber) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading, refetch } = useQuery(
-    'pressreleaseList',
-    () =>
-      axiosInstance.get(`/user/press-release`, {
-        params: { keyword: keyWord, language: language, pageNo: pageNumber },
-      }),
-    {
-      initialData: queryClient.getQueryData('pressreleaseList'),
-    },
-  );
+const fetchPressReleaseList = (keyWord, language, pageNumber) => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/press-release`, {
+    params: {keyword: keyWord, language: langParam, pageNo: pageNumber},
+  });
+};
 
-  return { data, isLoading, refetch };
+const usePressReleaseList = lan => {
+  return useLanguageQuery('mediaList', fetchPressReleaseList);
 };
 
 export default usePressReleaseList;

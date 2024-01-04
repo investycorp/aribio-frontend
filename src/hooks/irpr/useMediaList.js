@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useMediaList = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading, refetch } = useQuery(
-    'mediaList',
-    () =>
-      axiosInstance.get(`/user/media-kit`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('mediaList'),
-    },
-  );
+const fetchMediaList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/media-kit`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading, refetch };
+const useMediaList = lan => {
+  return useLanguageQuery('mediaList', fetchMediaList);
 };
 
 export default useMediaList;

@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useParnerList = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading, refetch } = useQuery(
-    'parnerList',
-    () =>
-      axiosInstance.get(`/user/partner`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('parnerList'),
-    },
-  );
+const fetchPartnerList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/partner`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading, refetch };
+const useParnerList = lan => {
+  return useLanguageQuery('parnerList', fetchPartnerList);
 };
 
 export default useParnerList;

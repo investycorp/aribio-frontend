@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const usePressHomeList = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading, refetch } = useQuery(
-    'pressHomeList',
-    () =>
-      axiosInstance.get(`/user/main/pressRelease`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('pressHomeList'),
-    },
-  );
+const fetchPressHomeList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/main/pressRelease`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading, refetch };
+const usePressHomeList = lan => {
+  return useLanguageQuery('pressHomeList', fetchPressHomeList);
 };
 
 export default usePressHomeList;

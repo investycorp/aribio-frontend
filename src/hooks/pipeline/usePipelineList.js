@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const usePipelineList = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery(
-    'pipelineList',
-    () =>
-      axiosInstance.get(`/user/pipeline`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('pipelineList'),
-    },
-  );
+const fetchPipelineList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/pipeline`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading };
+const usePipelineList = lan => {
+  return useLanguageQuery('pipelineList', fetchPipelineList);
 };
 
 export default usePipelineList;

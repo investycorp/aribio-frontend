@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useLeadershipList = (lan) => {
-  const language = lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery(
-    'leadershipList',
-    () =>
-      axiosInstance.get(`/user/about-us/leadership`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('leadershipList'),
-    },
-  );
+const fetchLeadershipList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/about-us/leadership`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading };
+const useLeadershipList = () => {
+  return useLanguageQuery('leadershipList', fetchLeadershipList);
 };
 
 export default useLeadershipList;

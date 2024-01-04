@@ -30,64 +30,70 @@ import {useRecoilValue} from 'recoil';
 const AiPlatform = () => {
   const language = useRecoilValue(Language);
   const [activeButton, setActiveButton] = useState(0);
-  const [predictions, setPredictions] = useState([
-    {
-      title: t('aiplatform.predictions.docking.title'),
-      content: [
-        t('aiplatform.predictions.docking.content.desc1'),
-        t('aiplatform.predictions.docking.content.desc2'),
-        t('aiplatform.predictions.docking.content.desc3'),
-        t('aiplatform.predictions.docking.content.desc4'),
-      ],
-      width: '149px',
-    },
+  const [predictions, setPredictions] = useState([]);
 
-    {
-      title: t('aiplatform.predictions.ic50.title'),
-      content: [t('aiplatform.predictions.ic50.content.desc1')],
-      width: '227px',
-    },
-    {
-      title: t('aiplatform.predictions.blinding.title'),
-      content: [
-        t('aiplatform.predictions.blinding.content.desc1'),
-        t('aiplatform.predictions.blinding.content.desc2'),
-        t('aiplatform.predictions.blinding.content.desc3'),
-        t('aiplatform.predictions.blinding.content.desc4'),
-      ],
-      width: '352px',
-    },
-    {
-      title: t('aiplatform.predictions.drugsim.title'),
-      content: [t('aiplatform.predictions.drugsim.content.desc1')],
-      width: '159px',
-    },
-    {
-      title: t('aiplatform.predictions.ligand.title'),
-      content: [t('aiplatform.predictions.ligand.content.desc1')],
-      width: '217px',
-    },
-    {
-      title: t('aiplatform.predictions.bbb.title'),
-      content: [t('aiplatform.predictions.bbb.content.desc1')],
-      width: '212px',
-    },
-    {
-      title: t('aiplatform.predictions.target.title'),
-      content: [t('aiplatform.predictions.target.content.desc1')],
-      width: '215px',
-    },
-    {
-      title: t('aiplatform.predictions.arinet.title'),
-      content: [t('aiplatform.predictions.arinet.content.desc1')],
-      width: '147px',
-    },
-    {
-      title: t('aiplatform.predictions.admet.title'),
-      content: [t('aiplatform.predictions.admet.content.desc1')],
-      width: '235px',
-    },
-  ]);
+  useEffect(() => {
+    const newPredictions = [
+      {
+        title: t('aiplatform.predictions.docking.title'),
+        content: [
+          t('aiplatform.predictions.docking.content.desc1'),
+          t('aiplatform.predictions.docking.content.desc2'),
+          t('aiplatform.predictions.docking.content.desc3'),
+          t('aiplatform.predictions.docking.content.desc4'),
+        ],
+        width: '149px',
+      },
+
+      {
+        title: t('aiplatform.predictions.ic50.title'),
+        content: [t('aiplatform.predictions.ic50.content.desc1')],
+        width: '227px',
+      },
+      {
+        title: t('aiplatform.predictions.blinding.title'),
+        content: [
+          t('aiplatform.predictions.blinding.content.desc1'),
+          t('aiplatform.predictions.blinding.content.desc2'),
+          t('aiplatform.predictions.blinding.content.desc3'),
+          t('aiplatform.predictions.blinding.content.desc4'),
+        ],
+        width: '352px',
+      },
+      {
+        title: t('aiplatform.predictions.drugsim.title'),
+        content: [t('aiplatform.predictions.drugsim.content.desc1')],
+        width: '159px',
+      },
+      {
+        title: t('aiplatform.predictions.ligand.title'),
+        content: [t('aiplatform.predictions.ligand.content.desc1')],
+        width: '217px',
+      },
+      {
+        title: t('aiplatform.predictions.bbb.title'),
+        content: [t('aiplatform.predictions.bbb.content.desc1')],
+        width: '212px',
+      },
+      {
+        title: t('aiplatform.predictions.target.title'),
+        content: [t('aiplatform.predictions.target.content.desc1')],
+        width: '215px',
+      },
+      {
+        title: t('aiplatform.predictions.arinet.title'),
+        content: [t('aiplatform.predictions.arinet.content.desc1')],
+        width: '147px',
+      },
+      {
+        title: t('aiplatform.predictions.admet.title'),
+        content: [t('aiplatform.predictions.admet.content.desc1')],
+        width: '235px',
+      },
+    ];
+
+    setPredictions(newPredictions);
+  }, [language]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -355,7 +361,7 @@ const AiPlatform = () => {
                     }}>
                     <span>•</span>
                     <span style={{textAlign: 'start'}}>
-                      {predictions[activeButton].title.split('\\n').map(line => (
+                      {predictions[activeButton]?.title?.split('\\n').map(line => (
                         <span key={'prediction' + line}>
                           {line} <br />
                         </span>
@@ -364,7 +370,7 @@ const AiPlatform = () => {
                   </Text>
                 </TextWrap>
                 <DescriptionWrap style={{padding: window.innerWidth > 1280 ? '0 160px 0 0' : '0 96px 0 0'}}>
-                  {predictions[activeButton].content.map((item, index) => (
+                  {predictions[activeButton]?.content?.map((item, index) => (
                     <DescriptionItem
                       key={index}
                       style={{
@@ -374,7 +380,7 @@ const AiPlatform = () => {
                         lineHeight: language === 'KOR' ? '1.8em' : '1.5em',
                       }}>
                       {item.split('\\n').map((line, lineIndex) => {
-                        const lineContent = line.includes('Description : ') ? (
+                        const lineContent = line?.includes('Description : ') ? (
                           <>
                             {line}
                             <br />
@@ -386,7 +392,7 @@ const AiPlatform = () => {
                               return (
                                 <React.Fragment key={subLineIndex}>
                                   {subLine}
-                                  {subLineIndex < line.split('<br />').length - 1 && <br />}
+                                  {subLineIndex < line?.split('<br />').length - 1 && <br />}
                                 </React.Fragment>
                               );
                             })}
@@ -602,11 +608,11 @@ const AiPlatform = () => {
                         height: 'fit-content',
                         lineHeight: '1em',
                       }}>
-                      •{predictions[activeButton].title.replace(/\\n/g, '')}
+                      •{predictions[activeButton]?.title?.replace(/\\n/g, '')}
                     </Text>
                   </TextWrap>
                   <DescriptionWrap style={{padding: '0', margin: '0', height: 'fit-content'}}>
-                    {predictions[activeButton].content.map((item, index) => (
+                    {predictions[activeButton]?.content?.map((item, index) => (
                       <DescriptionItem
                         key={item + index}
                         style={{fontSize: language !== 'KOR' ? '16px' : '15px', fontWeight: '200'}}>

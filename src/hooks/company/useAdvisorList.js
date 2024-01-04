@@ -1,21 +1,15 @@
-import {useQuery, useQueryClient} from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useAdvisorList = lan => {
-  const language = lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const {data, isLoading} = useQuery(
-    'advisorList',
-    () =>
-      axiosInstance.get(`/user/about-us/advisor`, {
-        params: {language: language},
-      }),
-    {
-      initialData: queryClient.getQueryData('advisorList'),
-    },
-  );
+const fetchAdvisorList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/about-us/advisor`, {
+    params: {language: langParam},
+  });
+};
 
-  return {data, isLoading};
+const useAdvisorList = () => {
+  return useLanguageQuery('advisorList', fetchAdvisorList);
 };
 
 export default useAdvisorList;

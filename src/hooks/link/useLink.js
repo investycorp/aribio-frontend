@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useLinkList = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading, refetch } = useQuery(
-    'linkList',
-    () =>
-      axiosInstance.get(`/user/link`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('linkList'),
-    },
-  );
+const fetchLinkList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/link`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading, refetch };
+const useLinkList = lan => {
+  return useLanguageQuery('linkList', fetchLinkList);
 };
 
 export default useLinkList;

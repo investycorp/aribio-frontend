@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useFooter = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading, refetch } = useQuery(
-    'footerInfo',
-    () =>
-      axiosInstance.get(`/user/company-information`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('footerInfo'),
-    },
-  );
+const fetchFooter = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/company-information`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading, refetch };
+const useFooter = lan => {
+  return useLanguageQuery('footerInfo', fetchFooter);
 };
 
 export default useFooter;

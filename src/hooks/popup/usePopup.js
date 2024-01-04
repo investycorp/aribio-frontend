@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const usePopup = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading, refetch } = useQuery(
-    'popupInfo',
-    () =>
-      axiosInstance.get(`/user/main/pop-up`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('popupInfo'),
-    },
-  );
+const fetchPopup = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/main/pop-up`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading, refetch };
+const usePopup = lan => {
+  return useLanguageQuery('popupInfo', fetchPopup);
 };
 
 export default usePopup;

@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useCareerList = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading, refetch } = useQuery(
-    'careerList',
-    () =>
-      axiosInstance.get(`/user/career/join-us`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('careerList'),
-    },
-  );
+const fetchCareerList = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/career/join-us`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading, refetch };
+const useCareerList = () => {
+  return useLanguageQuery('careerList', fetchCareerList);
 };
 
 export default useCareerList;

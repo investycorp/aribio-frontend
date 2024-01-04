@@ -1,9 +1,9 @@
-import { useMutation, useQueryClient } from 'react-query';
+import {useMutation, useQueryClient} from 'react-query';
 import Language from '../../atom/Language';
-import { useRecoilValue } from 'recoil';
+import {useRecoilValue} from 'recoil';
 import axiosInstance from '../axiosInstance';
 
-const useContact = (contactData) => {
+const useContact = contactData => {
   const language = useRecoilValue(Language);
   const queryClient = useQueryClient();
   const variable = {
@@ -12,17 +12,17 @@ const useContact = (contactData) => {
   };
 
   const postContactData = async () => {
-    const { data } = await axiosInstance.post(`https://api.aribio.boundary.team/user/contact-us`, variable);
+    const {data} = await axiosInstance.post(`/user/contact-us`, variable);
     return data;
   };
 
-  const { mutate, data, isSuccess, isError, isLoading } = useMutation(postContactData, {
+  const {mutate, data, isSuccess, isError, isLoading} = useMutation(postContactData, {
     onSuccess: () => {
       queryClient.invalidateQueries('contact');
     },
   });
 
-  return { mutate, data, isSuccess, isError, isLoading };
+  return {mutate, data, isSuccess, isError, isLoading};
 };
 
 export default useContact;

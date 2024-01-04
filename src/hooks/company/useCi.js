@@ -1,21 +1,15 @@
-import { useQuery, useQueryClient } from 'react-query';
 import axiosInstance from '../axiosInstance';
+import useLanguageQuery from '../useLanguageQuery';
 
-const useCi = (lan) => {
-  const language = !lan || lan !== 'KOR' ? 'ENGLISH' : 'KOREAN';
-  const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery(
-    'ci',
-    () =>
-      axiosInstance.get(`/user/ci`, {
-        params: { language: language },
-      }),
-    {
-      initialData: queryClient.getQueryData('ci'),
-    },
-  );
+const fetchCi = language => {
+  const langParam = language !== 'KOR' ? 'ENGLISH' : 'KOREAN';
+  return axiosInstance.get(`/user/ci`, {
+    params: {language: langParam},
+  });
+};
 
-  return { data, isLoading };
+const useCi = () => {
+  return useLanguageQuery('ci', fetchCi);
 };
 
 export default useCi;
