@@ -299,10 +299,11 @@ const AiPlatform = () => {
               </Text>
               <Text
                 $language={language}
+                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="200"
                 $color="#C9C9C9"
                 $align="center"
-                style={{marginTop: '1.5em', width: '100%', fontSize: window.innerWidth > 1280 ? '23px' : '14px'}}>
+                style={{marginTop: '1.5em', width: '100%'}}>
                 <Trans i18nKey="aiplatform.desc5" components={{1: <br />}} />
               </Text>
             </TextWrap>
@@ -375,7 +376,7 @@ const AiPlatform = () => {
                       key={index}
                       style={{
                         width: '100%',
-                        fontSize: window.innerHeight > 1280 ? '20px' : '12px',
+                        fontSize: window.innerWidth > 1280 ? '20px' : '12px',
                         fontWeight: '300',
                         lineHeight: language === 'KOR' ? '1.8em' : '1.5em',
                       }}>
@@ -410,7 +411,6 @@ const AiPlatform = () => {
             <TextWrap style={{marginBottom: '10em', width: '100%'}}>
               <HR $height="2px" $color="#ffffff" />
               <Text
-                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
                 $fontWeight="400"
                 $color="#ffffff"
@@ -418,6 +418,7 @@ const AiPlatform = () => {
                 {t('aiplatform.subtitle6')}
               </Text>
               <Text
+                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="100"
                 $color="#C9C9C9"

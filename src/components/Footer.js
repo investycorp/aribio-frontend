@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 import {Desktop, Mobile} from '../utils/MediaQuery';
 import {t} from 'i18next';
 import dropdown from '../assets/images/dropdown_sm.svg';
-import {useRecoilState} from 'recoil';
+import {useRecoilValue} from 'recoil';
 import Language from '../atom/Language';
 import useFooter from '../hooks/footer/useFooter';
 
@@ -128,18 +128,19 @@ const AddressWrap = styled.div`
   align-items: start;
   justify-content: start;
 
-  @media screen and (max-width: 900px){
-      max-width: 100vw;
+  @media screen and (max-width: 900px) {
+    max-width: 100vw;
   }
 `;
 
 const Footer = () => {
-  const [language, setLanguage] = useRecoilState(Language);
+  const language = useRecoilValue(Language);
   const {data, isLoading} = useFooter(language);
   const [companyInfo, setCompanyInfo] = useState({});
   const [footerToggle, setFooterToggle] = useState('');
 
   useEffect(() => {
+    console.log('DATA:', data);
     if (data?.data?.success) {
       const item = data.data?.data;
       item &&

@@ -8,7 +8,7 @@ const fetchFooter = language => {
   });
 };
 
-const useFooter = lan => {
+const useFooter = () => {
   return useLanguageQuery('footerInfo', fetchFooter);
 };
 

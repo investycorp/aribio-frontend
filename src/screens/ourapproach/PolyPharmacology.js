@@ -54,7 +54,7 @@ const PolyPharmacology = () => {
         {t('polypharma.title')}
       </Path>
       <Desktop>
-        <HomeComponentWrap style={{padding: '15vh 7vw'}}>
+        <HomeComponentWrap style={{padding: '15vh 7vw', marginBottom: '20vh'}}>
           <TextWrap>
             <Text
               $fontSize={window.innerWidth > 1280 ? '26px' : '18px'}
@@ -83,7 +83,7 @@ const PolyPharmacology = () => {
             />
             <Text
               $language={language}
-              $fontSize={window.innerWidth > 1280 ? '23px' : '16px'}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="300"
               $color="#E5E5E5">
               <Trans i18nKey="polypharma.desc1" components={{1: <br />}} />
@@ -102,7 +102,7 @@ const PolyPharmacology = () => {
           <HR $height="2px" $color="#9A9A9A" />
           <Text
             $language={language}
-            $fontSize={window.innerWidth > 1280 ? '20px' : '16px'}
+            $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
             $fontWeight="300"
             $color="#ffffff"
             style={{marginTop: '4em', width: '80vw'}}>

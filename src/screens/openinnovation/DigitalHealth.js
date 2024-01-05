@@ -165,10 +165,10 @@ const DigitalHealth = () => {
             overflow: 'hidden',
           }}>
           <TextWrap style={{position: 'relative', backgroundColor: 'transparent'}}>
-            <Text $color="#939598" style={{fontSize: window.innerWidth > 1280 ? '26px' : '18px'}} $fontWeight="300">
+            <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
               {t('innovation.health.subtitle')}
             </Text>
-            <Text style={{fontSize: window.innerWidth > 1280 ? '50px' : '34px'}} $fontWeight="500">
+            <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
               <Trans i18nKey={'innovation.health.subdesc'} components={{1: <br />}} />
             </Text>
             <div
@@ -179,7 +179,7 @@ const DigitalHealth = () => {
                 border: '1px solid #ffffff',
                 margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
               }}></div>
-            <Text style={{fontSize: window.innerWidth > 1280 ? '23px' : '14px'}} $fontWeight="300" $color="#C9C9C9">
+            <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#C9C9C9">
               <Trans i18nKey={'innovation.health.approach.desc'} components={{1: <br />}} />
             </Text>
           </TextWrap>
@@ -221,7 +221,8 @@ const DigitalHealth = () => {
             <TextWrap style={{width: '100%', alignItems: 'center', margin: '0', gap: '2em'}}>
               <HR $color="#F8F8F8" style={{alignSelf: 'center'}} />
               <Text
-                style={{fontSize: window.innerWidth > 1280 ? '34px' : '19px', margin: '0'}}
+                style={{margin: '0'}}
+                $fontSize={window.innerWidth > 1280 ? '34px' : '19px'}
                 $fontWeight="500"
                 $color="#F4F4F4">
                 {t('innovation.health.approach.title')}

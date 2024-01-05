@@ -268,8 +268,9 @@ const MemoRe = () => {
             <TextWrap style={{position: 'relative', backgroundColor: 'transparent', width: '100%'}}>
               <Text
                 $color="#C9C9C9"
+                $fontSize={window.innerWidth > 1280 ? '26px' : '16px'}
                 $fontWeight="300"
-                style={{fontSize: window.innerWidth > 1280 ? '26px' : '16px', margin: '0 0 12px 0'}}>
+                style={{margin: '0 0 12px 0'}}>
                 {t('innovation.memore_m.basic.subtitle')}
               </Text>
               <Text $fontSize="23px" $fontWeight="400" style={{width: '100%', margin: '0'}}>
