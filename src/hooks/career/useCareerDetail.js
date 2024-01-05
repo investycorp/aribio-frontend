@@ -5,7 +5,7 @@ const useCareerDetail = id => {
   const queryClient = useQueryClient();
   const {data, isLoading, refetch} = useQuery(
     'careerDetailContent',
-    () => axiosInstance.get(`/user/career/join-us/${id}`, {}),
+    () => axiosInstance.get(`/user/career/join-us/${id}`),
     {
       initialData: queryClient.getQueryData('careerDetailContent'),
     },

@@ -10,12 +10,11 @@ import {t} from 'i18next';
 
 const CareerDetail = () => {
   const navigate = useNavigate();
-  const [language] = useRecoilValue(Language);
   const {id} = useParams();
   const [page, setPage] = useState('Career');
   const [currentItem, setCurrentItem] = useState({});
 
-  const {data, isLoading, refetch} = useCareerDetail(language, id);
+  const {data, isLoading, refetch} = useCareerDetail(id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
