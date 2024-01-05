@@ -31,22 +31,15 @@ import openinnovation_digitalhealth_mobile_middle1 from './assets/openinnovation
 import arrow from '../../assets/images/arrow.svg';
 import Video from '../../components/Video';
 import useLinkList from '../../hooks/link/useLink';
-
+import {useRecoilValue} from 'recoil';
 import {t} from 'i18next';
 import {Trans} from 'react-i18next';
+import Language from '../../atom/Language';
 
 const DigitalHealth = () => {
   const {data: linkData} = useLinkList();
-  const [tableHeader, setTableHeader] = useState([
-    t('innovation.health.table.header.focus'),
-    t('innovation.health.table.header.indication'),
-    t('innovation.health.table.header.region'),
-    t('innovation.health.table.header.discovery'),
-    t('innovation.health.table.header.preclinical'),
-    t('innovation.health.table.header.e_clinical'),
-    t('innovation.health.table.header.p_clinical'),
-    t('innovation.health.table.header.market'),
-  ]);
+  const language = useRecoilValue(Language);
+  const [tableHeader, setTableHeader] = useState([]);
   const [data, setData] = useState([
     {
       focus: 'Electroceutical - I',
@@ -70,6 +63,20 @@ const DigitalHealth = () => {
       state: 2,
     },
   ]);
+
+  useEffect(() => {
+    const newTableHeader = [
+      t('innovation.health.table.header.focus'),
+      t('innovation.health.table.header.indication'),
+      t('innovation.health.table.header.region'),
+      t('innovation.health.table.header.discovery'),
+      t('innovation.health.table.header.preclinical'),
+      t('innovation.health.table.header.e_clinical'),
+      t('innovation.health.table.header.p_clinical'),
+      t('innovation.health.table.header.market'),
+    ];
+    setTableHeader(newTableHeader);
+  }, [language]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -168,7 +175,11 @@ const DigitalHealth = () => {
             <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
               {t('innovation.health.subtitle')}
             </Text>
-            <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
+            <Text
+              $language={language}
+              $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+              $fontWeight="500"
+              style={{lineheight: '1.5em'}}>
               <Trans i18nKey={'innovation.health.subdesc'} components={{1: <br />}} />
             </Text>
             <div
@@ -178,8 +189,13 @@ const DigitalHealth = () => {
                 height: '2px',
                 border: '1px solid #ffffff',
                 margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-              }}></div>
-            <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#C9C9C9">
+              }}
+            />
+            <Text
+              $language={language}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+              $fontWeight="300"
+              $color="#C9C9C9">
               <Trans i18nKey={'innovation.health.approach.desc'} components={{1: <br />}} />
             </Text>
           </TextWrap>
@@ -192,6 +208,7 @@ const DigitalHealth = () => {
               {t('innovation.health.challenge.title')}
             </Text>
             <Text
+              $language={language}
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="300"
               $color="#C9C9C9"
@@ -208,6 +225,7 @@ const DigitalHealth = () => {
               {t('innovation.health.power.title')}
             </Text>
             <Text
+              $language={language}
               $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="300"
               $color="#C9C9C9"
@@ -337,6 +355,7 @@ const DigitalHealth = () => {
                 {t('innovation.health.electro.title')}
               </Text>
               <Text
+                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
                 $fontWeight="100"
                 $color="#C9C9C9"
@@ -354,6 +373,7 @@ const DigitalHealth = () => {
               />
             </div>
             <Text
+              $language={language}
               $align="center"
               $color="#C9C9C9"
               $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
@@ -416,11 +436,11 @@ const DigitalHealth = () => {
             <Text $color="#939598" $fontSize="16px" $fontWeight="300">
               {t('innovation.health_m.subtitle')}
             </Text>
-            <Text $fontSize="23px" $fontWeight="500" style={{margin: '0', lineHeight: '26px'}}>
+            <Text $language={language} $fontSize="23px" $fontWeight="500" style={{margin: '0', lineHeight: '26px'}}>
               <Trans i18nKey={'innovation.health_m.subdesc'} components={{1: <br />}} />
             </Text>
             <hr style={{width: '20px', border: '1px solid #C9C9C9', margin: '2rem 0'}} />
-            <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{lineHeight: '21px'}}>
+            <Text $language={language} $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{lineHeight: '21px'}}>
               <Trans i18nKey={'innovation.health_m.approach.desc'} components={{1: <br />}} />
             </Text>
           </TextWrap>
@@ -428,7 +448,12 @@ const DigitalHealth = () => {
             <Text $fontSize="20px" $fontWeight="400" $color="#E6E6E6" style={{margin: '0', lineHeight: '23px'}}>
               {t('innovation.health_m.challenge.title')}
             </Text>
-            <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{margin: '0', lineHeight: '21px'}}>
+            <Text
+              $language={language}
+              $fontSize="18px"
+              $fontWeight="300"
+              $color="#C9C9C9"
+              style={{margin: '0', lineHeight: '21px'}}>
               <Trans i18nKey={'innovation.health_m.challenge.desc'} components={{1: <br />}} />
             </Text>
           </TextWrap>
@@ -436,7 +461,12 @@ const DigitalHealth = () => {
             <Text $fontSize="20px" $fontWeight="400" $color="#E6E6E6" style={{margin: '0'}}>
               {t('innovation.health_m.power.title')}
             </Text>
-            <Text $fontSize="18px" $fontWeight="300" $color="#C9C9C9" style={{margin: '0', lineHeight: '21px'}}>
+            <Text
+              $language={language}
+              $fontSize="18px"
+              $fontWeight="300"
+              $color="#C9C9C9"
+              style={{margin: '0', lineHeight: '21px'}}>
               <Trans i18nKey={'innovation.health_m.power.desc'} components={{1: <br />}} />
             </Text>
           </TextWrap>
@@ -444,7 +474,7 @@ const DigitalHealth = () => {
         <HomeComponentWrap style={{justifyContent: 'start'}}>
           <ContentWrap style={{padding: '0'}}>
             <TextWrap style={{width: '100%', alignItems: 'start', margin: '0', gap: '0.5em'}}>
-              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{margin: '0', alignSelf: 'center'}} />
+              <HR $color="#F8F8F8" $height="1px" style={{margin: '0', alignSelf: 'center', width: '20px'}} />
               <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" style={{margin: '0', alignSelf: 'center'}}>
                 {t('innovation.health_m.approach.title')}
               </Text>
@@ -469,7 +499,7 @@ const DigitalHealth = () => {
         <HomeComponentWrap style={{justifyContent: 'start'}}>
           <ContentWrap style={{padding: '0'}}>
             <TextWrap style={{width: '100%', alignItems: 'start', margin: '0', gap: '0.5em'}}>
-              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{alignSelf: 'center'}} />
+              <HR $color="#F8F8F8" $height="1px" style={{alignSelf: 'center', width: '20px'}} />
               <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" style={{margin: '0', alignSelf: 'center'}}>
                 {t('innovation.health_m.pipeline.title')}
               </Text>
@@ -548,7 +578,7 @@ const DigitalHealth = () => {
         <HomeComponentWrap style={{justifyContent: 'start'}}>
           <ContentWrap style={{padding: '0', marginBottom: '6rem'}}>
             <TextWrap style={{alignItems: 'start', margin: '0', gap: '0.5em', width: '100%'}}>
-              <HR $color="#F8F8F8" $width="20px" $height="1px" style={{alignSelf: 'center'}} />
+              <HR $color="#F8F8F8" $height="1px" style={{alignSelf: 'center', width: '20px'}} />
               <Text
                 $fontSize="20px"
                 $fontWeight="500"
@@ -561,7 +591,7 @@ const DigitalHealth = () => {
                 $fontWeight="200"
                 $color="#D3D3D3"
                 $align="center"
-                style={{margin: '0', lineHeight: '20px'}}>
+                style={{margin: '0', lineHeight: language === 'KOR' ? '22px' : '20px'}}>
                 <Trans i18nKey={'innovation.health_m.electro.desc1'} components={{1: <br />}} />
               </Text>
             </TextWrap>
@@ -577,7 +607,12 @@ const DigitalHealth = () => {
               alt="openinnovation_mobile_middle3"
               style={{width: '100%', marginTop: '2em', padding: '3em 0', borderTop: '1px solid #696969'}}
             />
-            <Text $align="center" $color="#D3D3D3" $fontSize="16px" $fontWeight="200" style={{lineHeight: '20px'}}>
+            <Text
+              $align="center"
+              $color="#D3D3D3"
+              $fontSize="16px"
+              $fontWeight="200"
+              style={{lineHeight: language === 'KOR' ? '22px' : '20px'}}>
               <Trans i18nKey={'innovation.health_m.electro.desc2'} components={{1: <br />}} />
             </Text>
           </ContentWrap>
@@ -587,7 +622,7 @@ const DigitalHealth = () => {
               width: '100%',
               justifyContent: 'center',
               alignItems: 'end',
-              padding: '0 0 10em 33%',
+              padding: '0 5vw 10em 33%',
               columnGap: '2em',
               rowGap: '4em',
             }}>

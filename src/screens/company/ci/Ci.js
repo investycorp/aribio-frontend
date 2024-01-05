@@ -396,36 +396,26 @@ const Ci = () => {
                   <Trans i18nKey="ci_m.content.01" components={{1: <br />}} />
                 </Text>
               </ContentWrap>
-              <ContentWrap style={{width: '80%'}}>
+              <ContentWrap>
                 <Text $fontSize="16px" $fontWeight="100" $color="#797979" $align="start">
                   02
                 </Text>
                 <div
                   style={{
                     display: 'flex',
-                    flexDirection: 'column',
+                    flexDirection: 'row',
                     justifyContent: 'start',
                     gap: '0.5em',
                   }}>
-                  <Text
-                    $fontSize="16px"
-                    $fontWeight="300"
-                    $color="#D5D5D5"
-                    $align="start"
-                    style={{width: 'fit-content'}}>
+                  <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start" style={{width: '25vw'}}>
                     {t('ci.content.02.ari.title')}
                   </Text>
                   <Text $fontSize="16px" $fontWeight="300" $lineHeight="1.2em" $color="#D5D5D5" $align="start">
                     <Trans i18nKey="ci_m.content.02.ari.desc" components={{1: <br />}} />
                   </Text>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'start', gap: '0.5em'}}>
-                  <Text
-                    $fontSize="16px"
-                    $fontWeight="300"
-                    $color="#D5D5D5"
-                    $align="start"
-                    style={{width: 'fit-content'}}>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'start', gap: '0.5em'}}>
+                  <Text $fontSize="16px" $fontWeight="300" $color="#D5D5D5" $align="start" style={{width: '31vw'}}>
                     {t('ci.content.02.bio.title')}
                   </Text>
                   <Text $fontSize="16px" $fontWeight="300" $lineHeight="1.2em" $color="#D5D5D5" $align="start">

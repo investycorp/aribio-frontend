@@ -117,7 +117,11 @@ const MediaKit = () => {
                     margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
                   }}
                 />
-                <Text $fontWeight="500" $color="#ffffff" style={{fontSize: window.innerWidth > 1280 ? '50px' : '34px'}}>
+                <Text
+                  $language={language}
+                  $fontWeight="600"
+                  $color="#ffffff"
+                  $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}>
                   {t('media.subtitle')}
                 </Text>
               </TextWrap>
@@ -211,7 +215,7 @@ const MediaKit = () => {
                     margin: '28px 0',
                   }}
                 />
-                <Text $fontWeight="500" $color="#ffffff" style={{fontSize: language !== 'KOR' ? '23px' : '20px'}}>
+                <Text $language={language} $fontWeight="500" $color="#ffffff" $fontSize="23px">
                   {t('media.subtitle')}
                 </Text>
               </TextWrap>

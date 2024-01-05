@@ -46,10 +46,9 @@ import Video from '../../components/Video';
 
 import {t} from 'i18next';
 import {Trans} from 'react-i18next';
-import {useRecoilState} from 'recoil';
+import {useRecoilValue} from 'recoil';
 
 import useCareerList from '../../hooks/career/useCareerList';
-import useFooter from '../../hooks/footer/useFooter';
 import Language from '../../atom/Language';
 import useLinkList from '../../hooks/link/useLink';
 import {NoResult} from '../ourapproach/Publications';
@@ -59,162 +58,13 @@ const Career = () => {
   const navigate = useNavigate();
   const {data, isLoading, refetch} = useCareerList();
   const [detailPage, setDetailPage] = useState(false);
-  const language = useRecoilState(Language);
+  const language = useRecoilValue(Language);
   const {data: linkData} = useLinkList(language);
 
-  const [coreValues, setCoreValues] = useState([
-    {
-      title: t('career.corevalue.subtitle1'),
-      desc: (
-        <>
-          <Trans i18nKey={'career.corevalue.desc1'} components={{1: <br />}} />
-        </>
-      ),
-    },
-    {
-      title: t('career.corevalue.subtitle2'),
-      desc: (
-        <>
-          <Trans i18nKey={'career.corevalue.desc2'} components={{1: <br />}} />
-        </>
-      ),
-    },
-    {
-      title: t('career.corevalue.subtitle3'),
-      desc: (
-        <>
-          <Trans i18nKey={'career.corevalue.desc3'} components={{1: <br />}} />
-        </>
-      ),
-    },
-    {
-      title: t('career.corevalue.subtitle4'),
-      desc: (
-        <>
-          <Trans i18nKey={'career.corevalue.desc4'} components={{1: <br />}} />
-        </>
-      ),
-    },
-    {
-      title: (
-        <>
-          <span>
-            <Trans i18nKey={'career.corevalue.subtitle5'} components={{1: <br />}} />
-          </span>
-        </>
-      ),
-      desc: (
-        <>
-          <Trans i18nKey={'career.corevalue.desc5'} components={{1: <br />}} />
-        </>
-      ),
-    },
-    {
-      title: (
-        <>
-          <span>
-            <Trans i18nKey={'career.corevalue.subtitle6'} components={{1: <br />}} />
-          </span>
-        </>
-      ),
-      desc: (
-        <>
-          <Trans i18nKey={'career.corevalue.desc6'} components={{1: <br />}} />
-        </>
-      ),
-    },
-    {
-      title: t('career.corevalue.subtitle7'),
-      desc: (
-        <>
-          <Trans i18nKey={'career.corevalue.desc7'} components={{1: <br />}} />
-        </>
-      ),
-    },
-  ]);
-  const [recruitmentProcess, setRecruitmentProcess] = useState([
-    {
-      title: t('career.recruitment.subtitle1'),
-      img: icon_recruitment_1,
-      desc:
-        window.innerWidth > 360 ? (
-          <>
-            <Trans i18nKey={'career.recruitment.desc1'} components={{1: <br />}} />
-          </>
-        ) : (
-          <>
-            <Trans i18nKey={'career.recruitment_m.desc1'} components={{1: <br />}} />
-          </>
-        ),
-    },
-    {
-      title: t('career.recruitment.subtitle2'),
-      img: icon_recruitment_2,
-      desc: (
-        <>
-          <Trans i18nKey={'career.recruitment.desc2'} components={{1: <br />}} />
-        </>
-      ),
-    },
-    {
-      title: t('career.recruitment.subtitle3'),
-      img: icon_recruitment_3,
-      desc: (
-        <>
-          <Trans i18nKey={'career.recruitment.desc3'} components={{1: <br />}} />
-        </>
-      ),
-    },
-    {
-      title: t('career.recruitment.subtitle4'),
-      img: icon_recruitment_4,
-      desc: <>{t('career.recruitment.desc4')}</>,
-    },
-  ]);
+  const [coreValues, setCoreValues] = useState([]);
+  const [recruitmentProcess, setRecruitmentProcess] = useState([]);
 
-  const [benefits, setBenefits] = useState([
-    {
-      title: t('career.benefits.subtitle1'),
-      img: icon_work,
-      desc: [
-        t('career.benefits.desc1-1'),
-        t('career.benefits.desc1-2'),
-        t('career.benefits.desc1-3'),
-        t('career.benefits.desc1-4'),
-      ],
-    },
-    {
-      title: t('career.benefits.subtitle2'),
-      img: icon_balancedLife,
-      desc: [
-        t('career.benefits.desc2-1'),
-        t('career.benefits.desc2-2'),
-        t('career.benefits.desc2-3'),
-        t('career.benefits.desc2-4'),
-      ],
-    },
-    {
-      title: t('career.benefits.subtitle3'),
-      img: icon_culture,
-      desc: [
-        t('career.benefits.desc3-1'),
-        t('career.benefits.desc3-2'),
-        t('career.benefits.desc3-3'),
-        t('career.benefits.desc3-4'),
-      ],
-    },
-    {
-      title: t('career.benefits.subtitle4'),
-      img: icon_etc,
-      desc: [
-        t('career.benefits.desc4-1'),
-        t('career.benefits.desc4-2'),
-        t('career.benefits.desc4-3'),
-        t('career.benefits.desc4-4'),
-        t('career.benefits.desc4-5'),
-      ],
-    },
-  ]);
+  const [benefits, setBenefits] = useState([]);
 
   const [joinus, setJoinus] = useState([]);
 
@@ -227,6 +77,167 @@ const Career = () => {
       setDetailPage(false);
     }
   }, [id]);
+
+  useEffect(() => {
+    const newCoreValues = [
+      {
+        title: t('career.corevalue.subtitle1'),
+        desc: (
+          <>
+            <Trans i18nKey={'career.corevalue.desc1'} components={{1: <br />}} />
+          </>
+        ),
+      },
+      {
+        title: t('career.corevalue.subtitle2'),
+        desc: (
+          <>
+            <Trans i18nKey={'career.corevalue.desc2'} components={{1: <br />}} />
+          </>
+        ),
+      },
+      {
+        title: t('career.corevalue.subtitle3'),
+        desc: (
+          <>
+            <Trans i18nKey={'career.corevalue.desc3'} components={{1: <br />}} />
+          </>
+        ),
+      },
+      {
+        title: t('career.corevalue.subtitle4'),
+        desc: (
+          <>
+            <Trans i18nKey={'career.corevalue.desc4'} components={{1: <br />}} />
+          </>
+        ),
+      },
+      {
+        title: (
+          <>
+            <span>
+              <Trans i18nKey={'career.corevalue.subtitle5'} components={{1: <br />}} />
+            </span>
+          </>
+        ),
+        desc: (
+          <>
+            <Trans i18nKey={'career.corevalue.desc5'} components={{1: <br />}} />
+          </>
+        ),
+      },
+      {
+        title: (
+          <>
+            <span>
+              <Trans i18nKey={'career.corevalue.subtitle6'} components={{1: <br />}} />
+            </span>
+          </>
+        ),
+        desc: (
+          <>
+            <Trans i18nKey={'career.corevalue.desc6'} components={{1: <br />}} />
+          </>
+        ),
+      },
+      {
+        title: t('career.corevalue.subtitle7'),
+        desc: (
+          <>
+            <Trans i18nKey={'career.corevalue.desc7'} components={{1: <br />}} />
+          </>
+        ),
+      },
+    ];
+
+    const newRecruitmentProcess = [
+      {
+        title: t('career.recruitment.subtitle1'),
+        img: icon_recruitment_1,
+        desc:
+          window.innerWidth > 360 ? (
+            <>
+              <Trans i18nKey={'career.recruitment.desc1'} components={{1: <br />}} />
+            </>
+          ) : (
+            <>
+              <Trans i18nKey={'career.recruitment_m.desc1'} components={{1: <br />}} />
+            </>
+          ),
+      },
+      {
+        title: t('career.recruitment.subtitle2'),
+        img: icon_recruitment_2,
+        desc: (
+          <>
+            <Trans i18nKey={'career.recruitment.desc2'} components={{1: <br />}} />
+          </>
+        ),
+      },
+      {
+        title: t('career.recruitment.subtitle3'),
+        img: icon_recruitment_3,
+        desc: (
+          <>
+            <Trans i18nKey={'career.recruitment.desc3'} components={{1: <br />}} />
+          </>
+        ),
+      },
+      {
+        title: t('career.recruitment.subtitle4'),
+        img: icon_recruitment_4,
+        desc: <>{t('career.recruitment.desc4')}</>,
+      },
+    ];
+
+    const newBenefits = [
+      {
+        title: t('career.benefits.subtitle1'),
+        img: icon_work,
+        desc: [
+          t('career.benefits.desc1-1'),
+          t('career.benefits.desc1-2'),
+          t('career.benefits.desc1-3'),
+          t('career.benefits.desc1-4'),
+        ],
+      },
+      {
+        title: t('career.benefits.subtitle2'),
+        img: icon_balancedLife,
+        desc: [
+          window.innerWidth > 900 ? t('career.benefits.desc2-1') : t('career.benefits.desc2-1_m'),
+          t('career.benefits.desc2-2'),
+          t('career.benefits.desc2-3'),
+          t('career.benefits.desc2-4'),
+        ],
+      },
+      {
+        title: t('career.benefits.subtitle3'),
+        img: icon_culture,
+        desc: [
+          t('career.benefits.desc3-1'),
+          t('career.benefits.desc3-2'),
+          t('career.benefits.desc3-3'),
+          t('career.benefits.desc3-4'),
+        ],
+      },
+      {
+        title: t('career.benefits.subtitle4'),
+        img: icon_etc,
+        desc: [
+          t('career.benefits.desc4-1'),
+          t('career.benefits.desc4-2'),
+          t('career.benefits.desc4-3'),
+          t('career.benefits.desc4-4'),
+          t('career.benefits.desc4-5'),
+        ],
+      },
+    ];
+
+    setBenefits(newBenefits);
+    setRecruitmentProcess(newRecruitmentProcess);
+    setCoreValues(newCoreValues);
+  }, [language]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -344,10 +355,11 @@ const Career = () => {
                     }}
                   />
                   <Text
+                    $language={language}
                     $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-                    $fontWeight="500"
+                    $fontWeight="600"
                     $color="#ffffff"
-                    style={{margin: '2rem 0 0 0'}}>
+                    style={{margin: '2rem 0 0 0', lineHeight: '1.5em'}}>
                     <Trans i18nKey={'career.subtitle'} components={{1: <br />}} />
                   </Text>
                 </TextWrap>
@@ -376,8 +388,9 @@ const Career = () => {
                     “
                   </Text> */}
                   <Text
+                    $language={language}
                     $fontSize={window.innerWidth > 1280 ? '28px' : '18px'}
-                    $fontWeight="400"
+                    $fontWeight="500"
                     $color="#ffffff"
                     style={{padding: '0 20px', width: '80%', textAlign: 'center', margin: '0'}}>
                     <Trans i18nKey={'career.desc1'} components={{1: <br />}} />
@@ -531,12 +544,18 @@ const Career = () => {
                             $fontWeight="300"
                             $color="#DDDDDD"
                             $align="start"
+                            $lineHeight="1.3em"
                             style={{width: 'fit-content'}}>
                             {item.title}
                           </Text>
                         </ContentBoxNameWrap>
                       </ContentBox>
-                      <ContentBox style={{paddingRight: '0', justifyContent: 'space-between'}}>
+                      <ContentBox
+                        style={{
+                          paddingRight: '0',
+                          justifyContent: 'space-between',
+                          gap: language === 'KOR' ? '7rem' : '2rem',
+                        }}>
                         <ShootingStarWrap id="core_value" className="shootingstar_wrap">
                           <ShootingStar $width={document.querySelector('.shootingstar_wrap')?.offsetWidth} />
                         </ShootingStarWrap>
@@ -645,8 +664,10 @@ const Career = () => {
                   ))}
                 </ContentBox>
               </HomeComponentWrap>
-              <HomeComponentWrap id="benefits" style={{flexDirection: 'row', alignItems: 'start'}}>
-                <TextWrap style={{flex: '0 0 28.7vw', width: '28.7vw'}}>
+              <HomeComponentWrap
+                id="benefits"
+                style={{flexDirection: 'row', alignItems: 'start', justifyContent: 'space-between'}}>
+                <TextWrap style={{width: 'auto'}}>
                   <HR style={{alignSelf: 'start', marginBottom: '1.5em'}} />
                   <Text
                     $fontSize={window.innerWidth > 1280 ? '32px' : '21px'}
@@ -664,13 +685,13 @@ const Career = () => {
                     <Trans i18nKey={'career.benefits.desc'} components={{1: <br />}} />
                   </Text>
                 </TextWrap>
-                <GridContentWrap style={{gridTemplateColumns: '1fr 1fr', margin: '0', rowGap: '5vh'}}>
+                <GridContentWrap style={{gridTemplateColumns: '1fr 1fr', margin: '0', rowGap: '8vh', width: 'auto'}}>
                   {benefits.map((item, index) => (
                     <ContentBox
                       id="benefits"
                       className="benefits"
                       key={`benefits${index}`}
-                      style={{flexDirection: 'row', justifyContent: 'start', alignItems: 'start'}}>
+                      style={{flexDirection: 'row', justifyContent: 'start', alignItems: 'start', width: 'auto'}}>
                       <Image
                         src={item.img}
                         alt="icon_work"
@@ -685,7 +706,7 @@ const Career = () => {
                           $fontWeight="400"
                           $color="#ffffff"
                           $align="start"
-                          style={{marginBottom: '1em'}}>
+                          style={{marginBottom: '2em'}}>
                           {item.title}
                         </Text>
                         <DescriptionWrap>
@@ -705,74 +726,75 @@ const Career = () => {
                       </TextWrap>
                     </ContentBox>
                   ))}
-                  <ContentBox></ContentBox>
-                  <ContentBox style={{marginTop: '8em'}}>
-                    <ContentWrap style={{flexDirection: 'row', padding: '0', justifyContent: 'space-between'}}>
-                      <Text
-                        className="clickable"
-                        $fontSize={window.innerWidth > 1400 ? '20px' : '12px'}
-                        $fontWeight="300"
-                        $color="#ffffff"
-                        $align="start"
-                        $clickable={true}
-                        style={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          width: '45%',
-                          paddingBottom: '0.7em',
-                          borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
-                          cursor: 'pointer',
-                        }}
-                        onClick={() => {
-                          navigate('/company/aboutus');
-                        }}>
-                        <span style={{zIndex: '-1'}}>{t('career.buttons.meetourleadership')}</span>
-                        <Image
-                          src={arrow}
-                          alt="arrow"
-                          style={{
-                            height: window.innerWidth > 1280 ? '14px' : '12px',
-                            padding: '0',
-                            zIndex: '-1',
-                          }}
-                        />
-                      </Text>
-                      <Text
-                        className="clickable"
-                        $fontSize={window.innerWidth > 1400 ? '20px' : '12px'}
-                        $fontWeight="300"
-                        $color="#ffffff"
-                        $align="start"
-                        $clickable={true}
-                        style={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          width: '45%',
-                          paddingBottom: '0.7em',
-                          borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
-                          cursor: 'pointer',
-                        }}
-                        onClick={() => {
-                          window.open(linkData?.data?.data?.careerLinkedIn, '_blank');
-                        }}>
-                        <span style={{zIndex: '-1'}}>{t('career.buttons.linked')}</span>
-                        <Image
-                          src={arrow}
-                          alt="arrow"
-                          style={{
-                            height: window.innerWidth > 1280 ? '14px' : '12px',
-                            padding: '0',
-                            zIndex: '-1',
-                          }}
-                        />
-                      </Text>
-                    </ContentWrap>
-                  </ContentBox>
                 </GridContentWrap>
+              </HomeComponentWrap>
+              <HomeComponentWrap style={{marginTop: '8em', marginBottom: '40vh'}}>
+                <ContentBox>
+                  <ContentWrap style={{flexDirection: 'row', padding: '0', justifyContent: 'flex-end'}}>
+                    <Text
+                      className="clickable"
+                      $fontSize={window.innerWidth > 1400 ? '20px' : '12px'}
+                      $fontWeight="300"
+                      $color="#ffffff"
+                      $align="start"
+                      $clickable={true}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        width: window.innerWidth > 1280 ? '260px' : '159px',
+                        paddingBottom: '0.7em',
+                        borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => {
+                        navigate('/company/aboutus');
+                      }}>
+                      <span style={{zIndex: '-1'}}>{t('career.buttons.meetourleadership')}</span>
+                      <Image
+                        src={arrow}
+                        alt="arrow"
+                        style={{
+                          height: window.innerWidth > 1280 ? '14px' : '12px',
+                          padding: '0',
+                          zIndex: '-1',
+                        }}
+                      />
+                    </Text>
+                    <Text
+                      className="clickable"
+                      $fontSize={window.innerWidth > 1400 ? '20px' : '12px'}
+                      $fontWeight="300"
+                      $color="#ffffff"
+                      $align="start"
+                      $clickable={true}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        width: window.innerWidth > 1280 ? '260px' : '159px',
+                        paddingBottom: '0.7em',
+                        borderBottom: window.innerWidth > 1280 ? '2px solid #ffffff' : '1px solid #ffffff',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => {
+                        window.open(linkData?.data?.data?.careerLinkedIn, '_blank');
+                      }}>
+                      <span style={{zIndex: '-1'}}>{t('career.buttons.linked')}</span>
+                      <Image
+                        src={arrow}
+                        alt="arrow"
+                        style={{
+                          height: window.innerWidth > 1280 ? '14px' : '12px',
+                          padding: '0',
+                          zIndex: '-1',
+                        }}
+                      />
+                    </Text>
+                  </ContentWrap>
+                </ContentBox>
               </HomeComponentWrap>
             </Desktop>
 
@@ -790,7 +812,12 @@ const Career = () => {
                       borderBottom: 'none',
                     }}
                   />
-                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff">
+                  <Text
+                    $language={language}
+                    $fontSize="23px"
+                    $fontWeight="500"
+                    $color="#ffffff"
+                    style={{lineHeight: '1.5em'}}>
                     <Trans i18nKey={'career.subtitle'} components={{1: <br />}} />
                   </Text>
                 </TextWrap>
@@ -802,7 +829,7 @@ const Career = () => {
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center',
                   backgroundColor: '#121212',
-                  padding: '5vh 5vw',
+                  padding: '8vh 5vw',
                   marginBottom: '20vh',
                 }}>
                 <TextWrap style={{width: '90vw', position: 'relative'}}>
@@ -823,10 +850,11 @@ const Career = () => {
                     “
                   </Text> */}
                   <Text
+                    $language={language}
                     $fontSize="18px"
                     $fontWeight="400"
                     $color="#EFEFEF"
-                    style={{padding: '0 4px', width: '100%', textAlign: 'center', margin: '0', lineHeight: '24px'}}>
+                    style={{padding: '0 4px', width: '100%', textAlign: 'center', margin: '0'}}>
                     <Trans i18nKey={'career_m.desc1'} components={{1: <br />}} />
                   </Text>
                   {/* <Text
@@ -1103,23 +1131,26 @@ const Career = () => {
                         </Text>
                       </div>
                       <TextWrap style={{position: 'relative', width: 'fit-content'}}>
-                        <DescriptionWrap style={{paddingRight: '0'}}>
+                        <DescriptionWrap style={{paddingRight: '0', gap: 0}}>
                           {item.desc.map((descItem, descIndex) => (
                             <DescriptionItem
                               style={{
                                 listStyle: 'none outside',
                                 marginLeft: '1rem',
-                                lineHeight: '22px',
+                                lineHeight: '1.5em',
                               }}
                               key={descItem + descIndex}>
-                              {descItem}
+                              {descItem.split('<br />').map(text => (
+                                <>
+                                  {text} <br />
+                                </>
+                              ))}
                             </DescriptionItem>
                           ))}
                         </DescriptionWrap>
                       </TextWrap>
                     </ContentBox>
                   ))}
-                  <ContentBox></ContentBox>
                   <ContentBox style={{marginTop: '0'}}>
                     <ContentWrap
                       style={{

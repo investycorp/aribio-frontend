@@ -90,11 +90,18 @@ const CeoMessage = () => {
           </HomeComponentWrap>
           <HomeComponentWrap
             style={{
-              height: window.innerWidth > 1280 ? '460px' : '306px',
-              padding: '0 20vw',
+              width: 'auto',
+              height:
+                window.innerWidth > 1280
+                  ? language === 'KOR'
+                    ? '429px'
+                    : '460px'
+                  : language === 'KOR'
+                  ? '290px'
+                  : '306px',
               background: 'linear-gradient(rgba(0, 111, 170, 0.6), rgba(0, 0, 0, 0.6)',
             }}>
-            <TextWrap>
+            <TextWrap style={{width: 'auto'}}>
               {/* <Text
                 $fontSize={window.innerWidth > 1280 ? '40px' : '26px'}
                 $fontWeight="200"
@@ -113,6 +120,7 @@ const CeoMessage = () => {
               <TextWrap
                 style={{
                   flexDirection: 'row',
+                  width: 'auto',
                 }}>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '30px ' : '18px'}
@@ -153,13 +161,13 @@ const CeoMessage = () => {
                   textAlign: 'end',
                   marginTop: window.innerWidth > 1280 ? '63px' : '24px',
                   marginBottom: 0,
-                  paddingRight: window.innerWidth > 1280 ? '17vw' : '10.4vw',
                 }}>
                 {t('ceomessage.message2')}
               </Text>
             </TextWrap>
           </HomeComponentWrap>
-          <HomeComponentWrap style={{padding: '15vh 7vw', display: 'grid', gridTemplateColumns: '1fr 2fr'}}>
+          <HomeComponentWrap
+            style={{padding: '15vh 7vw', marginBottom: '20vh', display: 'grid', gridTemplateColumns: '1fr 2fr'}}>
             <ContentBox style={{alignItems: 'end'}}>
               <Image
                 width={window.innerWidth > 1280 ? 550 : 335}

@@ -56,7 +56,6 @@ const Notice = () => {
   const [viewMoreOn, setViewMoreOn] = useState(true);
 
   useEffect(() => {
-    console.log(data);
     if (pageNumber === 1) {
       const items = [];
       if (data?.data) {
@@ -203,11 +202,13 @@ const Notice = () => {
                       height: '2px',
                       border: '1px solid #ffffff',
                       margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                    }}></div>
+                    }}
+                  />
                   <Text
-                    $fontWeight="500"
+                    $language={language}
+                    $fontWeight="600"
                     $color="#ffffff"
-                    style={{fontSize: window.innerWidth > 1280 ? '50px' : '34px'}}>
+                    $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}>
                     {t('notice.subtitle')}
                   </Text>
                 </TextWrap>
@@ -374,8 +375,9 @@ const Notice = () => {
                       height: '1px',
                       border: '1px solid #ffffff',
                       margin: '28px 0',
-                    }}></div>
-                  <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{fontSize: '23px'}}>
+                    }}
+                  />
+                  <Text $language={language} $fontSize="23px" $fontWeight="500" $color="#ffffff">
                     <Trans i18nKey="notice.subtitle_m" components={{1: <br />}} />
                   </Text>
                 </TextWrap>

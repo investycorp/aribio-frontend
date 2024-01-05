@@ -46,7 +46,7 @@ const MainImgWrap = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-color: #121212;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   z-index: 10;
 `;
 
@@ -101,11 +101,15 @@ const TextWrap = styled.div`
 
 const Text = styled.div`
   width: 100%;
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
-  font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
-  color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
-  line-height: 1.5em;
-  text-align: ${(props) => (props.$align ? props.$align : 'center')};
+  font-size: ${props =>
+    props.$language === 'KOR'
+      ? `calc(${props.$fontSize ? props.$fontSize : '26px'} - 2px)`
+      : props.$fontSize || '26px'};
+  font-weight: ${props => (props.$fontWeight ? props.$fontWeight : '300')};
+  color: ${props => (props.$color ? props.$color : ' #ffffff')};
+  line-height: ${props =>
+    props.$language === 'KOR' ? `calc(${props.$lineHeight || '1.5em'} + 0.3em)` : props.$lineHeight || '1.5em'};
+  text-align: ${props => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
 `;
 
@@ -131,8 +135,8 @@ const TabItem = styled.div`
   align-items: center;
   font-size: 36px;
   font-weight: 400;
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#464646')};
-  border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
+  color: ${props => (props.$isActive ? '#ffffff' : '#464646')};
+  border-bottom: ${props => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
   line-height: 1.8em;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -157,7 +161,7 @@ const TabContentWrap = styled.div`
   padding-bottom: 10rem;
 `;
 
-const ContentBox = styled.div.attrs((props) => ({
+const ContentBox = styled.div.attrs(props => ({
   className: props.$className,
 }))`
   display: flex;
@@ -288,8 +292,8 @@ const DescriptionWrap = styled.ul`
   left: 0;
   height: fit-content;
   display: flex;
-  visibility: ${(props) => (props.$isActive ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.$isActive ? '1' : '0')};
+  visibility: ${props => (props.$isActive ? 'visible' : 'hidden')};
+  opacity: ${props => (props.$isActive ? '1' : '0')};
   flex-direction: column;
   justify-content: start;
   align-items: left;
@@ -311,9 +315,9 @@ const DescriptionItem = styled.li`
 `;
 
 const HR = styled.div`
-  width: ${(props) => (props.$width ? props.$width : '60px')};
-  height: ${(props) => (props.$height ? props.$height : '2px')};
-  background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
+  width: ${props => (props.$width ? props.$width : '60px')};
+  height: ${props => (props.$height ? props.$height : '2px')};
+  background-color: ${props => (props.$color ? props.$color : '#ffffff')};
 
   @media screen and (max-width: 1280px) {
     width: 40px;
@@ -365,7 +369,7 @@ const FormInputRowWrap = styled.div`
   padding: 0.5rem 0 0 0;
   gap: 1rem;
   transition: all 0.2s ease-in-out;
-  ${(props) =>
+  ${props =>
     props.$isFilled &&
     `
       label {
@@ -456,7 +460,7 @@ const Label = styled.label`
   }
 `;
 
-const Button = styled.button.attrs((props) => ({
+const Button = styled.button.attrs(props => ({
   className: props.$className,
 }))`
   padding: 0 1.5em 0 0;
@@ -515,13 +519,13 @@ const ErrorBox = styled.div`
   background-color: rgba(203, 48, 90, 0.6);
   border: 1px solid #cb305a;
   border-radius: 0.5rem;
-  display: ${(props) => (props.$isActive ? 'flex' : 'none')};
+  display: ${props => (props.$isActive ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   font-size: 20px;
   font-weight: 200;
 
-  opacity: ${(props) => (props.$isActive ? '1' : '0')};
+  opacity: ${props => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
 
   @media screen and (max-width: 1280px) {
@@ -544,12 +548,12 @@ const SuccessBox = styled.div`
   background-color: rgba(0, 166, 255, 0.6);
   border: 1px solid #00a6ff;
   border-radius: 0.5rem;
-  display: ${(props) => (props.$isActive ? 'flex' : 'none')};
+  display: ${props => (props.$isActive ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   font-size: 20px;
   font-weight: 200;
-  opacity: ${(props) => (props.$isActive ? '1' : '0')};
+  opacity: ${props => (props.$isActive ? '1' : '0')};
   transition: all 0.2s ease-in-out;
   @media screen and (max-width: 1280px) {
     width: 266px;

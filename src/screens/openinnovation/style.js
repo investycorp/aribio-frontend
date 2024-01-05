@@ -106,10 +106,14 @@ const TextWrap = styled.div`
 
 const Text = styled.div`
   width: 100%;
-  font-size: ${props => (props.$fontSize ? props.$fontSize : '26px')};
+  font-size: ${props =>
+    props.$language === 'KOR'
+      ? `calc(${props.$fontSize ? props.$fontSize : '26px'} - 2px)`
+      : props.$fontSize || '26px'};
   font-weight: ${props => (props.$fontWeight ? props.$fontWeight : '300')};
   color: ${props => (props.$color ? props.$color : ' #ffffff')};
-  line-height: 1.5em;
+  line-height: ${props =>
+    props.$language === 'KOR' ? `calc(${props.$lineHeight || '1.5em'} + 0.3em)` : props.$lineHeight || '1.5em'};
   text-align: ${props => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
 `;

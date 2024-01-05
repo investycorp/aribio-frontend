@@ -40,6 +40,7 @@ import arrow from '../../assets/images/arrow.svg';
 import {useNavigate} from 'react-router-dom';
 import usePressHomeList from '../../hooks/home/usePressHomeList';
 import useVideoHomeList from '../../hooks/home/useVideoHome';
+import {Trans} from 'react-i18next';
 
 const Home = () => {
   const browserInfo = browser();
@@ -786,7 +787,7 @@ const Home = () => {
                     </div>
                     <ComponentText
                       style={{fontSize: language !== 'KOR' ? '18px' : '16px', fontWeight: '300', color: '#AFAFAF'}}>
-                      {t('home_m.ourapproach.desc_1')}
+                      <Trans i18nKey="home_m.ourapproach.desc_1" components={{1: <br />}} />
                     </ComponentText>
                   </ComponentTextWrap>
                 </div>
@@ -848,7 +849,7 @@ const Home = () => {
                         color: '#AFAFAF',
                         padding: '0 0.5rem 0 1rem',
                       }}>
-                      {t('home_m.ourapproach.desc_2')}
+                      <Trans i18nKey="home_m.ourapproach.desc_2" components={{1: <br />}} />
                     </ComponentText>
                   </ComponentTextWrap>
                   <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
@@ -898,7 +899,7 @@ const Home = () => {
                     </div>
                     <ComponentText
                       style={{fontSize: language !== 'KOR' ? '18px' : '16px', fontWeight: '300', color: '#AFAFAF'}}>
-                      {t('home_m.ourapproach.desc_3')}
+                      <Trans i18nKey="home_m.ourapproach.desc_3" components={{1: <br />}} />
                     </ComponentText>
                   </ComponentTextWrap>
                 </div>

@@ -100,11 +100,11 @@
     },
     "ourapproach": {
       "title_1": "Our Approach",
-      "desc_1": "다중기전 신약 개발과 AI(인공지능)의 결합",
+      "desc_1": "다중기전 신약 개발과 <1 /> AI(인공지능)의 결합",
       "title_2": "Pipeline",
-      "desc_2": "신경퇴행성질환의 치료법을 개발하고 더 밝은 미래를 위한 혁신적인 치료법을 제공 …",
+      "desc_2": "신경퇴행성질환의 치료법을 <1 /> 개발하고 더 밝은 미래를 위한 <1 /> 혁신적인 치료법을 제공 …",
       "title_3": "Career",
-      "desc_3": "신경퇴행성 질환치료제 개발의 꿈을 함께할 인재를 기다립니다."
+      "desc_3": "신경퇴행성 질환치료제 <1 /> 개발의 꿈을 함께할 인재를 <1 /> 기다립니다."
     },
     "media_kit": {
       "title": "Media Kit",
@@ -238,6 +238,79 @@
       "ic50": {
         "title": "IC50 predictor",
         "content": {
+          "desc1": "Description : \\n 표적 단백질의 IC50 활성을 모델링하도록<br />맞춤형으로 개발된 머신 러닝 프레임워크입니다.<br />이 모델은 특정 리간드-단백질 복합체에<br />대한 IC50 값을 예측하는데, 리간드의<br />화학 구조를 활용합니다.<br />이 모델은 리간드와 표적 단백질 간의<br />상호작용 가능성을 검증하거나 추정하는 데<br />유용합니다."
+        }
+      },
+      "blinding": {
+        "title": "Blinding Affinity \\n Prediction",
+        "content": {
+          "desc1": "Type : Low Throughput, Structure-based (Ligand-Protein).",
+          "desc2": "Technology : Deep Learning (3D Convolutional Neural Networks).",
+          "desc3": "Accuracy : \\n Correlation coefficient of 0.827.",
+          "desc4": "Completion Time : Approximately 10 minutes per Ligand-Protein complex."
+        }
+      },
+      "drugsim": {
+        "title": "DrugSim",
+        "content": {
+          "desc1": "Description : \\n 약물 유사성 검색 모듈은 입력 분자를<br />제공하면 화학 구조 뿐만 아니라 MOA, 표적,<br />약물-약물 상호작용 등을 포괄하는 DrugBank<br />내의 포괄적인 메타데이터를 고려하여 유사한<br />약물을 찾습니다."
+        }
+      },
+      "ligand": {
+        "title": "Ligand Hunter",
+        "content": {
+          "desc1": "Description : \\n 특정 단백질에 결합하는 리간드를 효율적으로<br />식별합니다."
+        }
+      },
+      "bbb": {
+        "title": "BBB Predictor",
+        "content": {
+          "desc1": "Description : \\n 다양한 지표를 활용하여 뇌혈관장벽(BBB)<br />투과성 예측 기능을 제공합니다."
+        }
+      },
+      "target": {
+        "title": "Target Hunter",
+        "content": {
+          "desc1": "Description : \\n 특정 리간드에 결합하는 잠재적 표적을<br />결정합니다."
+        }
+      },
+      "arinet": {
+        "title": "ARI-Net",
+        "content": {
+          "desc1": "Description : \\n 이 도구는 지식 그래프에서 실행되는<br />랜덤 워크를 통해 질병과 유전자의 연관성을<br />예측합니다. 이는 지식 그래프 내에서<br />유전자와 질병 간의 새로운 연관성을 예측하는<br />능력을 의미하는 ‘경로 예측’의 중추적인<br />역할을 합니다. ARIS의 표적 식별을 위한<br />기본 모듈입니다."
+        }
+      },
+      "admet": {
+        "title": "ADMET Toxicity",
+        "content": {
+          "desc1": "Description : \\n 특정 화합물이 인체 내에서 어떻게 대사되고<br />처리될지에 대한 예측을 제공합니다."
+        }
+      }
+    }
+  },
+  "aiplatform_m": {
+    "subtitle": "AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
+    "desc1": "ARIDD™는 <1/> 다중기전 약물 개발에 최적화된 <1/> 신약개발 플랫폼입니다. <1/> 다양한 작용기전을 가진 다중기전 약물 개발을 <1/> 가속화하기 위해 안정적인 In-Silico 예측과 <1/> 분석을 위해 개발된 AI를 탑재한 <1/> ARIS를 공개하였습니다.",
+    "desc2": "기존의 의약품 개발용 Al는 약물 합성, 분자간 결합 <1/> 예측, ADMET 프로세스에 우선순위를 두는 <1/> 경우가 많습니다. 이러한 방식은 <1/> 단일기전 약물 탐색에는 중요하지만, <1/> 다약물학적 발견에는 미묘한 접근 방식이 <1/> 필요합니다.",
+    "desc2-1": "다중기전은 약물, 단백질, 세포, 질병 간의 <1/> 상호작용에 대한 깊은 이해와 함께 <1/> 새로운 생물학적 관계를 예측하고 <1/> 식별할 수 있는 능력이 필요합니다. <1/> 이러한 복잡성을 해결하기 위해 아리바이오의 <1/> 플랫폼 연구소는 다양한 생물학적 상호관계를 <1/> 예측하는 데 최적화된 독자적 Al 플랫폼인 <1/> ARIS를 개발하여 신약 개발 <1/> 이니셔티브를 발전시켰습니다.",
+    "desc3": "ARIS는 기본적으로 “BRAIN”과 “예측 알고리즘”, <1/> 두 가지 개념을 중심으로 구성되어 있습니다.",
+    "desc4": "BRAIN은 <1/> AI, In-silico, In-vitro, In-vivo를 연결하는 <1/> 사이의 다리의 줄임 말인 BRAIN은 <1/> 지식그래프(Knowledge Graph, KG)와 <1/> 대규모 언어 모델(Large Language Model, LLM) <1/> 이라는 두 가지 주요 구성 요소로 이루어져 있습니다. <1/> 이 두가지가 결합하여 응집력 있는 브릿지를 형성하고, <1/> KG와 ARIS 예측 알고리즘을 In-silico, In-Vitro, <1/> In-vivo 영역에 원활하게 연결합니다.",
+    "desc5": "“예측 알고리즘”은 화학 및 생물학 분야를 위해 <1/> 특별히 설계된 다양한 인공지능 예측 모델과 <1/> 시뮬레이션 도구로 구성되어 있습니다. <1/> 각 모델 별 솔루션은 연구자들이 독립적이거나 <1/> 또는 BRAIN 플랫폼과의 협업으로 <1/> 실용적이고 직접적인 응용을 <1/> 할 수 있도록 개발되었습니다.",
+    "desc6": "ARIS의 첫 개발 목표는 아리바이오의 다중기전 <1/> 접근 방식과 밀접하게 연관되어 있습니다. <1/> 새로운 다중기전 후보물질을 발굴할 때 <1/> 맥락 정보를 활용하는 것이 중요합니다. <1/> 다중기전 후보물질 발견을 위한 맥락 정보를 <1/> 고려할 때 경로 데이터가 가장 중요합니다. <1/> <1/> 우리는 이러한 경로 데이터를 다양한 소스에서 <1/> 추출하며, 명명된 엔터티 인식(NER) 및 관계 추출(RE) <1/> 라는 두 가지 고급 딥 러닝 기술을 활용합니다. <1/> 이러한 방법들의 실행 흐름과 상호 작용은 <1/> 아래에 설명되어 있습니다:",
+    "desc6-2": "다중기전 약물 발견의 핵심은 타겟 식별이라는 <1/> 중심 단계에 있습니다. 이 때, 특정 질병을 <1/> 해결하기 위해 약물이 어떤 생물학적 표적과 <1/> 작용해야 하는지 파악하는 것이 포함됩니다. <1/> 내재된 문제는 신체 내부의 복잡한 상호 의존성에서 <1/> 비롯되며, 단일 구성 요소는 독립적으로 <1/> 작동하지 않습니다. <1/> 약물이 단일 단백질과 상호작용하는 것만이 <1/> 유일한 치료 요소가 아니며, 일련의 후속 작용을 통해 <1/> 질병 치료에 종합적으로 기여합니다. <1/> 따라서 실행 가능한 약물 표적을 정확히 찾아내려면 <1/> 신체 내에서 이러한 단백질의 상호 작용을 <1/> 깊이 있게 이해해야 하며, 이를 위해서는 <1/> 경로 데이터에 기반한 지식이 필요합니다.",
+    "predictions": {
+      "docking": {
+        "title": "Docking",
+        "content": {
+          "desc1": "Type : High Throughput, \\n Structure-based (Ligand-Protein).",
+          "desc2": "Technology : Machine Learning.",
+          "desc3": "Accuracy : \\n Correlation coefficient of 0.616.",
+          "desc4": "Completion Time : Approximately 10 seconds per Ligand-Protein complex."
+        }
+      },
+      "ic50": {
+        "title": "IC50 predictor",
+        "content": {
           "desc1": "Description : \\n 표적 단백질의 IC50 활성을 모델링하도록 맞춤형으로 개발된 머신 러닝 프레임워크입니다. <br /> 이 모델은 특정 리간드-단백질 복합체에 대한 IC50 값을 예측하는데, 리간드의 화학 구조를 활용합니다. <br /> 이 모델은 리간드와 표적 단백질 간의 상호작용 가능성을 검증하거나 추정하는 데 유용합니다."
         }
       },
@@ -287,17 +360,6 @@
         }
       }
     }
-  },
-  "aiplatform_m": {
-    "subtitle": "AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
-    "desc1": "ARIDD™는 <1/> 다중기전 약물 개발에 최적화된 <1/> 신약개발 플랫폼입니다. <1/> 다양한 작용기전을 가진 다중기전 약물 개발을 <1/> 가속화하기 위해 안정적인 In-Silico 예측과 <1/> 분석을 위해 개발된 AI를 탑재한 <1/> ARIS를 공개하였습니다.",
-    "desc2": "기존의 의약품 개발용 Al는 약물 합성, 분자간 결합 <1/> 예측, ADMET 프로세스에 우선순위를 두는 <1/> 경우가 많습니다. 이러한 방식은 <1/> 단일기전 약물 탐색에는 중요하지만, <1/> 다약물학적 발견에는 미묘한 접근 방식이 <1/> 필요합니다.",
-    "desc2-1": "다중기전은 약물, 단백질, 세포, 질병 간의 <1/> 상호작용에 대한 깊은 이해와 함께 <1/> 새로운 생물학적 관계를 예측하고 <1/> 식별할 수 있는 능력이 필요합니다. <1/> 이러한 복잡성을 해결하기 위해 아리바이오의 <1/> 플랫폼 연구소는 다양한 생물학적 상호관계를 <1/> 예측하는 데 최적화된 독자적 Al 플랫폼인 <1/> ARIS를 개발하여 신약 개발 <1/> 이니셔티브를 발전시켰습니다.",
-    "desc3": "ARIS는 기본적으로 “BRAIN”과 “예측 알고리즘”, <1/> 두 가지 개념을 중심으로 구성되어 있습니다.",
-    "desc4": "BRAIN은 <1/> AI, In-silico, In-vitro, In-vivo를 연결하는 <1/> 사이의 다리의 줄임 말인 BRAIN은 <1/> 지식그래프(Knowledge Graph, KG)와 <1/> 대규모 언어 모델(Large Language Model, LLM) <1/> 이라는 두 가지 주요 구성 요소로 이루어져 있습니다. <1/> 이 두가지가 결합하여 응집력 있는 브릿지를 형성하고, <1/> KG와 ARIS 예측 알고리즘을 In-silico, In-Vitro, <1/> In-vivo 영역에 원활하게 연결합니다.",
-    "desc5": "“예측 알고리즘”은 화학 및 생물학 분야를 위해 <1/> 특별히 설계된 다양한 인공지능 예측 모델과 <1/> 시뮬레이션 도구로 구성되어 있습니다. <1/> 각 모델 별 솔루션은 연구자들이 독립적이거나 <1/> 또는 BRAIN 플랫폼과의 협업으로 <1/> 실용적이고 직접적인 응용을 <1/> 할 수 있도록 개발되었습니다.",
-    "desc6": "ARIS의 첫 개발 목표는 아리바이오의 다중기전 <1/> 접근 방식과 밀접하게 연관되어 있습니다. <1/> 새로운 다중기전 후보물질을 발굴할 때 <1/> 맥락 정보를 활용하는 것이 중요합니다. <1/> 다중기전 후보물질 발견을 위한 맥락 정보를 <1/> 고려할 때 경로 데이터가 가장 중요합니다. <1/> <1/> 우리는 이러한 경로 데이터를 다양한 소스에서 <1/> 추출하며, 명명된 엔터티 인식(NER) 및 관계 추출(RE) <1/> 라는 두 가지 고급 딥 러닝 기술을 활용합니다. <1/> 이러한 방법들의 실행 흐름과 상호 작용은 <1/> 아래에 설명되어 있습니다:",
-    "desc6-2": "다중기전 약물 발견의 핵심은 타겟 식별이라는 <1/> 중심 단계에 있습니다. 이 때, 특정 질병을 <1/> 해결하기 위해 약물이 어떤 생물학적 표적과 <1/> 작용해야 하는지 파악하는 것이 포함됩니다. <1/> 내재된 문제는 신체 내부의 복잡한 상호 의존성에서 <1/> 비롯되며, 단일 구성 요소는 독립적으로 <1/> 작동하지 않습니다. <1/> 약물이 단일 단백질과 상호작용하는 것만이 <1/> 유일한 치료 요소가 아니며, 일련의 후속 작용을 통해 <1/> 질병 치료에 종합적으로 기여합니다. <1/> 따라서 실행 가능한 약물 표적을 정확히 찾아내려면 <1/> 신체 내에서 이러한 단백질의 상호 작용을 <1/> 깊이 있게 이해해야 하며, 이를 위해서는 <1/> 경로 데이터에 기반한 지식이 필요합니다."
   },
 
   "publication": {
@@ -378,8 +440,8 @@
   "career": {
     "headline": "CAREER",
     "title": "CAREER",
-    "subtitle": "Join Us at the Forefront of <1/> Neurodegenerative Solutions",
-    "desc1": "Our dedicated team is set on discovering transformative treatments. <1/> We invite innovative minds to join our mission. <1/> Together, let’s usher in a new era of therapeutic breakthroughs for those in need. <1/>",
+    "subtitle": "퇴행성 뇌질환 치료의 꿈을 함께할 <1/> 인재를 기다립니다.",
+    "desc1": "아리바이오는 혁신적인 신약을 개발하고 있으며, <1 /> 혁신적인 아이디어를 가진 인재와 함께 새로운 세상을 열어갈 준비를 하고 있습니다.",
     "detail": {
       "back": "Back",
       "apply": "Apply for this job"
@@ -387,67 +449,68 @@
     "join": "Join Us!",
     "corevalue": {
       "title": "Core Values",
-      "subtitle1": "Patient-Centered",
-      "desc1": "Our unwavering commitment is to the well-being of patients and their families. <1/> Every project and decision revolves around this central principle.",
-      "subtitle2": "Collaborative Spirit",
-      "desc2": "Harnessing the power of collective intelligence, we value teamwork and <1/> interdisciplinary collaboration, driving us forward and amplifying our impact.",
-      "subtitle3": "Integrity in Action",
-      "desc3": "Upholding the highest ethical and scientific standards is paramount, <1/> establishing trust in both our results and our relationships.",
-      "subtitle4": "Continuous Learning",
-      "desc4": "We champion ongoing growth, adaptation, and education, <1/>   to ensure we remain leaders in our field",
-      "subtitle5": " Resilience &<1/>Perseverance",
-      "desc5": "Faced with challenges, our resolve strengthens.<1/> We believe every setback is a stepping stone to a major leap forward.",
-      "subtitle6": "Transparent <1/> Communication",
-      "desc6": "“We promote” open dialogue with our team, partners, and <1/> communities fosters mutual respect and understanding.",
-      "subtitle7": "Keep an Open Mind",
-      "desc7": " We approach every challenge with curiosity, welcoming <1/> fresh perspectives and ideas."
+      "subtitle1": "환자중심",
+      "desc1": "우리의 변함없는 약속은 환자와 그들 가족의 복지에 대한 것입니다. <1 /> 모든 프로젝트와 결정은 이 중심 원칙을 중심으로 진행됩니다.",
+      "subtitle2": "협동중심",
+      "desc2": "집단 지성의 힘을 활용하며, 우리는 팀워크와 학제간 협력을 중시합니다. <1 /> 이는 우리를 전진시키고 영향력을 증폭시키는 데 기여합니다.",
+      "subtitle3": "정직한 행동",
+      "desc3": "윤리적이고 과학적 기준을 유지하는 것은 매우 중요하며, <1 /> 이는 결과와 관계 양쪽에서 신뢰를 확립합니다.",
+      "subtitle4": "지속적인 학습",
+      "desc4": "지속적인 교육과 성장의 기회를 부여하여, <1 /> 자신의 분야에서 리더로 성장할 수 있도록 지원합니다.",
+      "subtitle5": "열정과 끈기",
+      "desc5": "고난에 직면하면, 우리의 결의는 더 강해집니다 <1 /> 실패도 두려워하지 않는 도전 정신으로 나아가고 있습니다.",
+      "subtitle6": "정직하고 투명한 <1/> 의사소통",
+      "desc6": "우리는 팀과 협력사 등 다양한 관계자들과 열린 소통으로 상호 존중하고 <1 /> 서로를 이해해 나가고 있습니다.",
+      "subtitle7": "열린 마음",
+      "desc7": "우리는 모든 도전에 호기심을 가지고 있으며, <1 /> 새로운 시각과 아이디어를 환영합니다."
     },
     "recruitment": {
       "title": "Recruitment Process",
-      "subtitle1": "Application Submission",
-      "desc1": " Enthusiasm, positive attitude, sincerity, <1/> and social skills will be determined Successful <1/> applicants will be individually contacted.",
-      "subtitle2": "Primary Interview",
-      "desc2": "Panel interview format Practical skills <1/> and knowledge-based interview.",
-      "subtitle3": "In-depth Interview",
-      "desc3": "One-on-one format Personality <1/> based interview.",
-      "subtitle4": "Employment",
-      "desc4": "Announcement of successful applicants."
+      "subtitle1": "서류지원",
+      "desc1": "적극성, 긍정성, 성실성, 사회성 등 판단하고 <1 /> 서류지원 합격자에게 개별연락",
+      "subtitle2": "1차 면접",
+      "desc2": "실무 역량 및 전공 면접",
+      "subtitle3": "심층면접",
+      "desc3": "1:1 면접방식, 인성 중심 면접",
+      "subtitle4": "최종합격",
+      "desc4": "최종 합격자 발표"
     },
     "recruitment_m": {
       "title": "Recruitment Process",
-      "subtitle1": "Application Submission",
-      "desc1": " Enthusiasm, positive attitude, sincerity, <1/> and social skills will be determined <1/> Successful applicants will be individually contacted.",
-      "subtitle2": "Primary Interview",
-      "desc2": "Panel interview format Practical skills <1/> and knowledge-based interview.",
-      "subtitle3": "In-depth Interview",
-      "desc3": "One-on-one format Personality <1/> based interview.",
-      "subtitle4": "Employment",
-      "desc4": "Announcement of successful applicants."
+      "subtitle1": "서류지원",
+      "desc1": "적극성, 긍정성, 성실성, 사회성 등 판단하고 <1 /> 서류지원 합격자에게 개별연락",
+      "subtitle2": "1차 면접",
+      "desc2": "실무 역량 및 전공 면접",
+      "subtitle3": "심층면접",
+      "desc3": "1:1 면접방식, 인성 중심 면접",
+      "subtitle4": "최종합격",
+      "desc4": "최종 합격자 발표"
     },
     "benefits": {
       "title": "Benefits",
-      "desc": "Benefits may vary depending on <1/> the location of employment",
+      "desc": "근무 지역에 따라 혜택이 달라질 수 있습니다.",
       "subtitle1": "Work",
-      "desc1-1": "Five-day workweek",
-      "desc1-2": "Unlimited access to beverages, coffee, and snacks",
-      "desc1-3": "High processing laptops and monitors provided",
-      "desc1-4": "Lunch provided",
+      "desc1-1": "주 5일 근무제",
+      "desc1-2": "음료, 커피, 간식 무제한 제공",
+      "desc1-3": "고성능 노트북 및 모니터 제공",
+      "desc1-4": "식사 제공",
       "subtitle2": "Balanced Life",
-      "desc2-1": "Financial support for special occasions",
-      "desc2-2": "Maternity leave, paternity leave",
-      "desc2-3": "Stock options",
-      "desc2-4": "Retirement benefits",
+      "desc2-1": "결혼, 출산, 자녀 돌 등 직계가족 경조사비 지원",
+      "desc2-1_m": "결혼, 출산, 자녀 돌 등 <br /> 직계가족 경조사비 지원",
+      "desc2-2": "출산/육아휴직",
+      "desc2-3": "스톡옵션",
+      "desc2-4": "퇴직급여 지급",
       "subtitle3": "Culture",
-      "desc3-1": "Annual workshops",
-      "desc3-2": "Training and seminar fee supported",
-      "desc3-3": "Literature purchase fee supported",
-      "desc3-4": "In-house hobby clubs supported",
+      "desc3-1": "매년 워크샵 진행",
+      "desc3-2": "교육 및 세미나 참가비 지원",
+      "desc3-3": "도서구매비 지원",
+      "desc3-4": "사내 동호회 지원",
       "subtitle4": "Etc",
-      "desc4-1": "Holiday gifts provided",
-      "desc4-2": "Birthday gifts provided",
-      "desc4-3": "AriBio talent of the year award",
-      "desc4-4": "Paid vacations / Paid public holidays",
-      "desc4-5": "Pleasant working environment provided"
+      "desc4-1": "명절 선물 제공",
+      "desc4-2": "생일 선물 제공",
+      "desc4-3": "올해의 인재상 포상",
+      "desc4-4": "유급 휴가 및 연차 제공",
+      "desc4-5": "쾌적한 근무환경 제공"
     },
     "buttons": {
       "meetourleadership": "Meet Our Leadership",
@@ -455,14 +518,14 @@
     }
   },
   "career_m": {
-    "desc1": "At Aribio, <1/> we’re at the cutting edge of tackling <1/> neurodegenerative disorders. <1/> Our dedicated team is set on <1/> discovering transformative <1/> treatments. We invite <1/> innovative minds to join our mission. <1/> Together, let’s usher in a new era <1/> of therapeutic breakthroughs <1/> for those in need. <1/>"
+    "desc1": "아리바이오는 <1 /> 혁신적인 신약을 개발하고 있으며, <1 /> 혁신적인 아이디어를 가진 인재와 <1 /> 함께 새로운 세상을 열어갈 <1 /> 준비를 하고 있습니다."
   },
   "partner": {
     "headline": "PARTNER",
     "title": "PARTNER",
     "subtitle": "Current Partnerships",
-    "desc": "Aligned in our mission, we focus on addressing the challenges of neurodegeneration <1/> with our collaborative network spanning academia, industry, and patient advocacy groups worldwide. <1/> Our goal is to be a trusted partner to all.",
-    "desc_m": "Aligned in our mission, <1 /> we focus on addressing <1 /> the challenges of neurodegeneration <1 /> with our collaborative network spanning <1 /> academia, industry, and patient <1 /> advocacy groups worldwide. <1 /> Our goal is to be a trusted partner to all.",
+    "desc": "아리바이오는 퇴행성 뇌질환을 극복하기 위해 학계, 단체 및 기업과 파트너쉽으로 <1 /> 신뢰할 수 있는 네트워크를 형성하고 있습니다.",
+    "desc_m": "아리바이오는 퇴행성 뇌질환을 극복하기 위해 <1 /> 학계, 단체 및 기업과 파트너쉽으로 <1 /> 신뢰할 수 있는 네트워크를 형성하고 있습니다.",
     "buttons": {
       "contact": "CONTACT US"
     }
@@ -472,7 +535,7 @@
     "headline_m": "CONTACT<1/>US",
     "title": "CONTACT US",
     "subtitle": "We Look Forward to Hearing From You",
-    "desc": "We look forward <1/>to hearing from you.",
+    "desc": "문의사항을 남겨주세요.",
     "subtitle_m": "We Look Forward <1/>To Hearing From You",
     "firstname": "First Name",
     "lastname": "Last Name",
@@ -496,9 +559,9 @@
     "headline": "OPEN INNOVATION",
     "basic": {
       "title": "OPEN INNOVATION",
-      "subdesc": "AriBio is dedicated to driving advancements <1 /> in neurodegenerative diseases",
-      "desc": "Our foundation is the ARIDD™ platform, designed for multi-mechanism drugs, and <1 /> we're strengthened by our commitment to open innovation. <1 /> We actively collaborate with innovative companies around the world, <1 /> aiming to create impactful solutions for these challenging diseases.",
-      "approach": "Our approach blends polypharmacological strategies <1 /> with a belief in multi-modal management for these conditions. <1 /> While pioneering work in this area has its challenges and risks, <1 /> the urgent need for solutions in neurodegenerative diseases propels us forward. <1 /> Alongside our partners, we utilize AI and digital tools to support patients <1 /> and deepen our understanding of these disorders.",
+      "subdesc": "아리바이오는 퇴행성 뇌질환 신약개발의 발전을 <1 /> 주도하는 것에 전념하고 있습니다",
+      "desc": "다중기전 약물개발에 최적화되고 혁신적인 플랫폼인 ARIDD™와 <1 /> 오픈 이노베이션을 통하여, 전 세계의 혁신적인 기업들과 적극적으로 협력하여 <1 /> 퇴행성 뇌질환을 극복하기 위하여 도전하고 있습니다.",
+      "approach": "우리의 접근 방식은 다중기전 전략과 멀티-모달(Multi-Modal) <1 /> 관리를 융합하고 있습니다. <1 /> <1 /> 이 분야의 선도적인 개발은 어려움과 실패의 위험을 동반하기도 하지만, <1 /> 퇴행성 뇌질환의 극복을 위한 해결책이 절박한 상황으로 우리는 전진하고 있습니다. <1 /> 파트너들과 함께 퇴행성 뇌질환 치료제를 개발하여 환자를 지원하기 위해 <1 /> 인공지능 및 디지털 도구를 활용하고 있습니다.",
       "button": {
         "digital": "Digital Health",
         "memore": "Memo:Re Project"
@@ -506,9 +569,9 @@
     },
     "basic_m": {
       "title": "OPEN INNOVATION",
-      "subdesc": "AriBio is dedicated to <1 /> driving advancements in <1 /> neurodegenerative diseases.",
-      "desc": "Our foundation is the ARIDD™ platform, <1 /> designed for multi-mechanism drugs, <1 /> and we’re strengthened by <1 /> our commitment to open innovation. <1 /> We actively collaborate with innovative <1 /> companies around the world, <1 /> aiming to create impactful solutions <1 /> for these challenging diseases.",
-      "approach": "Our approach blends polypharma <1 /> cological strategies with a belief in <1 /> multi-modal management for these <1 /> conditions. <1 /><1 /> While pioneering work in this area <1 /> has its challenges and risks, the <1 /> urgent need for solutions in <1 /> neurodegenerative diseases propels <1 /> us forward. Alongside our partners, <1 /> we utilize AI and digital tools to <1 /> support patients and deepen our <1 /> understanding of these disorders.",
+      "subdesc": "아리바이오는 퇴행성 뇌질환 <1 /> 신약개발의 발전을 주도하는 것에 <1 /> 전념하고 있습니다.",
+      "desc": "다중기전 약물개발에 최적화되고 <1 /> 혁신적인 플랫폼인 ARIDD™와 <1 /> 오픈 이노베이션을 통하여, <1 /> 전 세계의 혁신적인 기업들과 <1 /> 적극적으로 협력하여 퇴행성 뇌질환을 <1 /> 극복하기 위하여 도전하고 있습니다.",
+      "approach": "우리의 접근 방식은 다중기전 전략과 <1 /> 멀티-모달(Multi-Modal) 관리를 <1 /> 융합하고 있습니다. <1 /><1 /><1 /> 이 분야의 선도적인 개발은 어려움과 <1 /> 실패의 위험을 동반하기도 하지만, <1 /> 퇴행성 뇌질환의 극복을 위한 해결책이 <1 /> 절박한 상황으로 우리는 전진하고 있습니다. <1 /> 파트너들과 함께 퇴행성 뇌질환 치료제를 <1 /> 개발하여 환자를 지원하기 위해 <1 /> 인공지능 및 디지털 도구를 <1 /> 활용하고 있습니다.",
       "button": {
         "digital": "Digital Health",
         "memore": "Memo:Re Project"
@@ -517,7 +580,7 @@
     "health": {
       "title": "DIGITAL HEALTH",
       "subtitle": "DIGITAL HEALTH",
-      "subdesc": "Leveraging Digital Health Technologies <1 /> for Early Dementia Detection and Intervention",
+      "subdesc": "치매 조기 발견 및 개입을 위한 <1 /> 디지털 의료 기술 활용",
       "table": {
         "header": {
           "focus": "Focus",
@@ -532,15 +595,15 @@
       },
       "approach": {
         "title": "Our Approach",
-        "desc": "In today’s rapidly evolving world, it is necessary to turn to innovative digital health <1 /> technologies to address the most pressing healthcare challenge of our time – dementia. <1 /> Our team is on a mission to leverage the power of these digital tools. <1 /> We aim to advance the early detection and intervention of dementia, <1 /> ultimately improving the lives of those affected by this devastating condition."
+        "desc": "빠르게 진화하는 오늘 날 세계에서 가장 시급한 난제인 치매를 조기에 발견하고 치료에 빠르게 개입하기 위한 <1 /> 혁신적인 디지털 헬스 기술을 활용할 필요성이 있습니다. <1 /> 저희 팀은 이러한 디지털 도구의 힘을 활용하고자 하는 미션을 수행 중입니다. <1 /> 우리의 목표는 치매의 조기 발견 및 개입을 선도함으로써 궁극적으로 이 질환에 영향을 받는 사람들의 삶을 개선하는 것입니다."
       },
       "challenge": {
         "title": "Understanding the Challenge",
-        "desc": "Dementia is a complex and progressive neurological disorder <1 /> that affects millions of individuals worldwide. It not only robs people of their memories <1 /> and cognitive abilities but also places a significant burden <1 /> on their families and caregivers. Early detection and intervention are crucial to slowing down <1 /> the progression of the disease and enhancing the quality of life for those affected."
+        "desc": "치매는 발병원인이 복잡하고 천천히 진행되는 신경학적 장애입니다. 전 세계 수백만 명에게 영향을 미치고 있으며, <1 /> 그들의 기억과 인지 능력을 빼앗을 뿐만 아니라 가족과 간병인에게도 상당한 부담을 주게 됩니다. <1 /> 질병의 진행을 늦추고 영향을 받는 이들의 삶의 질을 향상시키기 위해서는 조기 발견과 개입이 중요합니다"
       },
       "power": {
         "title": "The Power of Digital Health",
-        "desc": "In an age where smartphones, wearables, and smart home devices have become integral parts of our daily lives, <1 /> we have an incredible opportunity to harness the potential of these technologies for healthcare purposes. <1 /> By doing so, we can revolutionize the way we approach dementia care."
+        "desc": "스마트폰, 웨어러블 디바이스, 그리고 스마트 홈 기기가 우리 일상의 핵심 요소로 자리 잡은 시대에, <1 /> 이러한 기술의 잠재력을 의료 분야에 활용할 수 있는 기회가 있습니다. <1 /> 이를 통해 우리는 치매 치료에 접근하는 방식을 새롭게 정의할 수 있습니다."
       },
       "pipeline": {
         "title": "Pipeline",
@@ -548,8 +611,8 @@
       },
       "electro": {
         "title": "Electroceutical - I",
-        "desc1": "Our product, MDAR3001, harnesses a proprietary sound source, designed to induce neuronal differentiation <1 /> through tactile vibrations and auditory stimulation via bone conduction. <1 /> Additionally, targeted vibrations may enhance cerebral blood flow. Paired with familiar music, <1 /> this approach aims to boost memory and cognition by invoking autobiographical memory recall in patients.",
-        "desc2": "In a world where technology continually evolves, our commitment remains steadfast – to leverage digital health technologies <1 /> for the early detection and intervention of dementia. We strive to Our mission is to improve the quality of life for individuals affected by <1 /> dementia, and we believe that by working together, we can make a significant impact."
+        "desc1": "MDAR3001은 독자적인 음향 진동 자극을 활용하여 신경 세포의 분화를 유도하는 데 중점을 두고 있으며, <1 /> 촉각 진동과 뼈 음향을 통한 청각 자극을 통해 이루어집니다. 게다가, 특정한 진동은 뇌 혈류의 흐름을 증진시킬 수 있습니다. <1 /> 익숙한 음악과 결합된 음향 진동 자극은 환자들에게 자서전 식 기억 회상을 일으킴으로써 기억과 인지능력을 강화하려는 목표를 가지고 개발되었습니다.",
+        "desc2": "기술이 진화하는 세상에서도, 우리의 약속은 변함없습니다. 치매의 조기 발견과 개입을 위해 <1 /> 디지털 헬스 기술을 활용하는 것에 대한 약속입니다. 우리는 치매에 영향을 받는 개인들의 삶의 질을 향상시키기 위한 미션을 갖고 있으며, <1 /> 함께 노력함으로써 중요한 영향을 미칠 수 있다고 믿습니다."
       },
       "button": {
         "herizon": "Go to HERIZON"
@@ -558,18 +621,18 @@
     "health_m": {
       "title": "DIGITAL HEALTH",
       "subtitle": "DIGITAL HEALTH",
-      "subdesc": "Leveraging Digital Health <1 /> Technologies for <1 /> Early Dementia Detection <1 /> and Intervention",
+      "subdesc": "치매 조기 발견 및 개입을 위한 <1 /> 디지털 의료 기술 활용",
       "approach": {
         "title": "Our Approach",
-        "desc": "In today’s rapidly evolving world, <1 /> where technology continues <1 /> to reshape our lives, it’s only fitting <1 /> that we turn to innovative digital health  <1 /> technologies to address <1 /> one of the most pressing healthcare <1 /> challenges of our time – dementia. <1 /> Our dedicated digital health team is <1 /> on a mission to leverage the power <1 /> of these digital tools to advance <1 /> the early detection and intervention <1 /> of dementia, ultimately improving <1 /> the lives of those affected <1 /> by this devastating condition."
+        "desc": "빠르게 진화하는 오늘날 <1 /> 세계에서 가장 시급한 난제인 치매를 <1 /> 조기에 발견하고 치료에 빠르게 개입하기 위한 <1 /> 혁신적인 디지털 헬스 기술을 활용할 <1 /> 필요성이 있습니다. 저희 팀은 <1 /> 이러한 디지털 도구의 힘을 활용하고자 하는 <1 /> 미션을 수행 중입니다. 우리의 목표는 <1 /> 치매의 조기 발견 및 개입을 선도함으로써 <1 /> 궁극적으로 이 질환에 영향을 받는 사람들의 <1 /> 삶을 개선하는 것입니다."
       },
       "challenge": {
         "title": "Understanding the Challenge",
-        "desc": "Dementia is a complex and <1 /> progressive neurological disorder <1 /> that affects millions of <1 /> individuals worldwide. <1 /> It not only robs people of their <1 /> memories and cognitive abilities <1 /> but also places a significant burden <1 /> on their families and caregivers. <1 /> Early detection and intervention are <1 /> crucial to slowing down the <1 /> progression of the disease <1 /> and enhancing the quality of life <1 /> for those affected."
+        "desc": "치매는 발병원인이 복잡하고 천천히 진행되는 <1 /> 신경학적 장애입니다. 전 세계 수백만 명에게 <1 /> 영향을 미치고 있으며, 그들의 기억과 <1 /> 인지 능력을 빼앗을 뿐만 아니라 가족과 <1 /> 간병인에게도 상당한 부담을 주게 됩니다. <1 /> 질병의 진행을 늦추고 영향을 받는 이들의 <1 /> 삶의 질을 향상시키기 위해서는 <1 /> 조기 발견과 개입이 중요합니다."
       },
       "power": {
         "title": "The Power of Digital Health",
-        "desc": "In an age where smartphones, <1 /> wearables, and smart home devices <1 /> have become integral parts of <1 /> our daily lives, we have an incredible <1 /> opportunity to harness the <1 /> potential of these technologies <1 /> for healthcare purposes. <1 /> By doing so, we can revolutionize <1 /> the way we approach dementia care."
+        "desc": "스마트폰, 웨어러블 디바이스, 그리고 <1 /> 스마트 홈 기기가 우리 일상의 핵심 요소로 <1 /> 자리 잡은 시대에, 이러한 기술의 잠재력을 <1 /> 의료 분야에 활용할 수 있는 기회가 있습니다. <1 /> 이를 통해 우리는 치매 치료에 접근하는 <1 /> 방식을 새롭게 정의할 수 있습니다."
       },
       "pipeline": {
         "title": "Pipeline",
@@ -577,8 +640,8 @@
       },
       "electro": {
         "title": "Electroceutical - I",
-        "desc1": "Our product, MDAR3001, harnesses <1 /> proprietary sound source, designed to <1 /> induce neuronal differentiation through <1 /> tactile vibrations and auditory stimulation <1 /> via bone conduction. Additionally, targeted <1 /> vibrations may enhance cerebral blood flow. <1 /> Paired with familiar music, this approach <1 /> aims to boost memory and cognition by <1 /> invoking autobiographical memory recall <1 /> in patients.",
-        "desc2": "In a world where technology continually <1 /> evolves, our commitment remains <1 /> steadfast – to leverage digital health <1 /> technologies for the early detection and <1 /> intervention of dementia. <1 /> Our mission is to improve the quality of life <1 /> for individuals affected by dementia, <1 /> and we believe that by working together, <1 /> we can make a significant impact."
+        "desc1": "MDAR3001은 독자적인 음향 진동 자극을 <1 /> 활용하여 신경 세포의 분화를 유도하는 데 중점을 <1 /> 두고 있으며, 촉각 진동과 뼈 음향을 통한 청각 자극을 <1 /> 통해 이루어집니다. 게다가, 특정한 진동은 <1 /> 뇌 혈류의 흐름을 증진시킬 수 있습니다. <1 /> 익숙한 음악과 결합된 음향 진동 자극은 환자들에게 <1 /> 자서전 식 기억 회상을 일으킴으로써 기억과 <1 /> 인지능력을 강화하려는 목표를 <1 /> 가지고 개발되었습니다.",
+        "desc2": "기술이 진화하는 세상에서도, <1 /> 우리의 약속은 변함없습니다. 치매의 조기 발견과 <1 /> 개입을 위해 디지털 헬스 기술을 활용하는 것에 <1 /> 대한 약속입니다. 우리는 치매에 영향을 받는 개인들의 <1 /> 삶의 질을 향상시키기 위한 미션을 갖고 있으며, <1 /> 함께 노력함으로써 중요한 영향을 <1 /> 미칠 수 있다고 믿습니다."
       },
       "button": {
         "herizon": "Go to HERIZON"
@@ -588,9 +651,9 @@
       "title": "Memo:Re PROJECT",
       "basic": {
         "subtitle": "Memo:Re PROJECT",
-        "desc": "Help Preserve Your Loved One’s Memories",
-        "subdesc1": "We believe that life’s most precious gift is the memories we create, and it is essential to preserve these memories, <1 /> especially for our aging family members who hold them dear. Memo:Re is more than just a social media platform; <1 /> it’s a digital sanctuary crafted specifically to safeguard these precious memories.",
-        "subdesc2": "Memo:Re isn’t just a digital tool; it’s a bridge. With its user-friendly design, <1 /> both parents and senior family members can effortlessly journey through their life stories, <1 /> cherishing each moment all over again. By facilitating these shared reminiscences, <1 /> we reinforce familial bonds and provide an emotional safety net. <1 /> Most importantly, through Memo:Re,we send a profound message to our elderly loved ones: <1 /> they are not journeying through memory alone. <1 /> We are right beside them, every step of the way. <1 /><1 /><1 /><1 /> But we don’t stop there. Grounded in the principles of Reminiscence Therapy, <1 /> Memo:Re is engineered to evoke and reinforce forgotten memories <1 /> through the sharing of photos, videos, and heartfelt messages. <1 /> Our unique Memo:Re scheduler ensures these memories resurface regularly, <1 /> offering comfort and a sense of belonging, and has been linked to a slower progression of memory loss."
+        "desc": "사랑하는 이의 기억을 보존하는 데 도움을 드립니다",
+        "subdesc1": "우리는 삶에서 가장 소중한 선물은 우리가 만들어가는 기억이라고 믿습니다. <1 /> 특히 이러한 기억을 소중히 여기는 우리 노령 가족 구성원들을 위해 이러한 기억을 보존하는 것이 중요합니다. <1 /> Memo:Re는 단순한 소셜 미디어 플랫폼 이상입니다. 이는 이러한 소중한 기억들을 보호하기 위해 특별히 만들어진 디지털 공간입니다.",
+        "subdesc2": "Memo:Re는 단순한 디지털 도구가 아니라 서로를 연결하는 가교 역할을 합니다. <1 /> 사용자 친화적인 디자인을 통해 부모와 노령 가족 구성원 모두가 쉽게 자신들의 삶 이야기를 편안하게 살펴보며 <1 /> 각 순간을 다시 한번 소중히 여길 수 있습니다. 이러한 공유된 추억을 도와 가족의 유대감을 강화하고 감정적인 안전망을 제공합니다. <1 /> 가장 중요한 것은 Memo:Re를 통해 우리가 우리의 노령 가족 구성원들에게 깊은 메시지를 전한다는 것입니다: <1 /> 그들은 기억의 여정을 혼자 걷고 있지 않습니다. 우리는 그들과 함께, 매 단계를 함께하고 있습니다. <1 /> <1 /> <1 /> <1 /> 하지만 여기서 그치지 않습니다. Memo:Re는 회상 치료의 원리를 기반으로 하여, 사진, 비디오, <1 /> 그리고 감정이 담긴 메시지를 공유함으로써 잊혀진 기억을 일깨우고 강화하는 데 중점을 두고 설계되었습니다. <1 /> Memo:Re의 독특한 기능인 스케쥴러는 이러한 기억이 재현될 수 있도록 <1 /> 정기적으로 알림을 전달하여 사용자의 안정감과 소속감을 제공하며 반복적인 회상 작용은 기억력을 강화해줍니다."
       },
       "button": {
         "en": "Go to Memo:Re (ENG)",
@@ -602,9 +665,9 @@
       "title": "Memo:Re PROJECT",
       "basic": {
         "subtitle": "Memo:Re PROJECT",
-        "desc": "Help Preserve Your <1 /> Loved One’s Memories",
-        "subdesc1": "We believe that life’s most precious gift <1 /> is the memories we create, and it is <1 /> essential to preserve these memories, <1 /> especially for our aging family members <1 /> who hold them dear. <1 /> Memo:Re is more than just a social <1 /> media platform; it’s a digital sanctuary <1 /> crafted specifically to safeguard <1 /> these precious memories.",
-        "subdesc2": "Memo:Re isn’t just a digital tool; <1 /> it’s a bridge. With its <1 /> user-friendly design, both parents <1 /> and senior family members can <1 /> effortlessly journey through their <1 /> life stories, cherishing each moment <1 /> all over again. By facilitating <1 /> these shared reminiscences, <1 /> we reinforce familial bonds and provide <1 /> an emotional safety net. <1 /> Most importantly, through Memo:Re, <1 /> we send a profound message to <1 /> our elderly loved ones: <1 /> they are not journeying through <1 /> memory alone. We are right beside <1 /> them, every step of the way. <1 /><1 /> But we don’t stop there. <1 /> Grounded in the principles of <1 /> Reminiscence Therapy, Memo:Re is <1 /> engineered to evoke and reinforce <1 /> forgotten memories through the <1 /> sharing of photos, videos, <1 /> and heartfelt messages. <1 /> Our unique Memo:Re scheduler <1 /> ensures these memories resurface <1 /> regularly, offering comfort and a sense <1 /> of belonging, and has been linked to <1 /> a slower progression of memory loss."
+        "desc": "사랑하는 이의 기억을 보존하는 데 <1 /> 도움을 드립니다",
+        "subdesc1": "우리는 삶에서 가장 소중한 선물은 우리가 <1 /> 만들어가는 기억이라고 믿습니다. <1 /> 특히 이러한 기억을 소중히 여기는 우리 <1 /> 노령 가족 구성원들을 위해 이러한 기억을 <1 /> 보존하는 것이 중요합니다. <1 /> Memo:Re는 단순한 소셜 미디어 플랫폼 <1 /> 이상입니다. 이는 이러한 소중한 기억들을 <1 /> 보호하기 위해 특별히 만들어진 <1 /> 디지털 공간입니다.",
+        "subdesc2": "Memo:Re는 단순한 디지털 도구가 아니라 <1 /> 서로를 연결하는 가교 역할을 합니다. <1 /> 사용자 친화적인 디자인을 통해 부모와 노령 가족 <1 /> 구성원 모두가 쉽게 자신들의 삶 이야기를 <1 /> 편안하게 살펴보며 각 순간을 다시 한번 <1 /> 소중히 여길 수 있습니다. 이러한 공유된 추억을 <1 /> 도와 가족의 유대감을 강화하고 감정적인 <1 /> 안전망을 제공합니다. 가장 중요한 것은 <1 /> Memo:Re를 통해 우리가 우리의 노령 가족 <1 /> 구성원들에게 깊은 메시지를 전한다는 것입니다: <1 /> 그들은 기억의 여정을 혼자 걷고 있지 않습니다. <1 /> 우리는 그들과 함께, <1 /> 매 단계를 함께하고 있습니다. <1 /><1 /><1 /> 하지만 여기서 그치지 않습니다. <1 /> Memo:Re는 회상 치료의 원리를 기반으로 하여, <1 /> 사진, 비디오, 그리고 감정이 담긴 메시지를 <1 /> 공유함으로써 잊혀진 기억을 일깨우고 <1 /> 강화하는 데 중점을 두고 설계되었습니다. <1 /> Memo:Re의 독특한 기능인 스케쥴러는 <1 /> 이러한 기억이 재현될 수 있도록 <1 /> 정기적으로 알림을 전달하여 사용자의 안정감과 <1 /> 소속감을 제공하며 반복적인 <1 /> 회상 작용은 기억력을 강화해줍니다."
       }
     }
   }

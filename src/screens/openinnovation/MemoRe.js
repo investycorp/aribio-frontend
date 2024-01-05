@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useRecoilState} from 'recoil';
+import {useRecoilValue} from 'recoil';
 import detectOS from '../../utils/detectOS';
 
 import Header from '../../components/Header';
@@ -21,7 +21,7 @@ import {t} from 'i18next';
 import {Trans} from 'react-i18next';
 
 const MemoRe = () => {
-  const [language, setLanguage] = useRecoilState(Language);
+  const language = useRecoilValue(Language);
   const {data, isLoading, refetch} = useLinkList(language);
   const [links, setLinks] = useState({});
   useEffect(() => {
@@ -93,7 +93,7 @@ const MemoRe = () => {
               <Text $color="#C9C9C9" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
                 {t('innovation.memore.basic.subtitle')}
               </Text>
-              <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
+              <Text $language={language} $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
                 {t('innovation.memore.basic.desc')}
               </Text>
               <div
@@ -103,8 +103,13 @@ const MemoRe = () => {
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                }}></div>
-              <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#D3D3D3">
+                }}
+              />
+              <Text
+                $language={language}
+                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+                $fontWeight="300"
+                $color="#D3D3D3">
                 <Trans i18nKey={'innovation.memore.basic.subdesc1'} components={{1: <br />}} />
               </Text>
             </TextWrap>
@@ -131,6 +136,7 @@ const MemoRe = () => {
             </video> */}
             <TextWrap style={{margin: '10em 0'}}>
               <Text
+                $language={language}
                 $color="#C9C9C9"
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="300"
@@ -273,11 +279,20 @@ const MemoRe = () => {
                 style={{margin: '0 0 12px 0'}}>
                 {t('innovation.memore_m.basic.subtitle')}
               </Text>
-              <Text $fontSize="23px" $fontWeight="400" style={{width: '100%', margin: '0'}}>
+              <Text
+                $language={language}
+                $fontSize="23px"
+                $fontWeight="400"
+                style={{lineHeight: '1.5em', width: '100%', margin: '0'}}>
                 <Trans i18nKey={'innovation.memore_m.basic.desc'} components={{1: <br />}} />
               </Text>
               <hr style={{width: '20px', borderTop: '1px solid #707070', margin: '2rem 0 2rem 0'}} />
-              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{lineHeight: '21px'}}>
+              <Text
+                $language={language}
+                $fontSize="18px"
+                $fontWeight="300"
+                $color="#D3D3D3"
+                style={{lineHeight: '21px'}}>
                 <Trans i18nKey={'innovation.memore_m.basic.subdesc1'} components={{1: <br />}} />
               </Text>
             </TextWrap>
@@ -290,7 +305,13 @@ const MemoRe = () => {
               style={{width: '100%', marginTop: '0em'}}
             />
             <TextWrap style={{margin: '5em 0', width: '100%'}}>
-              <Text $color="#C9C9C9" $fontSize="18px" $fontWeight="300" $align="center" style={{lineHeight: '21px'}}>
+              <Text
+                $language={language}
+                $color="#C9C9C9"
+                $fontSize="18px"
+                $fontWeight="300"
+                $align="center"
+                style={{lineHeight: '21px'}}>
                 <Trans i18nKey={'innovation.memore_m.basic.subdesc2'} components={{1: <br />}} />
               </Text>
             </TextWrap>

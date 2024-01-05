@@ -17,8 +17,11 @@ import Video from '../../components/Video';
 
 import {t} from 'i18next';
 import {Trans} from 'react-i18next';
+import Language from '../../atom/Language';
+import {useRecoilValue} from 'recoil';
 
 const OpenInnovation = () => {
+  const language = useRecoilValue(Language);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -84,7 +87,11 @@ const OpenInnovation = () => {
               <Text $color="#939598" $fontSize={window.innerWidth > 1280 ? '26px' : '18px'} $fontWeight="300">
                 {t('innovation.basic.title')}
               </Text>
-              <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500">
+              <Text
+                $language={language}
+                $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+                $fontWeight="500"
+                style={{lineHeight: '1.5em'}}>
                 <Trans i18nKey={'innovation.basic.subdesc'} components={{1: <br />}} />
               </Text>
               <hr
@@ -95,7 +102,11 @@ const OpenInnovation = () => {
                   margin: '3.5rem 0 5rem 0',
                 }}
               />
-              <Text $fontSize={window.innerWidth > 1280 ? '23px' : '14px'} $fontWeight="300" $color="#D3D3D3">
+              <Text
+                $language={language}
+                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+                $fontWeight="300"
+                $color="#D3D3D3">
                 <Trans i18nKey={'innovation.basic.desc'} components={{1: <br />}} />
               </Text>
             </TextWrap>
@@ -128,6 +139,7 @@ const OpenInnovation = () => {
               }}>
               <Text
                 $color="#D3D3D3"
+                $language={language}
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="300"
                 $align="start"
@@ -241,11 +253,16 @@ const OpenInnovation = () => {
               <Text $color="#939598" $fontSize="16px" $fontWeight="300">
                 {t('innovation.basic.title')}
               </Text>
-              <Text $fontSize="23px" $fontWeight="500" style={{lineHeight: '26px'}}>
+              <Text $language={language} $fontSize="23px" $fontWeight="500" style={{lineHeight: '26px'}}>
                 <Trans i18nKey={'innovation.basic_m.subdesc'} components={{1: <br />}} />
               </Text>
               <hr style={{width: '20px', borderTop: '1px solid #ffffff', borderBottom: 'none', margin: '0 0 2em 0'}} />
-              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{width: '100%', lineHeight: '21px'}}>
+              <Text
+                $language={language}
+                $fontSize="18px"
+                $fontWeight="300"
+                $color="#D3D3D3"
+                style={{width: '100%', lineHeight: '21px'}}>
                 <Trans i18nKey={'innovation.basic_m.desc'} components={{1: <br />}} />
               </Text>
             </TextWrap>
@@ -287,7 +304,7 @@ const OpenInnovation = () => {
                 style={{
                   paddingLeft: '15vw',
                   marginBottom: '10em',
-                  lineHeight: '20px',
+                  lineHeight: language === 'KOR' ? '22px' : '20px',
                   color: '#D3D3D3',
                   fontSize: '16px',
                 }}>

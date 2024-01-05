@@ -15,7 +15,6 @@ import {
   FormInputRowWrap,
   Input,
   Label,
-  Button,
   Image,
   RowWrap,
   ErrorBox,
@@ -36,7 +35,7 @@ import {t} from 'i18next';
 import {Trans} from 'react-i18next';
 
 const Contact = () => {
-  const [language] = useRecoilValue(Language);
+  const language = useRecoilValue(Language);
   const [contactInfo, setContactInfo] = useState({
     firstName: '',
     lastName: '',
@@ -182,7 +181,8 @@ const Contact = () => {
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                }}></div>
+                }}
+              />
               <Text $fontSize={window.innerWidth > 1280 ? '50px' : '34px'} $fontWeight="500" $color="#ffffff">
                 {t('contact.subtitle')}
               </Text>
@@ -191,6 +191,7 @@ const Contact = () => {
           <HomeComponentWrap>
             <HR style={{alignSelf: 'start', marginBottom: '1.5em'}} />
             <Text
+              $language={language}
               $fontSize={window.innerWidth > 1280 ? '34px' : '20px'}
               $fontWeight="400"
               $color="#E5E5E5"
@@ -425,7 +426,8 @@ const Contact = () => {
                   height: '1px',
                   border: '1px solid #ffffff',
                   margin: '28px 0',
-                }}></div>
+                }}
+              />
               <Text $fontSize="23px" $fontWeight="500" $color="#ffffff">
                 <Trans i18nKey="contact.subtitle_m" components={{1: <br />}} />
               </Text>
@@ -433,7 +435,7 @@ const Contact = () => {
           </HomeComponentWrap>
           <HomeComponentWrap>
             <HR style={{alignSelf: 'start', width: '20px', marginBottom: '1.5em'}} />
-            <Text $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start">
+            <Text $language={language} $fontSize="20px" $fontWeight="300" $color="#E5E5E5" $align="start">
               <Trans i18nKey="contact.desc" components={{1: <br />}} />
             </Text>
             <FormWrap style={{paddingLeft: '0', paddingTop: '1rem', marginTop: '0'}}>

@@ -55,7 +55,6 @@ const PressRelease = () => {
   const [viewMoreOn, setViewMoreOn] = useState(true);
 
   useEffect(() => {
-    console.log('data', data);
     if (pageNumber === 1) {
       const items = [];
       if (data?.data) {
@@ -199,11 +198,13 @@ const PressRelease = () => {
                       height: '2px',
                       border: '1px solid #ffffff',
                       margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                    }}></div>
+                    }}
+                  />
                   <Text
-                    $fontWeight="400"
+                    $language={language}
+                    $fontWeight="600"
                     $color="#ffffff"
-                    style={{fontSize: window.innerWidth > 1280 ? '50px' : '34px'}}>
+                    $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}>
                     {t('press.subtitle')}
                   </Text>
                 </TextWrap>
@@ -389,7 +390,7 @@ const PressRelease = () => {
                       margin: '28px 0',
                     }}
                   />
-                  <Text $fontWeight="500" $color="#ffffff" style={{fontSize: language !== 'KOR' ? '23px' : '21px'}}>
+                  <Text $language={language} $fontWeight="500" $color="#ffffff" $fontSize="23px">
                     {t('press.subtitle')}
                   </Text>
                 </TextWrap>

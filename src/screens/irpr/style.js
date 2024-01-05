@@ -46,7 +46,7 @@ const MainImgWrap = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-color: #121212;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   z-index: 10;
 `;
 
@@ -95,13 +95,17 @@ const TextWrap = styled.div`
   background-color: transparent;
 `;
 
-const Text = styled.div.attrs((props) => ({ className: props.className }))`
+const Text = styled.div.attrs(props => ({className: props.className}))`
   width: 100%;
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
-  font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
-  color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
-  line-height: 1.5em;
-  text-align: ${(props) => (props.$align ? props.$align : 'center')};
+  font-size: ${props =>
+    props.$language === 'KOR'
+      ? `calc(${props.$fontSize ? props.$fontSize : '26px'} - 2px)`
+      : props.$fontSize || '26px'};
+  font-weight: ${props => (props.$fontWeight ? props.$fontWeight : '300')};
+  color: ${props => (props.$color ? props.$color : ' #ffffff')};
+  line-height: ${props =>
+    props.$language === 'KOR' ? `calc(${props.$lineHeight || '1.5em'} + 0.3em)` : props.$lineHeight || '1.5em'};
+  text-align: ${props => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
   word-break: break-all;
   &.prev,
@@ -112,9 +116,6 @@ const Text = styled.div.attrs((props) => ({ className: props.className }))`
   }
   @media print {
     color: #000000;
-  }
-  @media screen and (max-width: 1280px) {
-    font-size: 21px;
   }
 `;
 
@@ -140,8 +141,8 @@ const TabItem = styled.div`
   align-items: center;
   font-size: 36px;
   font-weight: 400;
-  color: ${(props) => (props.$isActive ? '#ffffff' : '#464646')};
-  border-bottom: ${(props) => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
+  color: ${props => (props.$isActive ? '#ffffff' : '#464646')};
+  border-bottom: ${props => (props.$isActive ? '2px solid #ffffff' : '2px solid transparent')};
   line-height: 1.8em;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -206,8 +207,8 @@ const DescriptionWrap = styled.ul`
   left: 0;
   height: fit-content;
   display: flex;
-  visibility: ${(props) => (props.$isActive ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.$isActive ? '1' : '0')};
+  visibility: ${props => (props.$isActive ? 'visible' : 'hidden')};
+  opacity: ${props => (props.$isActive ? '1' : '0')};
   flex-direction: column;
   justify-content: start;
   align-items: left;
@@ -262,7 +263,7 @@ const SearchInput = styled.input`
     font-size: 16px;
   }
 `;
-const ComponentWrap = styled.div.attrs((props) => ({ className: props.className }))`
+const ComponentWrap = styled.div.attrs(props => ({className: props.className}))`
   position: relative;
   width: 100%;
   height: 'fit-content';
@@ -295,9 +296,9 @@ const RowWrap = styled.div`
   display: grid;
   grid-template-columns: 33.3% auto 15%;
   align-items: center;
-  background-color: ${(props) => (props.$isActive ? 'rgba(203,203,203,0.2)' : 'transparent')};
+  background-color: ${props => (props.$isActive ? 'rgba(203,203,203,0.2)' : 'transparent')};
   padding: 0;
-  border: ${(props) => (props.$isActive ? '1px solid #C4C4C4' : '1px solid rgba(196, 196, 196, 0.5)')};
+  border: ${props => (props.$isActive ? '1px solid #C4C4C4' : '1px solid rgba(196, 196, 196, 0.5)')};
   border-radius: 20px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -396,9 +397,9 @@ const TitleWrap = styled.div`
 `;
 
 const HR = styled.div`
-  width: ${(props) => (props.$width ? props.$width : '60px')};
-  height: ${(props) => (props.$height ? props.$height : '2px')};
-  background-color: ${(props) => (props.$color ? props.$color : '#ffffff')};
+  width: ${props => (props.$width ? props.$width : '60px')};
+  height: ${props => (props.$height ? props.$height : '2px')};
+  background-color: ${props => (props.$color ? props.$color : '#ffffff')};
 `;
 
 const Button = styled.button`

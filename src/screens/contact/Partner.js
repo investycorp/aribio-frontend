@@ -16,7 +16,7 @@ import {Trans} from 'react-i18next';
 
 const Partner = () => {
   const navigate = useNavigate();
-  const [language] = useRecoilValue(Language);
+  const language = useRecoilValue(Language);
   const {data, isLoading, refetch} = useParnerList(language);
 
   const [itemList, setItemList] = useState([]);
@@ -100,10 +100,10 @@ const Partner = () => {
                 }}
               />
               <Text
-                $fontSize="23px"
-                $fontWeight="300"
-                $color="#D3D3D3"
-                style={{fontSize: window.innerWidth > 1280 ? '23px' : '13px'}}>
+                $language={language}
+                $fontSize={window.innerWidth > 1280 ? '23px' : '13px'}
+                $fontWeight="500"
+                $color="#D3D3D3">
                 <Trans i18nKey="partner.desc" components={{1: <br />}} />
               </Text>
             </TextWrap>
@@ -179,7 +179,7 @@ const Partner = () => {
                 {t('partner.subtitle')}
               </Text>
               <hr style={{width: '20px', borderTop: '1px solid #ffffff', borderBottom: 'none', margin: '0 0 2em 0'}} />
-              <Text $fontSize="18px" $fontWeight="300" $color="#D3D3D3" style={{lineHeight: '21px'}}>
+              <Text $language={language} $fontSize="18px" $fontWeight="300" $color="#D3D3D3" $lineHeight="1.3em">
                 <Trans i18nKey="partner.desc_m" components={{1: <br />}} />
               </Text>
             </TextWrap>

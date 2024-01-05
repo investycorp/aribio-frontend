@@ -585,7 +585,7 @@ const AiPlatform = () => {
                     border: '1px solid rgba(255,255,255,0.4)',
                     borderRadius: '10px',
                     background: 'linear-gradient(to left, rgba(0,90,139,0.4), rgba(0, 26, 41, 0.4))',
-                    padding: '24px 24px',
+                    padding: '24px 22px',
                     alignItems: 'start',
                     height: 'fit-content',
                     gap: '1rem',
@@ -594,7 +594,7 @@ const AiPlatform = () => {
                     style={{
                       margin: '0',
                       padding: '0 0 1rem 0',
-                      width: '100vw',
+                      width: '100%',
                       height: 'fit-content',
                       alignItems: 'start',
                       justifyContent: 'start',
@@ -609,7 +609,7 @@ const AiPlatform = () => {
                         height: 'fit-content',
                         lineHeight: '1em',
                       }}>
-                      •{predictions[activeButton]?.title?.replace(/\\n/g, '')}
+                      • {predictions[activeButton]?.title?.replace(/\\n/g, '')}
                     </Text>
                   </TextWrap>
                   <DescriptionWrap style={{padding: '0', margin: '0', height: 'fit-content'}}>
@@ -617,18 +617,26 @@ const AiPlatform = () => {
                       <DescriptionItem
                         key={item + index}
                         style={{fontSize: language !== 'KOR' ? '16px' : '15px', fontWeight: '200'}}>
-                        {item.split('\\n').map(line => (
-                          <span key={'prediction' + line}>
-                            {line.includes('Description') ? (
-                              <>
-                                {line.replaceAll('<br />', '')} <br />
-                              </>
-                            ) : (
-                              line.replaceAll('<br />', '')
-                            )}
-                            <br />
-                          </span>
-                        ))}
+                        {item.split('\\n').map((line, lineIndex) => {
+                          const lineContent = line?.includes('Description : ') ? (
+                            <>
+                              {line}
+                              <br />
+                            </>
+                          ) : (
+                            <>
+                              {line.split('<br />').map((subLine, subLineIndex) => {
+                                return (
+                                  <React.Fragment key={subLineIndex}>
+                                    {subLine}
+                                    {subLineIndex < line?.split('<br />').length - 1 && <br />}
+                                  </React.Fragment>
+                                );
+                              })}
+                            </>
+                          );
+                          return <React.Fragment key={lineIndex}>{lineContent}</React.Fragment>;
+                        })}
                       </DescriptionItem>
                     ))}
                   </DescriptionWrap>
