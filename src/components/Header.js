@@ -42,7 +42,7 @@ const Header = () => {
       {title: t('header.subMenu.ourapproach.publication'), linkTo: 'publications'},
     ],
     pipeline: [{title: t('header.subMenu.pipeline.pipeline'), linkTo: 'pipeline'}],
-    career: [{title: t('header.subMenu.career.career'), linkTo: 'career'}],
+    career: [{title: t('header.subMenu.career.career'), linkTo: 'career/'}],
     contact: [
       {title: t('header.subMenu.contact.partner'), linkTo: 'partner'},
       {title: t('header.subMenu.contact.contactus'), linkTo: 'contactus'},
@@ -330,7 +330,11 @@ const Header = () => {
                 <HeaderNavMenuTextWrap
                   key={menu.linkTo + index}
                   onClick={() => {
-                    if (menu.linkTo === 'career' || menu.linkTo === 'pipeline') {
+                    if (menu.linkTo === 'career') {
+                      navigate('/career');
+                      window.location.reload();
+                    }
+                    if (menu.linkTo === 'pipeline') {
                       if (currentTab !== menu.linkTo) navigate(`/${menu.linkTo}`);
                       else window.location.reload();
                     }
