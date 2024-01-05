@@ -278,7 +278,7 @@ const CareerDetail = () => {
             hover: 'none',
           }}>
           <Button
-            onClick={() => currentItem?.url && (window.location.href = `//${currentItem.url}`)}
+            onClick={() => window.open(currentItem?.url, '_blank')}
             style={{width: '213px', borderBottom: '1px solid #707070', justifyContent: 'space-between'}}>
             <span style={{color: '#212121', padding: '0.5rem 0', zIndex: '-1', fontSize: '16px', fontWeight: '400'}}>
               {t('career.detail.apply')}
