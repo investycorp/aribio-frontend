@@ -225,7 +225,6 @@ const PressRelease = () => {
                       onChange={e => {
                         setSearchValue(e.target.value);
                       }}
-                      autoFocus={true}
                       onKeyDown={e => {
                         if (e.key === 'Enter') {
                           handleSearchClick(e.target.value);
@@ -412,7 +411,6 @@ const PressRelease = () => {
                       onChange={e => {
                         setSearchValue(e.target.value);
                       }}
-                      autoFocus={false}
                       onKeyDown={e => {
                         if (e.key === 'Enter') {
                           handleSearchClick(e.target.value);
