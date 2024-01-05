@@ -9,7 +9,7 @@ const VideoContainer = styled(Container)`
   top: 0px;
   left: 0px;
   width: 100vw;
-  height: auto;
+  height: 100vh;
   min-height: 100vh;
   min-height: -webkit-fill-available;
   background-color: #000000;
@@ -22,8 +22,8 @@ const VideoContainer = styled(Container)`
 `;
 
 const StyledVideo = styled.video`
-  width: 100vw;
-  height: auto;
+  width: 100%;
+  height: 100vh;
   min-height: 100vh;
   object-fit: cover;
 `;
