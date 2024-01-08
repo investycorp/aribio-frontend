@@ -440,6 +440,22 @@ export default Header;
 export const LangButton = () => {
   const [language, setLanguage] = useRecoilState(Language);
   const [firstLoad, setFirstLoad] = useRecoilState(FirstLoad);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname.split('/')[1] === 'irpr' && location.pathname.split('/')[2] === 'notice') {
+      navigate('/irpr/notice');
+    }
+
+    if (location.pathname.split('/')[1] === 'irpr' && location.pathname.split('/')[2] === 'pressrelease') {
+      navigate('/irpr/pressrelease');
+    }
+
+    if (location.pathname.split('/')[1] === 'career') {
+      navigate('/career');
+    }
+  }, [language]);
 
   const handleClick = () => {
     const newLang = language === 'ENG' ? 'KOR' : 'ENG';

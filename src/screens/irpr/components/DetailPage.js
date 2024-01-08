@@ -113,34 +113,47 @@ const DetailPage = () => {
       }
     } else {
       const printContents = document.getElementById('printableid').innerHTML;
-
-      // 새로운 iframe을 생성
       let printFrame = document.createElement('iframe');
       printFrame.style.visibility = 'hidden';
-      printFrame.style.position = 'fixed';
-      printFrame.style.right = '0';
-      printFrame.style.bottom = '0';
-
-      // iframe을 body에 추가
       document.body.appendChild(printFrame);
 
-      // iframe의 document에 내용을 쓴다.
       let printDocument = printFrame.contentWindow.document;
       printDocument.open();
-      printDocument.write('<html><head><title>Print</title></head><body>');
+      printDocument.write('<!DOCTYPE html><html><head><title>Print</title></head><body>');
       printDocument.write(printContents);
       printDocument.write('</body></html>');
       printDocument.close();
 
-      // 스타일을 변경
-      printDocument.body.style.color = '#000000';
+      const images = printFrame.contentWindow.document.images;
+      let loadedImages = 0;
 
-      // 프린트가 준비됐을 때 실행
-      printFrame.contentWindow.onload = function () {
+      const onImageLoad = () => {
+        loadedImages++;
+        if (loadedImages === images.length) {
+          printFrame.contentWindow.focus();
+          printFrame.contentWindow.print();
+          document.body.removeChild(printFrame);
+        }
+      };
+
+      if (images.length > 0) {
+        for (let i = 0; i < images.length; i++) {
+          if (images[i].complete) {
+            loadedImages++;
+          } else {
+            images[i].onload = onImageLoad;
+          }
+        }
+        if (loadedImages === images.length) {
+          printFrame.contentWindow.focus();
+          printFrame.contentWindow.print();
+          document.body.removeChild(printFrame);
+        }
+      } else {
         printFrame.contentWindow.focus();
         printFrame.contentWindow.print();
-        document.body.removeChild(printFrame); // 프린트가 끝난 후 iframe을 제거
-      };
+        document.body.removeChild(printFrame);
+      }
     }
   };
 
@@ -218,7 +231,9 @@ const DetailPage = () => {
             {currentItem?.title}
           </Text>
           <HR style={{margin: '3em 0'}} $color="#B5B5B5" />
-          {currentItem.image && <Image src={currentItem?.image} alt="image" style={{width: '50%', margin: '1rem 0'}} />}
+          {currentItem?.image && (
+            <Image src={currentItem?.image} alt="image" style={{width: '50%', margin: '1rem 0'}} />
+          )}
           <Text
             style={{
               width: '90%',
@@ -245,7 +260,7 @@ const DetailPage = () => {
             hover: 'none',
           }}>
           <Button onClick={() => clickPrint()}>
-            <span style={{padding: '0.1em 0.5em 0 0', zIndex: '-1'}}>Print</span>{' '}
+            <span style={{padding: '0.1em 0.5em 0 0', zIndex: '-1'}}>Print</span>
             <Image style={{zIndex: '-1'}} src={process.env.PUBLIC_URL + '/assets/icons/arrow.svg'} alt="print" />
           </Button>
         </div>

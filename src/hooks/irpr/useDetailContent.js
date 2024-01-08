@@ -12,7 +12,6 @@ const useDetailContent = (page, lan, id) => {
     },
     retry: 1,
   });
-  console.log('irprDetailContent data', data);
 
   return {data, isLoading, refetch};
 };
