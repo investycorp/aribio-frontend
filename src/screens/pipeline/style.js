@@ -575,7 +575,7 @@ const ToggleListWrap = styled.div`
   transform: translateX(-50%);
   grid-template-columns: 1fr;
   width: 90vw;
-  height: fit-content;
+  height: auto;
   max-height: 50vw;
   overflow-y: scroll;
   padding: 0.5rem 0;

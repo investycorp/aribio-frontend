@@ -378,7 +378,6 @@ const PipeLine = () => {
                   ))}
                 </ToggleListWrap>
               </div>
-
               <ContentBoxWrap>
                 <ContentBox style={{padding: '28px 0.5em', borderBottom: '1px solid #fff', gap: '18px'}}>
                   <RowWrap style={{padding: '0 0 0 1em'}}>
