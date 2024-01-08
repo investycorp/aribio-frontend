@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {useRecoilState} from 'recoil';
@@ -442,17 +442,6 @@ export const LangButton = () => {
   const [firstLoad, setFirstLoad] = useRecoilState(FirstLoad);
   const location = useLocation();
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const pathSegments = location.pathname.split('/').filter(segment => segment);
-
-  //   if (pathSegments.length > 2) {
-  //     const newPath = `/${pathSegments[0]}/${pathSegments[1]}`;
-  //     navigate(newPath);
-  //   } else if (pathSegments.length === 1) {
-  //     navigate(`/${pathSegments[0]}`);
-  //   }
-  // }, [language]);
 
   const handleClick = () => {
     const newLang = language === 'ENG' ? 'KOR' : 'ENG';

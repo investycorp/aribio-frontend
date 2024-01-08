@@ -48,7 +48,18 @@ const Ci = () => {
   }, []);
 
   const downloadCi = type => {
-    saveAs(type === 'png' ? `${pngImg}` : `${aiImg}`, `AriBio_CI.${type}`);
+    if (type === 'png') {
+      // PNG 파일 다운로드
+      saveAs(pngImg, `AriBio_CI.png`);
+    } else if (type === 'ai') {
+      // AI 파일 다운로드
+      fetch(aiImg)
+        .then(response => response.blob())
+        .then(blob => {
+          const newBlob = new Blob([blob], {type: 'application/illustrator'});
+          saveAs(newBlob, `AriBio_CI.ai`);
+        });
+    }
   };
 
   return (
