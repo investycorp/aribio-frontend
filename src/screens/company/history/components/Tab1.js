@@ -149,6 +149,7 @@ const DescriptionItem = styled.li`
   line-height: 1.5em;
   list-style: none;
   list-style-position: outside;
+  word-break: break-all;
   &::marker {
     content: '• ';
     font-size: 1em;
@@ -241,7 +242,6 @@ const Tab1 = ({listItems, index}) => {
   }, [currentTab]);
 
   useEffect(() => {
-    console.log(browserInfo.name);
     document.getElementsByClassName('description-grid')[0]?.addEventListener('scroll', handleScroll);
     return () => {
       document.getElementsByClassName('description-grid')[0]?.removeEventListener('scroll', handleScroll);
@@ -282,6 +282,10 @@ const Tab1 = ({listItems, index}) => {
       });
     };
   }, [listItems]);
+
+  useEffect(() => {
+    console.log('currenttab', currentTab, 'scrolltab', scrollTab);
+  }, [currentTab, scrollTab]);
 
   return (
     <>
@@ -336,7 +340,6 @@ const Tab1 = ({listItems, index}) => {
                 }}
               />
             )}
-
             {browserInfo.name !== 'safari' && tabNames?.length > 3 && (
               <img
                 src={sidebar}

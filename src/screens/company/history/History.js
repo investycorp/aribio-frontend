@@ -144,7 +144,8 @@ const History = () => {
                 height: '1px',
                 border: '1px solid #ffffff',
                 margin: '28px 0',
-              }}></div>
+              }}
+            />
             <Text $fontSize="23px" $color="#ffffff" style={{margin: '0', fontWeight: '500'}}>
               {textItems[currentTab]?.title}
             </Text>

@@ -45,7 +45,7 @@ const MainImgWrap = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-color: #121212;
-  background-image: url(${(props) => props.$src});
+  background-image: url(${props => props.$src});
   z-index: 5;
 `;
 
@@ -99,12 +99,13 @@ const TextWrap = styled.div`
 
 const Text = styled.div`
   width: 100%;
-  font-size: ${(props) => (props.$fontSize ? props.$fontSize : '26px')};
-  font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : '300')};
-  color: ${(props) => (props.$color ? props.$color : ' #ffffff')};
+  font-size: ${props => (props.$fontSize ? props.$fontSize : '26px')};
+  font-weight: ${props => (props.$fontWeight ? props.$fontWeight : '300')};
+  color: ${props => (props.$color ? props.$color : ' #ffffff')};
   line-height: 1.5em;
-  text-align: ${(props) => (props.$align ? props.$align : 'center')};
+  text-align: ${props => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
+  word-break: break-all;
 `;
 
 const Tab = styled.div`
@@ -141,10 +142,10 @@ const TabItem = styled.div`
   font-size: 36px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  border-bottom: ${(props) => (props.$isActive ? '4px solid #ffffff' : '4px solid transparent')};
+  border-bottom: ${props => (props.$isActive ? '4px solid #ffffff' : '4px solid transparent')};
   line-height: 1.5em;
   transition: all 0.2s ease-in-out;
-  opacity: ${(props) => (props.$isActive ? '1' : '0.5')};
+  opacity: ${props => (props.$isActive ? '1' : '0.5')};
   &:hover,
   &:active,
   &:focus {
@@ -167,7 +168,7 @@ const TabItem = styled.div`
   }
   @media screen and (max-width: 900px) {
     font-size: 18px;
-    border-bottom: ${(props) => (props.$isActive ? '1px solid #ffffff' : '1px solid transparent')};
+    border-bottom: ${props => (props.$isActive ? '1px solid #ffffff' : '1px solid transparent')};
   }
 `;
 
@@ -225,8 +226,8 @@ const DescriptionWrap = styled.ul`
   left: 0;
   height: fit-content;
   display: flex;
-  visibility: ${(props) => (props.$isActive ? 'visible' : 'hidden')};
-  opacity: ${(props) => (props.$isActive ? '1' : '0')};
+  visibility: ${props => (props.$isActive ? 'visible' : 'hidden')};
+  opacity: ${props => (props.$isActive ? '1' : '0')};
   flex-direction: column;
   justify-content: start;
   align-items: left;

@@ -148,6 +148,7 @@ const Footer = () => {
           logo: item?.fileDto?.fileUrl,
           tel: item?.tel,
           fax: item?.fax,
+          policy: item?.privacyPolicy,
           head: {
             address1: item.headAddress1,
             address2: item.headAddress2,
@@ -201,7 +202,7 @@ const Footer = () => {
                   color: '#B1B1B1',
                 }}>
                 <Link
-                  to="/"
+                  to={`/${companyInfo?.policy}`}
                   style={{
                     cursor: 'pointer',
                     color: '#B1B1B1',
@@ -374,7 +375,9 @@ const Footer = () => {
               gap: '7px',
               fontWeight: '200',
             }}>
-            <Link to="/" style={{color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content', fontSize: '14px'}}>
+            <Link
+              to={`/${companyInfo?.policy}`}
+              style={{color: '#B1B1B1', textDecoration: 'none', minWidth: 'fit-content', fontSize: '14px'}}>
               <span>{t('footer.policy')}</span>
               {/* <span style={{ padding: '0 4px' }}>|</span> */}
             </Link>

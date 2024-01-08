@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {saveAs} from 'file-saver';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-import ci_logo_png from './assets/ci_logo.png';
 import arrow from '../../../assets/images/arrow.svg';
 
 import {
@@ -347,7 +346,7 @@ const Ci = () => {
             </TextWrap>
           </HomeComponentWrap>
           <HomeComponentWrap style={{margin: '10vh 0', backgroundColor: 'rgba(255,255,255)', height: '160px'}}>
-            <Image src={ci_logo_png} alt="ci_logo" style={{width: '108px'}} />
+            <Image src={pngImg} alt="ci_logo" style={{width: '108px'}} />
           </HomeComponentWrap>
           <HomeComponentWrap style={{padding: '5vh 0', display: 'grid'}}>
             <ContentBox style={{position: 'relative', paddingTop: '1em'}}>
