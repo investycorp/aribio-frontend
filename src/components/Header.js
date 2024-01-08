@@ -443,19 +443,16 @@ export const LangButton = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (location.pathname.split('/')[1] === 'irpr' && location.pathname.split('/')[2] === 'notice') {
-      navigate('/irpr/notice');
-    }
+  // useEffect(() => {
+  //   const pathSegments = location.pathname.split('/').filter(segment => segment);
 
-    if (location.pathname.split('/')[1] === 'irpr' && location.pathname.split('/')[2] === 'pressrelease') {
-      navigate('/irpr/pressrelease');
-    }
-
-    if (location.pathname.split('/')[1] === 'career') {
-      navigate('/career');
-    }
-  }, [language]);
+  //   if (pathSegments.length > 2) {
+  //     const newPath = `/${pathSegments[0]}/${pathSegments[1]}`;
+  //     navigate(newPath);
+  //   } else if (pathSegments.length === 1) {
+  //     navigate(`/${pathSegments[0]}`);
+  //   }
+  // }, [language]);
 
   const handleClick = () => {
     const newLang = language === 'ENG' ? 'KOR' : 'ENG';

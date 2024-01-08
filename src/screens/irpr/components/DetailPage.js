@@ -101,7 +101,10 @@ const DetailPage = () => {
   const clickPrint = () => {
     if (browserInfo.name === 'safari') {
       const printContents = document.getElementById('printableid').innerHTML;
-      const blob = new Blob([printContents], {type: 'text/html'});
+      const blob = new Blob(
+        ['<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>', printContents, '</body></html>'],
+        {type: 'text/html'},
+      );
       const objectURL = URL.createObjectURL(blob);
 
       const printWindow = window.open(objectURL);
@@ -119,7 +122,7 @@ const DetailPage = () => {
 
       let printDocument = printFrame.contentWindow.document;
       printDocument.open();
-      printDocument.write('<!DOCTYPE html><html><head><title>Print</title></head><body>');
+      printDocument.write('<!DOCTYPE html><html><head><title>Print</title><meta charset="UTF-8"></head><body>');
       printDocument.write(printContents);
       printDocument.write('</body></html>');
       printDocument.close();
