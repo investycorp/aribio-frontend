@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import vertical_arrow from '../../assets/images/vertical_arrow.svg';
-import { Desktop, Mobile } from '../../utils/MediaQuery';
+import {Desktop, Mobile} from '../../utils/MediaQuery';
 
 const GoToTop = () => {
   const [isShow, setIsShow] = useState(false);
@@ -13,19 +13,18 @@ const GoToTop = () => {
             display: 'flex',
             // visibility: isShow ? 'visible' : 'hidden',
             position: 'absolute',
-            bottom: '28vh',
+            bottom: window.innerWidth > 1280 ? '25vh' : '23vh',
             right: window.innerWidth > 1280 ? '-40px' : '-25px',
             zIndex: '10',
             width: 'fit-content',
             cursor: 'pointer',
           }}
           onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            document.querySelector('.container')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            document.querySelector('.container')?.scrollIntoView({behavior: 'smooth'});
+          }}>
           <img
-            style={{ cursor: 'pointer', width: window.innerWidth > 1280 ? '24px' : '14px' }}
+            style={{cursor: 'pointer', width: window.innerWidth > 1280 ? '24px' : '14px'}}
             src={vertical_arrow}
             alt="vertical_arrow"
           />
@@ -43,15 +42,10 @@ const GoToTop = () => {
             cursor: 'pointer',
           }}
           onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            document.querySelector('.container')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          <img
-            style={{ cursor: 'pointer', width: '14px' }}
-            src={vertical_arrow}
-            alt="vertical_arrow"
-          />
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            document.querySelector('.container')?.scrollIntoView({behavior: 'smooth'});
+          }}>
+          <img style={{cursor: 'pointer', width: '14px'}} src={vertical_arrow} alt="vertical_arrow" />
         </div>
       </Mobile>
     </>

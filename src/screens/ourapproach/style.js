@@ -132,6 +132,10 @@ const Text = styled.div.attrs(props => ({$language: props.$language, className: 
     cursor: ${props => (props.$clickable ? 'pointer' : 'default')};
   }
 
+  @media screen and (max-width: 1280px) and (min-width: 901px) {
+    font-size: ${props => props.$fontSize || '26px'};
+  }
+
   &.pathwaydata_text {
     min-width: fit-content;
     width: fit-content;

@@ -195,7 +195,7 @@ const Ci = () => {
               </ColorBar>
             </ContentBox>
             <ContentBox style={{padding: '0 7vw 0 0', gap: '1.5rem'}}>
-              <ContentWrap style={{padding: 0}}>
+              <ContentWrap style={{padding: 0, gap: window.innerWidth > 1280 ? '1.5em' : '1em'}}>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '26px' : '17px'}
                   $fontWeight="100"
@@ -212,7 +212,7 @@ const Ci = () => {
                   <Trans i18nKey={'ci.content.01'} components={{1: <br />}} />
                 </Text>
               </ContentWrap>
-              <ContentWrap style={{marginBottom: '8em', padding: 0}}>
+              <ContentWrap style={{marginBottom: '8em', padding: 0, gap: window.innerWidth > 1280 ? '1.5em' : '1em'}}>
                 <Text
                   $fontSize={window.innerWidth > 1280 ? '26px' : '17px'}
                   $fontWeight="100"
@@ -220,45 +220,60 @@ const Ci = () => {
                   $align="start">
                   02
                 </Text>
-                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'start', gap: '0.5em'}}>
-                  <Text
-                    $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
-                    $fontWeight="300"
-                    $color="#D5D5D5"
-                    $align="start"
-                    style={{width: 'fit-content', minWidth: language === 'KOR' ? '4vw' : 'auto'}}>
-                    {t('ci.content.02.ari.title')}
-                  </Text>
-                  <Text
-                    $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
-                    $fontWeight="300"
-                    $color="#D5D5D5"
-                    $align="start">
-                    {t('ci.content.02.ari.desc')}
-                  </Text>
-                </div>
                 <div
                   style={{
                     display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'start',
-                    gap: '0.5em',
+                    flexDirection: 'column',
+                    gap: '0.8em',
                   }}>
-                  <Text
-                    $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
-                    $fontWeight="300"
-                    $color="#D5D5D5"
-                    $align="start"
-                    style={{width: 'fit-content', minWidth: language === 'KOR' ? '5.3vw' : 'auto'}}>
-                    {t('ci.content.02.bio.title')}
-                  </Text>
-                  <Text
-                    $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
-                    $fontWeight="300"
-                    $color="#D5D5D5"
-                    $align="start">
-                    {t('ci.content.02.bio.desc')}
-                  </Text>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'start',
+                    }}>
+                    <Text
+                      $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
+                      $fontWeight="300"
+                      $color="#D5D5D5"
+                      $align="start"
+                      style={{width: 'fit-content', minWidth: language === 'KOR' ? '4vw' : 'auto'}}>
+                      {t('ci.content.02.ari.title')}
+                    </Text>
+                    <Text
+                      $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
+                      $fontWeight="300"
+                      $color="#D5D5D5"
+                      $align="start">
+                      {t('ci.content.02.ari.desc')}
+                    </Text>
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'start',
+                      gap: '0.5em',
+                    }}>
+                    <Text
+                      $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
+                      $fontWeight="300"
+                      $color="#D5D5D5"
+                      $align="start"
+                      style={{
+                        width: 'fit-content',
+                        minWidth: language === 'KOR' ? (window.innerWidth > 1280 ? '5.3vw' : '4.6vw') : 'auto',
+                      }}>
+                      {t('ci.content.02.bio.title')}
+                    </Text>
+                    <Text
+                      $fontSize={window.innerWidth > 1280 ? '20px' : '12px'}
+                      $fontWeight="300"
+                      $color="#D5D5D5"
+                      $align="start">
+                      {t('ci.content.02.bio.desc')}
+                    </Text>
+                  </div>
                 </div>
               </ContentWrap>
               <ContentWrap style={{flexDirection: 'row', padding: '0', justifyContent: 'space-between'}}>

@@ -250,7 +250,7 @@ const Home = () => {
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
                 gridTemplateRows: '1fr 1fr 1fr',
-                margin: '30vh 0 10vh 0',
+                margin: '15vh 0 10vh 0',
               }}
               className="home home_3">
               <ComponentGridWrap
@@ -476,7 +476,7 @@ const Home = () => {
                   fontWeight: '500',
                   alignSelf: 'start',
                   marginTop: '3em',
-                  marginBottom: 27,
+                  marginBottom: window.innerWidth > 1280 ? 27 : 7,
                 }}>
                 {t('home.media_kit.title')}
               </ComponentText>
@@ -514,7 +514,7 @@ const Home = () => {
                   fontSize: window.innerWidth > 1280 ? '48px' : '36px',
                   fontWeight: '500',
                   alignSelf: 'start',
-                  marginBottom: 27,
+                  marginBottom: window.innerWidth > 1280 ? 27 : 7,
                 }}>
                 {t('home.press.title')}
               </ComponentText>
@@ -573,7 +573,7 @@ const Home = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'flex-end',
-                        gap: '2rem',
+                        gap: window.innerWidth > 1280 ? '2rem' : '10px',
                         padding: window.innerWidth > 1280 ? '3em 3em' : '2em 3em',
                         marginLeft: index === 0 ? '0' : '1rem',
                         fontWeight: '300',
@@ -610,7 +610,7 @@ const Home = () => {
           </Desktop>
 
           <Mobile>
-            <HomeComponentWrap className="home home_1">
+            <HomeComponentWrap className="home home_1" style={{height: '100vh'}}>
               <MainImgTextWrap style={{height: videoHeight}} />
             </HomeComponentWrap>
             <HomeComponentWrap
@@ -743,7 +743,7 @@ const Home = () => {
                 paddingTop: '10vh',
               }}
               className="home home_3">
-              <ComponentGridWrap style={{marginBottom: '88px', marginTop: '80px'}}>
+              <ComponentGridWrap style={{marginBottom: '88px', marginTop: '80px', padding: 0}}>
                 <div
                   style={{
                     display: 'flex',
@@ -793,7 +793,7 @@ const Home = () => {
                 </div>
                 <HomeComponentImageWrap $src={home_ourapproach1} style={{borderRadius: '8px'}} />
               </ComponentGridWrap>
-              <ComponentGridWrap style={{marginBottom: '88px'}}>
+              <ComponentGridWrap style={{marginBottom: '88px', padding: 0}}>
                 <HomeComponentImageWrap
                   style={{
                     gridColumn: '1/1',
@@ -855,7 +855,7 @@ const Home = () => {
                   <div style={{width: '1px', height: '48px', backgroundColor: '#B1B1B1'}}></div>
                 </div>
               </ComponentGridWrap>
-              <ComponentGridWrap style={{marginBottom: '88px'}}>
+              <ComponentGridWrap style={{marginBottom: '88px', padding: 0}}>
                 <div
                   style={{
                     display: 'flex',

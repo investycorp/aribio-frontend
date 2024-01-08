@@ -116,6 +116,10 @@ const Text = styled.div`
     props.$language === 'KOR' ? `calc(${props.$lineHeight || '1.5em'} + 0.3em)` : props.$lineHeight || '1.5em'};
   text-align: ${props => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
+
+  @media screen and (max-width: 1280px) and (min-width: 901px) {
+    font-size: ${props => props.$fontSize || '26px'};
+  }
 `;
 
 const Tab = styled.div`
@@ -438,6 +442,11 @@ const ShootingStar = styled.span.attrs(props => ({
     }
   }
 
+  @media screen and (max-width: 1280px) and (min-width: 901px) {
+    height: 1px;
+    top: calc(50%);
+  }
+
   @media screen and (max-width: 900px) {
     top: calc(50% - 0.5px);
     width: ${props => (props.$phase ? `calc(${props.$phase} * 135px - ${4 - props.$state} * 33.75px)` : `135px`)};
@@ -459,6 +468,14 @@ const Ball = styled.span.attrs(props => ({
     0 0 0 4px rgba(255, 255, 255, 0.1),
     0 0 0 10px rgba(255, 255, 255, 0.1),
     0 0 15px rgba(255, 255, 255, 0.1);
+
+  @media screen and (max-width: 1280px) and (min-width: 901px) {
+    top: -3px;
+    box-shadow:
+      0 0 0 4px rgba(255, 255, 255, 0.1),
+      0 0 0 6px rgba(255, 255, 255, 0.1),
+      0 0 8px rgba(255, 255, 255, 0.1);
+  }
 
   @media screen and (max-width: 900px) {
     box-shadow:

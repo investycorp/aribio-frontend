@@ -357,7 +357,7 @@ const Career = () => {
                   <Text
                     $language={language}
                     $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
-                    $fontWeight="600"
+                    $fontWeight="500"
                     $color="#ffffff"
                     style={{margin: '2rem 0 0 0', lineHeight: '1.5em'}}>
                     <Trans i18nKey={'career.subtitle'} components={{1: <br />}} />
@@ -390,7 +390,7 @@ const Career = () => {
                   <Text
                     $language={language}
                     $fontSize={window.innerWidth > 1280 ? '28px' : '18px'}
-                    $fontWeight="500"
+                    $fontWeight="400"
                     $color="#ffffff"
                     style={{padding: '0 20px', width: '80%', textAlign: 'center', margin: '0'}}>
                     <Trans i18nKey={'career.desc1'} components={{1: <br />}} />
@@ -615,7 +615,7 @@ const Career = () => {
                     gap: '5.555vw',
                     flexwrap: 'nowrap',
                     marginBottom: '5em',
-                    padding: '5rem 7vw 5rem 0',
+                    padding: '5rem 0',
                   }}>
                   {recruitmentProcess.map((item, index) => (
                     <RecruitmentItemWrap
@@ -685,7 +685,14 @@ const Career = () => {
                     <Trans i18nKey={'career.benefits.desc'} components={{1: <br />}} />
                   </Text>
                 </TextWrap>
-                <GridContentWrap style={{gridTemplateColumns: '1fr 1fr', margin: '0', rowGap: '8vh', width: 'auto'}}>
+                <GridContentWrap
+                  style={{
+                    gridTemplateColumns: '1fr 1fr',
+                    margin: '0',
+                    rowGap: '8vh',
+                    width: 'auto',
+                    marginRight: '10vw',
+                  }}>
                   {benefits.map((item, index) => (
                     <ContentBox
                       id="benefits"
@@ -719,7 +726,11 @@ const Career = () => {
                                 lineHeight: '1.2em',
                                 fontSize: window.innerWidth > 1280 ? '18px' : '10px',
                               }}>
-                              {descItem}
+                              {descItem.split('<br />').map(text => (
+                                <>
+                                  {text} <br />
+                                </>
+                              ))}
                             </DescriptionItem>
                           ))}
                         </DescriptionWrap>
@@ -728,7 +739,7 @@ const Career = () => {
                   ))}
                 </GridContentWrap>
               </HomeComponentWrap>
-              <HomeComponentWrap style={{marginTop: '8em', marginBottom: '40vh'}}>
+              <HomeComponentWrap style={{marginBottom: '40vh'}}>
                 <ContentBox>
                   <ContentWrap style={{flexDirection: 'row', padding: '0', justifyContent: 'flex-end'}}>
                     <Text
@@ -926,7 +937,7 @@ const Career = () => {
               </div>
             </HomeComponentWrap> */}
               <HomeComponentWrap style={{paddingBottom: '10em'}}>
-                <TextWrap style={{marginBottom: '5em', zIndex: '10'}}>
+                <TextWrap style={{marginBottom: '1.5em', zIndex: '10'}}>
                   <HR style={{alignSelf: 'start', margin: '1rem 0', width: '40px', height: '1px'}} />
                   <Text $fontSize="20px" $fontWeight="600" $color="#E5E5E5" $align="start">
                     {t('career.join')}

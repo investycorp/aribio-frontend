@@ -88,7 +88,7 @@ const Partner = () => {
                 style={{fontSize: window.innerWidth > 1280 ? '26px' : '18px'}}>
                 {t('partner.title')}
               </Text>
-              <Text $fontSize="50px" $fontWeight="500" style={{fontSize: window.innerWidth > 1280 ? '50px' : '34px'}}>
+              <Text $fontSize="50px" $fontWeight="400" style={{fontSize: window.innerWidth > 1280 ? '50px' : '34px'}}>
                 {t('partner.subtitle')}
               </Text>
               <hr
@@ -101,8 +101,8 @@ const Partner = () => {
               />
               <Text
                 $language={language}
-                $fontSize={window.innerWidth > 1280 ? '23px' : '13px'}
-                $fontWeight="500"
+                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
+                $fontWeight="400"
                 $color="#D3D3D3">
                 <Trans i18nKey="partner.desc" components={{1: <br />}} />
               </Text>

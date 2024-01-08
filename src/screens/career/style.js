@@ -372,6 +372,15 @@ const ShootingStar = styled.span`
   animation: animate 2s linear infinite;
   -webkit-animation: animate 2s linear infinite;
 
+  @media screen and (max-width: 1280px) {
+    width: 6px;
+    height: 6px;
+    box-shadow:
+      0 0 0 3px rgba(255, 255, 255, 0.1),
+      0 0 0 6px rgba(255, 255, 255, 0.1),
+      0 0 12px rgba(255, 255, 255, 0.1);
+  }
+
   &:before {
     content: '';
     position: absolute;
@@ -380,6 +389,11 @@ const ShootingStar = styled.span`
     width: calc(10vw);
     height: 2px;
     background: linear-gradient(270deg, #ffffff, transparent);
+
+    @media screen and (max-width: 1280px) {
+      height: 1px;
+      top: 45%;
+    }
   }
   @-webkit-keyframes animate {
     0% {

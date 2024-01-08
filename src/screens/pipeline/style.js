@@ -215,12 +215,23 @@ const TableContentBox = styled.div.attrs(props => ({
   font-weight: 200;
   height: auto;
   width: 100%;
+
   @media screen and (max-width: 1400px) {
     font-size: 16px;
   }
   @media screen and (max-width: 1280px) {
     font-size: 12px;
     border-width: 1px;
+  }
+
+  &.firstColumn {
+    @media screen and (max-width: 1400px) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: 1280px) {
+      font-size: 14px;
+      border-width: 1px;
+    }
   }
 
   &.indication {
@@ -511,6 +522,11 @@ const ShootingStar = styled.span.attrs(props => ({
     -ms-animation-timing-function: linear;
     -ms-animation-fill-mode: forwards;
 
+    @media screen and (max-width: 1280px) and (min-width: 901px) {
+      height: 1px;
+      top: calc(50%);
+    }
+
     @media screen and (max-width: 900px) {
       top: calc(50% - 2px);
       -ms-animation-name: ${props => mobileMove('18vw', props?.$phase, props?.$state, '0px')};
@@ -537,6 +553,10 @@ const Ball = styled.span.attrs(props => ({
     0 0 0 4px rgba(255, 255, 255, 0.1),
     0 0 0 8px rgba(255, 255, 255, 0.1),
     0 0 12px rgba(255, 255, 255, 0.1);
+
+  @media screen and (max-width: 1280px) and (min-width: 901px) {
+    top: -3px;
+  }
 
   @media screen and (max-width: 900px) {
     box-shadow:

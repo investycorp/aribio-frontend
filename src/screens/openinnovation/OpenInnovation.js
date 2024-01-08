@@ -67,7 +67,7 @@ const OpenInnovation = () => {
           <HomeComponentWrap
             style={{
               backgroundColor: 'transparent',
-              height: '120vh',
+              height: '100vh',
               overflow: 'hidden',
             }}>
             {/* <Image

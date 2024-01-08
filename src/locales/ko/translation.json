@@ -238,79 +238,6 @@
       "ic50": {
         "title": "IC50 predictor",
         "content": {
-          "desc1": "Description : \\n 표적 단백질의 IC50 활성을 모델링하도록<br />맞춤형으로 개발된 머신 러닝 프레임워크입니다.<br />이 모델은 특정 리간드-단백질 복합체에<br />대한 IC50 값을 예측하는데, 리간드의<br />화학 구조를 활용합니다.<br />이 모델은 리간드와 표적 단백질 간의<br />상호작용 가능성을 검증하거나 추정하는 데<br />유용합니다."
-        }
-      },
-      "blinding": {
-        "title": "Blinding Affinity \\n Prediction",
-        "content": {
-          "desc1": "Type : Low Throughput, Structure-based (Ligand-Protein).",
-          "desc2": "Technology : Deep Learning (3D Convolutional Neural Networks).",
-          "desc3": "Accuracy : \\n Correlation coefficient of 0.827.",
-          "desc4": "Completion Time : Approximately 10 minutes per Ligand-Protein complex."
-        }
-      },
-      "drugsim": {
-        "title": "DrugSim",
-        "content": {
-          "desc1": "Description : \\n 약물 유사성 검색 모듈은 입력 분자를<br />제공하면 화학 구조 뿐만 아니라 MOA, 표적,<br />약물-약물 상호작용 등을 포괄하는 DrugBank<br />내의 포괄적인 메타데이터를 고려하여 유사한<br />약물을 찾습니다."
-        }
-      },
-      "ligand": {
-        "title": "Ligand Hunter",
-        "content": {
-          "desc1": "Description : \\n 특정 단백질에 결합하는 리간드를 효율적으로<br />식별합니다."
-        }
-      },
-      "bbb": {
-        "title": "BBB Predictor",
-        "content": {
-          "desc1": "Description : \\n 다양한 지표를 활용하여 뇌혈관장벽(BBB)<br />투과성 예측 기능을 제공합니다."
-        }
-      },
-      "target": {
-        "title": "Target Hunter",
-        "content": {
-          "desc1": "Description : \\n 특정 리간드에 결합하는 잠재적 표적을<br />결정합니다."
-        }
-      },
-      "arinet": {
-        "title": "ARI-Net",
-        "content": {
-          "desc1": "Description : \\n 이 도구는 지식 그래프에서 실행되는<br />랜덤 워크를 통해 질병과 유전자의 연관성을<br />예측합니다. 이는 지식 그래프 내에서<br />유전자와 질병 간의 새로운 연관성을 예측하는<br />능력을 의미하는 ‘경로 예측’의 중추적인<br />역할을 합니다. ARIS의 표적 식별을 위한<br />기본 모듈입니다."
-        }
-      },
-      "admet": {
-        "title": "ADMET Toxicity",
-        "content": {
-          "desc1": "Description : \\n 특정 화합물이 인체 내에서 어떻게 대사되고<br />처리될지에 대한 예측을 제공합니다."
-        }
-      }
-    }
-  },
-  "aiplatform_m": {
-    "subtitle": "AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
-    "desc1": "ARIDD™는 <1/> 다중기전 약물 개발에 최적화된 <1/> 신약개발 플랫폼입니다. <1/> 다양한 작용기전을 가진 다중기전 약물 개발을 <1/> 가속화하기 위해 안정적인 In-Silico 예측과 <1/> 분석을 위해 개발된 AI를 탑재한 <1/> ARIS를 공개하였습니다.",
-    "desc2": "기존의 의약품 개발용 Al는 약물 합성, 분자간 결합 <1/> 예측, ADMET 프로세스에 우선순위를 두는 <1/> 경우가 많습니다. 이러한 방식은 <1/> 단일기전 약물 탐색에는 중요하지만, <1/> 다약물학적 발견에는 미묘한 접근 방식이 <1/> 필요합니다.",
-    "desc2-1": "다중기전은 약물, 단백질, 세포, 질병 간의 <1/> 상호작용에 대한 깊은 이해와 함께 <1/> 새로운 생물학적 관계를 예측하고 <1/> 식별할 수 있는 능력이 필요합니다. <1/> 이러한 복잡성을 해결하기 위해 아리바이오의 <1/> 플랫폼 연구소는 다양한 생물학적 상호관계를 <1/> 예측하는 데 최적화된 독자적 Al 플랫폼인 <1/> ARIS를 개발하여 신약 개발 <1/> 이니셔티브를 발전시켰습니다.",
-    "desc3": "ARIS는 기본적으로 “BRAIN”과 “예측 알고리즘”, <1/> 두 가지 개념을 중심으로 구성되어 있습니다.",
-    "desc4": "BRAIN은 <1/> AI, In-silico, In-vitro, In-vivo를 연결하는 <1/> 사이의 다리의 줄임 말인 BRAIN은 <1/> 지식그래프(Knowledge Graph, KG)와 <1/> 대규모 언어 모델(Large Language Model, LLM) <1/> 이라는 두 가지 주요 구성 요소로 이루어져 있습니다. <1/> 이 두가지가 결합하여 응집력 있는 브릿지를 형성하고, <1/> KG와 ARIS 예측 알고리즘을 In-silico, In-Vitro, <1/> In-vivo 영역에 원활하게 연결합니다.",
-    "desc5": "“예측 알고리즘”은 화학 및 생물학 분야를 위해 <1/> 특별히 설계된 다양한 인공지능 예측 모델과 <1/> 시뮬레이션 도구로 구성되어 있습니다. <1/> 각 모델 별 솔루션은 연구자들이 독립적이거나 <1/> 또는 BRAIN 플랫폼과의 협업으로 <1/> 실용적이고 직접적인 응용을 <1/> 할 수 있도록 개발되었습니다.",
-    "desc6": "ARIS의 첫 개발 목표는 아리바이오의 다중기전 <1/> 접근 방식과 밀접하게 연관되어 있습니다. <1/> 새로운 다중기전 후보물질을 발굴할 때 <1/> 맥락 정보를 활용하는 것이 중요합니다. <1/> 다중기전 후보물질 발견을 위한 맥락 정보를 <1/> 고려할 때 경로 데이터가 가장 중요합니다. <1/> <1/> 우리는 이러한 경로 데이터를 다양한 소스에서 <1/> 추출하며, 명명된 엔터티 인식(NER) 및 관계 추출(RE) <1/> 라는 두 가지 고급 딥 러닝 기술을 활용합니다. <1/> 이러한 방법들의 실행 흐름과 상호 작용은 <1/> 아래에 설명되어 있습니다:",
-    "desc6-2": "다중기전 약물 발견의 핵심은 타겟 식별이라는 <1/> 중심 단계에 있습니다. 이 때, 특정 질병을 <1/> 해결하기 위해 약물이 어떤 생물학적 표적과 <1/> 작용해야 하는지 파악하는 것이 포함됩니다. <1/> 내재된 문제는 신체 내부의 복잡한 상호 의존성에서 <1/> 비롯되며, 단일 구성 요소는 독립적으로 <1/> 작동하지 않습니다. <1/> 약물이 단일 단백질과 상호작용하는 것만이 <1/> 유일한 치료 요소가 아니며, 일련의 후속 작용을 통해 <1/> 질병 치료에 종합적으로 기여합니다. <1/> 따라서 실행 가능한 약물 표적을 정확히 찾아내려면 <1/> 신체 내에서 이러한 단백질의 상호 작용을 <1/> 깊이 있게 이해해야 하며, 이를 위해서는 <1/> 경로 데이터에 기반한 지식이 필요합니다.",
-    "predictions": {
-      "docking": {
-        "title": "Docking",
-        "content": {
-          "desc1": "Type : High Throughput, \\n Structure-based (Ligand-Protein).",
-          "desc2": "Technology : Machine Learning.",
-          "desc3": "Accuracy : \\n Correlation coefficient of 0.616.",
-          "desc4": "Completion Time : Approximately 10 seconds per Ligand-Protein complex."
-        }
-      },
-      "ic50": {
-        "title": "IC50 predictor",
-        "content": {
           "desc1": "Description : \\n 표적 단백질의 IC50 활성을 모델링하도록 맞춤형으로 개발된 머신 러닝 프레임워크입니다. <br /> 이 모델은 특정 리간드-단백질 복합체에 대한 IC50 값을 예측하는데, 리간드의 화학 구조를 활용합니다. <br /> 이 모델은 리간드와 표적 단백질 간의 상호작용 가능성을 검증하거나 추정하는 데 유용합니다."
         }
       },
@@ -361,6 +288,79 @@
       }
     }
   },
+  "aiplatform_m": {
+    "subtitle": "AI-powered, Reverse <1/> engineered & Integrated <1/> Drug Development",
+    "desc1": "ARIDD™는 <1/> 다중기전 약물 개발에 최적화된 <1/> 신약개발 플랫폼입니다. <1/> 다양한 작용기전을 가진 다중기전 약물 개발을 <1/> 가속화하기 위해 안정적인 In-Silico 예측과 <1/> 분석을 위해 개발된 AI를 탑재한 <1/> ARIS를 공개하였습니다.",
+    "desc2": "기존의 의약품 개발용 Al는 약물 합성, 분자간 결합 <1/> 예측, ADMET 프로세스에 우선순위를 두는 <1/> 경우가 많습니다. 이러한 방식은 <1/> 단일기전 약물 탐색에는 중요하지만, <1/> 다약물학적 발견에는 미묘한 접근 방식이 <1/> 필요합니다.",
+    "desc2-1": "다중기전은 약물, 단백질, 세포, 질병 간의 <1/> 상호작용에 대한 깊은 이해와 함께 <1/> 새로운 생물학적 관계를 예측하고 <1/> 식별할 수 있는 능력이 필요합니다. <1/> 이러한 복잡성을 해결하기 위해 아리바이오의 <1/> 플랫폼 연구소는 다양한 생물학적 상호관계를 <1/> 예측하는 데 최적화된 독자적 Al 플랫폼인 <1/> ARIS를 개발하여 신약 개발 <1/> 이니셔티브를 발전시켰습니다.",
+    "desc3": "ARIS는 기본적으로 “BRAIN”과 “예측 알고리즘”, <1/> 두 가지 개념을 중심으로 구성되어 있습니다.",
+    "desc4": "BRAIN은 <1/> AI, In-silico, In-vitro, In-vivo를 연결하는 <1/> 사이의 다리의 줄임 말인 BRAIN은 <1/> 지식그래프(Knowledge Graph, KG)와 <1/> 대규모 언어 모델(Large Language Model, LLM) <1/> 이라는 두 가지 주요 구성 요소로 이루어져 있습니다. <1/> 이 두가지가 결합하여 응집력 있는 브릿지를 형성하고, <1/> KG와 ARIS 예측 알고리즘을 In-silico, In-Vitro, <1/> In-vivo 영역에 원활하게 연결합니다.",
+    "desc5": "“예측 알고리즘”은 화학 및 생물학 분야를 위해 <1/> 특별히 설계된 다양한 인공지능 예측 모델과 <1/> 시뮬레이션 도구로 구성되어 있습니다. <1/> 각 모델 별 솔루션은 연구자들이 독립적이거나 <1/> 또는 BRAIN 플랫폼과의 협업으로 <1/> 실용적이고 직접적인 응용을 <1/> 할 수 있도록 개발되었습니다.",
+    "desc6": "ARIS의 첫 개발 목표는 아리바이오의 다중기전 <1/> 접근 방식과 밀접하게 연관되어 있습니다. <1/> 새로운 다중기전 후보물질을 발굴할 때 <1/> 맥락 정보를 활용하는 것이 중요합니다. <1/> 다중기전 후보물질 발견을 위한 맥락 정보를 <1/> 고려할 때 경로 데이터가 가장 중요합니다. <1/> <1/> 우리는 이러한 경로 데이터를 다양한 소스에서 <1/> 추출하며, 명명된 엔터티 인식(NER) 및 관계 추출(RE) <1/> 라는 두 가지 고급 딥 러닝 기술을 활용합니다. <1/> 이러한 방법들의 실행 흐름과 상호 작용은 <1/> 아래에 설명되어 있습니다:",
+    "desc6-2": "다중기전 약물 발견의 핵심은 타겟 식별이라는 <1/> 중심 단계에 있습니다. 이 때, 특정 질병을 <1/> 해결하기 위해 약물이 어떤 생물학적 표적과 <1/> 작용해야 하는지 파악하는 것이 포함됩니다. <1/> 내재된 문제는 신체 내부의 복잡한 상호 의존성에서 <1/> 비롯되며, 단일 구성 요소는 독립적으로 <1/> 작동하지 않습니다. <1/> 약물이 단일 단백질과 상호작용하는 것만이 <1/> 유일한 치료 요소가 아니며, 일련의 후속 작용을 통해 <1/> 질병 치료에 종합적으로 기여합니다. <1/> 따라서 실행 가능한 약물 표적을 정확히 찾아내려면 <1/> 신체 내에서 이러한 단백질의 상호 작용을 <1/> 깊이 있게 이해해야 하며, 이를 위해서는 <1/> 경로 데이터에 기반한 지식이 필요합니다.",
+    "predictions": {
+      "docking": {
+        "title": "Docking",
+        "content": {
+          "desc1": "Type : High Throughput, \\n Structure-based (Ligand-Protein).",
+          "desc2": "Technology : Machine Learning.",
+          "desc3": "Accuracy : \\n Correlation coefficient of 0.616.",
+          "desc4": "Completion Time : Approximately 10 seconds per Ligand-Protein complex."
+        }
+      },
+      "ic50": {
+        "title": "IC50 predictor",
+        "content": {
+          "desc1": "Description : \\n 표적 단백질의 IC50 활성을 모델링하도록<br />맞춤형으로 개발된 머신 러닝 프레임워크입니다.<br />이 모델은 특정 리간드-단백질 복합체에<br />대한 IC50 값을 예측하는데, 리간드의<br />화학 구조를 활용합니다.<br />이 모델은 리간드와 표적 단백질 간의<br />상호작용 가능성을 검증하거나 추정하는 데<br />유용합니다."
+        }
+      },
+      "blinding": {
+        "title": "Blinding Affinity \\n Prediction",
+        "content": {
+          "desc1": "Type : Low Throughput, Structure-based (Ligand-Protein).",
+          "desc2": "Technology : Deep Learning (3D Convolutional Neural Networks).",
+          "desc3": "Accuracy : \\n Correlation coefficient of 0.827.",
+          "desc4": "Completion Time : Approximately 10 minutes per Ligand-Protein complex."
+        }
+      },
+      "drugsim": {
+        "title": "DrugSim",
+        "content": {
+          "desc1": "Description : \\n 약물 유사성 검색 모듈은 입력 분자를<br />제공하면 화학 구조 뿐만 아니라 MOA, 표적,<br />약물-약물 상호작용 등을 포괄하는 DrugBank<br />내의 포괄적인 메타데이터를 고려하여 유사한<br />약물을 찾습니다."
+        }
+      },
+      "ligand": {
+        "title": "Ligand Hunter",
+        "content": {
+          "desc1": "Description : \\n 특정 단백질에 결합하는 리간드를 효율적으로<br />식별합니다."
+        }
+      },
+      "bbb": {
+        "title": "BBB Predictor",
+        "content": {
+          "desc1": "Description : \\n 다양한 지표를 활용하여 뇌혈관장벽(BBB)<br />투과성 예측 기능을 제공합니다."
+        }
+      },
+      "target": {
+        "title": "Target Hunter",
+        "content": {
+          "desc1": "Description : \\n 특정 리간드에 결합하는 잠재적 표적을<br />결정합니다."
+        }
+      },
+      "arinet": {
+        "title": "ARI-Net",
+        "content": {
+          "desc1": "Description : \\n 이 도구는 지식 그래프에서 실행되는<br />랜덤 워크를 통해 질병과 유전자의 연관성을<br />예측합니다. 이는 지식 그래프 내에서<br />유전자와 질병 간의 새로운 연관성을 예측하는<br />능력을 의미하는 ‘경로 예측’의 중추적인<br />역할을 합니다. ARIS의 표적 식별을 위한<br />기본 모듈입니다."
+        }
+      },
+      "admet": {
+        "title": "ADMET Toxicity",
+        "content": {
+          "desc1": "Description : \\n 특정 화합물이 인체 내에서 어떻게 대사되고<br />처리될지에 대한 예측을 제공합니다."
+        }
+      }
+    }
+  },
 
   "publication": {
     "headline": "PUBLICATIONS",
@@ -383,8 +383,8 @@
   "pipeline": {
     "headline": "PIPELINE",
     "title": "PIPELINE",
-    "subtitle": "Our Path to Pioneering Treatments for <1/> Neurodegenerative Diseases, <1/> Offering Innovative Therapies for a Brighter Future <1/>",
-    "subtitle_m": "Our Path to Pioneering <1/> Treatments for <1/> Neurodegenerative Diseases, <1/> Offering Innovative Therapies <1/> for a Brighter Future <1/>",
+    "subtitle": "아리바이오는 퇴행성 뇌질환을 치료하는 <1/> 혁신적인 신약을 개발하여 더 밝은 미래를 열어갑니다",
+    "subtitle_m": "아리바이오는 퇴행성 뇌질환을 <1/> 치료하는 혁신적인 신약을 개발하여 <1/> 더 밝은 미래를 열어갑니다.",
     "table": {
       "header": {
         "1": "Drug \\n Candidate",
@@ -488,14 +488,14 @@
     },
     "benefits": {
       "title": "Benefits",
-      "desc": "근무 지역에 따라 혜택이 달라질 수 있습니다.",
+      "desc": "근무 지역에 따라 <br /> 혜택이 달라질 수 있습니다.",
       "subtitle1": "Work",
       "desc1-1": "주 5일 근무제",
       "desc1-2": "음료, 커피, 간식 무제한 제공",
       "desc1-3": "고성능 노트북 및 모니터 제공",
       "desc1-4": "식사 제공",
       "subtitle2": "Balanced Life",
-      "desc2-1": "결혼, 출산, 자녀 돌 등 직계가족 경조사비 지원",
+      "desc2-1": "결혼, 출산, 자녀 돌 등 <br />직계가족 경조사비 지원",
       "desc2-1_m": "결혼, 출산, 자녀 돌 등 <br /> 직계가족 경조사비 지원",
       "desc2-2": "출산/육아휴직",
       "desc2-3": "스톡옵션",
@@ -652,7 +652,7 @@
       "basic": {
         "subtitle": "Memo:Re PROJECT",
         "desc": "사랑하는 이의 기억을 보존하는 데 도움을 드립니다",
-        "subdesc1": "우리는 삶에서 가장 소중한 선물은 우리가 만들어가는 기억이라고 믿습니다. <1 /> 특히 이러한 기억을 소중히 여기는 우리 노령 가족 구성원들을 위해 이러한 기억을 보존하는 것이 중요합니다. <1 /> Memo:Re는 단순한 소셜 미디어 플랫폼 이상입니다. 이는 이러한 소중한 기억들을 보호하기 위해 특별히 만들어진 디지털 공간입니다.",
+        "subdesc1": "우리는 삶에서 가장 소중한 선물은 우리가 만들어가는 기억이라고 믿습니다. <1 /> 특히 이러한 기억을 소중히 여기는 우리 노령 가족 구성원들을 위해 이러한 기억을 보존하는 것이 중요합니다. <1 /> Memo:Re는 단순한 소셜 미디어 플랫폼 이상입니다. <1 /> 이는 이러한 소중한 기억들을 보호하기 위해 특별히 만들어진 디지털 공간입니다.",
         "subdesc2": "Memo:Re는 단순한 디지털 도구가 아니라 서로를 연결하는 가교 역할을 합니다. <1 /> 사용자 친화적인 디자인을 통해 부모와 노령 가족 구성원 모두가 쉽게 자신들의 삶 이야기를 편안하게 살펴보며 <1 /> 각 순간을 다시 한번 소중히 여길 수 있습니다. 이러한 공유된 추억을 도와 가족의 유대감을 강화하고 감정적인 안전망을 제공합니다. <1 /> 가장 중요한 것은 Memo:Re를 통해 우리가 우리의 노령 가족 구성원들에게 깊은 메시지를 전한다는 것입니다: <1 /> 그들은 기억의 여정을 혼자 걷고 있지 않습니다. 우리는 그들과 함께, 매 단계를 함께하고 있습니다. <1 /> <1 /> <1 /> <1 /> 하지만 여기서 그치지 않습니다. Memo:Re는 회상 치료의 원리를 기반으로 하여, 사진, 비디오, <1 /> 그리고 감정이 담긴 메시지를 공유함으로써 잊혀진 기억을 일깨우고 강화하는 데 중점을 두고 설계되었습니다. <1 /> Memo:Re의 독특한 기능인 스케쥴러는 이러한 기억이 재현될 수 있도록 <1 /> 정기적으로 알림을 전달하여 사용자의 안정감과 소속감을 제공하며 반복적인 회상 작용은 기억력을 강화해줍니다."
       },
       "button": {

@@ -149,7 +149,7 @@ const PolyPharmacology = () => {
             <HR $height="1px" style={{width: '20px'}} $color="#9A9A9A" />
             <Text
               $language={language}
-              $fontSize="16px"
+              $fontSize="18px"
               $fontWeight="300"
               $color="#D3D3D3"
               style={{marginTop: '2em', marginBottom: '20vh', width: '90vw', lineHeight: '1.2em'}}>

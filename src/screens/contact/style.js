@@ -111,6 +111,10 @@ const Text = styled.div`
     props.$language === 'KOR' ? `calc(${props.$lineHeight || '1.5em'} + 0.3em)` : props.$lineHeight || '1.5em'};
   text-align: ${props => (props.$align ? props.$align : 'center')};
   margin-bottom: 2rem;
+
+  @media screen and (max-width: 1280px) {
+    font-size: ${props => props.$fontSize || '26px'};
+  }
 `;
 
 const Tab = styled.div`

@@ -414,7 +414,7 @@ const Contact = () => {
         </Desktop>
 
         <Mobile>
-          <HomeComponentWrap style={{marginBottom: '162px'}}>
+          <HomeComponentWrap style={{marginBottom: '30px'}}>
             <TextWrap style={{width: '80vw'}}>
               <Text style={{marginBottom: '0'}} $fontSize="16px" $fontWeight="300" $color="#939598">
                 {t('contact.title')}

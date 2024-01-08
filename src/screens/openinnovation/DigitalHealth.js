@@ -179,7 +179,7 @@ const DigitalHealth = () => {
               $language={language}
               $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
               $fontWeight="500"
-              style={{lineheight: '1.5em'}}>
+              style={{lineHeight: '1.5em'}}>
               <Trans i18nKey={'innovation.health.subdesc'} components={{1: <br />}} />
             </Text>
             <div
@@ -356,7 +356,7 @@ const DigitalHealth = () => {
               </Text>
               <Text
                 $language={language}
-                $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
+                $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
                 $fontWeight="100"
                 $color="#C9C9C9"
                 $align="center"
@@ -376,7 +376,7 @@ const DigitalHealth = () => {
               $language={language}
               $align="center"
               $color="#C9C9C9"
-              $fontSize={window.innerWidth > 1280 ? '23px' : '12px'}
+              $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
               $fontWeight="100"
               style={{width: '80vw'}}>
               <Trans i18nKey={'innovation.health.electro.desc2'} components={{1: <br />}} />
@@ -535,7 +535,7 @@ const DigitalHealth = () => {
                     </TableContentBox>
                     <TableContentBox style={{padding: 0}}>
                       <ShootingStarWrap className="shooting_star_wrap">
-                        <hr style={{width: '100%', opacity: '0.4', border: '1px dotted'}} />
+                        <hr style={{width: '100%', opacity: '0', border: '1px dotted'}} />
                         <ShootingStar className="shooting_star" $phase={item.phase} $state={item.state}>
                           <Ball className="ball" />
                         </ShootingStar>
@@ -610,7 +610,7 @@ const DigitalHealth = () => {
             <Text
               $align="center"
               $color="#D3D3D3"
-              $fontSize="16px"
+              $fontSize="15.6px"
               $fontWeight="200"
               style={{lineHeight: language === 'KOR' ? '22px' : '20px'}}>
               <Trans i18nKey={'innovation.health_m.electro.desc2'} components={{1: <br />}} />

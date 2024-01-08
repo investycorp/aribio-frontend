@@ -119,7 +119,7 @@ const MediaKit = () => {
                 />
                 <Text
                   $language={language}
-                  $fontWeight="600"
+                  $fontWeight="500"
                   $color="#ffffff"
                   $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}>
                   {t('media.subtitle')}
@@ -201,7 +201,7 @@ const MediaKit = () => {
           </Desktop>
 
           <Mobile>
-            <HomeComponentWrap style={{padding: '15vh 0'}}>
+            <HomeComponentWrap style={{padding: '15vh 0 0 0'}}>
               <TextWrap style={{width: '100vw'}}>
                 <Text $fontWeight="300" $color="#939598" style={{marginBottom: '0', fontSize: '16px'}}>
                   {t('media.title')}

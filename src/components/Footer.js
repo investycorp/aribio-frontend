@@ -27,7 +27,7 @@ const FooterContainer = styled.div`
 
   @media screen and (max-width: 900px) {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
     padding: 3rem 18px;
   }
 `;
@@ -42,27 +42,32 @@ const FooterGridWrap = styled.div`
   justify-content: space-between;
 
   @media screen and (max-width: 900px) {
-    gap: 20px;
+    gap: 15px;
   }
 `;
 
 const ContactBox = styled.div`
-  padding-top: 10vh;
+  padding-top: 5vh;
   width: fit-content;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-evenly;
+
+  @media screen and (max-width: 1280px) {
+    padding-top: 3vh;
+  }
 `;
 
 const ContactBoxTitle = styled.div`
   width: fit-content;
   font-size: 20px;
   font-weight: semi-bold;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   @media screen and (max-width: 1280px) {
     font-size: 13px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -70,11 +75,11 @@ const ContactBoxText = styled.div`
   width: fit-content;
   font-size: 18px;
   font-weight: medium;
-  line-height: 1.5rem;
+  line-height: 2.2rem;
   color: #b1b1b1;
-  margin-bottom: 20px;
   @media screen and (max-width: 1280px) {
     font-size: 11px;
+    line-height: 1.5rem;
   }
   @media screen and (max-width: 900px) {
     font-size: 14px;
@@ -109,9 +114,11 @@ const ContactUsBox = styled.div`
     font-size: 13px;
     width: 264px;
     border-width: 1px;
+    margin-bottom: 2vh;
   }
   @media screen and (max-width: 900px) {
     width: fit-content;
+    margin-bottom: 0;
     font-size: 18px;
     span {
       font-size: 14px;
@@ -166,7 +173,11 @@ const Footer = () => {
     <>
       <Desktop>
         <FooterContainer>
-          <FooterGridWrap style={{padding: '7vh 6vw 10vh 0', borderRight: '2px solid #5d5d5d'}}>
+          <FooterGridWrap
+            style={{
+              padding: window.innerWidth > 1280 ? '7vh 6vw 8vh 0vw' : '8vh 6vw 6vh 0vw',
+              borderRight: '2px solid #5d5d5d',
+            }}>
             <Link style={{textDecoration: 'none'}} to="/">
               <img
                 src={companyInfo.logo}
@@ -183,7 +194,6 @@ const Footer = () => {
                     alt="arrow"
                     style={{
                       width: window.innerWidth > 1280 ? '14px' : '12px',
-
                       cursor: 'pointer',
                       zIndex: '-1',
                     }}
@@ -193,7 +203,6 @@ const Footer = () => {
               <ContactUsBox
                 style={{
                   justifyContent: 'start',
-
                   border: 'none',
                   width: '100%',
                   padding: '0 1rem 0 0',
@@ -212,7 +221,7 @@ const Footer = () => {
                   }}>
                   {t('footer.policy')}
                 </Link>
-                <div style={{paddingRight: window.innerWidth > 1280 ? '18px' : '16px'}}>|</div>{' '}
+                <div style={{paddingRight: window.innerWidth > 1280 ? '18px' : '16px'}}>|</div>
                 <div style={{fontSize: window.innerWidth > 1280 ? '18px' : '13px', minWidth: 'fit-content'}}>
                   {t('footer.copyright')}
                 </div>
@@ -221,7 +230,7 @@ const Footer = () => {
           </FooterGridWrap>
           <FooterGridWrap
             style={{
-              padding: '7vh 0vw 10vh 5vw',
+              padding: window.innerWidth > 1280 ? '5vh 0vw 10vh 5vw' : '8vh 0vw 8vh 5vw',
               alignItems: 'start',
               flexDirection: 'row',
               justifyContent: 'space-evenly',
@@ -268,7 +277,6 @@ const Footer = () => {
                 <ContactUsBox
                   style={{
                     cursor: 'pointer',
-                    marginBottom: '1rem',
                     width: '162px',
                     padding: '0 0 7px 0',
                     borderBottom: '1px solid #707070',

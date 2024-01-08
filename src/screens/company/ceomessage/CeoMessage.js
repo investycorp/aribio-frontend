@@ -296,7 +296,7 @@ const CeoMessage = () => {
             <ContentBox style={{padding: '4rem 5vw 0 5vw', gap: '1rem', marginBottom: '10em'}}>
               <div style={{width: '20px', height: '1px', backgroundColor: '#939598', marginTop: '5em'}} />
               <Text
-                $fontSize={language !== 'KOR' ? '18px' : '16px'}
+                $fontSize={'18px'}
                 $fontWeight="400"
                 $color="#FFFFFF"
                 style={{textAlign: 'start', margin: '0', padding: '0 '}}>
@@ -304,7 +304,7 @@ const CeoMessage = () => {
               </Text>
 
               <Text
-                $fontSize={language !== 'KOR' ? '16px' : '14px'}
+                $fontSize={'16px'}
                 $fontWeight="300"
                 $color="#EAEAEA"
                 style={{textAlign: 'start', margin: '0', padding: '0', lineHeight: '1.5'}}>

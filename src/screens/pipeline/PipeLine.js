@@ -27,14 +27,14 @@ import {HeadLine, Path, MainImgWrap, ContainerGridLineWrap, GridLineBox} from '.
 import {Desktop, Mobile} from '../../utils/MediaQuery';
 import usePipelineList from '../../hooks/pipeline/usePipelineList';
 import Language from '../../atom/Language';
-import {useRecoilState} from 'recoil';
+import {useRecoilValue} from 'recoil';
 import {t} from 'i18next';
 import {Trans} from 'react-i18next';
 
 import Video from '../../components/Video';
 
 const PipeLine = () => {
-  const [lan] = useRecoilState(Language);
+  const lan = useRecoilValue(Language);
   const {data: list, isLoading} = usePipelineList(lan);
   const [selectedItem, setSelectedItem] = useState(); //mobile
   const [toggleOn, setToggleOn] = useState(false);
@@ -217,9 +217,12 @@ const PipeLine = () => {
                   height: '2px',
                   border: '1px solid #ffffff',
                   margin: window.innerWidth > 1280 ? '80px 0' : '52px 0',
-                }}></div>
+                }}
+              />
               <Text
-                $fontSize={window.innerWidth > 1280 ? '50px' : '34px'}
+                $fontSize={
+                  window.innerWidth > 1280 ? (lan !== 'KOR' ? '50px' : '48px') : lan !== 'KOR' ? '34px' : '32px'
+                }
                 $fontWeight="500"
                 $color="#ffffff"
                 style={{margin: '2rem 0 0 0', lineHeight: '1.5'}}>
@@ -243,7 +246,7 @@ const PipeLine = () => {
               </TableRowWrap>
               {data?.map((item, index) => (
                 <TableRowWrap className="tr" key={'tableRow' + index}>
-                  <TableContentBox style={{fontWeight: '600'}}>
+                  <TableContentBox className="firstColumn" style={{fontWeight: '600'}}>
                     <span style={{padding: '0.5em', cursor: 'pointer'}}>{item?.drugCandidate}</span>
 
                     {/* <img
@@ -328,7 +331,11 @@ const PipeLine = () => {
                   border: '1px solid #ffffff',
                   margin: '28px 0',
                 }}></div>
-              <Text $fontSize="23px" $fontWeight="500" $color="#ffffff" style={{lineHeight: '1.2em'}}>
+              <Text
+                $fontSize={lan !== 'KOR' ? '23px' : '21px'}
+                $fontWeight="500"
+                $color="#ffffff"
+                style={{lineHeight: '1.2em'}}>
                 <Trans i18nKey="pipeline.subtitle_m" components={{1: <br />}} />
               </Text>
             </TextWrap>

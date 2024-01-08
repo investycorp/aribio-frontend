@@ -31,6 +31,7 @@ const AiPlatform = () => {
   const language = useRecoilValue(Language);
   const [activeButton, setActiveButton] = useState(0);
   const [predictions, setPredictions] = useState([]);
+  const [mobilePredictions, setMobilePredictions] = useState([]);
 
   useEffect(() => {
     const newPredictions = [
@@ -93,6 +94,69 @@ const AiPlatform = () => {
     ];
 
     setPredictions(newPredictions);
+  }, [language]);
+
+  useEffect(() => {
+    const newPredictions = [
+      {
+        title: t('aiplatform_m.predictions.docking.title'),
+        content: [
+          t('aiplatform_m.predictions.docking.content.desc1'),
+          t('aiplatform_m.predictions.docking.content.desc2'),
+          t('aiplatform_m.predictions.docking.content.desc3'),
+          t('aiplatform_m.predictions.docking.content.desc4'),
+        ],
+        width: '149px',
+      },
+
+      {
+        title: t('aiplatform_m.predictions.ic50.title'),
+        content: [t('aiplatform_m.predictions.ic50.content.desc1')],
+        width: '227px',
+      },
+      {
+        title: t('aiplatform_m.predictions.blinding.title'),
+        content: [
+          t('aiplatform_m.predictions.blinding.content.desc1'),
+          t('aiplatform_m.predictions.blinding.content.desc2'),
+          t('aiplatform_m.predictions.blinding.content.desc3'),
+          t('aiplatform_m.predictions.blinding.content.desc4'),
+        ],
+        width: '352px',
+      },
+      {
+        title: t('aiplatform_m.predictions.drugsim.title'),
+        content: [t('aiplatform_m.predictions.drugsim.content.desc1')],
+        width: '159px',
+      },
+      {
+        title: t('aiplatform_m.predictions.ligand.title'),
+        content: [t('aiplatform_m.predictions.ligand.content.desc1')],
+        width: '217px',
+      },
+      {
+        title: t('aiplatform_m.predictions.bbb.title'),
+        content: [t('aiplatform_m.predictions.bbb.content.desc1')],
+        width: '212px',
+      },
+      {
+        title: t('aiplatform_m.predictions.target.title'),
+        content: [t('aiplatform_m.predictions.target.content.desc1')],
+        width: '215px',
+      },
+      {
+        title: t('aiplatform_m.predictions.arinet.title'),
+        content: [t('aiplatform_m.predictions.arinet.content.desc1')],
+        width: '147px',
+      },
+      {
+        title: t('aiplatform_m.predictions.admet.title'),
+        content: [t('aiplatform_m.predictions.admet.content.desc1')],
+        width: '235px',
+      },
+    ];
+
+    setMobilePredictions(newPredictions);
   }, [language]);
 
   useEffect(() => {
@@ -336,7 +400,7 @@ const AiPlatform = () => {
                   borderRadius: '30px',
                   background: 'linear-gradient(to left, rgba(0,90,139,0.4), rgba(0, 26, 41, 0.4))',
                   margin: '4em 0',
-                  padding: '4em 0',
+                  padding: window.innerWidth > 1280 ? '4em 0' : '3em 0',
                   alignItems: 'start',
                 }}>
                 <TextWrap
@@ -376,7 +440,7 @@ const AiPlatform = () => {
                       key={index}
                       style={{
                         width: '100%',
-                        fontSize: window.innerWidth > 1280 ? '20px' : '12px',
+                        fontSize: window.innerWidth > 1280 ? '20px' : '14px',
                         fontWeight: '300',
                         lineHeight: language === 'KOR' ? '1.8em' : '1.5em',
                       }}>
@@ -408,7 +472,7 @@ const AiPlatform = () => {
             </ComponentWrap>
           </HomeComponentWrap>
           <HomeComponentWrap>
-            <TextWrap style={{marginBottom: '10em', width: '100%'}}>
+            <TextWrap style={{marginBottom: window.innerWidth > 1280 ? '10em' : '5em', width: '100%'}}>
               <HR $height="2px" $color="#ffffff" />
               <Text
                 $fontSize={window.innerWidth > 1280 ? '34px' : '21px'}
@@ -439,7 +503,7 @@ const AiPlatform = () => {
                 transition: 'opacity 0.5s ease-in-out',
               }}
             />
-            <TextWrap style={{width: '85vw', marginTop: '10em'}}>
+            <TextWrap style={{width: '85vw', marginTop: window.innerWidth > 1280 ? '10em' : '0'}}>
               <Text
                 $language={language}
                 $fontSize={window.innerWidth > 1280 ? '23px' : '14px'}
@@ -609,11 +673,11 @@ const AiPlatform = () => {
                         height: 'fit-content',
                         lineHeight: '1em',
                       }}>
-                      • {predictions[activeButton]?.title?.replace(/\\n/g, '')}
+                      • {mobilePredictions[activeButton]?.title?.replace(/\\n/g, '')}
                     </Text>
                   </TextWrap>
                   <DescriptionWrap style={{padding: '0', margin: '0', height: 'fit-content'}}>
-                    {predictions[activeButton]?.content?.map((item, index) => (
+                    {mobilePredictions[activeButton]?.content?.map((item, index) => (
                       <DescriptionItem
                         key={item + index}
                         style={{fontSize: language !== 'KOR' ? '16px' : '15px', fontWeight: '200'}}>
@@ -622,6 +686,7 @@ const AiPlatform = () => {
                             <>
                               {line}
                               <br />
+                              <div style={{height: '10px', lineHeight: '5vh'}} />
                             </>
                           ) : (
                             <>

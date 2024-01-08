@@ -209,11 +209,11 @@ const ComponentGridWrap = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: start;
     align-items: center;
+    padding: 0;
   }
 
-  @media screen and (max-width: 900px) {
-    padding: 0;
-    /* margin-bottom: 88px; */
+  @media screen and (max-width: 1280px) {
+    padding: 90px 0;
   }
 `;
 

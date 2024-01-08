@@ -134,7 +134,7 @@ const MemoRe = () => {
             {/* <video id="fadeIn" autoPlay muted loop playsInline style={{ width: '50vw' }}>
               <source src="https://aribio.s3.ap-northeast-2.amazonaws.com/static/AB2100PB_VD.mp4" type="video/mp4" />
             </video> */}
-            <TextWrap style={{margin: '10em 0'}}>
+            <TextWrap style={{margin: window.innerWidth > 1280 ? '10em 0' : '5em 0'}}>
               <Text
                 $language={language}
                 $color="#C9C9C9"
