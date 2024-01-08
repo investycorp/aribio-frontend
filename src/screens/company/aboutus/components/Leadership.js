@@ -282,63 +282,67 @@ const Leadership = () => {
       </Desktop>
 
       <Mobile>
-        <TabContentWrap style={{padding: '0 19px', marginBottom: '160px'}}>
-          <Image
-            src={ceoContents?.fileDto?.fileUrl}
-            alt="ceoProfilePicture"
-            style={{
-              width: '90vw',
-              height: 'auto',
-              marginBottom: '45px',
-            }}
-          />
-          <TextWrap style={{width: '100%'}}>
-            <Text
-              $align="start"
-              $color="#F2F2F2"
-              $fontWeight="500"
-              style={{
-                margin: '0',
-                fontSize: '15ox',
-              }}>
-              {ceoContents?.position}
-            </Text>
-            <Text
-              $align="start"
-              $color="#F2F2F2"
-              $fontWeight="700"
-              style={{
-                margin: '0',
-                marginBottom: '16px',
-                fontSize: '18px',
-              }}>
-              {ceoContents?.name}
-            </Text>
-          </TextWrap>
-          <TextWrap style={{width: '100%'}}>
-            <Text
-              $align="start"
-              $color="#F2F2F2"
-              style={{
-                margin: '0',
-                fontSize: '16px',
-                fontWeight: 300,
-              }}>
-              <ul style={{paddingLeft: '0.8rem'}}>
-                {ceoContents?.contents?.split('\\n').map((item, index) => (
-                  <DescriptionItem
-                    key={index}
-                    style={{
-                      listStyle: 'disc',
-                      fontSize: '16px',
-                    }}>
-                    {item}
-                  </DescriptionItem>
-                ))}
-              </ul>
-            </Text>
-          </TextWrap>
-        </TabContentWrap>
+        {ceoContents && (
+          <>
+            <TabContentWrap style={{padding: '0 19px', marginBottom: '160px'}}>
+              <Image
+                src={ceoContents?.fileDto?.fileUrl}
+                alt="ceoProfilePicture"
+                style={{
+                  width: '90vw',
+                  height: 'auto',
+                  marginBottom: '45px',
+                }}
+              />
+              <TextWrap style={{width: '100%'}}>
+                <Text
+                  $align="start"
+                  $color="#F2F2F2"
+                  $fontWeight="500"
+                  style={{
+                    margin: '0',
+                    fontSize: '15ox',
+                  }}>
+                  {ceoContents?.position}
+                </Text>
+                <Text
+                  $align="start"
+                  $color="#F2F2F2"
+                  $fontWeight="700"
+                  style={{
+                    margin: '0',
+                    marginBottom: '16px',
+                    fontSize: '18px',
+                  }}>
+                  {ceoContents?.name}
+                </Text>
+              </TextWrap>
+              <TextWrap style={{width: '100%'}}>
+                <Text
+                  $align="start"
+                  $color="#F2F2F2"
+                  style={{
+                    margin: '0',
+                    fontSize: '16px',
+                    fontWeight: 300,
+                  }}>
+                  <ul style={{paddingLeft: '0.8rem'}}>
+                    {ceoContents?.contents?.split('\\n').map((item, index) => (
+                      <DescriptionItem
+                        key={index}
+                        style={{
+                          listStyle: 'disc',
+                          fontSize: '16px',
+                        }}>
+                        {item}
+                      </DescriptionItem>
+                    ))}
+                  </ul>
+                </Text>
+              </TextWrap>
+            </TabContentWrap>
+          </>
+        )}
         <div
           style={{
             alignSelf: 'start',
