@@ -9,7 +9,7 @@ const fetchPressReleaseList = (keyWord, language, pageNumber) => {
 };
 
 const usePressReleaseList = (keyWord, language, pageNumber) => {
-  return useLanguageQuery('mediaList', fetchPressReleaseList, [keyWord, language, pageNumber]);
+  return useLanguageQuery('pressList', fetchPressReleaseList, [keyWord, language, pageNumber]);
 };
 
 export default usePressReleaseList;

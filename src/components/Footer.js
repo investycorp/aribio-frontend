@@ -140,7 +140,6 @@ const Footer = () => {
   const [footerToggle, setFooterToggle] = useState('');
 
   useEffect(() => {
-    console.log('DATA:', data);
     if (data?.data?.success) {
       const item = data.data?.data;
       item &&

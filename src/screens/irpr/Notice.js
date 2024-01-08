@@ -95,7 +95,7 @@ const Notice = () => {
 
   useEffect(() => {
     if (pageNumber > 1) {
-      refetch(pageNumber, language, searchValue);
+      refetch(searchValue, language, pageNumber);
     }
   }, [pageNumber]);
 
@@ -335,9 +335,7 @@ const Notice = () => {
                       cursor: 'pointer',
                     }}
                     onClick={() => {
-                      if (pageNumber * itemPerPage <= filteredList.length) {
-                        setPageNumber(pageNumber + 1);
-                      }
+                      setPageNumber(pageNumber + 1);
                     }}>
                     <Image
                       style={{zIndex: '-1', height: window.innerWidth > 1280 ? '40px' : '24px'}}
@@ -485,9 +483,7 @@ const Notice = () => {
                       cursor: 'pointer',
                     }}
                     onClick={async () => {
-                      if (pageNumber * itemPerPage <= filteredList.length) {
-                        setPageNumber(pageNumber + 1);
-                      }
+                      setPageNumber(pageNumber + 1);
                     }}>
                     <Image style={{zIndex: '-1', height: '24px'}} src={icon_more} alt="more" />
                     <Text style={{zIndex: '-1', width: 'fit-content', margin: '0.5em', fontSize: '16px'}}>
