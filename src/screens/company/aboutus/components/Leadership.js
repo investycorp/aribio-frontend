@@ -258,6 +258,7 @@ const Leadership = () => {
                       style={{
                         margin: 0,
                         fontSize: window.innerWidth > 1280 ? '18px' : '10px',
+                        wordBreak: 'break-all',
                         // paddingLeft:  window.innerWidth > 1280 ? '3.625rem' : '2.25rem',
                       }}>
                       <ul style={{paddingLeft: window.innerWidth > 1280 ? '1rem' : '0.5rem'}}>
