@@ -62,6 +62,7 @@ const SchoolText = styled.div`
   color: #e3e3e3;
   font-weight: 100;
   line-height: 32px;
+  word-break: break-all;
 
   ul {
     list-style-type: none;
