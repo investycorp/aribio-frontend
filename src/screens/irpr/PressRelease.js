@@ -338,7 +338,7 @@ const PressRelease = () => {
                     </ComponentWrap>
                   )}
                 </ComponentWrap>
-                {(viewMoreOn || pageNumber * itemPerPage <= filteredList.length) && (
+                {filteredList.length > 0 && (viewMoreOn || pageNumber * itemPerPage <= filteredList.length) && (
                   <div
                     style={{
                       display: 'flex',
