@@ -566,8 +566,8 @@ const Publications = () => {
                             flexWrap: 'wrap',
                             lineHeight: '22px',
                           }}>
-                          {doc.title.slice(0, 65)}
-                          {doc.title.length > 65 && '...'}
+                          {doc.title.slice(0, 55)}
+                          {doc.title.length > 55 && '...'}
                         </Text>
                         <Text
                           className="text"
