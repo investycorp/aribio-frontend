@@ -104,7 +104,7 @@ const VideoFrame = ({src}) => {
                 ? `https://www.youtube.com/embed/${videoId}?modestbranding=0&rel=0`
                 : `${src}?autostart=false`
             }
-            allow=" clipboard-write; encrypted-media;  picture-in-picture"
+            allow="clipboard-write; encrypted-media;  picture-in-picture"
             allowFullScreen
             title="AriBio Media"
           />
@@ -123,8 +123,7 @@ const VideoFrame = ({src}) => {
             }}>
             <source
               src={
-                // src
-                'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false'
+                src || 'https://aribio.s3.ap-northeast-2.amazonaws.com/static/%5BEN%5DAriBio_AR100.mp4?autostart=false'
               }
               type="video/mp4"
             />
